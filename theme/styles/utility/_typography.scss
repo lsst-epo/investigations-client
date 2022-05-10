@@ -1,0 +1,32 @@
+@use "../abstracts/mixins/typography";
+
+// Typography utility classes
+// -----------------------------------
+// These should be limited to `font` and other typographic properties only.
+
+// Alignment
+// --------------------------------------------------------
+.t-align-center {
+  text-align: center;
+}
+
+// Headings
+// --------------------------------------------------------
+.t-heading-primary {
+  @include typography.heading-primary;
+}
+
+.t-heading-secondary {
+  @include typography.heading-secondary;
+}
+
+.t-heading-tertiary {
+  @include typography.heading-tertiary;
+}
+
+.t-heading-quaternary {
+  @include typography.heading-quaternary;
+}
+
+// Copy
+// --------------------------------------------------------

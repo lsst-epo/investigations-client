@@ -1,0 +1,60 @@
+@use "abstracts/functions";
+@use "abstracts/mixins/base";
+@use "abstracts/mixins/appearance";
+@use "sass:color";
+
+// Appearance
+// --------------------
+
+// Appearance mixins contain primarily texture parameters: background-color, transparency, borders, etc.
+
+// These should be limited to appearance-related properties only.
+
+// Visibility
+// --------------------------------------------------------
+.a-pos-rel {
+  position: relative;
+}
+
+.a-pos-abs {
+  position: absolute;
+}
+
+.a-hidden {
+  @include appearance.hidden;
+}
+
+.a-hide-overflow {
+  overflow: hidden;
+}
+
+// Color
+// --------------------------------------------------------
+// Create a `.a-color-` class for each color in $palette map
+@each $name, $value in functions.token(colors) {
+  .a-color-#{"" + $name} {
+    color: $value;
+  }
+}
+
+// Create a `.a-bg-` class for each color in $palette map
+@each $name, $value in functions.token(colors) {
+  $_color: if(
+    color.lightness($value) > 50%,
+    functions.palette(neutral-80),
+    functions.palette(white)
+  );
+
+  .a-bg-#{"" + $name} {
+    color: $_color;
+    background-color: $value;
+  }
+}
+
+// Display
+
+.a-show-mobile {
+  @include base.respond(functions.break(mobile) + 1, min) {
+    display: none;
+  }
+}

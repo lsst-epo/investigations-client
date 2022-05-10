@@ -1,0 +1,94 @@
+{
+  "name": "rubin-client",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lsst-epo/next-template"
+  },
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:next": "next dev",
+    "static": "npm-run-all static:*",
+    "static:build": "next build --debug",
+    "static:export": "next export",
+    "start": "next start -p 8080",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "eslint -c .eslintrc.js \"**/*.{js,jsx}\"",
+    "lint:scss": "stylelint --config .stylelintrc.js \"**/*.scss\"",
+    "fix": "npm-run-all fix:js fix:scss",
+    "fix:js": "eslint -c .eslintrc.js \"**/*.{js,jsx}\" --fix",
+    "fix:scss": "stylelint --config .stylelintrc.js \"**/*.scss\" --fix",
+    "fix:staged": "lint-staged"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      [
+        "styled-components",
+        {
+          "ssr": true
+        }
+      ]
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ],
+  "lint-staged": {
+    "*.{js,jsx}": "yarn fix:js",
+    "*.scss": "yarn fix:scss"
+  },
+  "dependencies": {
+    "@castiron/style-mixins": "^1.0.6",
+    "@headlessui/react": "^1.5.0",
+    "add": "^2.0.6",
+    "axios": "^0.26.0",
+    "classnames": "^2.3.1",
+    "focus-trap": "^6.7.3",
+    "focus-visible": "^5.1.0",
+    "graphql": "^16.3.0",
+    "graphql-request": "^4.0.0",
+    "hoist-non-react-statics": "^3.3.2",
+    "i18next": "^21.6.11",
+    "json-to-scss": "^1.6.2",
+    "next": "^12.1.0",
+    "next-build-id": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.27.1",
+    "react-i18next": "^11.15.4",
+    "react-is": "^17.0.2",
+    "react-uid": "^2.3.1",
+    "striptags": "^3.2.0",
+    "styled-components": "^5.3.3",
+    "swr": "^1.2.2",
+    "use-resize-observer": "^8.0.0",
+    "yarn": "^1.22.17"
+  },
+  "devDependencies": {
+    "@castiron/eslint-config": "^0.0.1",
+    "@rushstack/eslint-patch": "^1.1.0",
+    "babel-plugin-styled-components": "^2.0.3",
+    "browserslist": "^4.19.3",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "lint-staged": "^12.3.4",
+    "postcss": "^8.4.6",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^7.4.1",
+    "prettier": "^2.5.1",
+    "sass": "^1.49.8",
+    "stylelint": "^14.5.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard-scss": "^3.0.0"
+  }
+}

@@ -1,0 +1,49 @@
+@use "abstracts/functions";
+
+.c-content-rte {
+  > * + * {
+    margin-top: 1rem;
+  }
+
+  > *:first-child {
+    margin-block-start: 0;
+  }
+
+  a:not([class^="c-"]) {
+    color: functions.palette(turquoise50);
+    text-decoration: none;
+  }
+
+  ul {
+    padding-left: 1em;
+    list-style-type: disc;
+  }
+
+  ol {
+    padding-left: 1em;
+    list-style-type: decimal;
+  }
+
+  li {
+    padding-left: 0.5em;
+  }
+
+  h1 {
+    margin-block-start: functions.pt-to-em(144pt);
+  }
+
+  h2 {
+    margin-block-start: functions.pt-to-em(40pt);
+  }
+
+  h3,
+  h4 {
+    margin-block-start: functions.pt-to-em(20pt);
+  }
+
+  figcaption {
+    font-size: 18px;
+    padding-block-start: 1em;
+    padding-block-end: 1em;
+  }
+}
