@@ -1,10 +1,10 @@
 {
-  "name": "rubin-client",
-  "version": "0.1.0",
+  "name": "investigations-client",
+  "version": "2.0.0-alpha",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/lsst-epo/next-template"
+    "url": "https://github.com/lsst-epo/investigations-client"
   },
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
