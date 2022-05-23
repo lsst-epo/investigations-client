@@ -9,6 +9,7 @@ import HomePageTemplate from "@/templates/HomePage";
 import { internalLinkWithChildrenShape } from "@/shapes/link";
 import siteInfoShape from "@/shapes/siteInfo";
 import { updateI18n } from "@/lib/i18n";
+import InvestigationsTemplate from "@/components/templates/Investigations";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
 
@@ -17,6 +18,7 @@ export default function Page({ section, globalData, ...entryProps }) {
 
   const sectionMap = {
     homepage: HomePageTemplate,
+    investigations: InvestigationsTemplate,
   };
 
   const Template = sectionMap[section] || PageTemplate;
@@ -94,8 +96,6 @@ export async function getStaticProps({ params: { uriSegments }, previewData }) {
     revalidate: 30,
   };
 }
-
-Page.displayName = "Entry.Page";
 
 Page.propTypes = {
   data: PropTypes.object,
