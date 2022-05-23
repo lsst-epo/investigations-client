@@ -16,6 +16,7 @@ import {
   TableGroup,
   Video,
   DownloadList,
+  InvestigationsList,
 } from "@/content-blocks";
 
 const blockMap = {
@@ -26,6 +27,7 @@ const blockMap = {
   contactStaff: ContactStaff,
   ctaGrid: GridBlock,
   image: Image,
+  investigationsList: InvestigationsList,
   link: Link,
   linkedAsset: Link,
   news: GridBlock,
