@@ -3,6 +3,7 @@ import Link from "next/link";
 import Body from "@/global/Body";
 import ContentBlockFactory from "@/factories/ContentBlockFactory";
 import Container from "@/layout/Container";
+import PageNavigation from "@/components/global/PageNavigation";
 
 export default function Investigations({
   data: {
@@ -13,14 +14,13 @@ export default function Investigations({
     uri,
     typeHandle,
     next,
-    prev: prevPage,
-    children,
+    prev,
+    level,
   },
 }) {
   const bodyProps = {
     title,
   };
-  const nextPage = children[0] || next;
 
   return (
     <Body {...bodyProps}>
@@ -37,12 +37,7 @@ export default function Investigations({
             />
           );
         })}
-        {(nextPage || prevPage) && (
-          <footer>
-            {prevPage && <Link href={prevPage.uri}>Previous</Link>}
-            {nextPage && <Link href={nextPage.uri}>Next</Link>}
-          </footer>
-        )}
+        <PageNavigation {...{ prev, next, level }}></PageNavigation>
       </Container>
     </Body>
   );
