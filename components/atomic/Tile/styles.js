@@ -1,6 +1,6 @@
 /* eslint-disable */
 import styled from "styled-components";
-import MixedLink from "@/atomic/MixedLink";
+import { MixedLink } from "@rubin-epo/epo-react-lib";
 import {
   BREAK_PHABLET,
   BREAK_PHABLET_MIN,
