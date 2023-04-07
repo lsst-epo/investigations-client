@@ -1,0 +1,10 @@
+@use "../abstracts/mixins/state";
+
+// State
+// --------------------
+// Utility classes for setting styles based on component state.
+// Classes are prepended with `is-` or `has-`.
+
+.has-scroll-lock {
+  @include state.has-scroll-lock;
+}
