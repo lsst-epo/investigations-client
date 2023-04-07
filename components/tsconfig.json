@@ -41,6 +41,7 @@
     "incremental": true
   },
   "include": [
+    ".storybook",
     "components",
     "contexts",
     "helpers",
