@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import Body from "@/global/Body";
 import ContentBlockFactory from "@/factories/ContentBlockFactory";
-import Container from "@/layout/Container";
-
+import { Container } from "@rubin-epo/epo-react-lib";
+import Header from "@/components/global/Header";
 export default function HomePage({ data: { id, title, contentBlocks = [] } }) {
   const bodyProps = {
     title,
@@ -10,6 +10,7 @@ export default function HomePage({ data: { id, title, contentBlocks = [] } }) {
   return (
     <Body {...bodyProps}>
       <Container>
+        <Header />
         <h1>{title}</h1>
         {[...contentBlocks].map((block) => {
           if (!block.id || !block.typeHandle) return null;

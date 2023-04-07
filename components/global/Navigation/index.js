@@ -9,9 +9,7 @@ export default function Navigation({ items }) {
         <ul>
           {items.map(({ id, title, uri }) => (
             <li key={id}>
-              <Link href={`/${uri}`}>
-                <a>{title}</a>
-              </Link>
+              <Link href={`/${uri}`}>{title}</Link>
             </li>
           ))}
         </ul>

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Link from "next/link";
 import { respond } from "@/styles/globalStyles";
-import { normalizePathData, usePathData } from "@/lib/utils";
+import { usePathData } from "@/hooks";
+import { normalizePathData } from "@/lib/utils";
 
 const NavButtons = ({
   hasDefault = true,

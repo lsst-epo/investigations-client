@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "esnext",
+    "moduleResolution": "Node",
+    "types": ["node"],
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/api/*": ["lib/api/*"],
+      "@/atomic/*": ["components/atomic/*"],
+      "@/components/*": ["components/*"],
+      "@/content-blocks": ["components/content-blocks"],
+      "@/contexts/*": ["contexts/*"],
+      "@/dynamic/*": ["components/dynamic/*"],
+      "@/factories/*": ["components/factories/*"],
+      "@/global/*": ["components/global/*"],
+      "@/helpers": ["helpers"],
+      "@/hoc/*": ["components/hoc/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/hooks": ["hooks"],
+      "@/layout/*": ["components/layout/*"],
+      "@/lib/*": ["lib/*"],
+      "@/page/*": ["components/page/*"],
+      "@/shapes/*": ["components/shapes/*"],
+      "@/styles/*": ["theme/styles/*"],
+      "@/svg/*": ["components/svg/*"],
+      "@/templates/*": ["components/templates/*"]
+    },
+    "incremental": true
+  },
+  "include": [
+    "components",
+    "contexts",
+    "helpers",
+    "hooks",
+    "lib",
+    "pages",
+    "theme"
+  ],
+  "exclude": ["node_modules"]
+}

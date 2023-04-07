@@ -1,13 +1,15 @@
 import PropTypes from "prop-types";
 import { useUID } from "react-uid";
 import classNames from "classnames";
-import ResponsiveImage from "@/atomic/ResponsiveImage";
-import Image from "@/atomic/Image";
-import MixedLink from "@/atomic/MixedLink";
+import {
+  IconComposer,
+  Image,
+  MixedLink,
+  ResponsiveImage,
+} from "@rubin-epo/epo-react-lib";
 import { mixedLinkShape } from "@/shapes/link";
-import { useGlobalData } from "@/lib/utils";
+import { useGlobalData } from "@/hooks";
 import { PlayButton, StyledMixedLink } from "./styles";
-import IconComposer from "@/components/svg/IconComposer";
 
 const Tile = ({
   className,
