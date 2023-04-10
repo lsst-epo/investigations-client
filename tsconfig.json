@@ -29,7 +29,6 @@
       "@/helpers": ["helpers"],
       "@/hoc/*": ["components/hoc/*"],
       "@/hooks/*": ["hooks/*"],
-      "@/hooks": ["hooks"],
       "@/layout/*": ["components/layout/*"],
       "@/lib/*": ["lib/*"],
       "@/page/*": ["components/page/*"],

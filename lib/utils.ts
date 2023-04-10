@@ -8,6 +8,8 @@
  * "could this be in lodash?" and if no, it does not belong here.
  */
 
+import { ComponentType } from "react";
+
 export const capitalize = (string: string) => {
   if (typeof string !== "string") return "";
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -130,3 +132,6 @@ export function normalizeItemData(items: any[], whichEntry = "entry") {
     .filter((item) => item?.[whichEntry]?.length > 0)
     .map((item) => item[whichEntry]?.[0]);
 }
+
+export const getDisplayName = (component: ComponentType<any>) =>
+  component.displayName || component.name || "Component";

@@ -16,7 +16,9 @@ const config = {
     autodocs: "tag",
   },
   webpackFinal: async (config, { configType }) => {
-    config.resolve.plugins = [new tsConfigPathsPlugin()];
+    [].push.apply(config.resolve.plugins, [
+      new tsConfigPathsPlugin({ extensions: config.resolve.extensions }),
+    ]);
     return config;
   },
 };
