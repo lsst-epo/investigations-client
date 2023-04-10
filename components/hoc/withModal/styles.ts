@@ -1,3 +1,4 @@
+import ExpandContract from "@/atomic/ExpandContract/ExpandContract";
 import styled, { css } from "styled-components";
 
 export const Dialog = styled.div<{ open: boolean }>`
@@ -7,24 +8,57 @@ export const Dialog = styled.div<{ open: boolean }>`
           position: fixed;
           width: 100%;
           height: 100%;
+          top: 0;
+          left: 0;
           max-width: 100vw;
           max-height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+
+          > [aria-modal="true"] {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            grid-template-columns: 1fr;
+            grid-template-rows: min-content 1fr;
+            grid-template-areas:
+              "header"
+              "component";
+          }
         `
       : null}
 `;
-export const Content = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content 1fr;
-  grid-template-areas:
-    "close"
-    ".";
+
+export const ComponentWrapper = styled.div`
+  grid-area: component;
+`;
+
+export const Header = styled.div<{ hasTitle: boolean }>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: header;
+  padding: 1ch;
+  width: 100%;
+
+  ${({ hasTitle }) => css`
+    background-color: ${hasTitle
+      ? "var(--turquoise85, #12726c)"
+      : "transparent"};
+  `}
+`;
+
+export const Close = styled(ExpandContract)`
+  margin-left: auto;
+`;
+
+export const Title = styled.span`
+  color: var(--white, #fff);
+  font-weight: var(--FONT_WEIGHT_BOLD, 600);
 `;
 
 export const Backdrop = styled.div<{ open: boolean }>`
+  grid-column: 2;
   z-index: -1;
 
   ${({ open }) =>
