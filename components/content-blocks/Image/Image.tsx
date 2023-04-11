@@ -13,6 +13,9 @@ interface ImageContentBlockProps extends BaseContentBlockProps {
   layout?: "horizontal" | "vertical";
 }
 
+/**
+ * Image content block with modal and two layout options.
+ */
 const ImageContentBlock: FunctionComponent<
   ImageContentBlockProps & ModalInnerProps
 > = ({ image, caption, layout = "vertical", isOpen, openModal }) => {

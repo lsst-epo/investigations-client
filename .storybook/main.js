@@ -13,7 +13,7 @@ const config = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
   webpackFinal: async (config, { configType }) => {
     [].push.apply(config.resolve.plugins, [
