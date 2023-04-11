@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import { Text } from "@/content-blocks";
+import { Image, Text } from "@/content-blocks";
 
 const blockMap = {
   text: Text,
+  image: Image,
 };
 
 export default function ContentBlockFactory({ type, data, pageId }) {
