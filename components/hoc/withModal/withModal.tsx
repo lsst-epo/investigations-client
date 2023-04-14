@@ -6,14 +6,9 @@ import useFocusTrap from "@/hooks/useFocusTrap";
 import { useKeyDownEvent } from "@/hooks/listeners";
 import { getDisplayName } from "@/lib/utils";
 import * as Styled from "./styles";
-export interface ModalInnerProps {
-  isOpen: boolean;
-  openModal: () => void;
-  closeModal: () => void;
-}
 
 function withModal<T extends BaseContentBlockProps>(
-  WrappedComponent: ComponentType<T & ModalInnerProps>
+  WrappedComponent: ComponentType<T>
 ) {
   const WithModal = (props: T) => {
     const { title } = props;
@@ -57,8 +52,8 @@ function withModal<T extends BaseContentBlockProps>(
     useKeyDownEvent(handleKeyDown);
 
     return (
-      <Styled.Dialog open={isOpen} ref={modalRef}>
-        <Styled.Backdrop open={isOpen} />
+      <Styled.Modal.Dialog open={isOpen} ref={modalRef}>
+        <Styled.Modal.Backdrop open={isOpen} />
         <div
           role={isOpen ? "dialog" : "generic"}
           aria-modal={isOpen}
@@ -66,28 +61,31 @@ function withModal<T extends BaseContentBlockProps>(
           id={contentId}
         >
           {isOpen && (
-            <Styled.Header hasTitle={!!title}>
-              {title && <Styled.Title id={titleId}>{title}</Styled.Title>}
-              <Styled.Close
+            <Styled.Modal.Header hasTitle={!!title}>
+              {title && (
+                <Styled.Modal.Title id={titleId}>{title}</Styled.Modal.Title>
+              )}
+              <Styled.Modal.Close
                 isOpen={isOpen}
                 onToggle={closeModal}
                 controlsId={contentId}
               />
-            </Styled.Header>
+            </Styled.Modal.Header>
           )}
-          <Styled.ComponentWrapper>
+          <Styled.Modal.ComponentWrapper>
             <WrappedComponent
               {...{
                 ...props,
+                hasModal: true,
                 isOpen,
                 openModal,
                 closeModal,
                 labelledById: title && isOpen ? titleId : undefined,
               }}
             />
-          </Styled.ComponentWrapper>
+          </Styled.Modal.ComponentWrapper>
         </div>
-      </Styled.Dialog>
+      </Styled.Modal.Dialog>
     );
   };
 
