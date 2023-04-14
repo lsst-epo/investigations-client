@@ -37,6 +37,8 @@ const meta: Meta<typeof Image> = {
         defaultValue: { summary: "horizontal" },
       },
     },
+    openModal: { action: "Modal opened" },
+    closeModal: { action: "Modal closed" },
   },
 };
 export default meta;
@@ -60,5 +62,12 @@ export const Horizontal: StoryObj<typeof Image> = {
   args: {
     ...baseArgs,
     layout: "horizontal",
+  },
+};
+
+export const HasModal: StoryObj<typeof Image> = {
+  args: {
+    ...baseArgs,
+    hasModal: true,
   },
 };

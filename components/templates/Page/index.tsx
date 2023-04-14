@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import PageData from "@/shapes/page";
 import Body from "@/global/Body";
-import ContentBlockFactory from "@/factories/ContentBlockFactory";
+import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import { Container } from "@rubin-epo/epo-react-lib";
 import Header from "@/components/global/Header";
 

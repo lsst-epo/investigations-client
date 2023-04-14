@@ -4,8 +4,6 @@ import {
 } from "@/components/shapes";
 import { FunctionComponent } from "react";
 import * as Styled from "./styles";
-import withModal from "@/components/hoc/withModal";
-import { ModalInnerProps } from "@/components/hoc/withModal/withModal";
 
 interface ImageContentBlockProps extends BaseContentBlockProps {
   image: ImageShape;
@@ -16,15 +14,20 @@ interface ImageContentBlockProps extends BaseContentBlockProps {
 /**
  * Image content block with modal and two layout options.
  */
-const ImageContentBlock: FunctionComponent<
-  ImageContentBlockProps & ModalInnerProps
-> = ({ image, caption, layout = "vertical", isOpen, openModal }) => {
+const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = ({
+  image,
+  caption,
+  layout = "vertical",
+  hasModal = false,
+  isOpen = false,
+  openModal,
+}) => {
   const finalLayout = isOpen ? "vertical" : layout;
   return (
     <Styled.FigureWrapper>
-      {!isOpen && (
+      {hasModal && !isOpen && (
         <Styled.ExpandContract
-          onToggle={openModal}
+          onToggle={() => openModal && openModal()}
           isOpen={isOpen}
           $layout={finalLayout}
         />
@@ -43,4 +46,4 @@ const ImageContentBlock: FunctionComponent<
 
 ImageContentBlock.displayName = "ContentBlock.Image";
 
-export default withModal(ImageContentBlock);
+export default ImageContentBlock;
