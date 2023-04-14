@@ -1,25 +1,29 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import Text from ".";
+import ContentBlockFactory from ".";
 
-const meta: Meta<typeof Text> = {
-  component: Text,
-  argTypes: {
-    text: {
-      description:
-        "Plaintext or HTML to be displayed within the content block.",
-      table: {
-        type: {
-          summary: "ReactNode",
-        },
-      },
-    },
-  },
+const meta: Meta<typeof ContentBlockFactory> = {
+  component: ContentBlockFactory,
+  argTypes: {},
 };
 export default meta;
 
-export const Primary: StoryObj<typeof Text> = {
-  args: {
+const ImageBlock = {
+  type: "image",
+  data: {
+    image: {
+      altText:
+        "Wide view of Rubin Observatory with the telescope mount visible through the open dome",
+      url: "https://rubin.canto.com/direct/image/o7j607sgdt6690c5rpken97r6n/NAvYOhoG30hYEfRUDUJYPKcz2q8/original?content-type=image%2Fjpeg&name=Rubin+December+2022.jpg",
+    },
+    caption:
+      "A view of Rubin Observatory in December 2022. A view of Rubin Observatory at twilight with the telescope mount visible through the open dome",
+  },
+};
+
+const TextBlock = {
+  type: "text",
+  data: {
     text: `<h1>Header 1</h1>
     <p>
       Cosmic ipsum elliptical orbit red dwarf white giant minor planet cislunar
@@ -53,5 +57,32 @@ export const Primary: StoryObj<typeof Text> = {
       <li>coordinates</li>
       <li>north</li>
     </ol>`,
+  },
+};
+
+export const Primary: StoryObj<typeof ContentBlockFactory> = {
+  args: {
+    ...(ImageBlock as any),
+    pageId: "testPage",
+  },
+};
+export const ImageModal: StoryObj<typeof ContentBlockFactory> = {
+  args: {
+    type: "modal",
+    data: {
+      buttonText: "These types of buttons launch pages",
+      childBlock: ImageBlock,
+    },
+    pageId: "testPage",
+  },
+};
+export const TextModal: StoryObj<typeof ContentBlockFactory> = {
+  args: {
+    type: "modal",
+    data: {
+      buttonText: "These types of buttons launch pages",
+      childBlock: TextBlock,
+    },
+    pageId: "testPage",
   },
 };
