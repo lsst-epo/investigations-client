@@ -1,8 +1,17 @@
 import { FunctionComponent } from "react";
-import { Modal } from "@/content-blocks";
-import { blockMap as safeBlockMap } from "@/factories/SafeContentBlockFactory/SafeContentBlockFactory";
+import { Modal, Image } from "@/content-blocks";
+import Text from "@/components/content-blocks/Text";
 import withModal from "@/hoc/withModal";
 
+/** content blocks that can be rendered within other content blocks */
+export const safeBlockMap = {
+  text: Text,
+  image: Image,
+};
+
+export type SafeContentBlockType = keyof typeof safeBlockMap;
+
+/** content blocks that can be rendered anywhere */
 const blockMap = {
   ...safeBlockMap,
   modal: Modal,
