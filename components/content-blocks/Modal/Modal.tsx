@@ -1,8 +1,9 @@
 import { FunctionComponent, useState } from "react";
 import * as Styled from "./styles";
-import { SafeContentBlockType } from "@/components/factories/SafeContentBlockFactory/SafeContentBlockFactory";
 import { BaseContentBlockProps } from "@/components/shapes";
-import ContentBlockFactory from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
+import ContentBlockFactory, {
+  SafeContentBlockType,
+} from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 
 const allowedBlocks: SafeContentBlockType[] = ["text", "image"];
 
