@@ -15,6 +15,7 @@ const config = {
   docs: {
     autodocs: true,
   },
+  typescript: { reactDocgen: "react-docgen" },
   webpackFinal: async (config, { configType }) => {
     [].push.apply(config.resolve.plugins, [
       new tsConfigPathsPlugin({ extensions: config.resolve.extensions }),

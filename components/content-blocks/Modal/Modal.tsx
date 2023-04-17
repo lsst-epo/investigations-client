@@ -45,7 +45,7 @@ const ModalContentBlock: FunctionComponent<ModalContentBlockProps> = ({
           <Styled.ComponentWrapper>
             <ContentBlockFactory
               pageId={pageId}
-              data={{ ...childBlock.data, isOpen: true, hasModal: false }}
+              data={childBlock.data}
               type={childBlock.type}
               isInModal={true}
             />

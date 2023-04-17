@@ -1,10 +1,42 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import ContentBlockFactory from ".";
+import { blockMap } from "./ContentBlockFactory";
 
 const meta: Meta<typeof ContentBlockFactory> = {
   component: ContentBlockFactory,
-  argTypes: {},
+  argTypes: {
+    type: {
+      type: { name: "string", required: true },
+      control: "select",
+      options: Object.keys(blockMap),
+      description: "Type that determines the final content block to display.",
+      table: {
+        type: {
+          summary: Object.keys(blockMap).join(" | "),
+        },
+      },
+    },
+    data: {
+      type: { name: "other", value: "Object", required: true },
+      description: "Data object for the content block rendered.",
+    },
+    pageId: {
+      type: { name: "string", required: true },
+      description: "Unique identifier for this content block.",
+      table: {
+        type: { summary: "string" },
+      },
+    },
+    isInModal: {
+      type: { name: "boolean" },
+      description:
+        "Indicates if the content is being rendered inside of a modal, will limit the available content blocks to only those categorized as safe.",
+      table: {
+        type: { summary: "boolean" },
+      },
+    },
+  },
 };
 export default meta;
 
