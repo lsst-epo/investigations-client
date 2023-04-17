@@ -4,19 +4,17 @@ import Text from "@/components/content-blocks/Text";
 import withModal from "@/hoc/withModal";
 
 /** content blocks that can be rendered within other content blocks */
-export const safeBlockMap = {
+const safeBlockMap = {
   text: Text,
   image: Image,
 };
-
-export type SafeContentBlockType = keyof typeof safeBlockMap;
-
 /** content blocks that can be rendered anywhere */
-const blockMap = {
+export const blockMap = {
   ...safeBlockMap,
   modal: Modal,
 };
 
+export type SafeContentBlockType = keyof typeof safeBlockMap;
 export type ContentBlockType = keyof typeof blockMap;
 
 interface ContentBlockFactoryProps {
@@ -32,13 +30,21 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
   pageId,
   isInModal,
 }) => {
-  const Block = blockMap[type];
+  const Block = isInModal
+    ? safeBlockMap[type as SafeContentBlockType]
+    : blockMap[type];
   if (!Block) return null;
 
-  const FinalBlock =
-    isInModal || type === "modal" ? Block : withModal(Block as any);
+  const isWithModal = !isInModal && type !== "modal";
 
-  return <FinalBlock {...data} pageId={pageId} />;
+  const FinalBlock = isWithModal ? withModal(Block as any) : Block;
+
+  return (
+    <FinalBlock
+      {...{ ...data, isOpen: isInModal, hasModal: !isWithModal }}
+      pageId={pageId}
+    />
+  );
 };
 
 ContentBlockFactory.displayName = "ContentBlocks.Factory";

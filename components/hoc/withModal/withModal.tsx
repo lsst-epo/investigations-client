@@ -1,4 +1,4 @@
-import { ComponentType, useState, useRef } from "react";
+import { ComponentType, useState, useRef, FunctionComponent } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { useUID } from "react-uid";
 import screenfull from "screenfull";
@@ -9,7 +9,7 @@ import * as Styled from "./styles";
 
 function withModal<T extends BaseContentBlockProps>(
   WrappedComponent: ComponentType<T>
-) {
+): FunctionComponent<T> {
   const WithModal = (props: T) => {
     const { title } = props;
     const [isOpen, setIsOpen] = useState(false);
