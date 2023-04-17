@@ -4,7 +4,7 @@ import Text from "@/components/content-blocks/Text";
 import withModal from "@/hoc/withModal";
 
 /** content blocks that can be rendered within other content blocks */
-const safeBlockMap = {
+export const safeBlockMap = {
   text: Text,
   image: Image,
 };
