@@ -3,9 +3,8 @@ import * as Styled from "./styles";
 import { BaseContentBlockProps } from "@/components/shapes";
 import ContentBlockFactory, {
   SafeContentBlockType,
+  safeBlockMap,
 } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
-
-const allowedBlocks: SafeContentBlockType[] = ["text", "image"];
 
 interface ModalContentBlockProps extends BaseContentBlockProps {
   buttonText: string;
@@ -21,7 +20,7 @@ const ModalContentBlock: FunctionComponent<ModalContentBlockProps> = ({
   pageId,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const hasValidChild = allowedBlocks.includes(childBlock.type);
+  const hasValidChild = Object.keys(safeBlockMap).includes(childBlock.type);
 
   if (!hasValidChild) return null;
 
