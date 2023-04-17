@@ -39,6 +39,8 @@ const meta: Meta<typeof Image> = {
     },
     openModal: { action: "Modal opened" },
     closeModal: { action: "Modal closed" },
+    isOpen: { control: "boolean" },
+    hasModal: { control: "boolean" },
   },
 };
 export default meta;
