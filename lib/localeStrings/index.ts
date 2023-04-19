@@ -1,5 +1,5 @@
 import merge from "lodash/merge";
-import { localeStrings } from "@rubin-epo/epo-react-lib";
+import { localeStrings } from "@rubin-epo/epo-widget-lib";
 import en from "./en.json";
 import es from "./es.json";
 
