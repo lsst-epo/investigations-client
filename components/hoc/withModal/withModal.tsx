@@ -61,7 +61,7 @@ function withModal<T extends BaseContentBlockProps>(
           id={contentId}
         >
           {isOpen && (
-            <Styled.Modal.Header hasTitle={!!title}>
+            <Styled.Modal.Header $hasTitle={!!title}>
               {title && (
                 <Styled.Modal.Title id={titleId}>{title}</Styled.Modal.Title>
               )}

@@ -35,7 +35,7 @@ export const ComponentWrapper = styled.div`
   grid-area: component;
 `;
 
-export const Header = styled.div<{ hasTitle: boolean }>`
+export const Header = styled.div<{ $hasTitle: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,8 +43,8 @@ export const Header = styled.div<{ hasTitle: boolean }>`
   padding: 1ch;
   width: 100%;
 
-  ${({ hasTitle }) => css`
-    background-color: ${hasTitle
+  ${({ $hasTitle }) => css`
+    background-color: ${$hasTitle
       ? "var(--turquoise85, #12726c)"
       : "transparent"};
   `}
