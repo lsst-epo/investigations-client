@@ -11,7 +11,7 @@ import { IconComposer } from "@rubin-epo/epo-react-lib";
 
 interface Tab {
   icon: IconKey;
-  title: string;
+  label: string;
 }
 
 interface TabbedSelectorProps {
@@ -24,10 +24,14 @@ interface TabbedSelectorProps {
   onChangeCallback: (index: number) => void;
 }
 
+/**
+ * Accessible tabbed panel using ARIA tablist, tab, and tabpanel roles to
+ * set a currently active panel that is visible to users.
+ */
 const TabbedSelector: FunctionComponent<
   PropsWithChildren<TabbedSelectorProps>
 > = ({
-  tabs,
+  tabs = [],
   labelledById,
   activeIndex = 0,
   showPagingButtons = true,
@@ -44,12 +48,12 @@ const TabbedSelector: FunctionComponent<
   };
   const count = tabs.length;
 
-  const nextTab = () => setIndex((activeIndex + 1) % count);
-  const prevTab = () => setIndex((activeIndex - 1 + count) % count);
-  const firstTab = () => setIndex(0);
-  const lastTab = () => setIndex(count - 1);
+  const nextTab = () => focusIndex((activeIndex + 1) % count);
+  const prevTab = () => focusIndex((activeIndex - 1 + count) % count);
+  const firstTab = () => focusIndex(0);
+  const lastTab = () => focusIndex(count - 1);
 
-  const setIndex = (i: number) => {
+  const focusIndex = (i: number) => {
     const tab = tabRefs.current[i];
     tab && tab.focus();
   };
@@ -73,19 +77,19 @@ const TabbedSelector: FunctionComponent<
   return (
     <Styled.TabbedSelectorContainer>
       <Styled.TabList role="tablist">
-        {tabs.map(({ icon, title }, i) => (
+        {tabs.map(({ icon, label }, i) => (
           <Styled.Tab
             role="tab"
-            key={title}
+            key={label}
             aria-selected={activeIndex === i}
             onClick={() => handleClick(i)}
             ref={(element) => element && (tabRefs.current[i] = element)}
             onKeyDown={onKeyDown}
             onFocus={() => handleClick(i)}
             tabIndex={activeIndex === i ? 0 : -1}
-            aria-label={title}
+            aria-label={label}
           >
-            <IconComposer icon={icon} />
+            <IconComposer icon={icon} size={24} />
           </Styled.Tab>
         ))}
       </Styled.TabList>
@@ -104,7 +108,7 @@ const TabbedSelector: FunctionComponent<
               {prevButtonLabel || t("pagination.previous")}
             </Styled.TabButton>
             <Styled.TabButton
-              disabled={activeIndex === tabs.length - 1}
+              disabled={activeIndex === count - 1}
               onClick={() => nextTab()}
             >
               {nextButtonLabel || t("pagination.next")}

@@ -6,7 +6,7 @@ const withTheme: Decorator = (StoryFn) => {
   return (
     <>
       <GlobalStyles />
-      {StoryFn()}
+      {<StoryFn />}
     </>
   );
 };
