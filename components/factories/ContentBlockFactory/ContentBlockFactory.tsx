@@ -30,9 +30,8 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
   pageId,
   isInModal,
 }) => {
-  const Block = isInModal
-    ? safeBlockMap[type as SafeContentBlockType]
-    : blockMap[type];
+  const Block =
+    isInModal && type !== "modal" ? safeBlockMap[type] : blockMap[type];
   if (!Block) return null;
 
   const isWithModal = !isInModal && type !== "modal";
