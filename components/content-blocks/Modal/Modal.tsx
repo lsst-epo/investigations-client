@@ -1,16 +1,16 @@
 import { FunctionComponent, useState } from "react";
 import * as Styled from "./styles";
 import { BaseContentBlockProps } from "@/components/shapes";
-import ContentBlockFactory, {
-  SafeContentBlockType,
-} from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
+import SimpleContentBlockFactory, {
+  SimpleContentBlockType,
+} from "@/components/factories/SimpleContentBlockFactory";
 
-const allowedBlocks: SafeContentBlockType[] = ["text", "image"];
+const allowedBlocks: SimpleContentBlockType[] = ["text", "image"];
 
 interface ModalContentBlockProps extends BaseContentBlockProps {
   buttonText: string;
   childBlock: {
-    type: SafeContentBlockType;
+    type: SimpleContentBlockType;
     data: any;
   };
 }
@@ -34,7 +34,7 @@ const ModalContentBlock: FunctionComponent<ModalContentBlockProps> = ({
         <Styled.Backdrop open={isOpen} />
         <div role="dialog" aria-modal="true" id={pageId}>
           {isOpen && (
-            <Styled.Header hasTitle={false}>
+            <Styled.Header $hasTitle={false}>
               <Styled.Close
                 isOpen={isOpen}
                 onToggle={() => setIsOpen(false)}
@@ -43,7 +43,7 @@ const ModalContentBlock: FunctionComponent<ModalContentBlockProps> = ({
             </Styled.Header>
           )}
           <Styled.ComponentWrapper>
-            <ContentBlockFactory
+            <SimpleContentBlockFactory
               pageId={pageId}
               data={childBlock.data}
               type={childBlock.type}

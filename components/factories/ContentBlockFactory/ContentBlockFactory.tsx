@@ -1,27 +1,22 @@
 import { FunctionComponent } from "react";
-import { Modal, Image } from "@/content-blocks";
-import Text from "@/components/content-blocks/Text";
+import {
+  simpleBlockMap,
+  SimpleContentBlockFactoryProps,
+} from "@/components/factories/SimpleContentBlockFactory";
+import { Modal } from "@/content-blocks";
 import withModal from "@/hoc/withModal";
 
-/** content blocks that can be rendered within other content blocks */
-export const safeBlockMap = {
-  text: Text,
-  image: Image,
-};
 /** content blocks that can be rendered anywhere */
 export const blockMap = {
-  ...safeBlockMap,
+  ...simpleBlockMap,
   modal: Modal,
 };
 
-export type SafeContentBlockType = keyof typeof safeBlockMap;
 export type ContentBlockType = keyof typeof blockMap;
 
-interface ContentBlockFactoryProps {
+interface ContentBlockFactoryProps
+  extends Omit<SimpleContentBlockFactoryProps, "type"> {
   type: ContentBlockType;
-  pageId: string;
-  data: any;
-  isInModal?: boolean;
 }
 
 const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
@@ -30,16 +25,15 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
   pageId,
   isInModal,
 }) => {
-  const Block =
-    isInModal && type !== "modal" ? safeBlockMap[type] : blockMap[type];
+  const Block = blockMap[type];
   if (!Block) return null;
 
   const isWithModal = !isInModal && type !== "modal";
 
-  const FinalBlock = isWithModal ? withModal(Block as any) : Block;
+  const EnhancedBlock = isWithModal ? withModal(Block as any) : Block;
 
   return (
-    <FinalBlock
+    <EnhancedBlock
       {...{ ...data, isOpen: isInModal, hasModal: !isWithModal }}
       pageId={pageId}
     />
