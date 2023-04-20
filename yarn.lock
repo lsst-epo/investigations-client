@@ -1955,10 +1955,10 @@
     react-uid "^2.3.2"
     styled-components "^5.3.6"
 
-"@rubin-epo/epo-widget-lib@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.2.0.tgz#24ca2e796bf84e7ec81de14eb9b36c4f5aff24f4"
-  integrity sha512-BUv8z2yxdC/3j/i31rnC3fpGC1hR/tM3rX+l1ga55pOC00b7irXA4KRwpO1Fy+uB2NXzSIC+O5WDDPMZBPPb5Q==
+"@rubin-epo/epo-widget-lib@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.2.1.tgz#7d840c123f738e50793501add9f97ba77bb9b598"
+  integrity sha512-i9im4LPx5mgGljCnV688/RVg0/1tgzdy2vyEK6f2Br7f45LIN7dPX2SNaURXph4sX6ulRzyrDsLYH3g+JoZIKA==
   dependencies:
     "@rubin-epo/epo-react-lib" "^1.1.5"
     styled-components "^5.3.9"
