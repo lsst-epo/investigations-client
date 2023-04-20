@@ -4,11 +4,7 @@ import { SpacingSize } from "@rubin-epo/epo-react-lib/dist/styles/mixins/layout"
 import ExpandContract from "@/atomic/ExpandContract";
 import * as Styled from "./styles";
 
-interface WidgetContainerProps
-  extends Pick<
-    BaseContentBlockProps,
-    "isOpen" | "title" | "openModal" | "hasModal"
-  > {
+interface WidgetContainerProps extends BaseContentBlockProps {
   caption?: string;
   bgColor?: "white" | "gray";
   paddingSize?: SpacingSize | "none";
@@ -43,7 +39,11 @@ const WidgetContainer: FunctionComponent<
       )}
       <Styled.WidgetContent>
         {children}
-        {caption && <Styled.WidgetCaption>{caption}</Styled.WidgetCaption>}
+        {caption && (
+          <Styled.WidgetCaption $isDarkMode={isOpen}>
+            {caption}
+          </Styled.WidgetCaption>
+        )}
       </Styled.WidgetContent>
     </Styled.WidgetContainer>
   );

@@ -33,6 +33,11 @@ export const Dialog = styled.div<{ open: boolean }>`
 
 export const ComponentWrapper = styled.div`
   grid-area: component;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const Header = styled.div<{ $hasTitle: boolean }>`
