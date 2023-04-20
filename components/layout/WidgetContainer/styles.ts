@@ -29,6 +29,7 @@ export const WidgetContainer = styled.section<{
   `}
 
   container-type: inline-size;
+  min-width: min-content;
 `;
 
 export const WidgetHeader = styled.header`
@@ -50,7 +51,9 @@ export const WidgetContent = styled.div`
   padding: var(--widget-container-padding);
 `;
 
-export const WidgetCaption = styled.p`
+export const WidgetCaption = styled.p<{ $isDarkMode: boolean }>`
+  color: ${({ $isDarkMode }) =>
+    $isDarkMode ? "var(--white,#fff)" : "inherit"};
   font-size: 0.75rem;
   margin-block-start: var(--widget-header-padding);
 `;
