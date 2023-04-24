@@ -148,6 +148,11 @@
       "related-posts": "Related News Posts",
       "back-to-posts": "Go Back to News Posts"
     },
+    "pager": {
+      "previous": "Previous page",
+      "next": "Next page",
+      "page-count": "Page {{current}} of {{total}}"
+    },
     "pagination": {
       "previous": "Previous",
       "next": "Next",
