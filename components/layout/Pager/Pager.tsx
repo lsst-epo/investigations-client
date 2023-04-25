@@ -7,8 +7,8 @@ interface PagerProps {
   leftLink: string;
   rightText?: string;
   rightLink: string;
-  isLeftDisabled: boolean;
-  isRightDisabled: boolean;
+  isLeftDisabled?: boolean;
+  isRightDisabled?: boolean;
   totalPages: number;
   currentPage: number;
   className?: string;
@@ -19,8 +19,8 @@ const Pager: FunctionComponent<PagerProps> = ({
   rightText,
   leftLink,
   rightLink,
-  isLeftDisabled,
-  isRightDisabled,
+  isLeftDisabled = false,
+  isRightDisabled = false,
   totalPages,
   currentPage,
   className,
