@@ -4,10 +4,12 @@ import { token } from "@rubin-epo/epo-react-lib";
 
 export const PagerContainer = styled.nav`
   --pager-height: 40px;
+  --pager-columns: repeat(2, 1fr);
   background-color: var(--turquoise85, #12726d);
-  display: flex;
+  display: grid;
+  grid-template-columns: var(--pager-columns);
+  grid-template-rows: 1fr;
   align-items: stretch;
-  justify-content: stretch;
   height: var(--pager-height);
   width: 100%;
 
@@ -16,22 +18,22 @@ export const PagerContainer = styled.nav`
   }
   @media screen and (min-width: ${token("BREAK_DESKTOP_SMALL")}) {
     --pager-height: 70px;
+    --pager-columns: 1fr max-content 1fr;
+
     align-items: center;
-    justify-content: center;
+    grid-gap: var(--PADDING_SMALL);
   }
 `;
 
 export const PagerButton = styled(Link)`
   border: none;
   color: var(--white, #fff);
-  flex: 1 0 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-  padding: 0 calc(var(--PADDING_SMALL));
 
   &:not(:disabled):not([aria-disabled="true"]):hover,
   &:not(:disabled):not([aria-disabled="true"]):focus-visible,
@@ -47,7 +49,6 @@ export const PagerButton = styled(Link)`
   }
 
   @media screen and (min-width: ${token("BREAK_DESKTOP_SMALL")}) {
-    flex: 0 0 auto;
     text-transform: uppercase;
 
     &:not(:disabled):not([aria-disabled="true"]):hover,
@@ -55,6 +56,14 @@ export const PagerButton = styled(Link)`
     &:not(:disabled):not([aria-disabled="true"]).focus-visible {
       outline: none;
       text-decoration: underline;
+    }
+
+    &:first-of-type {
+      justify-content: flex-end;
+    }
+
+    &:last-of-type {
+      justify-content: flex-start;
     }
 
     &[aria-disabled="true"] {
