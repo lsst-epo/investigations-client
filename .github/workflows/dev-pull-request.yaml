@@ -37,7 +37,7 @@ jobs:
         --build-arg EDC_LOGGER_API_URL=https://us-central1-skyviewer.cloudfunctions.net/edc-logger \
         --build-arg CLOUD_ENV=DEV \
         --build-arg NEXT_PUBLIC_BASE_URL=https://investigations-client-dot-skyviewer.uw.r.appspot.com \
-        --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com 
+        --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com \
         .
     - name: Configure Docker Auth
       run: gcloud --quiet auth configure-docker
