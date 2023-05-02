@@ -4,7 +4,31 @@ import HeaderProgress from ".";
 
 const meta: Meta<typeof HeaderProgress> = {
   component: HeaderProgress,
-  argTypes: {},
+  argTypes: {
+    currentPage: {
+      control: "number",
+      description: "The current page.",
+      table: { category: "Model" },
+    },
+    totalPages: {
+      control: "number",
+      description: "Total count of available pages.",
+      table: { category: "Model" },
+    },
+    sections: {
+      control: "object",
+      description: "Sections in the investigations",
+      table: {
+        type: { summary: "{name: string; order: number; pages: number[]}[]" },
+        category: "Model",
+      },
+    },
+    labelledById: {
+      control: "text",
+      description: "ID of an element that labels this progress indicator.",
+      table: { category: "Accessibility" },
+    },
+  },
 };
 
 export default meta;
