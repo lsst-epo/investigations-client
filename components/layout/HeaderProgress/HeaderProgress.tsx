@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { Trans } from "react-i18next";
 import {
   IconComposer,
   ProgressBar,
@@ -33,6 +34,11 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
 
   return (
     <Styled.HeaderProgress aria-labelledby={labelledById}>
+      <ScreenreaderText aria-live="polite">
+        <Trans values={{ current: currentPage, total: totalPages }}>
+          pager.page-count
+        </Trans>
+      </ScreenreaderText>
       {sections.map(({ name, order, pages }, i) => {
         const firstPage = pages[0];
         const lastPage = pages[pages.length - 1];
@@ -53,8 +59,11 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
               displayValue={
                 isActive ? getDisplayValue(currentPage, totalPages) : undefined
               }
-              isActive={isActive}
               labelledById={labelId}
+              markerConfig={{
+                $filled: !isActive,
+                $hoverable: isActive,
+              }}
             >
               <Styled.IconMarker
                 $value={100}
