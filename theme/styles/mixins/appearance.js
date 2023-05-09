@@ -1,5 +1,16 @@
 import { css } from "styled-components";
 
+export const colorCycle = (property, colors = []) =>
+  colors.reduce(
+    (prev, curr, i) =>
+      prev.concat(`
+        &:nth-of-type(${colors.length}n + ${i + 1}) {
+          ${property}: ${curr};
+        }
+      `),
+    css``
+  );
+
 export const focusDefault = (style = "") => {
   return `
     .js-focus-visible &:focus:not(.focus-visible) {
