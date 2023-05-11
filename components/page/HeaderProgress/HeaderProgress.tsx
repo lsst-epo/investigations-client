@@ -1,11 +1,8 @@
 import { FunctionComponent } from "react";
 import { Trans } from "react-i18next";
-import {
-  IconComposer,
-  ProgressBar,
-  ScreenreaderText,
-} from "@rubin-epo/epo-react-lib";
+import { IconComposer, ScreenreaderText } from "@rubin-epo/epo-react-lib";
 import * as Styled from "./styles";
+import { useRouter } from "next/router";
 
 interface HeaderSection {
   name: string;
@@ -26,14 +23,10 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
   sections,
   labelledById,
 }) => {
-  const getDisplayValue = (currentPage: number, totalPages: number) => {
-    const value = Math.min(Math.round((currentPage / totalPages) * 100));
-
-    return `${value}%`;
-  };
+  const { locale = "en-US" } = useRouter();
 
   return (
-    <Styled.HeaderProgress aria-labelledby={labelledById}>
+    <Styled.HeaderProgress aria-labelledby={labelledById} role="list">
       <ScreenreaderText aria-live="polite">
         <Trans values={{ current: currentPage, total: totalPages }}>
           pager.page-count
@@ -49,15 +42,18 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
         return (
           <Styled.SectionProgress
             key={`${name}-${order}`}
+            aria-current={isActive ? "step" : undefined}
             $proportion={(pages.length / totalPages) * 100}
           >
             <ScreenreaderText id={labelId}>{name}</ScreenreaderText>
-            <ProgressBar
+            <Styled.ProgressBar
               min={firstPage}
               max={lastPage}
               value={currentPage < firstPage ? undefined : currentPage}
-              displayValue={
-                isActive ? getDisplayValue(currentPage, totalPages) : undefined
+              markerFormatter={() =>
+                Intl.NumberFormat(locale, {
+                  style: "percent",
+                }).format(currentPage / totalPages)
               }
               labelledById={labelId}
               markerConfig={{
@@ -75,7 +71,7 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
                   size={10}
                 />
               </Styled.IconMarker>
-            </ProgressBar>
+            </Styled.ProgressBar>
           </Styled.SectionProgress>
         );
       })}
