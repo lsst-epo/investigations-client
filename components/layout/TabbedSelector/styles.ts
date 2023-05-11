@@ -1,7 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { token } from "@rubin-epo/epo-react-lib";
+import { colorCycle } from "@/styles/mixins/appearance";
 
-const colorCycle = [
+const colors = [
   "#8C65A5",
   "var(--turquoise55, #009fa1)",
   "#021A18",
@@ -67,17 +68,7 @@ export const Tab = styled.button`
     }
   }
 
-  ${colorCycle.reduce((prev, curr, i) => {
-    const value = prev.concat(
-      css`
-        &:nth-of-type(${colorCycle.length}n + ${i + 1}) {
-          --tab-color: ${curr};
-        }
-      `
-    );
-
-    return value;
-  }, css``)}
+  ${colorCycle("--tab-color", colors)}
 `;
 export const TabPanel = styled.div`
   --tab-panel-padding: calc(var(--PADDING_SMALL, 20px) / 4);
