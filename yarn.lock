@@ -1955,10 +1955,10 @@
     react-uid "^2.3.2"
     styled-components "^5.3.6"
 
-"@rubin-epo/epo-react-lib@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-1.2.5.tgz#7100072c15cb3c9eca80fb9cf6e3970ddc22b341"
-  integrity sha512-jGZR5I0bdwAzdq105ZpusyB2e+x+peozrZUvBL98Fna67lxd04nYN3gS5anFaSMSbV4sXGQKdy2VLpGySKnzFw==
+"@rubin-epo/epo-react-lib@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-1.2.6.tgz#d415687936b855b2985775439b2da8eea20bb4e6"
+  integrity sha512-Y+GUWck2OJLzwQr2bZih+WOyn2QwbYCsrbyzWiMKp1Bt/S0bpye2FNzZMKoxAz/17U2DcS4rGvZZIiGKBcXkOw==
   dependencies:
     flickity "^3.0.0"
     react-player "^2.11.0"
