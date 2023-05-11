@@ -19,6 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "@/api/*": ["lib/api/*"],
+      "@/app/*": ["app/*"],
       "@/atomic/*": ["components/atomic/*"],
       "@/components/*": ["components/*"],
       "@/content-blocks": ["components/content-blocks"],
@@ -37,16 +38,23 @@
       "@/svg/*": ["components/svg/*"],
       "@/templates/*": ["components/templates/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
+    "app",
     "components",
     "contexts",
     "helpers",
     "hooks",
     "lib",
     "pages",
-    "theme"
+    "theme",
+    ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
