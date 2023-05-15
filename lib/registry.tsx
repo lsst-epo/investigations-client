@@ -12,17 +12,17 @@ const StyledComponentsRegistry: FunctionComponent<PropsWithChildren> = ({
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
+    const tags = styledComponentsStyleSheet.getStyleTags();
+    const Collected = styledComponentsStyleSheet.collectStyles(children);
     const styles = styledComponentsStyleSheet.getStyleElement();
     styledComponentsStyleSheet.instance.clearTag();
 
-    console.log({ styles });
+    console.log(tags);
 
     return <>{styles}</>;
   });
 
   if (typeof window !== "undefined") return <>{children}</>;
-
-  console.log(styledComponentsStyleSheet.instance);
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
