@@ -1,6 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 // import "@/lib/i18n";
 import "focus-visible";
+import SourceSansPro from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import nextConfig from "../next.config";
 import GlobalStyles from "@/lib/styles";
@@ -13,9 +14,9 @@ const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
       <head>
         <title>Investigations App Directory</title>
       </head>
-      <body>
+      <body className={SourceSansPro.variable}>
         <StyledComponentsRegistry>
-          <GlobalStyles />
+          <GlobalStyles includeFonts={false} />
           <h1>I am the layout</h1>
           {children}
         </StyledComponentsRegistry>

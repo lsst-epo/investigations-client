@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import {
   Figure as BaseFigure,
   Image as BaseImage,
-  fluidScale,
 } from "@rubin-epo/epo-react-lib";
+import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
 import BaseExpandContract from "@/atomic/ExpandContract/ExpandContract";
 
 interface LayoutProp {

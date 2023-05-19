@@ -45,4 +45,18 @@ module.exports = {
       path.join(__dirname, "components"),
     ],
   },
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.(woff|woff2|ttf|eot|svg)$/,
+      loader: "url-loader",
+      options: {
+        esModule: false,
+        name: "[name].[ext]",
+        outputPath: "static/fonts/",
+        publicPath: "../fonts/",
+      },
+    });
+
+    return config;
+  },
 };

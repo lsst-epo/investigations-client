@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { fluidScaleBase, stripUnit, respondBase } from "@castiron/style-mixins";
-import { tokens } from "@rubin-epo/epo-react-lib";
+import { tokens } from "@rubin-epo/epo-react-lib/styles";
 
 export const zStack = {
   dialog: 35,
