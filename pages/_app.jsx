@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "@/lib/i18n";
 import "focus-visible";
 import { UIDReset } from "react-uid";
-import { GlobalStyles } from "@rubin-epo/epo-react-lib";
+import { GlobalStyles } from "@rubin-epo/epo-react-lib/styles";
 import styles from "@/styles/styles.scss";
 
 function Client({ Component, pageProps }) {
