@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { token } from "@rubin-epo/epo-react-lib";
+import { token } from "@rubin-epo/epo-react-lib/styles";
 
 export const PagerContainer = styled.nav`
   --pager-height: 40px;

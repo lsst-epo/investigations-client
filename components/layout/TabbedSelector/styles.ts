@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { token } from "@rubin-epo/epo-react-lib";
+import { token } from "@rubin-epo/epo-react-lib/styles";
 import { colorCycle } from "@/styles/mixins/appearance";
 
 const colors = [

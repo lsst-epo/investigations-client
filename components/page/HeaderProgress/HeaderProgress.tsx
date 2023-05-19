@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { Trans } from "react-i18next";
-import { IconComposer, ScreenreaderText } from "@rubin-epo/epo-react-lib";
+import { IconComposer } from "@rubin-epo/epo-react-lib";
+import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
 import * as Styled from "./styles";
 import { useRouter } from "next/router";
 

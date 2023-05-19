@@ -1,4 +1,4 @@
-import { ptToEm } from "@rubin-epo/epo-react-lib";
+import { ptToEm } from "@rubin-epo/epo-react-lib/styles";
 import styled, { css } from "styled-components";
 
 export const TextContent = styled.div<{ $darkMode: boolean }>`

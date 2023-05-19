@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@castiron/style-mixins": "^1.0.6",
-    "@rubin-epo/epo-react-lib": "^1.2.6",
+    "@rubin-epo/epo-react-lib": "file:/Users/agoff/Documents/workspace/epo-react-lib/packages/epo-react-lib",
     "@rubin-epo/epo-widget-lib": "^0.2.1",
     "classnames": "^2.3.2",
     "focus-trap": "^7.3.1",
@@ -57,7 +57,7 @@
     "hoist-non-react-statics": "^3.3.2",
     "i18next": "^22.4.10",
     "lodash": "^4.17.21",
-    "next": "^13.4.1",
+    "next": "^13.4.3-canary.0",
     "next-build-id": "^3.0.0",
     "npm-run-all": "^4.1.5",
     "react": "^18.2.0",
