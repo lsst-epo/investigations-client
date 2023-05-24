@@ -1,0 +1,21 @@
+{
+  "english-site-name": "English",
+  "espanol-site-name": "Español",
+  "language-select-label": "Idioma",
+  "localize-content": "Localizar el contenido del sitio",
+  "page-not-found-title": "Page not found - es",
+  "search-placeholder": "Escribe tu búsqueda y presiona enter…",
+  "search-site": "Buscar en el sitio web",
+  "skip-to-content": "Saltar al contenido principal",
+  "submit-search": "Enviar búsqueda",
+  "toggle-nav": "Alternar menú de navegación",
+  "toggle-search": "Alternar búsqueda",
+  "contact-form": {
+    "contact-us": "Contacta con nosotros",
+    "email": "Correo electrónico",
+    "inquiry": "Investigación",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "reset": "Restablecer el formulario"
+  }
+}
