@@ -1,23 +1,36 @@
 import { FunctionComponent, PropsWithChildren } from "react";
-// import "@/lib/i18n";
 import "focus-visible";
 import SourceSansPro from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
-import nextConfig from "../next.config";
+import { languages } from "@/app/i18n/settings";
 import GlobalStyles from "@/lib/styles";
 import "@/styles/styles.scss";
 
-const RootLayout: FunctionComponent<PropsWithChildren> = ({ children }) => {
-  const { defaultLocale } = nextConfig.i18n;
+import Header from "@/components/page/Header/Header";
+
+export async function generateStaticParams() {
+  return languages.map((lang) => ({ lang }));
+}
+
+interface RootLayoutProps {
+  params: {
+    lang: string;
+  };
+}
+
+const RootLayout: FunctionComponent<PropsWithChildren<RootLayoutProps>> = ({
+  children,
+  params: { lang },
+}) => {
   return (
-    <html lang={defaultLocale}>
+    <html lang={lang}>
       <head>
-        <title>Investigations App Directory</title>
+        <title>Investigations</title>
       </head>
       <body className={SourceSansPro.variable}>
         <StyledComponentsRegistry>
           <GlobalStyles includeFonts={false} />
-          <h1>I am the layout</h1>
+          <Header />
           {children}
         </StyledComponentsRegistry>
       </body>
