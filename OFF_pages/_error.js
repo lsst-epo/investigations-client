@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useGlobalData } from "@/lib/api/global";
-import { updateI18n } from "@/lib/i18n";
+import { updateI18n } from "@/lib/i18n/i18n";
 import { GlobalDataProvider } from "@/contexts/GlobalData";
 import ErrorPageTemplate from "@/components/templates/ErrorPage";
 import { useTranslation } from "react-i18next";
