@@ -5,7 +5,6 @@ import { getEntryDataByUri } from "@/api/entry";
 import { GlobalData, GlobalDataProvider } from "@/contexts/GlobalData";
 import PageTemplate from "@/templates/Page";
 import HomePageTemplate from "@/templates/HomePage";
-import { updateI18n } from "@/lib/i18n";
 import { useRouter } from "next/router";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
@@ -22,8 +21,6 @@ const Page: FunctionComponent<PageProps> = ({
   ...entryProps
 }) => {
   const { locale = "en" } = useRouter();
-
-  updateI18n(locale);
 
   const sectionMap: { [key: string]: any } = {
     homepage: HomePageTemplate,

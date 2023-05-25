@@ -8,7 +8,7 @@ import { fallbackLng } from "@/lib/i18n/settings";
 import "@/styles/styles.scss";
 import { getGlobalData } from "@/api/global";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 export interface RootLayoutParams {
   locale: string;
@@ -18,8 +18,8 @@ interface RootLayoutProps {
   params: RootLayoutParams;
 }
 
-const getGlobals = async (locale: string = "en"): Promise<GlobalData> => {
-  const site = locale === "en" ? "default" : locale;
+const getGlobals = async (locale = "en"): Promise<GlobalData> => {
+  const site: string = locale === "en" ? "default" : locale;
   // add _es to property names if site is not English
   const nonEng = site !== "default";
 
@@ -44,10 +44,9 @@ const getGlobals = async (locale: string = "en"): Promise<GlobalData> => {
   };
 };
 
-export async function generateMetadata(
-  { params: { locale } }: RootLayoutProps,
-  parent?: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({
+  params: { locale },
+}: RootLayoutProps): Promise<Metadata> {
   const {
     siteInfo: { siteDescription },
   } = await getGlobals(locale);
