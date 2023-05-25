@@ -1,5 +1,5 @@
 import createMiddleware from "next-intl/middleware";
-import { fallbackLng, languages } from "./app/i18n/settings";
+import { fallbackLng, languages } from "./lib/i18n/settings";
 
 export default createMiddleware({
   // A list of all locales that are supported

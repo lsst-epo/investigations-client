@@ -1,3 +1,4 @@
+"use client";
 import { createContext, FunctionComponent, ReactNode } from "react";
 import { InternalLinkWithChildren } from "@/shapes/link";
 import SiteInfo from "@/shapes/siteInfo";
