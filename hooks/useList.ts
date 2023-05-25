@@ -1,4 +1,4 @@
-import { useDataList } from "@/api/entries";
+import { useDataList } from "@/api/datalist";
 import { getCategoryObject } from "@/helpers";
 import { useGlobalData } from "@/hooks";
 import { useRouter } from "next/router";
