@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useDataList } from "@/api/entries";
+import { useDataList } from "@/api/datalist";
 import { UseListProps } from "./useList";
 
 // This version does not use the query string for filtering

@@ -13,6 +13,8 @@ async function getEntryData(uri: string, site: string, previewToken: any) {
   return await getEntryDataByUri(uri, site, previewToken);
 }
 
+export const revalidate = 60;
+
 const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
   params: { locale },
   previewData,
