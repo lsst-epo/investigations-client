@@ -1,8 +1,5 @@
-"use client";
-
 import { FunctionComponent } from "react";
 import { notFound } from "next/navigation";
-import { Container } from "@rubin-epo/epo-react-lib";
 import { InvestigationLandingProps } from "./layout";
 
 const MockInvestigations: { [key: string]: string } = {
@@ -18,11 +15,7 @@ const InvestigationLanding: FunctionComponent<InvestigationLandingProps> = ({
     notFound();
   }
 
-  return (
-    <Container>
-      <h1>{title}</h1>
-    </Container>
-  );
+  return <h1>{title}</h1>;
 };
 
 export default InvestigationLanding;

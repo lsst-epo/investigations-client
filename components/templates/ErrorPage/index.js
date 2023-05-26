@@ -1,8 +1,10 @@
+"use client";
+
 import PropTypes from "prop-types";
 import { Container } from "@rubin-epo/epo-react-lib";
 import Body from "@/global/Body";
 
-export default function ErrorPageTemplate({ data: { id, title, text, uri } }) {
+export default function ErrorPageTemplate({ data: { title, text } }) {
   return (
     <Body title={title}>
       <Container>
