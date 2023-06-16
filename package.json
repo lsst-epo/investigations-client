@@ -1,7 +1,7 @@
 {
   "name": "investigations-client",
   "author": "Rubin EPO",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "private": true,
   "repository": {
     "type": "git",
@@ -59,7 +59,7 @@
     "i18next": "^22.4.10",
     "i18next-resources-to-backend": "^1.1.4",
     "lodash": "^4.17.21",
-    "next": "^13.4.3",
+    "next": "^13.4.6",
     "next-build-id": "^3.0.0",
     "next-intl": "^2.14.6",
     "npm-run-all": "^4.1.5",
