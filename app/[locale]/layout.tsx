@@ -10,6 +10,8 @@ import "@/styles/styles.scss";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { graphql } from "@/gql";
 import { Metadata } from "next";
+import Body from "@/global/Body";
+import Header from "@/global/Header";
 
 export interface RootLayoutParams {
   locale: string;
@@ -75,7 +77,10 @@ const RootLayout: (
           <StyledComponentsRegistry>
             <GlobalStyles includeFonts={false} />
             <GlobalDataProvider data={globalData}>
-              {children}
+              <Body>
+                <Header />
+                {children}
+              </Body>
             </GlobalDataProvider>
           </StyledComponentsRegistry>
         </UIDReset>
