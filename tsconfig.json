@@ -39,7 +39,8 @@
       "@/styles/*": ["theme/styles/*"],
       "@/svg/*": ["components/svg/*"],
       "@/templates/*": ["components/templates/*"],
-      "@/gql": ["./gql"]
+      "@/gql": ["./gql"],
+      "@/types/*": ["types/*"]
     },
     "incremental": true,
     "plugins": [
