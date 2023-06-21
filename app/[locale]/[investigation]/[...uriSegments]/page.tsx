@@ -1,15 +1,17 @@
-import { notFound } from "next/navigation";
 import { createClient, fetchExchange } from "@urql/core";
 import { graphql } from "@/gql";
-import TemplateFactory from "@/components/factories/TemplateFactory";
-import { UriSegmentsProps } from "./layout";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { getAuthCookies, getUserFromJwt } from "@/components/auth/helpers";
+import SignOut from "@/components/auth/SignOut";
 
 export const revalidate = 60;
 
 export async function generateMetadata({
   params: { locale, uriSegments },
-}: UriSegmentsProps): Promise<Metadata> {
+}: {
+  params: { locale: string; uriSegments: string[] };
+}): Promise<Metadata> {
   const site = locale === "en" ? "default" : locale;
   // add _es to property names if site is not English
   const uri: string = uriSegments.join("/");
@@ -34,12 +36,14 @@ export async function generateMetadata({
   return title ? { title, twitter: { title } } : {};
 }
 
-const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
-  params: { locale, uriSegments },
-  // previewData,
+const UriSegments: (props: {
+  params: { locale: string; investigation: string; uriSegments: string[] };
+}) => Promise<JSX.Element> = async ({
+  params: { locale, investigation, uriSegments },
+  // previewData
 }) => {
   const site = locale === "en" ? "default" : locale;
-  // add _es to property names if site is not English
+  // // add _es to property names if site is not English
   const uri: string = uriSegments.join("/");
 
   const client = createClient({
@@ -57,7 +61,23 @@ const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
       return result.data;
     });
 
-  return data?.entry ? <TemplateFactory data={data.entry} /> : notFound();
+  // return data?.entry ? <TemplateFactory data={data.entry} /> : notFound();
+
+  const { jwt, refreshTokenExpiresAt } = getAuthCookies();
+
+  // if no JWT or stored refresh token has expired, redirect to investigation landing page
+  if (!jwt || !refreshTokenExpiresAt || Date.now() > refreshTokenExpiresAt)
+    redirect(`/${investigation}`);
+
+  const user = getUserFromJwt(jwt);
+
+  return (
+    <>
+      <h1>This is an authorized route</h1>
+      <p>User: {JSON.stringify(user)}</p>
+      <SignOut redirectTo={`/${investigation}`} />
+    </>
+  );
 };
 
 export default UriSegments;
