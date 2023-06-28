@@ -1834,11 +1834,27 @@ export type Mutation = {
   deleteRefreshTokens: Scalars['Boolean']['output'];
   /** Deletes authenticated password-less user. Returns success message. */
   deleteSocialAccount: Scalars['String']['output'];
+  /** Authenticates a Editors using a Facebook Sign-In token. Returns user and token. */
+  facebookSignInEditors: Auth;
+  /** Authenticates a Educators using a Facebook Sign-In token. Returns user and token. */
+  facebookSignInEducators: Auth;
+  /** Authenticates a Students using a Facebook Sign-In token. Returns user and token. */
+  facebookSignInStudents: Auth;
   /** Sends a password reset email to the user's email address. Returns success message. */
   forgottenPassword: Scalars['String']['output'];
+  /** Authenticates a Editors using a Google Sign-In ID token. Returns user and token. */
+  googleSignInEditors: Auth;
+  /** Authenticates a Educators using a Google Sign-In ID token. Returns user and token. */
+  googleSignInEducators: Auth;
+  /** Authenticates a Students using a Google Sign-In ID token. Returns user and token. */
+  googleSignInStudents: Auth;
   ping?: Maybe<Scalars['String']['output']>;
   /** Refreshes a user's JWT. Checks for the occurrence of the `gql_refreshToken` cookie, and falls back to `refreshToken` argument. */
   refreshToken: Auth;
+  /** Registers a Educators user. Returns user and token. */
+  registerEducators: Auth;
+  /** Registers a Students user. Returns user and token. */
+  registerStudents: Auth;
   /** Resends an activation email to the user. Returns success message. */
   resendActivation: Scalars['String']['output'];
   /** Sets password for unauthenticated user. Requires `code` and `id` from Craft reset password email. Returns success message. */
@@ -1873,13 +1889,61 @@ export type MutationDeleteRefreshTokenArgs = {
 };
 
 
+export type MutationFacebookSignInEditorsArgs = {
+  code: Scalars['String']['input'];
+};
+
+
+export type MutationFacebookSignInEducatorsArgs = {
+  code: Scalars['String']['input'];
+};
+
+
+export type MutationFacebookSignInStudentsArgs = {
+  code: Scalars['String']['input'];
+};
+
+
 export type MutationForgottenPasswordArgs = {
   email: Scalars['String']['input'];
 };
 
 
+export type MutationGoogleSignInEditorsArgs = {
+  idToken: Scalars['String']['input'];
+};
+
+
+export type MutationGoogleSignInEducatorsArgs = {
+  idToken: Scalars['String']['input'];
+};
+
+
+export type MutationGoogleSignInStudentsArgs = {
+  idToken: Scalars['String']['input'];
+};
+
+
 export type MutationRefreshTokenArgs = {
   refreshToken?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationRegisterEducatorsArgs = {
+  email: Scalars['String']['input'];
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  password: Scalars['String']['input'];
+  preferredLanguage?: InputMaybe<Scalars['String']['input']>;
+  username?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MutationRegisterStudentsArgs = {
+  email: Scalars['String']['input'];
+  fullName?: InputMaybe<Scalars['String']['input']>;
+  password: Scalars['String']['input'];
+  preferredLanguage?: InputMaybe<Scalars['String']['input']>;
+  username?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -1992,6 +2056,8 @@ export type Query = {
   entry?: Maybe<EntryInterface>;
   /** This query is used to return the number of entries. */
   entryCount: Scalars['Int']['output'];
+  /** Generates the Facebook OAuth URL for allowing users to authenticate. */
+  facebookOauthUrl: Scalars['String']['output'];
   /** This query is used to query for a single global set. */
   globalSet?: Maybe<GlobalSetInterface>;
   /** This query is used to query for global sets. */
@@ -3182,62 +3248,7 @@ export type UserInterfaceAddressesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_Questions_BlockType | ContentBlocks_Text_BlockType;
-
-export type ContentBlocks_Questions_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'contentBlocks_questions_BlockType';
-  /** Return a number of related elements for a field. */
-  _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
-  archived?: Maybe<Scalars['Boolean']['output']>;
-  /** The date the element was created. */
-  dateCreated?: Maybe<Scalars['DateTime']['output']>;
-  /** The date the element was last updated. */
-  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
-  enabled?: Maybe<Scalars['Boolean']['output']>;
-  /** The ID of the field that owns the Neo block. */
-  fieldId?: Maybe<Scalars['Int']['output']>;
-  /** The ID of the entity */
-  id?: Maybe<Scalars['ID']['output']>;
-  /** The language of the site element is associated with. */
-  language?: Maybe<Scalars['String']['output']>;
-  /** The Neo block’s level. */
-  level?: Maybe<Scalars['Int']['output']>;
-  /** The ID of the primary owner of the Neo block. */
-  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
-  /** The element’s search score, if the `search` parameter was used when querying for the element. */
-  searchScore?: Maybe<Scalars['Int']['output']>;
-  /** The handle of the site the element is associated with. */
-  siteHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the site the element is associated with. */
-  siteId?: Maybe<Scalars['Int']['output']>;
-  /** The unique identifier for an element-site relation. */
-  siteSettingsId?: Maybe<Scalars['ID']['output']>;
-  /** The element’s slug. */
-  slug?: Maybe<Scalars['String']['output']>;
-  /** The sort order of the Neo block within the owner element field. */
-  sortOrder?: Maybe<Scalars['Int']['output']>;
-  /** The element’s status. */
-  status?: Maybe<Scalars['String']['output']>;
-  /** The element’s title. */
-  title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
-  trashed?: Maybe<Scalars['Boolean']['output']>;
-  /** The handle of the Neo block’s type. */
-  typeHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the Neo block’s type. */
-  typeId?: Maybe<Scalars['Int']['output']>;
-  /** The UID of the entity */
-  uid?: Maybe<Scalars['String']['output']>;
-  /** The element’s URI. */
-  uri?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type ContentBlocks_Questions_BlockType_CountArgs = {
-  field: Scalars['String']['input'];
-};
+export type ContentBlocks_NeoField = ContentBlocks_Text_BlockType;
 
 export type ContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_text_BlockType';
@@ -5468,29 +5479,125 @@ export type HomepageQueryQueryVariables = Exact<{
 
 
 export type HomepageQueryQuery = { __typename?: 'Query', entry?: (
-    { __typename?: 'homepage_homepage_Entry' }
+    { __typename: 'homepage_homepage_Entry' }
     & { ' $fragmentRefs'?: { 'HomepageTemplateFragment': HomepageTemplateFragment } }
-  ) | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | null };
+  ) | { __typename: 'pages_pages_Entry' } | { __typename: 'pages_redirectPage_Entry' } | null };
+
+export type FacebookOauthUrlQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FacebookOauthUrlQuery = { __typename?: 'Query', facebookOauthUrl: string };
+
+export type FacebookSignInStudentMutationVariables = Exact<{
+  code: Scalars['String']['input'];
+}>;
+
+
+export type FacebookSignInStudentMutation = { __typename?: 'Mutation', facebookSignInStudents: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
+
+export type FacebookSignInEducatorMutationVariables = Exact<{
+  code: Scalars['String']['input'];
+}>;
+
+
+export type FacebookSignInEducatorMutation = { __typename?: 'Mutation', facebookSignInEducators: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
+
+export type GoogleSignInStudentMutationVariables = Exact<{
+  idToken: Scalars['String']['input'];
+}>;
+
+
+export type GoogleSignInStudentMutation = { __typename?: 'Mutation', googleSignInStudents: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
+
+export type GoogleSignInEducatorMutationVariables = Exact<{
+  idToken: Scalars['String']['input'];
+}>;
+
+
+export type GoogleSignInEducatorMutation = { __typename?: 'Mutation', googleSignInEducators: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
+
+export type ActivateUserMutationVariables = Exact<{
+  code: Scalars['String']['input'];
+  id: Scalars['String']['input'];
+}>;
+
+
+export type ActivateUserMutation = { __typename?: 'Mutation', activateUser: string };
+
+export type ForgottenPasswordMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+}>;
+
+
+export type ForgottenPasswordMutation = { __typename?: 'Mutation', forgottenPassword: string };
+
+export type SetPasswordMutationVariables = Exact<{
+  password: Scalars['String']['input'];
+  code: Scalars['String']['input'];
+  id: Scalars['String']['input'];
+}>;
+
+
+export type SetPasswordMutation = { __typename?: 'Mutation', setPassword: string };
+
+export type AuthenticateMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+}>;
+
+
+export type AuthenticateMutation = { __typename?: 'Mutation', authenticate: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
+
+export type RegisterEducatorMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  fullName?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type RegisterEducatorMutation = { __typename?: 'Mutation', registerEducators: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
+
+export type RegisterStudentMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+  fullName?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type RegisterStudentMutation = { __typename?: 'Mutation', registerStudents: (
+    { __typename?: 'Auth' }
+    & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
+  ) };
 
 export type TextContentBlockFragment = { __typename?: 'contentBlocks_text_BlockType', text?: string | null } & { ' $fragmentName'?: 'TextContentBlockFragment' };
 
-type ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment = { __typename: 'contentBlocks_questions_BlockType' } & { ' $fragmentName'?: 'ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment' };
-
-type ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment = (
+export type ContentBlockFactoryFragment = (
   { __typename: 'contentBlocks_text_BlockType' }
   & { ' $fragmentRefs'?: { 'TextContentBlockFragment': TextContentBlockFragment } }
-) & { ' $fragmentName'?: 'ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment' };
+) & { ' $fragmentName'?: 'ContentBlockFactoryFragment' };
 
-export type ContentBlockFactoryFragment = ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment;
-
-type SimpleContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment = { __typename: 'contentBlocks_questions_BlockType' } & { ' $fragmentName'?: 'SimpleContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment' };
-
-type SimpleContentBlockFactory_ContentBlocks_Text_BlockType_Fragment = (
+export type SimpleContentBlockFactoryFragment = (
   { __typename: 'contentBlocks_text_BlockType' }
   & { ' $fragmentRefs'?: { 'TextContentBlockFragment': TextContentBlockFragment } }
-) & { ' $fragmentName'?: 'SimpleContentBlockFactory_ContentBlocks_Text_BlockType_Fragment' };
-
-export type SimpleContentBlockFactoryFragment = SimpleContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment | SimpleContentBlockFactory_ContentBlocks_Text_BlockType_Fragment;
+) & { ' $fragmentName'?: 'SimpleContentBlockFactoryFragment' };
 
 type TemplateFactory_Homepage_Homepage_Entry_Fragment = { __typename: 'homepage_homepage_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Homepage_Homepage_Entry_Fragment' };
 
@@ -5504,20 +5611,21 @@ type TemplateFactory_Pages_RedirectPage_Entry_Fragment = { __typename: 'pages_re
 export type TemplateFactoryFragment = TemplateFactory_Homepage_Homepage_Entry_Fragment | TemplateFactory_Pages_Pages_Entry_Fragment | TemplateFactory_Pages_RedirectPage_Entry_Fragment;
 
 export type HomepageTemplateFragment = { __typename?: 'homepage_homepage_Entry', id?: string | null, title?: string | null, contentBlocks?: Array<(
-    { __typename?: 'contentBlocks_questions_BlockType' }
-    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment } }
-  ) | (
     { __typename?: 'contentBlocks_text_BlockType' }
-    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment } }
+    & { ' $fragmentRefs'?: { 'ContentBlockFactoryFragment': ContentBlockFactoryFragment } }
   ) | null> | null } & { ' $fragmentName'?: 'HomepageTemplateFragment' };
 
 export type PageTemplateFragment = { __typename?: 'pages_pages_Entry', id?: string | null, title?: string | null, contentBlocks?: Array<(
-    { __typename?: 'contentBlocks_questions_BlockType' }
-    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment } }
-  ) | (
     { __typename?: 'contentBlocks_text_BlockType' }
-    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment } }
+    & { ' $fragmentRefs'?: { 'ContentBlockFactoryFragment': ContentBlockFactoryFragment } }
   ) | null> | null } & { ' $fragmentName'?: 'PageTemplateFragment' };
+
+export type AuthFragmentFragment = { __typename?: 'Auth', jwt: string, jwtExpiresAt: number, refreshToken: string, refreshTokenExpiresAt: number, user?: (
+    { __typename?: 'User' }
+    & { ' $fragmentRefs'?: { 'UserFragmentFragment': UserFragmentFragment } }
+  ) | null } & { ' $fragmentName'?: 'AuthFragmentFragment' };
+
+export type UserFragmentFragment = { __typename?: 'User', status?: string | null } & { ' $fragmentName'?: 'UserFragmentFragment' };
 
 export const TextContentBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]} as unknown as DocumentNode<TextContentBlockFragment, unknown>;
 export const SimpleContentBlockFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SimpleContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]} as unknown as DocumentNode<SimpleContentBlockFactoryFragment, unknown>;
@@ -5525,7 +5633,20 @@ export const ContentBlockFactoryFragmentDoc = {"kind":"Document","definitions":[
 export const PageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}}]} as unknown as DocumentNode<PageTemplateFragment, unknown>;
 export const TemplateFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<TemplateFactoryFragment, unknown>;
 export const HomepageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomepageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepage_homepage_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}}]} as unknown as DocumentNode<HomepageTemplateFragment, unknown>;
+export const UserFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}}]} as unknown as DocumentNode<UserFragmentFragment, unknown>;
+export const AuthFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}}]} as unknown as DocumentNode<AuthFragmentFragment, unknown>;
 export const UriSegmentsMetadataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"UriSegmentsMetadata"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]} as unknown as DocumentNode<UriSegmentsMetadataQuery, UriSegmentsMetadataQueryVariables>;
 export const UriSegmentsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"UriSegmentsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"TemplateFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}}]} as unknown as DocumentNode<UriSegmentsQueryQuery, UriSegmentsQueryQueryVariables>;
 export const GlobalsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GlobalsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"section"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"headerNavItems"},"name":{"kind":"Name","value":"entries"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"section"},"value":{"kind":"Variable","name":{"kind":"Name","value":"section"}}},{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"level"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}},{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"siteInfo"},"name":{"kind":"Name","value":"globalSet"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"handle"},"value":{"kind":"StringValue","value":"siteInfo","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"siteInfo_GlobalSet"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"siteTitle"}},{"kind":"Field","name":{"kind":"Name","value":"siteDescription"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"groupHandle"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]} as unknown as DocumentNode<GlobalsQueryQuery, GlobalsQueryQueryVariables>;
-export const HomepageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomepageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HomepageTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomepageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepage_homepage_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<HomepageQueryQuery, HomepageQueryQueryVariables>;
+export const HomepageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomepageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"HomepageTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomepageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepage_homepage_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<HomepageQueryQuery, HomepageQueryQueryVariables>;
+export const FacebookOauthUrlDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"FacebookOauthUrl"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"facebookOauthUrl"}}]}}]} as unknown as DocumentNode<FacebookOauthUrlQuery, FacebookOauthUrlQueryVariables>;
+export const FacebookSignInStudentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"FacebookSignInStudent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"facebookSignInStudents"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<FacebookSignInStudentMutation, FacebookSignInStudentMutationVariables>;
+export const FacebookSignInEducatorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"FacebookSignInEducator"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"facebookSignInEducators"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<FacebookSignInEducatorMutation, FacebookSignInEducatorMutationVariables>;
+export const GoogleSignInStudentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"GoogleSignInStudent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"googleSignInStudents"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"idToken"},"value":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<GoogleSignInStudentMutation, GoogleSignInStudentMutationVariables>;
+export const GoogleSignInEducatorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"GoogleSignInEducator"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"googleSignInEducators"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"idToken"},"value":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<GoogleSignInEducatorMutation, GoogleSignInEducatorMutationVariables>;
+export const ActivateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ActivateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"activateUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}]}}]} as unknown as DocumentNode<ActivateUserMutation, ActivateUserMutationVariables>;
+export const ForgottenPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ForgottenPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"forgottenPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}}]}]}}]} as unknown as DocumentNode<ForgottenPasswordMutation, ForgottenPasswordMutationVariables>;
+export const SetPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SetPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"setPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}},{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}]}}]} as unknown as DocumentNode<SetPasswordMutation, SetPasswordMutationVariables>;
+export const AuthenticateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Authenticate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"authenticate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<AuthenticateMutation, AuthenticateMutationVariables>;
+export const RegisterEducatorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RegisterEducator"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"registerEducators"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}},{"kind":"Argument","name":{"kind":"Name","value":"fullName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<RegisterEducatorMutation, RegisterEducatorMutationVariables>;
+export const RegisterStudentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RegisterStudent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"registerStudents"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}},{"kind":"Argument","name":{"kind":"Name","value":"fullName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<RegisterStudentMutation, RegisterStudentMutationVariables>;

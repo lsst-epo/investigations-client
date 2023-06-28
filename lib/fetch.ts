@@ -1,41 +1,112 @@
-import { GraphQLClient, RequestDocument } from "graphql-request";
+import { createClient, fetchExchange } from "@urql/core";
+import type { AnyVariables, DocumentInput, OperationResult } from "@urql/core";
+import type { Token } from "@/types/auth";
 
-export async function queryAPI<T = any>({
+let API_URL = process.env.NEXT_PUBLIC_API_URL as string;
+
+// Check to see if the environment variable DOCKER_GATEWAY_IP is populated, if so
+// then the URL should be constructed for a Docker static build
+if (
+  process.env.DOCKERIZED &&
+  process.env.DOCKER_GATEWAY_IP &&
+  parseInt(process.env.DOCKER_GATEWAY_IP) !== -1 && // The getApiGatewayURL script returns -1 if an error occurs grabbing the IP
+  process.env.DOCKER_GATEWAY_PORT
+) {
+  API_URL = `http://${process.env.DOCKER_GATEWAY_IP}:${process.env.DOCKER_GATEWAY_PORT}/api`;
+}
+
+export async function queryAPI<
+  Query,
+  Variables extends AnyVariables = AnyVariables
+>({
   query,
-  variables = {},
+  variables,
   token,
   previewToken,
 }: {
-  query: RequestDocument;
-  variables?: object;
-  token?: string | null;
+  query: DocumentInput<Query, Variables>;
+  variables: Variables;
+  token?: Token;
   previewToken?: string;
-}): Promise<T> {
-  let API_URL = process.env.NEXT_PUBLIC_API_URL as string;
-  // Check to see if the environment variable DOCKER_GATEWAY_IP is populated, if so
-  // then the URL should be constructed for a Docker static build
-  if (
-    process.env.DOCKERIZED &&
-    process.env.DOCKER_GATEWAY_IP &&
-    parseInt(process.env.DOCKER_GATEWAY_IP) !== -1 && // The getApiGatewayURL script returns -1 if an error occurs grabbing the IP
-    process.env.DOCKER_GATEWAY_PORT
-  ) {
-    API_URL = `http://${process.env.DOCKER_GATEWAY_IP}:${process.env.DOCKER_GATEWAY_PORT}/api`;
-  }
-
+}): Promise<OperationResult<Query, Variables>> {
   const url = previewToken ? `${API_URL}?token=${previewToken}` : API_URL;
-  const client = new GraphQLClient(url);
-  const headers = {
-    ...(token && { authorization: `JWT ${token}` }),
-  };
 
-  return client
-    .request(query, variables, headers)
-    .then((data) => data)
-    .catch((error) => {
-      process.exitCode = 1;
-      console.warn("Error in fetch.js :");
-      console.warn(error);
-      return error.response;
+  const client = createClient({
+    url,
+    exchanges: [fetchExchange],
+    fetchOptions: () => {
+      if (!token) return {};
+      return {
+        headers: {
+          ...(token && { authorization: `JWT ${token}` }),
+        },
+      };
+    },
+  });
+
+  return await client
+    .query(query, variables)
+    .toPromise()
+    .then((result) => {
+      // https://formidable.com/open-source/urql/docs/basics/errors/
+      if (result.error) {
+        console.warn(result.error.message);
+
+        // TODO: refresh token & rerun request if expired token error
+
+        if (result.error.networkError) {
+          process.exitCode = 1;
+        }
+      }
+
+      return result;
+    });
+}
+
+export async function mutateAPI<
+  Mutation,
+  Variables extends AnyVariables = AnyVariables
+>({
+  query,
+  variables,
+  token,
+  previewToken,
+}: {
+  query: DocumentInput<Mutation, Variables>;
+  variables: Variables;
+  token?: Token;
+  previewToken?: string;
+}): Promise<OperationResult<Mutation, Variables>> {
+  const url = previewToken ? `${API_URL}?token=${previewToken}` : API_URL;
+
+  const client = createClient({
+    url,
+    exchanges: [fetchExchange],
+    fetchOptions: () => {
+      if (!token) return {};
+      return {
+        headers: {
+          ...(token && { authorization: `JWT ${token}` }),
+        },
+      };
+    },
+  });
+
+  return await client
+    .mutation(query, variables)
+    .toPromise()
+    .then((result) => {
+      // https://formidable.com/open-source/urql/docs/basics/errors/
+      if (result.error) {
+        console.warn(result.error.message);
+
+        // TODO: refresh token & rerun request if expired token error
+
+        if (result.error.networkError) {
+          process.exitCode = 1;
+        }
+      }
+
+      return result;
     });
 }
