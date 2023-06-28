@@ -1,11 +1,11 @@
 import { PropsWithChildren } from "react";
 import "focus-visible";
-import { createClient, fetchExchange } from "@urql/core";
 import SourceSansPro from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
 import UIDReset from "@/lib/reset";
 import { fallbackLng } from "@/lib/i18n/settings";
+import { queryAPI } from "@/lib/fetch";
 import "@/styles/styles.scss";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { graphql } from "@/gql";
@@ -24,20 +24,13 @@ interface RootLayoutProps {
 const getGlobals = async (locale = "en"): Promise<GlobalData> => {
   const site: string = locale === "en" ? "default" : locale;
 
-  const client = createClient({
-    url: process.env.NEXT_PUBLIC_API_URL as string,
-    exchanges: [fetchExchange],
-  });
-
-  const data = await client
-    .query(GlobalsQuery, {
+  const { data } = await queryAPI({
+    query: GlobalsQuery,
+    variables: {
       site: [site],
       section: ["pages"],
-    })
-    .toPromise()
-    .then((result) => {
-      return result.data;
-    });
+    },
+  });
 
   return {
     categories: data?.categories,

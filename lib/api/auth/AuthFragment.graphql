@@ -1,0 +1,9 @@
+fragment AuthFragment on Auth {
+  jwt
+  jwtExpiresAt
+  refreshToken
+  refreshTokenExpiresAt
+  user {
+    ...UserFragment
+  }
+}
