@@ -1,0 +1,3 @@
+fragment UserFragment on UserInterface {
+  status
+}
