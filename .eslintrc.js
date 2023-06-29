@@ -103,6 +103,7 @@ module.exports = {
     "spaced-comment": 2,
     "unused-imports/no-unused-imports": 2,
     "@typescript-eslint/no-var-requires": "warn",
+    "no-use-before-define": 0,
   },
   plugins: [
     "jsx-a11y",

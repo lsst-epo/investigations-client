@@ -29,6 +29,7 @@
       "@/global/*": ["components/global/*"],
       "@/helpers": ["helpers"],
       "@/hoc/*": ["components/hoc/*"],
+      "@/hooks": ["hooks"],
       "@/hooks/*": ["hooks/*"],
       "@/layout/*": ["components/layout/*"],
       "@/lib/*": ["lib/*"],
@@ -36,7 +37,8 @@
       "@/shapes/*": ["components/shapes/*"],
       "@/styles/*": ["theme/styles/*"],
       "@/svg/*": ["components/svg/*"],
-      "@/templates/*": ["components/templates/*"]
+      "@/templates/*": ["components/templates/*"],
+      "@/gql": ["./gql"]
     },
     "incremental": true,
     "plugins": [
@@ -55,7 +57,8 @@
     "theme",
     ".next/types/**/*.ts",
     "pages",
-    "middleware.ts"
+    "middleware.ts",
+    "next-env.d.ts"
   ],
   "exclude": ["node_modules"]
 }

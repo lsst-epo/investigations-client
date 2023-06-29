@@ -1,23 +1,27 @@
 import { Container } from "@rubin-epo/epo-react-lib";
+import { graphql, useFragment, FragmentType } from "@/gql";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { FunctionComponent } from "react";
 import * as Styled from "./styles";
 
 interface TextProps extends BaseContentBlockProps {
-  text: string;
+  data: FragmentType<typeof Fragment>;
 }
 
-const TextContentBlock: FunctionComponent<TextProps> = ({
-  text,
-  isOpen = false,
-}) => {
+const TextContentBlock: FunctionComponent<TextProps> = (props) => {
+  const data = useFragment(Fragment, props.data);
+
+  if (!data?.text) return null;
+
+  const isOpen = props.isOpen ?? false;
+
   return (
     <Container
       bgColor={isOpen ? "transparent" : undefined}
       paddingSize={isOpen ? "none" : "medium"}
     >
       <Styled.TextContent
-        dangerouslySetInnerHTML={{ __html: text }}
+        dangerouslySetInnerHTML={{ __html: data.text }}
         $darkMode={isOpen}
       />
     </Container>
@@ -27,3 +31,9 @@ const TextContentBlock: FunctionComponent<TextProps> = ({
 TextContentBlock.displayName = "ContentBlock.Text";
 
 export default TextContentBlock;
+
+const Fragment = graphql(`
+  fragment TextContentBlock on contentBlocks_text_BlockType {
+    text
+  }
+`);

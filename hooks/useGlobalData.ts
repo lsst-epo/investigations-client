@@ -1,5 +1,6 @@
-import GlobalDataContext, { GlobalData } from "@/contexts/GlobalData";
+import GlobalDataContext from "@/contexts/GlobalData";
 import { useContext } from "react";
+import type { GlobalData } from "@/contexts/GlobalData";
 
 type GlobalDataKey = keyof GlobalData;
 

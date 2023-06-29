@@ -1,31 +1,22 @@
 "use client";
-import { FunctionComponent, ReactNode } from "react";
-import PageData from "@/shapes/page";
+import { FunctionComponent } from "react";
+import { graphql, useFragment, FragmentType } from "@/gql";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import { Container } from "@rubin-epo/epo-react-lib";
 
-interface PageProps {
-  data: PageData;
-  children: ReactNode;
-}
+const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
+  props
+) => {
+  const data = useFragment(Fragment, props.data);
 
-const Page: FunctionComponent<PageProps> = ({
-  data: { id, title, contentBlocks = [], uri },
-}) => {
+  if (!data) return null;
+
   return (
     <Container>
-      <h1>{title}</h1>
-      {[...contentBlocks].map((block) => {
-        if (!block.id || !block.typeHandle) return null;
-        return (
-          <ContentBlockFactory
-            key={block.id}
-            type={block.typeHandle}
-            data={block}
-            pageId={id}
-          />
-        );
-      })}
+      <h1>{data.title}</h1>
+      {data.contentBlocks?.map(
+        (block, i) => block && <ContentBlockFactory key={i} data={block} />
+      )}
     </Container>
   );
 };
@@ -33,3 +24,13 @@ const Page: FunctionComponent<PageProps> = ({
 Page.displayName = "Template.Page";
 
 export default Page;
+
+const Fragment = graphql(`
+  fragment PageTemplate on pages_pages_Entry {
+    id
+    title
+    contentBlocks {
+      ...ContentBlockFactory
+    }
+  }
+`);
