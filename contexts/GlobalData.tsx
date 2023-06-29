@@ -1,18 +1,16 @@
 "use client";
 import { createContext, FunctionComponent, ReactNode } from "react";
-import { InternalLinkWithChildren } from "@/shapes/link";
-import SiteInfo from "@/shapes/siteInfo";
-import RootPage from "@/shapes/rootPages";
-import { Localized } from "@/components/shapes/locale";
-import Category from "@/components/shapes/category";
+import type { GlobalsQueryQuery } from "gql/graphql";
 
-export interface GlobalData {
-  categories: Category[];
-  headerNavItems: InternalLinkWithChildren[];
-  localeInfo: { language: string; locale: string; localized: Localized[] };
-  rootPages: RootPage[];
-  siteInfo: SiteInfo;
-}
+export type GlobalData = GlobalsQueryQuery & {
+  rootPage: object[];
+  localeInfo: {
+    locale: string;
+    language: string;
+    localized: [];
+  };
+};
+
 interface GlobalDataProviderProps {
   data: GlobalData;
   children: ReactNode;

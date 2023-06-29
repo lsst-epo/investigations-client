@@ -1,13 +1,14 @@
 import { PropsWithChildren } from "react";
 import "focus-visible";
+import { createClient, fetchExchange } from "@urql/core";
 import SourceSansPro from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
 import UIDReset from "@/lib/reset";
 import { fallbackLng } from "@/lib/i18n/settings";
 import "@/styles/styles.scss";
-import { getGlobalData } from "@/api/global";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
+import { graphql } from "@/gql";
 import { Metadata } from "next";
 
 export interface RootLayoutParams {
@@ -20,22 +21,27 @@ interface RootLayoutProps {
 
 const getGlobals = async (locale = "en"): Promise<GlobalData> => {
   const site: string = locale === "en" ? "default" : locale;
-  // add _es to property names if site is not English
-  const nonEng = site !== "default";
 
-  const data = await getGlobalData();
+  const client = createClient({
+    url: process.env.NEXT_PUBLIC_API_URL as string,
+    exchanges: [fetchExchange],
+  });
 
-  const globals = data[`globals${nonEng ? `_${locale}` : ""}`].reduce(
-    (obj: any, item: any) =>
-      Object.assign(obj, Object.keys(item).length && { [item.handle]: item }),
-    {}
-  );
+  const data = await client
+    .query(GlobalsQuery, {
+      site: [site],
+      section: ["pages"],
+    })
+    .toPromise()
+    .then((result) => {
+      return result.data;
+    });
 
   return {
-    categories: data?.[`allCategories${nonEng ? `_${locale}` : ""}`] || [],
-    headerNavItems: data?.[`pageTree${nonEng ? `_${locale}` : ""}`] || [],
-    siteInfo: globals?.siteInfo || {},
-    rootPages: [],
+    categories: data?.categories,
+    headerNavItems: data?.headerNavItems,
+    siteInfo: data?.siteInfo,
+    rootPage: [],
     localeInfo: {
       locale: site,
       language: locale,
@@ -47,11 +53,10 @@ const getGlobals = async (locale = "en"): Promise<GlobalData> => {
 export async function generateMetadata({
   params: { locale },
 }: RootLayoutProps): Promise<Metadata> {
-  const {
-    siteInfo: { siteDescription },
-  } = await getGlobals(locale);
+  const globalData = await getGlobals(locale);
+  const description = globalData.siteInfo?.siteDescription;
 
-  return { description: siteDescription };
+  return { description };
 }
 
 const RootLayout: (
@@ -80,3 +85,33 @@ const RootLayout: (
 };
 
 export default RootLayout;
+
+const GlobalsQuery = graphql(`
+  query GlobalsQuery($site: [String], $section: [String]) {
+    headerNavItems: entries(section: $section, site: $site, level: 1) {
+      id
+      title
+      uri
+      children {
+        id
+        title
+        uri
+      }
+    }
+    siteInfo: globalSet(site: $site, handle: "siteInfo") {
+      ... on siteInfo_GlobalSet {
+        language
+        name
+        handle
+        siteTitle
+        siteDescription
+      }
+    }
+    categories(site: $site) {
+      id
+      slug
+      groupHandle
+      title
+    }
+  }
+`);
