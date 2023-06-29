@@ -1,13 +1,9 @@
 import { notFound } from "next/navigation";
-import PageTemplate from "@/templates/Page";
+import { createClient, fetchExchange } from "@urql/core";
+import { graphql } from "@/gql";
+import TemplateFactory from "@/components/factories/TemplateFactory";
 import { UriSegmentsProps } from "./layout";
-import { getEntrySectionByUri } from "@/api/entries";
-import { getEntryDataByUri } from "@/api/entry";
 import { Metadata } from "next";
-
-async function getEntryData(uri: string, site: string, previewToken: any) {
-  return await getEntryDataByUri(uri, site, previewToken);
-}
 
 export const revalidate = 60;
 
@@ -18,36 +14,66 @@ export async function generateMetadata({
   // add _es to property names if site is not English
   const uri: string = uriSegments.join("/");
 
-  const entryData = await getEntryData(uri, site, null);
+  const client = createClient({
+    url: process.env.NEXT_PUBLIC_API_URL as string,
+    exchanges: [fetchExchange],
+  });
 
-  const { title = null } = entryData || {};
+  const data = await client
+    .query(MetadataQuery, {
+      site: [site],
+      uri: [uri],
+    })
+    .toPromise()
+    .then((result) => {
+      return result.data;
+    });
 
-  return { title, twitter: { title } };
+  const title = data?.entry?.title;
+
+  return title ? { title, twitter: { title } } : {};
 }
 
 const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
   params: { locale, uriSegments },
-  previewData,
+  // previewData,
 }) => {
   const site = locale === "en" ? "default" : locale;
   // add _es to property names if site is not English
   const uri: string = uriSegments.join("/");
 
-  const section = await getEntrySectionByUri(uri, site);
+  const client = createClient({
+    url: process.env.NEXT_PUBLIC_API_URL as string,
+    exchanges: [fetchExchange],
+  });
 
-  const entryData = await getEntryData(uri, site, previewData?.previewToken);
+  const data = await client
+    .query(Query, {
+      site: [site],
+      uri: [uri],
+    })
+    .toPromise()
+    .then((result) => {
+      return result.data;
+    });
 
-  const currentId = entryData?.id || entryData?.entry?.id;
-
-  if (!currentId) {
-    notFound();
-  }
-
-  const sectionMap: { [key: string]: any } = {};
-
-  const Template = sectionMap[section] || PageTemplate;
-
-  return <Template data={entryData} />;
+  return data?.entry ? <TemplateFactory data={data.entry} /> : notFound();
 };
 
 export default UriSegments;
+
+const MetadataQuery = graphql(`
+  query UriSegmentsMetadata($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      title
+    }
+  }
+`);
+
+const Query = graphql(`
+  query UriSegmentsQuery($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      ...TemplateFactory
+    }
+  }
+`);

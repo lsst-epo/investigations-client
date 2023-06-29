@@ -1,41 +1,44 @@
 import { FunctionComponent } from "react";
-import {
-  simpleBlockMap,
-  SimpleContentBlockFactoryProps,
-} from "@/components/factories/SimpleContentBlockFactory";
-import { Modal } from "@/content-blocks";
+import { graphql, useFragment, FragmentType } from "@/gql";
+import Text from "@/components/content-blocks/Text";
 import withModal from "@/hoc/withModal";
 
 /** content blocks that can be rendered anywhere */
 export const blockMap = {
-  ...simpleBlockMap,
-  modal: Modal,
+  // contentBlocks_image_BlockType: Image,
+  contentBlocks_text_BlockType: Text,
+  // contentBlocks_modal_BlockType: Modal,
 };
+
+interface ContentBlockFactoryProps {
+  data: FragmentType<typeof Fragment>;
+  pageId?: string;
+  isInModal?: boolean;
+}
 
 export type ContentBlockType = keyof typeof blockMap;
 
-interface ContentBlockFactoryProps
-  extends Omit<SimpleContentBlockFactoryProps, "type"> {
-  type: ContentBlockType;
-}
+const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = (
+  props
+) => {
+  const data = useFragment(Fragment, props.data);
 
-const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
-  type,
-  data,
-  pageId,
-  isInModal,
-}) => {
-  const Block = blockMap[type];
+  const Block = blockMap[data.__typename];
+
   if (!Block) return null;
 
-  const isWithModal = !isInModal && type !== "modal";
+  const isWithModal = false;
+  // const isWithModal =
+  //   !props.isInModal && data.__typename !== "contentBlocks_modal_BlockType";
 
-  const EnhancedBlock = isWithModal ? withModal(Block as any) : Block;
+  const EnhancedBlock = isWithModal ? withModal(Block) : Block;
 
   return (
     <EnhancedBlock
-      {...{ ...data, isOpen: isInModal, hasModal: !isWithModal }}
-      pageId={pageId}
+      data={data}
+      isOpen={props.isInModal}
+      hasModal={!isWithModal}
+      pageId={props.pageId}
     />
   );
 };
@@ -43,3 +46,10 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
 ContentBlockFactory.displayName = "ContentBlocks.Factory";
 
 export default ContentBlockFactory;
+
+const Fragment = graphql(`
+  fragment ContentBlockFactory on contentBlocks_NeoField {
+    __typename
+    ...TextContentBlock
+  }
+`);

@@ -1,16 +1,14 @@
 import { FunctionComponent, useState } from "react";
 import * as Styled from "./styles";
 import { BaseContentBlockProps } from "@/components/shapes";
-import SimpleContentBlockFactory, {
-  SimpleContentBlockType,
-} from "@/components/factories/SimpleContentBlockFactory";
+import SimpleContentBlockFactory from "@/components/factories/SimpleContentBlockFactory";
 
-const allowedBlocks: SimpleContentBlockType[] = ["text", "image"];
+const allowedBlocks: any[] = ["text", "image"];
 
 interface ModalContentBlockProps extends BaseContentBlockProps {
   buttonText: string;
   childBlock: {
-    type: SimpleContentBlockType;
+    type: any;
     data: any;
   };
 }

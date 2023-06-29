@@ -9,8 +9,6 @@ export { default as useFocusTrap } from "./useFocusTrap";
 export { default as useBoundingBox } from "./useBoundingBox";
 export { default as useIsMounted } from "./useIsMounted";
 export { default as useGlobalData } from "./useGlobalData";
-export { default as useList } from "./useList";
-export { default as useListForBlock } from "./useListForBlock";
 export { default as useCustomBreadcrumbs } from "./useCustomBreadcrumbs";
 export { default as usePathData } from "./usePathData";
 export { default as useDateString } from "./useDateString";

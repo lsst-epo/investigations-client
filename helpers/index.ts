@@ -6,18 +6,24 @@
  * All code in here should be specific to the project.
  */
 
-import { Category, Image, RootPage } from "@/components/shapes";
+import { Image, RootPage } from "@/components/shapes";
+import type { GlobalsQueryQuery } from "gql/graphql";
+
+type Categories = GlobalsQueryQuery["categories"];
 
 // CATEGORY STUFF
-export const getCategoryObject = (categories: Category[], id: number) => {
+export const getCategoryObject = (categories: Categories, id: number) => {
+  if (!categories) return null;
   const result = categories.filter((c) => c.id === id.toString());
   return result[0];
 };
 
-export const getCategoryId = (categories: Category[], slug: string) => {
+export const getCategoryId = (categories: Categories, slug: string) => {
+  if (!categories) return null;
   return categories.reduce((a, b) => (b.slug === slug ? a + b.id : a), "");
 };
-export const getCategoryGroup = (categories: Category[], group: string) => {
+export const getCategoryGroup = (categories: Categories, group: string) => {
+  if (!categories) return null;
   return categories.filter((c) => c.groupHandle === group);
 };
 
