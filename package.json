@@ -51,6 +51,7 @@
     "@rubin-epo/epo-widget-lib": "^0.2.1",
     "accept-language-parser": "^1.5.0",
     "classnames": "^2.3.2",
+    "encoding": "^0.1.13",
     "focus-trap": "^7.3.1",
     "focus-visible": "^5.2.0",
     "graphql": "^16.3.0",
