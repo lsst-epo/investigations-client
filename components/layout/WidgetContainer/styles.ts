@@ -1,4 +1,3 @@
-import { SpacingSize } from "@rubin-epo/epo-react-lib/dist/styles/mixins/layout";
 import styled, { css } from "styled-components";
 
 const padding = {
@@ -16,7 +15,7 @@ const backgrounds = {
 export const WidgetContainer = styled.section<{
   $isOpen: boolean;
   $bgColor: "white" | "gray";
-  $paddingSize: SpacingSize | "none";
+  $paddingSize: "large" | "medium" | "small" | "none";
 }>`
   ${({ $bgColor, $paddingSize, $isOpen }) => css`
     --widget-header-padding: calc(var(--PADDING_SMALL, 20px) / 4);
