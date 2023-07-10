@@ -1,13 +1,12 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
-import { SpacingSize } from "@rubin-epo/epo-react-lib/dist/styles/mixins/layout";
 import ExpandContract from "@/atomic/ExpandContract";
 import * as Styled from "./styles";
 
 interface WidgetContainerProps extends BaseContentBlockProps {
   caption?: string;
   bgColor?: "white" | "gray";
-  paddingSize?: SpacingSize | "none";
+  paddingSize?: "large" | "medium" | "small" | "none";
 }
 
 const WidgetContainer: FunctionComponent<
