@@ -34,6 +34,7 @@
       "@/layout/*": ["components/layout/*"],
       "@/lib/*": ["lib/*"],
       "@/page/*": ["components/page/*"],
+      "@/questions/*": ["components/questions/*"],
       "@/shapes/*": ["components/shapes/*"],
       "@/styles/*": ["theme/styles/*"],
       "@/svg/*": ["components/svg/*"],
@@ -58,7 +59,8 @@
     ".next/types/**/*.ts",
     "pages",
     "middleware.ts",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "types"
   ],
   "exclude": ["node_modules"]
 }
