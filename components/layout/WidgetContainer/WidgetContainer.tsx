@@ -7,7 +7,20 @@ interface WidgetContainerProps extends BaseContentBlockProps {
   caption?: string;
   bgColor?: "white" | "gray";
   paddingSize?: "large" | "medium" | "small" | "none";
+  className?: string;
 }
+
+const padding = {
+  none: "0",
+  small: "var(--PADDING_SMALL, 20px)",
+  medium: "var(--PADDING_MEDIUM, 40px)",
+  large: "var(--PADDING_LARGE, 100px)",
+};
+
+const backgrounds = {
+  white: "var(--white, #fff)",
+  gray: "var(--neutral10, #F5F5F5)",
+};
 
 const WidgetContainer: FunctionComponent<
   PropsWithChildren<WidgetContainerProps>
@@ -20,12 +33,19 @@ const WidgetContainer: FunctionComponent<
   openModal,
   bgColor = "white",
   paddingSize = "small",
+  className,
 }) => {
   return (
     <Styled.WidgetContainer
-      $bgColor={bgColor}
-      $paddingSize={paddingSize}
-      $isOpen={isOpen}
+      className={className}
+      style={{
+        "--widget-background-color": isOpen
+          ? "transparent"
+          : backgrounds[bgColor],
+        "--widget-container-padding": isOpen
+          ? 0
+          : `calc(${padding[paddingSize]} / 2)`,
+      }}
     >
       {hasModal && !isOpen && (
         <Styled.WidgetHeader>
@@ -39,7 +59,9 @@ const WidgetContainer: FunctionComponent<
       <Styled.WidgetContent>
         {children}
         {caption && (
-          <Styled.WidgetCaption $isDarkMode={isOpen}>
+          <Styled.WidgetCaption
+            style={{ "--caption-color": isOpen && "var(--white,#fff)" }}
+          >
             {caption}
           </Styled.WidgetCaption>
         )}
