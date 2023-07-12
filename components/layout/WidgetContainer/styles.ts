@@ -1,31 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const padding = {
-  none: "0",
-  small: "var(--PADDING_SMALL, 20px)",
-  medium: "var(--PADDING_MEDIUM, 40px)",
-  large: "var(--PADDING_LARGE, 100px)",
-};
-
-const backgrounds = {
-  white: "var(--white, #fff)",
-  gray: "var(--neutral10, #F5F5F5)",
-};
-
-export const WidgetContainer = styled.section<{
-  $isOpen: boolean;
-  $bgColor: "white" | "gray";
-  $paddingSize: "large" | "medium" | "small" | "none";
-}>`
-  ${({ $bgColor, $paddingSize, $isOpen }) => css`
-    --widget-header-padding: calc(var(--PADDING_SMALL, 20px) / 4);
-    --widget-container-padding: ${$isOpen
-      ? 0
-      : css`calc(${padding[$paddingSize]} / 2)`};
-    --widget-background-color: ${$isOpen
-      ? "transparent"
-      : backgrounds[$bgColor]};
-  `}
+export const WidgetContainer = styled.section`
+  --widget-header-padding: calc(var(--PADDING_SMALL, 20px) / 4);
 
   container-type: inline-size;
   min-width: min-content;
@@ -50,9 +26,8 @@ export const WidgetContent = styled.div`
   padding: var(--widget-container-padding);
 `;
 
-export const WidgetCaption = styled.p<{ $isDarkMode: boolean }>`
-  color: ${({ $isDarkMode }) =>
-    $isDarkMode ? "var(--white,#fff)" : "inherit"};
+export const WidgetCaption = styled.p`
+  color: var(--widget-caption, inherit);
   font-size: 0.75rem;
   margin-block-start: var(--widget-header-padding);
 `;

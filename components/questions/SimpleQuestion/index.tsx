@@ -4,14 +4,16 @@ import Text from "./Text";
 import Textarea from "./Textarea";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
+import Widget from "./Widget";
 
 export interface SimpleQuestionProps {
   id: string;
   number: number;
-  type: "text" | "textarea" | "select" | "multiselect";
+  type: "text" | "textarea" | "select" | "multiselect" | "widget";
   questionText: string;
   value?: string | string[];
   options?: Option[];
+  widgetConfig?: { type: "filterTool"; [key: string]: any };
   isDisabled?: boolean;
 }
 const inputTypes = {
@@ -19,6 +21,7 @@ const inputTypes = {
   textarea: Textarea,
   select: Select,
   multiselect: Multiselect,
+  widget: Widget,
 };
 
 const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
@@ -29,6 +32,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   value,
   options,
   isDisabled,
+  widgetConfig,
 }) => {
   const Input = inputTypes[type];
 
@@ -47,7 +51,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
       <label htmlFor={id}>{questionText}</label>
       <Input
         onChangeCallback={callback}
-        {...({ value, isDisabled, id, options } as any)}
+        {...({ value, isDisabled, id, options, widgetConfig } as any)}
       />
     </li>
   );
