@@ -62,6 +62,20 @@ const QuestionsContentBlock: FunctionComponent = () => {
         ],
       },
     },
+    {
+      id: "simpleWidgetQuestion",
+      category: "simple",
+      config: {
+        number: 5,
+        type: "widget",
+        questionText:
+          "To better understand how filters work, try out the filter tool. Select a filter from the dropdown menu and observe the effect that filter has on the light coming out of the prism.",
+        widgetConfig: {
+          type: "filterTool",
+        },
+        value: "none",
+      },
+    },
   ];
   return (
     <Styled.QuestionList
