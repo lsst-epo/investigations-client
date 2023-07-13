@@ -2,7 +2,7 @@ import { graphql, useFragment, FragmentType } from "@/gql";
 import * as Templates from "@/components/templates";
 
 export const TEMPLATE_MAP: Record<string, any> = {
-  pages_default_Entry: Templates.Page,
+  pages_pages_Entry: Templates.Page,
 };
 
 export default function TemplateFactory(props: {
@@ -19,6 +19,7 @@ export default function TemplateFactory(props: {
 
 export const Fragment = graphql(`
   fragment TemplateFactory on EntryInterface {
+    __typename
     ...PageTemplate
   }
 `);
