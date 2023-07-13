@@ -8,7 +8,6 @@ import QuestionsContentBlock from "@/components/content-blocks/Questions";
 const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
   props
 ) => {
-  console.log("PAGE");
   const data = useFragment(Fragment, props.data);
 
   if (!data) return null;
