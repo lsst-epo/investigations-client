@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { ComponentType, FunctionComponent, useState } from "react";
 import { I18nextProvider } from "react-i18next";
 import { useTranslation } from "@/lib/i18n/client";
 import FilterToolContainer from "./containers/FilterToolContainer";
@@ -12,7 +12,7 @@ export interface SimpleWidgetProps {
   widgetConfig: { type: "filterTool"; [key: string]: any };
 }
 
-const widgetMap = {
+const WIDGET_MAP: Record<string, ComponentType<any>> = {
   filterTool: FilterToolContainer,
 };
 
@@ -26,7 +26,7 @@ const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
   const { i18n } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const { type } = widgetConfig;
-  const Widget = widgetMap[type];
+  const Widget = WIDGET_MAP[type];
   const title = undefined; // figure out where in the props to put a widget title
 
   if (!Widget) {

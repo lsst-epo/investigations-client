@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { ComponentType, FunctionComponent } from "react";
 import { Option } from "@/components/shapes/option";
 import Text from "./Text";
 import Textarea from "./Textarea";
@@ -16,7 +16,7 @@ export interface SimpleQuestionProps {
   widgetConfig?: { type: "filterTool"; [key: string]: any };
   isDisabled?: boolean;
 }
-const inputTypes = {
+const INPUT_MAP: Record<string, ComponentType<any>> = {
   text: Text,
   textarea: Textarea,
   select: Select,
@@ -34,7 +34,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   isDisabled,
   widgetConfig,
 }) => {
-  const Input = inputTypes[type];
+  const Input = INPUT_MAP[type];
 
   if (!Input) {
     console.error(`"${type}" is not a valid input for this question type.`);
