@@ -1,6 +1,6 @@
 import { FunctionComponent, useState } from "react";
 import { I18nextProvider } from "react-i18next";
-import i18next from "@/lib/i18n/client";
+import { useTranslation } from "@/lib/i18n/client";
 import FilterToolContainer from "./containers/FilterToolContainer";
 import * as Styled from "./styles";
 
@@ -23,6 +23,7 @@ const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
   onChangeCallback,
   widgetConfig,
 }) => {
+  const { i18n } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const { type } = widgetConfig;
   const Widget = widgetMap[type];
@@ -35,7 +36,7 @@ const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
   }
 
   return (
-    <I18nextProvider i18n={i18next} defaultNS="epo-widget-lib">
+    <I18nextProvider i18n={i18n}>
       <Styled.Container
         paddingSize="none"
         title={title}
