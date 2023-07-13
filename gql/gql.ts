@@ -20,7 +20,7 @@ const documents = {
     "\n  fragment TextContentBlock on contentBlocks_text_BlockType {\n    text\n  }\n": types.TextContentBlockFragmentDoc,
     "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
     "\n  fragment SimpleContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n": types.SimpleContentBlockFactoryFragmentDoc,
-    "\n  fragment TemplateFactory on EntryInterface {\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
+    "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
     "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.HomepageTemplateFragmentDoc,
     "\n  fragment PageTemplate on pages_pages_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.PageTemplateFragmentDoc,
 };
@@ -70,7 +70,7 @@ export function graphql(source: "\n  fragment SimpleContentBlockFactory on conte
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment TemplateFactory on EntryInterface {\n    ...PageTemplate\n  }\n"): (typeof documents)["\n  fragment TemplateFactory on EntryInterface {\n    ...PageTemplate\n  }\n"];
+export function graphql(source: "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n"): (typeof documents)["\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

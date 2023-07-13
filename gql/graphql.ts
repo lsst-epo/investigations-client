@@ -1839,10 +1839,6 @@ export type Mutation = {
   ping?: Maybe<Scalars['String']['output']>;
   /** Refreshes a user's JWT. Checks for the occurrence of the `gql_refreshToken` cookie, and falls back to `refreshToken` argument. */
   refreshToken: Auth;
-  /** Registers a Educators user. Returns user and token. */
-  registerEducators: Auth;
-  /** Registers a Students user. Returns user and token. */
-  registerStudents: Auth;
   /** Resends an activation email to the user. Returns success message. */
   resendActivation: Scalars['String']['output'];
   /** Sets password for unauthenticated user. Requires `code` and `id` from Craft reset password email. Returns success message. */
@@ -1884,24 +1880,6 @@ export type MutationForgottenPasswordArgs = {
 
 export type MutationRefreshTokenArgs = {
   refreshToken?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type MutationRegisterEducatorsArgs = {
-  email: Scalars['String']['input'];
-  fullName?: InputMaybe<Scalars['String']['input']>;
-  password: Scalars['String']['input'];
-  preferredLanguage?: InputMaybe<Scalars['String']['input']>;
-  username?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type MutationRegisterStudentsArgs = {
-  email: Scalars['String']['input'];
-  fullName?: InputMaybe<Scalars['String']['input']>;
-  password: Scalars['String']['input'];
-  preferredLanguage?: InputMaybe<Scalars['String']['input']>;
-  username?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -3204,7 +3182,62 @@ export type UserInterfaceAddressesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_Text_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_Questions_BlockType | ContentBlocks_Text_BlockType;
+
+export type ContentBlocks_Questions_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_questions_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived or not. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled or not. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted or not. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId?: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContentBlocks_Questions_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
 
 export type ContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_text_BlockType';
@@ -5441,44 +5474,58 @@ export type HomepageQueryQuery = { __typename?: 'Query', entry?: (
 
 export type TextContentBlockFragment = { __typename?: 'contentBlocks_text_BlockType', text?: string | null } & { ' $fragmentName'?: 'TextContentBlockFragment' };
 
-export type ContentBlockFactoryFragment = (
+type ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment = { __typename: 'contentBlocks_questions_BlockType' } & { ' $fragmentName'?: 'ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment' };
+
+type ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment = (
   { __typename: 'contentBlocks_text_BlockType' }
   & { ' $fragmentRefs'?: { 'TextContentBlockFragment': TextContentBlockFragment } }
-) & { ' $fragmentName'?: 'ContentBlockFactoryFragment' };
+) & { ' $fragmentName'?: 'ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment' };
 
-export type SimpleContentBlockFactoryFragment = (
+export type ContentBlockFactoryFragment = ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment;
+
+type SimpleContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment = { __typename: 'contentBlocks_questions_BlockType' } & { ' $fragmentName'?: 'SimpleContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment' };
+
+type SimpleContentBlockFactory_ContentBlocks_Text_BlockType_Fragment = (
   { __typename: 'contentBlocks_text_BlockType' }
   & { ' $fragmentRefs'?: { 'TextContentBlockFragment': TextContentBlockFragment } }
-) & { ' $fragmentName'?: 'SimpleContentBlockFactoryFragment' };
+) & { ' $fragmentName'?: 'SimpleContentBlockFactory_ContentBlocks_Text_BlockType_Fragment' };
 
-type TemplateFactory_Homepage_Homepage_Entry_Fragment = { __typename?: 'homepage_homepage_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Homepage_Homepage_Entry_Fragment' };
+export type SimpleContentBlockFactoryFragment = SimpleContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment | SimpleContentBlockFactory_ContentBlocks_Text_BlockType_Fragment;
+
+type TemplateFactory_Homepage_Homepage_Entry_Fragment = { __typename: 'homepage_homepage_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Homepage_Homepage_Entry_Fragment' };
 
 type TemplateFactory_Pages_Pages_Entry_Fragment = (
-  { __typename?: 'pages_pages_Entry' }
+  { __typename: 'pages_pages_Entry' }
   & { ' $fragmentRefs'?: { 'PageTemplateFragment': PageTemplateFragment } }
 ) & { ' $fragmentName'?: 'TemplateFactory_Pages_Pages_Entry_Fragment' };
 
-type TemplateFactory_Pages_RedirectPage_Entry_Fragment = { __typename?: 'pages_redirectPage_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Pages_RedirectPage_Entry_Fragment' };
+type TemplateFactory_Pages_RedirectPage_Entry_Fragment = { __typename: 'pages_redirectPage_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Pages_RedirectPage_Entry_Fragment' };
 
 export type TemplateFactoryFragment = TemplateFactory_Homepage_Homepage_Entry_Fragment | TemplateFactory_Pages_Pages_Entry_Fragment | TemplateFactory_Pages_RedirectPage_Entry_Fragment;
 
 export type HomepageTemplateFragment = { __typename?: 'homepage_homepage_Entry', id?: string | null, title?: string | null, contentBlocks?: Array<(
+    { __typename?: 'contentBlocks_questions_BlockType' }
+    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment } }
+  ) | (
     { __typename?: 'contentBlocks_text_BlockType' }
-    & { ' $fragmentRefs'?: { 'ContentBlockFactoryFragment': ContentBlockFactoryFragment } }
+    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment } }
   ) | null> | null } & { ' $fragmentName'?: 'HomepageTemplateFragment' };
 
 export type PageTemplateFragment = { __typename?: 'pages_pages_Entry', id?: string | null, title?: string | null, contentBlocks?: Array<(
+    { __typename?: 'contentBlocks_questions_BlockType' }
+    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Questions_BlockType_Fragment } }
+  ) | (
     { __typename?: 'contentBlocks_text_BlockType' }
-    & { ' $fragmentRefs'?: { 'ContentBlockFactoryFragment': ContentBlockFactoryFragment } }
+    & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment } }
   ) | null> | null } & { ' $fragmentName'?: 'PageTemplateFragment' };
 
 export const TextContentBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]} as unknown as DocumentNode<TextContentBlockFragment, unknown>;
 export const SimpleContentBlockFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SimpleContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]} as unknown as DocumentNode<SimpleContentBlockFactoryFragment, unknown>;
 export const ContentBlockFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]} as unknown as DocumentNode<ContentBlockFactoryFragment, unknown>;
 export const PageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}}]} as unknown as DocumentNode<PageTemplateFragment, unknown>;
-export const TemplateFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<TemplateFactoryFragment, unknown>;
+export const TemplateFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<TemplateFactoryFragment, unknown>;
 export const HomepageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomepageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepage_homepage_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}}]} as unknown as DocumentNode<HomepageTemplateFragment, unknown>;
 export const UriSegmentsMetadataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"UriSegmentsMetadata"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]} as unknown as DocumentNode<UriSegmentsMetadataQuery, UriSegmentsMetadataQueryVariables>;
-export const UriSegmentsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"UriSegmentsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"TemplateFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}}]} as unknown as DocumentNode<UriSegmentsQueryQuery, UriSegmentsQueryQueryVariables>;
+export const UriSegmentsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"UriSegmentsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"TemplateFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}}]} as unknown as DocumentNode<UriSegmentsQueryQuery, UriSegmentsQueryQueryVariables>;
 export const GlobalsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GlobalsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"section"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"headerNavItems"},"name":{"kind":"Name","value":"entries"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"section"},"value":{"kind":"Variable","name":{"kind":"Name","value":"section"}}},{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"level"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}},{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"siteInfo"},"name":{"kind":"Name","value":"globalSet"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"handle"},"value":{"kind":"StringValue","value":"siteInfo","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"siteInfo_GlobalSet"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"siteTitle"}},{"kind":"Field","name":{"kind":"Name","value":"siteDescription"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"categories"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"groupHandle"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]} as unknown as DocumentNode<GlobalsQueryQuery, GlobalsQueryQueryVariables>;
 export const HomepageQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"HomepageQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"HomepageTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextContentBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextContentBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomepageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepage_homepage_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<HomepageQueryQuery, HomepageQueryQueryVariables>;
