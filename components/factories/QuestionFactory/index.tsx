@@ -1,7 +1,7 @@
 import SimpleQuestion, {
   SimpleQuestionProps,
 } from "@/components/questions/SimpleQuestion";
-import { FunctionComponent } from "react";
+import { ComponentType, FunctionComponent } from "react";
 
 export interface QuestionProps {
   id: string;
@@ -9,14 +9,16 @@ export interface QuestionProps {
   config: Omit<SimpleQuestionProps, "id">;
 }
 
-const questionTypes = { simple: SimpleQuestion };
+const QUESTION_MAP: Record<string, ComponentType<any>> = {
+  simple: SimpleQuestion,
+};
 
 const QuestionFactory: FunctionComponent<QuestionProps> = ({
   id,
   category,
   config,
 }) => {
-  const Question = questionTypes[category];
+  const Question = QUESTION_MAP[category];
 
   if (!Question) {
     return null;
