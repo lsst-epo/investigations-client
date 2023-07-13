@@ -2,8 +2,7 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
-import { Container } from "@rubin-epo/epo-react-lib";
-import QuestionsContentBlock from "@/components/content-blocks/Questions";
+import Container from "@rubin-epo/epo-react-lib/Container";
 
 const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
   props
@@ -18,7 +17,6 @@ const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
       {data.contentBlocks?.map(
         (block, i) => block && <ContentBlockFactory key={i} data={block} />
       )}
-      <QuestionsContentBlock />
     </Container>
   );
 };
