@@ -1,22 +1,25 @@
 import { ComponentType, FunctionComponent } from "react";
+import {
+  BaseQuestionProps,
+  SimpleQuestionType,
+} from "@/components/shapes/questions";
 import { Option } from "@/components/shapes/option";
+
 import Text from "./Text";
 import Textarea from "./Textarea";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
 import Widget from "./Widget";
 
-export interface SimpleQuestionProps {
-  id: string;
-  number: number;
-  type: "text" | "textarea" | "select" | "multiselect" | "widget";
+export interface SimpleQuestionProps extends BaseQuestionProps {
+  type: SimpleQuestionType;
   questionText: string;
   value?: string | string[];
-  options?: Option[];
   widgetConfig?: { type: "filterTool"; [key: string]: any };
-  isDisabled?: boolean;
+  options?: Option[];
 }
-const INPUT_MAP: Record<string, ComponentType<any>> = {
+
+const INPUT_MAP: Record<SimpleQuestionType, ComponentType<any>> = {
   text: Text,
   textarea: Textarea,
   select: Select,
@@ -51,7 +54,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
       <label htmlFor={id}>{questionText}</label>
       <Input
         onChangeCallback={callback}
-        {...({ value, isDisabled, id, options, widgetConfig } as any)}
+        {...{ value, isDisabled, id, options, widgetConfig }}
       />
     </li>
   );
