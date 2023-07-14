@@ -296,7 +296,7 @@
   dependencies:
     "@babel/types" "^7.22.5"
 
-"@babel/helper-module-imports@^7.0.0", "@babel/helper-module-imports@^7.18.6", "@babel/helper-module-imports@^7.21.4":
+"@babel/helper-module-imports@^7.18.6", "@babel/helper-module-imports@^7.21.4":
   version "7.21.4"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.21.4.tgz#ac88b2f76093637489e718a90cec6cf8a9b029af"
   integrity sha512-orajc5T2PsRYUN3ZryCEFeMDYwyw09c/pZeaQEZPH0MpKzSvn3e0uXsDBu3k03VI+9DBiRo+l22BfKTpKwa/Wg==
@@ -766,13 +766,6 @@
   integrity sha512-5hewiLct5OKyh6PLKEYaFclcqtIgCb6bmELouxjF6up5q3Sov7rOayW4RwhbaBL0dit8rA80GNfY+UuDp2mBbQ==
   dependencies:
     "@babel/helper-plugin-utils" "^7.20.2"
-
-"@babel/plugin-syntax-jsx@^7.22.5":
-  version "7.22.5"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.22.5.tgz#a6b68e84fb76e759fc3b93e901876ffabbe1d918"
-  integrity sha512-gvyP4hZrgrs/wWMaocvxZ44Hw0b3W8Pe+cMxc8V1ULQ07oh8VNbIRaoD1LRZVTvD+0nieDKjfgKg89sD7rrKrg==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.22.5"
 
 "@babel/plugin-syntax-logical-assignment-operators@^7.10.4":
   version "7.10.4"
@@ -1484,7 +1477,7 @@
     "@babel/parser" "^7.22.5"
     "@babel/types" "^7.22.5"
 
-"@babel/traverse@^7.1.6", "@babel/traverse@^7.20.5", "@babel/traverse@^7.21.2", "@babel/traverse@^7.21.5", "@babel/traverse@^7.4.5", "@babel/traverse@~7.21.2":
+"@babel/traverse@^7.1.6", "@babel/traverse@^7.20.5", "@babel/traverse@^7.21.2", "@babel/traverse@^7.21.5", "@babel/traverse@~7.21.2":
   version "7.21.5"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.21.5.tgz#ad22361d352a5154b498299d523cf72998a4b133"
   integrity sha512-AhQoI3YjWi6u/y/ntv7k48mcrCXmus0t79J9qPNlk/lAsFlCiJ047RmbfMOawySTHtywXhbXgpx/8nXMYd+oFw==
@@ -2657,22 +2650,29 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@^1.1.5":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-1.2.6.tgz#d415687936b855b2985775439b2da8eea20bb4e6"
-  integrity sha512-Y+GUWck2OJLzwQr2bZih+WOyn2QwbYCsrbyzWiMKp1Bt/S0bpye2FNzZMKoxAz/17U2DcS4rGvZZIiGKBcXkOw==
-  dependencies:
-    flickity "^3.0.0"
-    react-player "^2.11.0"
-    react-share "^4.4.1"
-    react-slider "^2.0.4"
-    react-uid "^2.3.2"
-    styled-components "^5.3.6"
-
 "@rubin-epo/epo-react-lib@^2.0.0-beta.6":
   version "2.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.0-beta.6.tgz#3cc2ccae6794537d3dd5873636a809944b1c3045"
   integrity sha512-qtMO2CiUCx9vcW4ZOe9XwDWTmaBH0LpcDhtHl4uZpCOUHsOArFlmK/Xolnh/zuiQwRG+Q98M3FMXXQJCTqBWFw==
+  dependencies:
+    "@castiron/style-mixins" "^1.0.6"
+    "@headlessui/react" "^1.7.5"
+    flickity "^3.0.0"
+    focus-trap "^7.4.2"
+    i18next "^22.4.10"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-i18next "^12.0.0"
+    react-player "^2.12.0"
+    react-share "^4.4.1"
+    react-slider "^2.0.4"
+    react-uid "^2.3.2"
+    styled-components "^6.0.2"
+
+"@rubin-epo/epo-react-lib@^2.0.0-beta.7":
+  version "2.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.0-beta.7.tgz#ef8ec1b415a6367794390cf19b2cb4a9be540315"
+  integrity sha512-M3JCfpXt+xBALAgKsjPw3rPiMisp8ypIhXj7b+t/UvUUEguJ5o7gHKvpFHiBvrJCZiiruSu2FdWTce6AWPZoDw==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
     "@headlessui/react" "^1.7.5"
@@ -4729,11 +4729,6 @@ babel-plugin-styled-components@^2.1.4:
     "@babel/plugin-syntax-jsx" "^7.22.5"
     lodash "^4.17.21"
     picomatch "^2.3.1"
-
-babel-plugin-syntax-jsx@^6.18.0:
-  version "6.18.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
-  integrity sha512-qrPaCSo9c8RHNRHIotaufGbuOBN8rtdC4QrrFFc43vyWCCz7Kl7GL1PGaXtMGQZUXrkCjNEgxDfmAuAabr/rlw==
 
 babel-plugin-syntax-trailing-function-commas@^7.0.0-beta.0:
   version "7.0.0-beta.0"
