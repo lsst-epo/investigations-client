@@ -1,16 +1,17 @@
-import SimpleQuestion, {
-  SimpleQuestionProps,
-} from "@/components/questions/SimpleQuestion";
 import { ComponentType, FunctionComponent } from "react";
+import { QuestionCategory } from "@/components/shapes/questions";
+import InlineQuestion from "@/components/questions/InlineQuestion";
+import SimpleQuestion from "@/components/questions/SimpleQuestion";
 
 export interface QuestionProps {
   id: string;
-  category: "simple" | "inline" | "widget" | "tabular";
-  config: Omit<SimpleQuestionProps, "id">;
+  category: QuestionCategory;
+  config: any;
 }
 
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
   simple: SimpleQuestion,
+  inline: InlineQuestion,
 };
 
 const QuestionFactory: FunctionComponent<QuestionProps> = ({
