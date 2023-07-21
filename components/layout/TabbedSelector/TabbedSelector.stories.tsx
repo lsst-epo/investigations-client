@@ -1,7 +1,7 @@
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
 
 import TabbedSelector from ".";
-import { useState } from "react";
+import { useState } from "@storybook/client-api";
 import { Container } from "@rubin-epo/epo-react-lib";
 import { Text } from "@/components/content-blocks";
 

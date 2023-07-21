@@ -2,8 +2,8 @@ import { Meta, StoryFn, StoryObj } from "@storybook/react";
 
 import WidgetContainer from ".";
 import TabbedSelector from "@/layout/TabbedSelector";
-import { FilterTool } from "@rubin-epo/epo-widget-lib";
-import { useState } from "react";
+import FilterTool from "@rubin-epo/epo-widget-lib/FilterTool";
+import { useState } from "@storybook/client-api";
 import withModal from "@/components/hoc/withModal/withModal";
 
 const meta: Meta<typeof WidgetContainer> = {
