@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const TextInput = styled.input`
-  background-color: var(--question-background-color);
-  border: 1px solid var(--question-border-color);
+  --text-bg: var(--question-background-color);
+  --text-border: 1px solid var(--question-border-color);
+
+  background-color: var(--text-bg);
+  border: var(--text-border);
   border-radius: 5px;
   color: var(--question-input-color);
   display: block;
@@ -13,15 +16,15 @@ export const TextInput = styled.input`
   width: 100%;
   height: 2rem;
 
-  &:not(:disabled):hover,
-  &:not(:disabled):active,
-  &:not(:disabled):focus {
+  &:not(:disabled):not(:read-only):hover,
+  &:not(:disabled):not(:read-only):active,
+  &:not(:disabled):not(:read-only):focus {
     outline: 2px solid var(--question-border-color);
     outline-offset: -2px;
   }
 
   &:disabled {
-    --question-background-color: #f5f5f5;
+    --text-bg: #f5f5f5;
     --question-border-color: #6a6e6e;
   }
 `;
