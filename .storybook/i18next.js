@@ -1,15 +1,14 @@
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
-import Backend from "i18next-http-backend";
+import { loadResources } from "../lib/i18n";
 import LanguageDetector from "i18next-browser-languagedetector";
-import resources from "@/lib/localeStrings";
 
 const supportedLngs = ["en", "es"];
 
 i18n
   .use(initReactI18next)
   .use(LanguageDetector)
-  .use(Backend)
+  .use(loadResources)
   .init({
     debug: true,
     lng: "en",
@@ -18,7 +17,6 @@ i18n
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
     supportedLngs,
-    resources,
   });
 
 export default i18n;

@@ -16,6 +16,12 @@ const config = {
   docs: {
     autodocs: true,
   },
+  staticDirs: [
+    {
+      from: "../lib/fonts",
+      to: "/fonts",
+    },
+  ],
   typescript: { reactDocgen: "react-docgen" },
   webpackFinal: async (config, { configType }) => {
     [].push.apply(config.resolve.plugins, [

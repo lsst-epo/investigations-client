@@ -72,6 +72,48 @@ const QuestionsContentBlock: FunctionComponent = () => {
         ],
       },
     },
+    {
+      id: "tabularQuestion",
+      category: "tabular",
+      config: {
+        number: 6,
+        type: "select",
+        header: [
+          { children: "Group" },
+          { children: "Size of Orbit" },
+          { children: "Eccentricity" },
+          { children: "Inclination" },
+          { children: "Direction of Orbit" },
+        ],
+        rowHeader: ["NEOs", "MBAs", "TNOs", "Comets"],
+        questionRows: [
+          [
+            { id: "neosSizeOfOrbit", type: "text" },
+            { id: "neosEccentricity", type: "text" },
+            { id: "neosInclination", type: "text" },
+            { id: "neosDirectionOfOrbit", type: "text" },
+          ],
+          [
+            { id: "mbasSizeOfOrbit", type: "text" },
+            { id: "mbasEccentricity", type: "text" },
+            { id: "mbasInclination", type: "text" },
+            { id: "mbasDirectionOfOrbit", type: "text" },
+          ],
+          [
+            { id: "tnosSizeOfOrbit", type: "text" },
+            { id: "tnosEccentricity", type: "text" },
+            { id: "tnosInclination", type: "text" },
+            { id: "tnosDirectionOfOrbit", type: "text" },
+          ],
+          [
+            { id: "cometsSizeOfOrbit", type: "text" },
+            { id: "cometsEccentricity", type: "text" },
+            { id: "cometsInclination", type: "text" },
+            { id: "cometsDirectionOfOrbit", type: "text" },
+          ],
+        ],
+      },
+    },
   ];
 
   return (
