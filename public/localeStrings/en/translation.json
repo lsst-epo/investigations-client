@@ -281,5 +281,8 @@
     "header_deletion_pending": "Content not available",
     "message_deletion_pending": "You have requested to delete your account. This process is pending. If you think you are seeing this message in error, please send us an email to <0>webmaster@lsst.org</0>.",
     "button_confirm": "Got it!"
+  },
+  "placeholder": {
+    "select_answer": "Select your answer"
   }
 }

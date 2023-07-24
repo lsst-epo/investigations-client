@@ -1,132 +1,34 @@
 import { FunctionComponent } from "react";
+import { I18nextProvider } from "react-i18next";
+import { useTranslation } from "@/lib/i18n/client";
 import QuestionFactory, {
   QuestionProps,
 } from "@/components/factories/QuestionFactory";
 import * as Styled from "./styles";
-const QuestionsContentBlock: FunctionComponent = () => {
-  const isInteraction = true;
-  const questions: QuestionProps[] = [
-    {
-      id: "inlineQuestionOne",
-      category: "inline",
-      config: {
-        number: 3,
-        parts: [
-          {
-            type: "readonly",
-            text: "The object that takes a longer time to move across the field of view is",
-          },
-          {
-            id: "sdfdsf",
-            type: "select",
-            options: [
-              { value: "closer", label: "closer to" },
-              { value: "farther", label: "farther from" },
-            ],
-          },
-          { type: "readonly", text: "the Sun,  and will have a " },
-          {
-            id: "dfdssss",
-            type: "select",
-            options: [
-              { value: "long", label: "long" },
-              { value: "short", label: "short" },
-            ],
-          },
-        ],
-      },
-    },
-    {
-      id: "inlineQuestionTwo",
-      category: "inline",
-      config: {
-        number: 4,
-        parts: [
-          {
-            type: "readonly",
-            text: "Measuring the peak luminosity of a Type Ia supernova allows us to calculate the",
-          },
-          {
-            id: "aaasdasdasd",
-            type: "text",
-          },
-          { type: "readonly", text: "of its host galaxy." },
-        ],
-      },
-    },
-    {
-      id: "simpleSelectQuestion",
-      category: "simple",
-      config: {
-        number: 5,
-        type: "select",
-        questionText:
-          "In which filter is the active star forming region most clearly defined?",
-        options: [
-          { value: "u", label: "u filter" },
-          { value: "g", label: "g filter" },
-          { value: "r", label: "r filter" },
-          { value: "i", label: "i filter" },
-          { value: "z", label: "z filter" },
-          { value: "y", label: "y filter" },
-        ],
-      },
-    },
-    {
-      id: "tabularQuestion",
-      category: "tabular",
-      config: {
-        number: 6,
-        type: "select",
-        header: [
-          { children: "Group" },
-          { children: "Size of Orbit" },
-          { children: "Eccentricity" },
-          { children: "Inclination" },
-          { children: "Direction of Orbit" },
-        ],
-        rowHeader: ["NEOs", "MBAs", "TNOs", "Comets"],
-        questionRows: [
-          [
-            { id: "neosSizeOfOrbit", type: "text" },
-            { id: "neosEccentricity", type: "text" },
-            { id: "neosInclination", type: "text" },
-            { id: "neosDirectionOfOrbit", type: "text" },
-          ],
-          [
-            { id: "mbasSizeOfOrbit", type: "text" },
-            { id: "mbasEccentricity", type: "text" },
-            { id: "mbasInclination", type: "text" },
-            { id: "mbasDirectionOfOrbit", type: "text" },
-          ],
-          [
-            { id: "tnosSizeOfOrbit", type: "text" },
-            { id: "tnosEccentricity", type: "text" },
-            { id: "tnosInclination", type: "text" },
-            { id: "tnosDirectionOfOrbit", type: "text" },
-          ],
-          [
-            { id: "cometsSizeOfOrbit", type: "text" },
-            { id: "cometsEccentricity", type: "text" },
-            { id: "cometsInclination", type: "text" },
-            { id: "cometsDirectionOfOrbit", type: "text" },
-          ],
-        ],
-      },
-    },
-  ];
 
+interface QuestionsContentBlockProps {
+  questions: QuestionProps[];
+  interaction?: boolean;
+}
+
+const QuestionsContentBlock: FunctionComponent<QuestionsContentBlockProps> = ({
+  questions = [],
+  interaction: isInteraction = false,
+}) => {
+  const { i18n } = useTranslation();
   return (
-    <Styled.QuestionList
-      style={{
-        "--list-background-color": isInteraction && "#E6FFE6",
-        "--list-padding": isInteraction && "var(--PADDING_SMALL, 20px)",
-      }}
-    >
-      {questions.map((question) => (
-        <QuestionFactory key={question.id} {...question} />
-      ))}
-    </Styled.QuestionList>
+    <I18nextProvider i18n={i18n}>
+      <Styled.QuestionList
+        style={{
+          "--list-background-color": isInteraction && "#E6FFE6",
+          "--list-padding": isInteraction && "var(--PADDING_SMALL, 20px)",
+        }}
+      >
+        {questions.map((question) => (
+          <QuestionFactory key={question.id} {...question} />
+        ))}
+      </Styled.QuestionList>
+    </I18nextProvider>
   );
 };
 

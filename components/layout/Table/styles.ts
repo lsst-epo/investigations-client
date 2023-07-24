@@ -14,6 +14,7 @@ export const TableWrapper = styled.div`
 
 export const ScrollButton = styled.button`
   --scroll-btn-color: var(--black, #000);
+
   background-color: var(--white, #fff);
   border: 1px solid var(--scroll-btn-color);
   color: var(--scroll-btn-color);
@@ -71,13 +72,18 @@ export const Header = styled.th`
   text-align: center;
   padding-inline: 1em;
   white-space: nowrap;
+  scroll-margin-inline: calc(1em + var(--table-border-width));
 `;
 export const Cell = styled.td`
   background-color: var(--table-cell-bg);
   border: var(--table-border);
   font-weight: normal;
   height: 4em;
-  padding-inline: 1em;
+  padding: 1em;
+
+  &:not([scope="row"]) {
+    vertical-align: top;
+  }
 `;
 export const Caption = styled.caption`
   caption-side: bottom;
