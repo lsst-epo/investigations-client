@@ -6,10 +6,12 @@ import {
   TabularQuestionType,
 } from "@/components/shapes/questions";
 import Text from "./Text";
+import Select from "./Select";
 
 interface QuestionCell {
   id: string;
   type: TabularQuestionType;
+  value?: string;
 }
 export type TextCell = QuestionCell;
 export interface SelectCell extends QuestionCell {
@@ -19,11 +21,12 @@ export interface SelectCell extends QuestionCell {
 interface TabularQuestionProps extends BaseQuestionProps {
   header: TableHeader;
   rowHeader: string[];
-  questionRows: Array<TextCell | SelectCell>[];
+  questionRows: Array<TextCell & SelectCell>[];
 }
 
-const INPUT_MAP: Record<string, ComponentType<any>> = {
+const INPUT_MAP: Record<TabularQuestionType, ComponentType<any>> = {
   text: Text,
+  select: Select,
 };
 
 const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
@@ -34,8 +37,8 @@ const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
   rowHeader = [],
   questionRows = [],
 }) => {
-  const onChangeCallback = (value) => {
-    console.log(value);
+  const onChangeCallback = (value, id) => {
+    console.log(value, id);
   };
 
   const rows: TableRow = [];
@@ -45,11 +48,19 @@ const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
   });
 
   questionRows.forEach((questions, i) => {
-    questions.forEach(({ id, type }) => {
+    questions.forEach(({ id, type, value, options = [] }) => {
       const Input = INPUT_MAP[type];
 
+      if (!Input) {
+        console.error(`"${type}" is not a valid input for this question type.`);
+
+        return null;
+      }
+
       rows[i].push({
-        children: <Input {...{ id, isDisabled, onChangeCallback }} />,
+        children: (
+          <Input {...{ id, isDisabled, onChangeCallback, options, value }} />
+        ),
       });
     });
   });

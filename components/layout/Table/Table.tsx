@@ -36,74 +36,57 @@ const Table: FunctionComponent<TableProps> = ({
   labelledById,
   caption,
 }) => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scroll, setScroll] = useState(0);
+  const [cellIndex, setCellIndex] = useState(0);
   const headerRef = useRef<HTMLTableRowElement>(null);
   const { overflow, ref } = useOverflowDetector({});
 
-  const handleEvent = (event: MouseEvent, direction: "left" | "right") => {
+  const handleEvent = (forward = true) => {
     if (headerRef.current && ref.current) {
-      const { offsetWidth: buttonWidth } = event.target as HTMLButtonElement;
-      const { offsetWidth: parentWidth } = ref.current;
-      const { children, offsetWidth: headerWidth } = headerRef.current;
-      const buttonOffset = buttonWidth / 2;
+      const { offsetWidth: parentWidth, scrollLeft } = ref.current;
+      const { children } = headerRef.current;
 
-      const headers =
-        direction === "right"
-          ? Array.from(children)
-          : Array.from(children).reverse();
+      const start = forward
+        ? Math.min(cellIndex + 1, children.length - 1)
+        : Math.max(cellIndex - 1, 0);
 
-      for (const th of headers) {
-        const { offsetLeft, offsetWidth } = th as HTMLTableCellElement;
+      for (let i = start; i < children.length; forward ? i++ : i--) {
+        const th = children[i];
+        const { offsetLeft, offsetWidth, cellIndex } =
+          th as HTMLTableCellElement;
+        const isHidden = forward
+          ? offsetLeft + offsetWidth > parentWidth + scrollLeft
+          : offsetLeft < scrollLeft;
 
-        if (direction === "right") {
-          const isHidden =
-            offsetLeft + offsetWidth > parentWidth + scrollPosition;
-
-          if (isHidden) {
-            const newPosition =
-              offsetLeft + offsetWidth - parentWidth + buttonOffset;
-
-            setScrollPosition(Math.min(newPosition, headerWidth));
-            break;
+        if (isHidden) {
+          if (i <= 0 || i >= children.length - 1) {
+            const left = forward ? offsetLeft : 0;
+            ref.current.scrollTo({ left, behavior: "smooth" });
+          } else {
+            th.scrollIntoView({ behavior: "smooth" });
           }
-        } else {
-          const isHidden = offsetLeft < scrollPosition;
-          if (isHidden) {
-            const newPosition = offsetLeft - buttonOffset;
 
-            setScrollPosition(Math.max(newPosition, 0));
-            break;
-          }
+          setCellIndex(cellIndex);
+
+          return;
         }
       }
     }
   };
-
-  if (ref.current) {
-    ref.current.scrollTo({
-      left: scrollPosition,
-      behavior: "smooth",
-    });
-  }
-  const isAtEnd = ref.current
-    ? Math.ceil(ref.current?.scrollWidth - scrollPosition) <=
-      ref.current?.clientWidth
-    : false;
-
   return (
     <Styled.TableWrapper>
       {overflow && (
         <>
           <Styled.ScrollButton
-            onClick={(event: any) => handleEvent(event, "left")}
-            disabled={scrollPosition <= 0}
+            onClick={() => handleEvent(false)}
+            disabled={cellIndex <= 0 && scroll <= 0}
             aria-hidden={true}
           >
             <IconComposer icon="ChevronLeftElongated" />
           </Styled.ScrollButton>
           <Styled.ScrollButton
-            onClick={(event: any) => handleEvent(event, "right")}
-            disabled={isAtEnd}
+            onClick={() => handleEvent()}
+            disabled={cellIndex >= header.length - 1 && scroll > 0}
             aria-hidden={true}
           >
             <IconComposer icon="ChevronRightElongated" />
@@ -111,7 +94,12 @@ const Table: FunctionComponent<TableProps> = ({
         </>
       )}
 
-      <Styled.ScrollWrapper ref={ref as MutableRefObject<HTMLDivElement>}>
+      <Styled.ScrollWrapper
+        ref={ref as MutableRefObject<HTMLDivElement>}
+        onScroll={(event) =>
+          setScroll((event.target as HTMLDivElement).scrollLeft)
+        }
+      >
         <Styled.Table id={id} aria-labelledby={labelledById}>
           {caption && <Styled.Caption>{caption}</Styled.Caption>}
           <thead>
