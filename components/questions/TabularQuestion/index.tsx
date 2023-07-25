@@ -38,7 +38,7 @@ const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
   questionRows = [],
 }) => {
   const onChangeCallback = (value, id) => {
-    console.log(value, id);
+    console.info(value, id);
   };
 
   const rows: TableRow = [];
