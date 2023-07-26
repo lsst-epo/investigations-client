@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import SelectListbox from "@rubin-epo/epo-react-lib/SelectListbox";
 
