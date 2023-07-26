@@ -1,3 +1,4 @@
+"use client";
 import { ComponentType, FunctionComponent, useState } from "react";
 import FilterToolContainer from "./containers/FilterToolContainer";
 import * as Styled from "./styles";
