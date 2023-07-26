@@ -310,5 +310,9 @@
   },
   "placeholder": {
     "select_answer": "Select your answer"
+  },
+  "review": {
+    "no_selection": "(No selection)",
+    "no_answer": "(Answer not provided)"
   }
 }

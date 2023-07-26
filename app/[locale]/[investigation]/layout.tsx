@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import { RootLayoutParams } from "../layout";
 import { FunctionComponent, PropsWithChildren } from "react";
+import Header from "@/components/page/Header/Header";
+import Body from "@/global/Body";
 
 export interface InvestigationParams {
   investigation: string;
@@ -25,7 +27,12 @@ export async function generateMetadata({
 const InvestigationLandingLayout: FunctionComponent<
   PropsWithChildren<InvestigationLandingProps>
 > = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <Body>
+      <Header />
+      {children}
+    </Body>
+  );
 };
 
 export default InvestigationLandingLayout;

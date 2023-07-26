@@ -9,11 +9,11 @@ export type QuestionCategory =
   | WidgetQuestion
   | TabularQuestion;
 
-type TextQuestion = "text";
-type TextAreaQuestion = "textarea";
-type SelectQuestion = "select";
-type MultiselectQuestion = "multiselect";
-type Readonly = "readonly";
+export type TextQuestion = "text";
+export type TextAreaQuestion = "textarea";
+export type SelectQuestion = "select";
+export type MultiselectQuestion = "multiselect";
+export type Readonly = "readonly";
 
 export type SimpleQuestionType =
   | TextQuestion
@@ -35,3 +35,5 @@ export interface BaseQuestionProps {
   number: number;
   isDisabled?: boolean;
 }
+
+export type BaseReviewProps = Pick<BaseQuestionProps, "number">;

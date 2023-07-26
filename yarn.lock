@@ -3310,6 +3310,25 @@
     react-uid "^2.3.2"
     styled-components "^6.0.4"
 
+"@rubin-epo/epo-react-lib@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.1.tgz#758b8a67b07dd5adb7cd3474bc257842124d29b5"
+  integrity sha512-D7lh1q2KTzlazZEzKPx3CjzGI7osXDeMFnTqS5Yoa0tjHFUqsEqfrqyt/B0zOS+AO7SipR3/L8AmlDyEV4v6uQ==
+  dependencies:
+    "@castiron/style-mixins" "^1.0.6"
+    "@headlessui/react" "^1.7.5"
+    flickity "^3.0.0"
+    focus-trap "^7.4.2"
+    i18next "^22.4.10"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-i18next "^12.0.0"
+    react-player "^2.12.0"
+    react-share "^4.4.1"
+    react-slider "^2.0.4"
+    react-uid "^2.3.2"
+    styled-components "^6.0.4"
+
 "@rubin-epo/epo-widget-lib@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.4.3.tgz#958ede07c729cc5edc0ab615a54cdc16b54eb023"
