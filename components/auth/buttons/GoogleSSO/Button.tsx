@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { Button } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
@@ -17,8 +16,6 @@ export default function SSOButton({
 
   const pathToRevalidate = usePathToRevalidate();
 
-  const [status, setStatus] = useState<"loading" | null>(null);
-
   async function handleSuccess(credentialResponse: GoogleCredentialResponse) {
     try {
       if (!credentialResponse.credential) return handleError();
@@ -34,17 +31,13 @@ export default function SSOButton({
           pathToRevalidate
         );
       }
-
-      setStatus(null);
     } catch (error) {
-      setStatus(null);
       onSignInError();
     }
   }
 
   function handleError() {
     console.error("error");
-    setStatus(null);
     onSignInError();
   }
 

@@ -11,6 +11,7 @@ export type ActiveDialog =
   | "selectProvider"
   | "setPassword"
   | "signIn"
+  | "signInFacebook"
   | "signUp"
   | "statusActive"
   | "statusPending"
@@ -27,9 +28,13 @@ type AuthDialogManager = {
 const AuthDialogManagerContext = createContext<AuthDialogManager | null>(null);
 
 // see if we should automatically open an auth dialog based on search params
-function getInitActive(searchParams: ReadonlyURLSearchParams) {
+function getInitActive(searchParams: ReadonlyURLSearchParams | null) {
+  if (!searchParams) return null;
+
   if (searchParams.has("activate")) return "activate";
+  if (searchParams.has("facebook_sso")) return "signInFacebook";
   if (searchParams.has("set_password")) return "setPassword";
+
   return null;
 }
 
