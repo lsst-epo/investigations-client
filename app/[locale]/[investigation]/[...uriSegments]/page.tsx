@@ -1,11 +1,12 @@
 import { graphql } from "@/gql";
-import { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
 import SignOut from "@/components/auth/buttons/SignOut";
+import InvestigationChildPageTemplate from "@/components/templates/InvestigationChildPage";
 import { queryAPI } from "@/lib/fetch";
 
 export const revalidate = 60;
@@ -40,7 +41,7 @@ const UriSegments: (props: {
 }) => {
   const site = locale === "en" ? "default" : locale;
   // // add _es to property names if site is not English
-  const uri: string = uriSegments.join("/");
+  const uri = `${investigation}/${uriSegments.join("/")}`;
 
   const { data } = await queryAPI({
     query: Query,
@@ -50,30 +51,37 @@ const UriSegments: (props: {
     },
   });
 
+  if (data?.entry?.__typename !== "investigations_default_Entry") {
+    notFound();
+  }
+
   // return data?.entry ? <TemplateFactory data={data.entry} /> : notFound();
 
   const { craftToken, craftRefreshToken, craftUserStatus } = getAuthCookies();
 
   // if stored refresh token has expired, redirect to investigation landing page
-  if (!craftRefreshToken) redirect(`/${investigation}`);
+  // if (!craftRefreshToken) redirect(`/${investigation}`);
 
   const user = getUserFromJwt(craftToken);
 
   return (
-    <>
-      <h1>This is an authorized route</h1>
-      <p>User: {JSON.stringify(user)}</p>
-      {craftUserStatus && <p>Status: {craftUserStatus}</p>}
-      {/* @ts-expect-error Server Component */}
-      <SignOut redirectTo={`/${investigation}`} />
-    </>
+    <InvestigationChildPageTemplate data={data.entry}>
+      {user && (
+        <>
+          <p>User: {JSON.stringify(user)}</p>
+          {craftUserStatus && <p>Status: {craftUserStatus}</p>}
+          {/* @ts-expect-error Server Component */}
+          <SignOut redirectTo={`/${investigation}`} />
+        </>
+      )}
+    </InvestigationChildPageTemplate>
   );
 };
 
 export default UriSegments;
 
 const MetadataQuery = graphql(`
-  query UriSegmentsMetadata($site: [String], $uri: [String]) {
+  query InvestigationChildPageMetadata($site: [String], $uri: [String]) {
     entry(site: $site, uri: $uri) {
       title
     }
@@ -81,9 +89,10 @@ const MetadataQuery = graphql(`
 `);
 
 const Query = graphql(`
-  query UriSegmentsQuery($site: [String], $uri: [String]) {
+  query InvestigationChildPage($site: [String], $uri: [String]) {
     entry(site: $site, uri: $uri) {
-      ...TemplateFactory
+      __typename
+      ...InvestigationChildPageTemplate
     }
   }
 `);
