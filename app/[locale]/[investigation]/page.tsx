@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
 import { notFound } from "next/navigation";
+import { graphql } from "@/gql";
 import { InvestigationLandingProps } from "./layout";
 import AuthDialogs from "@/components/auth/AuthDialogs";
 import SignOut from "@/components/auth/buttons/SignOut";
@@ -7,43 +7,55 @@ import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
+import { queryAPI } from "@/lib/fetch";
 import Link from "next/link";
+import InvestigationLandingPageTemplate from "@/components/templates/InvestigationLandingPage";
 
-const MockInvestigations: { [key: string]: string } = {
-  "coloring-the-universe": "Coloring the Universe",
-};
+const InvestigationLanding: (
+  props: InvestigationLandingProps
+) => Promise<JSX.Element> = async ({ params: { locale, investigation } }) => {
+  const site = locale === "en" ? "default" : locale;
 
-const InvestigationLanding: FunctionComponent<InvestigationLandingProps> = ({
-  params: { investigation },
-}) => {
-  const title = MockInvestigations[investigation];
+  const { data } = await queryAPI({
+    query: Query,
+    variables: {
+      site: [site],
+      uri: [investigation],
+    },
+  });
 
-  if (!title) {
+  if (!data) {
     notFound();
   }
 
   const { craftToken, craftUserStatus } = getAuthCookies();
   const user = getUserFromJwt(craftToken);
 
-  // if (!craftToken) redirect(`/${investigation}/first-page`);
-
   return (
-    <>
-      <h1>{title}</h1>
+    <InvestigationLandingPageTemplate data={data.entry}>
+      <p>
+        <Link href={`/${investigation}/first-step`}>Start investigation</Link>
+      </p>
       {user && (
         <>
           <p>User: {JSON.stringify(user)}</p>
           {craftUserStatus && <p>Status: {craftUserStatus}</p>}
-          <Link href={`/${investigation}/first-child`}>
-            Start investigation
-          </Link>
           {/* @ts-expect-error Server Component */}
           <SignOut redirectTo={`/${investigation}`} />
         </>
       )}
       <AuthDialogs isAuthenticated={!!craftToken} />
-    </>
+    </InvestigationLandingPageTemplate>
   );
 };
 
 export default InvestigationLanding;
+
+const Query = graphql(`
+  query InvestigationPage($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      __typename
+      ...InvestigationLandingPageTemplate
+    }
+  }
+`);
