@@ -5,10 +5,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { BasicModal, Button } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
 import { useTranslation } from "@/lib/i18n/client";
-import { activate } from "./actions";
+import { authenticateEducator, authenticateStudent } from "./actions";
 import { usePathToRevalidate } from "../../clientHelpers";
 
-export default function Activate() {
+export default function SignInFacebook() {
   const { active, pendingGroup, closeModal } = useAuthDialogManager();
 
   const { t } = useTranslation();
@@ -19,7 +19,6 @@ export default function Activate() {
 
   const searchParams = useSearchParams();
   const code = searchParams?.get("code");
-  const id = searchParams?.get("id");
 
   const router = useRouter();
   const pathname = usePathname();
@@ -28,7 +27,7 @@ export default function Activate() {
   // init API request as soon as modal opens
   useEffect(() => {
     async function doActivation() {
-      if (!code || !id) {
+      if (!code) {
         setStatus("missingParams");
         return;
       }
@@ -36,17 +35,17 @@ export default function Activate() {
       setStatus("loading");
 
       try {
-        const data = await activate(code, id, pathToRevalidate);
-
-        if (data?.activateUser) {
-          setStatus("success");
+        if (pendingGroup === "educators") {
+          await authenticateEducator(code, pathToRevalidate);
+        } else {
+          await authenticateStudent(code, pathToRevalidate);
         }
       } catch (error) {
         setStatus("error");
       }
     }
 
-    if (active !== "activate") return;
+    if (active !== "signInFacebook") return;
 
     doActivation().catch(() => setStatus("error"));
   }, [active]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -54,12 +53,12 @@ export default function Activate() {
   function getTitle() {
     switch (status) {
       case "success":
-        return t("activate.success");
+        return t("facebook_sso.success");
       case "error":
       case "missingParams":
-        return t("activate.error");
+        return t("facebook_sso.error");
       case "loading":
-        return t("activate.loading");
+        return t("facebook_sso.loading");
       default:
         return undefined;
     }
@@ -68,11 +67,11 @@ export default function Activate() {
   function getDescription() {
     switch (status) {
       case "success":
-        return t("activate.success_message", { context: pendingGroup });
+        return t("facebook_sso.success_message", { context: pendingGroup });
       case "error":
-        return t("activate.error_message");
+        return t("facebook_sso.error_message");
       case "missingParams":
-        return t("activate.missing_params_message");
+        return t("facebook_sso.missing_params_message");
       default:
         return undefined;
     }
@@ -82,7 +81,7 @@ export default function Activate() {
     <BasicModal
       title={getTitle()}
       description={getDescription()}
-      open={active === "activate"}
+      open={active === "signInFacebook"}
       onClose={closeModal}
     >
       {(status === "success" || status === "error") && (
@@ -93,7 +92,7 @@ export default function Activate() {
             if (pathname) router.push(pathname); // redirect to same path but w/o search params
           }}
         >
-          {t("activate.confirm_button")}
+          {t("facebook_sso.confirm_button")}
         </Button>
       )}
     </BasicModal>

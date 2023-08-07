@@ -243,6 +243,16 @@
     "loading": "Activating your account…",
     "confirm_button": "Got it!"
   },
+  "facebook_sso": {
+    "success": "Success!",
+    "success_message": "Your account has been activated. Please log in to begin using the site as a registered user.",
+    "success_message_educator": "Your account has been activated, but it will need to be approved by an administrator before you can access educator content. You will receive an email when you have been approved.",
+    "error": "Error!",
+    "error_message": "There was an error signing you in with Facebook.",
+    "missing_params_message": "The request cannot be completed. One or more required parameters are missing.",
+    "loading": "Signing in with Facebook…",
+    "confirm_button": "Got it!"
+  },
   "join": {
     "as_students": "I’m a student",
     "as_educators": "I’m an educator",
