@@ -34,8 +34,8 @@ const documents = {
     "\n  fragment SimpleContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n": types.SimpleContentBlockFactoryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
     "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.HomepageTemplateFragmentDoc,
-    "\n  fragment InvestigationChildPageTemplate on investigations_default_Entry {\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n    prev(section: \"investigations\") {\n      uri\n    }\n    next(section: \"investigations\") {\n      uri\n    }\n  }\n": types.InvestigationChildPageTemplateFragmentDoc,
-    "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n  }\n": types.InvestigationLandingPageTemplateFragmentDoc,
+    "\n  fragment InvestigationChildPageTemplate on investigations_default_Entry {\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n    prev(section: \"investigations\") {\n      __typename\n      uri\n    }\n    next(section: \"investigations\") {\n      __typename\n      uri\n    }\n  }\n": types.InvestigationChildPageTemplateFragmentDoc,
+    "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n    children {\n      uri\n    }\n  }\n": types.InvestigationLandingPageTemplateFragmentDoc,
     "\n  fragment PageTemplate on pages_pages_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.PageTemplateFragmentDoc,
     "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}": types.AuthFragmentFragmentDoc,
     "fragment UserFragment on UserInterface {\n  status\n}": types.UserFragmentFragmentDoc,
@@ -142,11 +142,11 @@ export function graphql(source: "\n  fragment HomepageTemplate on homepage_homep
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment InvestigationChildPageTemplate on investigations_default_Entry {\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n    prev(section: \"investigations\") {\n      uri\n    }\n    next(section: \"investigations\") {\n      uri\n    }\n  }\n"): (typeof documents)["\n  fragment InvestigationChildPageTemplate on investigations_default_Entry {\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n    prev(section: \"investigations\") {\n      uri\n    }\n    next(section: \"investigations\") {\n      uri\n    }\n  }\n"];
+export function graphql(source: "\n  fragment InvestigationChildPageTemplate on investigations_default_Entry {\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n    prev(section: \"investigations\") {\n      __typename\n      uri\n    }\n    next(section: \"investigations\") {\n      __typename\n      uri\n    }\n  }\n"): (typeof documents)["\n  fragment InvestigationChildPageTemplate on investigations_default_Entry {\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n    prev(section: \"investigations\") {\n      __typename\n      uri\n    }\n    next(section: \"investigations\") {\n      __typename\n      uri\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n  }\n"): (typeof documents)["\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n  }\n"];
+export function graphql(source: "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n    children {\n      uri\n    }\n  }\n"): (typeof documents)["\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n    children {\n      uri\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
