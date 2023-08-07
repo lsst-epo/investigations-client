@@ -13,6 +13,9 @@ const InvestigationChildPage: FunctionComponent<{
 
   if (!data?.title) return null;
 
+  const prevUrl = data.prev?.uri ? `/${data.prev.uri}` : undefined;
+  const nextUrl = data.next?.uri ? `/${data.next.uri}` : undefined;
+
   return (
     <>
       <Container>
@@ -22,8 +25,20 @@ const InvestigationChildPage: FunctionComponent<{
           (block, i) => block && <ContentBlockFactory key={i} data={block} />
         )}
         <nav>
-          <Buttonish text="Previous" url={data.prev?.uri ?? undefined} />
-          <Buttonish text="Next" url={data.next?.uri ?? undefined} />
+          <Buttonish
+            text="Previous"
+            url={prevUrl}
+            aria-disabled={
+              data.prev?.__typename !== "investigations_default_Entry"
+            }
+          />
+          <Buttonish
+            text="Next"
+            url={nextUrl}
+            aria-disabled={
+              data.next?.__typename !== "investigations_default_Entry"
+            }
+          />
         </nav>
       </Container>
     </>
@@ -41,9 +56,11 @@ const Fragment = graphql(`
       ...ContentBlockFactory
     }
     prev(section: "investigations") {
+      __typename
       uri
     }
     next(section: "investigations") {
+      __typename
       uri
     }
   }

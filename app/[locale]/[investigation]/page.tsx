@@ -8,7 +8,6 @@ import {
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
 import { queryAPI } from "@/lib/fetch";
-import Link from "next/link";
 import InvestigationLandingPageTemplate from "@/components/templates/InvestigationLandingPage";
 
 const InvestigationLanding: (
@@ -24,7 +23,7 @@ const InvestigationLanding: (
     },
   });
 
-  if (!data) {
+  if (data?.entry?.__typename !== "investigations_investigationParent_Entry") {
     notFound();
   }
 
@@ -32,10 +31,10 @@ const InvestigationLanding: (
   const user = getUserFromJwt(craftToken);
 
   return (
-    <InvestigationLandingPageTemplate data={data.entry}>
-      <p>
-        <Link href={`/${investigation}/first-step`}>Start investigation</Link>
-      </p>
+    <InvestigationLandingPageTemplate
+      data={data.entry}
+      investigation={investigation}
+    >
       {user && (
         <>
           <p>User: {JSON.stringify(user)}</p>
