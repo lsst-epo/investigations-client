@@ -15,6 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
 const documents = {
     "\n  query UriSegmentsMetadata($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      title\n    }\n  }\n": types.UriSegmentsMetadataDocument,
     "\n  query UriSegmentsQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      ...TemplateFactory\n    }\n  }\n": types.UriSegmentsQueryDocument,
+    "\n  query InvestigationPage($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...InvestigationLandingPageTemplate\n    }\n  }\n": types.InvestigationPageDocument,
     "\n  query GlobalsQuery($site: [String], $section: [String]) {\n    headerNavItems: entries(section: $section, site: $site, level: 1) {\n      id\n      title\n      uri\n      children {\n        id\n        title\n        uri\n      }\n    }\n    siteInfo: globalSet(site: $site, handle: \"siteInfo\") {\n      ... on siteInfo_GlobalSet {\n        language\n        name\n        handle\n        siteTitle\n        siteDescription\n      }\n    }\n    categories(site: $site) {\n      id\n      slug\n      groupHandle\n      title\n    }\n  }\n": types.GlobalsQueryDocument,
     "\n  query HomepageQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...HomepageTemplate\n    }\n  }\n": types.HomepageQueryDocument,
     "\n  query FacebookOauthUrl {\n    facebookOauthUrl\n  }\n": types.FacebookOauthUrlDocument,
@@ -33,6 +34,7 @@ const documents = {
     "\n  fragment SimpleContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n": types.SimpleContentBlockFactoryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
     "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.HomepageTemplateFragmentDoc,
+    "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n  }\n": types.InvestigationLandingPageTemplateFragmentDoc,
     "\n  fragment PageTemplate on pages_pages_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.PageTemplateFragmentDoc,
     "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}": types.AuthFragmentFragmentDoc,
     "fragment UserFragment on UserInterface {\n  status\n}": types.UserFragmentFragmentDoc,
@@ -60,6 +62,10 @@ export function graphql(source: "\n  query UriSegmentsMetadata($site: [String], 
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query UriSegmentsQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      ...TemplateFactory\n    }\n  }\n"): (typeof documents)["\n  query UriSegmentsQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      ...TemplateFactory\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query InvestigationPage($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...InvestigationLandingPageTemplate\n    }\n  }\n"): (typeof documents)["\n  query InvestigationPage($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...InvestigationLandingPageTemplate\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -132,6 +138,10 @@ export function graphql(source: "\n  fragment TemplateFactory on EntryInterface 
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n"): (typeof documents)["\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n  }\n"): (typeof documents)["\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
