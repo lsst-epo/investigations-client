@@ -19,14 +19,14 @@ const documents = {
     "\n  query GlobalsQuery($site: [String], $section: [String]) {\n    headerNavItems: entries(section: $section, site: $site, level: 1) {\n      id\n      title\n      uri\n      children {\n        id\n        title\n        uri\n      }\n    }\n    siteInfo: globalSet(site: $site, handle: \"siteInfo\") {\n      ... on siteInfo_GlobalSet {\n        language\n        name\n        handle\n        siteTitle\n        siteDescription\n      }\n    }\n    categories(site: $site) {\n      id\n      slug\n      groupHandle\n      title\n    }\n  }\n": types.GlobalsQueryDocument,
     "\n  query HomepageQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...HomepageTemplate\n    }\n  }\n": types.HomepageQueryDocument,
     "\n  query FacebookOauthUrl {\n    facebookOauthUrl\n  }\n": types.FacebookOauthUrlDocument,
-    "\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInStudentDocument,
-    "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInEducatorDocument,
     "\n  mutation GoogleSignInStudent($idToken: String!) {\n    googleSignInStudents(idToken: $idToken) {\n      ...AuthFragment\n    }\n  }\n": types.GoogleSignInStudentDocument,
     "\n  mutation GoogleSignInEducator($idToken: String!) {\n    googleSignInEducators(idToken: $idToken) {\n      ...AuthFragment\n    }\n  }\n": types.GoogleSignInEducatorDocument,
     "\n  mutation ActivateUser($code: String!, $id: String!) {\n    activateUser(code: $code, id: $id)\n  }\n": types.ActivateUserDocument,
     "\n  mutation ForgottenPassword($email: String!) {\n    forgottenPassword(email: $email)\n  }\n": types.ForgottenPasswordDocument,
     "\n  mutation SetPassword($password: String!, $code: String!, $id: String!) {\n    setPassword(password: $password, code: $code, id: $id)\n  }\n": types.SetPasswordDocument,
     "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n": types.AuthenticateDocument,
+    "\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInStudentDocument,
+    "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInEducatorDocument,
     "\n  mutation RegisterEducator(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerEducators(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterEducatorDocument,
     "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterStudentDocument,
     "\n  fragment TextContentBlock on contentBlocks_text_BlockType {\n    text\n  }\n": types.TextContentBlockFragmentDoc,
@@ -82,14 +82,6 @@ export function graphql(source: "\n  query FacebookOauthUrl {\n    facebookOauth
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\n  mutation GoogleSignInStudent($idToken: String!) {\n    googleSignInStudents(idToken: $idToken) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation GoogleSignInStudent($idToken: String!) {\n    googleSignInStudents(idToken: $idToken) {\n      ...AuthFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -111,6 +103,14 @@ export function graphql(source: "\n  mutation SetPassword($password: String!, $c
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
