@@ -3,9 +3,9 @@ import { Trans } from "react-i18next";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
 import * as Styled from "./styles";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-interface HeaderSection {
+export interface HeaderSection {
   name: string;
   order: number;
   pages: number[];
