@@ -1,6 +1,6 @@
-import Image from "./Image";
-import Modal from "./Modal";
-import Text from "./Text";
-import Questions from "./Questions";
+// import Image from "./Image";
+// import Modal from "./Modal";
+// import Questions from "./Questions";
 
-export { Image, Modal, Text, Questions };
+export { default as Text } from "./Text";
+export { default as WidgetContainer } from "./WidgetContainer";
