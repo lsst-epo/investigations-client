@@ -6,6 +6,7 @@ import withModal from "@/hoc/withModal";
 /** content blocks that can be rendered anywhere */
 export const blockMap: Record<string, any> = {
   // contentBlocks_image_BlockType: Image,
+  contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_widgetContainer_BlockType: Blocks.WidgetContainer,
   // contentBlocks_modal_BlockType: Modal,
@@ -51,6 +52,7 @@ export default ContentBlockFactory;
 const Fragment = graphql(`
   fragment ContentBlockFactory on contentBlocks_NeoField {
     __typename
+    ...BarGraphToolBlock
     ...TextContentBlock
     ...WidgetContainerBlock
   }
