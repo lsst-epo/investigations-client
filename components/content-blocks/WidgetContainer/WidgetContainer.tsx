@@ -4,6 +4,7 @@ import * as Blocks from "@/components/content-blocks";
 
 export const blockMap: Record<string, any> = {
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
+  contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
 };
 
 export default function WidgetContainerBlock(props: {
@@ -14,7 +15,7 @@ export default function WidgetContainerBlock(props: {
   return (
     <Container>
       <pre>
-        <code>{`"__typename": "${data.__typename}"`}</code>
+        <code>{`{ "__typename": "${data.__typename}" }`}</code>
       </pre>
       {!!data.childBlocks?.length && (
         <>
@@ -41,6 +42,7 @@ const Fragment = graphql(`
       __typename
       id
       ...BarGraphToolBlock
+      ...ScatterplotToolBlock
     }
   }
 `);
