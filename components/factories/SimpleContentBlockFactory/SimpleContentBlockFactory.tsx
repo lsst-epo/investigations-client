@@ -39,6 +39,6 @@ export default SimpleContentBlockFactory;
 const Fragment = graphql(`
   fragment SimpleContentBlockFactory on contentBlocks_NeoField {
     __typename
-    ...TextContentBlock
+    ...TextBlock
   }
 `);

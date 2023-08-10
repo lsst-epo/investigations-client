@@ -33,7 +33,7 @@ TextContentBlock.displayName = "ContentBlock.Text";
 export default TextContentBlock;
 
 const Fragment = graphql(`
-  fragment TextContentBlock on contentBlocks_text_BlockType {
+  fragment TextBlock on contentBlocks_text_BlockType {
     text
   }
 `);
