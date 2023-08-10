@@ -1,12 +1,13 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql";
-import Text from "@/components/content-blocks/Text";
+import * as Blocks from "@/components/content-blocks";
 import withModal from "@/hoc/withModal";
 
 /** content blocks that can be rendered anywhere */
-export const blockMap = {
+export const blockMap: Record<string, any> = {
   // contentBlocks_image_BlockType: Image,
-  contentBlocks_text_BlockType: Text,
+  contentBlocks_text_BlockType: Blocks.Text,
+  contentBlocks_widgetContainer_BlockType: Blocks.WidgetContainer,
   // contentBlocks_modal_BlockType: Modal,
 };
 
@@ -51,5 +52,6 @@ const Fragment = graphql(`
   fragment ContentBlockFactory on contentBlocks_NeoField {
     __typename
     ...TextContentBlock
+    ...WidgetContainerBlock
   }
 `);
