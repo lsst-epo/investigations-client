@@ -56,7 +56,7 @@ const Fragment = graphql(`
     __typename
     ...BarGraphToolBlock
     ...ScatterplotToolBlock
-    ...TextContentBlock
+    ...TextBlock
     ...TwoColumnContainerBlock
     ...WidgetContainerBlock
   }

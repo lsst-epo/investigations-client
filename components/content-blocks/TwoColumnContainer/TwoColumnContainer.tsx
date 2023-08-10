@@ -36,7 +36,7 @@ const Fragment = graphql(`
     childBlocks: children {
       __typename
       id
-      ...TextContentBlock
+      ...TextBlock
       ...BarGraphToolBlock
       ...ScatterplotToolBlock
     }
