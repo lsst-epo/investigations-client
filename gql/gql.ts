@@ -30,11 +30,13 @@ const documents = {
     "\n  mutation RegisterEducator(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerEducators(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterEducatorDocument,
     "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterStudentDocument,
     "\n  fragment BarGraphToolBlock on contentBlocks_barGraphTool_BlockType {\n    title\n    yAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    graphBars {\n      ... on graphBars_bar_BlockType {\n        __typename\n        yValue\n        label\n      }\n    }\n  }\n": types.BarGraphToolBlockFragmentDoc,
+    "\n  fragment ColorToolBlock on contentBlocks_colorTool_BlockType {\n    __typename\n    colorToolTemplate\n    readOnly\n    images {\n      ... on images_imageGroup_BlockType {\n        __typename\n        uri\n      }\n    }\n  }\n": types.ColorToolBlockFragmentDoc,
+    "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    preSelectedColor\n    readOnly\n  }\n": types.FilterToolBlockFragmentDoc,
     "\n  fragment ScatterplotToolBlock on contentBlocks_scatterplotTool_BlockType {\n    title\n    xAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    scatterplotItems {\n      ... on scatterplotItems_item_BlockType {\n        xValue\n        yValue\n        itemLabel\n      }\n    }\n  }\n": types.ScatterplotToolBlockFragmentDoc,
     "\n  fragment TextBlock on contentBlocks_text_BlockType {\n    text\n  }\n": types.TextBlockFragmentDoc,
-    "\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n": types.TwoColumnContainerBlockFragmentDoc,
+    "\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...ColorToolBlock\n      ...FilterToolBlock\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n": types.TwoColumnContainerBlockFragmentDoc,
     "\n  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n": types.WidgetContainerBlockFragmentDoc,
-    "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
+    "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ColorToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
     "\n  fragment SimpleContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextBlock\n  }\n": types.SimpleContentBlockFactoryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
     "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.HomepageTemplateFragmentDoc,
@@ -130,6 +132,14 @@ export function graphql(source: "\n  fragment BarGraphToolBlock on contentBlocks
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "\n  fragment ColorToolBlock on contentBlocks_colorTool_BlockType {\n    __typename\n    colorToolTemplate\n    readOnly\n    images {\n      ... on images_imageGroup_BlockType {\n        __typename\n        uri\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment ColorToolBlock on contentBlocks_colorTool_BlockType {\n    __typename\n    colorToolTemplate\n    readOnly\n    images {\n      ... on images_imageGroup_BlockType {\n        __typename\n        uri\n      }\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    preSelectedColor\n    readOnly\n  }\n"): (typeof documents)["\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    preSelectedColor\n    readOnly\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n  fragment ScatterplotToolBlock on contentBlocks_scatterplotTool_BlockType {\n    title\n    xAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    scatterplotItems {\n      ... on scatterplotItems_item_BlockType {\n        xValue\n        yValue\n        itemLabel\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment ScatterplotToolBlock on contentBlocks_scatterplotTool_BlockType {\n    title\n    xAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    scatterplotItems {\n      ... on scatterplotItems_item_BlockType {\n        xValue\n        yValue\n        itemLabel\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -138,7 +148,7 @@ export function graphql(source: "\n  fragment TextBlock on contentBlocks_text_Bl
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n"): (typeof documents)["\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n"];
+export function graphql(source: "\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...ColorToolBlock\n      ...FilterToolBlock\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n"): (typeof documents)["\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...ColorToolBlock\n      ...FilterToolBlock\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -146,7 +156,7 @@ export function graphql(source: "\n  fragment WidgetContainerBlock on contentBlo
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n"): (typeof documents)["\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n"];
+export function graphql(source: "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ColorToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n"): (typeof documents)["\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ColorToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
