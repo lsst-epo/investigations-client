@@ -7,6 +7,8 @@ import withModal from "@/hoc/withModal";
 export const blockMap: Record<string, any> = {
   // contentBlocks_image_BlockType: Image,
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
+  contentBlocks_colorTool_BlockType: Blocks.ColorTool,
+  contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_twoColumnContainer_BlockType: Blocks.TwoColumnContainer,
@@ -55,6 +57,8 @@ const Fragment = graphql(`
   fragment ContentBlockFactory on contentBlocks_NeoField {
     __typename
     ...BarGraphToolBlock
+    ...ColorToolBlock
+    ...FilterToolBlock
     ...ScatterplotToolBlock
     ...TextBlock
     ...TwoColumnContainerBlock
