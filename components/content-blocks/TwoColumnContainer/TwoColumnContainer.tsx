@@ -2,7 +2,7 @@ import { Container } from "@rubin-epo/epo-react-lib";
 import { graphql, useFragment, FragmentType } from "@/gql";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 
-export default function WidgetContainerBlock(props: {
+export default function TwoColumnContainerBlock(props: {
   data: FragmentType<typeof Fragment>;
 }) {
   const data = useFragment(Fragment, props.data);
@@ -29,13 +29,14 @@ export default function WidgetContainerBlock(props: {
   );
 }
 
-WidgetContainerBlock.displayName = "ContentBlock.WidgetContainer";
+TwoColumnContainerBlock.displayName = "ContentBlock.TwoColumnContainer";
 
 const Fragment = graphql(`
-  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {
+  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {
     childBlocks: children {
       __typename
       id
+      ...TextContentBlock
       ...BarGraphToolBlock
       ...ScatterplotToolBlock
     }
