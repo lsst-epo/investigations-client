@@ -30,7 +30,8 @@ const documents = {
     "\n  mutation RegisterEducator(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerEducators(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterEducatorDocument,
     "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterStudentDocument,
     "\n  fragment TextContentBlock on contentBlocks_text_BlockType {\n    text\n  }\n": types.TextContentBlockFragmentDoc,
-    "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
+    "\n  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {\n    children {\n      __typename\n    }\n  }\n": types.WidgetContainerBlockFragmentDoc,
+    "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n    ...WidgetContainerBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
     "\n  fragment SimpleContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n": types.SimpleContentBlockFactoryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
     "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.HomepageTemplateFragmentDoc,
@@ -126,7 +127,11 @@ export function graphql(source: "\n  fragment TextContentBlock on contentBlocks_
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n"): (typeof documents)["\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n  }\n"];
+export function graphql(source: "\n  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {\n    children {\n      __typename\n    }\n  }\n"): (typeof documents)["\n  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {\n    children {\n      __typename\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n    ...WidgetContainerBlock\n  }\n"): (typeof documents)["\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextContentBlock\n    ...WidgetContainerBlock\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
