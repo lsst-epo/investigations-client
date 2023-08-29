@@ -21,9 +21,13 @@ export default function QuestionsContentBlock(props: {
         }}
       >
         {!!data.questionEntries?.length &&
-          data.questionEntries.map((question) =>
+          data.questionEntries.map((question, index) =>
             question?.__typename === "questions_default_Entry" ? (
-              <QuestionFactory key={question.id} data={question} />
+              <QuestionFactory
+                key={question.id}
+                data={question}
+                config={{ number: index + 1 }}
+              />
             ) : null
           )}
       </Styled.QuestionList>
