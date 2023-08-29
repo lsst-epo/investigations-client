@@ -9,6 +9,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
   contentBlocks_colorTool_BlockType: Blocks.ColorTool,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
+  contentBlocks_questionBlock_BlockType: Blocks.Questions,
   contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_twoColumnContainer_BlockType: Blocks.TwoColumnContainer,
@@ -59,6 +60,7 @@ const Fragment = graphql(`
     ...BarGraphToolBlock
     ...ColorToolBlock
     ...FilterToolBlock
+    ...QuestionsBlock
     ...ScatterplotToolBlock
     ...TextBlock
     ...TwoColumnContainerBlock
