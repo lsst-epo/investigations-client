@@ -15,7 +15,7 @@ export default function TwoColumnContainerBlock(props: {
       {!!data.childBlocks?.length && (
         <>
           {data.childBlocks.map((block) => {
-            if (!block) return;
+            if (!block) return null;
 
             const Block = blockMap[block.__typename];
 
