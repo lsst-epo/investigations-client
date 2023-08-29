@@ -38,7 +38,7 @@ const documents = {
     "\n  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...ColorToolBlock\n      ...FilterToolBlock\n      ...TextBlock\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n": types.TwoColumnContainerBlockFragmentDoc,
     "\n  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {\n    childBlocks: children {\n      __typename\n      id\n      ...BarGraphToolBlock\n      ...ScatterplotToolBlock\n    }\n  }\n": types.WidgetContainerBlockFragmentDoc,
     "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...BarGraphToolBlock\n    ...ColorToolBlock\n    ...FilterToolBlock\n    ...QuestionsBlock\n    ...ScatterplotToolBlock\n    ...TextBlock\n    ...TwoColumnContainerBlock\n    ...WidgetContainerBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
-    "\n  fragment QuestionFactory on questions_default_Entry {\n    answerType\n    id\n  }\n": types.QuestionFactoryFragmentDoc,
+    "\n  fragment QuestionFactory on questions_default_Entry {\n    answerType\n    answerOptions {\n      ... on answerOptions_option_BlockType {\n        label: optionLabel\n        value: optionValue\n      }\n    }\n    id\n    questionText\n  }\n": types.QuestionFactoryFragmentDoc,
     "\n  fragment SimpleContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TextBlock\n  }\n": types.SimpleContentBlockFactoryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
     "\n  fragment HomepageTemplate on homepage_homepage_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.HomepageTemplateFragmentDoc,
@@ -166,7 +166,7 @@ export function graphql(source: "\n  fragment ContentBlockFactory on contentBloc
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment QuestionFactory on questions_default_Entry {\n    answerType\n    id\n  }\n"): (typeof documents)["\n  fragment QuestionFactory on questions_default_Entry {\n    answerType\n    id\n  }\n"];
+export function graphql(source: "\n  fragment QuestionFactory on questions_default_Entry {\n    answerType\n    answerOptions {\n      ... on answerOptions_option_BlockType {\n        label: optionLabel\n        value: optionValue\n      }\n    }\n    id\n    questionText\n  }\n"): (typeof documents)["\n  fragment QuestionFactory on questions_default_Entry {\n    answerType\n    answerOptions {\n      ... on answerOptions_option_BlockType {\n        label: optionLabel\n        value: optionValue\n      }\n    }\n    id\n    questionText\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

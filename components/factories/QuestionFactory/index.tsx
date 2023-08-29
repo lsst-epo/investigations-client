@@ -18,13 +18,26 @@ const QUESTION_MAP: Record<string, ComponentType<any>> = {
 const QuestionFactory: FunctionComponent<QuestionProps> = (props) => {
   const data = useFragment(Fragment, props.data);
 
-  if (!data.answerType) return null;
+  if (
+    !data.id ||
+    (data?.answerType !== "text" && data?.answerType !== "select")
+  )
+    return null;
 
-  const Question = QUESTION_MAP[data.answerType];
+  return (
+    <SimpleQuestion
+      {...props.config}
+      type={data.answerType}
+      questionText={data.questionText}
+      options={data.answerOptions}
+    />
+  );
 
-  if (!Question) return null;
+  // const Question = QUESTION_MAP[data.answerType];
 
-  return <Question data={data} {...{ ...props.config, id: data.id }} />;
+  // if (!Question) return null;
+
+  // return <Question data={data} {...{ ...props.config, id: data.id }} />;
 };
 
 QuestionFactory.displayName = "Factory.Question";
@@ -34,6 +47,13 @@ export default QuestionFactory;
 const Fragment = graphql(`
   fragment QuestionFactory on questions_default_Entry {
     answerType
+    answerOptions {
+      ... on answerOptions_option_BlockType {
+        label: optionLabel
+        value: optionValue
+      }
+    }
     id
+    questionText
   }
 `);
