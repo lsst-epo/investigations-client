@@ -27,6 +27,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = (props) => {
   return (
     <SimpleQuestion
       {...props.config}
+      id={data.id}
       type={data.answerType}
       questionText={data.questionText}
       options={data.answerOptions}

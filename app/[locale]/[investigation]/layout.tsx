@@ -1,8 +1,12 @@
 import { Metadata } from "next";
 import { RootLayoutParams } from "../layout";
-import { FunctionComponent, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import Header from "@/components/page/Header/Header";
 import Body from "@/global/Body";
+import { queryAPI } from "@/lib/fetch";
+import { graphql } from "@/gql";
+import { Query } from "@/gql/graphql";
+import { StoredAnswersProvider } from "@/contexts/StoredAnswers";
 
 export interface InvestigationParams {
   investigation: string;
@@ -24,15 +28,60 @@ export async function generateMetadata({
   return { title, twitter: { title } };
 }
 
-const InvestigationLandingLayout: FunctionComponent<
-  PropsWithChildren<InvestigationLandingProps>
-> = ({ children }) => {
+const InvestigationLandingLayout: (
+  props: PropsWithChildren<InvestigationLandingProps>
+) => Promise<JSX.Element> = async ({
+  children,
+  params: { locale, investigation },
+}) => {
+  const site = locale === "en" ? "default" : locale;
+
+  const { data: investigationData } = await queryAPI({
+    query: InvestigationIdQuery,
+    variables: {
+      site: [site],
+      uri: [investigation],
+    },
+  });
+
+  const { data } = await queryAPI({
+    query: StoredAnswersQuery,
+    variables: {
+      userId: "160",
+      investigationId: investigationData?.entry?.id,
+    },
+  });
+
+  // TODO: replace temporary type assertion due to codegen not typing response correctly
+  // replace in <StoredAnswersProvider> as well
+  const answers = data?.answers as Query["answers"];
+
   return (
     <Body>
       <Header />
-      {children}
+      <StoredAnswersProvider answers={answers}>
+        {children}
+      </StoredAnswersProvider>
     </Body>
   );
 };
 
 export default InvestigationLandingLayout;
+
+const InvestigationIdQuery = graphql(`
+  query InvestigationId($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      id
+    }
+  }
+`);
+
+const StoredAnswersQuery = graphql(`
+  query StoredAnswers($userId: ID, $investigationId: ID) {
+    answers(userId: $userId, investigationId: $investigationId) {
+      data
+      questionId
+      id
+    }
+  }
+`);
