@@ -1,4 +1,6 @@
-import { ComponentType, FunctionComponent } from "react";
+"use client";
+
+import { ComponentType, FunctionComponent, useContext } from "react";
 import {
   BaseQuestionProps,
   SimpleQuestionType,
@@ -10,11 +12,11 @@ import Textarea from "./Textarea";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
 import Widget from "./Widget";
+import StoredAnswersContext from "@/contexts/StoredAnswers";
 
 export interface SimpleQuestionProps extends BaseQuestionProps {
   type: SimpleQuestionType;
   questionText: string;
-  value?: string | string[];
   widgetConfig?: { type: "filterTool"; [key: string]: any };
   options?: Option[];
 }
@@ -32,11 +34,16 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   number,
   type,
   questionText,
-  value,
   options,
   isDisabled,
   widgetConfig,
 }) => {
+  const { answers } = useContext(StoredAnswersContext);
+
+  const storedAnswer = answers.find(
+    (answer) => String(answer?.questionId) === id
+  );
+
   const Input = INPUT_MAP[type];
 
   if (!Input) {
@@ -54,7 +61,13 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
       <label htmlFor={id}>{questionText}</label>
       <Input
         onChangeCallback={callback}
-        {...{ value, isDisabled, id, options, widgetConfig }}
+        {...{
+          value: storedAnswer?.data,
+          isDisabled,
+          id,
+          options,
+          widgetConfig,
+        }}
       />
     </li>
   );
