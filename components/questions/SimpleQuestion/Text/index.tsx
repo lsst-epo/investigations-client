@@ -19,7 +19,7 @@ const SimpleText: FunctionComponent<SimpleTextProps> = ({
       id={id}
       type="text"
       disabled={isDisabled}
-      value={value}
+      defaultValue={value}
       onChange={(event: ChangeEvent<HTMLInputElement>) =>
         onChangeCallback && onChangeCallback(event.target.value)
       }
