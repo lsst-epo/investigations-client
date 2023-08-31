@@ -5,13 +5,14 @@ import { Button } from "@rubin-epo/epo-react-lib";
 
 export default function Submit({
   children,
-}: {
+  ...restProps
+}: Omit<React.ComponentPropsWithoutRef<typeof Button>, "children"> & {
   children: (pending: boolean) => React.ReactNode;
 }) {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" disabled={pending}>
+    <Button type="submit" disabled={pending} {...restProps}>
       {children(pending)}
     </Button>
   );

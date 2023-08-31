@@ -153,6 +153,7 @@
     "page-count": "Page {{current}} of {{total}}"
   },
   "pagination": {
+    "label": "Pagination",
     "previous": "Previous",
     "next": "Next",
     "current-slide": "Slide {{current}}",
@@ -320,6 +321,14 @@
   },
   "placeholder": {
     "select_answer": "Select your answer"
+  },
+  "answers": {
+    "save_form": {
+      "label": "Save answers",
+      "submit": "Save your work",
+      "submit_pending": "Saving…",
+      "error_message": "There was an error saving your answers to your account."
+    }
   },
   "review": {
     "no_selection": "(No selection)",

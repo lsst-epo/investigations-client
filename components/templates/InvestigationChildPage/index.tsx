@@ -5,6 +5,8 @@ import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import { Buttonish } from "@rubin-epo/epo-react-lib";
 import HeaderProgress from "@/components/page/HeaderProgress";
+import { useTranslation } from "@/lib/i18n/client";
+import SaveForm from "@/components/answers/SaveForm/SaveForm";
 
 type ProgressSections = React.ComponentPropsWithoutRef<
   typeof HeaderProgress
@@ -14,6 +16,8 @@ const InvestigationChildPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   children?: React.ReactNode;
 }> = (props) => {
+  const { t } = useTranslation();
+
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
@@ -95,7 +99,14 @@ const InvestigationChildPage: FunctionComponent<{
         {data.contentBlocks?.map(
           (block, i) => block && <ContentBlockFactory key={i} data={block} />
         )}
-        <nav>
+      </Container>
+      {data.hasSavePoint && (
+        <Container>
+          <SaveForm />
+        </Container>
+      )}
+      <Container>
+        <nav aria-label={t("pagination.label") ?? undefined}>
           <Buttonish
             text="Previous"
             url={prevUrl}
@@ -127,6 +138,7 @@ const Fragment = graphql(`
     contentBlocks {
       ...ContentBlockFactory
     }
+    hasSavePoint
     prev(section: "investigations") {
       __typename
       uri
