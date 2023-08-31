@@ -1,4 +1,4 @@
-import { ChangeEvent, FunctionComponent } from "react";
+import { FocusEvent, FunctionComponent } from "react";
 import * as Styled from "./styles";
 
 interface SimpleTextProps {
@@ -20,7 +20,7 @@ const SimpleText: FunctionComponent<SimpleTextProps> = ({
       type="text"
       disabled={isDisabled}
       defaultValue={value}
-      onChange={(event: ChangeEvent<HTMLInputElement>) =>
+      onBlur={(event: FocusEvent<HTMLInputElement>) =>
         onChangeCallback && onChangeCallback(event.target.value)
       }
     />
