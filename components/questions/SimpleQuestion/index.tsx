@@ -55,7 +55,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
       <label htmlFor={id}>{questionText}</label>
       <Input
         onChangeCallback={(value: HTMLInputElement["value"]) =>
-          onChangeCallback && onChangeCallback(value, id)
+          onChangeCallback && onChangeCallback(value, id, storedAnswer?.id)
         }
         {...{
           value: storedAnswer?.data,
