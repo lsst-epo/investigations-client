@@ -4,11 +4,18 @@ import { useState } from "react";
 import Submit from "@/components/form/Submit";
 import { useTranslation } from "@/lib/i18n/client";
 import { saveAnswers } from "./actions";
+import { Answers, InvestigationId } from "@/types/answers";
 
-export default function SaveForm() {
+export default function SaveForm({
+  investigationId,
+}: {
+  investigationId: InvestigationId;
+}) {
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<"error" | null>(null);
+
+  if (!investigationId) return null;
 
   return (
     <form
@@ -16,8 +23,11 @@ export default function SaveForm() {
       // @ts-ignore
       action={async () => {
         try {
-          const data = await saveAnswers();
-          console.log(data);
+          const storedAnswers = localStorage.getItem(
+            `${investigationId}_answers`
+          );
+          if (!storedAnswers) return;
+          await saveAnswers(JSON.parse(storedAnswers) as Answers);
         } catch (error) {
           setStatus("error");
         }

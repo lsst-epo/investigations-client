@@ -5,7 +5,7 @@ import { Answers } from "@/types/answers";
 export async function saveAnswers(answers?: Answers) {
   console.log(answers);
 
-  setTimeout(() => {
-    return "Success!";
-  }, 2000);
+  return new Promise((resolve) => setTimeout(resolve, 1000));
+
+  // TODO implement mutation(s)
 }
