@@ -8,6 +8,9 @@ function setLocalStorage(investigationId: InvestigationId, answers: Answers) {
   if (!investigationId) return;
 
   localStorage.setItem(`${investigationId}_answers`, JSON.stringify(answers));
+
+  const storageEvent = new Event("storageEvent");
+  document.dispatchEvent(storageEvent);
 }
 
 const StoredAnswersContext = createContext<{
@@ -25,9 +28,9 @@ function StoredAnswersProvider(props: {
   investigationId: InvestigationId;
 }) {
   function subscribe(listener: () => void) {
-    window.addEventListener("storage", listener);
+    document.addEventListener("storageEvent", listener);
     return () => {
-      window.removeEventListener("storage", listener);
+      document.removeEventListener("storageEvent", listener);
     };
   }
 
