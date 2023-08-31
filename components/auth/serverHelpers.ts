@@ -17,11 +17,13 @@ export function getAuthCookies() {
   const craftToken = cookies().get("craftToken")?.value;
   const craftRefreshToken = cookies().get("craftRefreshToken")?.value;
   const craftUserStatus = cookies().get("craftUserStatus")?.value;
+  const craftUserId = cookies().get("craftUserId")?.value;
 
   return {
     craftToken,
     craftRefreshToken,
     craftUserStatus,
+    craftUserId,
   };
 }
 
@@ -47,12 +49,20 @@ export function setAuthCookies(data: AuthFragmentFragment) {
       expires: jwtExpiresAt,
     });
   }
+
+  if (userData?.id) {
+    cookies().set("craftUserId", userData.id, {
+      ...COOKIE_OPTIONS,
+      expires: jwtExpiresAt,
+    });
+  }
 }
 
 export function deleteAuthCookies() {
   cookies().set("craftToken", "", COOKIE_OPTIONS);
   cookies().set("craftRefreshToken", "", COOKIE_OPTIONS);
   cookies().set("craftUserStatus", "", COOKIE_OPTIONS);
+  cookies().set("craftUserId", "", COOKIE_OPTIONS);
 }
 
 export function getUserFromJwt(jwt?: Token) {

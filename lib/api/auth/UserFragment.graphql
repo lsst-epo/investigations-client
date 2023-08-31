@@ -1,3 +1,4 @@
 fragment UserFragment on UserInterface {
+  id
   status
 }

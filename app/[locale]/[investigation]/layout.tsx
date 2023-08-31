@@ -7,6 +7,7 @@ import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql";
 import { Query } from "@/gql/graphql";
 import { StoredAnswersProvider } from "@/components/answers/StoredAnswersContext";
+import { getAuthCookies } from "@/components/auth/serverHelpers";
 
 export interface InvestigationParams {
   investigation: string;
@@ -44,10 +45,12 @@ const InvestigationLandingLayout: (
     },
   });
 
+  const { craftUserId } = getAuthCookies();
+
   const { data } = await queryAPI({
     query: StoredAnswersQuery,
     variables: {
-      userId: "160",
+      userId: craftUserId,
       investigationId: investigationData?.entry?.id,
     },
   });
