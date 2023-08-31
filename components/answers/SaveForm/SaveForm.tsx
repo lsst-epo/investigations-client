@@ -27,7 +27,10 @@ export default function SaveForm({
             `${investigationId}_answers`
           );
           if (!storedAnswers) return;
-          await saveAnswers(JSON.parse(storedAnswers) as Answers);
+          await saveAnswers(
+            investigationId,
+            JSON.parse(storedAnswers) as Answers
+          );
         } catch (error) {
           setStatus("error");
         }

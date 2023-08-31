@@ -48,7 +48,7 @@ const documents = {
     "\n  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {\n    title\n    children {\n      uri\n    }\n  }\n": types.InvestigationLandingPageTemplateFragmentDoc,
     "\n  fragment PageTemplate on pages_pages_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.PageTemplateFragmentDoc,
     "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}": types.AuthFragmentFragmentDoc,
-    "fragment UserFragment on UserInterface {\n  status\n}": types.UserFragmentFragmentDoc,
+    "fragment UserFragment on UserInterface {\n  id\n  status\n}": types.UserFragmentFragmentDoc,
 };
 
 /**
@@ -208,7 +208,7 @@ export function graphql(source: "fragment AuthFragment on Auth {\n  jwt\n  jwtEx
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "fragment UserFragment on UserInterface {\n  status\n}"): (typeof documents)["fragment UserFragment on UserInterface {\n  status\n}"];
+export function graphql(source: "fragment UserFragment on UserInterface {\n  id\n  status\n}"): (typeof documents)["fragment UserFragment on UserInterface {\n  id\n  status\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
