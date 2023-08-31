@@ -38,11 +38,9 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   isDisabled,
   widgetConfig,
 }) => {
-  const { answers } = useContext(StoredAnswersContext);
+  const { answers, onChangeCallback } = useContext(StoredAnswersContext);
 
-  const storedAnswer = answers.find(
-    (answer) => String(answer?.questionId) === id
-  );
+  const storedAnswer = answers[id];
 
   const Input = INPUT_MAP[type];
 
@@ -52,15 +50,13 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
     return null;
   }
 
-  const callback = (value: string | string[]) => {
-    console.info({ value });
-  };
-
   return (
     <li value={number}>
       <label htmlFor={id}>{questionText}</label>
       <Input
-        onChangeCallback={callback}
+        onChangeCallback={(value: HTMLInputElement["value"]) =>
+          onChangeCallback && onChangeCallback(value, id)
+        }
         {...{
           value: storedAnswer?.data,
           isDisabled,
