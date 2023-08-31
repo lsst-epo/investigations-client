@@ -1,17 +1,13 @@
 "use client";
 
 import { createContext, useCallback, useState } from "react";
-import { AnswerInterface, Query } from "@/gql/graphql";
-
-type QuestionId = string;
-
-type Answers = {
-  [key: QuestionId]: AnswerInterface;
-};
+import { Query } from "@/gql/graphql";
+import { Answers } from "@/types/answers";
 
 const StoredAnswersContext = createContext<{
   answers: Answers;
   onChangeCallback?: (data: string, questionId: string) => void;
+  onSaveCallback?: () => void;
 }>({ answers: {} });
 
 function StoredAnswersProvider(props: {
@@ -35,9 +31,13 @@ function StoredAnswersProvider(props: {
     []
   );
 
+  const onSaveCallback = useCallback(() => {
+    console.log(answerState);
+  }, []);
+
   return (
     <StoredAnswersContext.Provider
-      value={{ answers: answerState, onChangeCallback }}
+      value={{ answers: answerState, onChangeCallback, onSaveCallback }}
     >
       {props.children}
     </StoredAnswersContext.Provider>

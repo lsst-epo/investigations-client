@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
-import Submit from "@/components/auth/buttons/Submit";
+import Submit from "@/components/form/Submit";
 import { useTranslation } from "@/lib/i18n/client";
 import { setPassword } from "./actions";
 
