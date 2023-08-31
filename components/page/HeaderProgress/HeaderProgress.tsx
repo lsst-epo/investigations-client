@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
-import { Trans } from "react-i18next";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
 import * as Styled from "./styles";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/lib/i18n/client";
 
 export interface HeaderSection {
   name: string;
@@ -25,13 +25,12 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
   labelledById,
 }) => {
   const { locale = "en-US" } = useRouter();
+  const { t } = useTranslation();
 
   return (
     <Styled.HeaderProgress aria-labelledby={labelledById} role="list">
       <ScreenreaderText aria-live="polite">
-        <Trans values={{ current: currentPage, total: totalPages }}>
-          pager.page-count
-        </Trans>
+        {t("pager.page-count", { current: currentPage, total: totalPages })}
       </ScreenreaderText>
       {sections.map(({ name, order, pages }, i) => {
         const firstPage = pages[0];
