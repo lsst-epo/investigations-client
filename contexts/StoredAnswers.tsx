@@ -1,18 +1,44 @@
 "use client";
 
-import { createContext } from "react";
-import { Query } from "@/gql/graphql";
+import { createContext, useCallback, useState } from "react";
+import { AnswerInterface, Query } from "@/gql/graphql";
+
+type QuestionId = string;
+
+type Answers = {
+  [key: QuestionId]: AnswerInterface;
+};
 
 const StoredAnswersContext = createContext<{
-  answers: NonNullable<Query["answers"]> | [];
-}>({ answers: [] });
+  answers: Answers;
+  onChangeCallback?: (data: string, questionId: string) => void;
+}>({ answers: {} });
 
 function StoredAnswersProvider(props: {
   answers: Query["answers"];
   children: React.ReactNode;
 }) {
+  const initialState = Array.isArray(props.answers)
+    ? (Object.fromEntries(
+        props.answers.map((answer) => [answer?.questionId, answer])
+      ) as Answers)
+    : {};
+  const [answerState, setAnswerState] = useState<Answers>(initialState);
+
+  const onChangeCallback = useCallback(
+    (data: string, questionId: string) =>
+      setAnswerState((prevState) =>
+        Object.assign({}, prevState, {
+          [questionId]: { data, questionId: Number(questionId) },
+        })
+      ),
+    []
+  );
+
   return (
-    <StoredAnswersContext.Provider value={{ answers: props.answers ?? [] }}>
+    <StoredAnswersContext.Provider
+      value={{ answers: answerState, onChangeCallback }}
+    >
       {props.children}
     </StoredAnswersContext.Provider>
   );
