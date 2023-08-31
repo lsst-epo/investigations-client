@@ -6,7 +6,7 @@ import Body from "@/global/Body";
 import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql";
 import { Query } from "@/gql/graphql";
-import { StoredAnswersProvider } from "@/contexts/StoredAnswers";
+import { StoredAnswersProvider } from "@/components/answers/StoredAnswersContext";
 
 export interface InvestigationParams {
   investigation: string;
