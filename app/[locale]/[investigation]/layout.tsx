@@ -59,7 +59,10 @@ const InvestigationLandingLayout: (
   return (
     <Body>
       <Header />
-      <StoredAnswersProvider answers={answers}>
+      <StoredAnswersProvider
+        answers={answers}
+        investigationId={investigationData?.entry?.id}
+      >
         {children}
       </StoredAnswersProvider>
     </Body>

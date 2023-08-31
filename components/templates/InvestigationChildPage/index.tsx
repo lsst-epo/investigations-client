@@ -102,7 +102,7 @@ const InvestigationChildPage: FunctionComponent<{
       </Container>
       {data.hasSavePoint && (
         <Container>
-          <SaveForm />
+          <SaveForm investigationId={data.parent?.id} />
         </Container>
       )}
       <Container>
@@ -148,6 +148,7 @@ const Fragment = graphql(`
       uri
     }
     parent {
+      id
       children(section: "investigations", type: "default") {
         __typename
         id
