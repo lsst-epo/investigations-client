@@ -28,6 +28,12 @@ module.exports = {
       },
     ];
   },
+  experimental: {
+    isrMemoryCacheSize: 0,
+    forceSwcTransforms: true,
+    serverActions: true,
+  },
+  swcMinify: true,
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
@@ -40,8 +46,5 @@ module.exports = {
       path.join(__dirname, "theme/styles"),
       path.join(__dirname, "components"),
     ],
-  },
-  experimental: {
-    serverActions: true,
   },
 };
