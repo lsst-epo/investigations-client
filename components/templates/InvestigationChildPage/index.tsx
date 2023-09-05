@@ -3,11 +3,13 @@ import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import Container from "@rubin-epo/epo-react-lib/Container";
-import { Buttonish } from "@rubin-epo/epo-react-lib";
+import Header from "@/components/page/Header/Header";
 import HeaderProgress from "@/components/page/HeaderProgress";
 import { useTranslation } from "@/lib/i18n/client";
 import SaveForm from "@/components/answers/SaveForm/SaveForm";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import Pager from "@/components/layout/Pager";
+import * as Styled from "./styles";
 
 type ProgressSections = React.ComponentPropsWithoutRef<
   typeof HeaderProgress
@@ -19,7 +21,6 @@ const InvestigationChildPage: FunctionComponent<{
   children?: React.ReactNode;
 }> = (props) => {
   const { t } = useTranslation();
-
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
@@ -32,7 +33,7 @@ const InvestigationChildPage: FunctionComponent<{
   // filter down to just investigation child entries
   // (gql query already does this, but need to make TS happy)
   const isInvestigation = (
-    page: (typeof childPages)[number]
+    page: (typeof childPages)[number],
   ): page is Extract<
     (typeof childPages)[number],
     { __typename: "investigations_default_Entry" }
@@ -49,7 +50,7 @@ const InvestigationChildPage: FunctionComponent<{
     const sectionBreaks = siblings.filter((entry) => entry.hasSavePoint);
     const sections: [number | undefined][] = Array.from(
       Array(sectionBreaks.length + 1),
-      () => [undefined]
+      () => [undefined],
     );
 
     let currentIndex = 0;
@@ -76,7 +77,7 @@ const InvestigationChildPage: FunctionComponent<{
           name: `Section ${index + 1}`,
           order: index + 1,
           pages: section.filter(
-            (num): num is number => typeof num === "number"
+            (num): num is number => typeof num === "number",
           ),
         };
       });
@@ -88,6 +89,7 @@ const InvestigationChildPage: FunctionComponent<{
 
   return (
     <>
+      <Header />
       {!!progressSections.length && (
         <HeaderProgress
           currentPage={currentPage}
@@ -99,7 +101,7 @@ const InvestigationChildPage: FunctionComponent<{
         <h1>{data.title}</h1>
         {props.children}
         {data.contentBlocks?.map(
-          (block, i) => block && <ContentBlockFactory key={i} data={block} />
+          (block, i) => block && <ContentBlockFactory key={i} data={block} />,
         )}
       </Container>
       {data.hasSavePoint && props.user && (
@@ -107,24 +109,18 @@ const InvestigationChildPage: FunctionComponent<{
           <SaveForm investigationId={data.parent?.id} user={props.user} />
         </Container>
       )}
-      <Container>
-        <nav aria-label={t("pagination.label") ?? undefined}>
-          <Buttonish
-            text="Previous"
-            url={prevUrl}
-            aria-disabled={
-              data.prev?.__typename !== "investigations_default_Entry"
-            }
-          />
-          <Buttonish
-            text="Next"
-            url={nextUrl}
-            aria-disabled={
-              data.next?.__typename !== "investigations_default_Entry"
-            }
-          />
-        </nav>
-      </Container>
+      <Pager
+        leftLink={prevUrl}
+        isLeftDisabled={
+          data.prev?.__typename !== "investigations_default_Entry"
+        }
+        rightLink={nextUrl}
+        isRightDisabled={
+          data.next?.__typename !== "investigations_default_Entry"
+        }
+        totalPages={siblings.length}
+        currentPage={currentPage}
+      />
     </>
   );
 };

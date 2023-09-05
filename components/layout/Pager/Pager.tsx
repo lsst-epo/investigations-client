@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/lib/i18n/client";
 import * as Styled from "./styles";
 
 interface PagerProps {
@@ -26,6 +26,7 @@ const Pager: FunctionComponent<PagerProps> = ({
   className,
 }) => {
   const { t } = useTranslation();
+
   return (
     <Styled.PagerContainer className={className}>
       <Styled.PagerButton
