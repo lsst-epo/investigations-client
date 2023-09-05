@@ -35,6 +35,7 @@ const InvestigationLanding: (
       data={data.entry}
       investigation={investigation}
     >
+      <AuthDialogs isAuthenticated={!!craftToken} />
       {user && (
         <>
           <p>User: {JSON.stringify(user)}</p>
@@ -43,7 +44,6 @@ const InvestigationLanding: (
           <SignOut redirectTo={`/${investigation}`} />
         </>
       )}
-      <AuthDialogs isAuthenticated={!!craftToken} />
     </InvestigationLandingPageTemplate>
   );
 };

@@ -16,7 +16,7 @@ export default async function SignOut({ redirectTo }: { redirectTo: string }) {
       // @ts-ignore
       action={signOut}
     >
-      <Button>Sign out</Button>
+      <Button className="sign-out">Sign out</Button>
     </form>
   );
 }
