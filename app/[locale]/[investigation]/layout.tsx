@@ -10,6 +10,7 @@ import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
+// import Header from "@/components/page/Header/Header";
 
 export interface InvestigationParams {
   investigation: string;
@@ -55,7 +56,6 @@ const InvestigationLandingLayout: (
   return (
     <>
       {/* <Header /> */}
-      {/* @ts-expect-error Server Component */}
       <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
         {children}
       </StoredAnswersComponent>
