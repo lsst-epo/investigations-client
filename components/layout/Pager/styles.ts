@@ -7,6 +7,8 @@ export const PagerContainer = styled.nav`
   --pager-columns: repeat(2, 1fr);
   background-color: var(--turquoise85, #12726d);
   display: grid;
+  position: fixed;
+  bottom: 0;
   grid-template-columns: var(--pager-columns);
   grid-template-rows: 1fr;
   align-items: stretch;
