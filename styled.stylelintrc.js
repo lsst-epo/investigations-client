@@ -1,0 +1,80 @@
+module.exports = {
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-recess-order",
+  ],
+  customSyntax: "postcss-styled-syntax",
+  defaultSeverity: "error",
+  rules: {
+    "function-calc-no-unspaced-operator": true,
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-redundant-longhand-properties": true,
+    // SCSS compiler shouldn't allow this
+    // 'block-no-empty': true,
+    "comment-no-empty": true,
+    "max-nesting-depth": 3,
+    // SCSS compiler shouldn't allow this
+    // 'no-extra-semicolons': true,
+    "number-max-precision": 3,
+    "property-no-vendor-prefix": true,
+    // OK, sometimes you need to use important, but
+    // it should be explicitly called out/disabled if/when used.
+    "declaration-no-important": true,
+    "declaration-block-single-line-max-declarations": 1,
+    "selector-class-pattern": "[a-z][a-z0-9-]*",
+    "selector-id-pattern": "[A-z_][A-z0-9-_]*",
+    "custom-property-pattern": "[A-z][A-z0-9-]*",
+    // No id's allowed!! Unless accounted for
+    "selector-max-id": 0,
+    "selector-no-vendor-prefix": true,
+    "function-name-case": "lower",
+    "number-leading-zero": "always",
+    "number-no-trailing-zeros": true,
+    "unit-case": "lower",
+    // sometimes we need a unit for Sass
+    "length-zero-no-unit": null,
+    // Doesn't play nicely with Sass `rgb()` function
+    "color-function-notation": null,
+    "value-keyword-case": [
+      "lower",
+      {
+        ignoreKeywords: [],
+      },
+    ],
+    "value-list-comma-space-after": "always-single-line",
+    "property-case": "lower",
+    "declaration-bang-space-before": "always",
+    "declaration-block-semicolon-newline-after": "always",
+    "declaration-block-trailing-semicolon": "always",
+    "block-closing-brace-newline-before": "always",
+    "block-opening-brace-newline-after": "always",
+    "selector-attribute-brackets-space-inside": "never",
+    "selector-attribute-quotes": "always",
+    "selector-combinator-space-after": "always",
+    "selector-combinator-space-before": "always",
+    "selector-pseudo-class-case": "lower",
+    "selector-pseudo-class-parentheses-space-inside": "never",
+    "selector-pseudo-element-case": "lower",
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-type-case": "lower",
+    "selector-list-comma-space-after": "always-single-line",
+    "selector-list-comma-space-before": "never",
+    "rule-empty-line-before": [
+      "always",
+      {
+        except: ["first-nested"],
+        ignore: ["after-comment"],
+      },
+    ],
+    "media-feature-name-case": "lower",
+    "media-feature-range-notation": null,
+    "selector-anb-no-unmatchable": null,
+    "at-rule-no-unknown": null,
+    "no-descending-specificity": null,
+    "no-empty-source": null,
+    indentation: null,
+    "max-empty-lines": 3,
+    "no-eol-whitespace": null,
+  },
+};
