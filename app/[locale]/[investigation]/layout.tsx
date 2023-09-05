@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { RootLayoutParams } from "../layout";
 import { PropsWithChildren } from "react";
-// import Header from "@/components/page/Header/Header";
 import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
@@ -10,7 +9,7 @@ import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
-// import Header from "@/components/page/Header/Header";
+import Header from "@/components/page/Header/Header";
 
 export interface InvestigationParams {
   investigation: string;
@@ -63,7 +62,7 @@ const InvestigationLandingLayout: (
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
         {children}
       </StoredAnswersComponent>
