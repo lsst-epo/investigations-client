@@ -111,11 +111,6 @@ export default function SignIn() {
                   {t("sign_in.create_account_link")}
                 </Styled.LinkishButton>
               </Styled.ForgetCreateContainer>
-              {/* <Submit>
-                {(pending) =>
-                  t(pending ? "sign_in.submit_pending" : "sign_in.submit")
-                }
-              </Submit> */}
               <Styled.SignInButton>
                 {(pending) =>
                   t(pending ? "sign_in.submit_pending" : "sign_in.submit")

@@ -30,7 +30,12 @@ export const AuthWrapper = styled.div`
 export const WithoutLoginLink = styled(Buttonish)`
   width: 100%;
   max-width: 320px;
-  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+
+  .sign-in {
+    margin-top: 30px;
+  }
 `;
 
 export const LinkLabel = styled.div`
