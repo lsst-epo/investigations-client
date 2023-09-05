@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import { RootLayoutParams } from "../layout";
 import { PropsWithChildren } from "react";
-import Header from "@/components/page/Header/Header";
-import Body from "@/global/Body";
+// import Header from "@/components/page/Header/Header";
 import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
@@ -33,7 +32,7 @@ export async function generateMetadata({
 }
 
 const InvestigationLandingLayout: (
-  props: PropsWithChildren<InvestigationLandingProps>
+  props: PropsWithChildren<InvestigationLandingProps>,
 ) => Promise<JSX.Element> = async ({
   children,
   params: { locale, investigation },
@@ -54,13 +53,13 @@ const InvestigationLandingLayout: (
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
   return (
-    <Body>
-      <Header />
+    <>
+      {/* <Header /> */}
       {/* @ts-expect-error Server Component */}
       <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
         {children}
       </StoredAnswersComponent>
-    </Body>
+    </>
   );
 };
 
