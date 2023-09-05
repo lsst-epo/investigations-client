@@ -1,17 +1,6 @@
 require("@rushstack/eslint-patch/modern-module-resolution");
 module.exports = {
   root: true,
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    sourceType: "module",
-    requireConfigFile: false,
-    babelOptions: {
-      plugins: [
-        "@babel/plugin-transform-react-jsx",
-        "@babel/plugin-proposal-class-properties",
-      ],
-    },
-  },
   env: {
     browser: true,
   },
@@ -98,29 +87,20 @@ module.exports = {
     "prefer-const": 2,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/no-unknown-property": ["error", { ignore: ["transform-origin"] }],
     "react/react-in-jsx-scope": 0,
     "space-before-function-paren": 0,
     "spaced-comment": 2,
     "unused-imports/no-unused-imports": 2,
-    "@typescript-eslint/no-var-requires": "warn",
-    "no-use-before-define": 0,
   },
-  plugins: [
-    "jsx-a11y",
-    "react",
-    "react-hooks",
-    "unused-imports",
-    "@typescript-eslint",
-  ],
+  plugins: ["jsx-a11y", "react", "react-hooks", "unused-imports", "promise"],
   extends: [
     "standard",
     "next",
     "prettier",
     "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "plugin:import/errors",
-    "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended",
   ],
 };

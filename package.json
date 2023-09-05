@@ -14,13 +14,17 @@
     "static:build": "next build --debug",
     "static:export": "next export",
     "start": "next start -p 8080",
+    "bs": "next build && next start -p 3000",
+    "prepare": "husky install",
+    "precommit": "lint-staged",
     "lint": "npm-run-all lint:*",
-    "lint:js": "eslint -c .eslintrc.js \"**/*.{ts,js,jsx,tsx}\"",
-    "lint:scss": "stylelint --config .stylelintrc.js \"**/*.scss\"",
-    "fix": "npm-run-all fix:js fix:scss",
-    "fix:js": "eslint -c .eslintrc.js \"**/*.{ts,js,jsx,tsx}\" --fix",
-    "fix:scss": "stylelint --config .stylelintrc.js \"**/*.scss\" --fix",
-    "fix:staged": "lint-staged",
+    "lint:js": "prettier --check \"**/*.{js,jsx}\" & eslint -c .eslintrc.js \"**/*.{js,jsx}\"",
+    "lint:scss": "stylelint --config scss.stylelintrc.js \"**/*.scss\"",
+    "lint:styled": "stylelint --config styled.stylelintrc.js \"**/styles.js\"",
+    "fix": "npm-run-all fix:js fix:scss fix:styled",
+    "fix:js": "prettier --write \"**/*.{js,jsx}\" && eslint -c .eslintrc.js \"**/*.{js,jsx}\" --fix",
+    "fix:scss": "stylelint --config scss.stylelintrc.js \"**/*.scss\" --fix",
+    "fix:styled": "stylelint --config styled.stylelintrc.js \"**/styles.js\" --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "codegen": "graphql-codegen"
@@ -33,7 +37,8 @@
       [
         "styled-components",
         {
-          "ssr": true
+          "ssr": true,
+          "displayName": true
         }
       ]
     ]
@@ -44,7 +49,8 @@
   ],
   "lint-staged": {
     "*.{js,jsx}": "yarn fix:js",
-    "*.scss": "yarn fix:scss"
+    "*.scss": "yarn fix:scss",
+    "**/styles.js": "yarn fix:styled"
   },
   "dependencies": {
     "@castiron/style-mixins": "^1.0.6",
@@ -107,27 +113,26 @@
     "eslint-config-next": "^13.4.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-n": "^15.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.13",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
-    "lint-staged": "^12.3.4",
+    "lint-staged": "^14.0.1",
     "postcss": "^8.4.6",
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.4.1",
+    "postcss-styled-syntax": "^0.4.0",
     "prettier": "^2.5.1",
     "sass": "^1.49.8",
     "storybook": "^7.1.0",
     "storybook-react-i18next": "^2.0.6",
     "stylelint": "^14.5.1",
+    "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "4.9.5"
