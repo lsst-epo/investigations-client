@@ -23,7 +23,7 @@
   },
   "auth": {
     "log_in": "Log in",
-    "log_in_to_continue": "Log in to continue",
+    "log_in_to_continue": "Start investigation via logging in",
     "log_out": "Log out",
     "logged_in_as": "Logged in as {{name}}",
     "logged_out": "Logged out",

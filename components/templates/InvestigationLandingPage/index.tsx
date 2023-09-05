@@ -1,8 +1,7 @@
 "use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import Container from "@rubin-epo/epo-react-lib/Container";
-import Link from "next/link";
+import * as Styled from "./styles";
 
 const InvestigationLandingPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
@@ -14,15 +13,24 @@ const InvestigationLandingPage: FunctionComponent<{
   if (!data?.title) return null;
 
   return (
-    <Container>
-      <h1>{data.title}</h1>
-      {data.children?.[0]?.uri && (
-        <p>
-          <Link href={`/${data.children[0].uri}`}>Start investigation</Link>
-        </p>
-      )}
+    <Styled.LandingPageContainer>
+      <Styled.Heading>{data.title}</Styled.Heading>
       {props.children}
-    </Container>
+      {data.children?.[0]?.uri && (
+        <>
+          <Styled.WithoutLoginLink
+            className="wo-sign-in"
+            styleAs="tertiary"
+            url={`/${data.children[0].uri}`}
+            text="Start the investigation logged out"
+          />
+          <Styled.LinkLabel>
+            You can still save your work, but it will get lost if the browser’s
+            cache is erased.
+          </Styled.LinkLabel>
+        </>
+      )}
+    </Styled.LandingPageContainer>
   );
 };
 

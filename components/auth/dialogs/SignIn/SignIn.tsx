@@ -4,10 +4,10 @@ import { useState } from "react";
 import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
 import AuthButtons from "@/components/auth/buttons";
-import Submit from "@/components/form/Submit";
 import { signIn } from "./actions";
 import { useTranslation } from "@/lib/i18n/client";
 import { usePathToRevalidate } from "../../clientHelpers";
+import * as Styled from "./styles";
 
 export default function SignIn() {
   const { active, openModal, closeModal } = useAuthDialogManager();
@@ -44,69 +44,89 @@ export default function SignIn() {
       onClose={closeModal}
     >
       {status !== "success" && (
-        <>
-          <p>
-            To log in using Google or Facebook, please select whether you are a
-            student or a teacher before continuing.
-          </p>
-          <AuthButtons.GoogleSSO onError={() => setStatus("error")} />
-          <AuthButtons.FacebookSSO onError={() => setStatus("error")} />
-          <p>Or, log in using your email and password.</p>
-          <form
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            action={async (formData: FormData) => {
-              try {
-                const data = await signIn(formData, pathToRevalidate);
+        <Styled.Wrapper>
+          <Styled.SSOSection>
+            <Styled.SSOSectionInstructions>
+              To log in using Google or Facebook.
+            </Styled.SSOSectionInstructions>
+            <AuthButtons.GoogleSSO onError={() => setStatus("error")} />
+            <AuthButtons.FacebookSSO onError={() => setStatus("error")} />
+          </Styled.SSOSection>
+          <Styled.EmailSection>
+            <Styled.EmailSectionInstructions>
+              Or, log in using your email and password.
+            </Styled.EmailSectionInstructions>
+            <form
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              action={async (formData: FormData) => {
+                try {
+                  const data = await signIn(formData, pathToRevalidate);
 
-                if (data?.authenticate) {
-                  closeModal();
+                  if (data?.authenticate) {
+                    closeModal();
+                  }
+
+                  setStatus(null);
+                } catch (error) {
+                  setStatus("error");
                 }
-
-                setStatus(null);
-              } catch (error) {
-                setStatus("error");
-              }
-            }}
-          >
-            <div>
-              <label htmlFor="signInEmail">{t("form.email")}</label>
-              <Input
-                name="email"
-                id="signInEmail"
-                type="email"
-                autoComplete="email"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="signInPassword">{t("form.password")}</label>
-              <Input
-                name="password"
-                id="signInPassword"
-                type="password"
-                required
-                autoComplete="current-password"
-              />
-            </div>
-            <div>
-              <button type="button" onClick={() => openModal("forgotPassword")}>
-                {t("sign_in.forgot_password_link")}
-              </button>
-              <button type="button" onClick={() => openModal("selectGroup")}>
-                {t("sign_in.create_account_link")}
-              </button>
-            </div>
-            <Submit>
-              {(pending) =>
-                t(pending ? "sign_in.submit_pending" : "sign_in.submit")
-              }
-            </Submit>
-            <output>
-              {status === "error" && <p>{t("sign_in.error_message")}</p>}
-            </output>
-          </form>
-        </>
+              }}
+            >
+              <div>
+                <Styled.Label htmlFor="signInEmail">
+                  {t("form.email")}
+                </Styled.Label>
+                <Input
+                  name="email"
+                  id="signInEmail"
+                  type="email"
+                  autoComplete="email"
+                  required
+                />
+              </div>
+              <Styled.Password>
+                <Styled.Label htmlFor="signInPassword">
+                  {t("form.password")}
+                </Styled.Label>
+                <Input
+                  name="password"
+                  id="signInPassword"
+                  type="password"
+                  required
+                  autoComplete="current-password"
+                />
+              </Styled.Password>
+              <Styled.ForgetCreateContainer>
+                <Styled.LinkishButton
+                  type="button"
+                  onClick={() => openModal("forgotPassword")}
+                >
+                  {t("sign_in.forgot_password_link")}
+                </Styled.LinkishButton>
+                <Styled.LinkishButton
+                  type="button"
+                  onClick={() => openModal("selectGroup")}
+                >
+                  {t("sign_in.create_account_link")}
+                </Styled.LinkishButton>
+              </Styled.ForgetCreateContainer>
+              {/* <Submit>
+                {(pending) =>
+                  t(pending ? "sign_in.submit_pending" : "sign_in.submit")
+                }
+              </Submit> */}
+              <Styled.SignInButton>
+                {(pending) =>
+                  t(pending ? "sign_in.submit_pending" : "sign_in.submit")
+                }
+              </Styled.SignInButton>
+              <output>
+                {status === "error" && <p>{t("sign_in.error_message")}</p>}
+              </output>
+            </form>
+          </Styled.EmailSection>
+        </Styled.Wrapper>
       )}
       {status === "success" && (
         <Button

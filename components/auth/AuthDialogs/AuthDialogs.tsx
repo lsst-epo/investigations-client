@@ -14,7 +14,7 @@ export default function AuthDialogs({
       {!isAuthenticated && (
         <>
           <Button.SignIn />
-          <Button.SignUp />
+          {/* <Button.SignUp /> */}
           <Dialog.ForgotPassword />
           <Dialog.SelectGroup />
           <Dialog.SelectProvider />
