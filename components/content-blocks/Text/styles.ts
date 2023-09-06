@@ -1,4 +1,4 @@
-import { ptToEm } from "@rubin-epo/epo-react-lib/styles";
+import { ptToEm, fluidScale } from "@rubin-epo/epo-react-lib/styles";
 import styled, { css } from "styled-components";
 
 export const TextContent = styled.div<{ $darkMode: boolean }>`
@@ -20,6 +20,10 @@ export const TextContent = styled.div<{ $darkMode: boolean }>`
   a:not([class^="c-"]) {
     color: var(--turquoise50, #00bebf);
     text-decoration: none;
+  }
+
+  p {
+    font-size: ${fluidScale("22px", "16px")};
   }
 
   ul {
