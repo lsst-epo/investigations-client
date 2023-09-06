@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "@/lib/i18n/client";
+import useResizeObserver from "use-resize-observer";
 import * as Styled from "./styles";
 
 interface PagerProps {
@@ -26,9 +27,17 @@ const Pager: FunctionComponent<PagerProps> = ({
   className,
 }) => {
   const { t } = useTranslation();
+  const { ref } = useResizeObserver({
+    onResize: ({ height }) => {
+      document.documentElement.style.setProperty(
+        "--pager-height",
+        `${height}px`,
+      );
+    },
+  });
 
   return (
-    <Styled.PagerContainer className={className}>
+    <Styled.PagerContainer ref={ref} className={className}>
       <Styled.PagerButton
         href={isLeftDisabled ? "#" : leftLink}
         aria-disabled={isLeftDisabled}

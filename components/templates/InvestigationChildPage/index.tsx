@@ -2,7 +2,6 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
-import Container from "@rubin-epo/epo-react-lib/Container";
 import Header from "@/components/page/Header/Header";
 import HeaderProgress from "@/components/page/HeaderProgress";
 import { useTranslation } from "@/lib/i18n/client";
@@ -33,7 +32,7 @@ const InvestigationChildPage: FunctionComponent<{
   // filter down to just investigation child entries
   // (gql query already does this, but need to make TS happy)
   const isInvestigation = (
-    page: (typeof childPages)[number],
+    page: (typeof childPages)[number]
   ): page is Extract<
     (typeof childPages)[number],
     { __typename: "investigations_default_Entry" }
@@ -50,7 +49,7 @@ const InvestigationChildPage: FunctionComponent<{
     const sectionBreaks = siblings.filter((entry) => entry.hasSavePoint);
     const sections: [number | undefined][] = Array.from(
       Array(sectionBreaks.length + 1),
-      () => [undefined],
+      () => [undefined]
     );
 
     let currentIndex = 0;
@@ -77,7 +76,7 @@ const InvestigationChildPage: FunctionComponent<{
           name: `Section ${index + 1}`,
           order: index + 1,
           pages: section.filter(
-            (num): num is number => typeof num === "number",
+            (num): num is number => typeof num === "number"
           ),
         };
       });
@@ -97,18 +96,16 @@ const InvestigationChildPage: FunctionComponent<{
           sections={progressSections}
         />
       )}
-      <Container>
+      <Styled.ContentBlocks paddingSize="none">
         <h1>{data.title}</h1>
         {props.children}
         {data.contentBlocks?.map(
-          (block, i) => block && <ContentBlockFactory key={i} data={block} />,
+          (block, i) => block && <ContentBlockFactory key={i} data={block} />
         )}
-      </Container>
-      {data.hasSavePoint && props.user && (
-        <Container>
+        {data.hasSavePoint && props.user && (
           <SaveForm investigationId={data.parent?.id} user={props.user} />
-        </Container>
-      )}
+        )}
+      </Styled.ContentBlocks>
       <Pager
         leftLink={prevUrl}
         isLeftDisabled={
