@@ -48,6 +48,34 @@ export const makeCustomBreadcrumbs = (
   return customBreadcrumbs.flat(1);
 };
 
+// IMAGES
+export const imageShaper = (site = "default", data, className) => {
+  if (!data) return;
+
+  const shapes = {
+    default: {
+      altText: data.additional.AltTextEN,
+      CaptionEN: data.additional.CaptionEN,
+      title: data.additional.TitleEN,
+    },
+    es: {
+      altText: data.additional.AltTextES,
+      CaptionEN: data.additional.CaptionES,
+      title: data.additional.TitleES,
+    },
+  };
+
+  return {
+    url: data.url.directUrlPreview.slice(0, -3) + "500",
+    url2x: data.url.directUrlPreview,
+    url3x: data.url.directUrlPreview.slice(0, -3) + "2050",
+    width: data.width,
+    height: data.height,
+    className,
+    ...shapes[site],
+  };
+};
+
 // TESTERS
 export const hasImage = (imageArray: Image[]) =>
   !!(imageArray && imageArray.length >= 1 && imageArray[0].url);
