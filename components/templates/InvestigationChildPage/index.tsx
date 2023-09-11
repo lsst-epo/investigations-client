@@ -63,7 +63,7 @@ const InvestigationChildPage: FunctionComponent<{
   // filter down to just investigation child entries
   // (gql query already does this, but need to make TS happy)
   const isInvestigation = (
-    page: (typeof childPages)[number],
+    page: (typeof childPages)[number]
   ): page is Extract<
     (typeof childPages)[number],
     { __typename: "investigations_default_Entry" }
@@ -80,7 +80,7 @@ const InvestigationChildPage: FunctionComponent<{
     const sectionBreaks = siblings.filter((entry) => entry.hasSavePoint);
     const sections: [number | undefined][] = Array.from(
       Array(sectionBreaks.length + 1),
-      () => [undefined],
+      () => [undefined]
     );
 
     let currentIndex = 0;
@@ -107,7 +107,7 @@ const InvestigationChildPage: FunctionComponent<{
           name: `Section ${index + 1}`,
           order: index + 1,
           pages: section.filter(
-            (num): num is number => typeof num === "number",
+            (num): num is number => typeof num === "number"
           ),
         };
       });
