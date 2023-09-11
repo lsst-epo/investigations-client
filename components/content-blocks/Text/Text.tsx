@@ -19,6 +19,7 @@ const TextContentBlock: FunctionComponent<TextProps> = (props) => {
     <Container
       bgColor={isOpen ? "transparent" : undefined}
       paddingSize={isOpen ? "none" : "medium"}
+      width="regular"
     >
       <Styled.TextContent
         dangerouslySetInnerHTML={{ __html: data.text }}

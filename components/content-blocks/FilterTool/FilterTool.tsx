@@ -1,5 +1,6 @@
 import { Container } from "@rubin-epo/epo-react-lib";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
+import FilterTool from "@rubin-epo/epo-widget-lib/FilterTool";
 
 export default function FilterToolBlock(props: {
   data: FragmentType<typeof Fragment>;
@@ -8,9 +9,7 @@ export default function FilterToolBlock(props: {
 
   return (
     <Container>
-      <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      <FilterTool />
     </Container>
   );
 }
