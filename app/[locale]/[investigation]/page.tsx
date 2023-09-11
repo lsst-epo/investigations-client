@@ -34,6 +34,7 @@ const InvestigationLanding: (
     <InvestigationLandingPageTemplate
       data={data.entry}
       investigation={investigation}
+      site={site}
     >
       <AuthDialogs isAuthenticated={!!craftToken} />
       {user && (
