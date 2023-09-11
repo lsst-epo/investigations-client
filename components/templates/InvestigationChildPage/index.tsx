@@ -96,8 +96,10 @@ const InvestigationChildPage: FunctionComponent<{
           sections={progressSections}
         />
       )}
-      <Styled.ContentBlocks paddingSize="none">
-        <h1>{data.title}</h1>
+      <Styled.ContentBlocks paddingSize="none" width="wide">
+        <Styled.TitleContainer paddingSize="none" width="wide">
+          <h1>{data.title}</h1>
+        </Styled.TitleContainer>
         {props.children}
         {data.contentBlocks?.map(
           (block, i) => block && <ContentBlockFactory key={i} data={block} />
