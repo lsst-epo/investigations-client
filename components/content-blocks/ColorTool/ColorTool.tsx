@@ -1,5 +1,7 @@
 import { Container } from "@rubin-epo/epo-react-lib";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
+import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
+import { mockData, mockSelectedData } from "./mocks.ts";
 
 export default function ColorToolBlock(props: {
   data: FragmentType<typeof Fragment>;
@@ -8,9 +10,10 @@ export default function ColorToolBlock(props: {
 
   return (
     <Container>
-      <pre>
-        <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      <ColorTool
+        data={mockData}
+        selectedData={mockSelectedData}
+      />
     </Container>
   );
 }
