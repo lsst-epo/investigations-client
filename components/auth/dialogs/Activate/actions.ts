@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 
 export async function activate(

@@ -1,6 +1,6 @@
 "use client";
 import { FunctionComponent } from "react";
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import Link from "next/link";
 

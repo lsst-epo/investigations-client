@@ -1,4 +1,4 @@
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {

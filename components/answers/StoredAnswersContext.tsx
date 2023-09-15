@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useSyncExternalStore } from "react";
-import { Query } from "@/gql/graphql";
+import { Query } from "@/gql/student-schema/graphql";
 import { Answers, InvestigationId } from "@/types/answers";
 
 function setLocalStorage(investigationId: InvestigationId, answers: Answers) {

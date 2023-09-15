@@ -1,11 +1,11 @@
 import { cookies } from "next/headers";
 import jwtDecode from "jwt-decode";
-import { useFragment } from "@/gql";
-import type { Token } from "@/types/auth";
+import { useFragment } from "@/gql/public-schema";
+import type { PendingGroup, Token } from "@/types/auth";
 import {
   UserFragmentFragmentDoc,
   type AuthFragmentFragment,
-} from "gql/graphql";
+} from "gql/public-schema/graphql";
 
 export const COOKIE_OPTIONS = {
   httpOnly: true,
@@ -70,13 +70,13 @@ export function getUserFromJwt(jwt?: Token) {
 
   const { email, groups, fullName } = jwtDecode<{
     email: string;
-    groups: string[];
+    groups: PendingGroup[];
     fullName: string;
   }>(jwt);
   const group = groups?.length ? groups[0].toLowerCase() : null;
   return {
     email,
     fullName,
-    group,
+    group: group as PendingGroup | null,
   };
 }

@@ -7,7 +7,7 @@
  */
 
 import { Image, RootPage } from "@/components/shapes";
-import type { GlobalsQueryQuery } from "gql/graphql";
+import type { GlobalsQueryQuery } from "gql/public-schema/graphql";
 
 type Categories = GlobalsQueryQuery["categories"];
 

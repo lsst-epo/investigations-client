@@ -1,6 +1,6 @@
 "use server";
 
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
 
 export async function getOauthUrl() {

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { InvestigationLandingProps } from "./layout";
 import AuthDialogs from "@/components/auth/AuthDialogs";
 import SignOut from "@/components/auth/buttons/SignOut";

@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import Text from "@/components/content-blocks/Text";
 
 export const simpleBlockMap: Record<string, any> = {

@@ -1,6 +1,6 @@
 import { I18nextProvider } from "react-i18next";
 import { useTranslation } from "@/lib/i18n/client";
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import QuestionFactory from "@/components/factories/QuestionFactory";
 import * as Styled from "./styles";
 

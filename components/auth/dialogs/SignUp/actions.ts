@@ -2,8 +2,8 @@
 
 import { setAuthCookies } from "@/components/auth/serverHelpers";
 import { mutateAPI } from "@/lib/fetch";
-import { graphql, useFragment } from "@/gql";
-import { AuthFragmentFragmentDoc } from "gql/graphql";
+import { graphql, useFragment } from "@/gql/public-schema";
+import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 
 function getVariables(formData: FormData) {
   const formDataObj = Object.fromEntries(formData);
