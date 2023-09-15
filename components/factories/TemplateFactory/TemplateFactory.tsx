@@ -1,4 +1,4 @@
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import * as Templates from "@/components/templates";
 
 export const TEMPLATE_MAP: Record<string, any> = {

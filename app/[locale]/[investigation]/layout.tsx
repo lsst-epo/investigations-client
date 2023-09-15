@@ -4,10 +4,13 @@ import { PropsWithChildren } from "react";
 import Header from "@/components/page/Header/Header";
 import Body from "@/global/Body";
 import { queryAPI } from "@/lib/fetch";
-import { graphql } from "@/gql";
-import { Query } from "@/gql/graphql";
-import { StoredAnswersProvider } from "@/components/answers/StoredAnswersContext";
-import { getAuthCookies } from "@/components/auth/serverHelpers";
+import { graphql } from "@/gql/public-schema";
+import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
+import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
+import {
+  getAuthCookies,
+  getUserFromJwt,
+} from "@/components/auth/serverHelpers";
 
 export interface InvestigationParams {
   investigation: string;
@@ -45,29 +48,18 @@ const InvestigationLandingLayout: (
     },
   });
 
-  const { craftUserId } = getAuthCookies();
-
-  const { data } = await queryAPI({
-    query: StoredAnswersQuery,
-    variables: {
-      userId: craftUserId,
-      investigationId: investigationData?.entry?.id,
-    },
-  });
-
-  // TODO: replace temporary type assertion due to codegen not typing response correctly
-  // replace in <StoredAnswersProvider> as well
-  const answers = data?.answers as Query["answers"];
+  const { craftToken } = getAuthCookies();
+  const user = getUserFromJwt(craftToken);
+  const StoredAnswersComponent =
+    user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
   return (
     <Body>
       <Header />
-      <StoredAnswersProvider
-        answers={answers}
-        investigationId={investigationData?.entry?.id}
-      >
+      {/* @ts-expect-error Server Component */}
+      <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
         {children}
-      </StoredAnswersProvider>
+      </StoredAnswersComponent>
     </Body>
   );
 };
@@ -77,16 +69,6 @@ export default InvestigationLandingLayout;
 const InvestigationIdQuery = graphql(`
   query InvestigationId($site: [String], $uri: [String]) {
     entry(site: $site, uri: $uri) {
-      id
-    }
-  }
-`);
-
-const StoredAnswersQuery = graphql(`
-  query StoredAnswers($userId: ID, $investigationId: ID) {
-    answers(userId: $userId, investigationId: $investigationId) {
-      data
-      questionId
       id
     }
   }

@@ -1,4 +1,4 @@
-import { AnswerInterface } from "@/gql/graphql";
+import { AnswerInterface } from "@/gql/student-schema/graphql";
 
 type QuestionId = string;
 

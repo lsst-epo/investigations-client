@@ -1,6 +1,6 @@
 "use client";
 import PropTypes from "prop-types";
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import Body from "@/global/Body";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import { Container } from "@rubin-epo/epo-react-lib";
