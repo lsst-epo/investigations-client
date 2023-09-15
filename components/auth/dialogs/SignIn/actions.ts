@@ -2,9 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 import { setAuthCookies } from "@/components/auth/serverHelpers";
-import { graphql, useFragment } from "@/gql";
+import { graphql, useFragment } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
-import { AuthFragmentFragmentDoc } from "gql/graphql";
+import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 
 export async function signIn(formData: FormData, pathToRevalidate?: string) {
   const formDataObj = Object.fromEntries(formData);

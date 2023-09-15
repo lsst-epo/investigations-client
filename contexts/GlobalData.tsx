@@ -1,6 +1,6 @@
 "use client";
 import { createContext, FunctionComponent, ReactNode } from "react";
-import type { GlobalsQueryQuery } from "gql/graphql";
+import type { GlobalsQueryQuery } from "gql/public-schema/graphql";
 
 export type GlobalData = GlobalsQueryQuery & {
   rootPage: object[];

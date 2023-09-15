@@ -8,7 +8,7 @@ import { fallbackLng } from "@/lib/i18n/settings";
 import { queryAPI } from "@/lib/fetch";
 import "@/styles/styles.scss";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
 import Body from "@/global/Body";
 import Header from "@/global/Header";

@@ -1,5 +1,5 @@
 import { ComponentType, FunctionComponent } from "react";
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import InlineQuestion from "@/components/questions/InlineQuestion";
 import SimpleQuestion from "@/components/questions/SimpleQuestion";
 import TabularQuestion from "@/components/questions/TabularQuestion";

@@ -1,4 +1,4 @@
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { RootLayoutParams } from "./layout";
 import HomePageTemplate from "@/templates/HomePage";
 import { notFound } from "next/navigation";

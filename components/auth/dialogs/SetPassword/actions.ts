@@ -1,6 +1,6 @@
 "use server";
 
-import { graphql } from "@/gql";
+import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 
 export async function setPassword(

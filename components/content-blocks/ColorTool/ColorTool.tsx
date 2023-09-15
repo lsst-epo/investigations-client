@@ -1,5 +1,5 @@
 import { Container } from "@rubin-epo/epo-react-lib";
-import { graphql, useFragment, FragmentType } from "@/gql";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 
 export default function ColorToolBlock(props: {
   data: FragmentType<typeof Fragment>;
