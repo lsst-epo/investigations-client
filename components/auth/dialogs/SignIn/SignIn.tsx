@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
 import AuthButtons from "@/components/auth/buttons";
+import Submit from "@/components/form/Submit";
 import { signIn } from "./actions";
 import { useTranslation } from "@/lib/i18n/client";
 import { usePathToRevalidate } from "../../clientHelpers";
@@ -96,11 +97,11 @@ export default function SignIn() {
                 {t("sign_in.create_account_link")}
               </button>
             </div>
-            <AuthButtons.Submit>
+            <Submit>
               {(pending) =>
                 t(pending ? "sign_in.submit_pending" : "sign_in.submit")
               }
-            </AuthButtons.Submit>
+            </Submit>
             <output>
               {status === "error" && <p>{t("sign_in.error_message")}</p>}
             </output>
