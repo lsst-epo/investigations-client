@@ -89,24 +89,26 @@ There are separate `useTranslation` hooks for client and server components. `lib
 All CMS content is localized using CraftCMS. Craft has separate sites defined for each locale that can be accessed during editing. In GraphQL queries, `site` is the parameter passed to Craft that will determine which locale to retrieve. For the default locale, the site is named `default` and for other locales it uses the two digit locale identifier.
 
 ```typescript
-export async function getEntryDataByUri(uri, site = "default", previewToken) {
-  const query = gql`
-    ${homepageFragment}
-    ${pageFragment}
-    ${allPageBlocksFragment}
-      {
-        entry (site: "${site}", uri: "${uri}") {
-          ...homepageFragment
-          ...pageFragment
-        }
-      }
-    `;
-  const data = await queryAPI({ query, previewToken });
-  return data.entry;
-}
+const site = locale === "en" ? "default" : locale;
+const uri = `${investigation}/${uriSegments.join("/")}`;
+const { data } = await queryAPI({
+    query: Query,
+    variables: {
+      site: [site],
+      uri: [uri],
+    },
+  });
+```
 
-getEntryDataByUri("__home__"); // will retrieve the English homepage content
-getEntryDataByUri("__home__", "es"); // will retrieve the Spanish homepage content
+## GraphQL Codegen & TypeScript
+
+This site uses [GraphQL Codegen](https://the-guild.dev/graphql/codegen) to generate static types for data sent to and received from Craft's headless API. In short, GraphQL Codegen downloads and stores the schema from the API, then observes request definitions in components and integrates with TypeScript to type the response. Use `yarn codegen` to run these two processes. There is also a watcher that can be used, but this isn't set up currently.
+
+Configuration is defined in `/codegen.ts`. A secret token is required to fetch any private schemas; this can be generated in the Craft backend and stored as an environment variable. For currently required schema tokens, see `/.env.local.sample`.
+
+To avoid type conflicts, GraphQL Codegen should be configured to observe separate files for each schema. The current configuration is to use the public schema by default, then store components that have queries or fragments for private schemas in clearly-marked subfolders (e.g. `/components/student-schema/`). See the `generates` property in `/codegen.ts` for specifics. Components and Server Actions also need to make sure they import the `graphql()` function from the correct location; for instance:
+```typescript
+import { graphql } from "@/gql/public-schema";
 ```
 
 ## Running the client within a Docker container
