@@ -30,6 +30,7 @@ const documents = {
     "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInEducatorDocument,
     "\n  mutation RegisterEducator(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerEducators(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterEducatorDocument,
     "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterStudentDocument,
+    "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n": types.RefreshTokenDocument,
     "\n  fragment BarGraphToolBlock on contentBlocks_barGraphTool_BlockType {\n    title\n    yAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    graphBars {\n      ... on graphBars_bar_BlockType {\n        __typename\n        yValue\n        label\n      }\n    }\n  }\n": types.BarGraphToolBlockFragmentDoc,
     "\n  fragment ColorToolBlock on contentBlocks_colorTool_BlockType {\n    __typename\n    colorToolTemplate\n    readOnly\n    images {\n      ... on images_imageGroup_BlockType {\n        __typename\n        uri\n      }\n    }\n  }\n": types.ColorToolBlockFragmentDoc,
     "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    preSelectedColor\n    readOnly\n  }\n": types.FilterToolBlockFragmentDoc,
@@ -132,6 +133,10 @@ export function graphql(source: "\n  mutation RegisterEducator(\n    $email: Str
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

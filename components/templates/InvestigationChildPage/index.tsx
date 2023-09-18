@@ -7,6 +7,7 @@ import { Buttonish } from "@rubin-epo/epo-react-lib";
 import HeaderProgress from "@/components/page/HeaderProgress";
 import { useTranslation } from "@/lib/i18n/client";
 import SaveForm from "@/components/answers/SaveForm/SaveForm";
+import { getUserFromJwt } from "@/components/auth/serverHelpers";
 
 type ProgressSections = React.ComponentPropsWithoutRef<
   typeof HeaderProgress
@@ -14,6 +15,7 @@ type ProgressSections = React.ComponentPropsWithoutRef<
 
 const InvestigationChildPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
+  user?: ReturnType<typeof getUserFromJwt>;
   children?: React.ReactNode;
 }> = (props) => {
   const { t } = useTranslation();
@@ -100,9 +102,9 @@ const InvestigationChildPage: FunctionComponent<{
           (block, i) => block && <ContentBlockFactory key={i} data={block} />
         )}
       </Container>
-      {data.hasSavePoint && (
+      {data.hasSavePoint && props.user && (
         <Container>
-          <SaveForm investigationId={data.parent?.id} />
+          <SaveForm investigationId={data.parent?.id} user={props.user} />
         </Container>
       )}
       <Container>

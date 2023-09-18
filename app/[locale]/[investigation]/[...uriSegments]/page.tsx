@@ -55,17 +55,12 @@ const UriSegments: (props: {
     notFound();
   }
 
-  // return data?.entry ? <TemplateFactory data={data.entry} /> : notFound();
-
-  const { craftToken, craftRefreshToken, craftUserStatus } = getAuthCookies();
-
-  // if stored refresh token has expired, redirect to investigation landing page
-  // if (!craftRefreshToken) redirect(`/${investigation}`);
+  const { craftToken, craftUserStatus } = await getAuthCookies();
 
   const user = getUserFromJwt(craftToken);
 
   return (
-    <InvestigationChildPageTemplate data={data.entry}>
+    <InvestigationChildPageTemplate data={data.entry} user={user}>
       {user && (
         <>
           <p>User: {JSON.stringify(user)}</p>

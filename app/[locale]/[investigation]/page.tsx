@@ -27,7 +27,7 @@ const InvestigationLanding: (
     notFound();
   }
 
-  const { craftToken, craftUserStatus } = getAuthCookies();
+  const { craftToken, craftUserStatus } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
 
   return (

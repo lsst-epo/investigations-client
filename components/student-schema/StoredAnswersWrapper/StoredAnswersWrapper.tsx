@@ -12,7 +12,7 @@ export default async function StoredAnswersWrapper({
   investigationId: InvestigationId;
   children: React.ReactNode;
 }) {
-  const { craftToken, craftUserId } = getAuthCookies();
+  const { craftToken, craftUserId } = await getAuthCookies();
 
   const { data } = await queryAPI({
     query: StoredAnswersQuery,

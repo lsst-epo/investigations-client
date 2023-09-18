@@ -48,7 +48,7 @@ const InvestigationLandingLayout: (
     },
   });
 
-  const { craftToken } = getAuthCookies();
+  const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
