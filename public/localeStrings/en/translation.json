@@ -327,7 +327,10 @@
       "label": "Save answers",
       "submit": "Save your work",
       "submit_pending": "Saving…",
-      "error_message": "There was an error saving your answers to your account."
+      "success_message": "Answers saved!",
+      "empty_error_message": "No new answers to save.",
+      "refresh_error_message": "Your session has expired. Please log back in and try again.",
+      "mutation_error_message": "There was an error saving your answers to your account."
     }
   },
   "review": {

@@ -12,7 +12,7 @@ export default async function StoredAnswersWrapper({
   investigationId: InvestigationId;
   children: React.ReactNode;
 }) {
-  const { craftUserId } = getAuthCookies();
+  const { craftToken, craftUserId } = await getAuthCookies();
 
   const { data } = await queryAPI({
     query: StoredAnswersQuery,
@@ -20,6 +20,7 @@ export default async function StoredAnswersWrapper({
       userId: craftUserId,
       investigationId,
     },
+    token: craftToken,
   });
 
   // TODO: replace temporary type assertion due to codegen not typing response correctly

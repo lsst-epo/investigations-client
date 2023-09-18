@@ -5,5 +5,5 @@ type QuestionId = string;
 export type InvestigationId = string | null | undefined;
 
 export type Answers = {
-  [key: QuestionId]: AnswerInterface;
+  [key: QuestionId]: Pick<AnswerInterface, "data" | "questionId" | "id">;
 };
