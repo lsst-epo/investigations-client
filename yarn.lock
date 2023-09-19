@@ -3291,7 +3291,7 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@2.0.0", "@rubin-epo/epo-react-lib@^2.0.0":
+"@rubin-epo/epo-react-lib@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.0.tgz#9bceb353200f38853aaf5e406a75d37d09d8b6da"
   integrity sha512-zTWQdf7hEtuEPt2ZFVVUfYvxAApbeVa6jpRj5x9DBFHgAMLp1c/bZBc/Dc5OjUdFl287NmSfipRU3tcnGl2NBQ==
