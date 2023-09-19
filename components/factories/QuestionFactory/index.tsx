@@ -4,11 +4,26 @@ import InlineQuestion from "@/components/questions/InlineQuestion";
 import SimpleQuestion from "@/components/questions/SimpleQuestion";
 import TabularQuestion from "@/components/questions/TabularQuestion";
 
+const Fragment = graphql(`
+  fragment QuestionFactory on questions_default_Entry {
+    answerType
+    answerOptions {
+      ... on answerOptions_option_BlockType {
+        label: optionLabel
+        value: optionValue
+      }
+    }
+    id
+    questionText
+  }
+`);
+
 export interface QuestionProps {
   data: FragmentType<typeof Fragment>;
   config?: any;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
   simple: SimpleQuestion,
   inline: InlineQuestion,
@@ -44,17 +59,3 @@ const QuestionFactory: FunctionComponent<QuestionProps> = (props) => {
 QuestionFactory.displayName = "Factory.Question";
 
 export default QuestionFactory;
-
-const Fragment = graphql(`
-  fragment QuestionFactory on questions_default_Entry {
-    answerType
-    answerOptions {
-      ... on answerOptions_option_BlockType {
-        label: optionLabel
-        value: optionValue
-      }
-    }
-    id
-    questionText
-  }
-`);

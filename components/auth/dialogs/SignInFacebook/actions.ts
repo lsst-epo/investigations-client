@@ -6,6 +6,14 @@ import { graphql, useFragment } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 
+const StudentMutation = graphql(`
+  mutation FacebookSignInStudent($code: String!) {
+    facebookSignInStudents(code: $code) {
+      ...AuthFragment
+    }
+  }
+`);
+
 export async function authenticateStudent(
   code: string,
   pathToRevalidate?: string
@@ -35,6 +43,14 @@ export async function authenticateStudent(
   }
 }
 
+const EducatorMutation = graphql(`
+  mutation FacebookSignInEducator($code: String!) {
+    facebookSignInEducators(code: $code) {
+      ...AuthFragment
+    }
+  }
+`);
+
 export async function authenticateEducator(
   code: string,
   pathToRevalidate?: string
@@ -63,19 +79,3 @@ export async function authenticateEducator(
     throw new Error(error.message);
   }
 }
-
-const StudentMutation = graphql(`
-  mutation FacebookSignInStudent($code: String!) {
-    facebookSignInStudents(code: $code) {
-      ...AuthFragment
-    }
-  }
-`);
-
-const EducatorMutation = graphql(`
-  mutation FacebookSignInEducator($code: String!) {
-    facebookSignInEducators(code: $code) {
-      ...AuthFragment
-    }
-  }
-`);

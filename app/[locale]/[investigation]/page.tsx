@@ -10,6 +10,15 @@ import {
 import { queryAPI } from "@/lib/fetch";
 import InvestigationLandingPageTemplate from "@/components/templates/InvestigationLandingPage";
 
+const Query = graphql(`
+  query InvestigationPage($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      __typename
+      ...InvestigationLandingPageTemplate
+    }
+  }
+`);
+
 const InvestigationLanding: (
   props: InvestigationLandingProps
 ) => Promise<JSX.Element> = async ({ params: { locale, investigation } }) => {
@@ -50,12 +59,3 @@ const InvestigationLanding: (
 };
 
 export default InvestigationLanding;
-
-const Query = graphql(`
-  query InvestigationPage($site: [String], $uri: [String]) {
-    entry(site: $site, uri: $uri) {
-      __typename
-      ...InvestigationLandingPageTemplate
-    }
-  }
-`);

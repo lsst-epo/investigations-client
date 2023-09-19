@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const WideWidthContainer = styled.div`
-  max-width: 2000px;
   width: 100%;
-  margin-left: auto;
+  max-width: 2000px;
   margin-right: auto;
+  margin-left: auto;
 `;

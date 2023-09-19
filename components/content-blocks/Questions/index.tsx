@@ -4,6 +4,16 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import QuestionFactory from "@/components/factories/QuestionFactory";
 import * as Styled from "./styles";
 
+const Fragment = graphql(`
+  fragment QuestionsBlock on contentBlocks_questionBlock_BlockType {
+    questionEntries {
+      __typename
+      id
+      ...QuestionFactory
+    }
+  }
+`);
+
 export default function QuestionsContentBlock(props: {
   data: FragmentType<typeof Fragment>;
   interaction?: boolean;
@@ -36,13 +46,3 @@ export default function QuestionsContentBlock(props: {
 }
 
 QuestionsContentBlock.displayName = "ContentBlock.Questions";
-
-const Fragment = graphql(`
-  fragment QuestionsBlock on contentBlocks_questionBlock_BlockType {
-    questionEntries {
-      __typename
-      id
-      ...QuestionFactory
-    }
-  }
-`);

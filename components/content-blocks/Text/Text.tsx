@@ -4,6 +4,12 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import { FunctionComponent } from "react";
 import * as Styled from "./styles";
 
+const Fragment = graphql(`
+  fragment TextBlock on contentBlocks_text_BlockType {
+    text
+  }
+`);
+
 interface TextProps extends BaseContentBlockProps {
   data: FragmentType<typeof Fragment>;
 }
@@ -32,9 +38,3 @@ const TextContentBlock: FunctionComponent<TextProps> = (props) => {
 TextContentBlock.displayName = "ContentBlock.Text";
 
 export default TextContentBlock;
-
-const Fragment = graphql(`
-  fragment TextBlock on contentBlocks_text_BlockType {
-    text
-  }
-`);

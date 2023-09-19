@@ -43,6 +43,11 @@ const TabbedSelector: FunctionComponent<
   const { t } = useTranslation();
   const tabRefs = useRef<HTMLButtonElement[]>([]);
 
+  const focusIndex = (i: number) => {
+    const tab = tabRefs.current[i];
+    tab && tab.focus();
+  };
+
   const handleClick = (i: number) => {
     onChangeCallback && onChangeCallback(i);
   };
@@ -52,11 +57,6 @@ const TabbedSelector: FunctionComponent<
   const prevTab = () => focusIndex((activeIndex - 1 + count) % count);
   const firstTab = () => focusIndex(0);
   const lastTab = () => focusIndex(count - 1);
-
-  const focusIndex = (i: number) => {
-    const tab = tabRefs.current[i];
-    tab && tab.focus();
-  };
 
   // onKeyDown handler for tab elements
   const onKeyDown = (event: KeyboardEvent) => {

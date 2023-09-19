@@ -2,6 +2,17 @@ import { Container } from "@rubin-epo/epo-react-lib";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 
+const Fragment = graphql(`
+  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {
+    childBlocks: children {
+      __typename
+      id
+      ...BarGraphToolBlock
+      ...ScatterplotToolBlock
+    }
+  }
+`);
+
 export default function WidgetContainerBlock(props: {
   data: FragmentType<typeof Fragment>;
 }) {
@@ -30,14 +41,3 @@ export default function WidgetContainerBlock(props: {
 }
 
 WidgetContainerBlock.displayName = "ContentBlock.WidgetContainer";
-
-const Fragment = graphql(`
-  fragment WidgetContainerBlock on contentBlocks_widgetContainer_BlockType {
-    childBlocks: children {
-      __typename
-      id
-      ...BarGraphToolBlock
-      ...ScatterplotToolBlock
-    }
-  }
-`);
