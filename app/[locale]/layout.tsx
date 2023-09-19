@@ -11,7 +11,6 @@ import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
 import Body from "@/global/Body";
-import Header from "@/global/Header";
 
 export interface RootLayoutParams {
   locale: string;
@@ -101,7 +100,6 @@ const RootLayout: (
             <GlobalStyles includeFonts={false} />
             <GlobalDataProvider data={globalData}>
               <Body>
-                <Header />
                 {children}
               </Body>
             </GlobalDataProvider>

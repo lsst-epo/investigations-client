@@ -1,41 +1,44 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
-import * as Styled from "./styles";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "@/lib/i18n/client";
-
-export interface HeaderSection {
-  name: string;
-  order: number;
-  pages: number[];
-}
+import ProgressContext from "@/contexts/Progress";
+import * as Styled from "./styles";
 
 interface HeaderProgressProps {
-  currentPage: number;
-  totalPages: number;
-  sections: HeaderSection[];
   labelledById?: string;
+  backgroundColor?: string;
+  padding?: boolean;
 }
 
 const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
-  currentPage,
-  totalPages,
-  sections,
   labelledById,
+  backgroundColor = "var(--neutral10, #f5f5f5)",
+  padding = true,
 }) => {
   const { locale = "en-US" } = useRouter();
   const { t } = useTranslation();
+  const { sections, totalPages, currentPageNumber } =
+    useContext(ProgressContext);
 
   return (
-    <Styled.HeaderProgress aria-labelledby={labelledById} role="list">
+    <Styled.HeaderProgress
+      $backgroundColor={backgroundColor}
+      $padding={padding}
+      aria-labelledby={labelledById}
+      role="list"
+    >
       <ScreenreaderText aria-live="polite">
-        {t("pager.page-count", { current: currentPage, total: totalPages })}
+        {t("pager.page-count", {
+          current: currentPageNumber,
+          total: totalPages,
+        })}
       </ScreenreaderText>
       {sections.map(({ name, order, pages }, i) => {
         const firstPage = pages[0];
         const lastPage = pages[pages.length - 1];
-        const isActive = pages.includes(currentPage);
+        const isActive = pages.includes(currentPageNumber);
         const isLastSection = lastPage === totalPages;
         const labelId = `section-${order || i}`;
 
@@ -49,11 +52,13 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
             <Styled.ProgressBar
               min={firstPage}
               max={lastPage}
-              value={currentPage < firstPage ? undefined : currentPage}
+              value={
+                currentPageNumber < firstPage ? undefined : currentPageNumber
+              }
               markerFormatter={() =>
                 Intl.NumberFormat(locale, {
                   style: "percent",
-                }).format(currentPage / totalPages)
+                }).format(currentPageNumber / totalPages)
               }
               labelledById={labelId}
               markerConfig={{

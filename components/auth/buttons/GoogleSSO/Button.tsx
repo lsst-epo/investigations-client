@@ -16,11 +16,12 @@ export default function SSOButton({
 
   const pathToRevalidate = usePathToRevalidate();
 
+  function handleError() {
+    console.error("error");
+    onSignInError();
+  }
+
   async function handleSuccess(credentialResponse: GoogleCredentialResponse) {
-    function handleError() {
-      console.error("error");
-      onSignInError();
-    }
 
     try {
       if (!credentialResponse.credential) return handleError();
