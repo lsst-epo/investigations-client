@@ -32,7 +32,7 @@ export type Address = AddressInterface & ElementInterface & {
   addressLine2?: Maybe<Scalars['String']['output']>;
   /** Administrative area. */
   administrativeArea?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Two-letter country code */
   countryCode: Scalars['String']['output'];
@@ -42,7 +42,7 @@ export type Address = AddressInterface & ElementInterface & {
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** Dependent locality */
   dependentLocality?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The first name on the address. */
   firstName?: Maybe<Scalars['String']['output']>;
@@ -64,6 +64,8 @@ export type Address = AddressInterface & ElementInterface & {
   organization?: Maybe<Scalars['String']['output']>;
   /** Organization tax ID */
   organizationTaxId?: Maybe<Scalars['String']['output']>;
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** Postal code */
   postalCode?: Maybe<Scalars['String']['output']>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
@@ -82,7 +84,7 @@ export type Address = AddressInterface & ElementInterface & {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -105,7 +107,7 @@ export type AddressInterface = {
   addressLine2?: Maybe<Scalars['String']['output']>;
   /** Administrative area. */
   administrativeArea?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Two-letter country code */
   countryCode: Scalars['String']['output'];
@@ -115,7 +117,7 @@ export type AddressInterface = {
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** Dependent locality */
   dependentLocality?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The first name on the address. */
   firstName?: Maybe<Scalars['String']['output']>;
@@ -137,6 +139,8 @@ export type AddressInterface = {
   organization?: Maybe<Scalars['String']['output']>;
   /** Organization tax ID */
   organizationTaxId?: Maybe<Scalars['String']['output']>;
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** Postal code */
   postalCode?: Maybe<Scalars['String']['output']>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
@@ -155,7 +159,7 @@ export type AddressInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -173,7 +177,7 @@ export type AddressInterface_CountArgs = {
 export type AnswerInterface = {
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Content of the user's answer */
   data?: Maybe<Scalars['String']['output']>;
@@ -181,7 +185,7 @@ export type AnswerInterface = {
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
@@ -205,7 +209,7 @@ export type AnswerInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -310,7 +314,7 @@ export type AssetInterface = {
   _count?: Maybe<Scalars['Int']['output']>;
   /** Alternative text for the asset. */
   alt?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
@@ -318,7 +322,7 @@ export type AssetInterface = {
   dateModified?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The file extension for the asset file. */
   extension: Scalars['String']['output'];
@@ -368,7 +372,7 @@ export type AssetInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -548,11 +552,12 @@ export type AssetInterfaceWidthArgs = {
 
 export type Auth = {
   __typename?: 'Auth';
-  jwt: Scalars['String']['output'];
-  jwtExpiresAt: Scalars['Float']['output'];
-  refreshToken: Scalars['String']['output'];
-  refreshTokenExpiresAt: Scalars['Float']['output'];
-  schema: Scalars['String']['output'];
+  jwt?: Maybe<Scalars['String']['output']>;
+  jwtExpiresAt?: Maybe<Scalars['Float']['output']>;
+  refreshToken?: Maybe<Scalars['String']['output']>;
+  refreshTokenExpiresAt?: Maybe<Scalars['Float']['output']>;
+  requiresTwoFactor?: Maybe<Scalars['Boolean']['output']>;
+  schema?: Maybe<Scalars['String']['output']>;
   user?: Maybe<UserInterface>;
 };
 
@@ -816,7 +821,7 @@ export type CategoryInterface = {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The category’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<CategoryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The category’s children. */
   children: Array<CategoryInterface>;
@@ -826,7 +831,7 @@ export type CategoryInterface = {
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** The category’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
   descendants: Array<CategoryInterface>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the group that contains the category. */
   groupHandle: Scalars['String']['output'];
@@ -868,7 +873,7 @@ export type CategoryInterface = {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -1217,13 +1222,13 @@ export type Element = ElementInterface & {
   __typename?: 'Element';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
@@ -1243,7 +1248,7 @@ export type Element = ElementInterface & {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -1260,13 +1265,13 @@ export type Element_CountArgs = {
 export type ElementInterface = {
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
@@ -1286,7 +1291,7 @@ export type ElementInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -1419,7 +1424,7 @@ export type EntryInterface = {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -1439,8 +1444,10 @@ export type EntryInterface = {
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
@@ -1505,7 +1512,7 @@ export type EntryInterface = {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -1993,13 +2000,13 @@ export type ForPageInput = {
 export type GlobalSetInterface = {
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the global set. */
   handle: Scalars['String']['output'];
@@ -2023,7 +2030,7 @@ export type GlobalSetInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -2041,13 +2048,13 @@ export type GlobalSetInterface_CountArgs = {
 export type MatrixBlockInterface = {
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
@@ -2073,7 +2080,7 @@ export type MatrixBlockInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the matrix block’s type. */
   typeHandle: Scalars['String']['output'];
@@ -2267,13 +2274,13 @@ export type MutationUpdateViewerArgs = {
 export type NeoBlockInterface = {
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -2301,7 +2308,7 @@ export type NeoBlockInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -3229,7 +3236,7 @@ export type User = ElementInterface & UserInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The user’s addresses. */
   addresses?: Maybe<Array<Maybe<AddressInterface>>>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
@@ -3237,7 +3244,7 @@ export type User = ElementInterface & UserInterface & {
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** The user’s email. */
   email?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The user’s first name. */
   firstName?: Maybe<Scalars['String']['output']>;
@@ -3253,6 +3260,8 @@ export type User = ElementInterface & UserInterface & {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -3271,7 +3280,7 @@ export type User = ElementInterface & UserInterface & {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -3400,7 +3409,7 @@ export type UserInterface = {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The user’s addresses. */
   addresses?: Maybe<Array<Maybe<AddressInterface>>>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
@@ -3408,7 +3417,7 @@ export type UserInterface = {
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** The user’s email. */
   email?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The user’s first name. */
   firstName?: Maybe<Scalars['String']['output']>;
@@ -3424,6 +3433,8 @@ export type UserInterface = {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -3442,7 +3453,7 @@ export type UserInterface = {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -3535,13 +3546,13 @@ export type AnswerOptions_Option_BlockType = ElementInterface & MatrixBlockInter
   __typename?: 'answerOptions_option_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
@@ -3569,7 +3580,7 @@ export type AnswerOptions_Option_BlockType = ElementInterface & MatrixBlockInter
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the matrix block’s type. */
   typeHandle: Scalars['String']['output'];
@@ -3592,7 +3603,7 @@ export type ContentAssets_Asset = AssetInterface & ElementInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** Alternative text for the asset. */
   alt?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   availableFilters?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   /** The date the element was created. */
@@ -3602,7 +3613,7 @@ export type ContentAssets_Asset = AssetInterface & ElementInterface & {
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   displayName?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The file extension for the asset file. */
   extension: Scalars['String']['output'];
@@ -3652,7 +3663,7 @@ export type ContentAssets_Asset = AssetInterface & ElementInterface & {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -3827,19 +3838,19 @@ export type ContentAssets_AssetWidthArgs = {
   width?: InputMaybe<Scalars['Int']['input']>;
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorTool_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_WidgetContainer_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorTool_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_WidgetContainer_BlockType;
 
 export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_barGraphTool_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -3869,7 +3880,7 @@ export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockIn
   text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -3928,7 +3939,7 @@ export type ContentBlocks_ColLeft_BlockType = ElementInterface & NeoBlockInterfa
   __typename?: 'contentBlocks_colLeft_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The child block types for this Neo block */
   children?: Maybe<Array<Maybe<NeoBlockInterface>>>;
@@ -3936,7 +3947,7 @@ export type ContentBlocks_ColLeft_BlockType = ElementInterface & NeoBlockInterfa
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -3964,7 +3975,7 @@ export type ContentBlocks_ColLeft_BlockType = ElementInterface & NeoBlockInterfa
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -3985,7 +3996,7 @@ export type ContentBlocks_ColRight_BlockType = ElementInterface & NeoBlockInterf
   __typename?: 'contentBlocks_colRight_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The child block types for this Neo block */
   children?: Maybe<Array<Maybe<NeoBlockInterface>>>;
@@ -3993,7 +4004,7 @@ export type ContentBlocks_ColRight_BlockType = ElementInterface & NeoBlockInterf
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4021,7 +4032,7 @@ export type ContentBlocks_ColRight_BlockType = ElementInterface & NeoBlockInterf
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4042,14 +4053,14 @@ export type ContentBlocks_ColorTool_BlockType = ElementInterface & NeoBlockInter
   __typename?: 'contentBlocks_colorTool_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   colorToolTemplate?: Maybe<Scalars['String']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4081,7 +4092,7 @@ export type ContentBlocks_ColorTool_BlockType = ElementInterface & NeoBlockInter
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4163,13 +4174,13 @@ export type ContentBlocks_FilterTool_BlockType = ElementInterface & NeoBlockInte
   __typename?: 'contentBlocks_filterTool_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4199,7 +4210,7 @@ export type ContentBlocks_FilterTool_BlockType = ElementInterface & NeoBlockInte
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4225,7 +4236,7 @@ export type ContentBlocks_Group_BlockType = ElementInterface & NeoBlockInterface
   __typename?: 'contentBlocks_group_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The child block types for this Neo block */
   children?: Maybe<Array<Maybe<NeoBlockInterface>>>;
@@ -4233,7 +4244,7 @@ export type ContentBlocks_Group_BlockType = ElementInterface & NeoBlockInterface
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4261,7 +4272,7 @@ export type ContentBlocks_Group_BlockType = ElementInterface & NeoBlockInterface
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4278,17 +4289,97 @@ export type ContentBlocks_Group_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
+export type ContentBlocks_Image_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_image_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  captionRichText?: Maybe<Scalars['String']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** Canto Dam Asset field */
+  image?: Maybe<Array<Maybe<CantoDamAssetInterface>>>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId?: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContentBlocks_Image_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type ContentBlocks_Image_BlockTypeImageArgs = {
+  except?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  first?: InputMaybe<Scalars['Boolean']['input']>;
+  forPage?: InputMaybe<ForPageInput>;
+  last?: InputMaybe<Scalars['Boolean']['input']>;
+  nth?: InputMaybe<Scalars['Int']['input']>;
+  random?: InputMaybe<Scalars['Int']['input']>;
+  reverse?: InputMaybe<Scalars['Boolean']['input']>;
+  shuffle?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  where?: InputMaybe<WhereFiltersInput>;
+  whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereIn?: InputMaybe<WhereInFiltersInput>;
+  whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
+  whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
+  whereNotNull?: InputMaybe<Scalars['String']['input']>;
+  whereNull?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ContentBlocks_QuestionBlock_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_questionBlock_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4317,7 +4408,7 @@ export type ContentBlocks_QuestionBlock_BlockType = ElementInterface & NeoBlockI
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4401,13 +4492,13 @@ export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBloc
   __typename?: 'contentBlocks_scatterplotTool_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4437,7 +4528,7 @@ export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBloc
   text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4496,13 +4587,13 @@ export type ContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface 
   __typename?: 'contentBlocks_text_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4531,7 +4622,7 @@ export type ContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface 
   text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4552,7 +4643,7 @@ export type ContentBlocks_TwoColumnContainer_BlockType = ElementInterface & NeoB
   __typename?: 'contentBlocks_twoColumnContainer_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The child block types for this Neo block */
   children?: Maybe<Array<Maybe<NeoBlockInterface>>>;
@@ -4560,7 +4651,7 @@ export type ContentBlocks_TwoColumnContainer_BlockType = ElementInterface & NeoB
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4588,7 +4679,7 @@ export type ContentBlocks_TwoColumnContainer_BlockType = ElementInterface & NeoB
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4609,7 +4700,7 @@ export type ContentBlocks_WidgetContainer_BlockType = ElementInterface & NeoBloc
   __typename?: 'contentBlocks_widgetContainer_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The child block types for this Neo block */
   children?: Maybe<Array<Maybe<NeoBlockInterface>>>;
@@ -4617,7 +4708,7 @@ export type ContentBlocks_WidgetContainer_BlockType = ElementInterface & NeoBloc
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the Neo block. */
   fieldId?: Maybe<Scalars['Int']['output']>;
@@ -4645,7 +4736,7 @@ export type ContentBlocks_WidgetContainer_BlockType = ElementInterface & NeoBloc
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the Neo block’s type. */
   typeHandle?: Maybe<Scalars['String']['output']>;
@@ -4668,13 +4759,13 @@ export type GraphBars_Bar_BlockType = ElementInterface & MatrixBlockInterface & 
   __typename?: 'graphBars_bar_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
@@ -4701,7 +4792,7 @@ export type GraphBars_Bar_BlockType = ElementInterface & MatrixBlockInterface & 
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the matrix block’s type. */
   typeHandle: Scalars['String']['output'];
@@ -4727,7 +4818,7 @@ export type Homepage_Homepage_Entry = ElementInterface & EntryInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -4749,8 +4840,10 @@ export type Homepage_Homepage_Entry = ElementInterface & EntryInterface & {
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
@@ -4816,7 +4909,7 @@ export type Homepage_Homepage_Entry = ElementInterface & EntryInterface & {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -5322,13 +5415,13 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
   __typename?: 'images_imageGroup_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
@@ -5356,7 +5449,7 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the matrix block’s type. */
   typeHandle: Scalars['String']['output'];
@@ -5426,7 +5519,7 @@ export type Investigations_Default_Entry = ElementInterface & EntryInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -5447,8 +5540,10 @@ export type Investigations_Default_Entry = ElementInterface & EntryInterface & {
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   hasSavePoint?: Maybe<Scalars['Boolean']['output']>;
@@ -5514,7 +5609,7 @@ export type Investigations_Default_Entry = ElementInterface & EntryInterface & {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -6015,7 +6110,7 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -6035,8 +6130,10 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
@@ -6103,7 +6200,7 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -6606,7 +6703,7 @@ export type Pages_Pages_Entry = ElementInterface & EntryInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -6627,8 +6724,10 @@ export type Pages_Pages_Entry = ElementInterface & EntryInterface & {
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   hideTitle?: Maybe<Scalars['Boolean']['output']>;
@@ -6695,7 +6794,7 @@ export type Pages_Pages_Entry = ElementInterface & EntryInterface & {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -7201,7 +7300,7 @@ export type Pages_RedirectPage_Entry = ElementInterface & EntryInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -7221,8 +7320,10 @@ export type Pages_RedirectPage_Entry = ElementInterface & EntryInterface & {
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   hideTitle?: Maybe<Scalars['Boolean']['output']>;
@@ -7289,7 +7390,7 @@ export type Pages_RedirectPage_Entry = ElementInterface & EntryInterface & {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -7759,7 +7860,7 @@ export type Questions_Default_Entry = ElementInterface & EntryInterface & {
   ancestors: Array<EntryInterface>;
   answerOptions: Array<Maybe<AnswerOptions_MatrixField>>;
   answerType?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
@@ -7779,8 +7880,10 @@ export type Questions_Default_Entry = ElementInterface & EntryInterface & {
   draftName?: Maybe<Scalars['String']['output']>;
   /** The notes for the draft. */
   draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
@@ -7846,7 +7949,7 @@ export type Questions_Default_Entry = ElementInterface & EntryInterface & {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the entry type that contains the entry. */
   typeHandle: Scalars['String']['output'];
@@ -8351,13 +8454,13 @@ export type ScatterplotItems_Item_BlockType = ElementInterface & MatrixBlockInte
   __typename?: 'scatterplotItems_item_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
@@ -8384,7 +8487,7 @@ export type ScatterplotItems_Item_BlockType = ElementInterface & MatrixBlockInte
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the matrix block’s type. */
   typeHandle: Scalars['String']['output'];
@@ -8407,13 +8510,13 @@ export type SiteInfo_GlobalSet = ElementInterface & GlobalSetInterface & {
   __typename?: 'siteInfo_GlobalSet';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the global set. */
   handle: Scalars['String']['output'];
@@ -8439,7 +8542,7 @@ export type SiteInfo_GlobalSet = ElementInterface & GlobalSetInterface & {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
@@ -8458,7 +8561,7 @@ export type SortOptions_Category = CategoryInterface & ElementInterface & {
   _count?: Maybe<Scalars['Int']['output']>;
   /** The category’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<CategoryInterface>;
-  /** Whether the element is archived or not. */
+  /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The category’s children. */
   children: Array<CategoryInterface>;
@@ -8468,7 +8571,7 @@ export type SortOptions_Category = CategoryInterface & ElementInterface & {
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** The category’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
   descendants: Array<CategoryInterface>;
-  /** Whether the element is enabled or not. */
+  /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** The handle of the group that contains the category. */
   groupHandle: Scalars['String']['output'];
@@ -8510,7 +8613,7 @@ export type SortOptions_Category = CategoryInterface & ElementInterface & {
   structureId?: Maybe<Scalars['Int']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted or not. */
+  /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
