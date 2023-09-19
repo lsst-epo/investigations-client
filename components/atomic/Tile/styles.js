@@ -19,13 +19,15 @@ export const StyledMixedLink = styled(MixedLink)`
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  text-decoration: none;
   grid-gap: 10px;
-
-  padding: 0;
   align-content: start;
+  padding: 0;
+  text-decoration: none;
 
-  // set the grid areas for various bits
+  /* HOVER STATES */
+  transition: color 0.2s, background-color 0.2s;
+
+  /* set the grid areas for various bits */
   .image {
     grid-area: image;
   }
@@ -131,8 +133,6 @@ export const StyledMixedLink = styled(MixedLink)`
         justify-self: left;
         text-align: left;
       }
-    }
-    @media (min-width: ${BREAK_PHABLET_MIN}) and (max-width: ${BREAK_TABLET}) {
     }
   }
 
@@ -429,11 +429,7 @@ export const StyledMixedLink = styled(MixedLink)`
     }
 
     @media (max-width: ${BREAK_PHABLET}) {
-      grid-template-areas:
-        "pretitle footer subtitle"
-        "title title subtitle";
-      grid-template-rows: max-content auto;
-      grid-template-columns: 1fr max-content max-content;
+      grid-template: "pretitle footer subtitle" max-content "title title subtitle" auto / 1fr max-content max-content;
 
       .image {
         display: none;
@@ -785,9 +781,6 @@ export const StyledMixedLink = styled(MixedLink)`
     }
   }
 
-  /* HOVER STATES */
-  transition: color 0.2s, background-color 0.2s;
-
   &.pages:hover,
   &.pages:focus-visible,
   &.darkSlide:hover,
@@ -848,14 +841,14 @@ export const StyledMixedLink = styled(MixedLink)`
 
 export const PlayButton = styled.span`
   position: absolute;
-  display: block;
-  width: 6%;
-  height: auto;
-  min-width: 40px;
-  min-height: 40px;
-  color: var(--white);
   top: 50%;
   left: 50%;
+  display: block;
+  width: 6%;
+  min-width: 40px;
+  height: auto;
+  min-height: 40px;
+  color: var(--white);
   transform: translate(-50%, -50%);
 
   &:hover {

@@ -7,6 +7,13 @@ export const simpleBlockMap: Record<string, any> = {
   contentBlocks_textBlock_BlockType: Text,
 };
 
+const Fragment = graphql(`
+  fragment SimpleContentBlockFactory on contentBlocks_NeoField {
+    __typename
+    ...TextBlock
+  }
+`);
+
 interface SimpleContentBlockFactoryProps {
   data: FragmentType<typeof Fragment>;
   pageId: string;
@@ -35,10 +42,3 @@ const SimpleContentBlockFactory: FunctionComponent<
 SimpleContentBlockFactory.displayName = "ContentBlocks.FactorySimple";
 
 export default SimpleContentBlockFactory;
-
-const Fragment = graphql(`
-  fragment SimpleContentBlockFactory on contentBlocks_NeoField {
-    __typename
-    ...TextBlock
-  }
-`);

@@ -17,6 +17,20 @@ export const blockMap: Record<string, any> = {
   // contentBlocks_modal_BlockType: Modal,
 };
 
+const Fragment = graphql(`
+  fragment ContentBlockFactory on contentBlocks_NeoField {
+    __typename
+    ...BarGraphToolBlock
+    ...ColorToolBlock
+    ...FilterToolBlock
+    ...QuestionsBlock
+    ...ScatterplotToolBlock
+    ...TextBlock
+    ...TwoColumnContainerBlock
+    ...WidgetContainerBlock
+  }
+`);
+
 interface ContentBlockFactoryProps {
   data: FragmentType<typeof Fragment>;
   pageId?: string;
@@ -53,17 +67,3 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = (
 ContentBlockFactory.displayName = "ContentBlocks.Factory";
 
 export default ContentBlockFactory;
-
-const Fragment = graphql(`
-  fragment ContentBlockFactory on contentBlocks_NeoField {
-    __typename
-    ...BarGraphToolBlock
-    ...ColorToolBlock
-    ...FilterToolBlock
-    ...QuestionsBlock
-    ...ScatterplotToolBlock
-    ...TextBlock
-    ...TwoColumnContainerBlock
-    ...WidgetContainerBlock
-  }
-`);

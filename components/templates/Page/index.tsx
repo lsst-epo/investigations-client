@@ -5,6 +5,16 @@ import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import QuestionsContentBlock from "@/components/content-blocks/Questions";
 
+const Fragment = graphql(`
+  fragment PageTemplate on pages_pages_Entry {
+    id
+    title
+    contentBlocks {
+      ...ContentBlockFactory
+    }
+  }
+`);
+
 const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
   props
 ) => {
@@ -26,13 +36,3 @@ const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
 Page.displayName = "Template.Page";
 
 export default Page;
-
-const Fragment = graphql(`
-  fragment PageTemplate on pages_pages_Entry {
-    id
-    title
-    contentBlocks {
-      ...ContentBlockFactory
-    }
-  }
-`);

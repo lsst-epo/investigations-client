@@ -2,6 +2,39 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 import * as Styled from "./styles";
 
+const Fragment = graphql(`
+  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {
+    columns: children {
+      ... on contentBlocks_colLeft_BlockType {
+        __typename
+        id
+        childblocks: children {
+          __typename
+          id
+          ...ColorToolBlock
+          ...FilterToolBlock
+          ...TextBlock
+          ...BarGraphToolBlock
+          ...ScatterplotToolBlock
+        }
+      }
+      ... on contentBlocks_colRight_BlockType {
+        __typename
+        id
+        childblocks: children {
+          __typename
+          id
+          ...ColorToolBlock
+          ...FilterToolBlock
+          ...TextBlock
+          ...BarGraphToolBlock
+          ...ScatterplotToolBlock
+        }
+      }
+    }
+  }
+`);
+
 export default function TwoColumnContainerBlock(props: {
   data: FragmentType<typeof Fragment>;
 }) {
@@ -38,36 +71,3 @@ export default function TwoColumnContainerBlock(props: {
 }
 
 TwoColumnContainerBlock.displayName = "ContentBlock.TwoColumnContainer";
-
-const Fragment = graphql(`
-  fragment TwoColumnContainerBlock on contentBlocks_twoColumnContainer_BlockType {
-    columns: children {
-      ... on contentBlocks_colLeft_BlockType {
-        __typename
-        id
-        childblocks: children {
-          __typename
-          id
-          ...ColorToolBlock
-          ...FilterToolBlock
-          ...TextBlock
-          ...BarGraphToolBlock
-          ...ScatterplotToolBlock
-        }
-      }
-      ... on contentBlocks_colRight_BlockType {
-        __typename
-        id
-        childblocks: children {
-          __typename
-          id
-          ...ColorToolBlock
-          ...FilterToolBlock
-          ...TextBlock
-          ...BarGraphToolBlock
-          ...ScatterplotToolBlock
-        }
-      }
-    }
-  }
-`);

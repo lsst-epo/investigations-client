@@ -23,6 +23,18 @@ function getVariables(formData: FormData) {
   };
 }
 
+const EducatorMutation = graphql(`
+  mutation RegisterEducator(
+    $email: String!
+    $password: String!
+    $fullName: String
+  ) {
+    registerEducators(email: $email, password: $password, fullName: $fullName) {
+      ...AuthFragment
+    }
+  }
+`);
+
 export async function registerEducator(formData: FormData) {
   const variables = getVariables(formData);
 
@@ -46,6 +58,18 @@ export async function registerEducator(formData: FormData) {
   }
 }
 
+const StudentMutation = graphql(`
+  mutation RegisterStudent(
+    $email: String!
+    $password: String!
+    $fullName: String
+  ) {
+    registerStudents(email: $email, password: $password, fullName: $fullName) {
+      ...AuthFragment
+    }
+  }
+`);
+
 export async function registerStudent(formData: FormData) {
   const variables = getVariables(formData);
 
@@ -65,27 +89,3 @@ export async function registerStudent(formData: FormData) {
     throw new Error(error.message);
   }
 }
-
-const EducatorMutation = graphql(`
-  mutation RegisterEducator(
-    $email: String!
-    $password: String!
-    $fullName: String
-  ) {
-    registerEducators(email: $email, password: $password, fullName: $fullName) {
-      ...AuthFragment
-    }
-  }
-`);
-
-const StudentMutation = graphql(`
-  mutation RegisterStudent(
-    $email: String!
-    $password: String!
-    $fullName: String
-  ) {
-    registerStudents(email: $email, password: $password, fullName: $fullName) {
-      ...AuthFragment
-    }
-  }
-`);

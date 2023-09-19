@@ -5,6 +5,16 @@ import { graphql } from "@/gql/student-schema";
 import type { Query } from "@/gql/student-schema/graphql";
 import type { InvestigationId } from "@/types/answers";
 
+const StoredAnswersQuery = graphql(`
+  query StoredAnswers($userId: ID, $investigationId: ID) {
+    answers(userId: $userId, investigationId: $investigationId) {
+      data
+      questionId
+      id
+    }
+  }
+`);
+
 export default async function StoredAnswersWrapper({
   investigationId,
   children,
@@ -33,13 +43,3 @@ export default async function StoredAnswersWrapper({
     </StoredAnswersProvider>
   );
 }
-
-const StoredAnswersQuery = graphql(`
-  query StoredAnswers($userId: ID, $investigationId: ID) {
-    answers(userId: $userId, investigationId: $investigationId) {
-      data
-      questionId
-      id
-    }
-  }
-`);

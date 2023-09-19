@@ -5,6 +5,32 @@ import { graphql } from "@/gql/student-schema";
 import { mutateAPI } from "@/lib/fetch";
 import { Answers, InvestigationId } from "@/types/answers";
 
+const CreateMutation = graphql(`
+  mutation CreateAnswer(
+    $userId: Int!
+    $questionId: Int!
+    $investigationId: Int!
+    $data: String
+  ) {
+    createAnswer(
+      userId: $userId
+      questionId: $questionId
+      investigationId: $investigationId
+      data: $data
+    ) {
+      questionId
+    }
+  }
+`);
+
+const SaveMutation = graphql(`
+  mutation SaveAnswer($answerId: Int!, $data: String) {
+    saveAnswer(id: $answerId, data: $data) {
+      questionId
+    }
+  }
+`);
+
 export default async function saveAnswers(
   investigationId: InvestigationId,
   answers: Answers
@@ -55,29 +81,3 @@ export default async function saveAnswers(
       throw new Error(error);
     });
 }
-
-const CreateMutation = graphql(`
-  mutation CreateAnswer(
-    $userId: Int!
-    $questionId: Int!
-    $investigationId: Int!
-    $data: String
-  ) {
-    createAnswer(
-      userId: $userId
-      questionId: $questionId
-      investigationId: $investigationId
-      data: $data
-    ) {
-      questionId
-    }
-  }
-`);
-
-const SaveMutation = graphql(`
-  mutation SaveAnswer($answerId: Int!, $data: String) {
-    saveAnswer(id: $answerId, data: $data) {
-      questionId
-    }
-  }
-`);
