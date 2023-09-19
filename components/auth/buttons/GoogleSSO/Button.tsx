@@ -17,6 +17,11 @@ export default function SSOButton({
   const pathToRevalidate = usePathToRevalidate();
 
   async function handleSuccess(credentialResponse: GoogleCredentialResponse) {
+    function handleError() {
+      console.error("error");
+      onSignInError();
+    }
+
     try {
       if (!credentialResponse.credential) return handleError();
 
@@ -34,11 +39,6 @@ export default function SSOButton({
     } catch (error) {
       onSignInError();
     }
-  }
-
-  function handleError() {
-    console.error("error");
-    onSignInError();
   }
 
   return (

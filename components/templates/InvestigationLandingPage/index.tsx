@@ -1,15 +1,35 @@
 "use client";
 
-import { FunctionComponent } from "react";
+import { ReactNode, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { imageShaper } from "@/helpers";
 import * as Styled from "./styles";
-// fluidScaleBase(max, min, maxVw, minVw)
+
+const Fragment = graphql(`
+  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {
+    title
+    image {
+      url {
+        directUrlPreview
+      }
+      width
+      height
+      additional {
+        AltTextEN
+        AltTextES
+      }
+    }
+    children {
+      uri
+    }
+  }
+`);
+
 const InvestigationLandingPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
   investigation: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }> = (props) => {
   const data = useFragment(Fragment, props.data);
 
@@ -45,23 +65,3 @@ const InvestigationLandingPage: FunctionComponent<{
 InvestigationLandingPage.displayName = "Template.InvestigationLandingPage";
 
 export default InvestigationLandingPage;
-
-const Fragment = graphql(`
-  fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {
-    title
-    image {
-      url {
-        directUrlPreview
-      }
-      width
-      height
-      additional {
-        AltTextEN
-        AltTextES
-      }
-    }
-    children {
-      uri
-    }
-  }
-`);

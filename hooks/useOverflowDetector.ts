@@ -14,7 +14,7 @@ export interface useOverflowDetectorProps {
 export function useOverflowDetector(props: useOverflowDetectorProps) {
   const [overflow, setOverflow] = useState<boolean>(false);
   const ref = useRef<HTMLElement>(null);
-
+  const { onChange } = props;
   const updateState = useCallback(() => {
     if (ref.current === undefined) {
       return;
@@ -27,10 +27,10 @@ export function useOverflowDetector(props: useOverflowDetectorProps) {
       return;
     }
     setOverflow(newState);
-    if (props.onChange) {
-      props.onChange(newState);
+    if (onChange) {
+      onChange(newState);
     }
-  }, [ref.current, props.onChange, setOverflow, overflow]);
+  }, [onChange, setOverflow, overflow]);
 
   useResizeObserver({
     ref: ref as MutableRefObject<HTMLElement>,

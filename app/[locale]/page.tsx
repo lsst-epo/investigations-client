@@ -19,8 +19,18 @@ interface HomePageProps {
 
 export const revalidate = 60;
 
+const Query = graphql(`
+  query HomepageQuery($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      __typename
+      ...HomepageTemplate
+    }
+  }
+`);
+
 const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
   params: { locale },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   previewData,
 }) => {
   const site = locale === "en" ? "default" : locale;
@@ -54,12 +64,3 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
 };
 
 export default HomePage;
-
-const Query = graphql(`
-  query HomepageQuery($site: [String], $uri: [String]) {
-    entry(site: $site, uri: $uri) {
-      __typename
-      ...HomepageTemplate
-    }
-  }
-`);

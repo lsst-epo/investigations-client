@@ -32,6 +32,14 @@ export async function generateMetadata({
   return { title, twitter: { title } };
 }
 
+const InvestigationIdQuery = graphql(`
+  query InvestigationId($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      id
+    }
+  }
+`);
+
 const InvestigationLandingLayout: (
   props: PropsWithChildren<InvestigationLandingProps>,
 ) => Promise<JSX.Element> = async ({
@@ -64,11 +72,3 @@ const InvestigationLandingLayout: (
 };
 
 export default InvestigationLandingLayout;
-
-const InvestigationIdQuery = graphql(`
-  query InvestigationId($site: [String], $uri: [String]) {
-    entry(site: $site, uri: $uri) {
-      id
-    }
-  }
-`);

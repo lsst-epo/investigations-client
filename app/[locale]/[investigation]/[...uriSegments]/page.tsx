@@ -11,6 +11,23 @@ import { queryAPI } from "@/lib/fetch";
 
 export const revalidate = 60;
 
+const MetadataQuery = graphql(`
+  query InvestigationChildPageMetadata($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      title
+    }
+  }
+`);
+
+const Query = graphql(`
+  query InvestigationChildPage($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      __typename
+      ...InvestigationChildPageTemplate
+    }
+  }
+`);
+
 export async function generateMetadata({
   params: { locale, uriSegments },
 }: {
@@ -74,20 +91,3 @@ const UriSegments: (props: {
 };
 
 export default UriSegments;
-
-const MetadataQuery = graphql(`
-  query InvestigationChildPageMetadata($site: [String], $uri: [String]) {
-    entry(site: $site, uri: $uri) {
-      title
-    }
-  }
-`);
-
-const Query = graphql(`
-  query InvestigationChildPage($site: [String], $uri: [String]) {
-    entry(site: $site, uri: $uri) {
-      __typename
-      ...InvestigationChildPageTemplate
-    }
-  }
-`);

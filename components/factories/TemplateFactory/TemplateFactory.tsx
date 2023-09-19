@@ -5,6 +5,13 @@ export const TEMPLATE_MAP: Record<string, any> = {
   pages_pages_Entry: Templates.Page,
 };
 
+const Fragment = graphql(`
+  fragment TemplateFactory on EntryInterface {
+    __typename
+    ...PageTemplate
+  }
+`);
+
 export default function TemplateFactory(props: {
   data: FragmentType<typeof Fragment>;
 }) {
@@ -16,10 +23,3 @@ export default function TemplateFactory(props: {
 
   return <Template data={data} />;
 }
-
-export const Fragment = graphql(`
-  fragment TemplateFactory on EntryInterface {
-    __typename
-    ...PageTemplate
-  }
-`);

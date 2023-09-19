@@ -7,6 +7,7 @@ module.exports = {
   customSyntax: "postcss-styled-syntax",
   defaultSeverity: "error",
   rules: {
+    "media-query-no-invalid": null,
     "function-calc-no-unspaced-operator": true,
     "shorthand-property-no-redundant-values": true,
     "declaration-block-no-redundant-longhand-properties": true,

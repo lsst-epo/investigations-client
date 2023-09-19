@@ -21,6 +21,36 @@ interface RootLayoutProps {
   params: RootLayoutParams;
 }
 
+const GlobalsQuery = graphql(`
+  query GlobalsQuery($site: [String], $section: [String]) {
+    headerNavItems: entries(section: $section, site: $site, level: 1) {
+      id
+      title
+      uri
+      children {
+        id
+        title
+        uri
+      }
+    }
+    siteInfo: globalSet(site: $site, handle: "siteInfo") {
+      ... on siteInfo_GlobalSet {
+        language
+        name
+        handle
+        siteTitle
+        siteDescription
+      }
+    }
+    categories(site: $site) {
+      id
+      slug
+      groupHandle
+      title
+    }
+  }
+`);
+
 const getGlobals = async (locale = "en"): Promise<GlobalData> => {
   const site: string = locale === "en" ? "default" : locale;
 
@@ -83,33 +113,3 @@ const RootLayout: (
 };
 
 export default RootLayout;
-
-const GlobalsQuery = graphql(`
-  query GlobalsQuery($site: [String], $section: [String]) {
-    headerNavItems: entries(section: $section, site: $site, level: 1) {
-      id
-      title
-      uri
-      children {
-        id
-        title
-        uri
-      }
-    }
-    siteInfo: globalSet(site: $site, handle: "siteInfo") {
-      ... on siteInfo_GlobalSet {
-        language
-        name
-        handle
-        siteTitle
-        siteDescription
-      }
-    }
-    categories(site: $site) {
-      id
-      slug
-      groupHandle
-      title
-    }
-  }
-`);

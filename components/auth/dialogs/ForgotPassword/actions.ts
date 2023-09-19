@@ -3,6 +3,12 @@
 import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 
+const Mutation = graphql(`
+  mutation ForgottenPassword($email: String!) {
+    forgottenPassword(email: $email)
+  }
+`);
+
 export async function forgotPassword(formData: FormData) {
   const formDataObj = Object.fromEntries(formData);
 
@@ -19,9 +25,3 @@ export async function forgotPassword(formData: FormData) {
     throw new Error(error.message);
   }
 }
-
-const Mutation = graphql(`
-  mutation ForgottenPassword($email: String!) {
-    forgottenPassword(email: $email)
-  }
-`);

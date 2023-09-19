@@ -6,6 +6,14 @@ import { graphql, useFragment } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 
+const Mutation = graphql(`
+  mutation Authenticate($email: String!, $password: String!) {
+    authenticate(email: $email, password: $password) {
+      ...AuthFragment
+    }
+  }
+`);
+
 export async function signIn(formData: FormData, pathToRevalidate?: string) {
   const formDataObj = Object.fromEntries(formData);
   const { email, password } = formDataObj;
@@ -32,11 +40,3 @@ export async function signIn(formData: FormData, pathToRevalidate?: string) {
     throw new Error(error.message);
   }
 }
-
-const Mutation = graphql(`
-  mutation Authenticate($email: String!, $password: String!) {
-    authenticate(email: $email, password: $password) {
-      ...AuthFragment
-    }
-  }
-`);

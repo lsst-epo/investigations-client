@@ -4,6 +4,13 @@ import { revalidatePath } from "next/cache";
 import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 
+// https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#activate-user
+const Mutation = graphql(`
+  mutation ActivateUser($code: String!, $id: String!) {
+    activateUser(code: $code, id: $id)
+  }
+`);
+
 export async function activate(
   code: string,
   id: string,
@@ -26,10 +33,3 @@ export async function activate(
     throw new Error(error.message);
   }
 }
-
-// https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#activate-user
-const Mutation = graphql(`
-  mutation ActivateUser($code: String!, $id: String!) {
-    activateUser(code: $code, id: $id)
-  }
-`);

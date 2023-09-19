@@ -5,6 +5,16 @@ import Body from "@/global/Body";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import { Container } from "@rubin-epo/epo-react-lib";
 
+const Fragment = graphql(`
+  fragment HomepageTemplate on homepage_homepage_Entry {
+    id
+    title
+    contentBlocks {
+      ...ContentBlockFactory
+    }
+  }
+`);
+
 export default function HomePage(props: {
   data: FragmentType<typeof Fragment>;
   children?: React.ReactNode;
@@ -31,13 +41,3 @@ HomePage.displayName = "Template.HomePage";
 HomePage.propTypes = {
   data: PropTypes.object,
 };
-
-const Fragment = graphql(`
-  fragment HomepageTemplate on homepage_homepage_Entry {
-    id
-    title
-    contentBlocks {
-      ...ContentBlockFactory
-    }
-  }
-`);

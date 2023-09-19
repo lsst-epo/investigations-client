@@ -47,6 +47,7 @@ const INPUT_MAP: Record<InlineQuestionType, ComponentType<any>> = {
 };
 
 const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   id,
   number,
   isDisabled,

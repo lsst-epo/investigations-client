@@ -3,6 +3,13 @@
 import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 
+// // https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#set-password
+const Mutation = graphql(`
+  mutation SetPassword($password: String!, $code: String!, $id: String!) {
+    setPassword(password: $password, code: $code, id: $id)
+  }
+`);
+
 export async function setPassword(
   formData: FormData,
   code: string,
@@ -27,10 +34,3 @@ export async function setPassword(
     throw new Error(error.message);
   }
 }
-
-// // https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#set-password
-const Mutation = graphql(`
-  mutation SetPassword($password: String!, $code: String!, $id: String!) {
-    setPassword(password: $password, code: $code, id: $id)
-  }
-`);

@@ -4,7 +4,7 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import Header from "@/components/page/Header/Header";
 import HeaderProgress from "@/components/page/HeaderProgress";
-import { useTranslation } from "@/lib/i18n/client";
+// import { useTranslation } from "@/lib/i18n/client";
 import SaveForm from "@/components/answers/SaveForm/SaveForm";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import Pager from "@/components/layout/Pager";
@@ -14,12 +14,42 @@ type ProgressSections = React.ComponentPropsWithoutRef<
   typeof HeaderProgress
 >["sections"];
 
+const Fragment = graphql(`
+  fragment InvestigationChildPageTemplate on investigations_default_Entry {
+    id
+    title
+    contentBlocks {
+      ...ContentBlockFactory
+    }
+    hasSavePoint
+    prev(section: "investigations") {
+      __typename
+      uri
+    }
+    next(section: "investigations") {
+      __typename
+      uri
+    }
+    parent {
+      id
+      children(section: "investigations", type: "default") {
+        __typename
+        id
+        title
+        ... on investigations_default_Entry {
+          hasSavePoint
+        }
+      }
+    }
+  }
+`);
+
 const InvestigationChildPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   user?: ReturnType<typeof getUserFromJwt>;
   children?: React.ReactNode;
 }> = (props) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
@@ -127,33 +157,3 @@ const InvestigationChildPage: FunctionComponent<{
 InvestigationChildPage.displayName = "Template.InvestigationChildPage";
 
 export default InvestigationChildPage;
-
-const Fragment = graphql(`
-  fragment InvestigationChildPageTemplate on investigations_default_Entry {
-    id
-    title
-    contentBlocks {
-      ...ContentBlockFactory
-    }
-    hasSavePoint
-    prev(section: "investigations") {
-      __typename
-      uri
-    }
-    next(section: "investigations") {
-      __typename
-      uri
-    }
-    parent {
-      id
-      children(section: "investigations", type: "default") {
-        __typename
-        id
-        title
-        ... on investigations_default_Entry {
-          hasSavePoint
-        }
-      }
-    }
-  }
-`);
