@@ -9,7 +9,7 @@ import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
-import Header from "@/components/page/Header/Header";
+// import Header from "@/components/page/Header/Header";
 
 export interface InvestigationParams {
   investigation: string;
@@ -62,7 +62,7 @@ const InvestigationLandingLayout: (
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
         {children}
       </StoredAnswersComponent>

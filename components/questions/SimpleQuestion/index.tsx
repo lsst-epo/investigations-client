@@ -12,7 +12,7 @@ import Textarea from "./Textarea";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
 import Widget from "./Widget";
-import StoredAnswersContext from "@/components/answers/StoredAnswersContext";
+import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 
 export interface SimpleQuestionProps extends BaseQuestionProps {
   type: SimpleQuestionType;

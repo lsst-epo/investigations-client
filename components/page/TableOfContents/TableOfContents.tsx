@@ -1,124 +1,144 @@
-import { FunctionComponent } from "react";
-import { useRouter } from "next/router";
+import { FunctionComponent, useContext } from "react";
 import { IconComposer, ProgressBar } from "@rubin-epo/epo-react-lib";
+import ProgressContext from "@/contexts/Progress";
+import StoredAnswersContext from "@/contexts/StoredAnswersContext";
+import HeaderProgress from "@/components/page/HeaderProgress";
+import SlideOutMenu from "./SlideOutMenu";
+// import { getQuestionsByPage } from "./helpers";
 import * as Styled from "./styles";
 
-interface PageNavigation {
-  title: string;
-  pageNumber: number;
-  url: string;
-  visited: boolean;
-  checkpoint?: boolean;
-  final?: boolean;
-  disabled: boolean;
-}
+// interface PageNavigation {
+//   title: string;
+//   pageNumber: number;
+//   url: string;
+//   visited: boolean;
+//   checkpoint?: boolean;
+//   final?: boolean;
+//   disabled: boolean;
+// }
 
-interface InvestigationSection {
-  title: string;
-  pages: PageNavigation[];
-}
+// interface InvestigationSection {
+//   title: string;
+//   pages: PageNavigation[];
+// }
 
 interface TableOfContentsProps {
-  sections: InvestigationSection[];
+  id: string;
+  title: string;
+  isOpen: boolean;
+  onOpenCallback?: () => void;
+  onCloseCallback?: () => void;
   questions: number;
   answered: number;
   labelledById?: string;
 }
 
 const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
-  sections = [],
-  questions,
-  answered = 0,
+  id,
+  title,
+  isOpen,
+  onOpenCallback,
+  onCloseCallback,
   labelledById,
 }) => {
-  const { pathname } = useRouter();
-
-  const totalPages = sections.reduce(
-    (prev, curr) => prev + curr.pages.length,
-    0
-  );
-  const pagesVisited = sections.reduce(
-    (prev, { pages }) =>
-      prev + pages.reduce((prev, { visited }) => prev + (visited ? 1 : 0), 0),
-    0
-  );
-
   const pagesVisitedId = "pagesVisitedLabel";
   const questionsAnsweredId = "questionsAnsweredLabel";
+  const {
+    sections,
+    pages,
+    totalPages,
+    currentPageNumber,
+    disabledByPage,
+    questions,
+  } = useContext(ProgressContext);
+  const { answers } = useContext(StoredAnswersContext);
 
   return (
-    <Styled.TableOfContents>
-      <Styled.ProgressContainer>
-        <Styled.ProgressLabel id={pagesVisitedId}>
-          Pages visited
-        </Styled.ProgressLabel>
-        <ProgressBar
-          max={totalPages}
-          value={pagesVisited}
-          labelledById={pagesVisitedId}
-          markerConfig={{ $hoverable: false }}
-        />
-      </Styled.ProgressContainer>
-      <Styled.ProgressContainer>
-        <Styled.ProgressLabel id={questionsAnsweredId}>
-          Questions answered
-        </Styled.ProgressLabel>
-        <ProgressBar
-          max={questions}
-          value={answered}
-          labelledById={questionsAnsweredId}
-          markerConfig={{ $hoverable: false }}
-        />
-      </Styled.ProgressContainer>
-      <Styled.Navigation aria-labelledby={labelledById}>
-        <Styled.SectionList role="list">
-          {sections.map(({ title, pages }) => (
-            <Styled.Section key={title}>
-              <Styled.SectionTitle>{title}</Styled.SectionTitle>
-              <Styled.PageList role="list">
-                {pages.map(
-                  ({
-                    title,
-                    pageNumber,
-                    url,
-                    visited,
-                    checkpoint,
-                    disabled,
-                    final,
-                  }) => (
-                    <Styled.Page key={pageNumber}>
-                      <Styled.PageLink
-                        href={disabled ? {} : url}
-                        aria-disabled={disabled || undefined}
-                        role={disabled ? "link" : undefined}
-                        aria-current={url === pathname ? "page" : undefined}
-                      >
-                        <Styled.PageNumber $visited={visited}>
-                          {checkpoint || final ? (
-                            <Styled.CheckpointIcon $checkpoint={checkpoint}>
-                              <IconComposer
-                                icon={
-                                  checkpoint ? "thumbtack" : "checkeredFlag"
-                                }
-                                size={16}
-                              />
-                            </Styled.CheckpointIcon>
-                          ) : (
-                            pageNumber
-                          )}
-                        </Styled.PageNumber>
-
-                        {title}
-                      </Styled.PageLink>
-                    </Styled.Page>
-                  )
-                )}
-              </Styled.PageList>
-            </Styled.Section>
-          ))}
-        </Styled.SectionList>
-      </Styled.Navigation>
-    </Styled.TableOfContents>
+    <SlideOutMenu
+      id={id}
+      title={title}
+      isOpen={isOpen}
+      onOpenCallback={onOpenCallback}
+      onCloseCallback={onCloseCallback}
+    >
+      <Styled.TableOfContents>
+        <Styled.ProgressContainer>
+          <Styled.ProgressLabel id={pagesVisitedId}>
+            Pages visited
+          </Styled.ProgressLabel>
+          <HeaderProgress
+            labelledById={pagesVisitedId}
+            backgroundColor="transparent"
+            padding={false}
+          />
+        </Styled.ProgressContainer>
+        <Styled.ProgressContainer>
+          <Styled.ProgressLabel id={questionsAnsweredId}>
+            Questions answered
+          </Styled.ProgressLabel>
+          <ProgressBar
+            max={questions.length}
+            value={Object.keys(answers).length}
+            labelledById={questionsAnsweredId}
+            markerConfig={{ $hoverable: false }}
+          />
+        </Styled.ProgressContainer>
+        {sections && pages && (
+          <Styled.Navigation aria-labelledby={labelledById}>
+            <Styled.SectionList role="list">
+              {sections.map(({ name, pages: pageNumbers }) => (
+                <Styled.Section key={name}>
+                  <Styled.SectionTitle>{name}</Styled.SectionTitle>
+                  <Styled.PageList role="list">
+                    {pageNumbers.map((pageNumber) => {
+                      const pageIndex = pageNumber - 1;
+                      const { title, uri, hasSavePoint } = pages[pageIndex];
+                      const url = uri ? `/${uri}` : undefined;
+                      const isDisabled = disabledByPage[pageIndex];
+                      // console.log(pageNumber, isDisabled);
+                      return (
+                        <Styled.Page key={pageNumber}>
+                          <Styled.PageLink
+                            href={isDisabled ? "#" : url}
+                            aria-disabled={isDisabled}
+                            role={isDisabled ? "link" : undefined}
+                            aria-current={
+                              currentPageNumber === pageNumber
+                                ? "page"
+                                : undefined
+                            }
+                          >
+                            <Styled.PageNumber $visited={!isDisabled}>
+                              {hasSavePoint || pageNumber === totalPages ? (
+                                <Styled.CheckpointIcon
+                                  $checkpoint={hasSavePoint}
+                                >
+                                  <IconComposer
+                                    icon={
+                                      hasSavePoint
+                                        ? "thumbtack"
+                                        : "checkeredFlag"
+                                    }
+                                    size={16}
+                                  />
+                                </Styled.CheckpointIcon>
+                              ) : (
+                                pageNumber
+                              )}
+                            </Styled.PageNumber>
+                            {title}
+                          </Styled.PageLink>
+                        </Styled.Page>
+                      );
+                    })}
+                  </Styled.PageList>
+                </Styled.Section>
+              ))}
+            </Styled.SectionList>
+          </Styled.Navigation>
+        )}
+      </Styled.TableOfContents>
+    </SlideOutMenu>
   );
 };
 

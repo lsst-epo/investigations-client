@@ -1,4 +1,4 @@
-import { StoredAnswersProvider } from "@/components/answers/StoredAnswersContext";
+import { StoredAnswersProvider } from "@/contexts/StoredAnswersContext";
 import { queryAPI } from "@/lib/fetch";
 import { getAuthCookies } from "@/components/auth/serverHelpers";
 import { graphql } from "@/gql/student-schema";

@@ -12,14 +12,19 @@ const colors = [
   "#F0B670",
 ];
 
-export const HeaderProgress = styled.ul`
-  background-color: var(--neutral10, #f5f5f5);
+export const HeaderProgress = styled.ul<{ $backgroundColor: string, $padding: boolean }>`
   display: flex;
   align-items: center;
-  gap: calc(var(--PADDING-SMALL, 20px) / 2);
-  padding-inline: var(--PADDING-SMALL, 20px);
-  height: 30px;
   width: 100%;
+  height: 30px;
+  gap: calc(var(--PADDING-SMALL, 20px) / 2);
+  ${({ $padding }) =>
+    $padding
+      ? css`
+          padding-inline: var(--PADDING-SMALL, 20px);
+        `
+      : ""}
+  background-color: ${({ $backgroundColor }) => $backgroundColor}
 `;
 export const ProgressBar = styled(BaseProgressBar)``;
 
