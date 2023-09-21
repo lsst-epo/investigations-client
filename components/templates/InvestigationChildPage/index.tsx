@@ -46,6 +46,7 @@ const Fragment = graphql(`
 
 const InvestigationChildPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
+  site: string;
   user?: ReturnType<typeof getUserFromJwt>;
   children?: React.ReactNode;
 }> = (props) => {
@@ -127,12 +128,13 @@ const InvestigationChildPage: FunctionComponent<{
         />
       )}
       <Styled.ContentBlocks paddingSize="none" width="wide">
-        <Styled.TitleContainer paddingSize="none" width="wide">
-          <h1>{data.title}</h1>
-        </Styled.TitleContainer>
+          <Styled.Title>{data.title}</Styled.Title>
         {props.children}
         {data.contentBlocks?.map(
-          (block, i) => block && <ContentBlockFactory key={i} data={block} />
+          (block, i) =>
+            block && (
+              <ContentBlockFactory key={i} site={props.site} data={block} />
+            )
         )}
         {data.hasSavePoint && props.user && (
           <SaveForm investigationId={data.parent?.id} user={props.user} />

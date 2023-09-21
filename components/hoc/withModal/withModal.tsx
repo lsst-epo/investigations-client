@@ -15,11 +15,18 @@ function withModal<T extends BaseContentBlockProps>(
     const [isOpen, setIsOpen] = useState(false);
     const modalRef = useRef(null);
 
+    const fullscreenListener = () => {
+      if (!screenfull.isFullscreen) {
+        setIsOpen(false);
+      }
+    }
+
     const openModal = () => {
       if (screenfull.isEnabled && modalRef.current) {
         screenfull
           .request(modalRef.current, { navigationUI: "hide" })
           .then(() => {
+            screenfull.on('change', fullscreenListener)
             setIsOpen(true);
           });
       } else {
@@ -28,6 +35,7 @@ function withModal<T extends BaseContentBlockProps>(
     };
 
     const closeModal = () => {
+      screenfull.off('change', fullscreenListener)
       if (screenfull.isFullscreen && modalRef.current) {
         screenfull.exit().then(() => {
           setIsOpen(false);

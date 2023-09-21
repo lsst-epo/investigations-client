@@ -31,24 +31,24 @@ const InvestigationLandingPage: FunctionComponent<{
   investigation: string;
   children?: ReactNode;
 }> = (props) => {
-  const data = useFragment(Fragment, props.data);
+  const { title, image, children } = useFragment(Fragment, props.data);
 
-  if (!data?.title) return null;
+  if (!title) return null;
 
   return (
     <Styled.LandingPageContainer bgColor="orange05" paddingSize="medium">
-      <h1>{data.title}</h1>
-      {data.image && (
-        <Styled.Image image={imageShaper(props.site, data.image[0])} />
+      <h1>{title}</h1>
+      {image.length > 0 && (
+        <Styled.Image image={imageShaper(props.site, image[0])} />
       )}
       <Styled.AuthWrapper>
         {props.children}
-        {data.children?.[0]?.uri && (
+        {children?.[0]?.uri && (
           <>
             <Styled.WithoutLoginLink
               className="wo-sign-in"
               styleAs="tertiary"
-              url={`/${data.children[0].uri}`}
+              url={`/${children[0].uri}`}
               text="Start the investigation logged out"
             />
             <Styled.LinkLabel>

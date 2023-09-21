@@ -1,4 +1,3 @@
-import { Container } from "@rubin-epo/epo-react-lib";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { FunctionComponent } from "react";
@@ -15,23 +14,19 @@ interface TextProps extends BaseContentBlockProps {
 }
 
 const TextContentBlock: FunctionComponent<TextProps> = (props) => {
-  const data = useFragment(Fragment, props.data);
+  const { text } = useFragment(Fragment, props.data);
 
-  if (!data?.text) return null;
+  if (!text) return null;
 
   const isOpen = props.isOpen ?? false;
 
   return (
-    <Container
-      bgColor={isOpen ? "transparent" : undefined}
-      paddingSize={isOpen ? "none" : "medium"}
-      width="regular"
-    >
+    <Styled.Container className="content-block">
       <Styled.TextContent
-        dangerouslySetInnerHTML={{ __html: data.text }}
+        dangerouslySetInnerHTML={{ __html: text }}
         $darkMode={isOpen}
       />
-    </Container>
+    </Styled.Container>
   );
 };
 

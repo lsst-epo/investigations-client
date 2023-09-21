@@ -4295,7 +4295,7 @@ export type ContentBlocks_Image_BlockType = ElementInterface & NeoBlockInterface
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
-  captionRichText?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
@@ -4310,6 +4310,7 @@ export type ContentBlocks_Image_BlockType = ElementInterface & NeoBlockInterface
   image?: Maybe<Array<Maybe<CantoDamAssetInterface>>>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
+  layout?: Maybe<Scalars['String']['output']>;
   /** The Neo block’s level. */
   level?: Maybe<Scalars['Int']['output']>;
   /** The ID of the primary owner of the Neo block. */
@@ -4367,6 +4368,11 @@ export type ContentBlocks_Image_BlockTypeImageArgs = {
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
   whereNotNull?: InputMaybe<Scalars['String']['input']>;
   whereNull?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type ContentBlocks_Image_BlockTypeLayoutArgs = {
+  label?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type ContentBlocks_QuestionBlock_BlockType = ElementInterface & NeoBlockInterface & {
