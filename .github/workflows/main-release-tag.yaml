@@ -1,0 +1,59 @@
+name: '🧶 Deploy to Prod 🐈'
+
+on:
+  push:
+    branches:
+      - '!*'
+    tags:
+      - 'v*'
+
+jobs:
+  build-push-deploy:
+    name: '🧶 Build and Deploy to Production 🐈'
+    runs-on: ubuntu-latest
+
+    # Checkout the repository to the GitHub Actions runner
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # gcloud CLI setup
+    - name: Login to GCP
+      uses: google-github-actions/setup-gcloud@v0
+      with:
+        service_account_key: ${{ secrets.PIPELINE_EPO_PROD_PROJECT }}
+        project_id: edc-prod-eef0
+        export_default_credentials: true
+
+    - name: Format version name
+      id: version_name
+      run: echo "version_name=$(echo \"${{ github.ref_name }}\" | sed 's/[_.,\/]/-/g' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+    - name: Build Container Image
+      run: |-
+        docker build \
+        -t "gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }}" \
+        --build-arg NEXT_PUBLIC_API_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com/api \
+        --build-arg NEXT_PUBLIC_BASE_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com \
+        --build-arg EDC_LOGGER_API_URL=https://us-central1-skyviewer.cloudfunctions.net/edc-logger \
+        --build-arg CLOUD_ENV=PROD \
+        --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=596747551410-vcqlrp7erg5c5gm0dkvc0k21mgi0ilg0.apps.googleusercontent.com \
+        --build-arg NEXT_PUBLIC_CONTACT_FORM_POST_URL=https://api.rubinobs.org/actions/contact-form/send \
+        --build-arg NEXT_PUBLIC_PLAUSIBLE_DOMAIN=investigations-api-dot-skyviewer.uw.r.appspot.com \
+        .
+    - name: Configure Docker Auth
+      run: gcloud --quiet auth configure-docker
+
+    - name: Push Container Image to GCR
+      run: docker push gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }}
+
+    - name: Get app.yaml
+      run: gcloud secrets versions access latest --secret=investigations-client-appyaml > app.yaml
+
+    - name: Deploy to App Engine
+      run: |-
+        gcloud app deploy app.yaml \
+        --image-url=gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }} \
+        --version=${{ env.version_name }} \
+        --promote \
+        --project=edc-prod-eef0
