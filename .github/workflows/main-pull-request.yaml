@@ -1,4 +1,4 @@
-name: 'PR preview to Dev'
+name: 'PR preview to Int'
 
 on:
   pull_request:
@@ -8,11 +8,11 @@ on:
       - 'reopened'
       - 'closed'
     branches:
-      - 'develop'
+      - 'main'
 
 jobs:
   build-push-deploy:
-    name: 'Build and Deploy PR preview to Development'
+    name: 'Build and Deploy PR preview to Integration'
     runs-on: ubuntu-latest
     if: ${{ github.event.action != 'closed'}}
 
@@ -25,26 +25,26 @@ jobs:
     - name: Login to GCP
       uses: google-github-actions/setup-gcloud@v0
       with:
-        service_account_key: ${{ secrets.DEV_SA_KEY }}
-        project_id: ${{ secrets.SV_PROJ_NAME }}
+        service_account_key: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
+        project_id: edc-int-6c5e
         export_default_credentials: true
-    
+
     - name: Build Container Image
       run: |-
         docker build \
-        -t "gcr.io/${{ secrets.SV_PROJ_NAME }}/investigations-client:${{ github.sha }}" \
-        --build-arg NEXT_PUBLIC_API_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com/api \
-        --build-arg NEXT_PUBLIC_BASE_URL=https://investigations-client-dot-skyviewer.uw.r.appspot.com \
+        -t "gcr.io/edc-int-6c5e/investigations-client:${{ github.sha }}" \
+        --build-arg NEXT_PUBLIC_API_URL=https://investigations-api-dot-edc-int-6c5e.uc.r.appspot.com/api \
+        --build-arg NEXT_PUBLIC_BASE_URL=https://investigations-client-dot-edc-int-6c5e.uc.r.appspot.com \
         --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com \
         --build-arg CRAFT_REVALIDATE_SECRET_TOKEN=1128f3c472c118caa63 \
-        --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=KPYySxz0TZjIPAtNCdnYUkguZz6y6BU- \
-        --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=vPNHdjzu4XwKhiYC0jDrQENzGxb2Ltx3 \
+        --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=3Hs3ws4HceNjkTc16QpU5DdSzxjbccvt \
+        --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=uRGwM2RnTwtz33uYuTBHgZZKLauLmAUR \
         .
     - name: Configure Docker Auth
       run: gcloud --quiet auth configure-docker
 
     - name: Push Container Image to GCR
-      run: docker push gcr.io/${{ secrets.SV_PROJ_NAME }}/investigations-client:${{ github.sha }}
+      run: docker push gcr.io/edc-int-6c5e/investigations-client:${{ github.sha }}
 
     - name: Get app.yaml
       run: gcloud secrets versions access latest --secret=investigations-client-appyaml > app.yaml
@@ -56,11 +56,11 @@ jobs:
     - name: Deploy branch-tagged version to App Engine
       run: |-
         gcloud app deploy app.yaml \
-        --image-url=gcr.io/${{ secrets.SV_PROJ_NAME }}/investigations-client:${{ github.sha }} \
+        --image-url=gcr.io/edc-int-6c5e/investigations-client:${{ github.sha }} \
         --version=${{ env.version_name }} \
         --no-promote \
-        --project=${{ secrets.SV_PROJ_NAME }}
-    
+        --project=edc-int-6c5e
+
     - name: Get the version URL
       id: get_version
       run: echo "version_url=$(gcloud app versions list --uri --service=investigations-client --filter=version.id:${{ env.version_name }})" >> $GITHUB_ENV
@@ -87,14 +87,14 @@ jobs:
     - name: Login to GCP
       uses: google-github-actions/setup-gcloud@v0
       with:
-        service_account_key: ${{ secrets.DEV_SA_KEY }}
-        project_id: ${{ secrets.SV_PROJ_NAME }}
-        export_default_credentials: true        
+        service_account_key: ${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}
+        project_id: edc-int-6c5e
+        export_default_credentials: true
 
     - name: Format version name
       id: version_name
       run: echo "version_name=$(echo \"${{ github.head_ref }}\" | tr -cd '[:alnum:]' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-      
+
     # Destruct!
     - name: Destroy version
       run: gcloud app versions delete ${{ env.version_name }} --service=investigations-client
