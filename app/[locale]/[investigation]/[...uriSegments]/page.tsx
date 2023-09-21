@@ -77,7 +77,7 @@ const UriSegments: (props: {
   const user = getUserFromJwt(craftToken);
 
   return (
-    <InvestigationChildPageTemplate data={data.entry} user={user}>
+    <InvestigationChildPageTemplate site={site} data={data.entry} user={user}>
       {user && (
         <>
           <p>User: {JSON.stringify(user)}</p>

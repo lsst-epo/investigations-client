@@ -24,23 +24,25 @@ export default function QuestionsContentBlock(props: {
   const { i18n } = useTranslation();
   return (
     <I18nextProvider i18n={i18n}>
-      <Styled.QuestionList
-        style={{
-          "--list-background-color": isInteraction && "#E6FFE6",
-          "--list-padding": isInteraction && "var(--PADDING_SMALL, 20px)",
-        }}
-      >
-        {!!data.questionEntries?.length &&
-          data.questionEntries.map((question, index) =>
-            question?.__typename === "questions_default_Entry" ? (
-              <QuestionFactory
-                key={question.id}
-                data={question}
-                config={{ number: index + 1 }}
-              />
-            ) : null
-          )}
-      </Styled.QuestionList>
+      <section className="content-block">
+        <Styled.QuestionList
+          style={{
+            "--list-background-color": isInteraction && "#E6FFE6",
+            "--list-padding": isInteraction && "var(--PADDING_SMALL, 20px)",
+          }}
+        >
+          {!!data.questionEntries?.length &&
+            data.questionEntries.map((question, index) =>
+              question?.__typename === "questions_default_Entry" ? (
+                <QuestionFactory
+                  key={question.id}
+                  data={question}
+                  config={{ number: index + 1 }}
+                />
+              ) : null
+            )}
+        </Styled.QuestionList>
+      </section>
     </I18nextProvider>
   );
 }
