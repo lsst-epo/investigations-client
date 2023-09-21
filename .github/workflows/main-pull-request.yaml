@@ -34,10 +34,11 @@ jobs:
         docker build \
         -t "gcr.io/edc-int-6c5e/investigations-client:${{ github.sha }}" \
         --build-arg NEXT_PUBLIC_API_URL=https://investigations-api-dot-edc-int-6c5e.uc.r.appspot.com/api \
-        --build-arg EDC_LOGGER_API_URL=https://us-central1-skyviewer.cloudfunctions.net/edc-logger \
-        --build-arg CLOUD_ENV=DEV \
         --build-arg NEXT_PUBLIC_BASE_URL=https://investigations-client-dot-edc-int-6c5e.uc.r.appspot.com \
         --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com \
+        --build-arg CRAFT_REVALIDATE_SECRET_TOKEN=1128f3c472c118caa63 \
+        --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=pwx_fhZ19PvKaUelac8tnIGzRjv_87Yf \
+        --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=5Iqugg1mUGWd8RIC_UfoSbFvry5W2wOk \
         .
     - name: Configure Docker Auth
       run: gcloud --quiet auth configure-docker
