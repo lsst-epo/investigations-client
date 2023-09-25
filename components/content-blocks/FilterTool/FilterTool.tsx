@@ -5,6 +5,7 @@ import FilterTool from "@rubin-epo/epo-widget-lib/FilterTool";
 const Fragment = graphql(`
   fragment FilterToolBlock on contentBlocks_filterTool_BlockType {
     __typename
+    id
     preSelectedColor
     readOnly
   }

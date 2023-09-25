@@ -1,8 +1,15 @@
 import styled from "styled-components";
-import { Container } from "@rubin-epo/epo-react-lib";
 import { BREAK_TABLET } from "@/styles/globalStyles";
 
-export const TwoColContainer = styled(Container)`
+export const LeftCol = styled.div`
+  display: block;
+`;
+
+export const RightCol = styled.div`
+  display: block;
+`;
+
+export const TwoColContainer = styled.section`
 	display: block;
 
 	@media (min-width: ${BREAK_TABLET}) {
@@ -10,15 +17,9 @@ export const TwoColContainer = styled(Container)`
 		justify-content: space-between;
 	}
 
-	> section {
-		padding-block-start: 0;
-		@media (min-width: ${BREAK_TABLET}) {
-			padding: 0;
-			width: calc(50% - 20px);
-		}
-	}
-
-	> section > div {
-		padding: 0;
-	}
+    ${LeftCol}, ${RightCol} {
+      @media (min-width: ${BREAK_TABLET}) {
+        width: calc(50% - 20px);
+      }
+    }
 `;

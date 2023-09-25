@@ -6,6 +6,7 @@ import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment ImageBlock on contentBlocks_image_BlockType {
+    id
     caption
     layout
     image {

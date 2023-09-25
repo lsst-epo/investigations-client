@@ -5,6 +5,7 @@ import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment TextBlock on contentBlocks_text_BlockType {
+    id
     text
   }
 `);

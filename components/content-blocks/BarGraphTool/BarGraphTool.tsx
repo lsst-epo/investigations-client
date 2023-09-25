@@ -3,6 +3,8 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 
 const Fragment = graphql(`
   fragment BarGraphToolBlock on contentBlocks_barGraphTool_BlockType {
+    __typename
+    id
     title
     yAxisMin
     yAxisMax

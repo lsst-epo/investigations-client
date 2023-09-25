@@ -6,6 +6,7 @@ import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment QuestionsBlock on contentBlocks_questionBlock_BlockType {
+    id
     questionEntries {
       __typename
       id
