@@ -1,5 +1,6 @@
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
+import withModal from "@/hoc/withModal";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
@@ -14,6 +15,7 @@ const Fragment = graphql(`
           ...ColorToolBlock
           ...FilterToolBlock
           ...TextBlock
+          ...ImageBlock
           ...BarGraphToolBlock
           ...ScatterplotToolBlock
         }
@@ -27,6 +29,7 @@ const Fragment = graphql(`
           ...ColorToolBlock
           ...FilterToolBlock
           ...TextBlock
+          ...ImageBlock
           ...BarGraphToolBlock
           ...ScatterplotToolBlock
         }
@@ -37,21 +40,11 @@ const Fragment = graphql(`
 
 export default function TwoColumnContainerBlock(props: {
   data: FragmentType<typeof Fragment>;
+  site: string;
+  pageId?: string;
 }) {
   const data = useFragment(Fragment, props.data);
   const { columns } = data;
-
-  function renderBlocks(blocks) {
-    return blocks.map((block) => {
-      if (!block) return;
-
-      const Block = blockMap[block.__typename];
-
-      if (!Block) return null;
-
-      return <Block key={block.id} data={block} />;
-    });
-  }
 
   if (!columns) return null;
 
@@ -62,10 +55,37 @@ export default function TwoColumnContainerBlock(props: {
     (col) => col.__typename === "contentBlocks_colRight_BlockType"
   );
 
+  function renderBlocks(blocks) {
+    return blocks.map((block) => {
+      if (!block) return;
+
+      const Block = blockMap[block.__typename];
+
+      if (!Block) return null;
+
+      const isWithModal = block.__typename === "contentBlocks_image_BlockType";
+
+      const EnhancedBlock = isWithModal ? withModal(Block) : Block;
+
+      return (
+        <EnhancedBlock
+          key={block.id}
+          data={block}
+          site={props.site}
+          pageId={props.pageId}
+        />
+      );
+    });
+  }
+
   return (
-    <Styled.TwoColContainer width="wide">
-      {leftCol && renderBlocks(leftCol?.childblocks)}
-      {rightCol && renderBlocks(rightCol?.childblocks)}
+    <Styled.TwoColContainer width="wide" className="content-block">
+      {leftCol && (
+        <Styled.LeftCol>{renderBlocks(leftCol?.childblocks)}</Styled.LeftCol>
+      )}
+      {rightCol && (
+        <Styled.RightCol>{renderBlocks(rightCol?.childblocks)}</Styled.RightCol>
+      )}
     </Styled.TwoColContainer>
   );
 }

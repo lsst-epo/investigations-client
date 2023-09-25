@@ -3,6 +3,7 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 
 const Fragment = graphql(`
   fragment ScatterplotToolBlock on contentBlocks_scatterplotTool_BlockType {
+    id
     title
     xAxisMin
     yAxisMax

@@ -6,6 +6,7 @@ import { mockData, mockSelectedData } from "./mocks.ts";
 const Fragment = graphql(`
   fragment ColorToolBlock on contentBlocks_colorTool_BlockType {
     __typename
+    id
     colorToolTemplate
     readOnly
     images {
