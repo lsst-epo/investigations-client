@@ -37,9 +37,7 @@ jobs:
       run: |
         echo "sanity test!"
         echo env_variables[0]: ${{ steps.read_action_js.outputs.env_variables[0] }}
-        echo env_variables.0: ${{ steps.read_action_js.outputs.env_variables.0 }}
         echo env_variables[0].NEXT_PUBLIC_API_URL: ${{ steps.read_action_js.outputs.env_variables[0].NEXT_PUBLIC_API_URL }}
-        echo env_variables.0.NEXT_PUBLIC_API_URL: ${{ steps.read_action_js.outputs.env_variables.0.NEXT_PUBLIC_API_URL }}
 
   # build-push-deploy:
   #   name: 'Build and Deploy to Development'
