@@ -41,8 +41,7 @@ jobs:
       - name: use-yaml-file
         run: |
           echo "sanity test!"
-          echo env_variables.NEXT_PUBLIC_API_URL: ${{ steps.read_action_js.outputs['env_variables']['NEXT_PUBLIC_API_URL'] }}
-          echo env_variables.NEXT_PUBLIC_BASE_URL: ${{ steps.read_action_js.outputs['env_variables']['NEXT_PUBLIC_BASE_URL'] }}
+          echo env_variables: ${{ steps.read_action_js.outputs['env_variables'] }}
 
   # build-push-deploy:
   #   name: 'Build and Deploy PR preview to Development'
