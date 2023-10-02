@@ -47,7 +47,7 @@ jobs:
         --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=${{ steps.read_action_js.outputs['env_variables.NEXT_PUBLIC_GOOGLE_APP_ID'] }} \
         --build-arg CRAFT_REVALIDATE_SECRET_TOKEN=${{ steps.read_action_js.outputs['env_variables.CRAFT_REVALIDATE_SECRET_TOKEN'] }} \
         --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=${{ steps.read_action_js.outputs['env_variables.CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN'] }} \
-        --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=${{ steps.read_action_js.outputs['env_variables.CRAFT_STUDENT_SCHEMA_SECRET_TOKEN'] } \
+        --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=${{ steps.read_action_js.outputs['env_variables.CRAFT_STUDENT_SCHEMA_SECRET_TOKEN'] }} \
         .
     - name: Configure Docker Auth
       run: gcloud --quiet auth configure-docker
