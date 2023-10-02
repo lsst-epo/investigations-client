@@ -8,10 +8,12 @@ COPY . /app
 RUN apk add --no-cache libc6-compat git
 RUN yarn install --frozen-lockfile
 
-ARG NEXT_PUBLIC_API_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com/api
-ARG NEXT_PUBLIC_ASSETS_BASE_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com/assets
-ARG NEXT_PUBLIC_ASTRO_API_URL=https://us-central1-skyviewer.cloudfunctions.net/astro-objects-api
-ARG NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_BASE_URL
+ARG NEXT_PUBLIC_GOOGLE_APP_ID
+ARG CRAFT_REVALIDATE_SECRET_TOKEN
+ARG CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN
+ARG CRAFT_STUDENT_SCHEMA_SECRET_TOKEN
 
 RUN npx browserslist@latest --update-db && yarn static:build
 
