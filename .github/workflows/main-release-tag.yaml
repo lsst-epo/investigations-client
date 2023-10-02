@@ -29,10 +29,10 @@ jobs:
       run: gcloud secrets versions access latest --secret=investigations-client-appyaml > app.yaml
 
     - name: read-yaml-file
-        uses: pietrobolcato/action-read-yaml@1.1.0
-        id: read_action_js
-        with:
-          config: app.yaml
+      uses: pietrobolcato/action-read-yaml@1.1.0
+      id: read_action_js
+      with:
+        config: app.yaml
 
     - name: Format version name
       id: version_name
