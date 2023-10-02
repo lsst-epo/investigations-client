@@ -41,7 +41,7 @@ jobs:
       - name: use-yaml-file
         run: |
           echo runtime: ${{ steps.read_action_js.outputs.runtime }}
-          echo env_variables.NEXT_PUBLIC_API_URL: ${{ steps.read_action_js.outputs["env_variables.NEXT_PUBLIC_API_URL"] }}
+          echo env_variables.NEXT_PUBLIC_API_URL: ${{ steps.read_action_js.outputs['env_variables.NEXT_PUBLIC_API_URL'] }}
 
 
   # build-push-deploy:
