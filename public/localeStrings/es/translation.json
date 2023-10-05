@@ -18,6 +18,10 @@
     "sending": "Enviando…",
     "reset": "Restablecer el formulario"
   },
+  "page": {
+    "interaction": "Interacción",
+    "questions": "Preguntas"
+  },
   "nav": {
     "close": "Close"
   },
