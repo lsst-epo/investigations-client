@@ -5,9 +5,13 @@ import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
-import SignOut from "@/components/auth/buttons/SignOut";
-import InvestigationChildPageTemplate from "@/components/templates/InvestigationChildPage";
 import { queryAPI } from "@/lib/fetch";
+import {
+  InvestigationChildPage,
+  InvestigationSectionBreakPage,
+} from "@/components/templates";
+import { FunctionComponent } from "react";
+import { UriSegmentsProps } from "./layout";
 
 export const revalidate = 60;
 
@@ -22,8 +26,8 @@ const MetadataQuery = graphql(`
 const Query = graphql(`
   query InvestigationChildPage($site: [String], $uri: [String]) {
     entry(site: $site, uri: $uri) {
-      __typename
       ...InvestigationChildPageTemplate
+      ...InvestigationSectionBreakTemplate
     }
   }
 `);
@@ -50,11 +54,8 @@ export async function generateMetadata({
   return title ? { title, twitter: { title } } : {};
 }
 
-const UriSegments: (props: {
-  params: { locale: string; investigation: string; uriSegments: string[] };
-}) => Promise<JSX.Element> = async ({
+const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
   params: { locale, investigation, uriSegments },
-  // previewData
 }) => {
   const site = locale === "en" ? "default" : locale;
   // // add _es to property names if site is not English
@@ -68,7 +69,22 @@ const UriSegments: (props: {
     },
   });
 
-  if (data?.entry?.__typename !== "investigations_default_Entry") {
+  if (!data) {
+    notFound();
+  }
+
+  const { entry } = data;
+  const { __typename } = entry || {};
+
+  const Templates: Record<string, FunctionComponent<any>> = {
+    investigations_default_Entry: InvestigationChildPage,
+    investigations_investigationSectionBreakChild_Entry:
+      InvestigationSectionBreakPage,
+  };
+
+  const Template = Templates[__typename as string];
+
+  if (!Template) {
     notFound();
   }
 
@@ -76,18 +92,7 @@ const UriSegments: (props: {
 
   const user = getUserFromJwt(craftToken);
 
-  return (
-    <InvestigationChildPageTemplate site={site} data={data.entry} user={user}>
-      {user && (
-        <>
-          <p>User: {JSON.stringify(user)}</p>
-          {craftUserStatus && <p>Status: {craftUserStatus}</p>}
-          {/* @ts-expect-error Server Component */}
-          <SignOut redirectTo={`/${investigation}`} />
-        </>
-      )}
-    </InvestigationChildPageTemplate>
-  );
+  return <Template {...{ site, user, locale }} data={entry} />;
 };
 
 export default UriSegments;

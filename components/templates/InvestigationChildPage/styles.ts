@@ -12,5 +12,6 @@ export const ContentBlocks = styled(Container)`
 `;
 
 export const Title = styled.h1`
-  padding-block-end: ${fluidScale("57px", "47px")};
+  --title-margin: ${fluidScale("2em", "1em")};
+  margin-block-end: var(--title-margin);
 `;

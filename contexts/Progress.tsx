@@ -2,10 +2,19 @@
 import { createContext, FunctionComponent, ReactNode, useContext } from "react";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 
-const buildProgressSections = (siblings) => {
+interface ProgressSection {
+  name: string;
+  order: number;
+  pages: number[];
+}
+
+const buildProgressSections = (siblings: Array<any>): ProgressSection[] => {
   if (!siblings || !siblings?.length) return [];
   // create empty arrays to fill with sections based on save points
-  const sectionBreaks = siblings.filter((entry) => entry.hasSavePoint);
+  const sectionBreaks = siblings.filter(
+    (entry) =>
+      entry.__typename === "investigations_investigationSectionBreakChild_Entry"
+  );
   const sections: [number | undefined][] = Array.from(
     Array(sectionBreaks.length + 1),
     () => [undefined]
@@ -21,7 +30,9 @@ const buildProgressSections = (siblings) => {
 
     sections[currentIndex].push(index + 1);
 
-    if (entry.hasSavePoint) {
+    if (
+      entry.__typename === "investigations_investigationSectionBreakChild_Entry"
+    ) {
       currentIndex++;
     }
   });
@@ -61,7 +72,7 @@ const getTwoColQuestionEntryIds = (block: object) => {
   });
 };
 
-const getPageQuestionEntryIds = (blocks: array) => {
+const getPageQuestionEntryIds = (blocks: Array<any> = []) => {
   return blocks.map((block) => {
     const { __typename } = block;
 
@@ -89,9 +100,12 @@ const getPageQuestionEntryIds = (blocks: array) => {
   });
 };
 
-const getQuestionsBySectionPage = (sections: array, pages: array) => {
+const getQuestionsBySectionPage = (
+  sections: ProgressSection[],
+  pages: Array<any>
+) => {
   return sections.map(({ pages: pageNumbers }) => {
-    return pageNumbers.map((pageNumber) => {
+    return pageNumbers.map((pageNumber: number) => {
       const { contentBlocks } = pages[pageNumber - 1];
       return []
         .concat(...getPageQuestionEntryIds(contentBlocks))
@@ -194,7 +208,7 @@ const getDisabledByPage = (
 };
 
 interface ProgressProviderProps {
-  pages: array;
+  pages: Array<any>;
   currentPageId: number;
   children: ReactNode;
 }
@@ -208,7 +222,9 @@ const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
 }) => {
   const { answers } = useContext(StoredAnswersContext);
   const siblings = pages.filter(
-    (page) => page.__typename === "investigations_default_Entry"
+    (page) =>
+      page.__typename === "investigations_default_Entry" ||
+      page.__typename === "investigations_investigationSectionBreakChild_Entry"
   );
   const sections = buildProgressSections(siblings);
   const currentPageNumber =
