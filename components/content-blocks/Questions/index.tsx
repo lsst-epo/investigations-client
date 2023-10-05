@@ -22,10 +22,12 @@ export default function QuestionsContentBlock(props: {
   const isInteraction = props.interaction ?? false;
   const data = useFragment(Fragment, props.data);
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
+
   return (
     <I18nextProvider i18n={i18n}>
       <section className="content-block">
+        <Styled.Heading>{t('page.questions')}</Styled.Heading>
         <Styled.QuestionList
           style={{
             "--list-background-color": isInteraction && "#E6FFE6",
