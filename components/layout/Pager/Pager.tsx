@@ -1,3 +1,4 @@
+"use client";
 import { FunctionComponent, useContext } from "react";
 import { useTranslation } from "@/lib/i18n/client";
 import useResizeObserver from "use-resize-observer";
@@ -39,8 +40,7 @@ const Pager: FunctionComponent<PagerProps> = ({
   const pageIndex = currentPageNumber - 1;
   const isLastPage = currentPageNumber === totalPages;
   const isFirstPage = currentPageNumber === 1;
-  const currentPageAnswered =
-    answeredBySectionPage[sectionIndex][pageIndex];
+  const currentPageAnswered = answeredBySectionPage[sectionIndex][pageIndex];
   const isNextDisabled =
     !(currentPageAnswered === true || currentPageAnswered === undefined) ||
     isLastPage;

@@ -5,8 +5,8 @@ export const Container = styled.section`
   display: block;
 `;
 
-export const TextContent = styled.div<{ $darkMode: boolean }>`
-  ${({ $darkMode }) =>
+export const TextContent = styled.div<{ $darkMode?: boolean }>`
+  ${({ $darkMode = false }) =>
     $darkMode
       ? css`
           color: var(--white, #fff);

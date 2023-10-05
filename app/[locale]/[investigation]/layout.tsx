@@ -40,7 +40,7 @@ const InvestigationIdQuery = graphql(`
 `);
 
 const InvestigationLandingLayout: (
-  props: PropsWithChildren<InvestigationLandingProps>,
+  props: PropsWithChildren<InvestigationLandingProps>
 ) => Promise<JSX.Element> = async ({
   children,
   params: { locale, investigation },
@@ -61,12 +61,9 @@ const InvestigationLandingLayout: (
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
   return (
-    <>
-      {/* <Header /> */}
-      <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
-        {children}
-      </StoredAnswersComponent>
-    </>
+    <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
+      {children}
+    </StoredAnswersComponent>
   );
 };
 

@@ -250,5 +250,11 @@
   "review": {
     "no_selection": "(No selection)",
     "no_answer": "(Answer not provided)"
+  },
+  "section_break": {
+    "congratulations": "Congratulations!",
+    "congratulations_alt": "Animated image of fireworks",
+    "finish": "Finish",
+    "finish_alt": "Animated image displaying the message: 'Congratulations, you finished!'"
   }
 }

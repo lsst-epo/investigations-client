@@ -32,5 +32,11 @@
     "logged_in_as": "Logged in as {{name}}",
     "logged_out": "Logged out",
     "sign_up": "Create an account"
+  },
+  "section_break": {
+    "congratulations": "¡Felicitaciones!",
+    "congratulations_alt": "Imagen animada de fuegos artificiales",
+    "finish": "",
+    "finish_alt": ""
   }
 }
