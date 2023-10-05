@@ -58,6 +58,19 @@ const Fragment = graphql(`
                         }
                       }
                     }
+                    ... on contentBlocks_group_BlockType {
+                      __typename
+                      group: children {
+                        ... on contentBlocks_questionBlock_BlockType {
+                          __typename
+                          questionEntries {
+                            ... on questions_default_Entry {
+                              id
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
                 ... on contentBlocks_colRight_BlockType {
@@ -68,6 +81,19 @@ const Fragment = graphql(`
                       questionEntries {
                         ... on questions_default_Entry {
                           id
+                        }
+                      }
+                    }
+                    ... on contentBlocks_group_BlockType {
+                      __typename
+                      group: children {
+                        ... on contentBlocks_questionBlock_BlockType {
+                          __typename
+                          questionEntries {
+                            ... on questions_default_Entry {
+                              id
+                            }
+                          }
                         }
                       }
                     }
@@ -83,37 +109,6 @@ const Fragment = graphql(`
                   questionEntries {
                     ... on questions_default_Entry {
                       id
-                    }
-                  }
-                }
-                ... on contentBlocks_twoColumnContainer_BlockType {
-                  __typename
-                  columns: children {
-                    ... on contentBlocks_colLeft_BlockType {
-                      __typename
-                      children {
-                        ... on contentBlocks_questionBlock_BlockType {
-                          __typename
-                          questionEntries {
-                            ... on questions_default_Entry {
-                              id
-                            }
-                          }
-                        }
-                      }
-                    }
-                    ... on contentBlocks_colRight_BlockType {
-                      __typename
-                      children {
-                        ... on contentBlocks_questionBlock_BlockType {
-                          __typename
-                          questionEntries {
-                            ... on questions_default_Entry {
-                              id
-                            }
-                          }
-                        }
-                      }
                     }
                   }
                 }
@@ -158,10 +153,7 @@ const InvestigationChildPage: FunctionComponent<{
           <SaveForm investigationId={data.parent?.id} user={props.user} />
         )}
       </Styled.ContentBlocks>
-      <Pager
-        leftLink={prevUrl}
-        rightLink={nextUrl}
-      />
+      <Pager leftLink={prevUrl} rightLink={nextUrl} />
     </ProgressProvider>
   );
 };

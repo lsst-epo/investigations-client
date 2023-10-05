@@ -6,6 +6,7 @@ import withModal from "@/hoc/withModal";
 /** content blocks that can be rendered anywhere */
 export const blockMap: Record<string, any> = {
   contentBlocks_twoColumnContainer_BlockType: Blocks.TwoColumnContainer,
+  contentBlocks_group_BlockType: Blocks.InteractionGroupContainer,
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_image_BlockType: Blocks.Image,
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
@@ -21,6 +22,7 @@ const Fragment = graphql(`
   fragment ContentBlockFactory on contentBlocks_NeoField {
     __typename
     ...TwoColumnContainerBlock
+    ...InteractionGroupContainerBlock
     ...TextBlock
     ...ImageBlock
     ...QuestionsBlock
