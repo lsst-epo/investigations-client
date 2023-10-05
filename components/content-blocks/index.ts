@@ -1,6 +1,7 @@
 // import Modal from "./Modal";
 
 export { default as TwoColumnContainer } from "./TwoColumnContainer";
+export { default as InteractionGroupContainer } from "./InteractionGroupContainer";
 export { default as Text } from "./Text";
 export { default as Image } from "./Image";
 export { default as Questions } from "./Questions";
