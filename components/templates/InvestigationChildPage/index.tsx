@@ -128,6 +128,7 @@ const InvestigationChildPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
   user?: ReturnType<typeof getUserFromJwt>;
+  userStatus?: string;
   children?: React.ReactNode;
 }> = (props) => {
   const data = useFragment(Fragment, props.data);
@@ -145,7 +146,11 @@ const InvestigationChildPage: FunctionComponent<{
           )
       )}
       {data.hasSavePoint && props.user && (
-        <SaveForm investigationId={data.parent?.id} user={props.user} />
+        <SaveForm
+          investigationId={data.parent?.id}
+          user={props.user}
+          userStatus={props.userStatus}
+        />
       )}
     </Styled.ContentBlocks>
   );

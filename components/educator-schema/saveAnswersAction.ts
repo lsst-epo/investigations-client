@@ -25,10 +25,14 @@ export default async function saveAnswers(
   investigationId: NonNullable<InvestigationId>,
   answers: Answers
 ) {
-  const { craftUserId, craftToken } = await getAuthCookies();
+  const { craftUserId, craftToken, craftUserStatus } = await getAuthCookies();
 
   if (!craftUserId || !craftToken) {
     return "refreshError";
+  }
+
+  if (craftUserStatus === "pending") {
+    return "statusError";
   }
 
   const answerSet = Object.values(answers);

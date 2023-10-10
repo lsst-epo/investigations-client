@@ -92,7 +92,13 @@ const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
 
   const user = getUserFromJwt(craftToken);
 
-  return <Template {...{ site, user, locale }} data={entry} />;
+  return (
+    <Template
+      {...{ site, user, locale }}
+      data={entry}
+      userStatus={craftUserStatus}
+    />
+  );
 };
 
 export default UriSegments;
