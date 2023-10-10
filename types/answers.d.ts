@@ -1,9 +1,9 @@
-import { AnswerInterface } from "@/gql/student-schema/graphql";
+import { AnswerInput } from "@/gql/student-schema/graphql";
 
 type QuestionId = string;
 
 export type InvestigationId = string | null | undefined;
 
 export type Answers = {
-  [key: QuestionId]: Pick<AnswerInterface, "data" | "questionId" | "id">;
+  [key: QuestionId]: AnswerInput;
 };

@@ -5,79 +5,47 @@ import { graphql } from "@/gql/student-schema";
 import { mutateAPI } from "@/lib/fetch";
 import { Answers, InvestigationId } from "@/types/answers";
 
-const CreateMutation = graphql(`
-  mutation CreateAnswer(
-    $userId: Int!
-    $questionId: Int!
-    $investigationId: Int!
-    $data: String
+const Mutation = graphql(`
+  mutation SaveAnswersFromSet(
+    $userId: ID!
+    $investigationId: ID!
+    $answerSet: [AnswerInput]
   ) {
-    createAnswer(
+    saveAnswersFromSet(
       userId: $userId
-      questionId: $questionId
       investigationId: $investigationId
-      data: $data
+      answerSet: $answerSet
     ) {
-      questionId
-    }
-  }
-`);
-
-const SaveMutation = graphql(`
-  mutation SaveAnswer($answerId: Int!, $data: String) {
-    saveAnswer(id: $answerId, data: $data) {
-      questionId
+      id
     }
   }
 `);
 
 export default async function saveAnswers(
-  investigationId: InvestigationId,
+  investigationId: NonNullable<InvestigationId>,
   answers: Answers
 ) {
   const { craftUserId, craftToken } = await getAuthCookies();
 
-  // if fresh token, loop through answers
-  if (!craftToken) {
-    // refresh the token
-    // temporarily…
+  if (!craftUserId || !craftToken) {
     return "refreshError";
   }
 
-  // temporary logic until bulk mutations are supported by API
-  const promises = Object.values(answers).map(async (answer, index) => {
-    // only send one mutation for now to not overload API
-    if (index > 0) return Promise.resolve("skipped");
+  const answerSet = Object.values(answers);
 
-    const { data, questionId, id: answerId } = answer;
-
-    if (answerId) {
-      const { data: responseData, error } = await mutateAPI({
-        query: SaveMutation,
-        variables: { answerId: Number(answerId), data },
-        token: craftToken,
-      });
-
-      return error ? Promise.reject(error) : Promise.resolve(responseData);
-    } else {
-      const { data: responseData, error } = await mutateAPI({
-        query: CreateMutation,
-        variables: {
-          userId: Number(craftUserId),
-          investigationId: Number(investigationId),
-          questionId: Number(questionId),
-          data,
-        },
-        token: craftToken,
-      });
-
-      return error ? Promise.reject(error) : Promise.resolve(responseData);
-    }
+  const { data, error } = await mutateAPI({
+    query: Mutation,
+    variables: {
+      userId: craftUserId,
+      investigationId,
+      answerSet,
+    },
+    token: craftToken,
   });
 
-  return Promise.all(promises)
-    .then((values) => values)
-    .catch((error) => {
-      throw new Error(error);
-    });
+  if (data?.saveAnswersFromSet) {
+    return data;
+  } else if (error) {
+    throw new Error(error.message);
+  }
 }

@@ -173,6 +173,15 @@ export type AddressInterface_CountArgs = {
   field: Scalars['String']['input'];
 };
 
+export type AnswerInput = {
+  /** The data submitted by the user. */
+  data?: InputMaybe<Scalars['String']['input']>;
+  /** The ID of the Answer element, if it exists. */
+  id?: InputMaybe<Scalars['ID']['input']>;
+  /** The ID of the associated Question entry. */
+  questionId?: InputMaybe<Scalars['ID']['input']>;
+};
+
 /** The interface implemented by all answers. */
 export type AnswerInterface = {
   /** Return a number of related elements for a field. */
@@ -190,11 +199,11 @@ export type AnswerInterface = {
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
   /** ID of the Investigation parent */
-  investigationId?: Maybe<Scalars['Int']['output']>;
+  investigationId?: Maybe<Scalars['ID']['output']>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
   /** ID of the question being answered */
-  questionId?: Maybe<Scalars['Int']['output']>;
+  questionId?: Maybe<Scalars['ID']['output']>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
@@ -216,7 +225,7 @@ export type AnswerInterface = {
   /** The element’s URI. */
   uri?: Maybe<Scalars['String']['output']>;
   /** ID of the user answering the question */
-  userId?: Maybe<Scalars['Int']['output']>;
+  userId?: Maybe<Scalars['ID']['output']>;
 };
 
 
@@ -2147,6 +2156,8 @@ export type Mutation = {
   resendActivation: Scalars['String']['output'];
   /** Saves an existing answer */
   saveAnswer?: Maybe<AnswerInterface>;
+  /** Saves a set of answers */
+  saveAnswersFromSet?: Maybe<Array<Maybe<AnswerInterface>>>;
   /** Sets password for unauthenticated user. Requires `code` and `id` from Craft reset password email. Returns success message. */
   setPassword: Scalars['String']['output'];
   /** Updates password for authenticated user. Requires JWT and current password. Returns success message. */
@@ -2170,9 +2181,9 @@ export type MutationAuthenticateArgs = {
 
 export type MutationCreateAnswerArgs = {
   data?: InputMaybe<Scalars['String']['input']>;
-  investigationId: Scalars['Int']['input'];
-  questionId: Scalars['Int']['input'];
-  userId: Scalars['Int']['input'];
+  investigationId: Scalars['ID']['input'];
+  questionId: Scalars['ID']['input'];
+  userId: Scalars['ID']['input'];
 };
 
 
@@ -2252,7 +2263,14 @@ export type MutationResendActivationArgs = {
 
 export type MutationSaveAnswerArgs = {
   data?: InputMaybe<Scalars['String']['input']>;
-  id: Scalars['Int']['input'];
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationSaveAnswersFromSetArgs = {
+  answerSet?: InputMaybe<Array<InputMaybe<AnswerInput>>>;
+  investigationId: Scalars['ID']['input'];
+  userId: Scalars['ID']['input'];
 };
 
 
@@ -9584,25 +9602,15 @@ export type StoredAnswersQueryVariables = Exact<{
 
 export type StoredAnswersQuery = { __typename?: 'Query', answers?: Array<never | null> | null };
 
-export type CreateAnswerMutationVariables = Exact<{
-  userId: Scalars['Int']['input'];
-  questionId: Scalars['Int']['input'];
-  investigationId: Scalars['Int']['input'];
-  data?: InputMaybe<Scalars['String']['input']>;
+export type SaveAnswersFromSetMutationVariables = Exact<{
+  userId: Scalars['ID']['input'];
+  investigationId: Scalars['ID']['input'];
+  answerSet?: InputMaybe<Array<InputMaybe<AnswerInput>> | InputMaybe<AnswerInput>>;
 }>;
 
 
-export type CreateAnswerMutation = { __typename?: 'Mutation', createAnswer?: never | null };
-
-export type SaveAnswerMutationVariables = Exact<{
-  answerId: Scalars['Int']['input'];
-  data?: InputMaybe<Scalars['String']['input']>;
-}>;
-
-
-export type SaveAnswerMutation = { __typename?: 'Mutation', saveAnswer?: never | null };
+export type SaveAnswersFromSetMutation = { __typename?: 'Mutation', saveAnswersFromSet?: Array<never | null> | null };
 
 
 export const StoredAnswersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StoredAnswers"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"answers"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}},{"kind":"Argument","name":{"kind":"Name","value":"investigationId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"}},{"kind":"Field","name":{"kind":"Name","value":"questionId"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<StoredAnswersQuery, StoredAnswersQueryVariables>;
-export const CreateAnswerDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateAnswer"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"questionId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createAnswer"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}},{"kind":"Argument","name":{"kind":"Name","value":"questionId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"questionId"}}},{"kind":"Argument","name":{"kind":"Name","value":"investigationId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}}},{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"questionId"}}]}}]}}]} as unknown as DocumentNode<CreateAnswerMutation, CreateAnswerMutationVariables>;
-export const SaveAnswerDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SaveAnswer"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"answerId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"saveAnswer"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"answerId"}}},{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"questionId"}}]}}]}}]} as unknown as DocumentNode<SaveAnswerMutation, SaveAnswerMutationVariables>;
+export const SaveAnswersFromSetDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SaveAnswersFromSet"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"answerSet"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AnswerInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"saveAnswersFromSet"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}},{"kind":"Argument","name":{"kind":"Name","value":"investigationId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}}},{"kind":"Argument","name":{"kind":"Name","value":"answerSet"},"value":{"kind":"Variable","name":{"kind":"Name","value":"answerSet"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<SaveAnswersFromSetMutation, SaveAnswersFromSetMutationVariables>;

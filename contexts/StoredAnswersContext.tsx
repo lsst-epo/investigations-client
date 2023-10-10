@@ -64,7 +64,7 @@ function StoredAnswersProvider(props: {
       const newAnswers = Object.assign({}, prevAnswers, {
         [questionId]: {
           data,
-          questionId: Number(questionId),
+          questionId,
           ...(answerId && { id: answerId }),
         },
       });
