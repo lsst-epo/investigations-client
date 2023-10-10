@@ -244,7 +244,8 @@
       "success_message": "Answers saved!",
       "empty_error_message": "No new answers to save.",
       "refresh_error_message": "Your session has expired. Please log back in and try again.",
-      "mutation_error_message": "There was an error saving your answers to your account."
+      "mutation_error_message": "There was an error saving your answers to your account.",
+      "status_error_message": "Activate your account to begin saving. Check your inbox for an activation email."
     }
   },
   "review": {

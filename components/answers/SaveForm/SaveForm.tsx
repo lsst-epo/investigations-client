@@ -11,15 +11,22 @@ import { getUserFromJwt } from "@/components/auth/serverHelpers";
 export default function SaveForm({
   investigationId,
   user,
+  userStatus,
 }: {
   investigationId: InvestigationId;
   user?: ReturnType<typeof getUserFromJwt>;
+  userStatus?: string;
 }) {
   const { t } = useTranslation();
 
   const [status, setStatus] = useState<
-    "emptyError" | "refreshError" | "mutationError" | "success" | null
-  >(null);
+    | "emptyError"
+    | "refreshError"
+    | "mutationError"
+    | "statusError"
+    | "success"
+    | null
+  >(userStatus === "pending" ? "statusError" : null);
 
   if (!investigationId || !user) return null;
 
@@ -48,6 +55,8 @@ export default function SaveForm({
           );
           if (result === "refreshError") {
             setStatus("refreshError");
+          } else if (result === "statusError") {
+            setStatus("statusError");
           } else {
             setStatus("success");
           }
@@ -57,7 +66,10 @@ export default function SaveForm({
       }}
       aria-label={t("answers.save_form.label") ?? undefined}
     >
-      <Submit disabled={status !== null} icon="FloppyDisk">
+      <Submit
+        disabled={status !== null}
+        icon="FloppyDisk"
+      >
         {(pending) =>
           t(
             pending
@@ -78,6 +90,9 @@ export default function SaveForm({
         )}
         {status === "mutationError" && (
           <p>{t("answers.save_form.mutation_error_message")}</p>
+        )}
+        {status === "statusError" && (
+          <p>{t("answers.save_form.status_error_message")}</p>
         )}
       </output>
     </form>
