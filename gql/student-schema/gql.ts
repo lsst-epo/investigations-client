@@ -14,8 +14,7 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  */
 const documents = {
     "\n  query StoredAnswers($userId: ID, $investigationId: ID) {\n    answers(userId: $userId, investigationId: $investigationId) {\n      data\n      questionId\n      id\n    }\n  }\n": types.StoredAnswersDocument,
-    "\n  mutation CreateAnswer(\n    $userId: Int!\n    $questionId: Int!\n    $investigationId: Int!\n    $data: String\n  ) {\n    createAnswer(\n      userId: $userId\n      questionId: $questionId\n      investigationId: $investigationId\n      data: $data\n    ) {\n      questionId\n    }\n  }\n": types.CreateAnswerDocument,
-    "\n  mutation SaveAnswer($answerId: Int!, $data: String) {\n    saveAnswer(id: $answerId, data: $data) {\n      questionId\n    }\n  }\n": types.SaveAnswerDocument,
+    "\n  mutation SaveAnswersFromSet(\n    $userId: ID!\n    $investigationId: ID!\n    $answerSet: [AnswerInput]\n  ) {\n    saveAnswersFromSet(\n      userId: $userId\n      investigationId: $investigationId\n      answerSet: $answerSet\n    ) {\n      id\n    }\n  }\n": types.SaveAnswersFromSetDocument,
 };
 
 /**
@@ -39,11 +38,7 @@ export function graphql(source: "\n  query StoredAnswers($userId: ID, $investiga
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation CreateAnswer(\n    $userId: Int!\n    $questionId: Int!\n    $investigationId: Int!\n    $data: String\n  ) {\n    createAnswer(\n      userId: $userId\n      questionId: $questionId\n      investigationId: $investigationId\n      data: $data\n    ) {\n      questionId\n    }\n  }\n"): (typeof documents)["\n  mutation CreateAnswer(\n    $userId: Int!\n    $questionId: Int!\n    $investigationId: Int!\n    $data: String\n  ) {\n    createAnswer(\n      userId: $userId\n      questionId: $questionId\n      investigationId: $investigationId\n      data: $data\n    ) {\n      questionId\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation SaveAnswer($answerId: Int!, $data: String) {\n    saveAnswer(id: $answerId, data: $data) {\n      questionId\n    }\n  }\n"): (typeof documents)["\n  mutation SaveAnswer($answerId: Int!, $data: String) {\n    saveAnswer(id: $answerId, data: $data) {\n      questionId\n    }\n  }\n"];
+export function graphql(source: "\n  mutation SaveAnswersFromSet(\n    $userId: ID!\n    $investigationId: ID!\n    $answerSet: [AnswerInput]\n  ) {\n    saveAnswersFromSet(\n      userId: $userId\n      investigationId: $investigationId\n      answerSet: $answerSet\n    ) {\n      id\n    }\n  }\n"): (typeof documents)["\n  mutation SaveAnswersFromSet(\n    $userId: ID!\n    $investigationId: ID!\n    $answerSet: [AnswerInput]\n  ) {\n    saveAnswersFromSet(\n      userId: $userId\n      investigationId: $investigationId\n      answerSet: $answerSet\n    ) {\n      id\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
