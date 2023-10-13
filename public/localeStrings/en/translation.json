@@ -257,5 +257,9 @@
     "congratulations_alt": "Animated image of fireworks",
     "finish": "Finish",
     "finish_alt": "Animated image displaying the message: 'Congratulations, you finished!'"
+  },
+  "widgets": {
+    "filter_tool": "Filter Tool",
+    "camera_filter_tool": "Camera Filter Ranges"
   }
 }

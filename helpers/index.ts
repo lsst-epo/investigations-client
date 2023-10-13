@@ -49,7 +49,11 @@ export const makeCustomBreadcrumbs = (
 };
 
 // IMAGES
-export const imageShaper = (site = "default", data, className) => {
+export const imageShaper = (
+  site = "default",
+  data: any,
+  className?: string
+) => {
   if (!data) return;
 
   const shapes = {

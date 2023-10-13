@@ -39,9 +39,7 @@ const WidgetContainer: FunctionComponent<
     <Styled.WidgetContainer
       className={className}
       style={{
-        "--widget-background-color": isOpen
-          ? "transparent"
-          : backgrounds[bgColor],
+        "--widget-background-color": backgrounds[bgColor],
         "--widget-container-padding": isOpen
           ? 0
           : `calc(${padding[paddingSize]} / 2)`,

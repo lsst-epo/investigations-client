@@ -1,20 +1,15 @@
 import { ptToEm, fluidScale } from "@rubin-epo/epo-react-lib/styles";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.section`
   display: block;
 `;
 
-export const TextContent = styled.div<{ $darkMode?: boolean }>`
-  ${({ $darkMode = false }) =>
-    $darkMode
-      ? css`
-          color: var(--white, #fff);
-        `
-      : ""}
+export const TextContent = styled.div`
+  color: var(--text-color);
 
   > * + * {
-    margin-block-start: 1rem;
+    margin-block-start: 1em;
   }
 
   > *:first-child {

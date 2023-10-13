@@ -1,7 +1,6 @@
 import { useTranslation } from "@/lib/i18n/client";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
-import withModal from "@/hoc/withModal";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
@@ -12,7 +11,6 @@ const Fragment = graphql(`
       ...TextBlock
       ...ImageBlock
       ...QuestionsBlock
-      ...WidgetContainerBlock
       ...BarGraphToolBlock
       ...ColorToolBlock
       ...FilterToolBlock
@@ -37,12 +35,8 @@ export default function InteractionGroupContainerBlock(props: {
 
       if (!Block) return null;
 
-      const isWithModal = block.__typename === "contentBlocks_image_BlockType";
-
-      const EnhancedBlock = isWithModal ? withModal(Block) : Block;
-
       return (
-        <EnhancedBlock
+        <Block
           key={block.id}
           data={block}
           site={props.site}
@@ -54,8 +48,11 @@ export default function InteractionGroupContainerBlock(props: {
   }
 
   return (
-    <Styled.InteractionGroup width="wide" className="content-block">
-      <Styled.Heading>{t('page.interaction')}</Styled.Heading>
+    <Styled.InteractionGroup
+      className="content-block"
+      style={{ "--text-color": "#34706D" }}
+    >
+      <Styled.Heading>{t("page.interaction")}</Styled.Heading>
       {renderBlocks(childBlocks)}
     </Styled.InteractionGroup>
   );

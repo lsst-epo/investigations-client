@@ -1,6 +1,5 @@
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
-import withModal from "@/hoc/withModal";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
@@ -63,12 +62,8 @@ export default function TwoColumnContainerBlock(props: {
 
       if (!Block) return null;
 
-      const isWithModal = block.__typename === "contentBlocks_image_BlockType";
-
-      const EnhancedBlock = isWithModal ? withModal(Block) : Block;
-
       return (
-        <EnhancedBlock
+        <Block
           key={block.id}
           data={block}
           site={props.site}
@@ -79,7 +74,7 @@ export default function TwoColumnContainerBlock(props: {
   }
 
   return (
-    <Styled.TwoColContainer width="wide" className="content-block">
+    <Styled.TwoColContainer className="content-block">
       {leftCol && (
         <Styled.LeftCol>{renderBlocks(leftCol?.childblocks)}</Styled.LeftCol>
       )}

@@ -25,7 +25,7 @@ const TextContentBlock: FunctionComponent<TextProps> = (props) => {
     <Styled.Container className="content-block">
       <Styled.TextContent
         dangerouslySetInnerHTML={{ __html: text }}
-        $darkMode={isOpen}
+        style={{ "--text-color": isOpen ? "var(--white,#fff)" : undefined }}
       />
     </Styled.Container>
   );
