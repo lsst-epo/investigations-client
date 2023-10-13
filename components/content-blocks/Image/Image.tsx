@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
+import withModal from "@/components/hoc/withModal/withModal";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { imageShaper } from "@/helpers";
 import * as Styled from "./styles";
@@ -26,10 +27,6 @@ const Fragment = graphql(`
 interface ImageContentBlockProps extends BaseContentBlockProps {
   data: FragmentType<typeof Fragment>;
   site: string;
-  hasModal: boolean;
-  isOpen: boolean;
-  openModal: () => void;
-  closeModal: () => void;
 }
 
 /**
@@ -68,4 +65,4 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
 
 ImageContentBlock.displayName = "ContentBlock.Image";
 
-export default ImageContentBlock;
+export default withModal(ImageContentBlock);

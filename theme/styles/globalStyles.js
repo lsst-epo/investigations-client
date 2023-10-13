@@ -35,7 +35,6 @@ export const blue10 = tokens.blue10;
 export const red = tokens.red;
 export const red20 = tokens.red20;
 export const red40 = tokens.red40;
-export const green20 = "#E6FFE6";
 export const BREAK_HEADER_LAYOUT = tokens.BREAK_HEADER_LAYOUT;
 export const BREAK_DESKTOP = tokens.BREAK_DESKTOP;
 export const BREAK_DESKTOP_SMALL = tokens.BREAK_DESKTOP_SMALL;
