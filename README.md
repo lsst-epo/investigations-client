@@ -62,7 +62,7 @@ This application is localized using a combination of i18next, Next.js, and Craft
 
 At the top level of the app directory is a `[locale]` wildcard folder which will match the first URI segment to determine the locale.
 
-The default locale's key is not shown in the URI, this function along with other locale detection and routing is managed by the `next-intl` package's [middleware](https://next-intl-docs.vercel.app/docs/next-13/middleware).
+The default locale's key is not shown in the URI, this function along with other locale detection and routing is managed by the `next-intl` package's [middleware](https://next-intl-docs.vercel.app/docs/next-13/middleware). The middleware will save the current locale to a cookie named `NEXT_LOCALE`
 
 Example:
 
@@ -82,22 +82,49 @@ The locale URI segment is considered the source of truth for locale in this appl
 
 i18next is set up to work for both server and client components in the app directory. The language config is defined in `lib/i18n/settings`.
 
-There are separate `useTranslation` hooks for client and server components. `lib/i18n` should be used for server, and `lib/i18n/client` for client components.
+#### Server Components
+
+There is a server `useTranslation` hook in `lib/i18n` that can be used by server components, this hook requires passing in the namespaces and locale.
+
+```tsx
+import { useTranslation } from `@\lib\i18n`
+
+const Layout = () => {
+  const { t } = await useTranslation("es", "translation");
+
+  return <div>{t("translation:key")}</div>;
+};
+```
+
+#### Client Components
+
+A singular instance of i18next is put into a provider at the root layout. Client components rendered during the SSR pass and browser pass can access this instance with the `useTranslation` hook imported from `react-i18next`.
+
+```tsx
+'use client'
+import { useTranslation } from `react-i18next`
+
+const Page = () => {
+  const { t } = useTranslation();
+
+  return <div>{t("translation:key")}</div>;
+};
+```
 
 ### CraftCMS
 
 All CMS content is localized using CraftCMS. Craft has separate sites defined for each locale that can be accessed during editing. In GraphQL queries, `site` is the parameter passed to Craft that will determine which locale to retrieve. For the default locale, the site is named `default` and for other locales it uses the two digit locale identifier.
 
-```typescript
+```tsx
 const site = locale === "en" ? "default" : locale;
 const uri = `${investigation}/${uriSegments.join("/")}`;
 const { data } = await queryAPI({
-    query: Query,
-    variables: {
-      site: [site],
-      uri: [uri],
-    },
-  });
+  query: Query,
+  variables: {
+    site: [site],
+    uri: [uri],
+  },
+});
 ```
 
 ## GraphQL Codegen & TypeScript
@@ -107,6 +134,7 @@ This site uses [GraphQL Codegen](https://the-guild.dev/graphql/codegen) to gener
 Configuration is defined in `/codegen.ts`. A secret token is required to fetch any private schemas; this can be generated in the Craft backend and stored as an environment variable. For currently required schema tokens, see `/.env.local.sample`.
 
 To avoid type conflicts, GraphQL Codegen should be configured to observe separate files for each schema. The current configuration is to use the public schema by default, then store components that have queries or fragments for private schemas in clearly-marked subfolders (e.g. `/components/student-schema/`). See the `generates` property in `/codegen.ts` for specifics. Components and Server Actions also need to make sure they import the `graphql()` function from the correct location; for instance:
+
 ```typescript
 import { graphql } from "@/gql/public-schema";
 ```
