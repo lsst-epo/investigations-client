@@ -1,7 +1,7 @@
 "use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import Image from "next/image";
 import { TextContent } from "@/components/content-blocks/Text/styles";
@@ -129,9 +129,11 @@ const Fragment = graphql(`
 
 const InvestigationSectionBreakPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
-  locale: string;
-}> = ({ locale, ...props }) => {
-  const { t } = useTranslation(locale);
+}> = ({ ...props }) => {
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   const data = useFragment(Fragment, props.data);
 
   if (!data.title) return null;
@@ -152,7 +154,7 @@ const InvestigationSectionBreakPage: FunctionComponent<{
     },
   };
   const isFinalPage = !next;
-  const imgSrc = srcs[isFinalPage ? `final_${locale}` : "break"];
+  const imgSrc = srcs[isFinalPage ? `final_${language}` : "break"];
 
   return (
     <Container>
