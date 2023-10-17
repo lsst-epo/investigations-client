@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import Submit from "@/components/form/Submit";
 import { forgotPassword } from "./actions";
 

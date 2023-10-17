@@ -1,8 +1,7 @@
 import { FunctionComponent, useContext } from "react";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
-import { useRouter } from "next/navigation";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import ProgressContext from "@/contexts/Progress";
 import * as Styled from "./styles";
 
@@ -17,8 +16,7 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
   backgroundColor = "var(--neutral10, #f5f5f5)",
   padding = true,
 }) => {
-  const { locale = "en-US" } = useRouter();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { sections, totalPages, currentPageNumber } =
     useContext(ProgressContext);
 
@@ -56,7 +54,7 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
                 currentPageNumber < firstPage ? undefined : currentPageNumber
               }
               markerFormatter={() =>
-                Intl.NumberFormat(locale, {
+                Intl.NumberFormat(i18n.language, {
                   style: "percent",
                 }).format(currentPageNumber / totalPages)
               }

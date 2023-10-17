@@ -57,6 +57,7 @@
     "@react-oauth/google": "^0.11.0",
     "@rubin-epo/epo-react-lib": "^2.0.1",
     "@rubin-epo/epo-widget-lib": "^0.4.3",
+    "@unly/universal-language-detector": "^2.0.3",
     "@urql/core": "^4.1.0",
     "accept-language-parser": "^1.5.0",
     "classnames": "^2.3.2",
@@ -81,7 +82,6 @@
     "react-uid": "^2.3.2",
     "screenfull": "^6.0.2",
     "styled-components": "^6.0.4",
-    "universal-cookie": "^4.0.4",
     "use-resize-observer": "^9.1.0",
     "yarn": "^1.22.17"
   },

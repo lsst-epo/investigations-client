@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import WidgetContainer from "@/components/layout/WidgetContainer";
 import CameraFilterTool from "@rubin-epo/epo-widget-lib/CameraFilter";
 import withModal from "@/components/hoc/withModal/withModal";
