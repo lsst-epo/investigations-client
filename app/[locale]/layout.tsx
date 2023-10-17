@@ -61,7 +61,6 @@ const getGlobals = async (locale = "en"): Promise<GlobalData> => {
       section: ["pages"],
     },
   });
-  console.log(data);
 
   return {
     categories: data?.categories,
