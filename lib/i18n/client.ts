@@ -1,13 +1,20 @@
-"use client";
-
 import i18next from "i18next";
 import {
   initReactI18next,
   useTranslation as useTranslationOrg,
 } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { fallbackLng, defaultNS, getOptions } from "./settings";
+import {
+  defaultNS,
+  languages,
+  getOptions,
+  namespaces,
+  cookieName,
+  fallbackLng,
+} from "./settings";
 import { loadResources } from "./index";
+
+const runsOnServerSide = typeof window === "undefined";
 
 // on client side the normal singleton is ok
 i18next
@@ -16,19 +23,27 @@ i18next
   .use(loadResources)
   .init({
     ...getOptions(),
-    ns: ["translation", "epo-react-lib", "epo-widget-lib"],
-    fallbackNS: ["translation", "epo-react-lib", "epo-widget-lib"],
+    ns: namespaces,
+    fallbackNS: namespaces,
     lng: undefined, // let detect the language on client side
     detection: {
-      order: ["path", "htmlTag", "cookie", "navigator"],
+      excludeCacheFor: languages,
+      lookupCookie: cookieName,
+      order: ["htmlTag", "cookie", "navigator"],
     },
+    preload: runsOnServerSide ? languages : [],
   });
 
-export function useTranslation(
+export default function useClientTranslation(
   lng: string = fallbackLng,
   ns: string = defaultNS,
   options?: any
 ) {
-  if (i18next.resolvedLanguage !== lng) i18next.changeLanguage(lng);
-  return useTranslationOrg(ns, options);
+  const instance = useTranslationOrg(ns, options);
+  const { i18n } = instance;
+
+  if (runsOnServerSide && i18n.resolvedLanguage !== lng) {
+    i18n.changeLanguage(lng);
+  }
+  return instance;
 }

@@ -1,47 +1,52 @@
 "use client";
 
-import { FunctionComponent, useState, useContext } from "react";
-import { SlideoutMenu } from "@rubin-epo/epo-react-lib";
-// import LanguageSelect from "./LanguageSelect";
+import { FunctionComponent, useState, useContext, useRef } from "react";
+import Button from "@rubin-epo/epo-react-lib/Button";
 import ProgressContext from "@/contexts/Progress";
 import TableOfContents from "../TableOfContents";
+import Menu from "../Menu";
 import HeaderProgress from "@/components/page/HeaderProgress";
 import useNavHider from "@/hooks/useNavHider";
 import * as Styled from "./styles";
 
-const Header: FunctionComponent<HeaderProps> = () => {
+const Header: FunctionComponent = () => {
   const { sections } = useContext(ProgressContext);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [mainMenuIsOpen, setMainMenuIsOpen] = useState(false);
   const [tocIsOpen, setTocIsOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useNavHider(prevScrollPos, setPrevScrollPos, visible, setVisible);
 
+  const handleClose = () => {
+    buttonRef.current && buttonRef.current.focus();
+
+    return setMainMenuIsOpen(false);
+  };
+
   return (
-    <Styled.Header
-      className={`page-header ${
-        visible || mainMenuIsOpen || tocIsOpen ? "visible" : "invisible"
-      }`}
-    >
+    <Styled.Header aria-hidden={!visible && !mainMenuIsOpen && !tocIsOpen}>
       <Styled.FullWidthCol>
         <Styled.TopRow>
-          <Styled.MainMenuToggle
+          <Styled.MenuToggle
+            ref={buttonRef}
             aria-controls="mainMenu"
             aria-haspopup="menu"
-            icon="hamburger"
+            icon="Hamburger"
+            iconSize={20}
             onClick={() => setMainMenuIsOpen(true)}
-          >
-            <div className="a-hidden">Toggle Main Menu</div>
-          </Styled.MainMenuToggle>
-          <Styled.TocToggle
+            aria-label="Toggle Main Menu"
+          />
+          <Button
             aria-controls="tableOfContents"
             aria-haspopup="menu"
-            icon="doc"
+            icon="Doc"
+            iconSize={20}
             onClick={() => setTocIsOpen(true)}
           >
             <div>Table of Contents</div>
-          </Styled.TocToggle>
+          </Button>
         </Styled.TopRow>
         {!!sections.length && (
           <Styled.BottomRow>
@@ -49,16 +54,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
           </Styled.BottomRow>
         )}
       </Styled.FullWidthCol>
-      <SlideoutMenu
-        id="mainMenu"
-        title="Main menu"
-        callToAction="Settings and more"
-        isOpen={mainMenuIsOpen}
-        onCloseCallback={() => setMainMenuIsOpen(false)}
-      >
-        <div>MAIN MENU</div>
-        {/* <LanguageSelect id="langSelect" /> */}
-      </SlideoutMenu>
+      <Menu isOpen={mainMenuIsOpen} onCloseCallback={() => handleClose()} />
       <TableOfContents
         id="tableOfContents"
         title="Table of Contents"

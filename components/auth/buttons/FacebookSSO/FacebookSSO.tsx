@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@rubin-epo/epo-react-lib";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import { getOauthUrl } from "./actions";
 
 export default function FacebookSSO({ onError }: { onError: () => void }) {

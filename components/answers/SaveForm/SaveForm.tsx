@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Submit from "@/components/form/Submit";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import saveEducatorAnswers from "@/components/educator-schema/saveAnswersAction";
 import saveStudentAnswers from "@/components/student-schema/saveAnswersAction";
 import { Answers, InvestigationId } from "@/types/answers";
@@ -66,10 +66,7 @@ export default function SaveForm({
       }}
       aria-label={t("answers.save_form.label") ?? undefined}
     >
-      <Submit
-        disabled={status !== null}
-        icon="FloppyDisk"
-      >
+      <Submit disabled={status !== null} icon="FloppyDisk">
         {(pending) =>
           t(
             pending

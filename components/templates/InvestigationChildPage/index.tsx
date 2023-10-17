@@ -130,7 +130,7 @@ const InvestigationChildPage: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
   userStatus?: string;
   children?: React.ReactNode;
-}> = (props) => {
+}> = ({ site, user, userStatus, children, ...props }) => {
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
@@ -138,18 +138,16 @@ const InvestigationChildPage: FunctionComponent<{
   return (
     <Styled.ContentBlocks paddingSize="none" width="wide">
       <Styled.Title>{data.title}</Styled.Title>
-      {props.children}
+      {children}
       {data.contentBlocks?.map(
         (block, i) =>
-          block && (
-            <ContentBlockFactory key={i} site={props.site} data={block} />
-          )
+          block && <ContentBlockFactory key={i} site={site} data={block} />
       )}
-      {data.hasSavePoint && props.user && (
+      {data.hasSavePoint && user && (
         <SaveForm
           investigationId={data.parent?.id}
-          user={props.user}
-          userStatus={props.userStatus}
+          user={user}
+          userStatus={userStatus}
         />
       )}
     </Styled.ContentBlocks>

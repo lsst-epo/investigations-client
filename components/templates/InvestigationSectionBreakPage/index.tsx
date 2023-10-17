@@ -129,9 +129,9 @@ const Fragment = graphql(`
 
 const InvestigationSectionBreakPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
-}> = (props) => {
-  const { t, i18n } = useTranslation();
-  const { language } = i18n;
+  locale: string;
+}> = ({ locale, ...props }) => {
+  const { t } = useTranslation(locale);
   const data = useFragment(Fragment, props.data);
 
   if (!data.title) return null;
@@ -152,7 +152,7 @@ const InvestigationSectionBreakPage: FunctionComponent<{
     },
   };
   const isFinalPage = !next;
-  const imgSrc = srcs[isFinalPage ? `final_${language}` : "break"];
+  const imgSrc = srcs[isFinalPage ? `final_${locale}` : "break"];
 
   return (
     <Container>

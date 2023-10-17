@@ -1,7 +1,4 @@
 {
-  "english-site-name": "English",
-  "espanol-site-name": "Spanish",
-  "language-select-label": "Language",
   "breaking-news": "Breaking News",
   "cell": "Cell",
   "localize-content": "Localize site content",
@@ -25,7 +22,19 @@
   "toggle-nav": "Toggle navigation menu",
   "toggle-search": "Toggle search",
   "homepage": "Homepage",
-
+  "menu": {
+    "main": "Main menu",
+    "main_cta": "Settings and more",
+    "settings": "Settings"
+  },
+  "language": {
+    "locales": {
+      "en": "English",
+      "es": "Español"
+    },
+    "language_select_label": "Language selection",
+    "language_cta": "Choose your language"
+  },
   "contact-form": {
     "contact-us": "Contact us",
     "success": "Thank you. We’ve received your message.",

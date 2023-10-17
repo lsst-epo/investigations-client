@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
 import { SelectCell } from "..";
 

@@ -30,7 +30,7 @@ const InvestigationLandingPage: FunctionComponent<{
   site: string;
   investigation: string;
   children?: ReactNode;
-}> = (props) => {
+}> = ({ ...props }) => {
   const { title, image, children } = useFragment(Fragment, props.data);
 
   if (!title) return null;

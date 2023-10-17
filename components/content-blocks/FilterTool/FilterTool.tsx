@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import WidgetContainer from "@/components/layout/WidgetContainer";
 import FilterTool from "@rubin-epo/epo-widget-lib/FilterTool";
 import withModal from "@/components/hoc/withModal/withModal";

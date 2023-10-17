@@ -1,4 +1,4 @@
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 import * as Styled from "./styles";

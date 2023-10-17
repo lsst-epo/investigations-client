@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "@rubin-epo/epo-react-lib";
+import Button from "@rubin-epo/epo-react-lib/Button";
 
 export const Header = styled.header`
   display: flex;
@@ -10,8 +10,26 @@ export const Header = styled.header`
   background-color: var(--turquoise85, #12726d);
   z-index: 1;
 
-  &.invisible {
+  &[aria-hidden="true"] {
     transform: translate3d(0, -100%, 0);
+  }
+`;
+
+export const MenuToggle = styled(Button)`
+  --button-border-color: var(--white, #fff);
+
+  aspect-ratio: 1;
+  border: none;
+  height: 100%;
+  justify-content: center;
+  padding: 15px;
+
+  &:not(:disabled):not([aria-disabled="true"]):hover,
+  &:not(:disabled):not([aria-disabled="true"]):focus,
+  &:not(:disabled):not([aria-disabled="true"]):focus-visible,
+  &:not(:disabled):not([aria-disabled="true"]).focus-visible {
+    outline-width: 1px;
+    outline-offset: -10px;
   }
 `;
 
@@ -32,15 +50,3 @@ export const BottomRow = styled.div`
   display: flex;
   width: 100%;
 `;
-
-export const MainMenuToggle = styled(Button)`
-  svg {
-    height: 20px;
-  }
-`
-
-export const TocToggle = styled(Button)`
-  svg {
-    height: 20px;
-  }
-`

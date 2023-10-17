@@ -1,8 +1,13 @@
 export const fallbackLng = "en";
 export const languages = [fallbackLng, "es"];
 export const defaultNS = "translation";
+export const namespaces = [defaultNS, "epo-react-lib", "epo-widget-lib"];
+export const cookieName = "NEXT_LOCALE";
 
-export function getOptions(lng = fallbackLng, ns = defaultNS) {
+export function getOptions(
+  lng = fallbackLng,
+  ns: string | string[] = defaultNS
+) {
   return {
     // debug: true,
     supportedLngs: languages,

@@ -11,6 +11,7 @@ import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
 import Body from "@/global/Body";
+import I18NextClientProvider from "@/contexts/i18next";
 
 export interface RootLayoutParams {
   locale: string;
@@ -60,6 +61,7 @@ const getGlobals = async (locale = "en"): Promise<GlobalData> => {
       section: ["pages"],
     },
   });
+  console.log(data);
 
   return {
     categories: data?.categories,
@@ -98,11 +100,11 @@ const RootLayout: (
         <UIDReset>
           <StyledComponentsRegistry>
             <GlobalStyles includeFonts={false} />
-            <GlobalDataProvider data={globalData}>
-              <Body>
-                {children}
-              </Body>
-            </GlobalDataProvider>
+            <I18NextClientProvider locale={locale}>
+              <GlobalDataProvider data={globalData}>
+                <Body>{children}</Body>
+              </GlobalDataProvider>
+            </I18NextClientProvider>
           </StyledComponentsRegistry>
         </UIDReset>
       </body>

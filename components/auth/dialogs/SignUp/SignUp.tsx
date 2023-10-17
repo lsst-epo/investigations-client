@@ -5,7 +5,7 @@ import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
 import Submit from "@/components/form/Submit";
 import { registerEducator, registerStudent } from "./actions";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 
 export default function SignUp() {
   const { active, pendingGroup, openModal, closeModal } =

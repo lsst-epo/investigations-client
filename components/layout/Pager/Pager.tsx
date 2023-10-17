@@ -1,6 +1,6 @@
 "use client";
 import { FunctionComponent, useContext } from "react";
-import { useTranslation } from "@/lib/i18n/client";
+import { useTranslation } from "react-i18next";
 import useResizeObserver from "use-resize-observer";
 import ProgressContext from "@/contexts/Progress";
 import * as Styled from "./styles";
