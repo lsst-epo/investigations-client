@@ -10,6 +10,7 @@ const Fragment = graphql(`
       __typename
       ...TextBlock
       ...ImageBlock
+      ...TableBlock
       ...QuestionsBlock
       ...BarGraphToolBlock
       ...ColorFilterToolBlock
