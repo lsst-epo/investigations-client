@@ -23,6 +23,7 @@ const Fragment = graphql(`
     ...InteractionGroupContainerBlock
     ...TextBlock
     ...ImageBlock
+    ...TableBlock
     ...QuestionsBlock
     ...BarGraphToolBlock
     ...ColorFilterToolBlock
@@ -48,6 +49,14 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = (
 
   if (!Block) return null;
   return <Block data={data} site={props.site} pageId={props.pageId} />;
+=======
+  const isWithModal =
+    props.isInModal || data.__typename === "contentBlocks_image_BlockType";
+
+  const EnhancedBlock = isWithModal ? withModal(Block) : Block;
+
+  return <EnhancedBlock data={data} site={props.site} pageId={props.pageId} />;
+>>>>>>> 13365c3 ([C] add TableBlock)
 };
 
 ContentBlockFactory.displayName = "ContentBlocks.Factory";
