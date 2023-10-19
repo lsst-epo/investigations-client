@@ -11,7 +11,7 @@ const Fragment = graphql(`
         childblocks: children {
           __typename
           id
-          ...ColorToolBlock
+          ...ColorFilterToolBlock
           ...FilterToolBlock
           ...TextBlock
           ...ImageBlock
@@ -25,7 +25,7 @@ const Fragment = graphql(`
         childblocks: children {
           __typename
           id
-          ...ColorToolBlock
+          ...ColorFilterToolBlock
           ...FilterToolBlock
           ...TextBlock
           ...ImageBlock

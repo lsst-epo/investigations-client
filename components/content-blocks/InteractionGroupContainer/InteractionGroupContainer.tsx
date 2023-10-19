@@ -12,7 +12,7 @@ const Fragment = graphql(`
       ...ImageBlock
       ...QuestionsBlock
       ...BarGraphToolBlock
-      ...ColorToolBlock
+      ...ColorFilterToolBlock
       ...FilterToolBlock
       ...ScatterplotToolBlock
     }

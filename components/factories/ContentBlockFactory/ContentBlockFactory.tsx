@@ -11,7 +11,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
   contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
-  contentBlocks_colorTool_BlockType: Blocks.ColorTool,
+  contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
 };
@@ -25,7 +25,7 @@ const Fragment = graphql(`
     ...ImageBlock
     ...QuestionsBlock
     ...BarGraphToolBlock
-    ...ColorToolBlock
+    ...ColorFilterToolBlock
     ...FilterToolBlock
     ...ScatterplotToolBlock
   }
@@ -47,7 +47,6 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = (
   const Block = blockMap[data.__typename];
 
   if (!Block) return null;
-
   return <Block data={data} site={props.site} pageId={props.pageId} />;
 };
 
