@@ -5,10 +5,15 @@ export const Heading = styled.h2`
   margin-block-end: ${fluidScale("2em", "1.5em")};
 `;
 export const InteractionGroup = styled.div`
+  --content-block-margin: ${fluidScale(
+    "var(--PADDING_MEDIUM, 40px)",
+    "var(--PADDING_SMALL, 20px)"
+  )};
+
   padding: ${fluidScale("2em", "1.5em")};
   background-color: #e6ffe6;
 
-  > section + section {
-    margin-top: 1.5em;
+  > * + * {
+    margin-block-start: var(--content-block-margin);
   }
 `;

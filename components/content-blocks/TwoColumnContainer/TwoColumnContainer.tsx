@@ -15,6 +15,7 @@ const Fragment = graphql(`
           ...FilterToolBlock
           ...TextBlock
           ...ImageBlock
+          ...TableBlock
           ...BarGraphToolBlock
           ...ScatterplotToolBlock
         }
@@ -29,6 +30,7 @@ const Fragment = graphql(`
           ...FilterToolBlock
           ...TextBlock
           ...ImageBlock
+          ...TableBlock
           ...BarGraphToolBlock
           ...ScatterplotToolBlock
         }

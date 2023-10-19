@@ -3,11 +3,15 @@ import Container from "@rubin-epo/epo-react-lib/Container";
 import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
 
 export const ContentBlocks = styled(Container)`
+  --content-block-margin: ${fluidScale(
+    "var(--PADDING_MEDIUM, 40px)",
+    "var(--PADDING_SMALL, 20px)"
+  )};
   padding-block-start: 67px;
   padding-block-end: var(--pager-height);
 
-  .content-block {
-    margin-block-end: ${fluidScale("40px", "var(--PADDING_SMALL, 20px)")};
+  > * + * {
+    margin-block-start: var(--content-block-margin);
   }
 `;
 

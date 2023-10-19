@@ -14,6 +14,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
+  contentBlocks_table_BlockType: Blocks.Table,
 };
 
 const Fragment = graphql(`
@@ -49,14 +50,6 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = (
 
   if (!Block) return null;
   return <Block data={data} site={props.site} pageId={props.pageId} />;
-=======
-  const isWithModal =
-    props.isInModal || data.__typename === "contentBlocks_image_BlockType";
-
-  const EnhancedBlock = isWithModal ? withModal(Block) : Block;
-
-  return <EnhancedBlock data={data} site={props.site} pageId={props.pageId} />;
->>>>>>> 13365c3 ([C] add TableBlock)
 };
 
 ContentBlockFactory.displayName = "ContentBlocks.Factory";
