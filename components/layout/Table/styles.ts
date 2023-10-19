@@ -7,7 +7,7 @@ export const TableWrapper = styled.div`
   --table-border: var(--table-border-width) solid var(--table-border-color);
   --table-header-height: 5em;
 
-  padding: var(--PADDING_SMALL, 20px);
+  padding-inline: var(--table-padding, 0);
   position: relative;
   overflow: hidden;
 `;
@@ -22,10 +22,7 @@ export const ScrollButton = styled.button`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(
-    var(--PADDING_SMALL, 20px) + var(--table-border-width) +
-      calc(var(--table-header-height) * 0.2)
-  );
+  top: calc(var(--table-border-width) + calc(var(--table-header-height) * 0.2));
   height: calc(var(--table-header-height) * 0.6);
   width: 2em;
 
@@ -78,13 +75,12 @@ export const Cell = styled.td`
   background-color: var(--table-cell-bg);
   border: var(--table-border);
   font-weight: normal;
-  height: 4em;
+  height: var(--table-header-height);
   padding: 1em;
-
-  &:not([scope="row"]) {
-    vertical-align: top;
-  }
 `;
 export const Caption = styled.caption`
   caption-side: bottom;
+  font-size: 80%;
+  margin-block-start: 1em;
+  text-align: left;
 `;

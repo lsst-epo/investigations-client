@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
 
 export const Heading = styled.h2`
-  padding-block-end: ${fluidScale("57px", "47px")};
+  margin-block-end: var(--content-block-margin);
 `;
 
 export const QuestionList = styled.ol`

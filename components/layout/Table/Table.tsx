@@ -1,5 +1,6 @@
 import {
   FunctionComponent,
+  HTMLProps,
   MutableRefObject,
   PropsWithChildren,
   useRef,
@@ -14,7 +15,7 @@ interface TableCell {
 }
 
 interface TableHeaderCell {
-  thProps?: any;
+  thProps?: HTMLProps<HTMLTableCellElement>;
 }
 
 export type TableHeader = PropsWithChildren<TableHeaderCell>[];
@@ -74,7 +75,11 @@ const Table: FunctionComponent<TableProps> = ({
     }
   };
   return (
-    <Styled.TableWrapper>
+    <Styled.TableWrapper
+      style={{
+        "--table-padding": overflow ? "var(--PADDING_SMALL, 20px)" : undefined,
+      }}
+    >
       {overflow && (
         <>
           <Styled.ScrollButton
