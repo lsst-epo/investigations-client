@@ -31,7 +31,7 @@ const TableContentBlock: FunctionComponent<TableContentBlockProps> = ({
 }) => {
   const {
     id,
-    caption = "",
+    caption,
     contentHeading,
     displayTable = [],
   } = useFragment(Fragment, props.data);

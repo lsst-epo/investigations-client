@@ -64,7 +64,8 @@ const getTwoColQuestionEntryIds = (block: object) => {
   const { columns } = block;
 
   const colBlocks = [...columns].map((col) => {
-    return [...col.children];
+    const { children = [] } = col;
+    return [...children];
   });
 
   return colBlocks.map((colBlock) => {
