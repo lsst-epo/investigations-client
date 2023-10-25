@@ -1,20 +1,18 @@
-import { redirect } from "next/navigation";
+"use client";
+
 import Button from "@rubin-epo/epo-react-lib/Button";
-import { deleteAuthCookies } from "@/components/auth/serverHelpers";
+import { signOut } from "./actions";
 
-export default async function SignOut({ redirectTo }: { redirectTo: string }) {
-  async function signOut() {
-    "use server";
-
-    deleteAuthCookies();
-    redirect(redirectTo);
-  }
+export default function SignOut({ redirectTo }: { redirectTo: string }) {
+  const signOutWithRedirect = signOut.bind(null, redirectTo);
 
   return (
     <form
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      action={signOut}
+      action={signOutWithRedirect}
+      // clear stored answers from browser storage
+      onSubmit={() => localStorage.clear()}
     >
       <Button className="sign-out">Sign out</Button>
     </form>

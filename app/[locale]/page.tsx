@@ -52,7 +52,6 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
         <>
           <p>User: {JSON.stringify(user)}</p>
           {craftUserStatus && <p>Status: {craftUserStatus}</p>}
-          {/* @ts-expect-error Server Component */}
           <SignOut redirectTo={"/"} />
         </>
       )}
