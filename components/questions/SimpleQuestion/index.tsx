@@ -13,11 +13,12 @@ import Select from "./Select";
 import Multiselect from "./Multiselect";
 import Widget from "./Widget";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
+import * as Styled from "@/components/content-blocks/Questions/styles";
 
 export interface SimpleQuestionProps extends BaseQuestionProps {
   type: SimpleQuestionType;
   questionText: string;
-  widgetConfig?: { type: "filterTool"; [key: string]: any };
+  widgetConfig?: any;
   options?: Option[];
 }
 
@@ -41,6 +42,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   const { answers, onChangeCallback } = useContext(StoredAnswersContext);
 
   const storedAnswer = answers[id];
+  const labelId = `${id}Label`;
 
   const Input = INPUT_MAP[type];
 
@@ -52,13 +54,17 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
 
   return (
     <li value={number}>
-      <label htmlFor={id}>{questionText}</label>
+      <Styled.QuestionLabel
+        id={labelId}
+        dangerouslySetInnerHTML={{ __html: questionText }}
+      />
       <Input
-        onChangeCallback={(value: HTMLInputElement["value"]) =>
+        onChangeCallback={(value: any) =>
           onChangeCallback && onChangeCallback(value, id, storedAnswer?.id)
         }
+        value={storedAnswer?.data}
+        labelledById={labelId}
         {...{
-          value: storedAnswer?.data,
           isDisabled,
           id,
           options,

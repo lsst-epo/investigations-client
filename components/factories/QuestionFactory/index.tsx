@@ -1,6 +1,5 @@
 import { ComponentType, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import InlineQuestion from "@/components/questions/InlineQuestion";
 import SimpleQuestion from "@/components/questions/SimpleQuestion";
 import TabularQuestion from "@/components/questions/TabularQuestion";
 
@@ -15,45 +14,58 @@ const Fragment = graphql(`
     }
     id
     questionText
+    questionWidgetsBlock {
+      __typename
+      ... on questionWidgetsBlock_colorFilterToolBlock_BlockType {
+        typeHandle
+        colorFilterTool {
+          ...ColorFilterToolBlock
+        }
+      }
+    }
   }
 `);
 
 export interface QuestionProps {
   data: FragmentType<typeof Fragment>;
-  config?: any;
+  number: number;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
-  simple: SimpleQuestion,
-  inline: InlineQuestion,
+  text: SimpleQuestion,
+  select: SimpleQuestion,
   tabular: TabularQuestion,
+  widget: SimpleQuestion,
 };
 
-const QuestionFactory: FunctionComponent<QuestionProps> = (props) => {
-  const data = useFragment(Fragment, props.data);
+const QuestionFactory: FunctionComponent<QuestionProps> = ({
+  number,
+  ...props
+}) => {
+  const {
+    answerType,
+    id,
+    questionWidgetsBlock = [],
+    ...data
+  } = useFragment(Fragment, props.data);
 
-  if (
-    !data.id ||
-    (data?.answerType !== "text" && data?.answerType !== "select")
-  )
-    return null;
+  if (!id || !answerType) return null;
+
+  const Question = QUESTION_MAP[answerType];
+
+  if (!Question) return null;
 
   return (
-    <SimpleQuestion
-      {...props.config}
-      id={data.id}
-      type={data.answerType}
+    <Question
+      id={id}
+      type={answerType}
       questionText={data.questionText}
       options={data.answerOptions}
+      widgetConfig={questionWidgetsBlock[0] || {}}
+      number={number}
     />
   );
-
-  // const Question = QUESTION_MAP[data.answerType];
-
-  // if (!Question) return null;
-
-  // return <Question data={data} {...{ ...props.config, id: data.id }} />;
 };
 
 QuestionFactory.displayName = "Factory.Question";

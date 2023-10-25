@@ -1,18 +1,16 @@
-"use client";
-import { ComponentType, FunctionComponent, useState } from "react";
-import FilterToolContainer from "./containers/FilterToolContainer";
-import * as Styled from "./styles";
+import ColorFilterTool from "@/components/content-blocks/ColorFilterTool";
+import { ComponentType, FunctionComponent } from "react";
 
 export interface SimpleWidgetProps {
   id: string;
-  value?: string;
+  value?: any;
   isDisabled?: boolean;
-  onChangeCallback: (value: string) => void;
-  widgetConfig: { type: "filterTool"; [key: string]: any };
+  onChangeCallback: (value: any) => void;
+  widgetConfig: { typeHandle: string; [key: string]: any };
 }
 
 const WIDGET_MAP: Record<string, ComponentType<any>> = {
-  filterTool: FilterToolContainer,
+  colorFilterToolBlock: ColorFilterTool,
 };
 
 const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
@@ -22,27 +20,20 @@ const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
   onChangeCallback,
   widgetConfig,
 }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const { type } = widgetConfig;
-  const Widget = WIDGET_MAP[type];
-  const title = undefined; // figure out where in the props to put a widget title
+  const { typeHandle } = widgetConfig;
+  const Widget = WIDGET_MAP[typeHandle];
 
   if (!Widget) {
-    console.error(`"${type}" is not a valid input for this question type.`);
+    console.error(`"${typeHandle}" is not a valid input for this widget type.`);
 
     return null;
   }
 
   return (
-    <Styled.Container
-      paddingSize="none"
-      title={title}
-      isOpen={modalOpen}
-      openModal={() => setModalOpen(true)}
-      closeModal={() => setModalOpen(false)}
-    >
-      <Widget {...{ id, value, isDisabled, onChangeCallback, widgetConfig }} />
-    </Styled.Container>
+    <Widget
+      data={widgetConfig}
+      {...{ id, value, isDisabled, onChangeCallback }}
+    />
   );
 };
 

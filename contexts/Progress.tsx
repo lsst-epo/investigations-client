@@ -7,6 +7,23 @@ interface ProgressSection {
   order: number;
   pages: number[];
 }
+interface Page {
+  contentBlocks: any[];
+  hasSavePoints: boolean;
+  id: string;
+  title: string;
+  uri: string;
+  __typename: string;
+}
+
+interface InvestigationProgress {
+  sections: Array<ProgressSection>;
+  pages: Array<Page>;
+  currentSectionNumber: number;
+  totalPages: number;
+  questionsBySectionPage: Array<Array<Array<string>>>;
+  [key: string]: any;
+}
 
 const buildProgressSections = (siblings: Array<any>): ProgressSection[] => {
   if (!siblings || !siblings?.length) return [];
@@ -51,8 +68,11 @@ const buildProgressSections = (siblings: Array<any>): ProgressSection[] => {
   return mapped;
 };
 
-const getQuestionEntryIds = (block: object) => {
+const getQuestionEntryIds = (block: {
+  questionEntries: { id: string }[];
+}): Array<string | undefined> => {
   const { questionEntries } = block;
+
   if (!questionEntries) return undefined;
 
   return questionEntries.map((questionEntry) => {
@@ -73,49 +93,52 @@ const getTwoColQuestionEntryIds = (block: object) => {
   });
 };
 
-const getPageQuestionEntryIds = (blocks: Array<any> = []) => {
+const getPageQuestionEntryIds = (blocks: Array<any> = []): Array<any> => {
   return blocks.map((block) => {
     const { __typename } = block;
 
-    if (__typename === "contentBlocks_questionBlock_BlockType") {
-      return getQuestionEntryIds(block);
-    }
+    switch (__typename) {
+      case "contentBlocks_questionBlock_BlockType": {
+        return getQuestionEntryIds(block);
+      }
+      case "contentBlocks_twoColumnContainer_BlockType": {
+        return getTwoColQuestionEntryIds(block);
+      }
+      case "contentBlocks_group_BlockType": {
+        const { group } = block;
 
-    if (__typename === "contentBlocks_twoColumnContainer_BlockType") {
-      return getTwoColQuestionEntryIds(block);
-    }
-
-    if (__typename === "contentBlocks_group_BlockType") {
-      const { group } = block;
-
-      return group.map((groupBlock) => {
-        if (__typename === "contentBlocks_questionBlock_BlockType") {
-          return getQuestionEntryIds(groupBlock);
-        }
-
-        if (__typename === "contentBlocks_twoColumnContainer_BlockType") {
-          return getTwoColQuestionEntryIds(groupBlock);
-        }
-      });
+        return getPageQuestionEntryIds(group).flat();
+      }
+      default: {
+        break;
+      }
     }
   });
 };
 
+const getQuestionsByPage = (page: Page): Array<string> => {
+  const { contentBlocks } = page;
+
+  return getPageQuestionEntryIds(contentBlocks)
+    .flat()
+    .filter((questionId) => !!questionId);
+};
+
 const getQuestionsBySectionPage = (
-  sections: ProgressSection[],
-  pages: Array<any>
+  sections: Array<ProgressSection>,
+  pages: Array<Page>
 ) => {
   return sections.map(({ pages: pageNumbers }) => {
     return pageNumbers.map((pageNumber: number) => {
-      const { contentBlocks } = pages[pageNumber - 1];
-      return []
-        .concat(...getPageQuestionEntryIds(contentBlocks))
-        .filter((questionId) => !!questionId);
+      return getQuestionsByPage(pages[pageNumber - 1]);
     });
   });
 };
 
-const getAnsweredBySectionPage = (questionsBySectionPage, answers) => {
+const getAnsweredBySectionPage = (
+  questionsBySectionPage: Array<Array<Array<string>>>,
+  answers: Record<string, any>
+) => {
   return questionsBySectionPage.map((section) => {
     return section.map((questionIds) => {
       if (questionIds.length === 0) return true;
@@ -208,13 +231,18 @@ const getDisabledByPage = (
   return disabledByPage;
 };
 
+const ProgressContext = createContext<InvestigationProgress | null>(null);
+
+const investigationPageTypes = [
+  "investigations_default_Entry",
+  "investigations_investigationSectionBreakChild_Entry",
+];
+
 interface ProgressProviderProps {
-  pages: Array<any>;
-  currentPageId: number;
+  pages: Array<Page>;
+  currentPageId: string;
   children: ReactNode;
 }
-
-const ProgressContext = createContext(null);
 
 const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
   pages,
@@ -222,10 +250,8 @@ const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
   children,
 }) => {
   const { answers } = useContext(StoredAnswersContext);
-  const siblings = pages.filter(
-    (page) =>
-      page.__typename === "investigations_default_Entry" ||
-      page.__typename === "investigations_investigationSectionBreakChild_Entry"
+  const siblings = pages.filter((page) =>
+    investigationPageTypes.includes(page.__typename)
   );
   const sections = buildProgressSections(siblings);
   const currentPageNumber =
@@ -240,7 +266,7 @@ const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
   const answeredByPage = [].concat(...answeredBySectionPage);
   const questions = [].concat(...questionsByPage);
 
-  const progress = {
+  const progress: InvestigationProgress = {
     sections,
     pages: siblings,
     currentSectionNumber:

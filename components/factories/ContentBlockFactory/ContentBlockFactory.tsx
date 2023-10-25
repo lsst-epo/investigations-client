@@ -11,7 +11,6 @@ export const blockMap: Record<string, any> = {
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
   contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
-  contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
@@ -27,7 +26,6 @@ const Fragment = graphql(`
     ...TableBlock
     ...QuestionsBlock
     ...BarGraphToolBlock
-    ...ColorFilterToolBlock
     ...FilterToolBlock
     ...ScatterplotToolBlock
   }

@@ -6,6 +6,7 @@ interface SimpleTextProps {
   value?: string;
   isDisabled?: boolean;
   onChangeCallback: (value: string) => void;
+  labelledById: string;
 }
 
 const SimpleText: FunctionComponent<SimpleTextProps> = ({
@@ -13,9 +14,11 @@ const SimpleText: FunctionComponent<SimpleTextProps> = ({
   value,
   isDisabled,
   onChangeCallback,
+  labelledById,
 }) => {
   return (
     <Styled.TextInput
+      aria-labelledby={labelledById}
       id={id}
       type="text"
       disabled={isDisabled}
