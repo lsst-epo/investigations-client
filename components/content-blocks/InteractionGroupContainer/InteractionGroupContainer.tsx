@@ -8,12 +8,12 @@ const Fragment = graphql(`
     __typename
     childBlocks: children {
       __typename
+      id
       ...TextBlock
       ...ImageBlock
       ...TableBlock
       ...QuestionsBlock
       ...BarGraphToolBlock
-      ...ColorFilterToolBlock
       ...FilterToolBlock
       ...ScatterplotToolBlock
     }

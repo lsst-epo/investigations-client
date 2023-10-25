@@ -8,6 +8,7 @@ interface SimpleSelectProps {
   isDisabled?: boolean;
   onChangeCallback: (value: string | null) => void;
   options: Option[];
+  labelledById: string;
 }
 
 const SimpleSelect: FunctionComponent<SimpleSelectProps> = ({
@@ -16,9 +17,11 @@ const SimpleSelect: FunctionComponent<SimpleSelectProps> = ({
   isDisabled,
   onChangeCallback,
   options = [],
+  labelledById,
 }) => {
   return (
     <Styled.Select
+      labelledById={labelledById}
       id={id}
       value={value || null}
       isDisabled={isDisabled}

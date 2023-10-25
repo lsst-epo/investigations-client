@@ -1,44 +1,43 @@
-import { Container } from "@rubin-epo/epo-react-lib";
+import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
+import WidgetContainer from "@/components/layout/WidgetContainer";
 import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
 import ColorSwatch from "@rubin-epo/epo-react-lib/ColorSwatch";
+import { BaseContentBlockProps } from "@/components/shapes";
+import withModal from "@/components/hoc/withModal/withModal";
 
 const Fragment = graphql(`
-  fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {
-    __typename
-    colorFilterTool {
-      ... on widgets_colorFilterTool_Entry {
-        filterColorOptionsLabels: filterColorOptions(label: true)
-        filterColorOptionsValues: filterColorOptions(label: true)
-        colorFilterToolObjects {
-          ... on colorFilterToolObjects_group_BlockType {
-            groupName
-            objects: children {
-              ... on colorFilterToolObjects_object_BlockType {
-                objectName
-                objectCaption
-                filterImages: children {
-                  ... on colorFilterToolObjects_filterimage_BlockType {
-                    isEnabled
-                    isActive
-                    image {
-                      url {
-                        directUrlPreview
-                      }
-                      width
-                      height
-                      additional {
-                        AltTextEN
-                        AltTextES
-                      }
-                    }
-                    max: colorToolMax
-                    min: colorToolMin
-                    defaultValue: colorToolDefaultValue
-                    label: filter
-                    color: preSelectedColor
+  fragment ColorFilterToolBlock on widgets_colorFilterTool_Entry {
+    title
+    filterColorOptionsLabels: filterColorOptions(label: true)
+    filterColorOptionsValues: filterColorOptions(label: true)
+    colorFilterToolObjects {
+      ... on colorFilterToolObjects_group_BlockType {
+        groupName
+        objects: children {
+          ... on colorFilterToolObjects_object_BlockType {
+            objectName
+            objectCaption
+            filterImages: children {
+              ... on colorFilterToolObjects_filterimage_BlockType {
+                isEnabled
+                isActive
+                image {
+                  url {
+                    directUrlPreview
+                  }
+                  width
+                  height
+                  additional {
+                    AltTextEN
+                    AltTextES
                   }
                 }
+                max: colorToolMax
+                min: colorToolMin
+                defaultValue: colorToolDefaultValue
+                label: filter
+                color: preSelectedColor
               }
             }
           }
@@ -115,20 +114,29 @@ const formatObjectGroups = (objectGroups) => {
   });
 };
 
-export default function ColorFilterToolBlock(props: {
-  site: string;
+interface ColorFilterToolBlockProps extends BaseContentBlockProps {
   data: FragmentType<typeof Fragment>;
-}) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onChangeCallback: (value: any) => void;
+  value?: any;
+}
+
+const ColorFilterToolBlock: FunctionComponent<ColorFilterToolBlockProps> = ({
+  data,
+  onChangeCallback,
+  value,
+  openModal,
+  isOpen,
+}) => {
   const {
     colorFilterTool: [
       {
         filterColorOptionsLabels,
         filterColorOptionsValues,
         colorFilterToolObjects,
+        title,
       },
     ],
-  } = useFragment(Fragment, props.data);
+  } = useFragment(Fragment, data);
 
   const colorOptions = formatColorOptions(
     filterColorOptionsLabels,
@@ -137,14 +145,19 @@ export default function ColorFilterToolBlock(props: {
   const objectGroups = formatObjectGroups(colorFilterToolObjects);
 
   return (
-    <Container>
+    <WidgetContainer {...{ title, openModal, isOpen }}>
       <ColorTool
         data={objectGroups}
-        selectedData={objectGroups[0].filters[0]}
+        selectedData={value || objectGroups[0].filters[0]}
         colorOptions={colorOptions}
+        selectionCallback={(selectedData) =>
+          onChangeCallback && onChangeCallback(selectedData)
+        }
       />
-    </Container>
+    </WidgetContainer>
   );
-}
+};
 
 ColorFilterToolBlock.displayName = "ContentBlock.ColorFilterTool";
+
+export default withModal(ColorFilterToolBlock);
