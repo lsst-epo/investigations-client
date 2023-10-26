@@ -6,7 +6,7 @@ export interface SimpleWidgetProps {
   value?: any;
   isDisabled?: boolean;
   onChangeCallback: (value: any) => void;
-  widgetConfig: { typeHandle: string; [key: string]: any };
+  widgetConfig: { typeHandle: string; __typename: string; [key: string]: any };
 }
 
 const WIDGET_MAP: Record<string, ComponentType<any>> = {

@@ -18,7 +18,7 @@ import * as Styled from "@/components/content-blocks/Questions/styles";
 export interface SimpleQuestionProps extends BaseQuestionProps {
   type: SimpleQuestionType;
   questionText: string;
-  widgetConfig?: any;
+  widgetConfig?: { typeHandle: string; __typename: string; [key: string]: any };
   options?: Option[];
 }
 
