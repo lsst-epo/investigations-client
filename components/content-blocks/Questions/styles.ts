@@ -39,9 +39,6 @@ export const QuestionLabel = styled.div`
     }
   }
 
-  &:first-child {
-  }
-
   & > *:first-child {
     display: inline;
   }
