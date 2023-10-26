@@ -21,7 +21,7 @@ export default function SignIn() {
         {t("auth.log_in_to_continue")}
       </Button>
       <Styled.ButtonLabel>
-        This option allows you to safely save your work.
+        {t("auth.continue_w_login_label")}
       </Styled.ButtonLabel>
     </>
   );

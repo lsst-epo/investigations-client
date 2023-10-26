@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Submit from "@/components/form/Submit";
+import AuthButtons from "@/components/auth/buttons";
 
 export const Wrapper = styled.div`
   padding-top: 13px;
@@ -12,6 +13,14 @@ export const SSOSection = styled.div`
 
 export const SSOSectionInstructions = styled.p`
   margin-bottom: 20px;
+`;
+
+export const GoogleSSOButton = styled(AuthButtons.GoogleSSO)`
+  margin-top: 15px;
+`;
+
+export const FacebookSSOButton = styled(AuthButtons.FacebookSSO)`
+  margin-top: 15px;
 `;
 
 export const EmailSection = styled.div`

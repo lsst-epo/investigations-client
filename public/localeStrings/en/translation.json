@@ -44,7 +44,9 @@
     "email": "Email",
     "email_required": "Email (required)",
     "first_name": "First name",
+    "first_name_optional": "First name (optional)",
     "last_name": "Last name",
+    "last_name_optional": "Last name (optional)",
     "inquiry": "Inquiry",
     "password": "Password",
     "password_required": "Password (required)",
@@ -112,9 +114,14 @@
   "auth": {
     "log_in": "Log in",
     "log_in_to_continue": "Start investigation via logging in",
+    "continue_w_login_label": "This option allows you to safely save your work.",
+    "continue_wo_login_button": "Start the investigation logged out",
+    "continue_wo_login_label": "You can still save your work, but it will get lost if the browser’s cache is erased.",
     "log_out": "Log out",
     "logged_in_as": "Logged in as {{name}}",
     "logged_out": "Logged out",
+    "log_in_w_oauth": "To log in using Google or Facebook.",
+    "log_in_w_email": "Or, log in using your email and password.",
     "sign_up": "Create an account"
   },
   "sign_in": {
@@ -148,6 +155,7 @@
   },
   "reset_password": {
     "header": "Reset password",
+    "description": "Enter your email to reset your password",
     "instructions": "Enter your email to reset your password",
     "submit": "Reset password",
     "submit_pending": "Submitting…",
@@ -178,6 +186,9 @@
     "confirm_button": "Got it!"
   },
   "join": {
+    "title": "Teach and learn real astronomy",
+    "description": "Join to learn how astronomers learn and interact with real astronomy data. Free of charge forever.",
+    "role": "Select your role",
     "as_students": "I’m a student",
     "as_educators": "I’m an educator",
     "header_students": "Learn real astronomy",

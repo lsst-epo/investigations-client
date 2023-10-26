@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
+import { BasicModal, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
-import Submit from "@/components/form/Submit";
 import { registerEducator, registerStudent } from "./actions";
 import { useTranslation } from "react-i18next";
+import * as Styled from "./styles";
 
 export default function SignUp() {
   const { active, pendingGroup, openModal, closeModal } =
@@ -53,8 +53,10 @@ export default function SignUp() {
           setStatus(null);
         }}
       >
-        <div>
-          <label htmlFor="signUpEmail">{t("form.email")}</label>
+        <Styled.InputWrapper>
+          <Styled.Label htmlFor="signUpEmail">
+            {t("form.email_required")}
+          </Styled.Label>
           <Input
             name="email"
             id="signUpEmail"
@@ -62,27 +64,36 @@ export default function SignUp() {
             autoComplete="email"
             required
           />
-        </div>
-        <div>
-          <label htmlFor="registerFirstName">{t("form.first_name")}</label>
+        </Styled.InputWrapper>
+        <Styled.InputWrapper>
+          <Styled.Label htmlFor="registerFirstName">
+            {t("form.first_name_optional")}
+          </Styled.Label>
           <Input
             name="firstName"
             id="registerFirstName"
             type="text"
             autoComplete="given-name"
           />
-        </div>
-        <div>
-          <label htmlFor="registerLastName">{t("form.last_name")}</label>
+        </Styled.InputWrapper>
+        <Styled.InputWrapper>
+          <Styled.Label htmlFor="registerLastName">
+            {t("form.last_name_optional")}
+          </Styled.Label>
           <Input
             name="lastName"
             id="registerLastName"
             type="text"
             autoComplete="family-name"
           />
-        </div>
-        <div>
-          <label htmlFor="signUpPassword">{t("form.password")}</label>
+        </Styled.InputWrapper>
+        <Styled.InputWrapper>
+          <Styled.Label htmlFor="signUpPassword">
+            {t("form.password_required")}
+            <Styled.Instructions>
+              {t("form.create_password_instructions")}
+            </Styled.Instructions>
+          </Styled.Label>
           <Input
             name="password"
             id="signUpPassword"
@@ -90,22 +101,24 @@ export default function SignUp() {
             autoComplete="current-password"
             required
           />
-        </div>
-        <Submit>
-          {(pending) =>
-            t(pending ? "register.submit_pending" : "register.submit")
-          }
-        </Submit>
-        <Button
-          type="button"
-          styleAs="secondary"
-          onClick={() => {
-            setStatus(null);
-            closeModal();
-          }}
-        >
-          {t("form.cancel")}
-        </Button>
+        </Styled.InputWrapper>
+        <Styled.ButtonsWrapper>
+          <Styled.SubmitButton>
+            {(pending) =>
+              t(pending ? "register.submit_pending" : "register.submit")
+            }
+          </Styled.SubmitButton>
+          <Styled.CancelButton
+            type="button"
+            styleAs="secondary"
+            onClick={() => {
+              setStatus(null);
+              closeModal();
+            }}
+          >
+            {t("form.cancel")}
+          </Styled.CancelButton>
+        </Styled.ButtonsWrapper>
         <output>
           {status === "error" && <p>{t("register.error_message")}</p>}
         </output>

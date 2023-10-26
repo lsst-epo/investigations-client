@@ -156,7 +156,6 @@ const getDisabledByPage = (
   questionsByPage,
   answeredByPage
 ) => {
-  const currentIndex = currentPageNumber - 1;
   const disabledByPage = [];
 
   for (let pageIndex = 0; pageIndex < totalPages; pageIndex++) {

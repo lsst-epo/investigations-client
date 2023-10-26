@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
+import { BasicModal, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
 import { useTranslation } from "react-i18next";
-import Submit from "@/components/form/Submit";
 import { forgotPassword } from "./actions";
+import * as Styled from "./styles";
 
 export default function SignUp() {
   const { active, closeModal } = useAuthDialogManager();
@@ -32,7 +32,7 @@ export default function SignUp() {
       case "error":
         return t("reset_password.error_message");
       default:
-        return undefined;
+        return t("reset_password.description");
     }
   }
 
@@ -44,7 +44,7 @@ export default function SignUp() {
       onClose={closeModal}
     >
       {status !== "success" && (
-        <form
+        <Styled.Form
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           action={async (formData: FormData) => {
@@ -59,9 +59,9 @@ export default function SignUp() {
           }}
         >
           <div>
-            <label htmlFor="forgottenPasswordEmail">
+            <Styled.Label htmlFor="forgottenPasswordEmail">
               {t("form.email_required")}
-            </label>
+            </Styled.Label>
             <Input
               name="email"
               id="forgottenPasswordEmail"
@@ -70,7 +70,7 @@ export default function SignUp() {
               required
             />
           </div>
-          <Submit>
+          <Styled.SubmitButton>
             {(pending) =>
               t(
                 pending
@@ -78,18 +78,18 @@ export default function SignUp() {
                   : "reset_password.submit"
               )
             }
-          </Submit>
-        </form>
+          </Styled.SubmitButton>
+        </Styled.Form>
       )}
       {status === "success" && (
-        <Button
+        <Styled.ConfirmButton
           onClick={() => {
             setStatus(null);
             closeModal();
           }}
         >
           {t("reset_password.confirm_button")}
-        </Button>
+        </Styled.ConfirmButton>
       )}
     </BasicModal>
   );

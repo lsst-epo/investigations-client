@@ -1,42 +1,276 @@
 {
-  "english-site-name": "English",
-  "espanol-site-name": "Español",
-  "language-select-label": "Idioma",
-  "localize-content": "Localizar el contenido del sitio",
-  "page-not-found-title": "Page not found - es",
-  "search-placeholder": "Escribe tu búsqueda y presiona enter…",
-  "search-site": "Buscar en el sitio web",
-  "skip-to-content": "Saltar al contenido principal",
-  "submit-search": "Enviar búsqueda",
-  "toggle-nav": "Alternar menú de navegación",
-  "toggle-search": "Alternar búsqueda",
+  "breaking-news": "Breaking News",
+  "cell": "Cell",
+  "localize-content": "Localize site content",
+  "media": "Media",
+  "read-more": "Read more",
+  "related-content": "Related content",
+  "error-title": "Error",
+  "error-text": "There has been an error.",
+  "page-not-found-title": "Page not found",
+  "page-not-found-text": "The page you're looking for was not found.",
+  "published": "Published",
+  "search-clear": "Clear all",
+  "search-no-results": "No results. Please try a different search.",
+  "search-placeholder": "Write your search and hit enter…",
+  "search-filter": "Search",
+  "search-filter-placeholder": "Search",
+  "search-site": "Search the website",
+  "skip-to-content": "Skip to main content",
+  "submit-search": "Submit search",
+  "tags": "Tags",
+  "toggle-nav": "Toggle navigation menu",
+  "toggle-search": "Toggle search",
+  "homepage": "Homepage",
+  "menu": {
+    "main": "Main menu",
+    "main_cta": "Settings and more",
+    "settings": "Settings"
+  },
+  "language": {
+    "locales": {
+      "en": "English",
+      "es": "Español"
+    },
+    "language_select_label": "Language selection",
+    "language_cta": "Choose your language"
+  },
   "contact-form": {
-    "contact-us": "Contacta con nosotros",
-    "email": "Correo electrónico",
-    "inquiry": "Investigación",
-    "send": "Enviar",
-    "sending": "Enviando…",
-    "reset": "Restablecer el formulario"
+    "contact-us": "Contact us",
+    "success": "Thank you. We’ve received your message.",
+    "error": "We seem to have run into a problem."
+  },
+  "form": {
+    "email": "Email",
+    "email_required": "Email (required)",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "inquiry": "Inquiry",
+    "password": "Password",
+    "password_required": "Password (required)",
+    "current_password": "Current password",
+    "new_password": "New password",
+    "confirm_password": "Confirm new password",
+    "show_password": "Show password",
+    "hide_password": "Hide password",
+    "create_password": "Create a password (required)",
+    "create_password_instructions": "Passwords should be at least 8 characters long and should contain a mixture of letters, numbers, and other characters.",
+    "school": "School",
+    "preferred_language": "Preferred language",
+    "email_subscription": "Email subscription",
+    "send": "Send",
+    "sending": "Sending…",
+    "submitting": "Submitting...",
+    "reset": "Reset form",
+    "cancel": "Cancel",
+    "error": "Error:",
+    "confirm": "Got it!"
   },
   "page": {
-    "interaction": "Interacción",
-    "questions": "Preguntas"
+    "interaction": "Interaction",
+    "questions": "Questions"
+  },
+  "pager": {
+    "previous": "Previous page",
+    "next": "Next page",
+    "page-count": "Page {{current}} of {{total}}"
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Previous",
+    "next": "Next",
+    "current-slide": "Slide {{current}}",
+    "showing-current-slide": "Showing slide {{current}} of {{length}}",
+    "showing-range": "Showing {{from}} to {{to}} of {{length}}"
   },
   "nav": {
     "close": "Close"
   },
+  "social": {
+    "email-rubin": "Email the Rubin Observatory",
+    "visit-rubin": "Visit the Rubin Observitory on"
+  },
+  "staff": {
+    "scientific-staff": "Scientific Staff Profile",
+    "non-scientific-staff": "Non-scientific Staff Profile",
+    "browse-more": "Browse More Profiles",
+    "back-to-profiles": "Go Back to Profiles"
+  },
+  "telescope": {
+    "state": "State",
+    "in-operations": "in operations",
+    "point": "Currently pointing at",
+    "temp": "Temperature at the summit",
+    "temp-data": "Humidity",
+    "image": "Current image of the sky",
+    "image-data": "completed",
+    "weather": "Weather",
+    "cloudy": "Cloudy",
+    "moon": "Moon phase",
+    "first-quarter": "First quarter"
+  },
   "auth": {
     "log_in": "Log in",
     "log_in_to_continue": "Start investigation via logging in",
+    "continue_wo_login_button": "Start the investigation logged out",
+    "continue_wo_login_label": "You can still save your work, but it will get lost if the browser’s cache is erased.",
     "log_out": "Log out",
     "logged_in_as": "Logged in as {{name}}",
     "logged_out": "Logged out",
     "sign_up": "Create an account"
   },
+  "sign_in": {
+    "header": "Welcome back!",
+    "forgot_password_link": "Forgot Password?",
+    "create_account_link": "Create an account",
+    "continue_with_google": "Continue with Google",
+    "continue_with_facebook": "Continue with Facebook",
+    "submit": "Log in",
+    "submit_pending": "Signing in…",
+    "success": "Success!",
+    "success_message": "You are signed in as {{username}}.",
+    "redirecting_google": "Redirecting to Google…",
+    "redirecting_facebook": "Redirecting to Facebook…",
+    "loading_google": "Signing in with Google…",
+    "loading_facebook": "Signing in with Facebook…",
+    "error": "Error!",
+    "error_message": "There was an error signing you in.",
+    "error_message_google": "There was an error signing you in with Google.",
+    "error_message_facebook": "There was an error signing you in with Facebook.",
+    "confirm_button": "Got it!"
+  },
+  "set_password": {
+    "header": "Create a new password",
+    "submit": "Submit",
+    "success": "Success!",
+    "success_message": "Your password has been updated.",
+    "error": "Error!",
+    "error_message": "There was an error updating your password.",
+    "confirm_button": "Got it!"
+  },
+  "reset_password": {
+    "header": "Reset password",
+    "instructions": "Enter your email to reset your password",
+    "submit": "Reset password",
+    "submit_pending": "Submitting…",
+    "success": "Success!",
+    "success_message": "We’ve sent you a link to with instructions to reset your password",
+    "error": "Error!",
+    "error_message": "There was an error resetting your password.",
+    "confirm_button": "Got it!"
+  },
+  "activate": {
+    "success": "Success!",
+    "success_message": "Your account has been activated. Please log in to begin using the site as a registered user.",
+    "success_message_educator": "Your account has been activated, but it will need to be approved by an administrator before you can access educator content. You will receive an email when you have been approved.",
+    "error": "Error!",
+    "error_message": "There was an error activating your account.",
+    "missing_params_message": "The request cannot be completed. One or more required parameters are missing.",
+    "loading": "Activating your account…",
+    "confirm_button": "Got it!"
+  },
+  "facebook_sso": {
+    "success": "Success!",
+    "success_message": "Your account has been activated. Please log in to begin using the site as a registered user.",
+    "success_message_educator": "Your account has been activated, but it will need to be approved by an administrator before you can access educator content. You will receive an email when you have been approved.",
+    "error": "Error!",
+    "error_message": "There was an error signing you in with Facebook.",
+    "missing_params_message": "The request cannot be completed. One or more required parameters are missing.",
+    "loading": "Signing in with Facebook…",
+    "confirm_button": "Got it!"
+  },
+  "join": {
+    "as_students": "I’m a student",
+    "as_educators": "I’m an educator",
+    "header_students": "Learn real astronomy",
+    "header_educators": "Teach real astronomy",
+    "description_students": "Join to learn how astronomers learn and interact with real astronomy data. Free of charge forever.",
+    "description_educators": "Join to access real astronomy data and tools for your class. Free of charge forever.",
+    "sign_in_link": "Already have an account?",
+    "continue_with_google": "Continue with Google",
+    "continue_with_facebook": "Continue with Facebook",
+    "sign_up_with_email": "Sign up with email"
+  },
+  "register": {
+    "header": "Sign up",
+    "header_students": "Sign up as a student",
+    "header_educators": "Sign up as an educator",
+    "instructions_students": "Please provide the following to create a student account",
+    "instructions_educators": "Please provide the following to create an educator account",
+    "submit": "Sign Up",
+    "submit_pending": "Registering…",
+    "success_students": "Activation pending",
+    "success_message_students": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <0>Free of charge forever.</0>",
+    "success_educators": "Activation pending",
+    "success_message_educators": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <0>Free of charge forever.</0>",
+    "confirm_button": "Got it!",
+    "error": "Error!",
+    "error_message": "There was an error signing you up."
+  },
+  "account": {
+    "header": "Account",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "password": "Password",
+    "loading": "Loading…",
+    "edit": "Edit",
+    "submit_profile": "Update profile & preferences",
+    "submit_password": "Update password",
+    "submit_pending": "Submitting…",
+    "submit_success": "Updated!",
+    "error": "There was an error fetching your account information.",
+    "error_session_expired": "Your session has expired. Please log back in.",
+    "error_delete_failed": "There was a problem submitting your deletion request. Reload the page and try again.",
+    "delete": "Delete my account",
+    "delete_pending": "  Submitting…",
+    "delete_confirm_header": "Delete account?",
+    "delete_confirm_description": "We are sorry to see you go, but you are always welcome to come back. We’ll be here for you, with free of charge investigations for everybody. <0>Are you sure you want to delete your account?</0>",
+    "delete_success_header": "Your request to delete your account has been accepted",
+    "delete_success_description": "We have received your request. An administrator will delete your account promptly.",
+    "delete_confirm_label": "Yes, delete it!",
+    "delete_error_header": "Error!"
+  },
+  "glossary": {
+    "back_button": "Go back to Glossary"
+  },
+  "restricted": {
+    "header_approval_pending": "Content not yet available",
+    "message_approval_pending": "This content is not yet available for you since approval is pending. If you wish to speed up this process, please send us an email to <0>webmaster@lsst.org</0>.",
+    "header_restricted": "Content not available",
+    "message_restricted": "This content is not available to you. If you think this is in error, please send us an email to <0>webmaster@lsst.org</0>.",
+    "header_not_authorized": "Content not available",
+    "message_not_authorized": "You must log in to access this page.",
+    "header_deletion_pending": "Content not available",
+    "message_deletion_pending": "You have requested to delete your account. This process is pending. If you think you are seeing this message in error, please send us an email to <0>webmaster@lsst.org</0>.",
+    "button_confirm": "Got it!"
+  },
+  "placeholder": {
+    "select_answer": "Select your answer"
+  },
+  "answers": {
+    "save_form": {
+      "label": "Save answers",
+      "submit": "Save your work",
+      "submit_pending": "Saving…",
+      "success_message": "Answers saved!",
+      "empty_error_message": "No new answers to save.",
+      "refresh_error_message": "Your session has expired. Please log back in and try again.",
+      "mutation_error_message": "There was an error saving your answers to your account.",
+      "status_error_message": "Activate your account to begin saving. Check your inbox for an activation email."
+    }
+  },
+  "review": {
+    "no_selection": "(No selection)",
+    "no_answer": "(Answer not provided)"
+  },
   "section_break": {
-    "congratulations": "¡Felicitaciones!",
-    "congratulations_alt": "Imagen animada de fuegos artificiales",
-    "finish": "",
-    "finish_alt": ""
+    "congratulations": "Congratulations!",
+    "congratulations_alt": "Animated image of fireworks",
+    "finish": "Finish",
+    "finish_alt": "Animated image displaying the message: 'Congratulations, you finished!'"
+  },
+  "widgets": {
+    "filter_tool": "Filter Tool",
+    "camera_filter_tool": "Camera Filter Ranges"
   }
 }
