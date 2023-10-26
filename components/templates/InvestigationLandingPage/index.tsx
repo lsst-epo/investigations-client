@@ -3,6 +3,7 @@
 import { ReactNode, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { imageShaper } from "@/helpers";
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
@@ -32,6 +33,7 @@ const InvestigationLandingPage: FunctionComponent<{
   children?: ReactNode;
 }> = ({ ...props }) => {
   const { title, image, children } = useFragment(Fragment, props.data);
+  const { t } = useTranslation();
 
   if (!title) return null;
 
@@ -49,11 +51,10 @@ const InvestigationLandingPage: FunctionComponent<{
               className="wo-sign-in"
               styleAs="tertiary"
               url={`/${children[0].uri}`}
-              text="Start the investigation logged out"
+              text={t("auth.continue_wo_login_button")}
             />
             <Styled.LinkLabel>
-              You can still save your work, but it will get lost if the
-              browser’s cache is erased.
+              {t("auth.continue_wo_login_label")}
             </Styled.LinkLabel>
           </>
         )}

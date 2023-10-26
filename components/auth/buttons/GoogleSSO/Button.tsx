@@ -1,7 +1,8 @@
 "use client";
 
-import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import { Button } from "@rubin-epo/epo-react-lib";
+import { useTranslation } from "react-i18next";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
 import { usePathToRevalidate } from "@/components/auth/clientHelpers";
 import { authenticateEducator, authenticateStudent } from "./actions";
@@ -12,9 +13,13 @@ export default function SSOButton({
 }: {
   onError: () => void;
 }) {
+  const { t } = useTranslation();
   const { pendingGroup } = useAuthDialogManager();
-
   const pathToRevalidate = usePathToRevalidate();
+  const login = useGoogleLogin({
+    onSuccess: handleSuccess,
+    onError: handleError,
+  });
 
   function handleError() {
     console.error("error");
@@ -43,12 +48,12 @@ export default function SSOButton({
   }
 
   return (
-    <GoogleLogin
-      onSuccess={handleSuccess}
-      onError={handleError}
-      theme="outline"
-      size="large"
-    />
+    <Button
+      onClick={() => login()}
+      styleAs="tertiary"
+    >
+      {t("sign_in.continue_with_google")}
+    </Button>
   );
 }
 

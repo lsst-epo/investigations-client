@@ -1,8 +1,10 @@
 "use client";
 
-import { BasicModal, Button } from "@rubin-epo/epo-react-lib";
-import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { BasicModal } from "@rubin-epo/epo-react-lib";
+import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
+import * as Styled from "./styles";
 
 export default function SelectGroup() {
   const { active, openModal, closeModal, setPendingGroup } =
@@ -12,32 +14,34 @@ export default function SelectGroup() {
 
   return (
     <BasicModal
-      title="Select your role"
+      title={t("join.title")}
+      description={t("join.description")}
       open={active === "selectGroup"}
       onClose={closeModal}
     >
-      <Button
-        onClick={() => {
-          setPendingGroup("students");
-          openModal("selectProvider");
-        }}
-      >
-        {t("join.as_students")}
-      </Button>
-      <Button
-        onClick={() => {
-          setPendingGroup("educators");
-          openModal("selectProvider");
-        }}
-        styleAs="educator"
-      >
-        {t("join.as_educators")}
-      </Button>
-      <div>
-        <button onClick={() => openModal("signIn")}>
-          {t("join.sign_in_link")}
-        </button>
-      </div>
+      <Styled.Middle>
+        <Styled.StudentButton
+          onClick={() => {
+            setPendingGroup("students");
+            openModal("selectProvider");
+          }}
+        >
+          <Image role="presentation" src="/assets/roles/student.svg" alt="" width={64} height={64} />
+          <div>{t("join.as_students")}</div>
+        </Styled.StudentButton>
+        <Styled.EducatorButton
+          onClick={() => {
+            setPendingGroup("educators");
+            openModal("selectProvider");
+          }}
+        >
+          <Image role="presentation" src="/assets/roles/educator.svg" alt="" width={55} height={64} />
+          <div>{t("join.as_educators")}</div>
+        </Styled.EducatorButton>
+      </Styled.Middle>
+      <Styled.SignInButton onClick={() => openModal("signIn")}>
+        {t("join.sign_in_link")}
+      </Styled.SignInButton>
     </BasicModal>
   );
 }

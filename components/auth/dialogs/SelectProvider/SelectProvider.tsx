@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { BasicModal, Button } from "@rubin-epo/epo-react-lib";
+import { BasicModal } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
-import AuthButtons from "@/components/auth/buttons";
 import { useTranslation } from "react-i18next";
+import * as Styled from "./styles";
 
 export default function SelectProvider() {
   const { active, pendingGroup, openModal, closeModal } =
@@ -21,25 +21,25 @@ export default function SelectProvider() {
       open={active === "selectProvider"}
       onClose={closeModal}
     >
-      <AuthButtons.GoogleSSO
-        onError={() =>
-          setOutput(t("sign_in.error_message", { context: "google" }))
-        }
-      />
-      <AuthButtons.FacebookSSO
-        onError={() =>
-          setOutput(t("sign_in.error_message", { context: "facebook" }))
-        }
-      />
-      <Button onClick={() => openModal("signUp")} styleAs="tertiary">
-        {t("join.sign_up_with_email")}
-      </Button>
-      <div>
-        <button onClick={() => openModal("signIn")}>
+      <Styled.InnerModal>
+        <Styled.GoogleSSOButton
+          onError={() =>
+            setOutput(t("sign_in.error_message", { context: "google" }))
+          }
+        />
+        <Styled.FacebookSSOButton
+          onError={() =>
+            setOutput(t("sign_in.error_message", { context: "facebook" }))
+          }
+        />
+        <Styled.EmailButton onClick={() => openModal("signUp")} styleAs="tertiary">
+          {t("join.sign_up_with_email")}
+        </Styled.EmailButton>
+        <Styled.SignInButton onClick={() => openModal("signIn")}>
           {t("join.sign_in_link")}
-        </button>
-      </div>
-      <output>{output && <p>{output}</p>}</output>
+        </Styled.SignInButton>
+        <output>{output && <p>{output}</p>}</output>
+      </Styled.InnerModal>
     </BasicModal>
   );
 }

@@ -5,13 +5,20 @@ import { Button } from "@rubin-epo/epo-react-lib";
 import { useTranslation } from "react-i18next";
 import { getOauthUrl } from "./actions";
 
-export default function FacebookSSO({ onError }: { onError: () => void }) {
+export default function FacebookSSO({
+  className,
+  onError,
+}: {
+  className: string;
+  onError: () => void;
+}) {
   const [status, setStatus] = useState<"loading" | null>(null);
 
   const { t } = useTranslation();
 
   return (
     <Button
+      className={className}
       onClick={async () => {
         setStatus("loading");
         try {

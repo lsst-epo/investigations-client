@@ -32,7 +32,7 @@ export const WithoutLoginLink = styled(Buttonish)`
   max-width: 320px;
   justify-content: center;
   align-items: center;
-  min-height: calc(100dvh - 80px);
+  margin-top: 23px;
 
   .sign-in {
     width: 100%;

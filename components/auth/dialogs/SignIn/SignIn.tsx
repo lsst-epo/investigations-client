@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
-import AuthButtons from "@/components/auth/buttons";
 import { signIn } from "./actions";
 import { useTranslation } from "react-i18next";
 import { usePathToRevalidate } from "../../clientHelpers";
@@ -47,14 +46,14 @@ export default function SignIn() {
         <Styled.Wrapper>
           <Styled.SSOSection>
             <Styled.SSOSectionInstructions>
-              To log in using Google or Facebook.
+              {t("auth.log_in_w_oauth")}
             </Styled.SSOSectionInstructions>
-            <AuthButtons.GoogleSSO onError={() => setStatus("error")} />
-            <AuthButtons.FacebookSSO onError={() => setStatus("error")} />
+            <Styled.GoogleSSOButton onError={() => setStatus("error")} />
+            <Styled.FacebookSSOButton onError={() => setStatus("error")} />
           </Styled.SSOSection>
           <Styled.EmailSection>
             <Styled.EmailSectionInstructions>
-              Or, log in using your email and password.
+              {t("auth.log_in_w_email")}
             </Styled.EmailSectionInstructions>
             <form
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
