@@ -6,6 +6,7 @@ interface SimpleTextareaProps {
   value?: string;
   isDisabled?: boolean;
   onChangeCallback: (value: string) => void;
+  labelledById?: string;
 }
 
 const SimpleTextarea: FunctionComponent<SimpleTextareaProps> = ({
@@ -13,17 +14,19 @@ const SimpleTextarea: FunctionComponent<SimpleTextareaProps> = ({
   value,
   isDisabled,
   onChangeCallback,
+  labelledById,
 }) => {
   return (
     <Styled.Textarea
-      id={id}
+      aria-labelledby={labelledById}
+      as="textarea"
+      rows={3}
       disabled={isDisabled}
       onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
         onChangeCallback && onChangeCallback(event.target.value)
       }
-    >
-      {value}
-    </Styled.Textarea>
+      {...{ id, value }}
+    />
   );
 };
 

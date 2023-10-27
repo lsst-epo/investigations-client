@@ -54,10 +54,14 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
 
   return (
     <li value={number}>
-      <Styled.QuestionLabel
-        id={labelId}
-        dangerouslySetInnerHTML={{ __html: questionText }}
-      />
+      {type === "widget" ? (
+        <Styled.QuestionLabel
+          id={labelId}
+          dangerouslySetInnerHTML={{ __html: questionText }}
+        />
+      ) : (
+        <label htmlFor={id}>{questionText}</label>
+      )}
       <Input
         onChangeCallback={(value: any) =>
           onChangeCallback && onChangeCallback(value, id, storedAnswer?.id)

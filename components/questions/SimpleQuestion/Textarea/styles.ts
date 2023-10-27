@@ -7,6 +7,9 @@ export const Textarea = styled(Input)`
   --input-border-color: var(--question-border-color);
   --input-color: var(--question-input-color);
 
+  height: auto;
+  max-width: 100%;
+
   &:disabled {
     --input-background-color: #f5f5f5;
     --input-border-color: #6a6e6e;
