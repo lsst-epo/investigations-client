@@ -14,6 +14,7 @@ const Fragment = graphql(`
     }
     id
     questionText
+    widgetInstructions
     questionWidgetsBlock {
       __typename
       ... on questionWidgetsBlock_colorFilterToolBlock_BlockType {
@@ -31,12 +32,12 @@ export interface QuestionProps {
   number: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
   text: SimpleQuestion,
   select: SimpleQuestion,
   tabular: TabularQuestion,
   widget: SimpleQuestion,
+  textarea: SimpleQuestion,
 };
 
 const QuestionFactory: FunctionComponent<QuestionProps> = ({
@@ -47,7 +48,9 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     answerType,
     id,
     questionWidgetsBlock = [],
-    ...data
+    answerOptions,
+    questionText,
+    widgetInstructions,
   } = useFragment(Fragment, props.data);
 
   if (!id || !answerType) return null;
@@ -60,8 +63,8 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     <Question
       id={id}
       type={answerType}
-      questionText={data.questionText}
-      options={data.answerOptions}
+      questionText={questionText || widgetInstructions}
+      options={answerOptions}
       widgetConfig={questionWidgetsBlock[0] || {}}
       number={number}
     />

@@ -1420,6 +1420,7 @@ export type EntryCriteriaInput = {
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the elements’ URIs. */
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Explicitly determines whether the query should join in the structure data. */
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -1600,6 +1601,7 @@ export type EntryInterfaceAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1665,6 +1667,7 @@ export type EntryInterfaceChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1730,6 +1733,7 @@ export type EntryInterfaceDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1795,6 +1799,7 @@ export type EntryInterfaceLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1860,6 +1865,7 @@ export type EntryInterfaceNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1925,6 +1931,7 @@ export type EntryInterfaceParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -1990,6 +1997,7 @@ export type EntryInterfacePrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -2755,6 +2763,7 @@ export type QueryEntriesArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -2819,6 +2828,7 @@ export type QueryEntryArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -2883,6 +2893,7 @@ export type QueryEntryCountArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -3011,6 +3022,7 @@ export type QueryHomepageEntriesArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -3073,6 +3085,7 @@ export type QueryInvestigationsEntriesArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -3135,6 +3148,7 @@ export type QueryPagesEntriesArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -3197,6 +3211,7 @@ export type QueryQuestionsEntriesArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -4515,6 +4530,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -4840,6 +4856,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5552,6 +5569,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5616,6 +5634,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5715,6 +5734,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5779,6 +5799,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5843,6 +5864,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5912,6 +5934,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -5976,6 +5999,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6257,6 +6281,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6321,6 +6346,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6420,6 +6446,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6484,6 +6511,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6548,6 +6576,7 @@ export type Investigations_Default_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6612,6 +6641,7 @@ export type Investigations_Default_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6676,6 +6706,7 @@ export type Investigations_Default_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6855,6 +6886,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6919,6 +6951,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -6983,6 +7016,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7069,6 +7103,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7133,6 +7168,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7197,6 +7233,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7261,6 +7298,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7439,6 +7477,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7503,6 +7542,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7567,6 +7607,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7631,6 +7672,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7695,6 +7737,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7759,6 +7802,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -7823,6 +7867,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8079,6 +8124,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8143,6 +8189,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8242,6 +8289,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8306,6 +8354,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8370,6 +8419,7 @@ export type Pages_Pages_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8439,6 +8489,7 @@ export type Pages_Pages_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8503,6 +8554,7 @@ export type Pages_Pages_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8682,6 +8734,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8746,6 +8799,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8810,6 +8864,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8874,6 +8929,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -8938,6 +8994,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9002,6 +9059,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9066,6 +9124,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9188,6 +9247,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9303,6 +9363,7 @@ export type Questions_Default_Entry = ElementInterface & EntryInterface & {
   uri?: Maybe<Scalars['String']['output']>;
   /** The element’s full URL */
   url?: Maybe<Scalars['String']['output']>;
+  widgetInstructions?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -9371,6 +9432,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9474,6 +9536,7 @@ export type Questions_Default_EntryChildrenArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9538,6 +9601,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9602,6 +9666,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9666,6 +9731,7 @@ export type Questions_Default_EntryNextArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9730,6 +9796,7 @@ export type Questions_Default_EntryParentArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
@@ -9794,6 +9861,7 @@ export type Questions_Default_EntryPrevArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
