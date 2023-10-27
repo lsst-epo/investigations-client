@@ -16,7 +16,7 @@ function setLocalStorage(investigationId: InvestigationId, answers: Answers) {
 const StoredAnswersContext = createContext<{
   answers: Answers;
   onChangeCallback?: (
-    data: string,
+    data: string | object,
     questionId: string,
     answerId?: string | null
   ) => void;
@@ -59,7 +59,7 @@ function StoredAnswersProvider(props: {
   const answers = (JSON.parse(storedAnswers) as Answers) ?? {};
 
   const onChangeCallback = useCallback(
-    (data: string, questionId: string, answerId?: string | null) => {
+    (data: string | object, questionId: string, answerId?: string | null) => {
       const prevAnswers = (JSON.parse(getSnapshot()) as Answers) ?? {};
       const newAnswers = Object.assign({}, prevAnswers, {
         [questionId]: {
