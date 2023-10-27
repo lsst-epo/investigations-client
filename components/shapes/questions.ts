@@ -13,7 +13,7 @@ export type TextQuestion = "text";
 export type TextAreaQuestion = "textarea";
 export type SelectQuestion = "select";
 export type MultiselectQuestion = "multiselect";
-export type Readonly = "readonly";
+export type Readonly = "readonlyText";
 
 export type SimpleQuestionType =
   | TextQuestion

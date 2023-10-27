@@ -2,11 +2,12 @@ import { ComponentType, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import SimpleQuestion from "@/components/questions/SimpleQuestion";
 import TabularQuestion from "@/components/questions/TabularQuestion";
+import InlineQuestion from "@/components/questions/InlineQuestion";
 
 const Fragment = graphql(`
   fragment QuestionFactory on questions_default_Entry {
     answerType
-    answerOptions {
+    options: answerOptions {
       ... on answerOptions_option_BlockType {
         label: optionLabel
         value: optionValue
@@ -24,6 +25,39 @@ const Fragment = graphql(`
         }
       }
     }
+    multiPartBlocks {
+      ... on multiPartBlocks_select_BlockType {
+        id
+        type: typeHandle
+        options: answerOptions {
+          ... on answerOptions_option_BlockType {
+            id
+            label: optionLabel
+            value: optionValue
+          }
+        }
+      }
+      ... on multiPartBlocks_textInput_BlockType {
+        id
+        type: typeHandle
+      }
+      ... on multiPartBlocks_multiselect_BlockType {
+        id
+        type: typeHandle
+        options: answerOptions {
+          ... on answerOptions_option_BlockType {
+            id
+            label: optionLabel
+            value: optionValue
+          }
+        }
+      }
+      ... on multiPartBlocks_readonlyText_BlockType {
+        id
+        type: typeHandle
+        text: questionText
+      }
+    }
   }
 `);
 
@@ -38,6 +72,7 @@ const QUESTION_MAP: Record<string, ComponentType<any>> = {
   tabular: TabularQuestion,
   widget: SimpleQuestion,
   textarea: SimpleQuestion,
+  multiPart: InlineQuestion,
 };
 
 const QuestionFactory: FunctionComponent<QuestionProps> = ({
@@ -48,9 +83,10 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     answerType,
     id,
     questionWidgetsBlock = [],
-    answerOptions,
+    options,
     questionText,
     widgetInstructions,
+    multiPartBlocks = [],
   } = useFragment(Fragment, props.data);
 
   if (!id || !answerType) return null;
@@ -64,9 +100,10 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
       id={id}
       type={answerType}
       questionText={questionText || widgetInstructions}
-      options={answerOptions}
+      options={options}
       widgetConfig={questionWidgetsBlock[0] || {}}
       number={number}
+      parts={multiPartBlocks}
     />
   );
 };

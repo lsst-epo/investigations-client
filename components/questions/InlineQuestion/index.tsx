@@ -1,4 +1,4 @@
-import { ComponentType, FunctionComponent } from "react";
+import { ComponentType, FunctionComponent, useContext } from "react";
 import { Option } from "@/components/shapes/option";
 import {
   BaseQuestionProps,
@@ -9,6 +9,7 @@ import Readonly from "./Readonly";
 import Text from "./Text";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
+import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 
 interface InlineQuestionPart {
   id: string;
@@ -40,26 +41,25 @@ export interface InlineQuestionProps extends BaseQuestionProps {
 }
 
 const INPUT_MAP: Record<InlineQuestionType, ComponentType<any>> = {
-  readonly: Readonly,
+  readonlyText: Readonly,
   text: Text,
   select: Select,
   multiselect: Multiselect,
 };
 
 const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   id,
   number,
   isDisabled,
   parts = [],
 }) => {
-  const callback = (value: string | string[], id: string) => {
-    console.info({ value, id });
-  };
+  const { answers, onChangeCallback } = useContext(StoredAnswersContext);
+  const storedAnswer = answers[id] || {};
+  const { data = {} } = storedAnswer;
 
   return (
     <Styled.InlineContainer value={number}>
-      {parts.map(({ id, type, ...props }) => {
+      {parts.map(({ id: partId, type, ...props }) => {
         const Input = INPUT_MAP[type];
 
         if (!Input) {
@@ -72,9 +72,18 @@ const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
 
         return (
           <Input
-            key={id}
-            onChangeCallback={callback}
-            {...{ ...props, isDisabled, id }}
+            key={partId}
+            id={partId}
+            onChangeCallback={(value: string | string[]) =>
+              onChangeCallback &&
+              onChangeCallback(
+                { ...data, [partId]: value },
+                id,
+                storedAnswer?.id
+              )
+            }
+            value={data[partId]}
+            {...{ ...props, isDisabled }}
           />
         );
       })}
