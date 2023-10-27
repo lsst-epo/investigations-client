@@ -1,6 +1,11 @@
 "use client";
 
-import { createContext, useCallback, useSyncExternalStore } from "react";
+import {
+  createContext,
+  useCallback,
+  useRef,
+  useSyncExternalStore,
+} from "react";
 import { Query } from "@/gql/student-schema/graphql";
 import { Answers, InvestigationId } from "@/types/answers";
 
@@ -27,6 +32,8 @@ function StoredAnswersProvider(props: {
   children: React.ReactNode;
   investigationId: InvestigationId;
 }) {
+  const snapshotUpdateCount = useRef(0);
+
   function subscribe(listener: () => void) {
     document.addEventListener("storageEvent", listener);
     return () => {
@@ -44,10 +51,20 @@ function StoredAnswersProvider(props: {
   }, [JSON.stringify(props.answers)]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getSnapshot = useCallback(() => {
-    return (
-      localStorage.getItem(`${props.investigationId}_answers`) ??
-      getServerSnapshot()
-    );
+    const browserAnswers = JSON.parse(
+      localStorage.getItem(`${props.investigationId}_answers`) ?? "{}"
+    ) as Answers;
+
+    // initially merge answer sets with priority given to answers stored in DB
+    if (snapshotUpdateCount.current === 0) {
+      const serverAnswers = JSON.parse(getServerSnapshot()) as Answers;
+      const mergedAnswers = Object.assign({}, browserAnswers, serverAnswers);
+
+      return JSON.stringify(mergedAnswers);
+    }
+
+    // on subsequent updates, just use local storage
+    return JSON.stringify(browserAnswers);
   }, [props.investigationId, getServerSnapshot]);
 
   const storedAnswers = useSyncExternalStore(
@@ -68,6 +85,7 @@ function StoredAnswersProvider(props: {
           ...(answerId && { id: answerId }),
         },
       });
+      snapshotUpdateCount.current++;
       setLocalStorage(props.investigationId, newAnswers);
     },
     [props.investigationId, getSnapshot]
