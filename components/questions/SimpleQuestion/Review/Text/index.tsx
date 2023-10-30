@@ -7,7 +7,7 @@ import {
   SelectQuestion,
   TextAreaQuestion,
   TextQuestion,
-} from "@/components/shapes/questions";
+} from "@/types/questions";
 
 interface SimpleTextProps {
   value?: string;

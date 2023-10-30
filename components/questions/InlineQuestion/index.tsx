@@ -1,15 +1,13 @@
 import { ComponentType, FunctionComponent, useContext } from "react";
 import { Option } from "@/components/shapes/option";
-import {
-  BaseQuestionProps,
-  InlineQuestionType,
-} from "@/components/shapes/questions";
+import { BaseQuestionProps, InlineQuestionType } from "@/types/questions";
 import * as Styled from "./styles";
 import Readonly from "./Readonly";
 import Text from "./Text";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
+import { InlineQuestionData } from "@/types/answers";
 
 interface InlineQuestionPart {
   id: string;
@@ -31,7 +29,6 @@ export interface InlineMultiselectPart extends InlineQuestionPart {
 }
 
 export interface InlineQuestionProps extends BaseQuestionProps {
-  value?: string | string[];
   parts: Array<
     | InlineReadonlyPart
     | InlineTextPart
@@ -77,12 +74,12 @@ const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
             onChangeCallback={(value: string | string[]) =>
               onChangeCallback &&
               onChangeCallback(
-                { ...data, [partId]: value },
+                { ...(data as InlineQuestionData), [partId]: value },
                 id,
                 storedAnswer?.id
               )
             }
-            value={data[partId]}
+            value={(data as InlineQuestionData)[partId]}
             {...{ ...props, isDisabled }}
           />
         );

@@ -16,34 +16,7 @@ export const QuestionList = styled.ol`
   list-style-position: inside;
   padding: var(--list-padding, 0);
 
-  > li {
-    & > * + * {
-      margin-block-start: var(--PADDING_SMALL, 20px);
-    }
-  }
-
   & > li + li {
-    margin-block-start: var(--PADDING_SMALL, 20px);
-  }
-`;
-
-export const QuestionLabel = styled.div`
-  display: inline;
-
-  ul,
-  ol {
-    list-style: inside;
-
-    ::marker {
-      margin: 0;
-    }
-  }
-
-  & > *:first-child {
-    display: inline;
-  }
-
-  & > * + * {
     margin-block-start: var(--PADDING_SMALL, 20px);
   }
 `;

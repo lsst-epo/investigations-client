@@ -1,10 +1,7 @@
 import { FunctionComponent, ComponentType } from "react";
 import Table, { TableHeader, TableRow } from "@/components/layout/Table/Table";
 import { Option } from "@/components/shapes/option";
-import {
-  BaseQuestionProps,
-  TabularQuestionType,
-} from "@/components/shapes/questions";
+import { BaseQuestionProps, TabularQuestionType } from "@/types/questions";
 import Text from "./Text";
 import Select from "./Select";
 
