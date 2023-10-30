@@ -1,5 +1,5 @@
 import { ComponentType, FunctionComponent } from "react";
-import { QuestionCategory } from "@/components/shapes/questions";
+import { QuestionCategory } from "@/types/questions";
 import SimpleReview from "@/components/questions/SimpleQuestion/Review";
 import InlineReview from "@/components/questions/InlineQuestion/Review";
 

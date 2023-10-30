@@ -35,7 +35,12 @@ export default async function saveAnswers(
     return "statusError";
   }
 
-  const answerSet = Object.values(answers);
+  const answerSet = Object.values(answers).map(({ data, ...values }) => {
+    return {
+      data: JSON.stringify(data),
+      ...values,
+    };
+  });
 
   const { data, error } = await mutateAPI({
     query: Mutation,

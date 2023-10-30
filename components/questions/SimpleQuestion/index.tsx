@@ -1,10 +1,7 @@
 "use client";
 
 import { ComponentType, FunctionComponent, useContext } from "react";
-import {
-  BaseQuestionProps,
-  SimpleQuestionType,
-} from "@/components/shapes/questions";
+import { BaseQuestionProps, SimpleQuestionType } from "@/types/questions";
 import { Option } from "@/components/shapes/option";
 
 import Text from "./Text";
@@ -13,7 +10,7 @@ import Select from "./Select";
 import Multiselect from "./Multiselect";
 import Widget from "./Widget";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
-import * as Styled from "@/components/content-blocks/Questions/styles";
+import * as Styled from "./styles";
 
 export interface SimpleQuestionProps extends BaseQuestionProps {
   type: SimpleQuestionType;
@@ -53,7 +50,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   }
 
   return (
-    <li value={number}>
+    <Styled.SimpleContainer value={number}>
       {type === "widget" ? (
         <Styled.QuestionLabel
           id={labelId}
@@ -75,7 +72,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
           widgetConfig,
         }}
       />
-    </li>
+    </Styled.SimpleContainer>
   );
 };
 

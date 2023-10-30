@@ -1,8 +1,5 @@
 import { ComponentType, FunctionComponent } from "react";
-import {
-  BaseReviewProps,
-  SimpleQuestionType,
-} from "@/components/shapes/questions";
+import { BaseReviewProps, SimpleQuestionType } from "@/types/questions";
 import * as Styled from "./styles";
 
 import Text from "./Text";

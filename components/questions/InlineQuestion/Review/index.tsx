@@ -1,8 +1,5 @@
 import { ComponentType, FunctionComponent } from "react";
-import {
-  BaseReviewProps,
-  InlineQuestionType,
-} from "@/components/shapes/questions";
+import { BaseReviewProps, InlineQuestionType } from "@/types/questions";
 import * as Styled from "./styles";
 
 import Readonly from "./Readonly";

@@ -2,7 +2,7 @@
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
-import { SelectQuestion, TextQuestion } from "@/components/shapes/questions";
+import { SelectQuestion, TextQuestion } from "@/types/questions";
 
 const InlineText: FunctionComponent<{
   value?: string;
