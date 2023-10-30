@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useSyncExternalStore } from "react";
 import { Query } from "@/gql/student-schema/graphql";
-import { Answers, InvestigationId } from "@/types/answers";
+import { AnswerData, Answers, InvestigationId } from "@/types/answers";
 
 function setLocalStorage(investigationId: InvestigationId, answers: Answers) {
   if (!investigationId) return;
@@ -16,7 +16,7 @@ function setLocalStorage(investigationId: InvestigationId, answers: Answers) {
 const StoredAnswersContext = createContext<{
   answers: Answers;
   onChangeCallback?: (
-    data: string | object,
+    data: AnswerData,
     questionId: string,
     answerId?: string | null
   ) => void;
@@ -59,7 +59,7 @@ function StoredAnswersProvider(props: {
   const answers = (JSON.parse(storedAnswers) as Answers) ?? {};
 
   const onChangeCallback = useCallback(
-    (data: string | object, questionId: string, answerId?: string | null) => {
+    (data: AnswerData, questionId: string, answerId?: string | null) => {
       const prevAnswers = (JSON.parse(getSnapshot()) as Answers) ?? {};
       const newAnswers = Object.assign({}, prevAnswers, {
         [questionId]: {
