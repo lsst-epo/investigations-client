@@ -17,8 +17,10 @@ export type InlineQuestionData = {
   [key: QuestionId]: TextInput | SelectInput | MultiselectInput;
 };
 
+export type AnswerData = SimpleQuestionData | InlineQuestionData;
+
 export interface Answer {
-  data: SimpleQuestionData | InlineQuestionData;
+  data: AnswerData;
   id?: string;
   questionId?: QuestionId;
 }
