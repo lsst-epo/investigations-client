@@ -37,7 +37,7 @@ const Fragment = graphql(`
           }
         }
       }
-      ... on multiPartBlocks_textInput_BlockType {
+      ... on multiPartBlocks_text_BlockType {
         id
         type: typeHandle
       }
