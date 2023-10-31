@@ -18,6 +18,7 @@ const documents = {
     "\n  query InvestigationChildPageMetadata($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      title\n    }\n  }\n": types.InvestigationChildPageMetadataDocument,
     "\n  query InvestigationId($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      id\n    }\n  }\n": types.InvestigationIdDocument,
     "\n  query InvestigationPage($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...InvestigationLandingPageTemplate\n    }\n  }\n": types.InvestigationPageDocument,
+    "\n  query ReferenceContent($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      ...ReferenceContentTemplate\n    }\n  }\n": types.ReferenceContentDocument,
     "\n  query GlobalsQuery($site: [String], $section: [String]) {\n    headerNavItems: entries(section: $section, site: $site, level: 1) {\n      id\n      title\n      uri\n      children {\n        id\n        title\n        uri\n      }\n    }\n    siteInfo: globalSet(site: $site, handle: \"siteInfo\") {\n      ... on siteInfo_GlobalSet {\n        language\n        name\n        handle\n        siteTitle\n        siteDescription\n      }\n    }\n    categories(site: $site) {\n      id\n      slug\n      groupHandle\n      title\n    }\n  }\n": types.GlobalsQueryDocument,
     "\n  query HomepageQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...HomepageTemplate\n    }\n  }\n": types.HomepageQueryDocument,
     "\n  query FacebookOauthUrl {\n    facebookOauthUrl\n  }\n": types.FacebookOauthUrlDocument,
@@ -90,6 +91,10 @@ export function graphql(source: "\n  query InvestigationId($site: [String], $uri
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query InvestigationPage($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...InvestigationLandingPageTemplate\n    }\n  }\n"): (typeof documents)["\n  query InvestigationPage($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...InvestigationLandingPageTemplate\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query ReferenceContent($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      ...ReferenceContentTemplate\n    }\n  }\n"): (typeof documents)["\n  query ReferenceContent($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      ...ReferenceContentTemplate\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -225,7 +230,11 @@ export function graphql(source: "\n  fragment PageTemplate on pages_pages_Entry 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+<<<<<<< HEAD
 export function graphql(source: "\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks: referenceContentBlocks {\n      __typename\n      ... on referenceContentBlocks_text_BlockType {\n        id\n        text\n      }\n      ... on referenceContentBlocks_image_BlockType {\n        id\n        caption\n        layout\n        image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n            preview\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n      }\n      ... on referenceContentBlocks_table_BlockType {\n        id\n        caption\n        contentHeading\n        displayTable {\n          ... on displayTable_BlockType {\n            tableRow {\n              ... on tableRow_tableCell_BlockType {\n                id\n                cellContent\n                rowHeader\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks: referenceContentBlocks {\n      __typename\n      ... on referenceContentBlocks_text_BlockType {\n        id\n        text\n      }\n      ... on referenceContentBlocks_image_BlockType {\n        id\n        caption\n        layout\n        image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n            preview\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n      }\n      ... on referenceContentBlocks_table_BlockType {\n        id\n        caption\n        contentHeading\n        displayTable {\n          ... on displayTable_BlockType {\n            tableRow {\n              ... on tableRow_tableCell_BlockType {\n                id\n                cellContent\n                rowHeader\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"];
+=======
+export function graphql(source: "\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n"): (typeof documents)["\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n"];
+>>>>>>> c5ddbe9 ([F] Reference setup)
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
