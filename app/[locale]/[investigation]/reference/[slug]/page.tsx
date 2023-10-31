@@ -29,6 +29,8 @@ const ReferencePage: (
   const uri = `reference/${slug}`;
   const site = locale === "en" ? "default" : locale;
 
+  console.log({ uri, site });
+
   const { data } = await queryAPI({
     query: Query,
     variables: {
