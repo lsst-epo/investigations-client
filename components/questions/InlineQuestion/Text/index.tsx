@@ -11,7 +11,7 @@ interface InlineTextProps extends InlineTextPart {
 const InlineText: FunctionComponent<InlineTextProps> = ({
   onChangeCallback,
   isDisabled,
-  value,
+  value = "",
   id,
 }) => (
   <Styled.InlineTextInput

@@ -7884,7 +7884,7 @@ export type LinkField_Link = {
   url?: Maybe<Scalars['String']['output']>;
 };
 
-export type MultiPartBlocks_NeoField = MultiPartBlocks_Multiselect_BlockType | MultiPartBlocks_ReadonlyText_BlockType | MultiPartBlocks_Select_BlockType | MultiPartBlocks_TextInput_BlockType;
+export type MultiPartBlocks_NeoField = MultiPartBlocks_Multiselect_BlockType | MultiPartBlocks_ReadonlyText_BlockType | MultiPartBlocks_Select_BlockType | MultiPartBlocks_Text_BlockType;
 
 export type MultiPartBlocks_Multiselect_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'multiPartBlocks_multiselect_BlockType';
@@ -8122,8 +8122,8 @@ export type MultiPartBlocks_Select_BlockTypeAnswerOptionsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type MultiPartBlocks_TextInput_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'multiPartBlocks_textInput_BlockType';
+export type MultiPartBlocks_Text_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'multiPartBlocks_text_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
@@ -8173,7 +8173,7 @@ export type MultiPartBlocks_TextInput_BlockType = ElementInterface & NeoBlockInt
 };
 
 
-export type MultiPartBlocks_TextInput_BlockType_CountArgs = {
+export type MultiPartBlocks_Text_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
