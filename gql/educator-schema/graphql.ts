@@ -14264,6 +14264,7 @@ export type SaveAnswersFromSetMutationVariables = Exact<{
   >;
 }>;
 
+<<<<<<< HEAD
 export type SaveAnswersFromSetMutation = {
   __typename?: "Mutation";
   saveAnswersFromSet?: Array<never | null> | null;
@@ -14424,3 +14425,11 @@ export const SaveAnswersFromSetDocument = {
   SaveAnswersFromSetMutation,
   SaveAnswersFromSetMutationVariables
 >;
+=======
+
+export type SaveAnswersFromSetMutation = { __typename?: 'Mutation', saveAnswersFromSet?: Array<never | null> | null };
+
+
+export const StoredAnswersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"StoredAnswers"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"answers"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}},{"kind":"Argument","name":{"kind":"Name","value":"investigationId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"data"}},{"kind":"Field","name":{"kind":"Name","value":"questionId"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<StoredAnswersQuery, StoredAnswersQueryVariables>;
+export const SaveAnswersFromSetDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SaveAnswersFromSet"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"userId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"answerSet"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AnswerInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"saveAnswersFromSet"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"userId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"userId"}}},{"kind":"Argument","name":{"kind":"Name","value":"investigationId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"investigationId"}}},{"kind":"Argument","name":{"kind":"Name","value":"answerSet"},"value":{"kind":"Variable","name":{"kind":"Name","value":"answerSet"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<SaveAnswersFromSetMutation, SaveAnswersFromSetMutationVariables>;
+>>>>>>> b13d66a ([F] Reference modals)
