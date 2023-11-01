@@ -31,6 +31,7 @@ export const ProgressBar = styled(BaseProgressBar)``;
 export const SectionProgress = styled.li.attrs<{ $proportion: number }>(
   ({ $proportion }) => ({ style: { flexBasis: `${$proportion}%` } })
 )<{ $proportion: number }>`
+  list-style-type: none;
   ${colors.reduce(
     (prev, curr, i) =>
       prev.concat(`
