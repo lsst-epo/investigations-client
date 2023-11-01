@@ -170,12 +170,14 @@ export type AddressInterface_CountArgs = {
 };
 
 export type AssetCriteriaInput = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the elements’ creation dates. */
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on the assets’ files’ last-modified dates. */
   dateModified?: InputMaybe<Scalars['String']['input']>;
   /** Narrows the query results based on the elements’ last-updated dates. */
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the assets’ filenames. */
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Causes the query results to be returned in the order specified by the `id` argument. */
@@ -371,9 +373,11 @@ export type AssetInterfaceHeightArgs = {
 
 /** This is the interface implemented by all assets. */
 export type AssetInterfaceNextArgs = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateModified?: InputMaybe<Scalars['String']['input']>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -415,9 +419,11 @@ export type AssetInterfaceNextArgs = {
 
 /** This is the interface implemented by all assets. */
 export type AssetInterfacePrevArgs = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateModified?: InputMaybe<Scalars['String']['input']>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2483,9 +2489,11 @@ export type QueryAddressesArgs = {
 
 
 export type QueryAssetArgs = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateModified?: InputMaybe<Scalars['String']['input']>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2526,9 +2534,11 @@ export type QueryAssetArgs = {
 
 
 export type QueryAssetCountArgs = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateModified?: InputMaybe<Scalars['String']['input']>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2569,9 +2579,11 @@ export type QueryAssetCountArgs = {
 
 
 export type QueryAssetsArgs = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateModified?: InputMaybe<Scalars['String']['input']>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6276,9 +6288,11 @@ export type Images_ImageGroup_BlockType_CountArgs = {
 
 
 export type Images_ImageGroup_BlockTypeImagesArgs = {
+  availableFilters?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateModified?: InputMaybe<Scalars['String']['input']>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
