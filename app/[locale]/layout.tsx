@@ -95,7 +95,10 @@ const RootLayout: (
   return (
     <html lang={locale}>
       <head></head>
-      <body className={SourceSansPro.variable}>
+      <body
+        className={SourceSansPro.variable}
+        style={{ "--scrollbar-width": "calc(100vw - 100%)" }}
+      >
         <UIDReset>
           <StyledComponentsRegistry>
             <GlobalStyles includeFonts={false} />

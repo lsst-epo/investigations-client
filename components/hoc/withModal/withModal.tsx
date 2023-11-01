@@ -2,31 +2,38 @@ import { ComponentType, useState, useRef, FunctionComponent } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { useUID } from "react-uid";
 import screenfull from "screenfull";
-import useFocusTrap from "@/hooks/useFocusTrap";
-import { useKeyDownEvent } from "@/hooks/listeners";
 import { getDisplayName } from "@/lib/utils";
+import BaseModal from "@/components/layout/Modal/Base";
+import ModalHeader from "@/components/layout/Modal/Header";
 import * as Styled from "./styles";
 
 function withModal<T extends BaseContentBlockProps>(
   WrappedComponent: ComponentType<T>
 ): FunctionComponent<T> {
   const WithModal = (props: T) => {
-    const { title } = props;
+    const { title, hasModal = true } = props;
+
     const [isOpen, setIsOpen] = useState(false);
     const modalRef = useRef(null);
+    const uid = useUID();
+
+    // escape for content that is already within a modal (reference pages)
+    if (!hasModal) {
+      return <WrappedComponent {...{ ...props }} />;
+    }
 
     const fullscreenListener = () => {
       if (!screenfull.isFullscreen) {
         setIsOpen(false);
       }
-    }
+    };
 
     const openModal = () => {
       if (screenfull.isEnabled && modalRef.current) {
         screenfull
           .request(modalRef.current, { navigationUI: "hide" })
           .then(() => {
-            screenfull.on('change', fullscreenListener)
+            screenfull.on("change", fullscreenListener);
             setIsOpen(true);
           });
       } else {
@@ -35,7 +42,7 @@ function withModal<T extends BaseContentBlockProps>(
     };
 
     const closeModal = () => {
-      screenfull.off('change', fullscreenListener)
+      screenfull.off("change", fullscreenListener);
       if (screenfull.isFullscreen && modalRef.current) {
         screenfull.exit().then(() => {
           setIsOpen(false);
@@ -45,23 +52,11 @@ function withModal<T extends BaseContentBlockProps>(
       }
     };
 
-    const uid = useUID();
     const titleId = `modal-title-${uid}`;
     const contentId = `modal-content-${uid}`;
 
-    const handleKeyDown = ({ key }: { key: string }) => {
-      if (!isOpen) return;
-      if (key === "Escape") {
-        closeModal();
-      }
-    };
-
-    useFocusTrap(modalRef, isOpen);
-    useKeyDownEvent(handleKeyDown);
-
     return (
-      <Styled.Modal.Dialog open={isOpen} ref={modalRef}>
-        <Styled.Modal.Backdrop open={isOpen} />
+      <BaseModal isOpen={isOpen} ref={modalRef} closeModal={closeModal}>
         <div
           role={isOpen ? "dialog" : "generic"}
           aria-modal={isOpen}
@@ -69,16 +64,9 @@ function withModal<T extends BaseContentBlockProps>(
           id={contentId}
         >
           {isOpen && (
-            <Styled.Modal.Header $hasTitle={!!title}>
-              {title && (
-                <Styled.Modal.Title id={titleId}>{title}</Styled.Modal.Title>
-              )}
-              <Styled.Modal.Close
-                isOpen={isOpen}
-                onToggle={closeModal}
-                controlsId={contentId}
-              />
-            </Styled.Modal.Header>
+            <ModalHeader
+              {...{ title, isOpen, closeModal, titleId, contentId }}
+            />
           )}
           <Styled.Modal.ComponentWrapper>
             <WrappedComponent
@@ -93,7 +81,7 @@ function withModal<T extends BaseContentBlockProps>(
             />
           </Styled.Modal.ComponentWrapper>
         </div>
-      </Styled.Modal.Dialog>
+      </BaseModal>
     );
   };
 

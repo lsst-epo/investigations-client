@@ -9,3 +9,4 @@ export { default as FilterTool } from "./FilterTool";
 export { default as ScatterplotTool } from "./ScatterplotTool";
 export { default as CameraFilterTool } from "./CameraFilterTool";
 export { default as Table } from "./Table";
+export { default as Modal } from "./Modal";
