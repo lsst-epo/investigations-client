@@ -272,5 +272,16 @@
   "widgets": {
     "filter_tool": "Filter Tool",
     "camera_filter_tool": "Camera Filter Ranges"
+  },
+  "investigation": {
+    "investigation": "Investigation",
+    "total_duration": "Investigation total duration",
+    "start": "Start Investigation",
+    "coming_soon": "(Coming Soon)",
+    "early_access": {
+      "full": "Early Access",
+      "line_1_text": "Early",
+      "line_2_text": "Access"
+    }
   }
 }

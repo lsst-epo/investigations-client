@@ -1,38 +1,67 @@
 "use client";
-import PropTypes from "prop-types";
+
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import Body from "@/components/page/Body";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
-import { Container } from "@rubin-epo/epo-react-lib";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment HomepageTemplate on homepage_homepage_Entry {
+    __typename
     id
     title
-    contentBlocks {
-      ...ContentBlockFactory
+    contentBlocks: homepageContentBlocks {
+      __typename
+      ... on homepageContentBlocks_text_BlockType {
+        id
+        text
+      }
+      ... on homepageContentBlocks_image_BlockType {
+        id
+        caption
+        layout
+        image {
+          url {
+            directUrlPreview
+            directUrlOriginal
+            PNG
+            HighJPG
+            LowJPG
+            preview
+          }
+          width
+          height
+          metadata: additional {
+            AltTextEN
+            AltTextES
+            CaptionEN
+            CaptionES
+            Credit
+          }
+        }
+      }
+      ...InvestigationGridBlock
     }
   }
 `);
 
 export default function HomePage(props: {
   data: FragmentType<typeof Fragment>;
-  children?: React.ReactNode;
+  site: string;
+  // children?: React.ReactNode;
 }) {
   const data = useFragment(Fragment, props.data);
 
   if (!data) return null;
 
   return (
-    <Body>
-      <Container>
-        <h1>{data.title}</h1>
-        {props.children}
-        {data.contentBlocks?.map(
-          (block, i) => block && <ContentBlockFactory key={i} data={block} />
-        )}
-      </Container>
-    </Body>
+    <Styled.ContentBlocks paddingSize="none" width="wide">
+      <Styled.Title>{data.title}</Styled.Title>
+      {data.contentBlocks?.map(
+        (block, i) =>
+          block && <ContentBlockFactory key={i} site={data.site} data={block} />
+      )}
+      {/* {props.children} */}
+    </Styled.ContentBlocks>
   );
 }
 

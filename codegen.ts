@@ -6,7 +6,7 @@ loadEnvConfig(process.cwd());
 const config: CodegenConfig = {
   generates: {
     "./gql/public-schema/": {
-      schema: "http://localhost:8080/api",
+      schema: process.env.NEXT_PUBLIC_API_URL,
       documents: [
         "app/**/*.tsx",
         "components/**/*.{ts,tsx}",
@@ -24,7 +24,7 @@ const config: CodegenConfig = {
     "./gql/student-schema/": {
       schema: [
         {
-          "http://localhost:8080/api": {
+          [process.env.NEXT_PUBLIC_API_URL]: {
             headers: {
               Authorization: `Bearer ${process.env.CRAFT_STUDENT_SCHEMA_SECRET_TOKEN}`,
             },
@@ -41,7 +41,7 @@ const config: CodegenConfig = {
     "./gql/educator-schema/": {
       schema: [
         {
-          "http://localhost:8080/api": {
+          [process.env.NEXT_PUBLIC_API_URL]: {
             headers: {
               Authorization: `Bearer ${process.env.CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN}`,
             },
