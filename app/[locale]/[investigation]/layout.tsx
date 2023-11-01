@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RootLayoutParams } from "../layout";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
@@ -17,6 +17,7 @@ export interface InvestigationParams {
 
 export interface InvestigationLandingProps {
   params: RootLayoutParams & InvestigationParams;
+  modal: ReactNode;
 }
 
 const MockInvestigations: { [key: string]: string } = {
@@ -43,6 +44,7 @@ const InvestigationLandingLayout: (
   props: PropsWithChildren<InvestigationLandingProps>
 ) => Promise<JSX.Element> = async ({
   children,
+  modal,
   params: { locale, investigation },
 }) => {
   const site = locale === "en" ? "default" : locale;
@@ -63,6 +65,7 @@ const InvestigationLandingLayout: (
   return (
     <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
       {children}
+      {modal}
     </StoredAnswersComponent>
   );
 };

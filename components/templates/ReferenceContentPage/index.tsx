@@ -18,17 +18,25 @@ const Fragment = graphql(`
 const ReferenceContentPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
-}> = ({ site, ...props }) => {
+  isInModal?: boolean;
+}> = ({ site, isInModal = false, ...props }) => {
   const data = useFragment(Fragment, props.data);
   const { title, id } = data;
 
   return (
-    <Styled.ContentBlocks paddingSize="medium">
+    <Styled.ContentBlocks paddingSize="none" width="wide" bgColor="transparent">
       <Styled.Title>{title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>
           block && (
-            <ContentBlockFactory key={i} site={site} data={block} pageId={id} />
+            <ContentBlockFactory
+              key={i}
+              site={site}
+              data={block}
+              pageId={id}
+              isOpen={isInModal}
+              hasModal={!isInModal}
+            />
           )
       )}
     </Styled.ContentBlocks>
