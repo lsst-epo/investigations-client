@@ -14,6 +14,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
+  contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
 };
 
 const Fragment = graphql(`
@@ -28,6 +29,7 @@ const Fragment = graphql(`
     ...BarGraphToolBlock
     ...FilterToolBlock
     ...ScatterplotToolBlock
+    ...ReferenceModalBlock
   }
 `);
 
@@ -35,19 +37,33 @@ interface ContentBlockFactoryProps {
   data: FragmentType<typeof Fragment>;
   site: string;
   pageId?: string;
+  isOpen?: boolean;
+  hasModal?: boolean;
 }
 
 export type ContentBlockType = keyof typeof blockMap;
 
-const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = (
-  props
-) => {
+const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
+  site,
+  pageId,
+  isOpen,
+  hasModal,
+  ...props
+}) => {
   const data = useFragment(Fragment, props.data);
 
   const Block = blockMap[data.__typename];
 
   if (!Block) return null;
-  return <Block data={data} site={props.site} pageId={props.pageId} />;
+  return (
+    <Block
+      data={data}
+      site={site}
+      pageId={pageId}
+      isOpen={isOpen}
+      hasModal={hasModal}
+    />
+  );
 };
 
 ContentBlockFactory.displayName = "ContentBlocks.Factory";

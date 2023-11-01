@@ -1,12 +1,10 @@
 "use client";
 import styled from "styled-components";
 
-export const ComponentWrapper = styled.div`
-  grid-area: component;
+export const LoaderContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  overflow-y: auto;
+  align-items: center;
 `;
