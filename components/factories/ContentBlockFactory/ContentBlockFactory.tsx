@@ -19,6 +19,9 @@ export const blockMap: Record<string, any> = {
   referenceContentBlocks_image_BlockType: Blocks.Image,
   referenceContentBlocks_text_BlockType: Blocks.Text,
   referenceContentBlocks_table_BlockType: Blocks.Table,
+  homepageContentBlocks_text_BlockType: Blocks.Text,
+  homepageContentBlocks_image_BlockType: Blocks.Image,
+  homepageContentBlocks_investigationGrid_BlockType: Blocks.InvestigationGrid,
 };
 
 const Fragment = graphql(`
