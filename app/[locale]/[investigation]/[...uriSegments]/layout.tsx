@@ -5,8 +5,8 @@ import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
 import { ProgressProvider } from "@/contexts/Progress";
 import { notFound } from "next/navigation";
-import Header from "@/components/page/Header/Header";
-import Pager from "@/components/layout/Pager";
+import Header from "@/page/Header/Header";
+import Pager from "@/page/Pager";
 import * as Styled from "./styles";
 
 export interface UriSegmentsParams {
