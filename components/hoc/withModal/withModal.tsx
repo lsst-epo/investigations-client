@@ -3,10 +3,12 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import { useUID } from "react-uid";
 import screenfull from "screenfull";
 import { getDisplayName } from "@/lib/utils";
-import BaseModal from "@/components/layout/Modal/Base";
-import ModalHeader from "@/components/layout/Modal/Header";
-import * as Styled from "./styles";
+import * as Modal from "@/layout/Modal";
 
+/** withModal is intended to wrap on-page content that will be
+ * pulled out and shown in a modal, rather than off-page content
+ * that is not visible until opened.
+ */
 function withModal<T extends BaseContentBlockProps>(
   WrappedComponent: ComponentType<T>
 ): FunctionComponent<T> {
@@ -56,32 +58,31 @@ function withModal<T extends BaseContentBlockProps>(
     const contentId = `modal-content-${uid}`;
 
     return (
-      <BaseModal isOpen={isOpen} ref={modalRef} closeModal={closeModal}>
-        <div
-          role={isOpen ? "dialog" : "generic"}
-          aria-modal={isOpen}
-          aria-labelledby={title ? titleId : undefined}
-          id={contentId}
-        >
-          {isOpen && (
-            <ModalHeader
-              {...{ title, isOpen, closeModal, titleId, contentId }}
-            />
-          )}
-          <Styled.Modal.ComponentWrapper>
-            <WrappedComponent
-              {...{
-                ...props,
-                hasModal: true,
-                isOpen,
-                openModal,
-                closeModal,
-                labelledById: title && isOpen ? titleId : undefined,
-              }}
-            />
-          </Styled.Modal.ComponentWrapper>
-        </div>
-      </BaseModal>
+      <Modal.Base
+        isOpen={isOpen}
+        ref={modalRef}
+        id={contentId}
+        labelledById={titleId}
+        closeModal={closeModal}
+      >
+        {isOpen && (
+          <Modal.Header
+            {...{ title, isOpen, closeModal, titleId, contentId }}
+          />
+        )}
+        <Modal.ComponentContainer>
+          <WrappedComponent
+            {...{
+              ...props,
+              hasModal: true,
+              isOpen,
+              openModal,
+              closeModal,
+              labelledById: title && isOpen ? titleId : undefined,
+            }}
+          />
+        </Modal.ComponentContainer>
+      </Modal.Base>
     );
   };
 

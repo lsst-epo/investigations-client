@@ -1,7 +1,7 @@
 "use client";
 import styled from "styled-components";
 
-export const ComponentWrapper = styled.div`
+export const ComponentContainer = styled.div`
   grid-area: component;
   width: 100%;
   height: 100%;
