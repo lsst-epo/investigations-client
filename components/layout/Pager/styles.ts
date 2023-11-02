@@ -7,13 +7,14 @@ export const PagerContainer = styled.nav`
   --pager-columns: repeat(2, 1fr);
   background-color: var(--turquoise85, #12726d);
   display: grid;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   grid-template-columns: var(--pager-columns);
   grid-template-rows: 1fr;
   align-items: stretch;
   height: var(--pager-height);
   width: 100%;
+  max-width: var(--max-page-width);
 
   @media screen and (min-width: ${token("BREAK_TABLET_MIN")}) {
     --pager-height: 80px;
