@@ -10,7 +10,7 @@ import "@/styles/styles.scss";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
-import Body from "@/global/Body";
+import Body from "@/page/Body";
 import I18NextClientProvider from "@/contexts/i18next";
 
 export interface RootLayoutParams {
