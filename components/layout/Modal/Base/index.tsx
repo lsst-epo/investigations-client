@@ -5,10 +5,12 @@ import * as Styled from "./styles";
 interface BaseModalProps {
   isOpen?: boolean;
   closeModal?: () => void;
+  labelledById: string;
+  id: string;
 }
 
 const BaseModal = forwardRef<HTMLDivElement, PropsWithChildren<BaseModalProps>>(
-  ({ isOpen = false, closeModal, children }, ref) => {
+  ({ isOpen = false, closeModal, labelledById, id, children }, ref) => {
     const handleKeyDown = ({ key }: { key: string }) => {
       if (!isOpen) return;
       if (key === "Escape") {
@@ -22,7 +24,14 @@ const BaseModal = forwardRef<HTMLDivElement, PropsWithChildren<BaseModalProps>>(
     return (
       <Styled.Dialog open={isOpen} ref={ref}>
         <Styled.Backdrop open={isOpen} />
-        {children}
+        <div
+          role={isOpen ? "dialog" : "generic"}
+          aria-modal={isOpen}
+          aria-labelledby={labelledById}
+          id={id}
+        >
+          {children}
+        </div>
       </Styled.Dialog>
     );
   }

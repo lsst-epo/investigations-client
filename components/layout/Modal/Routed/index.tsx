@@ -6,9 +6,7 @@ import {
   useRef,
 } from "react";
 import { useRouter } from "next/navigation";
-import BaseModal from "../Base";
-import ModalHeader from "../Header";
-import * as Styled from "../styles";
+import * as Modal from "@/layout/Modal";
 
 interface RoutedModalProps {
   title?: string;
@@ -37,21 +35,20 @@ const RoutedModal: FunctionComponent<PropsWithChildren<RoutedModalProps>> = ({
   const contentId = "referenceModalContent";
 
   return (
-    <BaseModal ref={modalRef} closeModal={onDismiss} isOpen>
-      <div
-        role="dialog"
-        aria-modal={true}
-        aria-labelledby={title ? titleId : undefined}
-        id={contentId}
-      >
-        <ModalHeader
-          isOpen
-          closeModal={onDismiss}
-          {...{ title, titleId, contentId }}
-        />
-        <Styled.ComponentWrapper>{children}</Styled.ComponentWrapper>
-      </div>
-    </BaseModal>
+    <Modal.Base
+      ref={modalRef}
+      closeModal={onDismiss}
+      id={contentId}
+      labelledById={titleId}
+      isOpen
+    >
+      <Modal.Header
+        isOpen
+        closeModal={onDismiss}
+        {...{ title, titleId, contentId }}
+      />
+      <Modal.ComponentContainer>{children}</Modal.ComponentContainer>
+    </Modal.Base>
   );
 };
 
