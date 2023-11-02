@@ -2,7 +2,7 @@
 
 import PropTypes from "prop-types";
 import { Container } from "@rubin-epo/epo-react-lib";
-import Body from "@/global/Body";
+import Body from "@/components/page/Body";
 
 export default function ErrorPageTemplate({ data: { title, text } }) {
   return (
