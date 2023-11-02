@@ -173,10 +173,6 @@ export function graphql(source: "\n  fragment ReferenceModalBlock on contentBloc
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment ReferenceModalBlock on contentBlocks_referenceModalBlock_BlockType {\n    referenceModalEntries {\n      ... on referenceModals_default_Entry {\n        title\n        uri\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment ReferenceModalBlock on contentBlocks_referenceModalBlock_BlockType {\n    referenceModalEntries {\n      ... on referenceModals_default_Entry {\n        title\n        uri\n      }\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\n  fragment QuestionsBlock on contentBlocks_questionBlock_BlockType {\n    id\n    questionEntries {\n      __typename\n      id\n      ...QuestionFactory\n    }\n  }\n"): (typeof documents)["\n  fragment QuestionsBlock on contentBlocks_questionBlock_BlockType {\n    id\n    questionEntries {\n      __typename\n      id\n      ...QuestionFactory\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -229,11 +225,7 @@ export function graphql(source: "\n  fragment PageTemplate on pages_pages_Entry 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-<<<<<<< HEAD
 export function graphql(source: "\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks: referenceContentBlocks {\n      __typename\n      ... on referenceContentBlocks_text_BlockType {\n        id\n        text\n      }\n      ... on referenceContentBlocks_image_BlockType {\n        id\n        caption\n        layout\n        image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n            preview\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n      }\n      ... on referenceContentBlocks_table_BlockType {\n        id\n        caption\n        contentHeading\n        displayTable {\n          ... on displayTable_BlockType {\n            tableRow {\n              ... on tableRow_tableCell_BlockType {\n                id\n                cellContent\n                rowHeader\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks: referenceContentBlocks {\n      __typename\n      ... on referenceContentBlocks_text_BlockType {\n        id\n        text\n      }\n      ... on referenceContentBlocks_image_BlockType {\n        id\n        caption\n        layout\n        image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n            preview\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n      }\n      ... on referenceContentBlocks_table_BlockType {\n        id\n        caption\n        contentHeading\n        displayTable {\n          ... on displayTable_BlockType {\n            tableRow {\n              ... on tableRow_tableCell_BlockType {\n                id\n                cellContent\n                rowHeader\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"];
-=======
-export function graphql(source: "\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n"): (typeof documents)["\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n"];
->>>>>>> c5ddbe9 ([F] Reference setup)
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
