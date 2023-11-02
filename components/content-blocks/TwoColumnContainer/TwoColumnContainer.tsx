@@ -11,12 +11,14 @@ const Fragment = graphql(`
         childblocks: children {
           __typename
           id
-          ...FilterToolBlock
           ...TextBlock
           ...ImageBlock
           ...TableBlock
+          ...QuestionsBlock
           ...BarGraphToolBlock
+          ...FilterToolBlock
           ...ScatterplotToolBlock
+          ...ReferenceModalBlock
         }
       }
       ... on contentBlocks_colRight_BlockType {
@@ -25,12 +27,14 @@ const Fragment = graphql(`
         childblocks: children {
           __typename
           id
-          ...FilterToolBlock
           ...TextBlock
           ...ImageBlock
           ...TableBlock
+          ...QuestionsBlock
           ...BarGraphToolBlock
+          ...FilterToolBlock
           ...ScatterplotToolBlock
+          ...ReferenceModalBlock
         }
       }
     }
