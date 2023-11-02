@@ -7,6 +7,7 @@ import { ProgressProvider } from "@/contexts/Progress";
 import { notFound } from "next/navigation";
 import Header from "@/components/page/Header/Header";
 import Pager from "@/components/layout/Pager";
+import * as Styled from "./styles";
 
 export interface UriSegmentsParams {
   uriSegments: string[];
@@ -62,7 +63,7 @@ const UriSegmentsLayout: (
   return (
     <ProgressProvider pages={childPages} currentPageId={id}>
       <Header />
-      {children}
+      <Styled.Main>{children}</Styled.Main>
       <Pager leftLink={prevUrl} rightLink={nextUrl} />
     </ProgressProvider>
   );
