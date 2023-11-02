@@ -95,21 +95,18 @@ const RootLayout: (
   return (
     <html lang={locale}>
       <head></head>
-      <body
-        className={SourceSansPro.variable}
-        style={{ "--scrollbar-width": "calc(100vw - 100%)" }}
-      >
+      <Body className={SourceSansPro.variable}>
         <UIDReset>
           <StyledComponentsRegistry>
             <GlobalStyles includeFonts={false} />
             <I18NextClientProvider locale={locale}>
               <GlobalDataProvider data={globalData}>
-                <Body>{children}</Body>
+                {children}
               </GlobalDataProvider>
             </I18NextClientProvider>
           </StyledComponentsRegistry>
         </UIDReset>
-      </body>
+      </Body>
     </html>
   );
 };
