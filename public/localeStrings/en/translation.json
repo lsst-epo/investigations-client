@@ -281,5 +281,8 @@
   "widgets": {
     "filter_tool": "Filter Tool",
     "camera_filter_tool": "Camera Filter Ranges"
+  },
+  "image": {
+    "credit": "Credit: {{credit}}"
   }
 }
