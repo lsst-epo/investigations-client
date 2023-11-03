@@ -4,7 +4,6 @@ import {
   Image as BaseImage,
 } from "@rubin-epo/epo-react-lib";
 import BaseExpandContract from "@/atomic/ExpandContract/ExpandContract";
-import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
 import { BREAK_PHABLET } from "@/styles/globalStyles";
 
 interface LayoutProp {
@@ -12,11 +11,15 @@ interface LayoutProp {
 }
 
 export const Container = styled.section`
-  --image-content-block-padding: ${fluidScale("20px", "10px")};
+  align-self: center;
+  max-width: var(--max-image-width);
+  width: 100%;
   position: relative;
 `;
 
-export const Figure = styled(BaseFigure)<LayoutProp & { $darkMode: boolean }>`
+export const Figure = styled(BaseFigure)<
+  LayoutProp & { $darkMode: boolean; $layout: string }
+>`
   ${({ $layout, $darkMode }) => css`
     ${$darkMode &&
     css`
@@ -33,7 +36,7 @@ export const Figure = styled(BaseFigure)<LayoutProp & { $darkMode: boolean }>`
         padding: 0;
       }
     `}
-  padding: ${$darkMode ? 0 : "var(--image-content-block-padding)"};
+  padding: var(--image-content-block-padding, 0);
   `}
 
   &:after {

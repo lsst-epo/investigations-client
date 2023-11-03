@@ -6,7 +6,8 @@
  * All code in here should be specific to the project.
  */
 
-import { Image, RootPage } from "@/components/shapes";
+import { RootPage } from "@/components/shapes";
+import { Image, RawImage } from "@/types/image";
 import type { GlobalsQueryQuery } from "gql/public-schema/graphql";
 
 type Categories = GlobalsQueryQuery["categories"];
@@ -51,32 +52,39 @@ export const makeCustomBreadcrumbs = (
 // IMAGES
 export const imageShaper = (
   site = "default",
-  data: any,
+  data: RawImage,
   className?: string
-) => {
-  if (!data) return;
+): Image | undefined => {
+  if (!data) return undefined;
 
-  const shapes = {
-    default: {
-      altText: data.additional.AltTextEN,
-      CaptionEN: data.additional.CaptionEN,
-      title: data.additional.TitleEN,
-    },
-    es: {
-      altText: data.additional.AltTextES,
-      CaptionEN: data.additional.CaptionES,
-      title: data.additional.TitleES,
-    },
+  const localeKeys = {
+    default: "EN",
+    es: "ES",
   };
 
+  const key = localeKeys[site];
+
+  const { metadata, url, width, height } = data;
+  const { directUrlPreview = "", directUrlOriginal = "", preview = "" } = url;
+
+  const urlWithoutConstraint = directUrlPreview.slice(0, -3);
+  const constraint = Math.max(width, height);
+
+  const altText = metadata[`AltText${key}`];
+  const caption = metadata[`Caption${key}`];
+  const credit = metadata.Credit;
+
   return {
-    url: data.url.directUrlPreview.slice(0, -3) + "500",
-    url2x: data.url.directUrlPreview,
-    url3x: data.url.directUrlPreview.slice(0, -3) + "2050",
-    width: data.width,
-    height: data.height,
+    url: `${urlWithoutConstraint}${Math.floor(constraint / 3)}`,
+    url2x: `${urlWithoutConstraint}${Math.floor(constraint / 2)}`,
+    url3x: directUrlOriginal,
+    thumb: preview,
+    width: Number(width),
+    height: Number(height),
     className,
-    ...shapes[site],
+    altText: altText === null ? undefined : altText,
+    caption: caption === null ? undefined : caption,
+    credit: credit === null ? undefined : credit,
   };
 };
 

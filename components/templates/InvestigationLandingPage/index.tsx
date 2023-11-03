@@ -12,12 +12,19 @@ const Fragment = graphql(`
     image {
       url {
         directUrlPreview
+        directUrlOriginal
+        PNG
+        HighJPG
+        LowJPG
       }
       width
       height
-      additional {
+      metadata: additional {
         AltTextEN
         AltTextES
+        CaptionEN
+        CaptionES
+        Credit
       }
     }
     children {
