@@ -56,8 +56,6 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
 
   const image = imageShaper(site, rawImage[0]);
 
-  console.log({ image });
-
   if (!image) return null;
 
   const { width, caption = fallbackCaption, credit } = image;
