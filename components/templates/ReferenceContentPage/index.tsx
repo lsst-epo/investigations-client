@@ -9,8 +9,52 @@ const Fragment = graphql(`
     __typename
     title
     id
-    contentBlocks {
-      ...ContentBlockFactory
+    contentBlocks: referenceContentBlocks {
+      __typename
+      ... on referenceContentBlocks_text_BlockType {
+        id
+        text
+      }
+      ... on referenceContentBlocks_image_BlockType {
+        id
+        caption
+        layout
+        image {
+          url {
+            directUrlPreview
+            directUrlOriginal
+            PNG
+            HighJPG
+            LowJPG
+            preview
+          }
+          width
+          height
+          metadata: additional {
+            AltTextEN
+            AltTextES
+            CaptionEN
+            CaptionES
+            Credit
+          }
+        }
+      }
+      ... on referenceContentBlocks_table_BlockType {
+        id
+        caption
+        contentHeading
+        displayTable {
+          ... on displayTable_BlockType {
+            tableRow {
+              ... on tableRow_tableCell_BlockType {
+                id
+                cellContent
+                rowHeader
+              }
+            }
+          }
+        }
+      }
     }
   }
 `);
