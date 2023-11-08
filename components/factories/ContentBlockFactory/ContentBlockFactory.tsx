@@ -15,6 +15,9 @@ export const blockMap: Record<string, any> = {
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
   contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
+  referenceContentBlocks_image_BlockType: Blocks.Image,
+  referenceContentBlocks_text_BlockType: Blocks.Text,
+  referenceContentBlocks_table_BlockType: Blocks.Table,
 };
 
 const Fragment = graphql(`
