@@ -8,6 +8,7 @@ interface WidgetContainerProps extends BaseContentBlockProps {
   bgColor?: "white" | "gray";
   paddingSize?: "large" | "medium" | "small" | "none";
   className?: string;
+  style?: any;
 }
 
 const padding = {
@@ -34,15 +35,18 @@ const WidgetContainer: FunctionComponent<
   bgColor = "white",
   paddingSize = "small",
   className,
+  style,
 }) => {
   return (
     <Styled.WidgetContainer
+      data-modal-open={isOpen}
       className={className}
       style={{
         "--widget-background-color": backgrounds[bgColor],
         "--widget-container-padding": isOpen
           ? 0
           : `calc(${padding[paddingSize]} / 2)`,
+        ...style,
       }}
     >
       {hasModal && !isOpen && (
@@ -56,13 +60,7 @@ const WidgetContainer: FunctionComponent<
       )}
       <Styled.WidgetContent>
         {children}
-        {caption && (
-          <Styled.WidgetCaption
-            style={{ "--caption-color": isOpen && "var(--white,#fff)" }}
-          >
-            {caption}
-          </Styled.WidgetCaption>
-        )}
+        {caption && <Styled.WidgetCaption>{caption}</Styled.WidgetCaption>}
       </Styled.WidgetContent>
     </Styled.WidgetContainer>
   );
