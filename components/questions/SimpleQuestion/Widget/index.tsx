@@ -1,5 +1,5 @@
-import ColorFilterTool from "@/components/content-blocks/ColorFilterTool";
 import { ComponentType, FunctionComponent } from "react";
+import ColorFilterToolQuestion from "./ColorFilterTool";
 
 export interface SimpleWidgetProps {
   id: string;
@@ -10,7 +10,7 @@ export interface SimpleWidgetProps {
 }
 
 const WIDGET_MAP: Record<string, ComponentType<any>> = {
-  colorFilterToolBlock: ColorFilterTool,
+  colorFilterToolBlock: ColorFilterToolQuestion,
 };
 
 const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({

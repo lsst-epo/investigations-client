@@ -1,0 +1,63 @@
+import { FunctionComponent, useContext } from "react";
+import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
+import StoredAnswersContext from "@/contexts/StoredAnswersContext";
+import withModal from "@/components/hoc/withModal/withModal";
+import ColorToolContainer from "@/components/containers/ColorFilterTool";
+import { BaseContentBlockProps } from "@/components/shapes";
+import * as Styled from "./styles";
+
+const Fragment = graphql(`
+  fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {
+    id
+    readOnly
+    colorFilterTool {
+      ...ColorFilterToolEntry
+    }
+  }
+`);
+
+interface ColorFilterProps extends BaseContentBlockProps {
+  data: FragmentType<typeof Fragment>;
+}
+
+/**
+ * This implementation of the ColorFilterTool is designed for read-only displays.
+ * It could be used for an interactive example, but those should be confined to
+ * questions. This component does not perform answer callbacks.
+ */
+const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
+  data,
+  openModal,
+  isOpen,
+  ...props
+}) => {
+  const { readOnly, colorFilterTool } = useFragment(Fragment, data);
+  const { id, title } = colorFilterTool[0];
+  const { answers } = useContext(StoredAnswersContext);
+
+  const answerId = Object.keys(answers).find((key) => {
+    return id in answers[key].data;
+  });
+  const value = answers[answerId]?.data[id];
+  const { name = "" } = value || {};
+
+  return (
+    <Styled.ColorToolContainer
+      {...{ title, openModal, isOpen }}
+      data-modal-open={isOpen}
+      bgColor={readOnly ? "gray" : "white"}
+      caption={name}
+    >
+      <ColorToolContainer
+        {...props}
+        readOnly={readOnly}
+        data={colorFilterTool[0]}
+        value={value}
+      />
+    </Styled.ColorToolContainer>
+  );
+};
+
+ColorFilterToolBlock.displayName = "ContentBlock.ColorFilterTool";
+
+export default withModal(ColorFilterToolBlock);

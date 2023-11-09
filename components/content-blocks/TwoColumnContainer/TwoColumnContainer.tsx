@@ -19,6 +19,7 @@ const Fragment = graphql(`
           ...FilterToolBlock
           ...ScatterplotToolBlock
           ...ReferenceModalBlock
+          ...ColorFilterToolBlock
         }
       }
       ... on contentBlocks_colRight_BlockType {
@@ -35,6 +36,7 @@ const Fragment = graphql(`
           ...FilterToolBlock
           ...ScatterplotToolBlock
           ...ReferenceModalBlock
+          ...ColorFilterToolBlock
         }
       }
     }
