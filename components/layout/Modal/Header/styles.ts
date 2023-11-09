@@ -9,6 +9,7 @@ export const Header = styled.div`
   grid-area: header;
   padding: 1ch;
   width: 100%;
+  z-index: 1;
 `;
 
 export const Close = styled(ExpandContract)`

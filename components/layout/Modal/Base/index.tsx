@@ -22,7 +22,7 @@ const BaseModal = forwardRef<HTMLDivElement, PropsWithChildren<BaseModalProps>>(
     useKeyDownEvent(handleKeyDown);
 
     return (
-      <Styled.Dialog open={isOpen} ref={ref}>
+      <Styled.Dialog data-modal-open={isOpen} ref={ref}>
         <Styled.Backdrop open={isOpen} />
         <div
           role={isOpen ? "dialog" : "generic"}

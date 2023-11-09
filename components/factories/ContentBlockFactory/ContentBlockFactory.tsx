@@ -15,6 +15,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
   contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
+  contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   referenceContentBlocks_image_BlockType: Blocks.Image,
   referenceContentBlocks_text_BlockType: Blocks.Text,
   referenceContentBlocks_table_BlockType: Blocks.Table,
@@ -33,6 +34,7 @@ const Fragment = graphql(`
     ...FilterToolBlock
     ...ScatterplotToolBlock
     ...ReferenceModalBlock
+    ...ColorFilterToolBlock
   }
 `);
 
@@ -56,6 +58,8 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
   const data = useFragment(Fragment, props.data);
 
   const Block = blockMap[data.__typename];
+
+  console.log({ data });
 
   if (!Block) return null;
   return (

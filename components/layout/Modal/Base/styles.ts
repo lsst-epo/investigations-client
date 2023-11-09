@@ -1,35 +1,34 @@
 import styled, { css } from "styled-components";
 
-export const Dialog = styled.div<{ open: boolean }>`
-  ${({ open }) =>
-    open
-      ? css`
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          max-width: calc(100vw - var(--scrollbar-width));
-          top: 0;
-          left: 0;
-          min-height: 100vh;
-          overflow-y: hidden;
-          z-index: 1;
+export const Dialog = styled.div`
+  container: contentModal / inline-size;
 
-          > [aria-modal="true"] {
-            color: var(--white, #fff);
-            overflow-y: auto;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            align-items: center;
-            justify-items: center;
-            grid-template-columns: 1fr;
-            grid-template-rows: min-content 1fr;
-            grid-template-areas:
-              "header"
-              "component";
-          }
-        `
-      : null}
+  &[data-modal-open="true"] {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: calc(100vw - var(--scrollbar-width));
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    overflow-y: hidden;
+    z-index: 1;
+
+    > [aria-modal="true"] {
+      color: var(--white, #fff);
+      overflow-y: auto;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      grid-template-rows: min-content 1fr;
+      grid-template-areas:
+        "header"
+        "component";
+    }
+  }
 `;
 
 export const Backdrop = styled.div<{ open: boolean }>`
