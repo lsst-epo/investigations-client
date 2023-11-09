@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const WidgetContainer = styled.section`
   --widget-header-padding: calc(var(--PADDING_SMALL, 20px) / 4);
 
+  color: initial;
   container-type: inline-size;
   min-width: min-content;
 `;

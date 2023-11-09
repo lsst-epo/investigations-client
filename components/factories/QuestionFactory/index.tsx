@@ -21,7 +21,7 @@ const Fragment = graphql(`
       ... on questionWidgetsBlock_colorFilterToolBlock_BlockType {
         typeHandle
         colorFilterTool {
-          ...ColorFilterToolBlock
+          ...ColorFilterToolEntry
         }
       }
     }

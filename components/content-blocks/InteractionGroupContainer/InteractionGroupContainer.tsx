@@ -17,6 +17,7 @@ const Fragment = graphql(`
       ...FilterToolBlock
       ...ScatterplotToolBlock
       ...ReferenceModalBlock
+      ...ColorFilterToolBlock
     }
   }
 `);

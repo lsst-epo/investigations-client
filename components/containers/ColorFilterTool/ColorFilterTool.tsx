@@ -1,14 +1,18 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import WidgetContainer from "@/components/layout/WidgetContainer";
-import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
+import ColorTool, {
+  AstroCategory,
+  AstroObject,
+  ImageFilter,
+} from "@rubin-epo/epo-widget-lib/ColorTool";
 import ColorSwatch from "@rubin-epo/epo-react-lib/ColorSwatch";
-import { BaseContentBlockProps } from "@/components/shapes";
-import withModal from "@/components/hoc/withModal/withModal";
+import { Option } from "@/components/shapes/option";
 
 const Fragment = graphql(`
-  fragment ColorFilterToolBlock on widgets_colorFilterTool_Entry {
+  fragment ColorFilterToolEntry on widgets_colorFilterTool_Entry {
+    id
     title
+    filterToolActions
     filterColorOptionsLabels: filterColorOptions(label: true)
     filterColorOptionsValues: filterColorOptions(label: true)
     colorFilterToolObjects {
@@ -16,8 +20,8 @@ const Fragment = graphql(`
         groupName
         objects: children {
           ... on colorFilterToolObjects_object_BlockType {
-            objectName
-            objectCaption
+            name: objectName
+            caption: objectCaption
             filterImages: children {
               ... on colorFilterToolObjects_filterimage_BlockType {
                 isEnabled
@@ -28,10 +32,6 @@ const Fragment = graphql(`
                   }
                   width
                   height
-                  additional {
-                    AltTextEN
-                    AltTextES
-                  }
                 }
                 max: colorToolMax
                 min: colorToolMin
@@ -47,7 +47,10 @@ const Fragment = graphql(`
   }
 `);
 
-const formatColorOptions = (colorOptionLabels, colorOptionValues) => {
+const formatColorOptions = (
+  colorOptionLabels: string[],
+  colorOptionValues: string[]
+) => {
   return colorOptionLabels.map((colorOptionLabel, i) => {
     const colorOptionValue = colorOptionValues[i];
     return {
@@ -58,7 +61,7 @@ const formatColorOptions = (colorOptionLabels, colorOptionValues) => {
   });
 };
 
-const formatFilterImage = (filterImage) => {
+const formatFilterImage = (filterImage: any): ImageFilter => {
   const {
     color,
     label,
@@ -87,55 +90,63 @@ const formatFilterImage = (filterImage) => {
   };
 };
 
-const formatFilterImages = (filterImages) =>
-  filterImages.map((filterImage) => formatFilterImage(filterImage));
+const formatFilterImages = (filterImages: any[]) =>
+  filterImages.map(formatFilterImage);
 
-const formatObject = (object) => {
-  const { objectName: name, objectCaption: caption, filterImages } = object;
+const formatObject = (object: any): AstroObject => {
+  const { name, filterImages } = object;
 
   return {
     name,
-    caption,
     filters: formatFilterImages(filterImages),
   };
 };
 
-const formatObjects = (objects) =>
-  objects.map((object) => formatObject(object));
+const formatObjects = (objects: any): AstroObject[] =>
+  objects.map((object: any) => formatObject(object));
 
-const formatObjectGroups = (objectGroups) => {
+const formatObjectGroups = (objectGroups: any[]): AstroCategory[] => {
   return objectGroups.map((group) => {
     const { groupName: type, objects } = group;
 
     return {
       type,
-      filters: formatObjects(objects),
+      objects: formatObjects(objects),
     };
   });
 };
 
-interface ColorFilterToolBlockProps extends BaseContentBlockProps {
+const formatObjectOptions = (objectGroups: AstroCategory[]) => {
+  const options: Option[] = [];
+
+  objectGroups.forEach((category) => {
+    category.objects.forEach((object) => {
+      options.push({
+        label: `${category.type}: ${object.name}`,
+        value: object.name,
+      });
+    });
+  });
+
+  return options;
+};
+
+interface ColorFilterToolContainerProps {
   data: FragmentType<typeof Fragment>;
+  readOnly?: boolean;
   onChangeCallback: (value: any) => void;
   value?: any;
 }
 
-const ColorFilterToolBlock: FunctionComponent<ColorFilterToolBlockProps> = ({
-  data,
-  onChangeCallback,
-  value,
-  openModal,
-  isOpen,
-}) => {
+const ColorFilterToolContainer: FunctionComponent<
+  ColorFilterToolContainerProps
+> = ({ data, onChangeCallback, value, readOnly }) => {
   const {
-    colorFilterTool: [
-      {
-        filterColorOptionsLabels,
-        filterColorOptionsValues,
-        colorFilterToolObjects,
-        title,
-      },
-    ],
+    filterColorOptionsLabels,
+    filterColorOptionsValues,
+    colorFilterToolObjects,
+    filterToolActions: actions = [],
+    title,
   } = useFragment(Fragment, data);
 
   const colorOptions = formatColorOptions(
@@ -144,20 +155,23 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterToolBlockProps> = ({
   );
   const objectGroups = formatObjectGroups(colorFilterToolObjects);
 
+  const config = { actions };
+  const objectOptions = formatObjectOptions(objectGroups);
+
   return (
-    <WidgetContainer {...{ title, openModal, isOpen }}>
-      <ColorTool
-        data={objectGroups}
-        selectedData={value || objectGroups[0].filters[0]}
-        colorOptions={colorOptions}
-        selectionCallback={(selectedData) =>
-          onChangeCallback && onChangeCallback(selectedData)
-        }
-      />
-    </WidgetContainer>
+    <ColorTool
+      data={objectGroups}
+      selectedData={value || objectGroups[0].objects[0]}
+      colorOptions={colorOptions}
+      selectionCallback={(selectedData) =>
+        onChangeCallback && onChangeCallback(selectedData)
+      }
+      isDisplayOnly={readOnly}
+      {...{ config, objectOptions }}
+    />
   );
 };
 
-ColorFilterToolBlock.displayName = "ContentBlock.ColorFilterTool";
+ColorFilterToolContainer.displayName = "Container.ColorFilterTool";
 
-export default withModal(ColorFilterToolBlock);
+export default ColorFilterToolContainer;
