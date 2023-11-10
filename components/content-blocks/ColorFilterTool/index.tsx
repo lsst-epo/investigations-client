@@ -39,7 +39,7 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
     if (answers[key]) {
       const { data } = answers[key];
 
-      return data.hasOwnProperty(id);
+      return Object.prototype.hasOwnProperty.call(data, id);
     }
   });
 
