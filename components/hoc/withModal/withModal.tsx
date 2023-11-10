@@ -70,7 +70,7 @@ function withModal<T extends BaseContentBlockProps>(
             {...{ title, isOpen, closeModal, titleId, contentId }}
           />
         )}
-        <Modal.ComponentContainer>
+        <Modal.ComponentContainer data-modal-open={isOpen}>
           <WrappedComponent
             {...{
               ...props,
