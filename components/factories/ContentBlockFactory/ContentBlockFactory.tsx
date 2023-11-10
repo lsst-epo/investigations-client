@@ -59,8 +59,6 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
 
   const Block = blockMap[data.__typename];
 
-  console.log({ data });
-
   if (!Block) return null;
   return (
     <Block

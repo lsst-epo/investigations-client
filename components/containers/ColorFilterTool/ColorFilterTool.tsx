@@ -133,20 +133,20 @@ const formatObjectOptions = (objectGroups: AstroCategory[]) => {
 
 interface ColorFilterToolContainerProps {
   data: FragmentType<typeof Fragment>;
-  readOnly?: boolean;
+  isDisplayOnly?: boolean;
   onChangeCallback: (value: any) => void;
   value?: any;
+  className?: string;
 }
 
 const ColorFilterToolContainer: FunctionComponent<
   ColorFilterToolContainerProps
-> = ({ data, onChangeCallback, value, readOnly }) => {
+> = ({ data, onChangeCallback, value, className, isDisplayOnly }) => {
   const {
     filterColorOptionsLabels,
     filterColorOptionsValues,
     colorFilterToolObjects,
     filterToolActions: actions = [],
-    title,
   } = useFragment(Fragment, data);
 
   const colorOptions = formatColorOptions(
@@ -162,12 +162,10 @@ const ColorFilterToolContainer: FunctionComponent<
     <ColorTool
       data={objectGroups}
       selectedData={value || objectGroups[0].objects[0]}
-      colorOptions={colorOptions}
       selectionCallback={(selectedData) =>
         onChangeCallback && onChangeCallback(selectedData)
       }
-      isDisplayOnly={readOnly}
-      {...{ config, objectOptions }}
+      {...{ config, colorOptions, objectOptions, className, isDisplayOnly }}
     />
   );
 };
