@@ -36,7 +36,11 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
   const { answers } = useContext(StoredAnswersContext);
 
   const answerId = Object.keys(answers).find((key: string) => {
-    return id in answers[key].data;
+    if (answers[key]) {
+      const { data } = answers[key];
+
+      return data.hasOwnProperty(id);
+    }
   });
 
   const value = answers[answerId]?.data[id];

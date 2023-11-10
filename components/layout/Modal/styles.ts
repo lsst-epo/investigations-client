@@ -8,5 +8,8 @@ export const ComponentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: auto;
+
+  &[data-modal-open="true"] {
+    overflow-y: auto;
+  }
 `;
