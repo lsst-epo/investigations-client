@@ -5,11 +5,10 @@ import withModal from "@/components/hoc/withModal/withModal";
 import ColorToolContainer from "@/components/containers/ColorFilterTool";
 import { BaseContentBlockProps } from "@/components/shapes";
 import * as Styled from "./styles";
+import { useTranslation } from "react-i18next";
 
 const Fragment = graphql(`
   fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {
-    id
-    readOnly
     colorFilterTool {
       ...ColorFilterToolEntry
     }
@@ -31,26 +30,29 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
   isOpen,
   ...props
 }) => {
-  const { readOnly, colorFilterTool } = useFragment(Fragment, data);
+  const { t } = useTranslation();
+  const { colorFilterTool } = useFragment(Fragment, data);
   const { id, title } = colorFilterTool[0];
   const { answers } = useContext(StoredAnswersContext);
 
-  const answerId = Object.keys(answers).find((key) => {
+  const answerId = Object.keys(answers).find((key: string) => {
     return id in answers[key].data;
   });
+
   const value = answers[answerId]?.data[id];
   const { name = "" } = value || {};
 
   return (
     <Styled.ColorToolContainer
       {...{ title, openModal, isOpen }}
+      style={{ "--widget-container-padding": "var(--color-tool-padding)" }}
       data-modal-open={isOpen}
-      bgColor={readOnly ? "gray" : "white"}
-      caption={name}
+      bgColor="gray"
+      caption={t("widgets.color_filter_tool.read_only_caption", { name })}
     >
       <ColorToolContainer
         {...props}
-        readOnly={readOnly}
+        isDisplayOnly={true}
         data={colorFilterTool[0]}
         value={value}
       />

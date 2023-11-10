@@ -4349,7 +4349,6 @@ export type ContentBlocks_ColorFilterToolBlock_BlockType = ElementInterface & Ne
   level?: Maybe<Scalars['Int']['output']>;
   /** The ID of the primary owner of the Neo block. */
   primaryOwnerId?: Maybe<Scalars['Int']['output']>;
-  readOnly?: Maybe<Scalars['Boolean']['output']>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
