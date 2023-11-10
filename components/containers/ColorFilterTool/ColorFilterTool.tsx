@@ -1,10 +1,6 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import ColorTool, {
-  AstroCategory,
-  AstroObject,
-  ImageFilter,
-} from "@rubin-epo/epo-widget-lib/ColorTool";
+import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
 import ColorSwatch from "@rubin-epo/epo-react-lib/ColorSwatch";
 import { Option } from "@/components/shapes/option";
 
@@ -61,7 +57,7 @@ const formatColorOptions = (
   });
 };
 
-const formatFilterImage = (filterImage: any): ImageFilter => {
+const formatFilterImage = (filterImage: any): any => {
   const {
     color,
     label,
@@ -93,7 +89,7 @@ const formatFilterImage = (filterImage: any): ImageFilter => {
 const formatFilterImages = (filterImages: any[]) =>
   filterImages.map(formatFilterImage);
 
-const formatObject = (object: any): AstroObject => {
+const formatObject = (object: any): { name: string; filters: any[] } => {
   const { name, filterImages } = object;
 
   return {
@@ -102,10 +98,12 @@ const formatObject = (object: any): AstroObject => {
   };
 };
 
-const formatObjects = (objects: any): AstroObject[] =>
+const formatObjects = (objects: any): any[] =>
   objects.map((object: any) => formatObject(object));
 
-const formatObjectGroups = (objectGroups: any[]): AstroCategory[] => {
+const formatObjectGroups = (
+  objectGroups: any[]
+): { type: string; objects: any[] }[] => {
   return objectGroups.map((group) => {
     const { groupName: type, objects } = group;
 
@@ -116,7 +114,7 @@ const formatObjectGroups = (objectGroups: any[]): AstroCategory[] => {
   });
 };
 
-const formatObjectOptions = (objectGroups: AstroCategory[]) => {
+const formatObjectOptions = (objectGroups: any[]) => {
   const options: Option[] = [];
 
   objectGroups.forEach((category) => {
