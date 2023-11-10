@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import WidgetContainer from "@/components/layout/WidgetContainer";
-import { token } from "@rubin-epo/epo-react-lib/styles";
-
-const breakSize = token("BREAK_LARGE_TABLET_MIN");
 
 export const ColorToolContainer = styled(WidgetContainer)`
   --color-tool-padding: var(--PADDING_SMALL, 20px);
