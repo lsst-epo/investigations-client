@@ -1,14 +1,3 @@
-type SimpleQuestion = "simple";
-type InlineQuestion = "inline";
-type WidgetQuestion = "widget";
-type TabularQuestion = "tabular";
-
-export type QuestionCategory =
-  | SimpleQuestion
-  | InlineQuestion
-  | WidgetQuestion
-  | TabularQuestion;
-
 export type TextQuestion = "text";
 export type TextAreaQuestion = "textarea";
 export type SelectQuestion = "select";

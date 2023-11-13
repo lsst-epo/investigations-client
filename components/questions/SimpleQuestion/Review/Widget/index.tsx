@@ -1,40 +1,44 @@
 "use client";
 import { ComponentType, FunctionComponent } from "react";
-import FilterTool from "@rubin-epo/epo-widget-lib/FilterTool";
+import ColorFilterToolReview from "./ColorFilterTool";
 import * as Styled from "./styles";
+import { WidgetInput } from "@/types/answers";
 
 export interface SimpleWidgetProps {
   id: string;
-  value?: string;
-  widgetConfig: { type: "filterTool"; [key: string]: any };
+  value?: WidgetInput;
+  widgetInstructions: string;
+  questionWidgetsBlock: Array<{ typeHandle: string; [key: string]: any }>;
 }
 
 const WIDGET_MAP: Record<string, ComponentType<any>> = {
-  filterTool: FilterTool,
+  colorFilterToolBlock: ColorFilterToolReview,
 };
 
 const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
   id,
   value,
-  widgetConfig,
+  widgetInstructions,
+  questionWidgetsBlock,
 }) => {
-  const { type } = widgetConfig;
-  const Widget = WIDGET_MAP[type];
+  const { typeHandle, ...widgetConfig } = questionWidgetsBlock[0];
+  const Widget = WIDGET_MAP[typeHandle];
+
+  console.log({ widgetConfig });
 
   if (!Widget) {
-    console.error(`"${type}" is not a valid input for this question type.`);
+    console.error(
+      `"${typeHandle}" is not a valid input for this question type.`
+    );
 
     return null;
   }
 
   return (
-    <Styled.Container>
-      <Widget
-        isDisabled={true}
-        isReadOnly={true}
-        {...{ id, value, ...widgetConfig }}
-      />
-    </Styled.Container>
+    <>
+      <span dangerouslySetInnerHTML={{ __html: widgetInstructions }} />
+      <Widget data={widgetConfig} {...{ id, value }} />
+    </>
   );
 };
 

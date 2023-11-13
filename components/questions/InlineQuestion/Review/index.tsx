@@ -5,30 +5,36 @@ import * as Styled from "./styles";
 import Readonly from "./Readonly";
 import Text from "./Text";
 import Multiselect from "./Multiselect";
+import { InlineQuestionData } from "@/types/answers";
+import { Option } from "@/components/shapes/option";
 
 export interface InlineReviewPart {
+  options?: Array<Option>;
   type: InlineQuestionType;
-  value: string | string[];
+  text: string;
+  id: string;
 }
 
 export interface InlineReviewProps extends BaseReviewProps {
   parts: InlineReviewPart[];
+  value: InlineQuestionData;
 }
 
 const REVIEW_MAP: Record<InlineQuestionType, ComponentType<any>> = {
   text: Text,
   select: Text,
   multiselect: Multiselect,
-  readonly: Readonly,
+  readonlyText: Readonly,
 };
 
 const InlineReview: FunctionComponent<InlineReviewProps> = ({
   number,
   parts = [],
+  value: partsValues = {},
 }) => {
   return (
     <Styled.ReviewListInlineItem value={number}>
-      {parts.map(({ type, value }, i) => {
+      {parts.map(({ type, id, text, options }, i) => {
         const Review = REVIEW_MAP[type];
 
         if (!Review) {
@@ -37,7 +43,9 @@ const InlineReview: FunctionComponent<InlineReviewProps> = ({
           return null;
         }
 
-        return <Review {...{ type, value }} key={i} />;
+        const value = id in partsValues ? partsValues[id] : undefined;
+
+        return <Review {...{ value, type, text, options }} key={i} />;
       })}
     </Styled.ReviewListInlineItem>
   );

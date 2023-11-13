@@ -5,7 +5,9 @@ import TabularQuestion from "@/components/questions/TabularQuestion";
 import InlineQuestion from "@/components/questions/InlineQuestion";
 
 const Fragment = graphql(`
-  fragment QuestionFactory on questions_default_Entry {
+  fragment QuestionEntry on questions_default_Entry {
+    __typename
+    id
     answerType
     options: answerOptions {
       ... on answerOptions_option_BlockType {
@@ -25,7 +27,7 @@ const Fragment = graphql(`
         }
       }
     }
-    multiPartBlocks {
+    parts: multiPartBlocks {
       ... on multiPartBlocks_select_BlockType {
         id
         type: typeHandle
@@ -86,7 +88,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     options,
     questionText,
     widgetInstructions,
-    multiPartBlocks = [],
+    parts = [],
   } = useFragment(Fragment, props.data);
 
   if (!id || !answerType) return null;
@@ -103,7 +105,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
       options={options}
       widgetConfig={questionWidgetsBlock[0] || {}}
       number={number}
-      parts={multiPartBlocks}
+      parts={parts}
     />
   );
 };
