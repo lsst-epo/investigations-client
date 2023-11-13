@@ -1,8 +1,9 @@
 "use client";
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import useResizeObserver from "use-resize-observer";
-import ProgressContext from "@/contexts/Progress";
+import useProgress from "@/contexts/Progress";
+import usePages from "@/contexts/Pages";
 import * as Styled from "./styles";
 
 interface PagerProps {
@@ -29,18 +30,15 @@ const Pager: FunctionComponent<PagerProps> = ({
       );
     },
   });
-  const {
-    currentSectionNumber,
-    currentPageNumber,
-    totalPages,
-    answeredBySectionPage,
-  } = useContext(ProgressContext);
+  const { totalPages } = usePages();
+  const { currentSectionNumber, currentPageNumber, answeredBySection } =
+    useProgress();
 
   const sectionIndex = currentSectionNumber - 1;
   const pageIndex = currentPageNumber - 1;
   const isLastPage = currentPageNumber === totalPages;
   const isFirstPage = currentPageNumber === 1;
-  const currentPageAnswered = answeredBySectionPage[sectionIndex][pageIndex];
+  const currentPageAnswered = answeredBySection[sectionIndex][pageIndex];
   const isNextDisabled =
     !(currentPageAnswered === true || currentPageAnswered === undefined) ||
     isLastPage;
