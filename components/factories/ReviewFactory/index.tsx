@@ -1,31 +1,38 @@
 import { ComponentType, FunctionComponent } from "react";
-import { QuestionCategory } from "@/types/questions";
 import SimpleReview from "@/components/questions/SimpleQuestion/Review";
 import InlineReview from "@/components/questions/InlineQuestion/Review";
+import { AnswerData } from "@/types/answers";
 
 export interface ReviewProps {
   id: string;
-  category: QuestionCategory;
+  type: string;
+  number: number;
+  value?: AnswerData;
   config: any;
 }
 
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
-  simple: SimpleReview,
-  inline: InlineReview,
+  text: SimpleReview,
+  select: SimpleReview,
+  widget: SimpleReview,
+  textarea: SimpleReview,
+  multiPart: InlineReview,
 };
 
 const ReviewFactory: FunctionComponent<ReviewProps> = ({
   id,
-  category,
+  type,
   config,
+  value,
+  number,
 }) => {
-  const Review = QUESTION_MAP[category];
+  const Review = QUESTION_MAP[type];
 
   if (!Review) {
     return null;
   }
 
-  return <Review {...{ ...config, id }} />;
+  return <Review {...{ ...config, value, id, type, number }} />;
 };
 
 ReviewFactory.displayName = "Factory.Review";

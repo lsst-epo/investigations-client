@@ -1,16 +1,16 @@
 "use client";
 
-import { FunctionComponent, useState, useContext, useRef } from "react";
+import { FunctionComponent, useState, useRef } from "react";
 import Button from "@rubin-epo/epo-react-lib/Button";
-import ProgressContext from "@/contexts/Progress";
 import TableOfContents from "../TableOfContents";
 import Menu from "../Menu";
 import HeaderProgress from "@/components/page/HeaderProgress";
 import useNavHider from "@/hooks/useNavHider";
+import usePages from "@/contexts/Pages";
 import * as Styled from "./styles";
 
 const Header: FunctionComponent = () => {
-  const { sections } = useContext(ProgressContext);
+  const { sections } = usePages();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [mainMenuIsOpen, setMainMenuIsOpen] = useState(false);

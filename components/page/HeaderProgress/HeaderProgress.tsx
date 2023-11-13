@@ -1,9 +1,10 @@
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
 import { useTranslation } from "react-i18next";
-import ProgressContext from "@/contexts/Progress";
+import useProgress from "@/contexts/Progress";
 import * as Styled from "./styles";
+import usePages from "@/contexts/Pages";
 
 interface HeaderProgressProps {
   labelledById?: string;
@@ -17,8 +18,8 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
   padding = true,
 }) => {
   const { t, i18n } = useTranslation();
-  const { sections, totalPages, currentPageNumber } =
-    useContext(ProgressContext);
+  const { sections, totalPages } = usePages();
+  const { currentPageNumber } = useProgress();
 
   return (
     <Styled.HeaderProgress

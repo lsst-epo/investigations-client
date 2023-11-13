@@ -5,18 +5,22 @@ import * as Styled from "./styles";
 import Text from "./Text";
 import Widget from "./Widget";
 import Multiselect from "./Multiselect";
+import Select from "./Select";
+import { SimpleQuestionData } from "@/types/answers";
+import { Option } from "@/components/shapes/option";
 
 export interface SimpleReviewProps extends BaseReviewProps {
   type: SimpleQuestionType;
   questionText: string;
-  value?: string | string[];
+  options?: Array<Option>;
+  value?: SimpleQuestionData;
   widgetConfig?: { type: "filterTool"; [key: string]: any };
 }
 const REVIEW_MAP: Record<SimpleQuestionType, ComponentType<any>> = {
   text: Text,
   textarea: Text,
-  select: Text,
-  multiselect: Multiselect,
+  select: Select,
+  // multiselect: Multiselect,
   widget: Widget,
 };
 
@@ -24,9 +28,9 @@ const SimpleReview: FunctionComponent<SimpleReviewProps> = ({
   number,
   type,
   questionText,
-  value,
-  widgetConfig,
+  ...props
 }) => {
+  console.log(type);
   const Review = REVIEW_MAP[type];
 
   if (!Review) {
@@ -38,7 +42,7 @@ const SimpleReview: FunctionComponent<SimpleReviewProps> = ({
   return (
     <Styled.ReviewListItem value={number}>
       {questionText}
-      <Review {...{ value, type, widgetConfig }} />
+      <Review {...props} />
     </Styled.ReviewListItem>
   );
 };

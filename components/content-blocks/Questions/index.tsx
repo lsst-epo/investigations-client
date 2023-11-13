@@ -1,17 +1,16 @@
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import ProgressContext from "@/contexts/Progress";
+import useQuestions from "@/contexts/Questions";
 import QuestionFactory from "@/components/factories/QuestionFactory";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment QuestionsBlock on contentBlocks_questionBlock_BlockType {
+    __typename
     id
     questionEntries {
-      __typename
-      id
-      ...QuestionFactory
+      ...QuestionEntry
     }
   }
 `);
@@ -28,7 +27,7 @@ const QuestionsContentBlock: FunctionComponent<QuestionsContentBlockProps> = ({
   const data = useFragment(Fragment, props.data);
 
   const { t } = useTranslation();
-  const { questions } = useContext(ProgressContext);
+  const questions = useQuestions();
 
   return (
     <section className="content-block">
@@ -41,11 +40,13 @@ const QuestionsContentBlock: FunctionComponent<QuestionsContentBlockProps> = ({
         {!!data.questionEntries?.length &&
           data.questionEntries.map((question) => {
             const { id } = question;
-            const questionIndex = questions.indexOf(id);
+            const questionIndex = questions.byAll.findIndex(
+              (question) => question.id === id
+            );
 
             return question?.__typename === "questions_default_Entry" ? (
               <QuestionFactory
-                key={question.id}
+                key={id}
                 data={question}
                 number={questionIndex + 1}
               />
