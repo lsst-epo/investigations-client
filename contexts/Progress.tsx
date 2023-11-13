@@ -1,160 +1,34 @@
 "use client";
 import { createContext, FunctionComponent, ReactNode, useContext } from "react";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
-
-interface ProgressSection {
-  name: string;
-  order: number;
-  pages: number[];
-}
-interface Page {
-  contentBlocks: any[];
-  hasSavePoints: boolean;
-  id: string;
-  title: string;
-  uri: string;
-  __typename: string;
-}
+import usePages from "./Pages";
+import useQuestions, { StoredQuestion } from "./Questions";
 
 interface InvestigationProgress {
-  sections: Array<ProgressSection>;
-  pages: Array<Page>;
   currentSectionNumber: number;
-  totalPages: number;
-  questionsBySectionPage: Array<Array<Array<string>>>;
-  [key: string]: any;
+  currentPageNumber: number;
+  answeredBySection: Array<Array<boolean>>;
+  answeredByPage: Array<boolean>;
+  disabledByPage: Array<boolean>;
 }
 
-const buildProgressSections = (siblings: Array<any>): ProgressSection[] => {
-  if (!siblings || !siblings?.length) return [];
-  // create empty arrays to fill with sections based on save points
-  const sectionBreaks = siblings.filter(
-    (entry) =>
-      entry.__typename === "investigations_investigationSectionBreakChild_Entry"
-  );
-  const sections: [number | undefined][] = Array.from(
-    Array(sectionBreaks.length + 1),
-    () => [undefined]
-  );
-
-  let currentIndex = 0;
-
-  // go through siblings and push to section arrays;
-  // advance to next array when a save point is reached
-  // @returns e.g. [[undefined, 0, 1], [undefined, 0, 1, 2]]
-  siblings.forEach((entry, index) => {
-    if (!entry?.title) return;
-
-    sections[currentIndex].push(index + 1);
-
-    if (
-      entry.__typename === "investigations_investigationSectionBreakChild_Entry"
-    ) {
-      currentIndex++;
-    }
-  });
-
-  const mapped = sections
-    // filter out `undefined` from arrays
-    .filter((section) => section.some((el) => typeof el === "number"))
-    // create final section object
-    .map((section, index) => {
-      return {
-        name: `Section ${index + 1}`,
-        order: index + 1,
-        pages: section.filter((num): num is number => typeof num === "number"),
-      };
-    });
-  return mapped;
-};
-
-const getQuestionEntryIds = (block: {
-  questionEntries: { id: string }[];
-}): Array<string | undefined> => {
-  const { questionEntries } = block;
-
-  if (!questionEntries) return undefined;
-
-  return questionEntries.map((questionEntry) => {
-    return questionEntry.id;
-  });
-};
-
-const getTwoColQuestionEntryIds = (block: object) => {
-  const { columns } = block;
-
-  const colBlocks = [...columns].map((col) => {
-    const { children = [] } = col;
-    return [...children];
-  });
-
-  return colBlocks.map((colBlock) => {
-    return getQuestionEntryIds(colBlock);
-  });
-};
-
-const getPageQuestionEntryIds = (blocks: Array<any> = []): Array<any> => {
-  return blocks.map((block) => {
-    const { __typename } = block;
-
-    switch (__typename) {
-      case "contentBlocks_questionBlock_BlockType": {
-        return getQuestionEntryIds(block);
-      }
-      case "contentBlocks_twoColumnContainer_BlockType": {
-        return getTwoColQuestionEntryIds(block);
-      }
-      case "contentBlocks_group_BlockType": {
-        const { group } = block;
-
-        return getPageQuestionEntryIds(group).flat();
-      }
-      default: {
-        break;
-      }
-    }
-  });
-};
-
-const getQuestionsByPage = (page: Page): Array<string> => {
-  const { contentBlocks } = page;
-
-  return getPageQuestionEntryIds(contentBlocks)
-    .flat()
-    .filter((questionId) => !!questionId);
-};
-
-const getQuestionsBySectionPage = (
-  sections: Array<ProgressSection>,
-  pages: Array<Page>
-) => {
-  return sections.map(({ pages: pageNumbers }) => {
-    return pageNumbers.map((pageNumber: number) => {
-      return getQuestionsByPage(pages[pageNumber - 1]);
-    });
-  });
-};
-
-const getAnsweredBySectionPage = (
-  questionsBySectionPage: Array<Array<Array<string>>>,
+const getAnsweredBySection = (
+  questionsBySectionPage: Array<Array<Array<StoredQuestion>>>,
   answers: Record<string, any>
 ) => {
   return questionsBySectionPage.map((section) => {
-    return section.map((questionIds) => {
-      if (questionIds.length === 0) return true;
+    return section.map((questions) => {
+      if (questions.length === 0) return true;
 
-      return (
-        questionIds.filter((questionId) => !answers[questionId]).length === 0
-      );
+      return questions.filter(({ id }) => !answers[id]).length === 0;
     });
   });
 };
 
 const getDisabledByPage = (
-  currentPageNumber,
-  totalPages,
-  questionsByPage,
-  answeredByPage
+  totalPages: number,
+  questionsByPage: Array<Array<StoredQuestion>>,
+  answeredByPage: Array<boolean>
 ) => {
   const disabledByPage = [];
 
@@ -230,59 +104,48 @@ const getDisabledByPage = (
   return disabledByPage;
 };
 
-const ProgressContext = createContext<InvestigationProgress | null>(null);
+const ProgressContext = createContext<InvestigationProgress | undefined>(
+  undefined
+);
 
-const investigationPageTypes = [
-  "investigations_default_Entry",
-  "investigations_investigationSectionBreakChild_Entry",
-];
+function useProgress() {
+  const context = useContext(ProgressContext);
+  if (context === undefined) {
+    throw new Error("usePrgress must be used within a ProgressPRovider");
+  }
+  return context;
+}
 
 interface ProgressProviderProps {
-  pages: Array<Page>;
   currentPageId: string;
   children: ReactNode;
 }
 
 const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
-  pages,
   currentPageId,
   children,
 }) => {
+  const { pages, sections, totalPages } = usePages();
+  const questions = useQuestions();
   const { answers } = useContext(StoredAnswersContext);
-  const siblings = pages.filter((page) =>
-    investigationPageTypes.includes(page.__typename)
-  );
-  const sections = buildProgressSections(siblings);
+
   const currentPageNumber =
-    siblings.findIndex((entry) => entry.id === currentPageId) + 1;
-  const totalPages = siblings.length;
-  const questionsBySectionPage = getQuestionsBySectionPage(sections, siblings);
-  const answeredBySectionPage = getAnsweredBySectionPage(
-    questionsBySectionPage,
-    answers
-  );
-  const questionsByPage = [].concat(...questionsBySectionPage);
-  const answeredByPage = [].concat(...answeredBySectionPage);
-  const questions = [].concat(...questionsByPage);
+    pages.findIndex((entry) => entry.id === currentPageId) + 1;
+
+  const answeredBySection = getAnsweredBySection(questions.bySection, answers);
+  const answeredByPage = answeredBySection.flat();
 
   const progress: InvestigationProgress = {
-    sections,
-    pages: siblings,
     currentSectionNumber:
       sections.findIndex((section) => {
         return section.pages.includes(currentPageNumber);
       }) + 1,
     currentPageNumber,
-    totalPages,
-    questionsBySectionPage,
-    questionsByPage,
-    questions,
-    answeredBySectionPage,
+    answeredBySection,
     answeredByPage,
     disabledByPage: getDisabledByPage(
-      currentPageNumber,
       totalPages,
-      questionsByPage,
+      questions.byPage,
       answeredByPage
     ),
   };
@@ -296,6 +159,6 @@ const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
 
 ProgressProvider.displayName = "Progress.Provider";
 
-export default ProgressContext;
+export default useProgress;
 
 export { ProgressProvider };

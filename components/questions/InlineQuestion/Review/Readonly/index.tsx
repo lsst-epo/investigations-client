@@ -1,8 +1,7 @@
 import { FunctionComponent } from "react";
-import { InlineReviewPart } from "..";
 
-const InlineReadonly: FunctionComponent<InlineReviewPart> = ({ value }) => (
-  <span>{value}</span>
+const InlineReadonly: FunctionComponent<{ text: string }> = ({ text }) => (
+  <span>{text}</span>
 );
 
 InlineReadonly.displayName = "Review.Inline.Readonly";

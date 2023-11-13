@@ -1,11 +1,12 @@
 import { FunctionComponent, useContext } from "react";
 import { IconComposer, ProgressBar } from "@rubin-epo/epo-react-lib";
-import ProgressContext from "@/contexts/Progress";
+import useProgress from "@/contexts/Progress";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import HeaderProgress from "@/components/page/HeaderProgress";
 import SlideOutMenu from "./SlideOutMenu";
-// import { getQuestionsByPage } from "./helpers";
 import * as Styled from "./styles";
+import usePages from "@/contexts/Pages";
+import useQuestions from "@/contexts/Questions";
 
 // interface PageNavigation {
 //   title: string;
@@ -43,14 +44,9 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
 }) => {
   const pagesVisitedId = "pagesVisitedLabel";
   const questionsAnsweredId = "questionsAnsweredLabel";
-  const {
-    sections,
-    pages,
-    totalPages,
-    currentPageNumber,
-    disabledByPage,
-    questions,
-  } = useContext(ProgressContext);
+  const { sections, pages, totalPages } = usePages();
+  const questions = useQuestions();
+  const { currentPageNumber, disabledByPage } = useProgress();
   const { answers } = useContext(StoredAnswersContext);
 
   return (
@@ -77,7 +73,7 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
             Questions answered
           </Styled.ProgressLabel>
           <ProgressBar
-            max={questions.length}
+            max={questions.byAll.length}
             value={Object.keys(answers).length}
             labelledById={questionsAnsweredId}
             markerConfig={{ $hoverable: false }}
