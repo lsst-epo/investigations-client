@@ -1,6 +1,5 @@
 import { ComponentType, FunctionComponent } from "react";
-import SimpleReview from "@/components/questions/SimpleQuestion/Review";
-import InlineReview from "@/components/questions/InlineQuestion/Review";
+import * as Review from "@/components/questions/Review";
 import { AnswerData } from "@/types/answers";
 
 export interface ReviewProps {
@@ -12,27 +11,26 @@ export interface ReviewProps {
 }
 
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
-  text: SimpleReview,
-  select: SimpleReview,
-  widget: SimpleReview,
-  textarea: SimpleReview,
-  multiPart: InlineReview,
+  text: Review.Text,
+  select: Review.Select,
+  widget: Review.Widget,
+  textarea: Review.Text,
+  multiPart: Review.Inline,
 };
 
 const ReviewFactory: FunctionComponent<ReviewProps> = ({
-  id,
   type,
   config,
-  value,
-  number,
+  ...props
 }) => {
   const Review = QUESTION_MAP[type];
 
   if (!Review) {
+    console.error(`"${type}" is not a valid review type.`);
     return null;
   }
 
-  return <Review {...{ ...config, value, id, type, number }} />;
+  return <Review {...{ ...props, ...config }} />;
 };
 
 ReviewFactory.displayName = "Factory.Review";

@@ -1,9 +1,7 @@
 "use client";
 import { FunctionComponent, useContext } from "react";
 import { ReviewPageProps } from "./layout";
-import ReviewFactory, {
-  ReviewProps,
-} from "@/components/factories/ReviewFactory";
+import ReviewFactory from "@/components/factories/ReviewFactory";
 import Input from "@/components/form/Input";
 import * as Styled from "./styles";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
@@ -26,16 +24,13 @@ const ReviewPage: FunctionComponent<ReviewPageProps> = () => {
       <h2>Questions & Answers</h2>
       <Styled.ReviewList>
         {questions &&
-          questions.map(({ id, answerType, ...question }, i) => {
-            console.log({ questions });
+          questions.map(({ id, answerType: type, ...config }, i) => {
             return (
               <ReviewFactory
                 key={id}
-                type={answerType}
                 number={i + 1}
                 value={answers[id]?.data}
-                config={question}
-                {...{ id }}
+                {...{ id, type, config }}
               />
             );
           })}

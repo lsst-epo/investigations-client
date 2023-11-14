@@ -2,7 +2,7 @@ import { FunctionComponent, useContext } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import withModal from "@/components/hoc/withModal/withModal";
-import ColorToolContainer from "@/components/containers/ColorFilterTool";
+import ColorFilterDisplay from "@/components/containers/ColorFilterDisplay";
 import { BaseContentBlockProps } from "@/components/shapes";
 import * as Styled from "./styles";
 import { useTranslation } from "react-i18next";
@@ -54,12 +54,7 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
       bgColor="gray"
       caption={t("widgets.color_filter_tool.read_only_caption", { name })}
     >
-      <ColorToolContainer
-        {...props}
-        isDisplayOnly={true}
-        data={colorFilterTool[0]}
-        value={value}
-      />
+      <ColorFilterDisplay {...props} data={colorFilterTool[0]} value={value} />
     </Styled.ColorToolContainer>
   );
 };

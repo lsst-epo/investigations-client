@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 "use client";
 import {
   FunctionComponent,
@@ -7,6 +8,11 @@ import {
 } from "react";
 import usePages, { Page, Section } from "./Pages";
 import { Option } from "@/components/shapes/option";
+
+type QuestionEntry = BaseQuestion &
+  WidgetQuestion &
+  MultipartQuestion &
+  SelectQuestion;
 
 interface BaseBlock {
   __typename: string;
@@ -49,10 +55,6 @@ interface MultipartQuestion extends Omit<BaseQuestion, "questionText"> {
   parts: Array<any>;
 }
 
-type QuestionEntry = BaseQuestion &
-  WidgetQuestion &
-  MultipartQuestion &
-  SelectQuestion;
 export type StoredQuestion =
   | BaseQuestion
   | WidgetQuestion
@@ -98,7 +100,7 @@ function buildQuestion(question: QuestionEntry): StoredQuestion | undefined {
     case "widget":
       return { answerType, id, widgetInstructions, questionWidgetsBlock };
     default:
-      return;
+      break;
   }
 }
 
