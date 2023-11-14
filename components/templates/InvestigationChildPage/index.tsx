@@ -15,14 +15,6 @@ const Fragment = graphql(`
       ...ContentBlockFactory
     }
     hasSavePoint
-    prev(section: "investigations") {
-      __typename
-      uri
-    }
-    next(section: "investigations") {
-      __typename
-      uri
-    }
   }
 `);
 
