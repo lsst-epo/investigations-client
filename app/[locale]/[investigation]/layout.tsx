@@ -109,8 +109,6 @@ const InvestigationLandingLayout: (
 
   const { children: pages = [] } = investigationData?.entry;
 
-  console.log({ pages });
-
   const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
   const StoredAnswersComponent =
