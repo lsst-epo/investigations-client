@@ -3,8 +3,9 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
 import ColorSwatch from "@rubin-epo/epo-react-lib/ColorSwatch";
 import { Option } from "@/components/shapes/option";
+import { formatObjectGroups } from "../helpers";
 
-const Fragment = graphql(`
+export const Fragment = graphql(`
   fragment ColorFilterToolEntry on widgets_colorFilterTool_Entry {
     id
     title
@@ -57,63 +58,6 @@ const formatColorOptions = (
   });
 };
 
-const formatFilterImage = (filterImage: any): any => {
-  const {
-    color,
-    label,
-    defaultValue,
-    max,
-    min,
-    image: [
-      {
-        url: { directUrlPreview },
-      },
-    ],
-    isActive,
-    isEnabled,
-  } = filterImage;
-
-  return {
-    label,
-    color,
-    active: isActive,
-    image: directUrlPreview,
-    isDisabled: !isEnabled,
-    defaultValue,
-    value: defaultValue,
-    min,
-    max,
-  };
-};
-
-const formatFilterImages = (filterImages: any[]) =>
-  filterImages.map(formatFilterImage);
-
-const formatObject = (object: any): { name: string; filters: any[] } => {
-  const { name, filterImages } = object;
-
-  return {
-    name,
-    filters: formatFilterImages(filterImages),
-  };
-};
-
-const formatObjects = (objects: any): any[] =>
-  objects.map((object: any) => formatObject(object));
-
-const formatObjectGroups = (
-  objectGroups: any[]
-): { type: string; objects: any[] }[] => {
-  return objectGroups.map((group) => {
-    const { groupName: type, objects } = group;
-
-    return {
-      type,
-      objects: formatObjects(objects),
-    };
-  });
-};
-
 const formatObjectOptions = (objectGroups: any[]) => {
   const options: Option[] = [];
 
@@ -131,7 +75,6 @@ const formatObjectOptions = (objectGroups: any[]) => {
 
 interface ColorFilterToolContainerProps {
   data: FragmentType<typeof Fragment>;
-  isDisplayOnly?: boolean;
   onChangeCallback: (value: any) => void;
   value?: any;
   className?: string;
@@ -139,7 +82,7 @@ interface ColorFilterToolContainerProps {
 
 const ColorFilterToolContainer: FunctionComponent<
   ColorFilterToolContainerProps
-> = ({ data, onChangeCallback, value, className, isDisplayOnly }) => {
+> = ({ data, onChangeCallback, value, className }) => {
   const {
     filterColorOptionsLabels,
     filterColorOptionsValues,
@@ -163,7 +106,7 @@ const ColorFilterToolContainer: FunctionComponent<
       selectionCallback={(selectedData) =>
         onChangeCallback && onChangeCallback(selectedData)
       }
-      {...{ config, colorOptions, objectOptions, className, isDisplayOnly }}
+      {...{ config, colorOptions, objectOptions, className }}
     />
   );
 };
