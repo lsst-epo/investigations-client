@@ -276,7 +276,8 @@
     "congratulations": "Congratulations!",
     "congratulations_alt": "Animated image of fireworks",
     "finish": "Finish",
-    "finish_alt": "Animated image displaying the message: 'Congratulations, you finished!'"
+    "finish_alt": "Animated image displaying the message: 'Congratulations, you finished!'",
+    "review": "Review your answers"
   },
   "widgets": {
     "filter_tool": "Filter Tool",

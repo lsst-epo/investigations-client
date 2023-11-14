@@ -53,16 +53,13 @@ const UriSegmentsLayout: (
     notFound();
   }
 
-  const { id, prev, next } = data?.entry || {};
-
-  const prevUrl = prev?.uri ? `/${prev.uri}` : "#";
-  const nextUrl = next?.uri ? `/${next.uri}` : "#";
+  const { id } = data?.entry || {};
 
   return (
     <ProgressProvider currentPageId={id}>
       <Header />
       <Styled.Main>{children}</Styled.Main>
-      <Pager leftLink={prevUrl} rightLink={nextUrl} />
+      <Pager />
     </ProgressProvider>
   );
 };

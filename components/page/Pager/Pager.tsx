@@ -54,7 +54,7 @@ const getNextPage = (
   }
 
   if (isLastPage) {
-    return "./review";
+    return undefined;
   }
 
   return `/${pages[pageIndex + 1].uri}`;

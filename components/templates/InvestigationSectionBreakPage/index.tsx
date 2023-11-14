@@ -3,6 +3,8 @@ import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { useTranslation } from "react-i18next";
 import Container from "@rubin-epo/epo-react-lib/Container";
+import Button from "@rubin-epo/epo-react-lib/Button";
+import Link from "next/link";
 import Image from "next/image";
 import { TextContent } from "@/components/content-blocks/Text/styles";
 import * as Styled from "./styles";
@@ -13,10 +15,6 @@ const Fragment = graphql(`
     id
     title
     text
-    prev(section: "investigations") {
-      __typename
-      uri
-    }
     next(section: "investigations") {
       __typename
       uri
@@ -61,7 +59,15 @@ const InvestigationSectionBreakPage: FunctionComponent<{
           isFinalPage ? "section_break.finish" : "section_break.congratulations"
         )}
       </Styled.SectionBreakTitle>
+
       {text && <TextContent dangerouslySetInnerHTML={{ __html: text }} />}
+      {isFinalPage && (
+        <Styled.ReviewLinkContainer>
+          <Button as={Link} href="./review" icon="CheckmarkCircle">
+            {t("section_break.review")}
+          </Button>
+        </Styled.ReviewLinkContainer>
+      )}
     </Container>
   );
 };
