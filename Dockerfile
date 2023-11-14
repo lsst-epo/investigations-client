@@ -1,7 +1,7 @@
 # This file is based on the official Next.js Docker example. https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
 
 # Rebuild the source code only when needed
-FROM node:16-alpine AS builder
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY . /app
 
@@ -16,7 +16,7 @@ ARG NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps
 RUN npx browserslist@latest --update-db && yarn static:build
 
 # Production image, copy all the files and run next
-FROM node:16-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 
 RUN addgroup -g 1001 -S nodejs
