@@ -8,12 +8,12 @@ import { getLabelByValue } from "@/components/questions/utils";
 import { BaseReviewProps } from "@/types/questions";
 import { SelectInput } from "@/types/answers";
 
-interface SimpleTextProps extends BaseReviewProps<SelectInput> {
+interface SelectProps extends BaseReviewProps<SelectInput> {
   options: Array<Option>;
   questionText: string;
 }
 
-const SelectReview: FunctionComponent<SimpleTextProps> = ({
+const SelectReview: FunctionComponent<SelectProps> = ({
   value,
   options = [],
   number,
