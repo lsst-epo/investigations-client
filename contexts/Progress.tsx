@@ -5,6 +5,7 @@ import usePages from "./Pages";
 import useQuestions, { StoredQuestion } from "./Questions";
 
 interface InvestigationProgress {
+  currentPageId: string;
   currentSectionNumber: number;
   currentPageNumber: number;
   answeredBySection: Array<Array<boolean>>;
@@ -129,13 +130,18 @@ const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
   const questions = useQuestions();
   const { answers } = useContext(StoredAnswersContext);
 
+  const customPages: { [key: string]: number } = { review: totalPages + 1 };
+
   const currentPageNumber =
-    pages.findIndex((entry) => entry.id === currentPageId) + 1;
+    currentPageId in customPages
+      ? customPages[currentPageId]
+      : pages.findIndex((entry) => entry.id === currentPageId) + 1;
 
   const answeredBySection = getAnsweredBySection(questions.bySection, answers);
   const answeredByPage = answeredBySection.flat();
 
   const progress: InvestigationProgress = {
+    currentPageId,
     currentSectionNumber:
       sections.findIndex((section) => {
         return section.pages.includes(currentPageNumber);
