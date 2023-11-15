@@ -4,6 +4,7 @@
 // @ts-ignore
 import { useFormStatus } from "react-dom";
 import { Button } from "@rubin-epo/epo-react-lib";
+import * as Styled from "./styles";
 
 export default function Submit({
   children,
@@ -16,13 +17,13 @@ export default function Submit({
   const { pending } = useFormStatus();
 
   return (
-    <Button
+    <Styled.SaveButton
       className={className}
       type="submit"
       disabled={pending}
       {...restProps}
     >
       {children(pending)}
-    </Button>
+    </Styled.SaveButton>
   );
 }
