@@ -11,7 +11,7 @@ export default function Submit({
   ...restProps
 }: Omit<React.ComponentPropsWithoutRef<typeof Button>, "children"> & {
   children: (pending: boolean) => React.ReactNode;
-  className: string;
+  className?: string;
 }) {
   const { pending } = useFormStatus();
 
