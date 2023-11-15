@@ -1,6 +1,7 @@
 "use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
+import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import SaveForm from "@/components/answers/SaveForm/SaveForm";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
@@ -24,7 +25,7 @@ const InvestigationChildPage: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
   userStatus?: string;
   children?: React.ReactNode;
-}> = ({ site, user, userStatus, children, ...props }) => {
+}> = ({ site, user, userStatus, ...props }) => {
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
@@ -32,7 +33,6 @@ const InvestigationChildPage: FunctionComponent<{
   return (
     <Styled.ContentBlocks paddingSize="none" width="wide">
       <Styled.Title>{data.title}</Styled.Title>
-      {children}
       {data.contentBlocks?.map(
         (block, i) =>
           block && <ContentBlockFactory key={i} site={site} data={block} />
