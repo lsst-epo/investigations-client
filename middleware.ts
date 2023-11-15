@@ -23,6 +23,7 @@ export function middleware(request: NextRequest) {
     const handleI18nRouting = createIntlMiddleware({
       // A list of all locales that are supported
       locales: languages,
+      localePrefix: "as-needed",
 
       // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
       defaultLocale: fallbackLng,
