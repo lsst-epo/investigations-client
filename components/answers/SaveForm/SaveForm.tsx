@@ -1,6 +1,6 @@
 "use client";
 
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import saveEducatorAnswers from "@/components/educator-schema/saveAnswersAction";
 import saveStudentAnswers from "@/components/student-schema/saveAnswersAction";
@@ -30,6 +30,8 @@ const SaveForm: FunctionComponent<{
   const [status, setStatus] = useState<FormStatus>(
     userStatus === "pending" ? "statusError" : null
   );
+
+  const resetForm = useCallback(() => setStatus(null), []);
 
   if (!investigationId) return null;
 
@@ -68,8 +70,6 @@ const SaveForm: FunctionComponent<{
     mutationError: "Close",
     emptyError: "Close",
   };
-
-  const resetForm = () => setStatus(null);
 
   const toastText: Record<NonNullable<FormStatus>, string> = {
     success: t("answers.save_form.success_message", {
