@@ -1,6 +1,5 @@
 import {
   FunctionComponent,
-  PropsWithChildren,
   ReactNode,
   useEffect,
   useRef,
@@ -56,7 +55,7 @@ const Toaster: FunctionComponent<ToasterProps> = ({
     }
 
     return () => clearTimers();
-  }, [isVisible]);
+  }, [isVisible, onCloseCallback]);
 
   const handleCloseToast = () => {
     if (isVisible) {

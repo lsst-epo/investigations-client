@@ -1,17 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import BaseToast from "@rubin-epo/epo-react-lib/Toast";
-
-const toast = keyframes`
-    0% {
-      transform: translateY(100%);
-    }
-    5%,95%{
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-`;
 
 export const Toaster = styled.div`
   --toast-transform: translateY(100%);
