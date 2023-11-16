@@ -37,3 +37,10 @@ export const CheckpointDivider = styled.div`
   height: 3em;
   width: 1px;
 `;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5em;
+`;
