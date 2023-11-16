@@ -3,8 +3,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { useFormStatus } from "react-dom";
-import { Button } from "@rubin-epo/epo-react-lib";
-import * as Styled from "./styles";
+import Button from "@rubin-epo/epo-react-lib/Button";
 
 export default function Submit({
   children,
@@ -17,13 +16,13 @@ export default function Submit({
   const { pending } = useFormStatus();
 
   return (
-    <Styled.SaveButton
+    <Button
       className={className}
       type="submit"
       disabled={pending}
       {...restProps}
     >
       {children(pending)}
-    </Styled.SaveButton>
+    </Button>
   );
 }
