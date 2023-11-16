@@ -1,7 +1,6 @@
 "use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import SaveForm from "@/components/answers/SaveForm/SaveForm";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
