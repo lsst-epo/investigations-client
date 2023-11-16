@@ -44,11 +44,17 @@ function StoredAnswersProvider(props: {
   const getServerSnapshot = useCallback(() => {
     const answerSet = Array.isArray(props.answers)
       ? (Object.fromEntries(
-          props.answers.map((answer) => [answer?.questionId, answer])
+          props.answers.map((answer) => {
+            return [
+              answer?.questionId,
+              { ...answer, data: JSON.parse(answer?.data || "") },
+            ];
+          })
         ) as Answers)
       : {};
+
     return JSON.stringify(answerSet);
-  }, [JSON.stringify(props.answers)]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [props.answers]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getSnapshot = useCallback(() => {
     const browserAnswers = JSON.parse(
