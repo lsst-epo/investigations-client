@@ -37,7 +37,7 @@ const InvestigationChildPage: FunctionComponent<{
         (block, i) =>
           block && <ContentBlockFactory key={i} site={site} data={block} />
       )}
-      {data.hasSavePoint && user && (
+      {data.hasSavePoint && (
         <SaveForm
           investigationId={data.parent?.id}
           user={user}

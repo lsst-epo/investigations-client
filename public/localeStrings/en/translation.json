@@ -258,10 +258,14 @@
   },
   "answers": {
     "save_form": {
+      "checkpoint": "Checkpoint",
       "label": "Save answers",
       "submit": "Save your work",
       "submit_pending": "Saving…",
-      "success_message": "Answers saved!",
+      "success": "Success!",
+      "error": "Error",
+      "success_message": "Your work is saved",
+      "success_message_unauth": "Your work is saved. Nonetheless, it could get lost if the browser’s cache clears. Log in or create an account to save your work safely.",
       "empty_error_message": "No new answers to save.",
       "refresh_error_message": "Your session has expired. Please log back in and try again.",
       "mutation_error_message": "There was an error saving your answers to your account.",
