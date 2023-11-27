@@ -15,6 +15,9 @@ const Fragment = graphql(`
       ...ContentBlockFactory
     }
     hasSavePoint
+    parent {
+      id
+    }
   }
 `);
 
@@ -28,6 +31,8 @@ const InvestigationChildPage: FunctionComponent<{
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
+
+  console.log(data.hasSavePoint);
 
   return (
     <Styled.ContentBlocks paddingSize="none" width="wide">
