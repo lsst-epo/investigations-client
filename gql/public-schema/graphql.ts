@@ -7266,7 +7266,6 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s structure ID. */
   structureId?: Maybe<Scalars['Int']['output']>;
-  text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
   /** Whether the element has been soft-deleted. */
