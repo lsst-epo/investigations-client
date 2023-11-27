@@ -26,6 +26,7 @@ const PagesContext = createContext<
       pages: Array<Page>;
       sections: Array<Section>;
       totalPages: number;
+      acknowledgements: string;
     }
   | undefined
 >(undefined);
@@ -89,8 +90,8 @@ const buildProgressSections = (pages: Array<Page>): Array<Section> => {
 };
 
 const PagesProvider: FunctionComponent<
-  PropsWithChildren<{ pages: Array<Page> }>
-> = ({ pages = [], children }) => {
+  PropsWithChildren<{ pages: Array<Page>; acknowledgements: string }>
+> = ({ pages = [], acknowledgements, children }) => {
   const validPages = pages.filter((page) =>
     VALID_PAGE_TYPES.includes(page.__typename)
   );
@@ -102,6 +103,7 @@ const PagesProvider: FunctionComponent<
         pages: validPages,
         sections,
         totalPages: validPages.length,
+        acknowledgements,
       }}
     >
       {children}

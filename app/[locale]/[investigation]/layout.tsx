@@ -11,6 +11,7 @@ import {
 } from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
+import { notFound } from "next/navigation";
 
 export interface InvestigationParams {
   investigation: string;
@@ -35,40 +36,44 @@ export async function generateMetadata({
 const InvestigationIdQuery = graphql(`
   query InvestigationId($site: [String], $uri: [String]) {
     entry(site: $site, uri: $uri) {
-      id
-      children {
+      ... on investigations_investigationParent_Entry {
         __typename
-        title
         id
-        uri
-        ... on investigations_default_Entry {
-          hasSavePoint
-          contentBlocks {
-            __typename
-            ...QuestionsBlock
-            ... on contentBlocks_twoColumnContainer_BlockType {
-              columns: children {
-                __typename
-                ... on contentBlocks_colLeft_BlockType {
-                  children {
-                    ...QuestionsBlock
-                    ... on contentBlocks_group_BlockType {
-                      group: children {
-                        ...QuestionsBlock
+        acknowledgements: text
+        children {
+          __typename
+          title
+          id
+          uri
+          ... on investigations_default_Entry {
+            hasSavePoint
+            contentBlocks {
+              __typename
+              ...QuestionsBlock
+              ... on contentBlocks_twoColumnContainer_BlockType {
+                columns: children {
+                  __typename
+                  ... on contentBlocks_colLeft_BlockType {
+                    children {
+                      ...QuestionsBlock
+                      ... on contentBlocks_group_BlockType {
+                        group: children {
+                          ...QuestionsBlock
+                        }
                       }
                     }
                   }
-                }
-                ... on contentBlocks_colRight_BlockType {
-                  children {
-                    __typename
-                    ...QuestionsBlock
-                    ... on contentBlocks_group_BlockType {
-                      group: children {
-                        ... on contentBlocks_questionBlock_BlockType {
-                          __typename
-                          questionEntries {
-                            ...QuestionEntry
+                  ... on contentBlocks_colRight_BlockType {
+                    children {
+                      __typename
+                      ...QuestionsBlock
+                      ... on contentBlocks_group_BlockType {
+                        group: children {
+                          ... on contentBlocks_questionBlock_BlockType {
+                            __typename
+                            questionEntries {
+                              ...QuestionEntry
+                            }
                           }
                         }
                       }
@@ -76,10 +81,10 @@ const InvestigationIdQuery = graphql(`
                   }
                 }
               }
-            }
-            ... on contentBlocks_group_BlockType {
-              group: children {
-                ...QuestionsBlock
+              ... on contentBlocks_group_BlockType {
+                group: children {
+                  ...QuestionsBlock
+                }
               }
             }
           }
@@ -98,7 +103,7 @@ const InvestigationLandingLayout: (
 }) => {
   const site = locale === "en" ? "default" : locale;
 
-  const { data: investigationData } = await queryAPI({
+  const { data } = await queryAPI({
     query: InvestigationIdQuery,
     variables: {
       site: [site],
@@ -106,7 +111,11 @@ const InvestigationLandingLayout: (
     },
   });
 
-  const { children: pages = [] } = investigationData?.entry;
+  if (data?.entry?.__typename !== "investigations_investigationParent_Entry") {
+    notFound();
+  }
+
+  const { children: pages = [], acknowledgements } = data.entry;
 
   const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
@@ -114,9 +123,12 @@ const InvestigationLandingLayout: (
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
   return (
-    <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
-      <PagesProvider {...{ pages }}>
-        <QuestionsProvider>{children}</QuestionsProvider>
+    <StoredAnswersComponent investigationId={data.entry?.id}>
+      <PagesProvider {...{ pages, acknowledgements }}>
+        <QuestionsProvider>
+          {children}
+          {modal}
+        </QuestionsProvider>
       </PagesProvider>
     </StoredAnswersComponent>
   );
