@@ -33,7 +33,10 @@ const SaveForm: FunctionComponent<{
 
   const resetForm = useCallback(() => setStatus(null), []);
 
-  if (!investigationId) return null;
+  if (!investigationId) {
+    console.error("No investigation id provided");
+    return null;
+  }
 
   const saveAnswers = async () => {
     try {

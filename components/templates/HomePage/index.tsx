@@ -66,7 +66,3 @@ export default function HomePage(props: {
 }
 
 HomePage.displayName = "Template.HomePage";
-
-HomePage.propTypes = {
-  data: PropTypes.object,
-};
