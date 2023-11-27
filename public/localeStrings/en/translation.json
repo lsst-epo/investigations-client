@@ -36,6 +36,15 @@
     "language_select_label": "Language selection",
     "language_cta": "Choose your language"
   },
+  "acknowledgements": {
+    "select_label": "Acknowledgements",
+    "title": "About this investigation",
+    "subtitle": "Acknowledgements and credits"
+  },
+  "share": {
+    "select_label": "Share this investigation",
+    "subtitle": "Let people know about us!"
+  },
   "contact-form": {
     "contact-us": "Contact us",
     "success": "Thank you. We’ve received your message.",

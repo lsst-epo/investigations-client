@@ -2910,6 +2910,40 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
+"@rubin-epo/epo-react-lib@file:../epo-react-lib/packages/epo-react-lib/tempPublish":
+  version "2.0.10"
+  dependencies:
+    "@castiron/style-mixins" "^1.0.6"
+    "@headlessui/react" "^1.7.5"
+    flickity "^3.0.0"
+    focus-trap "^7.4.2"
+    i18next "^22.4.10"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-i18next "^12.0.0"
+    react-player "^2.12.0"
+    react-share "^4.4.1"
+    react-slider "^2.0.4"
+    react-uid "^2.3.2"
+    styled-components "^6.1.1"
+
+"@rubin-epo/epo-react-lib@file:/Users/agoff/Documents/workspace/epo-react-lib/packages/epo-react-lib/tempPublish":
+  version "2.0.10"
+  dependencies:
+    "@castiron/style-mixins" "^1.0.6"
+    "@headlessui/react" "^1.7.5"
+    flickity "^3.0.0"
+    focus-trap "^7.4.2"
+    i18next "^22.4.10"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-i18next "^12.0.0"
+    react-player "^2.12.0"
+    react-share "^4.4.1"
+    react-slider "^2.0.4"
+    react-uid "^2.3.2"
+    styled-components "^6.1.1"
+
 "@rubin-epo/epo-widget-lib@^0.6.4":
   version "0.6.4"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.6.4.tgz#5810531e8d8bf9d4be6d20674e28f018c1da1259"
