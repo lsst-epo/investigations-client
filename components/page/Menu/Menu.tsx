@@ -1,7 +1,10 @@
 import { FunctionComponent, useState } from "react";
 import { SlideoutMenu, MenuGroup } from "@rubin-epo/epo-react-lib/SlideoutMenu";
 import Language from "./submenu/Language";
+import usePages from "@/contexts/Pages";
 import { useTranslation } from "react-i18next";
+import Acknowledgements from "./submenu/Acknowledgements";
+import Share from "./submenu/Share";
 
 interface MenuProps {
   isOpen: boolean;
@@ -10,6 +13,7 @@ interface MenuProps {
 
 const Menu: FunctionComponent<MenuProps> = ({ isOpen, onCloseCallback }) => {
   const { t } = useTranslation();
+  const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   return (
@@ -22,6 +26,17 @@ const Menu: FunctionComponent<MenuProps> = ({ isOpen, onCloseCallback }) => {
     >
       <MenuGroup title={t("translation:menu.settings")}>
         <Language
+          onOpenCallback={() => setIsSubMenuOpen(true)}
+          onCloseCallback={() => setIsSubMenuOpen(false)}
+        />
+        {acknowledgements.length > 0 && (
+          <Acknowledgements
+            text={acknowledgements}
+            onOpenCallback={() => setIsSubMenuOpen(true)}
+            onCloseCallback={() => setIsSubMenuOpen(false)}
+          />
+        )}
+        <Share
           onOpenCallback={() => setIsSubMenuOpen(true)}
           onCloseCallback={() => setIsSubMenuOpen(false)}
         />
