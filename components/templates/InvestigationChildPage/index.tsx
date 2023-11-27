@@ -32,8 +32,6 @@ const InvestigationChildPage: FunctionComponent<{
 
   if (!data?.title) return null;
 
-  console.log(data.hasSavePoint);
-
   return (
     <Styled.ContentBlocks paddingSize="none" width="wide">
       <Styled.Title>{data.title}</Styled.Title>
