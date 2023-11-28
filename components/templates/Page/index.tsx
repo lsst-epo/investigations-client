@@ -23,7 +23,7 @@ const Page: FunctionComponent<{ data: FragmentType<typeof Fragment> }> = (
   if (!data) return null;
 
   return (
-    <Container>
+    <Container width="narrow">
       <h1>{data.title}</h1>
       {data.contentBlocks?.map(
         (block, i) => block && <ContentBlockFactory key={i} data={block} />
