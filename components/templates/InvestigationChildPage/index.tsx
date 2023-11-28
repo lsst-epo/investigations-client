@@ -33,7 +33,7 @@ const InvestigationChildPage: FunctionComponent<{
   if (!data?.title) return null;
 
   return (
-    <Styled.ContentBlocks paddingSize="none" width="wide">
+    <Styled.PageContainer paddingSize="none" width="narrow">
       <Styled.Title>{data.title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>
@@ -46,7 +46,7 @@ const InvestigationChildPage: FunctionComponent<{
           userStatus={userStatus}
         />
       )}
-    </Styled.ContentBlocks>
+    </Styled.PageContainer>
   );
 };
 

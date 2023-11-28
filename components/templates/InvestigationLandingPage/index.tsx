@@ -45,7 +45,7 @@ const InvestigationLandingPage: FunctionComponent<{
   if (!title) return null;
 
   return (
-    <Styled.LandingPageContainer bgColor="orange05" paddingSize="medium">
+    <Styled.PageContainer bgColor="orange05" paddingSize="medium" width="narrow">
       <h1>{title}</h1>
       {image.length > 0 && (
         <Styled.Image image={imageShaper(props.site, image[0])} />
@@ -66,7 +66,7 @@ const InvestigationLandingPage: FunctionComponent<{
           </>
         )}
       </Styled.AuthWrapper>
-    </Styled.LandingPageContainer>
+    </Styled.PageContainer>
   );
 };
 

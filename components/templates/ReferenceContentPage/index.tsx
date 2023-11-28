@@ -68,7 +68,7 @@ const ReferenceContentPage: FunctionComponent<{
   const { title, id } = data;
 
   return (
-    <Styled.ContentBlocks paddingSize="none" width="wide" bgColor="transparent">
+    <Styled.PageContainer paddingSize="none" width="narrow" bgColor="transparent">
       <Styled.Title>{title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>
@@ -83,7 +83,7 @@ const ReferenceContentPage: FunctionComponent<{
             />
           )
       )}
-    </Styled.ContentBlocks>
+    </Styled.PageContainer>
   );
 };
 
