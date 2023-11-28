@@ -13,7 +13,7 @@ const ReviewPage: FunctionComponent<ReviewPageProps> = () => {
   const nameInputId = "name";
 
   return (
-    <Styled.PageContainer>
+    <Styled.PageContainer width="narrow">
       <h1>Great job! Let’s review your answers.</h1>
       <form>
         <Styled.NameLabel htmlFor={nameInputId}>
