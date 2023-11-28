@@ -7,7 +7,7 @@ import {
   BREAK_DESKTOP,
 } from "@/styles/globalStyles";
 
-export const LandingPageContainer = styled(Container)`
+export const PageContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

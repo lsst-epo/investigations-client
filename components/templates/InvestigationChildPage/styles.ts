@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
 
-export const ContentBlocks = styled(Container)`
+export const PageContainer = styled(Container)`
   --content-block-margin: ${fluidScale(
     "var(--PADDING_MEDIUM, 40px)",
     "var(--PADDING_SMALL, 20px)"
