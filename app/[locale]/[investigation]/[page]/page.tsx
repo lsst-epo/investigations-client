@@ -11,7 +11,7 @@ import {
   InvestigationSectionBreakPage,
 } from "@/components/templates";
 import { FunctionComponent } from "react";
-import { UriSegmentsProps } from "./layout";
+import { InvestigationPageProps } from "./layout";
 
 export const revalidate = 60;
 
@@ -33,13 +33,11 @@ const Query = graphql(`
 `);
 
 export async function generateMetadata({
-  params: { locale, uriSegments },
-}: {
-  params: { locale: string; uriSegments: string[] };
-}): Promise<Metadata> {
+  params: { locale, investigation, page },
+}: InvestigationPageProps): Promise<Metadata> {
   const site = locale === "en" ? "default" : locale;
   // add _es to property names if site is not English
-  const uri: string = uriSegments.join("/");
+  const uri = `${investigation}/${page}`;
 
   const { data } = await queryAPI({
     query: MetadataQuery,
@@ -54,12 +52,14 @@ export async function generateMetadata({
   return title ? { title, twitter: { title } } : {};
 }
 
-const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
-  params: { locale, investigation, uriSegments },
+const InvestigationPage: (
+  props: InvestigationPageProps
+) => Promise<JSX.Element> = async ({
+  params: { locale, investigation, page },
 }) => {
   const site = locale === "en" ? "default" : locale;
   // // add _es to property names if site is not English
-  const uri = `${investigation}/${uriSegments.join("/")}`;
+  const uri = `${investigation}/${page}`;
 
   const { data } = await queryAPI({
     query: Query,
@@ -101,4 +101,4 @@ const UriSegments: (props: UriSegmentsProps) => Promise<JSX.Element> = async ({
   );
 };
 
-export default UriSegments;
+export default InvestigationPage;
