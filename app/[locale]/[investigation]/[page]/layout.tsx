@@ -27,7 +27,7 @@ const Query = graphql(`
   }
 `);
 
-const UriSegmentsLayout: (
+const InvestigationPageLayout: (
   props: PropsWithChildren<InvestigationPageProps>
 ) => Promise<JSX.Element> = async ({
   children,
@@ -69,4 +69,4 @@ const UriSegmentsLayout: (
   );
 };
 
-export default UriSegmentsLayout;
+export default InvestigationPageLayout;
