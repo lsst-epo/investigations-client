@@ -117,7 +117,7 @@ All CMS content is localized using CraftCMS. Craft has separate sites defined fo
 
 ```tsx
 const site = locale === "en" ? "default" : locale;
-const uri = `${investigation}/${uriSegments.join("/")}`;
+const uri = `${investigation}/${page}`;
 const { data } = await queryAPI({
   query: Query,
   variables: {
