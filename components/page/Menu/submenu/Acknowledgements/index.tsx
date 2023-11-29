@@ -15,7 +15,7 @@ const Acknowledgements: FunctionComponent<{
 
   return (
     <MenuItem
-      icon="Info"
+      icon="InfoCircle"
       text={t("translation:acknowledgements.select_label")}
       onClick={() => setIsOpen(true)}
       aria-expanded={isOpen}
