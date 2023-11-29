@@ -37,10 +37,10 @@ const Share: FunctionComponent<{
           return onCloseCallback && onCloseCallback();
         }}
       >
-        <Styled.Facebook url={url} showText />
-        <Styled.Twitter url={url} showText />
+        <Styled.Facebook url={url} resetButtonStyle={false} showText />
+        <Styled.Twitter url={url} resetButtonStyle={false} showText />
         <Styled.CopyUrl url={url} showText />
-        <Styled.Email url={url} showText />
+        <Styled.Email url={url} resetButtonStyle={false} showText />
       </SlideoutMenu>
     </MenuItem>
   );
