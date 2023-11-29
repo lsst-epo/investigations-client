@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { RootLayoutParams } from "../layout";
-import { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
@@ -18,7 +18,6 @@ export interface InvestigationParams {
 
 export interface InvestigationLandingProps {
   params: RootLayoutParams & InvestigationParams;
-  modal: ReactNode;
 }
 
 const MockInvestigations: { [key: string]: string } = {
@@ -117,10 +116,7 @@ const InvestigationLandingLayout: (
   return (
     <StoredAnswersComponent investigationId={investigationData?.entry?.id}>
       <PagesProvider {...{ pages }}>
-        <QuestionsProvider>
-          {children}
-          {modal}
-        </QuestionsProvider>
+        <QuestionsProvider>{children}</QuestionsProvider>
       </PagesProvider>
     </StoredAnswersComponent>
   );
