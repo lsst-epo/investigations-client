@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { RootLayoutParams } from "../../layout";
 import { InvestigationParams } from "../layout";
 import { graphql } from "@/gql/public-schema";
@@ -9,12 +9,13 @@ import Header from "@/page/Header/Header";
 import Pager from "@/page/Pager";
 import * as Styled from "./styles";
 
-export interface UriSegmentsParams {
-  uriSegments: string[];
+export interface InvestigationPageParams {
+  page: string;
 }
 
-export interface UriSegmentsProps {
-  params: RootLayoutParams & InvestigationParams & UriSegmentsParams;
+export interface InvestigationPageProps {
+  params: RootLayoutParams & InvestigationParams & InvestigationPageParams;
+  reference: ReactNode;
 }
 
 const Query = graphql(`
@@ -27,13 +28,14 @@ const Query = graphql(`
 `);
 
 const UriSegmentsLayout: (
-  props: PropsWithChildren<UriSegmentsProps>
+  props: PropsWithChildren<InvestigationPageProps>
 ) => Promise<JSX.Element> = async ({
   children,
-  params: { locale, investigation, uriSegments },
+  reference,
+  params: { locale, investigation, page },
 }) => {
   const site = locale === "en" ? "default" : locale;
-  const uri = `${investigation}/${uriSegments.join("/")}`;
+  const uri = `${investigation}/${page}`;
 
   const { data } = await queryAPI({
     query: Query,
@@ -58,7 +60,10 @@ const UriSegmentsLayout: (
   return (
     <ProgressProvider currentPageId={id}>
       <Header />
-      <Styled.Main>{children}</Styled.Main>
+      <Styled.Main>
+        {children}
+        {reference}
+      </Styled.Main>
       <Pager />
     </ProgressProvider>
   );
