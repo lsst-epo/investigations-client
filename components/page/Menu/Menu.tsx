@@ -1,6 +1,11 @@
 import { FunctionComponent, useState } from "react";
-import { SlideoutMenu, MenuGroup } from "@rubin-epo/epo-react-lib/SlideoutMenu";
+import {
+  SlideoutMenu,
+  MenuGroup,
+  MenuItem,
+} from "@rubin-epo/epo-react-lib/SlideoutMenu";
 import Language from "./submenu/Language";
+import { useGlobalData } from "@/hooks";
 import usePages from "@/contexts/Pages";
 import { useTranslation } from "react-i18next";
 import Acknowledgements from "./submenu/Acknowledgements";
@@ -13,6 +18,7 @@ interface MenuProps {
 
 const Menu: FunctionComponent<MenuProps> = ({ isOpen, onCloseCallback }) => {
   const { t } = useTranslation();
+  const { helpUrl } = useGlobalData("menuContent");
   const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
@@ -29,17 +35,26 @@ const Menu: FunctionComponent<MenuProps> = ({ isOpen, onCloseCallback }) => {
           onOpenCallback={() => setIsSubMenuOpen(true)}
           onCloseCallback={() => setIsSubMenuOpen(false)}
         />
-        {acknowledgements.length > 0 && (
+        <Share
+          onOpenCallback={() => setIsSubMenuOpen(true)}
+          onCloseCallback={() => setIsSubMenuOpen(false)}
+        />
+        {acknowledgements && (
           <Acknowledgements
             text={acknowledgements}
             onOpenCallback={() => setIsSubMenuOpen(true)}
             onCloseCallback={() => setIsSubMenuOpen(false)}
           />
         )}
-        <Share
-          onOpenCallback={() => setIsSubMenuOpen(true)}
-          onCloseCallback={() => setIsSubMenuOpen(false)}
-        />
+        {helpUrl && (
+          <MenuItem
+            type="link"
+            href={helpUrl}
+            target="__blank"
+            text="Help"
+            icon="QuestionCircle"
+          />
+        )}
       </MenuGroup>
     </SlideoutMenu>
   );

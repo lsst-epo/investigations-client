@@ -12,6 +12,7 @@ import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
 import Body from "@/page/Body";
 import I18NextClientProvider from "@/contexts/i18next";
+import { notFound } from "next/navigation";
 
 export interface RootLayoutParams {
   locale: string;
@@ -22,17 +23,7 @@ interface RootLayoutProps {
 }
 
 const GlobalsQuery = graphql(`
-  query GlobalsQuery($site: [String], $section: [String]) {
-    headerNavItems: entries(section: $section, site: $site, level: 1) {
-      id
-      title
-      uri
-      children {
-        id
-        title
-        uri
-      }
-    }
+  query GlobalsQuery($site: [String]) {
     siteInfo: globalSet(site: $site, handle: "siteInfo") {
       ... on siteInfo_GlobalSet {
         language
@@ -42,30 +33,33 @@ const GlobalsQuery = graphql(`
         siteDescription
       }
     }
-    categories(site: $site) {
-      id
-      slug
-      groupHandle
-      title
+    menuContent: globalSet(site: $site, handle: "menuContent") {
+      ... on menuContent_GlobalSet {
+        helpUrl
+      }
     }
   }
 `);
 
-const getGlobals = async (locale = "en"): Promise<GlobalData> => {
+const getGlobals = async (locale = "en"): Promise<GlobalData | undefined> => {
   const site: string = locale === "en" ? "default" : locale;
 
   const { data } = await queryAPI({
     query: GlobalsQuery,
     variables: {
       site: [site],
-      section: ["pages"],
     },
   });
 
+  if (!data) {
+    return undefined;
+  }
+
+  const { siteInfo, menuContent } = data;
+
   return {
-    categories: data?.categories,
-    headerNavItems: data?.headerNavItems,
-    siteInfo: data?.siteInfo,
+    siteInfo,
+    menuContent,
     rootPage: [],
     localeInfo: {
       locale: site,
@@ -79,7 +73,7 @@ export async function generateMetadata({
   params: { locale },
 }: RootLayoutProps): Promise<Metadata> {
   const globalData = await getGlobals(locale);
-  const description = globalData.siteInfo?.siteDescription;
+  const description = globalData?.siteInfo?.siteDescription;
 
   return { description };
 }
@@ -91,6 +85,10 @@ const RootLayout: (
   children,
 }) => {
   const globalData = await getGlobals(locale);
+
+  if (!globalData) {
+    notFound();
+  }
 
   return (
     <html lang={locale}>
