@@ -22,6 +22,7 @@
   "toggle-nav": "Toggle navigation menu",
   "toggle-search": "Toggle search",
   "homepage": "Homepage",
+  "print": "Print",
   "menu": {
     "main": "Main menu",
     "main_cta": "Settings and more",
@@ -273,8 +274,15 @@
     }
   },
   "review": {
+    "metadata": {
+      "title": "Review"
+    },
+    "title": "Great job! Let’s review your answers.",
+    "name_label": "Please enter your name",
+    "list_title": "Questions & Answers",
     "no_selection": "(No selection)",
-    "no_answer": "(Answer not provided)"
+    "no_answer": "(Answer not provided)",
+    "print": "Print your answers"
   },
   "section_break": {
     "congratulations": "Congratulations!",

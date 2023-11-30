@@ -26,6 +26,10 @@ export const PagerContainer = styled.nav`
     align-items: center;
     grid-gap: var(--PADDING_SMALL);
   }
+
+  @media only print {
+    display: none;
+  }
 `;
 
 export const PagerButton = styled(Link)`

@@ -1,17 +1,5 @@
 "use client";
-
 import styled from "styled-components";
-import Container from "@rubin-epo/epo-react-lib/Container";
-
-export const PageContainer = styled(Container)`
-  & > * + * {
-    margin-block-start: 1.5em;
-  }
-`;
-
-export const NameLabel = styled.label`
-  font-weight: var(--FONT_WEIGHT_EXTRA_BOLD, 800);
-`;
 
 export const ReviewList = styled.ol`
   --review-color: #34706d;
