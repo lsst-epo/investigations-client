@@ -14,6 +14,7 @@ export const ReviewListItem = styled.li`
 
   @media print {
     --review-item-padding: 0;
+    page-break-inside: avoid;
   }
 `;
 

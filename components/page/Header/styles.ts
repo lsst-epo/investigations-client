@@ -14,6 +14,10 @@ export const Header = styled.header`
   &[aria-hidden="true"] {
     transform: translate3d(0, -100%, 0);
   }
+
+  @media only print {
+    display: none;
+  }
 `;
 
 export const MenuToggle = styled(Button)`
