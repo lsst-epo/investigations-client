@@ -7,10 +7,14 @@
  */
 
 import { RootPage } from "@/components/shapes";
+import { fallbackLng } from "@/lib/i18n/settings";
 import { Image, RawImage } from "@/types/image";
 import type { GlobalsQueryQuery } from "gql/public-schema/graphql";
 
 type Categories = GlobalsQueryQuery["categories"];
+
+export const getSite = (locale: string = fallbackLng) =>
+  locale === fallbackLng ? "default" : "es";
 
 // CATEGORY STUFF
 export const getCategoryObject = (categories: Categories, id: number) => {

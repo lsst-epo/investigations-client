@@ -1,41 +1,53 @@
-"use client";
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
+import type { Metadata } from "next";
+import { graphql } from "@/gql/public-schema";
+import { queryAPI } from "@/lib/fetch";
+import { serverTranslation } from "@/lib/i18n";
 import { ReviewPageProps } from "./layout";
-import ReviewFactory from "@/components/factories/ReviewFactory";
-import Input from "@/components/form/Input";
-import * as Styled from "./styles";
-import StoredAnswersContext from "@/contexts/StoredAnswersContext";
-import useQuestions from "@/contexts/Questions";
 
-const ReviewPage: FunctionComponent<ReviewPageProps> = () => {
-  const { answers } = useContext(StoredAnswersContext);
-  const { byAll: questions } = useQuestions();
-  const nameInputId = "name";
+import {
+  getAuthCookies,
+  getUserFromJwt,
+} from "@/components/auth/serverHelpers";
+import ReviewTemplate from "@/components/templates/ReviewPage";
+import { getSite } from "@/helpers";
+
+const Query = graphql(`
+  query ReviewPage($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      ... on investigations_investigationParent_Entry {
+        title
+      }
+    }
+  }
+`);
+
+export async function generateMetadata({
+  params: { locale },
+}: ReviewPageProps): Promise<Metadata> {
+  const { t } = await serverTranslation(locale, "translation");
+  return {
+    title: t("review.metadata.title"),
+  };
+}
+
+const ReviewPage: FunctionComponent<ReviewPageProps> = async ({
+  params: { locale, investigation },
+}) => {
+  const { craftToken } = await getAuthCookies();
+  const user = getUserFromJwt(craftToken);
+  const site = getSite(locale);
+
+  const { data } = await queryAPI({
+    query: Query,
+    variables: {
+      site: [site],
+      uri: [investigation],
+    },
+  });
 
   return (
-    <Styled.PageContainer width="narrow">
-      <h1>Great job! Let’s review your answers.</h1>
-      <form>
-        <Styled.NameLabel htmlFor={nameInputId}>
-          Please enter your name
-        </Styled.NameLabel>
-        <Input type="text" id={nameInputId} />
-      </form>
-      <h2>Questions & Answers</h2>
-      <Styled.ReviewList>
-        {questions &&
-          questions.map(({ id, answerType: type, ...config }, i) => {
-            return (
-              <ReviewFactory
-                key={id}
-                number={i + 1}
-                value={answers[id]?.data}
-                {...{ id, type, config }}
-              />
-            );
-          })}
-      </Styled.ReviewList>
-    </Styled.PageContainer>
+    <ReviewTemplate investigation={data?.entry?.title} {...{ user, locale }} />
   );
 };
 

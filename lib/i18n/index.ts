@@ -51,7 +51,7 @@ const initI18next = async (lng: string, ns: string | string[]) => {
   return i18nInstance;
 };
 
-export async function useTranslation(
+async function useTranslation(
   lng: string,
   ns: string | string[],
   options: any = {}
@@ -67,3 +67,5 @@ export async function useTranslation(
     i18n: i18nextInstance,
   };
 }
+
+export { useTranslation, useTranslation as serverTranslation };
