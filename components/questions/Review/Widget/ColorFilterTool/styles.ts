@@ -3,4 +3,9 @@ import ColorFilterDisplay from "@/components/containers/ColorFilterDisplay";
 
 export const Display = styled(ColorFilterDisplay)`
   margin-block-start: 1em;
+
+  @media only print {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 `;

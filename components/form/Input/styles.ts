@@ -18,9 +18,9 @@ export const Input = styled.input`
   width: 100%;
   height: 2rem;
 
-  &:not(:disabled):hover,
-  &:not(:disabled):active,
-  &:not(:disabled):focus {
+  &:not(:disabled):not(:read-only):hover,
+  &:not(:disabled):not(:read-only):active,
+  &:not(:disabled):not(:read-only):focus {
     outline: 2px solid var(--input-border-color);
     outline-offset: -2px;
   }

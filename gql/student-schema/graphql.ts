@@ -2906,6 +2906,7 @@ export type QueryGlobalSetArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   handle?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  helpUrl?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -2939,6 +2940,7 @@ export type QueryGlobalSetsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
   handle?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  helpUrl?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -3491,8 +3493,6 @@ export type User = ElementInterface & UserInterface & {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
-  /** The user’s photo. */
-  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -3664,8 +3664,6 @@ export type UserInterface = {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
-  /** The user’s photo. */
-  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -6307,7 +6305,6 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
   groupName?: Maybe<Scalars['String']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
-  images: Array<Maybe<AssetInterface>>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
   /** The ID of the primary owner of the Matrix block. */
@@ -6343,49 +6340,6 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
 
 export type Images_ImageGroup_BlockType_CountArgs = {
   field: Scalars['String']['input'];
-};
-
-
-export type Images_ImageGroup_BlockTypeImagesArgs = {
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateModified?: InputMaybe<Scalars['String']['input']>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
-  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
-  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type InvestigationsSectionEntryUnion = Investigations_Default_Entry | Investigations_InvestigationParent_Entry | Investigations_InvestigationSectionBreakChild_Entry;
@@ -7096,6 +7050,7 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s structure ID. */
   structureId?: Maybe<Scalars['Int']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
   /** Whether the element has been soft-deleted. */
@@ -8188,6 +8143,54 @@ export type LinkField_Link = {
   title?: Maybe<Scalars['String']['output']>;
   type?: Maybe<Scalars['String']['output']>;
   url?: Maybe<Scalars['String']['output']>;
+};
+
+export type MenuContent_GlobalSet = ElementInterface & GlobalSetInterface & {
+  __typename?: 'menuContent_GlobalSet';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the global set. */
+  handle: Scalars['String']['output'];
+  helpUrl?: Maybe<Scalars['String']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The name of the global set. */
+  name: Scalars['String']['output'];
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type MenuContent_GlobalSet_CountArgs = {
+  field: Scalars['String']['input'];
 };
 
 export type MultiPartBlocks_NeoField = MultiPartBlocks_Multiselect_BlockType | MultiPartBlocks_ReadonlyText_BlockType | MultiPartBlocks_Select_BlockType | MultiPartBlocks_Text_BlockType;
