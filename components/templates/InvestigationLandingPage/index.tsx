@@ -64,7 +64,7 @@ const InvestigationLandingPage: FunctionComponent<{
               signOutRedirect={`/${investigation}`}
             />
           ) : (
-            <SignedOut {...{ firstPage }} />
+            <SignedOut {...{ firstPage, locale }} />
           )}
           {props.children}
         </Styled.AuthWrapper>
