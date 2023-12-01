@@ -132,7 +132,8 @@
     "logged_out": "Logged out",
     "log_in_w_oauth": "To log in using Google or Facebook.",
     "log_in_w_email": "Or, log in using your email and password.",
-    "sign_up": "Create an account"
+    "sign_up": "Create an account",
+    "logged_in_status_issue": "Account status is {{status}}, check your email for more information."
   },
   "sign_in": {
     "header": "Welcome back!",
@@ -219,9 +220,9 @@
     "submit": "Sign Up",
     "submit_pending": "Registering…",
     "success_students": "Activation pending",
-    "success_message_students": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <0>Free of charge forever.</0>",
+    "success_message_students": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <strong>Free of charge forever.</strong>",
     "success_educators": "Activation pending",
-    "success_message_educators": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <0>Free of charge forever.</0>",
+    "success_message_educators": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <strong>Free of charge forever.</strong>",
     "confirm_button": "Got it!",
     "error": "Error!",
     "error_message": "There was an error signing you up."

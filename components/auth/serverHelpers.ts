@@ -54,7 +54,7 @@ const RefreshMutation = graphql(`
   }
 `);
 
-async function refreshToken(craftRefreshToken: Token) {
+export async function refreshToken(craftRefreshToken: Token) {
   const { data, error } = await mutateAPI({
     query: RefreshMutation,
     variables: {

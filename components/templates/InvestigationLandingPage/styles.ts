@@ -1,11 +1,9 @@
+"use client";
 import styled from "styled-components";
 import Container from "@rubin-epo/epo-react-lib/Container";
-import { Buttonish, Image as BaseImage } from "@rubin-epo/epo-react-lib";
+import { Image as BaseImage } from "@rubin-epo/epo-react-lib";
 import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
-import {
-  BREAK_MOBILE,
-  BREAK_DESKTOP,
-} from "@/styles/globalStyles";
+import { BREAK_MOBILE, BREAK_DESKTOP } from "@/styles/globalStyles";
 
 export const PageContainer = styled(Container)`
   display: flex;
@@ -13,38 +11,14 @@ export const PageContainer = styled(Container)`
   justify-content: space-evenly;
   align-items: center;
   min-height: calc(100dvh - 80px);
-
-  .sign-in {
-    width: 100%;
-    max-width: 320px;
-  }
 `;
 
 export const AuthWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-`;
-
-export const WithoutLoginLink = styled(Buttonish)`
-  width: 100%;
-  max-width: 320px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 23px;
-
-  .sign-in {
-    width: 100%;
-    max-width: 320px;
-  }
-`;
-
-export const LinkLabel = styled.div`
-  width: 100%;
-  max-width: 320px;
-  margin-top: 14px;
-  font-size: 12px;
+  align-items: stretch;
+  gap: 1em;
 `;
 
 export const Image = styled(BaseImage)`

@@ -1,8 +1,9 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
+import { refreshToken } from "../../serverHelpers";
 
 // https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#activate-user
 const Mutation = graphql(`
@@ -11,11 +12,7 @@ const Mutation = graphql(`
   }
 `);
 
-export async function activate(
-  code: string,
-  id: string,
-  pathToRevalidate?: string
-) {
+export async function activate(code: string, id: string) {
   const { data, error } = await mutateAPI({
     query: Mutation,
     variables: {
@@ -25,10 +22,13 @@ export async function activate(
   });
 
   if (data?.activateUser) {
-    if (pathToRevalidate) {
-      console.log({ pathToRevalidate });
-      revalidatePath(pathToRevalidate);
+    const token = cookies().get("craftRefreshToken")?.value; // check if there is a user already logged in
+
+    if (token) {
+      // refresh cookies to get the updated user status
+      await refreshToken(token);
     }
+
     return data;
   } else if (error) {
     throw new Error(error.message);

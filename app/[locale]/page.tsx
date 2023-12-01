@@ -48,13 +48,7 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
 
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
     <HomePageTemplate data={data.entry}>
-      {user && (
-        <>
-          <p>User: {JSON.stringify(user)}</p>
-          {craftUserStatus && <p>Status: {craftUserStatus}</p>}
-          <SignOut redirectTo={"/"} />
-        </>
-      )}
+      {user && <SignOut redirectTo={"/"} />}
       <AuthDialogs isAuthenticated={!!craftToken} />
     </HomePageTemplate>
   ) : (

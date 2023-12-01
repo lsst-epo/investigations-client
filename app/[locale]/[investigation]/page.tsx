@@ -2,8 +2,6 @@ import { notFound } from "next/navigation";
 import { graphql } from "@/gql/public-schema";
 import { InvestigationLandingProps } from "./layout";
 import AuthDialogs from "@/components/auth/AuthDialogs";
-import SignOut from "@/components/auth/buttons/SignOut";
-import SignIn from "@/components/auth/buttons/SignIn";
 import {
   getAuthCookies,
   getUserFromJwt,
@@ -43,18 +41,9 @@ const InvestigationLanding: (
   return (
     <InvestigationLandingPageTemplate
       data={data.entry}
-      investigation={investigation}
-      site={site}
+      status={craftUserStatus}
+      {...{ investigation, site, locale, user }}
     >
-      <SignIn />
-      {user && (
-        <>
-          <p>User: {JSON.stringify(user)}</p>
-          {craftUserStatus && <p>Status: {craftUserStatus}</p>}
-          {/* @ts-expect-error Server Component */}
-          <SignOut redirectTo={`/${investigation}`} />
-        </>
-      )}
       <AuthDialogs isAuthenticated={!!craftToken} />
     </InvestigationLandingPageTemplate>
   );
