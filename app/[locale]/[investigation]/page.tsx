@@ -3,6 +3,7 @@ import { graphql } from "@/gql/public-schema";
 import { InvestigationLandingProps } from "./layout";
 import AuthDialogs from "@/components/auth/AuthDialogs";
 import SignOut from "@/components/auth/buttons/SignOut";
+import SignIn from "@/components/auth/buttons/SignIn";
 import {
   getAuthCookies,
   getUserFromJwt,
@@ -45,7 +46,7 @@ const InvestigationLanding: (
       investigation={investigation}
       site={site}
     >
-      <AuthDialogs isAuthenticated={!!craftToken} />
+      <SignIn />
       {user && (
         <>
           <p>User: {JSON.stringify(user)}</p>
@@ -54,6 +55,7 @@ const InvestigationLanding: (
           <SignOut redirectTo={`/${investigation}`} />
         </>
       )}
+      <AuthDialogs isAuthenticated={!!craftToken} />
     </InvestigationLandingPageTemplate>
   );
 };

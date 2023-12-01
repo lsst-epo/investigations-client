@@ -8,11 +8,12 @@ import { fallbackLng } from "@/lib/i18n/settings";
 import { queryAPI } from "@/lib/fetch";
 import "@/styles/styles.scss";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
+import { AuthDialogManagerProvider } from "@/contexts/AuthDialogManager";
+import I18NextClientProvider from "@/contexts/i18next";
 import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
-import Body from "@/page/Body";
-import I18NextClientProvider from "@/contexts/i18next";
 import { notFound } from "next/navigation";
+import Body from "@/page/Body";
 
 export interface RootLayoutParams {
   locale: string;
@@ -99,7 +100,9 @@ const RootLayout: (
             <GlobalStyles includeFonts={false} />
             <I18NextClientProvider locale={locale}>
               <GlobalDataProvider data={globalData}>
-                {children}
+                <AuthDialogManagerProvider>
+                  {children}
+                </AuthDialogManagerProvider>
               </GlobalDataProvider>
             </I18NextClientProvider>
           </StyledComponentsRegistry>
