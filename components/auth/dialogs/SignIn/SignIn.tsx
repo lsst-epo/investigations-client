@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { BasicModal, Button, Input } from "@rubin-epo/epo-react-lib";
-import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
+import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { signIn } from "./actions";
 import { useTranslation } from "react-i18next";
 import { usePathToRevalidate } from "../../clientHelpers";

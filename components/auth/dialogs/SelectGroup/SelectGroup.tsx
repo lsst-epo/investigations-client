@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { BasicModal } from "@rubin-epo/epo-react-lib";
-import { useAuthDialogManager } from "@/components/auth/AuthDialogManagerContext";
+import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import * as Styled from "./styles";
 
 export default function SelectGroup() {
@@ -26,7 +26,13 @@ export default function SelectGroup() {
             openModal("selectProvider");
           }}
         >
-          <Image role="presentation" src="/assets/roles/student.svg" alt="" width={64} height={64} />
+          <Image
+            role="presentation"
+            src="/assets/roles/student.svg"
+            alt=""
+            width={64}
+            height={64}
+          />
           <div>{t("join.as_students")}</div>
         </Styled.StudentButton>
         <Styled.EducatorButton
@@ -35,7 +41,13 @@ export default function SelectGroup() {
             openModal("selectProvider");
           }}
         >
-          <Image role="presentation" src="/assets/roles/educator.svg" alt="" width={55} height={64} />
+          <Image
+            role="presentation"
+            src="/assets/roles/educator.svg"
+            alt=""
+            width={55}
+            height={64}
+          />
           <div>{t("join.as_educators")}</div>
         </Styled.EducatorButton>
       </Styled.Middle>

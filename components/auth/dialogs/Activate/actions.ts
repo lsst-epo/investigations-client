@@ -26,6 +26,7 @@ export async function activate(
 
   if (data?.activateUser) {
     if (pathToRevalidate) {
+      console.log({ pathToRevalidate });
       revalidatePath(pathToRevalidate);
     }
     return data;
