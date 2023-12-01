@@ -98,7 +98,6 @@ const InvestigationLandingLayout: (
   props: PropsWithChildren<InvestigationLandingProps>
 ) => Promise<JSX.Element> = async ({
   children,
-  modal,
   params: { locale, investigation },
 }) => {
   const site = locale === "en" ? "default" : locale;
