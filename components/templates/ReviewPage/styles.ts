@@ -10,27 +10,14 @@ export const PageContainer = styled(Container)`
   }
 `;
 
-export const DisplayTitle = styled.span`
-  @media only print {
-    display: none;
-  }
-`;
-
-export const PrintTitle = styled.span`
-  @media only screen {
-    display: none;
-  }
-`;
-
-export const NameLabel = styled.label`
+export const ReviewLabel = styled.label`
+  display: block;
   font-weight: var(--FONT_WEIGHT_EXTRA_BOLD, 800);
-
-  @media only print {
-    display: none;
-  }
 `;
 
 export const NameInput = styled(Input)`
+  margin-block-start: 0.5em;
+
   @media only print {
     --input-background-color: var(--white, #fff);
     --input-border-color: transparent;
