@@ -6,7 +6,6 @@ import { BasicModal, Button } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { useTranslation } from "react-i18next";
 import { activate } from "./actions";
-import { usePathToRevalidate } from "../../clientHelpers";
 
 export default function Activate() {
   const { active, pendingGroup, closeModal } = useAuthDialogManager();
@@ -23,7 +22,6 @@ export default function Activate() {
 
   const router = useRouter();
   const pathname = usePathname();
-  const pathToRevalidate = usePathToRevalidate();
 
   // init API request as soon as modal opens
   useEffect(() => {
@@ -36,7 +34,7 @@ export default function Activate() {
       setStatus("loading");
 
       try {
-        const data = await activate(code, id, pathToRevalidate);
+        const data = await activate(code, id);
 
         if (data?.activateUser) {
           setStatus("success");

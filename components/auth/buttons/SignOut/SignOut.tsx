@@ -1,9 +1,11 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
 import Button from "@rubin-epo/epo-react-lib/Button";
 import { signOut } from "./actions";
 
 export default function SignOut({ redirectTo }: { redirectTo: string }) {
+  const { t } = useTranslation();
   const signOutWithRedirect = signOut.bind(null, redirectTo);
 
   return (
@@ -14,7 +16,9 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
       // clear stored answers from browser storage
       onSubmit={() => localStorage.clear()}
     >
-      <Button className="sign-out">Sign out</Button>
+      <Button styleAs="tertiary" isBlock>
+        {t("translation:auth.log_out")}
+      </Button>
     </form>
   );
 }

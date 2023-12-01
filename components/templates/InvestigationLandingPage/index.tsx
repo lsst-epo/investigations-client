@@ -1,10 +1,10 @@
-"use client";
-
 import { ReactNode, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { imageShaper } from "@/helpers";
-import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
+import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import SignedIn from "@/components/auth/investigation/SignedIn";
+import SignedOut from "@/components/auth/investigation/SignedOut";
 
 const Fragment = graphql(`
   fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {
@@ -37,35 +37,38 @@ const InvestigationLandingPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
   investigation: string;
+  locale: string;
+  user: ReturnType<typeof getUserFromJwt>;
+  status?: string;
   children?: ReactNode;
-}> = ({ ...props }) => {
+}> = async ({ locale, site, user, status, investigation, ...props }) => {
   const { title, image, children } = useFragment(Fragment, props.data);
-  const { t } = useTranslation();
+  const { uri: firstPage } = children?.[0];
 
   if (!title) return null;
 
   return (
-    <Styled.PageContainer bgColor="orange05" paddingSize="medium" width="narrow">
+    <Styled.PageContainer
+      bgColor="orange05"
+      paddingSize="medium"
+      width="narrow"
+    >
       <h1>{title}</h1>
-      {image.length > 0 && (
-        <Styled.Image image={imageShaper(props.site, image[0])} />
-      )}
-      <Styled.AuthWrapper>
-        {props.children}
-        {children?.[0]?.uri && (
-          <>
-            <Styled.WithoutLoginLink
-              className="wo-sign-in"
-              styleAs="tertiary"
-              url={`/${children[0].uri}`}
-              text={t("auth.continue_wo_login_button")}
+      {image.length > 0 && <Styled.Image image={imageShaper(site, image[0])} />}
+      {firstPage && (
+        <Styled.AuthWrapper>
+          {user ? (
+            <SignedIn
+              {...{ status, firstPage, locale }}
+              name={user.fullName}
+              signOutRedirect={`/${investigation}`}
             />
-            <Styled.LinkLabel>
-              {t("auth.continue_wo_login_label")}
-            </Styled.LinkLabel>
-          </>
-        )}
-      </Styled.AuthWrapper>
+          ) : (
+            <SignedOut {...{ firstPage }} />
+          )}
+          {props.children}
+        </Styled.AuthWrapper>
+      )}
     </Styled.PageContainer>
   );
 };
