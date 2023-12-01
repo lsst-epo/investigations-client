@@ -47,7 +47,7 @@ const Fragment = graphql(`
 export default function HomePage(props: {
   data: FragmentType<typeof Fragment>;
   site: string;
-  // children?: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   const data = useFragment(Fragment, props.data);
 
@@ -60,7 +60,7 @@ export default function HomePage(props: {
         (block, i) =>
           block && <ContentBlockFactory key={i} site={data.site} data={block} />
       )}
-      {/* {props.children} */}
+      {props.children}
     </Styled.PageContainer>
   );
 }
