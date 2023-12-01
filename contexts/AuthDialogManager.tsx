@@ -48,7 +48,6 @@ function AuthDialogManagerProvider({
     getInitActive(searchParams)
   );
 
-  console.log({ active });
   const [pendingGroup, setPendingGroup] = useState<PendingGroup>("students");
 
   return (
