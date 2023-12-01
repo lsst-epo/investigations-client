@@ -1,16 +1,21 @@
-"use client";
 import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
+import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
+import Link from "next/link";
+import { useTranslation } from "@/lib/i18n";
 import SignIn from "../buttons/SignIn";
 import SignUp from "../buttons/SignUp";
 import * as Styled from "./styles";
 
-const SignedOut: FunctionComponent<{ firstPage: string }> = ({ firstPage }) => {
-  const { t } = useTranslation();
+const SignedOut: FunctionComponent<{
+  firstPage: string;
+  locale: string;
+}> = async ({ firstPage, locale }) => {
+  const { t } = await useTranslation(locale, "translation");
   return (
     <>
       <SignIn />
-      <Styled.WithoutLoginLink
+      <Buttonish
+        as={Link}
         styleAs="tertiary"
         url={firstPage}
         text={t("auth.continue_wo_login_button")}
