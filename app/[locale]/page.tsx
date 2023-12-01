@@ -43,7 +43,7 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
     },
   });
 
-  const { craftToken, craftUserStatus } = await getAuthCookies();
+  const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
 
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
