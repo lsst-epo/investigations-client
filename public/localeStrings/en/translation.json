@@ -277,9 +277,9 @@
     "metadata": {
       "title": "Review"
     },
-    "title": "Great job! Let’s review your answers.",
-    "name_label": "Please enter your name",
-    "list_title": "Questions & Answers",
+    "title": "{{investigation}}: Questions & Answers",
+    "name_label": "Student name(s)",
+    "date": "Date",
     "no_selection": "(No selection)",
     "no_answer": "(Answer not provided)",
     "print": "Print your answers"
