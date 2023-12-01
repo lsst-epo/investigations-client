@@ -8,9 +8,9 @@ import { Answers, InvestigationId } from "@/types/answers";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import Toaster from "@/components/layout/Toaster";
 import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
-import Button from "@rubin-epo/epo-react-lib/Button";
 import SaveButton from "./SaveButton";
 import * as Styled from "./styles";
+import AuthDialogs from "@/components/auth/AuthDialogs";
 
 type FormStatus =
   | "emptyError"
@@ -96,8 +96,8 @@ const SaveForm: FunctionComponent<{
           text: toastText[status],
           additionalContent: !user ? (
             <>
-              <Button isBlock>Log in</Button>
-              <Button isBlock>Create an Account</Button>
+              {/* <SignIn />
+              <SignUp /> */}
             </>
           ) : undefined,
         };
@@ -125,6 +125,7 @@ const SaveForm: FunctionComponent<{
         onCloseCallback={() => resetForm()}
         message={message}
       ></Toaster>
+      <AuthDialogs isAuthenticated={!!user} />
     </>
   );
 };
