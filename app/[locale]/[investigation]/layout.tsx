@@ -126,7 +126,6 @@ const InvestigationLandingLayout: (
       <PagesProvider {...{ pages, acknowledgements }}>
         <QuestionsProvider>
           {children}
-          {modal}
         </QuestionsProvider>
       </PagesProvider>
     </StoredAnswersComponent>
