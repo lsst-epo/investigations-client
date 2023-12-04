@@ -9,6 +9,7 @@ import {
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
 import { queryAPI } from "@/lib/fetch";
+import { getSite } from "@/helpers";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
 
@@ -33,7 +34,7 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   previewData,
 }) => {
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
 
   const { data } = await queryAPI({
     query: Query,

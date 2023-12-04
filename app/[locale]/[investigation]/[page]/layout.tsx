@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import Header from "@/page/Header/Header";
 import Pager from "@/page/Pager";
 import * as Styled from "./styles";
+import { getSite } from "@/helpers";
 
 export interface InvestigationPageParams {
   page: string;
@@ -34,7 +35,7 @@ const InvestigationPageLayout: (
   reference,
   params: { locale, investigation, page },
 }) => {
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
   const uri = `${investigation}/${page}`;
 
   const { data } = await queryAPI({

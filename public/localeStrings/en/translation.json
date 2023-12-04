@@ -1,28 +1,6 @@
 {
-  "breaking-news": "Breaking News",
-  "cell": "Cell",
-  "localize-content": "Localize site content",
-  "media": "Media",
-  "read-more": "Read more",
-  "related-content": "Related content",
-  "error-title": "Error",
-  "error-text": "There has been an error.",
   "page-not-found-title": "Page not found",
   "page-not-found-text": "The page you're looking for was not found.",
-  "published": "Published",
-  "search-clear": "Clear all",
-  "search-no-results": "No results. Please try a different search.",
-  "search-placeholder": "Write your search and hit enter…",
-  "search-filter": "Search",
-  "search-filter-placeholder": "Search",
-  "search-site": "Search the website",
-  "skip-to-content": "Skip to main content",
-  "submit-search": "Submit search",
-  "tags": "Tags",
-  "toggle-nav": "Toggle navigation menu",
-  "toggle-search": "Toggle search",
-  "homepage": "Homepage",
-  "print": "Print",
   "menu": {
     "main": "Main menu",
     "main_cta": "Settings and more",
@@ -31,7 +9,8 @@
   "language": {
     "locales": {
       "en": "English",
-      "es": "Español"
+      "es": "Español",
+      "fr": "Français"
     },
     "language_select_label": "Language selection",
     "language_cta": "Choose your language"
@@ -97,29 +76,6 @@
   },
   "nav": {
     "close": "Close"
-  },
-  "social": {
-    "email-rubin": "Email the Rubin Observatory",
-    "visit-rubin": "Visit the Rubin Observitory on"
-  },
-  "staff": {
-    "scientific-staff": "Scientific Staff Profile",
-    "non-scientific-staff": "Non-scientific Staff Profile",
-    "browse-more": "Browse More Profiles",
-    "back-to-profiles": "Go Back to Profiles"
-  },
-  "telescope": {
-    "state": "State",
-    "in-operations": "in operations",
-    "point": "Currently pointing at",
-    "temp": "Temperature at the summit",
-    "temp-data": "Humidity",
-    "image": "Current image of the sky",
-    "image-data": "completed",
-    "weather": "Weather",
-    "cloudy": "Cloudy",
-    "moon": "Moon phase",
-    "first-quarter": "First quarter"
   },
   "auth": {
     "log_in": "Log in",
@@ -249,9 +205,6 @@
     "delete_success_description": "We have received your request. An administrator will delete your account promptly.",
     "delete_confirm_label": "Yes, delete it!",
     "delete_error_header": "Error!"
-  },
-  "glossary": {
-    "back_button": "Go back to Glossary"
   },
   "restricted": {
     "header_approval_pending": "Content not yet available",

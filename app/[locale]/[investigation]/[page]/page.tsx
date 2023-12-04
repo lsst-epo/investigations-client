@@ -12,6 +12,7 @@ import {
 } from "@/components/templates";
 import { FunctionComponent } from "react";
 import { InvestigationPageProps } from "./layout";
+import { getSite } from "@/helpers";
 
 export const revalidate = 60;
 
@@ -35,7 +36,7 @@ const Query = graphql(`
 export async function generateMetadata({
   params: { locale, investigation, page },
 }: InvestigationPageProps): Promise<Metadata> {
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
   // add _es to property names if site is not English
   const uri = `${investigation}/${page}`;
 
@@ -57,7 +58,7 @@ const InvestigationPage: (
 ) => Promise<JSX.Element> = async ({
   params: { locale, investigation, page },
 }) => {
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
   // // add _es to property names if site is not English
   const uri = `${investigation}/${page}`;
 
