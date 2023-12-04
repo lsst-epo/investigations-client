@@ -5,6 +5,7 @@ import { InvestigationParams } from "../../layout";
 import { RootLayoutParams } from "@/app/[locale]/layout";
 import { notFound } from "next/navigation";
 import ReferenceContentPage from "@/components/templates/ReferenceContentPage";
+import { getSite } from "@/helpers";
 
 interface ReferencePageParams {
   slug: string;
@@ -27,7 +28,7 @@ const ReferencePage: (
 ) => Promise<JSX.Element> = async ({ params }) => {
   const { slug, locale = fallbackLng } = params;
   const uri = `reference/${slug}`;
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
 
   const { data } = await queryAPI({
     query: Query,

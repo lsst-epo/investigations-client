@@ -4,6 +4,8 @@
       "en": "English",
       "es": "Español",
       "fr": "Français"
-    }
+    },
+    "language_select_label": "Sélection de la langue",
+    "language_cta": "Choisissez votre language"
   }
 }

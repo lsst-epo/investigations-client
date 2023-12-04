@@ -8,6 +8,7 @@ import {
 } from "@/components/auth/serverHelpers";
 import { queryAPI } from "@/lib/fetch";
 import InvestigationLandingPageTemplate from "@/components/templates/InvestigationLandingPage";
+import { getSite } from "@/helpers";
 
 const Query = graphql(`
   query InvestigationPage($site: [String], $uri: [String]) {
@@ -21,7 +22,7 @@ const Query = graphql(`
 const InvestigationLanding: (
   props: InvestigationLandingProps
 ) => Promise<JSX.Element> = async ({ params: { locale, investigation } }) => {
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
 
   const { data } = await queryAPI({
     query: Query,

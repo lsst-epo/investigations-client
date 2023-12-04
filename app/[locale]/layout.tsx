@@ -14,6 +14,7 @@ import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Body from "@/page/Body";
+import { getSite } from "@/helpers";
 
 export interface RootLayoutParams {
   locale: string;
@@ -43,7 +44,7 @@ const GlobalsQuery = graphql(`
 `);
 
 const getGlobals = async (locale = "en"): Promise<GlobalData | undefined> => {
-  const site: string = locale === "en" ? "default" : locale;
+  const site: string = getSite(locale);
 
   const { data } = await queryAPI({
     query: GlobalsQuery,

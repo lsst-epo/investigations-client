@@ -14,7 +14,7 @@ import type { GlobalsQueryQuery } from "gql/public-schema/graphql";
 type Categories = GlobalsQueryQuery["categories"];
 
 export const getSite = (locale: string = fallbackLng) =>
-  locale === fallbackLng ? "default" : "es";
+  locale === fallbackLng ? "default" : locale;
 
 // CATEGORY STUFF
 export const getCategoryObject = (categories: Categories, id: number) => {
