@@ -33,13 +33,12 @@ jobs:
       run: |-
         docker build \
         -t "gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }}" \
-        --build-arg NEXT_PUBLIC_API_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com/api \
-        --build-arg NEXT_PUBLIC_BASE_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com \
-        --build-arg EDC_LOGGER_API_URL=https://us-central1-skyviewer.cloudfunctions.net/edc-logger \
-        --build-arg CLOUD_ENV=PROD \
-        --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=596747551410-vcqlrp7erg5c5gm0dkvc0k21mgi0ilg0.apps.googleusercontent.com \
-        --build-arg NEXT_PUBLIC_CONTACT_FORM_POST_URL=https://api.rubinobs.org/actions/contact-form/send \
-        --build-arg NEXT_PUBLIC_PLAUSIBLE_DOMAIN=investigations-api-dot-skyviewer.uw.r.appspot.com \
+        --build-arg NEXT_PUBLIC_API_URL=https://api-investigations.rubinobs.org/api \
+        --build-arg NEXT_PUBLIC_BASE_URL=https://investigations.rubinobs.org \
+        --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com \
+        --build-arg CRAFT_REVALIDATE_SECRET_TOKEN=1128f3c472c118caa63 \
+        --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=KPYySxz0TZjIPAtNCdnYUkguZz6y6BU- \
+        --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=vPNHdjzu4XwKhiYC0jDrQENzGxb2Ltx3 \
         .
     - name: Configure Docker Auth
       run: gcloud --quiet auth configure-docker
