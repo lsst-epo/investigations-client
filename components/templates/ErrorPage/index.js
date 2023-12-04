@@ -2,19 +2,16 @@
 
 import PropTypes from "prop-types";
 import { Container } from "@rubin-epo/epo-react-lib";
-import Body from "@/components/page/Body";
 
 export default function ErrorPageTemplate({ data: { title, text } }) {
   return (
-    <Body title={title}>
-      <Container>
-        <h1>{title}</h1>
-        <div
-          className="c-content-rte"
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
-      </Container>
-    </Body>
+    <Container>
+      <h1>{title}</h1>
+      <div
+        className="c-content-rte"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+    </Container>
   );
 }
 

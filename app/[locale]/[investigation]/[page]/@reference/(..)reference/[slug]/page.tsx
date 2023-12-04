@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import ReferenceContentPage from "@/components/templates/ReferenceContentPage";
 import { ReferencePageProps } from "../../../reference/[slug]/page";
 import { fallbackLng } from "@/lib/i18n/settings";
+import { getSite } from "@/helpers";
 
 const Query = graphql(`
   query ReferenceContent($site: [String], $uri: [String]) {
@@ -18,7 +19,7 @@ const ReferenceModal: (
 ) => Promise<JSX.Element> = async ({ params }) => {
   const { slug, locale = fallbackLng } = params;
   const uri = `reference/${slug}`;
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
 
   const { data } = await queryAPI({
     query: Query,

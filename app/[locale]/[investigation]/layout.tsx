@@ -12,6 +12,7 @@ import {
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
 import { notFound } from "next/navigation";
+import { getSite } from "@/helpers";
 
 export interface InvestigationParams {
   investigation: string;
@@ -21,14 +22,30 @@ export interface InvestigationLandingProps {
   params: RootLayoutParams & InvestigationParams;
 }
 
-const MockInvestigations: { [key: string]: string } = {
-  "coloring-the-universe": "Coloring the Universe",
-};
+const InvestigationMetadataQuery = graphql(`
+  query InvestigationMetadata($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
+      ... on investigations_investigationParent_Entry {
+        title
+      }
+    }
+  }
+`);
 
 export async function generateMetadata({
-  params: { investigation },
+  params: { investigation, locale },
 }: InvestigationLandingProps): Promise<Metadata> {
-  const title = MockInvestigations[investigation];
+  const site = getSite(locale);
+
+  const { data } = await queryAPI({
+    query: InvestigationMetadataQuery,
+    variables: {
+      site: [site],
+      uri: [investigation],
+    },
+  });
+
+  const { title } = data?.entry;
 
   return { title, twitter: { title } };
 }
@@ -100,7 +117,7 @@ const InvestigationLandingLayout: (
   children,
   params: { locale, investigation },
 }) => {
-  const site = locale === "en" ? "default" : locale;
+  const site = getSite(locale);
 
   const { data } = await queryAPI({
     query: InvestigationIdQuery,
@@ -124,9 +141,7 @@ const InvestigationLandingLayout: (
   return (
     <StoredAnswersComponent investigationId={data.entry?.id}>
       <PagesProvider {...{ pages, acknowledgements }}>
-        <QuestionsProvider>
-          {children}
-        </QuestionsProvider>
+        <QuestionsProvider>{children}</QuestionsProvider>
       </PagesProvider>
     </StoredAnswersComponent>
   );
