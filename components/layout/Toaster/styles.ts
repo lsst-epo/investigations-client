@@ -2,17 +2,18 @@ import styled from "styled-components";
 import BaseToast from "@rubin-epo/epo-react-lib/Toast";
 
 export const Toaster = styled.div`
-  --toast-transform: translateY(100%);
+  --toast-transform: translateY(0);
 
   margin: 0;
   position: fixed;
   width: 100%;
   bottom: 0;
   left: 0;
+  transform: translateY(100%);
   z-index: 1;
 
   &[data-visible="true"] {
-    --toast-transform: translateY(0);
+    --toast-transform: translateY(-100%);
   }
 
   @media (prefers-reduced-motion: no-preference) {
