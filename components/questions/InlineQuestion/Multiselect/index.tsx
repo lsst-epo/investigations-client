@@ -16,11 +16,12 @@ const InlineMultiselect: FunctionComponent<InlineSelectProps> = ({
   id,
 }) => (
   <Styled.InlineSelect
-    isMultiselect={true}
-    {...{ isDisabled, options, value }}
+    {...{ isDisabled, options }}
     onChangeCallback={(value: string[] | null) =>
       onChangeCallback && onChangeCallback(value, id)
     }
+    value={value || []}
+    isMultiselect
   />
 );
 
