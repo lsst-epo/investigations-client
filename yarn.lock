@@ -2297,10 +2297,10 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.2.0.tgz#5f3d96ec6b2354ad6d8a28bf216a1d97b5426861"
   integrity sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==
 
-"@headlessui/react@^1.7.5":
-  version "1.7.14"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.14.tgz#75f19552c535113640fe8a3a40e71474f49e89c9"
-  integrity sha512-znzdq9PG8rkwcu9oQ2FwIy0ZFtP9Z7ycS+BAqJ3R5EIqC/0bJGvhT7193rFf+45i9nnPsYvCQVW4V/bB9Xc+gA==
+"@headlessui/react@^1.7.17":
+  version "1.7.17"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.17.tgz#a0ec23af21b527c030967245fd99776aa7352bc6"
+  integrity sha512-4am+tzvkqDSSgiwrsEpGWqgGo9dz8qU5M3znCkC4PgkpY4HcCZzEDEvozltGGGHIKl9jbXbZPSH5TWn4sWJdow==
   dependencies:
     client-only "^0.0.1"
 
@@ -2891,13 +2891,13 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@^2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.10.tgz#0fc360c7cf3b028f070c3d416cd68f45e8eea984"
-  integrity sha512-VWxynU+tyDQ8qDWNbhLl3qULg78LSmLcOCHJ9LCRS545KxZ6cf+9esduoFycr7cV8QbN99Ab/3wTsoGdEg7bUA==
+"@rubin-epo/epo-react-lib@^2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.13.tgz#ab11266819bd22068c9356dd4f1571954c064a28"
+  integrity sha512-D/tHninF/Fm++tH+rQjVO7CW8ACWiFXRY6VJgTnnkrMqwO6UlZvnSvaIbY6TnWqXBU7M6pWNur74FwXMQogsyA==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^1.7.5"
+    "@headlessui/react" "^1.7.17"
     flickity "^3.0.0"
     focus-trap "^7.4.2"
     i18next "^22.4.10"
@@ -2910,31 +2910,12 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-react-lib@^2.0.9":
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.9.tgz#a1dac45743265a03be9d66ea6b4994f5235c428c"
-  integrity sha512-ZUe6OTAATERetsOpKp3Q7MTQ/Hn9AWX0CKuISjuP8XG2apR87IFs48qqtfbDutFRPjyTPSHM/hz7Yvep5S8VAA==
+"@rubin-epo/epo-widget-lib@^0.6.7":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.6.7.tgz#59d21d823d1a7219074710ef08614c72db837087"
+  integrity sha512-3hs6cbC+HrLMWtncDAE0XqIsfVXNsh+wGcy67o9ryu/wDTaPJPI+FTJgeeEvL4MJvy+PTJf1mYacgNk2HMbeLw==
   dependencies:
-    "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^1.7.5"
-    flickity "^3.0.0"
-    focus-trap "^7.4.2"
-    i18next "^22.4.10"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-i18next "^12.0.0"
-    react-player "^2.12.0"
-    react-share "^4.4.1"
-    react-slider "^2.0.4"
-    react-uid "^2.3.2"
-    styled-components "^6.1.1"
-
-"@rubin-epo/epo-widget-lib@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.6.4.tgz#5810531e8d8bf9d4be6d20674e28f018c1da1259"
-  integrity sha512-JdVOEi3x44l58c+OB5omLWchFZ4fGT43S2BXv0ek9Pq8Lrwta/wWO5O13wZ2nIMoP203HcsLUmadCp+yDdaTZg==
-  dependencies:
-    "@rubin-epo/epo-react-lib" "^2.0.9"
+    "@rubin-epo/epo-react-lib" "^2.0.13"
     lodash "^4.17.21"
     styled-components "^6.1.1"
     use-resize-observer "^9.1.0"
