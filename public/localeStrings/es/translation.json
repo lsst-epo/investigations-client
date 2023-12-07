@@ -1,9 +1,278 @@
 {
+  "page-not-found-title": "Página no encontrada",
+  "page-not-found-text": "La página que busca no puede ser encontrada.",
+  "menu": {
+    "main": "Menú principal",
+    "main_cta": "Ajustes y más",
+    "settings": "Ajustes"
+  },
   "language": {
     "locales": {
-      "en": "English",
+      "en": "Inglés",
       "es": "Español",
       "fr": "Français"
+    },
+    "language_select_label": "Selección de idioma",
+    "language_cta": "Seleccione su idioma"
+  },
+  "acknowledgements": {
+    "select_label": "Agradecimientos",
+    "title": "Acerca de esta investigación",
+    "subtitle": "Agradecimientos y créditos"
+  },
+  "share": {
+    "select_label": "Compartir esta investigación",
+    "subtitle": "¡Cuéntale a todos sobre nosotros!"
+  },
+  "contact-form": {
+    "contact-us": "Contáctanos",
+    "success": "¡Gracias! Recibimos su mensaje.",
+    "error": "Parece que hay un problema."
+  },
+  "form": {
+    "email": "Correo electrónico",
+    "email_required": "Correo electrónico (requerido)",
+    "first_name": "Nombre",
+    "first_name_optional": "Nombre (opcional)",
+    "last_name": "Apellido",
+    "last_name_optional": "Apellido (opcional)",
+    "inquiry": "Consulta",
+    "password": "Contraseña",
+    "password_required": "Contraseña (requerida)",
+    "current_password": "Contraseña actual",
+    "new_password": "Contraseña nueva",
+    "confirm_password": "Confirmar nueva contraseña",
+    "show_password": "Mostrar contraseña",
+    "hide_password": "Ocultar contraseña",
+    "create_password": "Crear una contraseña (requerido)",
+    "create_password_instructions": "Las contraseñas deben tener como mínimo 8 caracteres y deben tener una combinación de letras, números y símbolos.",
+    "school": "Escuela",
+    "preferred_language": "Idioma preferido",
+    "email_subscription": "Suscripción al correo electrónico",
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "submitting": "Enviando...",
+    "reset": "Reiniciar",
+    "cancel": "Cancelar",
+    "error": "Error:",
+    "confirm": "¡Recibido!"
+  },
+  "page": {
+    "interaction": "Interacción",
+    "questions": "Preguntas"
+  },
+  "pager": {
+    "previous": "Página anterior",
+    "next": "Página siguiente",
+    "page-count": "Página {{current}} de {{total}}"
+  },
+  "pagination": {
+    "label": "Paginación",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "current-slide": "Diapositiva {{current}}",
+    "showing-current-slide": "Mostrando diapositiva {{current}} de {{length}}",
+    "showing-range": "Mostrando  {{from}} hasta {{to}} de {{length}}"
+  },
+  "nav": {
+    "close": "Cerrar"
+  },
+  "auth": {
+    "log_in": "Iniciar sesión",
+    "log_in_to_continue": "Comenzar investigación iniciando sesión",
+    "continue_w_login_label": "Esta opción le permite guardar su trabajo de forma segura.",
+    "continue_wo_login_button": "Comenzar la investigación sin iniciar sesión",
+    "continue_wo_login_label": "Aún puede guardar su trabajo, pero se perderá si se borra el caché de su navegador.",
+    "log_out": "Cerrar sesión",
+    "logged_in_as": "Sesión iniciada como {{name}}",
+    "logged_out": "Se ha cerrado sesión",
+    "log_in_w_oauth": "Iniciar sesión con Google o Facebook.",
+    "log_in_w_email": "O, iniciar sesión con su correo electrónico y contraseña.",
+    "sign_up": "Crear una cuenta",
+    "logged_in_status_issue": "El estado de la cuenta es {{status}}, revise su correo electrónico para más información."
+  },
+  "sign_in": {
+    "header": "¡Bienvenidos(as) nuevamente!",
+    "forgot_password_link": "¿Olvidó su contraseña?",
+    "create_account_link": "Crear una cuenta",
+    "continue_with_google": "Continuar con Google",
+    "continue_with_facebook": "Continuar con Facebook",
+    "submit": "Iniciar sesión",
+    "submit_pending": "Iniciando sesión…",
+    "success": "¡Inicio de sesión exitoso!",
+    "success_message": "Ha iniciado sesión como {{username}}.",
+    "redirecting_google": "Redireccionando a Google…",
+    "redirecting_facebook": "Redireccionando a Facebook…",
+    "loading_google": "Iniciando sesión con Google…",
+    "loading_facebook": "Iniciando sesión con Facebook…",
+    "error": "¡Error!",
+    "error_message": "Ocurrió un error al iniciar sesión.",
+    "error_message_google": "Ocurrió un error al iniciar sesión con Google.",
+    "error_message_facebook": "Ocurrió un error al iniciar sesión con Facebook.",
+    "confirm_button": "¡Recibido!"
+  },
+  "set_password": {
+    "header": "Crear una nueva contraseña",
+    "submit": "Enviar",
+    "success": "¡Envío exitoso!",
+    "success_message": "Su contraseña fue actualizada.",
+    "error": "¡Error!",
+    "error_message": "Ocurrió un error al actualizar su contraseña.",
+    "confirm_button": "¡Recibido!"
+  },
+  "reset_password": {
+    "header": "Restaurar contraseña",
+    "description": "Ingrese su correo electrónico para restaurar su contraseña",
+    "instructions": "Ingrese su correo electrónico para restaurar su contraseña",
+    "submit": "Restaurar contraseña",
+    "submit_pending": "Enviando…",
+    "success": "¡Envío exitoso!",
+    "success_message": "Hemos enviado un enlace con instrucciones para restaurar su contraseña",
+    "error": "¡Error!",
+    "error_message": "Ocurrió un error al restaurar su contraseña.",
+    "confirm_button": "¡Recibido!"
+  },
+  "activate": {
+    "success": "¡Activación exitosa!",
+    "success_message": "Su cuenta fue activada. Por favor, inicie sesión para comenzar a utilizar el sitio como un usuario registrado.",
+    "success_message_educator": "Su cuenta fue activada, pero aún debe recibir la aprobación de un administrador antes de que pueda acceder al contenido de los educadores. Una vez aprobada, le enviaremos un correo electrónico.",
+    "error": "¡Error!",
+    "error_message": "Ocurrió un error al activar su cuenta.",
+    "missing_params_message": "La solicitud no pudo completarse. Falta uno o más parámetros requeridos.",
+    "loading": "Activando su cuenta…",
+    "confirm_button": "¡Recibido!"
+  },
+  "facebook_sso": {
+    "success": "¡Inicio de sesión exitoso!",
+    "success_message": "Su cuenta fue activada. Por favor, inicie sesión para comenzar a utilizar el sitio como un usuario registrado.",
+    "success_message_educator": "Su cuenta fue activada, pero aún debe recibir la aprobación de un administrador antes de que pueda acceder al contenido de los educadores. Una vez aprobada, le enviaremos un correo electrónico.",
+    "error": "¡Error!",
+    "error_message": "Ocurrió un error al iniciar sesión con Facebook.",
+    "missing_params_message": "La solicitud no pudo completarse. Falta uno o más parámetros requeridos.",
+    "loading": "Iniciando sesión con Facebook…",
+    "confirm_button": "¡Recibido!"
+  },
+  "join": {
+    "title": "Enseñe y aprenda sobre astronomía real",
+    "description": "Ingrese para conocer cómo los astrónomos aprenden e interactúan con datos astronómicos reales. Este acceso será siempre gratuito.",
+    "role": "Seleccione su rol",
+    "as_students": "Soy estudiante",
+    "as_educators": "Soy educador",
+    "header_students": "Aprender sobre astronomía real",
+    "header_educators": "Enseñar astronomía real",
+    "description_students": "Ingrese para conocer cómo los astrónomos aprenden e interactúan con datos astronómicos reales. Este acceso será siempre gratuito.",
+    "description_educators": "Ingrese para acceder a datos astronómicos reales y herramientas para su sala de clases. Este acceso será siempre gratuito.",
+    "sign_in_link": "¿Ya tiene una cuenta?",
+    "continue_with_google": "Continuar con Google",
+    "continue_with_facebook": "Continuar con Facebook",
+    "sign_up_with_email": "Iniciar sesión con correo electrónico"
+  },
+  "register": {
+    "header": "Iniciar sesión",
+    "header_students": "Iniciar sesión como estudiante",
+    "header_educators": "Iniciar sesión como educador",
+    "instructions_students": "Por favor entregue la siguiente información para crear una cuenta de estudiante",
+    "instructions_educators": "Por favor entregue la siguiente información para crear una cuenta de educador",
+    "submit": "Iniciar sesión",
+    "submit_pending": "Registrando…",
+    "success_students": "Activación pendiente",
+    "success_message_students": "Ya se creó su cuenta, pero la activación está pendiente. Recibirá un correo electrónico con instrucciones para activar su cuenta y disfrutar del acceso a datos astronómicos reales y herramientas. <strong>Este acceso será siempre gratuito.</strong>",
+    "success_educators": "Activación pendiente",
+    "success_message_educators": "Ya se creó su cuenta, pero la activación está pendiente. Recibirá un correo electrónico con instrucciones para activar su cuenta y disfrutar del acceso a datos astronómicos reales y herramientas. <strong>Este acceso será siempre gratuito.</strong>",
+    "confirm_button": "¡Recibido!",
+    "error": "¡Error!",
+    "error_message": "Ocurrió un error al iniciar sesión."
+  },
+  "account": {
+    "header": "Cuenta",
+    "profile": "Perfil",
+    "preferences": "Preferencias",
+    "password": "Contraseña",
+    "loading": "Cargando…",
+    "edit": "Editar",
+    "submit_profile": "Actualizar perfil y preferencias",
+    "submit_password": "Actualizar contraseña",
+    "submit_pending": "Enviando…",
+    "submit_success": "¡Actualizado!",
+    "error": "Ocurrió un error al buscar la información de su cuenta.",
+    "error_session_expired": "Su sesión ha expirado. Por favor vuelva a iniciar sesión.",
+    "error_delete_failed": "Ocurrió un problema al enviar su solicitud de eliminación. Vuelva a cargar la página e inténtelo nuevamente.",
+    "delete": "Eliminar mi cuenta",
+    "delete_pending": "  Enviando…",
+    "delete_confirm_header": "¿Eliminar la cuenta?",
+    "delete_confirm_description": "Lamentamos que te vayas, pero siempre serás bienvenido(a) si quieres regresar. Estaremos aquí para ti, compartiendo con todos las investigaciones gratuitas. <0>¿Estás seguro que quieres eliminar tu cuenta?</0>",
+    "delete_success_header": "Tu solicitud para eliminar tu cuenta fue aceptada",
+    "delete_success_description": "Hemos recibido tu solicitud. Un administrador eliminará pronto tu cuenta.",
+    "delete_confirm_label": "Sí, ¡eliminar!",
+    "delete_error_header": "¡Error!"
+  },
+  "restricted": {
+    "header_approval_pending": "Contenido aún no disponible",
+    "message_approval_pending": "Este contenido aún no está disponible para usted dado que la aprobación sigue pendiente. Si desea acelerar el proceso, envíe un correo electrónico a <0>webmaster@lsst.org</0>.",
+    "header_restricted": "Contenido no disponible",
+    "message_restricted": "Este contenido no está disponible para usted. Si usted cree que esto es un error, envíe un correo electrónico a <0>webmaster@lsst.org</0>.",
+    "header_not_authorized": "Contenido no disponible",
+    "message_not_authorized": "Debe iniciar sesión para acceder a esta página.",
+    "header_deletion_pending": "Contenido no disponible",
+    "message_deletion_pending": "Usted ha solicitado eliminar su cuenta. Este proceso está pendiente. Si usted cree que este mensaje es un error, envíe un correo electrónico a <0>webmaster@lsst.org</0>.",
+    "button_confirm": "¡Recibido!"
+  },
+  "placeholder": {
+    "select_answer": "Seleccione su respuesta"
+  },
+  "answers": {
+    "save_form": {
+      "checkpoint": "Punto evaluación",
+      "label": "Guardar respuestas",
+      "submit": "Guardar su trabajo",
+      "submit_pending": "Guardando…",
+      "success": "¡Guardado!",
+      "error": "Error",
+      "success_message": "Su trabajo ha sido guardado",
+      "success_message_unauth": "Su trabajo ha sido guardado. Sin embargo, puede perderse si se borra el caché de su navegador. Para guardar su trabajo de forma segura, inicie sesión o cree una cuenta.",
+      "empty_error_message": "No hay ninguna respuesta nueva que guardar.",
+      "refresh_error_message": "Su sesión ha expirado. Por favor vuelva a iniciar sesión e intente nuevamente.",
+      "mutation_error_message": "Ocurrió un error al guardar sus respuestas en su cuenta.",
+      "status_error_message": "Active su cuenta para comenzar a guardar. Busque el correo de activación en su bandeja de Recibidos de su correo electrónico."
+    }
+  },
+  "review": {
+    "metadata": {
+      "title": "Revisión"
+    },
+    "title": "{{investigation}}: Preguntas y Respuestas",
+    "name_label": "Nombre(s) del estudiante",
+    "date": "Fecha",
+    "no_selection": "(Sin seleccionar)",
+    "no_answer": "(Respuesta no entregada)",
+    "print": "Imprimir sus respuestas"
+  },
+  "section_break": {
+    "congratulations": "¡Felicitaciones!",
+    "congratulations_alt": "Imagen animada de fuegos artificiales",
+    "finish": "Finalizar",
+    "finish_alt": "Imagen animada con el mensaje: '¡Felicitaciones! ¡Has finalizado la investigación!'",
+    "review": "Revise sus respuestas"
+  },
+  "widgets": {
+    "filter_tool": "Herramienta de Filtro",
+    "camera_filter_tool": "Rangos de Filtro de Cámara",
+    "color_filter_tool": {
+      "read_only_caption": "Objeto: {{name}}"
+    }
+  },
+  "image": {
+    "credit": "Créditos: {{credit}}"
+  },
+  "investigation": {
+    "investigation": "Investigación",
+    "total_duration": "Duración total de la Investigación",
+    "start": "Comenzar la Investigación",
+    "coming_soon": "(Próximamente)",
+    "early_access": {
+      "full": "Acceso Anticipado",
+      "line_1_text": "Acceso",
+      "line_2_text": "Anticipado"
     }
   }
 }
