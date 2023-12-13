@@ -70,9 +70,3 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   return res;
 }
-
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
