@@ -1,29 +1,34 @@
 "use client";
 
-import { useGoogleLogin } from "@react-oauth/google";
+import type { GoogleCredentialResponse } from "@react-oauth/google";
 import { Button } from "@rubin-epo/epo-react-lib";
 import { useTranslation } from "react-i18next";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { usePathToRevalidate } from "@/components/auth/clientHelpers";
 import { authenticateEducator, authenticateStudent } from "./actions";
-import type { GoogleCredentialResponse } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+// import { useGoogleLogin } from "@react-oauth/google";
 
 export default function SSOButton({
   onError: onSignInError,
+  buttonWidth
 }: {
   onError: () => void;
+  buttonWidth: number;
 }) {
-  const { t } = useTranslation();
+  const {
+    // t,
+    i18n: { language },
+  } = useTranslation();
   const { pendingGroup } = useAuthDialogManager();
   const pathToRevalidate = usePathToRevalidate();
-  const login = useGoogleLogin({
-    onSuccess: handleSuccess,
-    onError: handleError,
-  });
+  // const login = useGoogleLogin({
+  //   onSuccess: handleSuccess,
+  //   onError: handleError,
+  // });
 
   function handleError() {
-    console.error("error");
-    onSignInError();
+    onSignInError(response);
   }
 
   async function handleSuccess(credentialResponse: GoogleCredentialResponse) {
@@ -46,10 +51,24 @@ export default function SSOButton({
     }
   }
 
+  // return (
+  //   <Button onClick={() => login()} styleAs="tertiary">
+  //     {t("sign_in.continue_with_google")}
+  //   </Button>
+  // );
   return (
-    <Button onClick={() => login()} styleAs="tertiary">
-      {t("sign_in.continue_with_google")}
-    </Button>
+    <GoogleLogin
+      onSuccess={handleSuccess}
+      onError={handleError}
+      locale={language}
+      shape="rectangle"
+      size="large"
+      text="continue_with"
+      theme="outline"
+      type="standard"
+      width={buttonWidth}
+      useOneTap
+    />
   );
 }
 
