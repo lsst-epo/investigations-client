@@ -1,10 +1,14 @@
 "use client";
-import { ChangeEvent, FunctionComponent, useState } from "react";
+import { ChangeEvent, FunctionComponent, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import FormButtons from "@rubin-epo/epo-react-lib/FormButtons";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import useQuestions from "@/contexts/Questions";
+import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import ReviewList from "@/components/questions/ReviewList";
 import PrintButton from "@/components/atomic/Button/patterns/PrintButton";
+import XlsxButton from "@/components/atomic/Button/patterns/XlsxButton";
 import * as Styled from "./styles";
 
 const ReviewPage: FunctionComponent<{
@@ -12,6 +16,8 @@ const ReviewPage: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
   locale: string;
 }> = ({ user, locale = fallbackLng, investigation }) => {
+  const { answers } = useContext(StoredAnswersContext);
+  const { byAll: questions } = useQuestions();
   const [name, setName] = useState(user?.fullName);
   const { t } = useTranslation();
   const nameInputId = "name";
@@ -45,8 +51,13 @@ const ReviewPage: FunctionComponent<{
           })}
         </time>
       </div>
-      <ReviewList />
-      <PrintButton text={t("review.print")} filename={name} />
+      <ReviewList {...{ answers, questions }} />
+      <FormButtons>
+        <PrintButton filename={name}>{t("review.print")}</PrintButton>
+        <XlsxButton {...{ answers, questions, investigation, name }}>
+          {t("review.export")}
+        </XlsxButton>
+      </FormButtons>
     </Styled.PageContainer>
   );
 };

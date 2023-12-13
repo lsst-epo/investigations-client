@@ -48,4 +48,9 @@ module.exports = {
       path.join(__dirname, "components"),
     ],
   },
+  webpack(config) {
+    config.externals.push({ "skia-canvas": "skia-canvas" });
+
+    return config;
+  },
 };
