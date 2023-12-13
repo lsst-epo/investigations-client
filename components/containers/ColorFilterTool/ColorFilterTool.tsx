@@ -1,9 +1,19 @@
 import { FunctionComponent } from "react";
+import dynamic from "next/dynamic";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
 import ColorSwatch from "@rubin-epo/epo-react-lib/ColorSwatch";
 import { Option } from "@/components/shapes/option";
 import { formatObjectGroups } from "../helpers";
+
+const ColorTool = dynamic(
+  () =>
+    import("@rubin-epo/epo-widget-lib/ColorTool").then(
+      (module) => module.default
+    ),
+  {
+    ssr: false,
+  }
+);
 
 export const Fragment = graphql(`
   fragment ColorFilterToolEntry on widgets_colorFilterTool_Entry {

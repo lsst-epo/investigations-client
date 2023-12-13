@@ -1,12 +1,13 @@
 "use client";
-import { FunctionComponent, useRef } from "react";
+import { FunctionComponent, PropsWithChildren, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
 
-const PrintButton: FunctionComponent<{
-  text?: string | null;
-  filename?: string;
-}> = ({ text, filename = "mtersltjslkrsler" }) => {
+const PrintButton: FunctionComponent<
+  PropsWithChildren<{
+    filename?: string;
+  }>
+> = ({ children, filename }) => {
   const { t } = useTranslation();
   const title = useRef<string>();
 
@@ -46,7 +47,7 @@ const PrintButton: FunctionComponent<{
 
   return (
     <Styled.PrintButton icon="Pdf" onClick={handlePrint} isBlock>
-      {text || t("translation.print")}
+      {children || t("translation.print")}
     </Styled.PrintButton>
   );
 };
