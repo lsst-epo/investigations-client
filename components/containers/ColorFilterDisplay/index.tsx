@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import ColorTool from "@rubin-epo/epo-widget-lib/ColorTool";
+import dynamic from "next/dynamic";
 import { FragmentType, useFragment } from "@/gql/public-schema";
 import { Fragment } from "../ColorFilterTool/ColorFilterTool";
 import { formatObjectGroups } from "../helpers";
@@ -9,6 +9,16 @@ interface ColorFilterDisplayProps {
   className?: string;
   value: any;
 }
+
+const ColorTool = dynamic(
+  () =>
+    import("@rubin-epo/epo-widget-lib/ColorTool").then(
+      (module) => module.default
+    ),
+  {
+    ssr: false,
+  }
+);
 
 const ColorFilterDisplay: FunctionComponent<ColorFilterDisplayProps> = ({
   data,

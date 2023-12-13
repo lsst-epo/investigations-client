@@ -245,7 +245,8 @@
     "date": "Date",
     "no_selection": "(No selection)",
     "no_answer": "(Answer not provided)",
-    "print": "Print your answers"
+    "print": "Print your answers",
+    "export": "Export"
   },
   "section_break": {
     "congratulations": "Congratulations!",
@@ -273,6 +274,15 @@
       "full": "Early Access",
       "line_1_text": "Early",
       "line_2_text": "Access"
+    }
+  },
+  "xlsx": {
+    "columns": {
+      "student": "Student",
+      "question": "Question {{number}}"
+    },
+    "cells": {
+      "no_name": "Name not provided"
     }
   }
 }

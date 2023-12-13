@@ -1,13 +1,14 @@
 "use client";
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent } from "react";
 import ReviewFactory from "@/components/factories/ReviewFactory";
-import StoredAnswersContext from "@/contexts/StoredAnswersContext";
-import useQuestions from "@/contexts/Questions";
+import { StoredQuestion } from "@/contexts/Questions";
 import * as Styled from "./styles";
+import { Answers } from "@/types/answers";
 
-const ReviewList: FunctionComponent = () => {
-  const { answers } = useContext(StoredAnswersContext);
-  const { byAll: questions } = useQuestions();
+const ReviewList: FunctionComponent<{
+  answers: Answers;
+  questions: Array<StoredQuestion>;
+}> = ({ answers, questions }) => {
   return (
     <Styled.ReviewList>
       {questions &&
