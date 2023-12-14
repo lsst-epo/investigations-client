@@ -5,7 +5,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY . /app
 
-RUN apk add --no-cache fontconfig libc6-compat git
+RUN apk add --no-cache libc6-compat git fontconfig
 RUN yarn install --frozen-lockfile
 
 ARG NEXT_PUBLIC_API_URL=https://investigations-api-dot-skyviewer.uw.r.appspot.com/api
@@ -19,6 +19,7 @@ RUN npx browserslist@latest --update-db && yarn static:build
 FROM node:20-alpine AS runner
 WORKDIR /app
 
+RUN apk add --no-cache fontconfig
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 

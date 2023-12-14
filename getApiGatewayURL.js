@@ -3,7 +3,7 @@ const { exec } = require("child_process");
 
 /* eslint-disable no-console */
 exec(
-  "docker network inspect rubin-obs-api_default",
+  "docker network inspect investigations-api_default",
   (error, stdout, stderr) => {
     if (error) console.log(-1);
 
