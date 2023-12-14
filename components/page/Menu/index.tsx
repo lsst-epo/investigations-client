@@ -4,23 +4,33 @@ import {
   MenuGroup,
   MenuItem,
 } from "@rubin-epo/epo-react-lib/SlideoutMenu";
-import Language from "./submenu/Language";
+import { useTranslation } from "react-i18next";
 import { useGlobalData } from "@/hooks";
 import usePages from "@/contexts/Pages";
-import { useTranslation } from "react-i18next";
+import { signOut } from "@/components/auth/buttons/SignOut/actions";
+import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
 import Share from "./submenu/Share";
 
 interface MenuProps {
   isOpen: boolean;
+  isLoggedIn: boolean;
   onCloseCallback: () => void;
 }
 
-const Menu: FunctionComponent<MenuProps> = ({ isOpen, onCloseCallback }) => {
+const Menu: FunctionComponent<MenuProps> = ({
+  isOpen,
+  isLoggedIn,
+  onCloseCallback,
+}) => {
   const { t } = useTranslation();
   const { helpUrl } = useGlobalData("menuContent");
   const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+  const handleLogout = async () => {
+    await signOut("/");
+  };
 
   return (
     <SlideoutMenu
@@ -54,6 +64,21 @@ const Menu: FunctionComponent<MenuProps> = ({ isOpen, onCloseCallback }) => {
             text="Help"
             icon="QuestionCircle"
           />
+        )}
+      </MenuGroup>
+      <MenuGroup title="Quick access">
+        <MenuItem
+          icon="CheckmarkCircle"
+          type="link"
+          href="./review"
+          text={t("section_break.review")}
+        ></MenuItem>
+        {isLoggedIn && (
+          <MenuItem
+            icon="LogOut"
+            text={t("auth.log_out")}
+            onClick={handleLogout}
+          ></MenuItem>
         )}
       </MenuGroup>
     </SlideoutMenu>
