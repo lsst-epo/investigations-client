@@ -8,8 +8,11 @@ import HeaderProgress from "@/components/page/HeaderProgress";
 import useNavHider from "@/hooks/useNavHider";
 import usePages from "@/contexts/Pages";
 import * as Styled from "./styles";
+import { getUserFromJwt } from "@/components/auth/serverHelpers";
 
-const Header: FunctionComponent = () => {
+const Header: FunctionComponent<{
+  user?: ReturnType<typeof getUserFromJwt>;
+}> = ({ user }) => {
   const { sections } = usePages();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -54,7 +57,11 @@ const Header: FunctionComponent = () => {
           </Styled.BottomRow>
         )}
       </Styled.FullWidthCol>
-      <Menu isOpen={mainMenuIsOpen} onCloseCallback={() => handleClose()} />
+      <Menu
+        isOpen={mainMenuIsOpen}
+        onCloseCallback={() => handleClose()}
+        isLoggedIn={!!user}
+      />
       <TableOfContents
         id="tableOfContents"
         title="Table of Contents"

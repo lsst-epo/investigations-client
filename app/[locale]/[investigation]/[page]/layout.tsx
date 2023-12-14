@@ -9,6 +9,10 @@ import Header from "@/page/Header/Header";
 import Pager from "@/page/Pager";
 import * as Styled from "./styles";
 import { getSite } from "@/helpers";
+import {
+  getAuthCookies,
+  getUserFromJwt,
+} from "@/components/auth/serverHelpers";
 
 export interface InvestigationPageParams {
   page: string;
@@ -56,11 +60,14 @@ const InvestigationPageLayout: (
     notFound();
   }
 
+  const { craftToken } = await getAuthCookies();
+  const user = getUserFromJwt(craftToken);
+
   const { id } = data?.entry || {};
 
   return (
     <ProgressProvider currentPageId={id}>
-      <Header />
+      <Header {...{ user }} />
       <Styled.Main>
         {children}
         {reference}
