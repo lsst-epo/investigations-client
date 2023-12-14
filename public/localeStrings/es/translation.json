@@ -86,7 +86,7 @@
     "log_out": "Cerrar sesión",
     "logged_in_as": "Sesión iniciada como {{name}}",
     "logged_out": "Se ha cerrado sesión",
-    "log_in_w_oauth": "Iniciar sesión con Google o Facebook.",
+    "log_in_w_oauth": "Iniciar sesión con Google.",
     "log_in_w_email": "O, iniciar sesión con su correo electrónico y contraseña.",
     "sign_up": "Crear una cuenta",
     "logged_in_status_issue": "El estado de la cuenta es {{status}}, revise su correo electrónico para más información."

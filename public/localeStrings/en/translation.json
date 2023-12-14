@@ -86,7 +86,7 @@
     "log_out": "Log out",
     "logged_in_as": "Logged in as {{name}}",
     "logged_out": "Logged out",
-    "log_in_w_oauth": "To log in using Google or Facebook.",
+    "log_in_w_oauth": "Log in with Google",
     "log_in_w_email": "Or, log in using your email and password.",
     "sign_up": "Create an account",
     "logged_in_status_issue": "Account status is {{status}}, check your email for more information."

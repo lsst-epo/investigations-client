@@ -3,7 +3,15 @@ import Submit from "@/components/form/Submit";
 import AuthButtons from "@/components/auth/buttons";
 
 export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
   padding-top: 13px;
+`;
+
+export const WidthConstrainer = styled.div`
+  max-width: 400px;
+  width: 100%;
 `;
 
 export const SSOSection = styled.div`
