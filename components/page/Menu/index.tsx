@@ -23,7 +23,7 @@ const Menu: FunctionComponent<MenuProps> = ({
   isLoggedIn,
   onCloseCallback,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
   const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -35,12 +35,12 @@ const Menu: FunctionComponent<MenuProps> = ({
   return (
     <SlideoutMenu
       id="mainMenu"
-      title={t("translation:menu.main")}
-      callToAction={t("translation:menu.main_cta")}
+      title={t("menu.main")}
+      callToAction={t("menu.main_cta")}
       isSubMenuOpen={isSubMenuOpen}
       {...{ isOpen, onCloseCallback }}
     >
-      <MenuGroup title={t("translation:menu.settings")}>
+      <MenuGroup title={t("menu.settings")}>
         <Language
           onOpenCallback={() => setIsSubMenuOpen(true)}
           onCloseCallback={() => setIsSubMenuOpen(false)}
@@ -61,12 +61,12 @@ const Menu: FunctionComponent<MenuProps> = ({
             type="link"
             href={helpUrl}
             target="__blank"
-            text="Help"
+            text={t("menu.help")}
             icon="QuestionCircle"
           />
         )}
       </MenuGroup>
-      <MenuGroup title="Quick access">
+      <MenuGroup title={t("menu.quick_access")}>
         <MenuItem
           icon="CheckmarkCircle"
           type="link"

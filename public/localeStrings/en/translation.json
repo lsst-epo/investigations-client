@@ -4,7 +4,9 @@
   "menu": {
     "main": "Main menu",
     "main_cta": "Settings and more",
-    "settings": "Settings"
+    "settings": "Settings",
+    "quick_access": "Quick access",
+    "help": "Help"
   },
   "language": {
     "locales": {
