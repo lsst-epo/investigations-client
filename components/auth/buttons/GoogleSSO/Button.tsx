@@ -67,7 +67,6 @@ export default function SSOButton({
       theme="outline"
       type="standard"
       width={buttonWidth}
-      useOneTap
     />
   );
 }

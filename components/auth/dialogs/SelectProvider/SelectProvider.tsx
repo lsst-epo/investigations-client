@@ -22,26 +22,28 @@ export default function SelectProvider() {
       onClose={closeModal}
     >
       <Styled.InnerModal>
-        <Styled.GoogleSSOButton
-          onError={() =>
-            setOutput(t("sign_in.error_message", { context: "google" }))
-          }
-        />
-        <Styled.FacebookSSOButton
+        <Styled.WidthConstrainer>
+          <Styled.GoogleSSOButton
+            onError={() =>
+              setOutput(t("sign_in.error_message", { context: "google" }))
+            }
+          />
+          {/* <Styled.FacebookSSOButton
           onError={() =>
             setOutput(t("sign_in.error_message", { context: "facebook" }))
           }
-        />
-        <Styled.EmailButton
-          onClick={() => openModal("signUp")}
-          styleAs="tertiary"
-        >
-          {t("join.sign_up_with_email")}
-        </Styled.EmailButton>
-        <Styled.SignInButton onClick={() => openModal("signIn")}>
-          {t("join.sign_in_link")}
-        </Styled.SignInButton>
-        <output>{output && <p>{output}</p>}</output>
+        /> */}
+          <Styled.EmailButton
+            onClick={() => openModal("signUp")}
+            styleAs="tertiary"
+          >
+            {t("join.sign_up_with_email")}
+          </Styled.EmailButton>
+          <Styled.SignInButton onClick={() => openModal("signIn")}>
+            {t("join.sign_in_link")}
+          </Styled.SignInButton>
+          <output>{output && <p>{output}</p>}</output>
+        </Styled.WidthConstrainer>
       </Styled.InnerModal>
     </BasicModal>
   );

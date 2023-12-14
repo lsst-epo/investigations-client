@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@rubin-epo/epo-react-lib";
 import { useTranslation } from "react-i18next";
-import { getOauthUrl } from "./actions";
+import FacebookLogin from '@greatsumini/react-facebook-login';
 
 export default function FacebookSSO({
   className,
@@ -16,32 +15,48 @@ export default function FacebookSSO({
 
   const { t } = useTranslation();
 
-  return (
-    <Button
-      className={className}
-      onClick={async () => {
-        setStatus("loading");
-        try {
-          const data = await getOauthUrl();
+  return (<FacebookLogin
+    appId=""
+    onSuccess={(response) => {
+      // eslint-disable-next-line no-console
+      console.log('Login Success!', response);
+    }}
+    onFail={(error) => {
+      // eslint-disable-next-line no-console
+      console.log('Login Failed!', error);
+    }}
+    onProfileSuccess={(response) => {
+      // eslint-disable-next-line no-console
+      console.log('Get Profile Success!', response);
+    }}
+  />);
 
-          if (data?.facebookOauthUrl) {
-            const oauthUrl = new URL(data.facebookOauthUrl);
+  // return (
+  //   <Button
+  //     className={className}
+  //     onClick={async () => {
+  //       setStatus("loading");
+  //       try {
+  //         const data = await getOauthUrl();
 
-            const state = window.location.pathname;
-            oauthUrl.searchParams.set("state", state);
+  //         if (data?.facebookOauthUrl) {
+  //           const oauthUrl = new URL(data.facebookOauthUrl);
 
-            window.open(oauthUrl, "_self");
-          }
-        } catch (error) {
-          onError();
-        }
-        setStatus(null);
-      }}
-      styleAs="tertiary"
-    >
-      {status === "loading"
-        ? t("sign_in.redirecting_facebook")
-        : t("sign_in.continue_with_facebook")}
-    </Button>
-  );
+  //           const state = window.location.pathname;
+  //           oauthUrl.searchParams.set("state", state);
+
+  //           window.open(oauthUrl, "_self");
+  //         }
+  //       } catch (error) {
+  //         onError();
+  //       }
+  //       setStatus(null);
+  //     }}
+  //     styleAs="tertiary"
+  //   >
+  //     {status === "loading"
+  //       ? t("sign_in.redirecting_facebook")
+  //       : t("sign_in.continue_with_facebook")}
+  //   </Button>
+  // );
 }
