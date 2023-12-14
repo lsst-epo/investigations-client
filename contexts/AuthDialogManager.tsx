@@ -32,7 +32,8 @@ function getInitActive(searchParams: ReadonlyURLSearchParams | null) {
   if (!searchParams) return null;
 
   if (searchParams.has("activate")) return "activate";
-  if (searchParams.has("facebook_sso")) return "signInFacebook";
+  // if (searchParams.has("facebook_sso")) return "signInFacebook";
+  // if (searchParams.has("facebook")) return "signInFacebook";
   if (searchParams.has("set_password")) return "setPassword";
 
   return null;

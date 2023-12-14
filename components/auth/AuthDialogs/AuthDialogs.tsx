@@ -13,7 +13,7 @@ export default function AuthDialogs({
       <Dialog.SelectProvider />
       <Dialog.SetPassword />
       <Dialog.SignIn />
-      <Dialog.SignInFacebook />
+      {/* <Dialog.SignInFacebook /> */}
       <Dialog.SignUp />
       <Dialog.StatusPending />
       <Dialog.Activate />
