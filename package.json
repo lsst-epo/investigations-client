@@ -13,7 +13,7 @@
     "static": "npm-run-all static:*",
     "static:build": "next build --debug",
     "static:export": "next export",
-    "start": "next start -p 8080",
+    "start": "next start -p 3000",
     "bs": "next build && next start -p 3000",
     "prepare": "husky install",
     "precommit": "lint-staged",
