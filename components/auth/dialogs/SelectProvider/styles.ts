@@ -4,22 +4,28 @@ import AuthButtons from "@/components/auth/buttons";
 
 export const InnerModal = styled.div`
   display: flex;
-  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
   margin-top: 50px;
+`;
+
+export const WidthConstrainer = styled.div`
+  max-width: 400px;
+  width: 100%;
 `;
 
 export const GoogleSSOButton = styled(AuthButtons.GoogleSSO)`
   margin-top: 10px;
 `;
 
-export const FacebookSSOButton = styled(AuthButtons.FacebookSSO)`
-  margin-top: 10px;
+// export const FacebookSSOButton = styled(AuthButtons.FacebookSSO)`
+//   margin-top: 10px;
 
-`;
+// `;
 
 export const EmailButton = styled(Button)`
+  width: 100%;
   margin-top: 10px;
-
 `;
 
 export const SignInButton = styled.button`
