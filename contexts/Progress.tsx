@@ -26,20 +26,41 @@ const getAnsweredBySection = (
   });
 };
 
-const getDisabledByPage = (
-  totalPages: number,
-  questionsByPage: Array<Array<StoredQuestion>>,
-  answeredByPage: Array<boolean>
-) => {
+const getDisabledByPage = ({
+  totalPages,
+  currentPage,
+  questionsByPage,
+  answeredByPage,
+}: {
+  totalPages: number;
+  currentPage: number;
+  questionsByPage: Array<Array<StoredQuestion>>;
+  answeredByPage: Array<boolean>;
+}) => {
   const disabledByPage = [];
+  /** the last page that has all questions answered */
+  const lastPageAnsweredIndex = answeredByPage.findLastIndex(
+    (value, i) => questionsByPage[i].length > 0 && value
+  );
 
   for (let pageIndex = 0; pageIndex < totalPages; pageIndex++) {
     const isAnswered = answeredByPage[pageIndex];
     const hasQuestions = questionsByPage[pageIndex].length > 0;
 
-    // First page should never be disabled
-    if (pageIndex === 0) {
-      // console.log(pageIndex + 1, "First page should never be disabled");
+    /**
+     * Case: User should be able to visit all pages before the current page
+     */
+    if (pageIndex <= currentPage - 1) {
+      // console.log(pageIndex + 1, "everything up to the current page should be enabled");
+      disabledByPage.push(false);
+      continue;
+    }
+
+    /**
+     * Case: User should be able to visit all pages up to the last page they have answered
+     */
+    if (pageIndex < lastPageAnsweredIndex) {
+      // console.log(pageIndex + 1, "everything up to the current page should be enabled");
       disabledByPage.push(false);
       continue;
     }
@@ -52,14 +73,18 @@ const getDisabledByPage = (
     const previousPageHasQuestions = questionsByPage[pageIndex - 1].length > 0;
     const previousPageisAnswered = answeredByPage[pageIndex - 1];
 
-    // Enable if all questions are answered
+    /**
+     * Case: User should be able to visit if page is complete
+     */
     if (hasQuestions && isAnswered) {
       // console.log(pageIndex + 1, "Enable if all questions are answered");
       disabledByPage.push(false);
       continue;
     }
 
-    // Disable if preceding page has unanswered questions
+    /**
+     * Case: User should not be able to visit if previous page is incomplete
+     */
     if (previousPageHasQuestions && !previousPageisAnswered) {
       // console.log(
       //   pageIndex + 1,
@@ -69,15 +94,15 @@ const getDisabledByPage = (
       continue;
     }
 
-    // Enable if is content-only page and previous page has unanswered questions
-    if (!hasQuestions && previousPageHasQuestions && !previousPageisAnswered) {
-      // console.log(
-      //   pageIndex + 1,
-      //   "Enable if is content-only page and previous page has unanswered questions"
-      // );
-      disabledByPage.push(true);
-      continue;
-    }
+    // // Enable if is content-only page and previous page has unanswered questions
+    // if (!hasQuestions && previousPageHasQuestions && !previousPageisAnswered) {
+    //   // console.log(
+    //   //   pageIndex + 1,
+    //   //   "Enable if is content-only page and previous page has unanswered questions"
+    //   // );
+    //   disabledByPage.push(true);
+    //   continue;
+    // }
 
     // Enable if is content-only page and no previous page is disabled
     if (!hasQuestions && !somePreviousPageIsDisabled) {
@@ -149,11 +174,12 @@ const ProgressProvider: FunctionComponent<ProgressProviderProps> = ({
     currentPageNumber,
     answeredBySection,
     answeredByPage,
-    disabledByPage: getDisabledByPage(
+    disabledByPage: getDisabledByPage({
       totalPages,
-      questions.byPage,
-      answeredByPage
-    ),
+      currentPage: currentPageNumber,
+      questionsByPage: questions.byPage,
+      answeredByPage,
+    }),
   };
 
   return (

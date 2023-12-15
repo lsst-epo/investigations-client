@@ -3,6 +3,8 @@ import Button from "@rubin-epo/epo-react-lib/Button";
 
 export const Header = styled.header`
   display: flex;
+  flex-direction: column;
+  width: 100%;
   position: sticky;
   top: 0;
   transform: none;
@@ -38,10 +40,33 @@ export const MenuToggle = styled(Button)`
   }
 `;
 
-export const FullWidthCol = styled.div`
+export const TocToggle = styled.button`
+  color: var(--white, #fff);
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  align-items: center;
+  gap: 1ch;
+  font-size: 80%;
+  padding-inline: 1em;
+
+  &:not(:disabled):not([aria-disabled="true"]):hover,
+  &:not(:disabled):not([aria-disabled="true"]):focus,
+  &:not(:disabled):not([aria-disabled="true"]):focus-visible,
+  &:not(:disabled):not([aria-disabled="true"]).focus-visible {
+    text-decoration: underline;
+  }
+`;
+
+export const PageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
+export const PageNumber = styled.span`
+  color: var(--neutral95, #1f2121);
+  font-size: 80%;
+  position: absolute;
 `;
 
 export const TopRow = styled.div`

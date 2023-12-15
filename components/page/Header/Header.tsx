@@ -1,74 +1,86 @@
 "use client";
 
-import { FunctionComponent, useState, useRef } from "react";
-import Button from "@rubin-epo/epo-react-lib/Button";
-import TableOfContents from "../TableOfContents";
-import Menu from "../Menu";
-import HeaderProgress from "@/components/page/HeaderProgress";
+import { FunctionComponent, useState, useRef, SetStateAction } from "react";
+import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
+import { useTranslation } from "react-i18next";
 import useNavHider from "@/hooks/useNavHider";
 import usePages from "@/contexts/Pages";
-import * as Styled from "./styles";
+import HeaderProgress from "@/components/page/HeaderProgress";
+import Menu from "@/components/page/Menu";
+import TableOfContents from "@/components/page/TableOfContents";
+import useProgress from "@/contexts/Progress";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import * as Styled from "./styles";
 
 const Header: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
 }> = ({ user }) => {
+const Header: FunctionComponent = () => {
+  const { t } = useTranslation();
   const { sections } = usePages();
+  const { currentPageNumber } = useProgress();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [mainMenuIsOpen, setMainMenuIsOpen] = useState(false);
   const [tocIsOpen, setTocIsOpen] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const tocButtonRef = useRef<HTMLButtonElement>(null);
 
   useNavHider(prevScrollPos, setPrevScrollPos, visible, setVisible);
 
-  const handleClose = () => {
-    buttonRef.current && buttonRef.current.focus();
+  const handleClose = (
+    element: HTMLButtonElement | null,
+    setState: (value: SetStateAction<boolean>) => void
+  ) => {
+    element && element.focus();
 
-    return setMainMenuIsOpen(false);
+    return setState(false);
   };
 
   return (
-    <Styled.Header aria-hidden={!visible && !mainMenuIsOpen && !tocIsOpen}>
-      <Styled.FullWidthCol>
+    <>
+      <Styled.Header aria-hidden={!visible && !mainMenuIsOpen && !tocIsOpen}>
         <Styled.TopRow>
           <Styled.MenuToggle
-            ref={buttonRef}
+            ref={menuButtonRef}
             aria-controls="mainMenu"
             aria-haspopup="menu"
             icon="Hamburger"
             iconSize={20}
             onClick={() => setMainMenuIsOpen(true)}
-            aria-label="Toggle Main Menu"
+            aria-label={t("translation:menu.toggle")}
           />
-          <Button
+          <Styled.TocToggle
+            ref={tocButtonRef}
             aria-controls="tableOfContents"
-            aria-haspopup="menu"
-            icon="Doc"
-            iconSize={20}
+            aria-haspopup="dialog"
             onClick={() => setTocIsOpen(true)}
           >
-            <div>Table of Contents</div>
-          </Button>
+            {t("translation:menu.table_of_contents")}
+            <Styled.PageContainer>
+              <IconComposer icon="DocInverted" />
+              <Styled.PageNumber>{currentPageNumber}</Styled.PageNumber>
+            </Styled.PageContainer>
+          </Styled.TocToggle>
         </Styled.TopRow>
         {!!sections.length && (
           <Styled.BottomRow>
             <HeaderProgress />
           </Styled.BottomRow>
         )}
-      </Styled.FullWidthCol>
+      </Styled.Header>
       <Menu
-        isOpen={mainMenuIsOpen}
-        onCloseCallback={() => handleClose()}
         isLoggedIn={!!user}
+        isOpen={mainMenuIsOpen}
+        onCloseCallback={() =>
+          handleClose(menuButtonRef.current, setMainMenuIsOpen)
+        }
       />
       <TableOfContents
-        id="tableOfContents"
-        title="Table of Contents"
         isOpen={tocIsOpen}
-        onCloseCallback={() => setTocIsOpen(false)}
+        onCloseCallback={() => handleClose(tocButtonRef.current, setTocIsOpen)}
       />
-    </Styled.Header>
+    </>
   );
 };
 

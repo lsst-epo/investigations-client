@@ -5,10 +5,11 @@ import {
   PropsWithChildren,
   useContext,
 } from "react";
+import { useTranslation } from "react-i18next";
 
 export interface Page {
   contentBlocks: Array<any>;
-  hasSavePoints?: boolean;
+  hasSavePoint?: boolean;
   id: string;
   title: string;
   uri: string;
@@ -44,7 +45,9 @@ const VALID_PAGE_TYPES = [
   "investigations_investigationSectionBreakChild_Entry",
 ];
 
-const buildProgressSections = (pages: Array<Page>): Array<Section> => {
+const useSections = (pages: Array<Page>): Array<Section> => {
+  const { t } = useTranslation();
+
   if (!pages || !pages?.length) return [];
   // create empty arrays to fill with sections based on save points
   const sectionBreaks = pages.filter(
@@ -79,7 +82,7 @@ const buildProgressSections = (pages: Array<Page>): Array<Section> => {
     // create final section object
     .map((section, index) => {
       return {
-        name: `Section ${index + 1}`,
+        name: t("table_of_contents.sections", { number: index + 1 }),
         order: index + 1,
         pages: section.filter(
           (num?: number): num is number => typeof num === "number"
@@ -95,7 +98,7 @@ const PagesProvider: FunctionComponent<
   const validPages = pages.filter((page) =>
     VALID_PAGE_TYPES.includes(page.__typename)
   );
-  const sections = buildProgressSections(validPages);
+  const sections = useSections(validPages);
 
   return (
     <PagesContext.Provider

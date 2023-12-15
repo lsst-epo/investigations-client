@@ -1,3 +1,0 @@
-export const MENU_SLIDE_TIME = 400;
-export const MENU_SLIDE_DELAY = 200;
-export const MENU_TRANSITION_TIME: number = MENU_SLIDE_TIME + MENU_SLIDE_DELAY;

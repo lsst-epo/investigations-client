@@ -2,11 +2,18 @@
   "page-not-found-title": "Page not found",
   "page-not-found-text": "The page you're looking for was not found.",
   "menu": {
+    "toggle": "Toggle main menu",
     "main": "Main menu",
     "main_cta": "Settings and more",
     "settings": "Settings",
     "quick_access": "Quick access",
-    "help": "Help"
+    "help": "Help",
+    "table_of_contents": "Table of contents"
+  },
+  "table_of_contents": {
+    "pages": "Pages visited",
+    "questions": "Questions answered",
+    "sections": "Section {{number}}"
   },
   "language": {
     "locales": {
