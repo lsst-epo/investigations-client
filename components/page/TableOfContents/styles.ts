@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { colorCycle } from "@/styles/mixins/appearance";
+import { token } from "@rubin-epo/epo-react-lib/styles";
 
 const colors = [
   "#019305",
@@ -11,8 +12,21 @@ const colors = [
 ];
 
 export const TableOfContents = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white, #fff);
+  overflow-y: auto;
+  padding: var(--PADDING_SMALL, 20px);
+  height: 100%;
+  width: 100vw;
+  max-width: 100%;
+
   > * + * {
     margin-block-start: var(--PADDING_MEDIUM, 40px);
+  }
+
+  @media only screen and (min-width: ${token("BREAK_MOBILE")}) {
+    width: fit-content;
   }
 `;
 export const ProgressContainer = styled.div`
@@ -20,8 +34,6 @@ export const ProgressContainer = styled.div`
   flex-direction: column;
   gap: calc(var(--PADDING_SMALL, 20px) / 2);
 `;
-export const ProgressLabel = styled.span``;
-export const Navigation = styled.nav``;
 export const SectionList = styled.ol`
   --section-item-size: 2rem;
   --section-accent-spacing: 2px;
@@ -60,8 +72,7 @@ export const PageLink = styled(Link)`
   align-items: center;
   width: 100%;
   text-decoration: none;
-  overflow: hidden;
-  white-space: nowrap;
+  padding-inline-end: 1ch;
 
   &[aria-disabled="true"] {
     opacity: 0.6;
@@ -83,9 +94,13 @@ export const PageLink = styled(Link)`
   }
 `;
 
-export const PageNumber = styled.div<{ $visited: boolean }>`
-  --page-number-background: ${({ $visited }) =>
-    $visited ? "var(--section-accent-color)" : "transparent"};
+export const LinkText = styled.span`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+
+export const PageNumber = styled.div`
   outline: 1px solid var(--page-number-outline);
   outline-offset: -1px;
   display: flex;
@@ -100,7 +115,7 @@ export const PageNumber = styled.div<{ $visited: boolean }>`
   z-index: 1;
 
   &::before {
-    background-color: var(--page-number-background);
+    background-color: var(--page-number-background, transparent);
     opacity: 30%;
     content: "";
     width: 100%;
@@ -110,16 +125,25 @@ export const PageNumber = styled.div<{ $visited: boolean }>`
   }
 `;
 
-export const CheckpointIcon = styled.div<{ $checkpoint?: boolean }>`
-  --icon-background: ${({ $checkpoint = false }) =>
-    $checkpoint ? "var(--turquoise10, #d9f7f6)" : "#FFE266"};
+export const CheckpointIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: calc(var(--section-item-size) / 2);
   height: calc(var(--section-item-size) / 2);
-  background-color: var(--icon-background);
+  background-color: var(--icon-background, #ffe266);
   border-radius: 50%;
   border: 1px solid var(--neutral60, #6a6e6e);
   overflow: hidden;
+`;
+
+export const CloseButton = styled.button`
+  aspect-ratio: 1;
+  margin-left: auto;
+  height: 1.5em;
+
+  &:not(:disabled):focus,
+  &:not(:disabled):hover {
+    outline: 2px solid var(--black, #000);
+  }
 `;

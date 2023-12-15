@@ -1,47 +1,30 @@
-import { FunctionComponent, useContext } from "react";
-import { IconComposer, ProgressBar } from "@rubin-epo/epo-react-lib";
+import { FunctionComponent, useContext, useRef } from "react";
+import { Trans } from "react-i18next";
+import Slideout from "@rubin-epo/epo-react-lib/Slideout";
+import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
+import ProgressBar from "@rubin-epo/epo-react-lib/ProgressBar";
+import { useFocusTrap } from "@/hooks";
 import useProgress from "@/contexts/Progress";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import HeaderProgress from "@/components/page/HeaderProgress";
-import SlideOutMenu from "./SlideOutMenu";
 import * as Styled from "./styles";
 import usePages from "@/contexts/Pages";
 import useQuestions from "@/contexts/Questions";
 
-// interface PageNavigation {
-//   title: string;
-//   pageNumber: number;
-//   url: string;
-//   visited: boolean;
-//   checkpoint?: boolean;
-//   final?: boolean;
-//   disabled: boolean;
-// }
-
-// interface InvestigationSection {
-//   title: string;
-//   pages: PageNavigation[];
-// }
-
 interface TableOfContentsProps {
-  id: string;
-  title: string;
   isOpen: boolean;
   onOpenCallback?: () => void;
   onCloseCallback?: () => void;
-  questions: number;
-  answered: number;
   labelledById?: string;
 }
 
 const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
-  id,
-  title,
   isOpen,
   onOpenCallback,
   onCloseCallback,
   labelledById,
 }) => {
+  const contentsRef = useRef(null);
   const pagesVisitedId = "pagesVisitedLabel";
   const questionsAnsweredId = "questionsAnsweredLabel";
   const { sections, pages, totalPages } = usePages();
@@ -49,19 +32,36 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
   const { currentPageNumber, disabledByPage } = useProgress();
   const { answers } = useContext(StoredAnswersContext);
 
+  useFocusTrap(contentsRef, isOpen);
+
+  const callbackRef = (node: HTMLButtonElement) => {
+    if (node) {
+      setTimeout(() => {
+        node.focus();
+      });
+    }
+  };
+
   return (
-    <SlideOutMenu
-      id={id}
-      title={title}
-      isOpen={isOpen}
-      onOpenCallback={onOpenCallback}
-      onCloseCallback={onCloseCallback}
+    <Slideout
+      slideFrom="right"
+      {...{ isOpen, onOpenCallback, onCloseCallback }}
     >
-      <Styled.TableOfContents>
+      <Styled.TableOfContents
+        ref={contentsRef}
+        role="dialog"
+        aria-labelledby={labelledById}
+      >
+        <Styled.CloseButton
+          ref={callbackRef}
+          onClick={() => onCloseCallback && onCloseCallback()}
+        >
+          <IconComposer icon="Close" />
+        </Styled.CloseButton>
         <Styled.ProgressContainer>
-          <Styled.ProgressLabel id={pagesVisitedId}>
-            Pages visited
-          </Styled.ProgressLabel>
+          <span id={pagesVisitedId}>
+            <Trans>translation:table_of_contents.pages</Trans>
+          </span>
           <HeaderProgress
             labelledById={pagesVisitedId}
             backgroundColor="transparent"
@@ -69,9 +69,9 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
           />
         </Styled.ProgressContainer>
         <Styled.ProgressContainer>
-          <Styled.ProgressLabel id={questionsAnsweredId}>
-            Questions answered
-          </Styled.ProgressLabel>
+          <span id={questionsAnsweredId}>
+            <Trans>translation:table_of_contents.questions</Trans>
+          </span>
           <ProgressBar
             max={questions.byAll.length}
             value={Object.keys(answers).length}
@@ -80,7 +80,7 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
           />
         </Styled.ProgressContainer>
         {sections && pages && (
-          <Styled.Navigation aria-labelledby={labelledById}>
+          <nav>
             <Styled.SectionList role="list">
               {sections.map(({ name, pages: pageNumbers }) => (
                 <Styled.Section key={name}>
@@ -88,10 +88,13 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
                   <Styled.PageList role="list">
                     {pageNumbers.map((pageNumber) => {
                       const pageIndex = pageNumber - 1;
-                      const { title, uri, hasSavePoint } = pages[pageIndex];
-                      const url = uri ? `/${uri}` : undefined;
+                      const { title, uri } = pages[pageIndex];
+                      const url = `/${uri}`;
                       const isDisabled = disabledByPage[pageIndex];
-                      // console.log(pageNumber, isDisabled);
+                      const isSectionBreak =
+                        pageIndex > 0 && pages[pageIndex - 1].hasSavePoint;
+                      const isLastPage = pageNumber === totalPages;
+
                       return (
                         <Styled.Page key={pageNumber}>
                           <Styled.PageLink
@@ -104,16 +107,24 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
                                 : undefined
                             }
                           >
-                            <Styled.PageNumber $visited={!isDisabled}>
-                              {hasSavePoint || pageNumber === totalPages ? (
+                            <Styled.PageNumber
+                              style={{
+                                "--page-number-background":
+                                  !isDisabled && "var(--section-accent-color)",
+                              }}
+                            >
+                              {isSectionBreak || pageNumber === totalPages ? (
                                 <Styled.CheckpointIcon
-                                  $checkpoint={hasSavePoint}
+                                  role="presentation"
+                                  style={{
+                                    "--icon-background":
+                                      !isLastPage &&
+                                      "var(--turquoise10, #d9f7f6)",
+                                  }}
                                 >
                                   <IconComposer
                                     icon={
-                                      hasSavePoint
-                                        ? "thumbtack"
-                                        : "checkeredFlag"
+                                      isLastPage ? "checkeredFlag" : "thumbtack"
                                     }
                                     size={16}
                                   />
@@ -122,7 +133,7 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
                                 pageNumber
                               )}
                             </Styled.PageNumber>
-                            {title}
+                            <Styled.LinkText>{title}</Styled.LinkText>
                           </Styled.PageLink>
                         </Styled.Page>
                       );
@@ -131,10 +142,10 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
                 </Styled.Section>
               ))}
             </Styled.SectionList>
-          </Styled.Navigation>
+          </nav>
         )}
       </Styled.TableOfContents>
-    </SlideOutMenu>
+    </Slideout>
   );
 };
 
