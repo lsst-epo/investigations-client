@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextRequest } from "next/server";
 
-const REVALIDATE_SECRET_TOKEN = process.env.CRAFT_REVALIDATE_SECRET_TOKEN;
+const REVALIDATE_SECRET_TOKEN = process.env.CRAFT_SECRET_TOKEN;
 
 export async function GET(request: NextRequest) {
   const uri = request.nextUrl.searchParams.get("uri");
