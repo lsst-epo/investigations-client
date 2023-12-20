@@ -19,6 +19,7 @@ export const Fragment = graphql(`
   fragment ColorFilterToolEntry on widgets_colorFilterTool_Entry {
     id
     title
+    displayName
     filterToolActions
     filterColorOptionsLabels: filterColorOptions(label: true)
     filterColorOptionsValues: filterColorOptions(label: true)

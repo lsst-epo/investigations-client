@@ -32,7 +32,7 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
 }) => {
   const { t } = useTranslation();
   const { colorFilterTool } = useFragment(Fragment, data);
-  const { id, title } = colorFilterTool[0];
+  const { id, title, displayName } = colorFilterTool[0];
   const { answers } = useContext(StoredAnswersContext);
 
   const answerId = Object.keys(answers).find((key: string) => {
@@ -48,11 +48,12 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
 
   return (
     <Styled.ColorToolContainer
-      {...{ title, openModal, isOpen }}
+      {...{ openModal, isOpen }}
       style={{ "--widget-container-padding": "var(--color-tool-padding)" }}
       data-modal-open={isOpen}
       bgColor="gray"
       caption={t("widgets.color_filter_tool.read_only_caption", { name })}
+      title={displayName || title}
     >
       <ColorFilterDisplay {...props} data={colorFilterTool[0]} value={value} />
     </Styled.ColorToolContainer>
