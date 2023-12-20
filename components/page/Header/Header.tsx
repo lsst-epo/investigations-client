@@ -15,7 +15,6 @@ import * as Styled from "./styles";
 const Header: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
 }> = ({ user }) => {
-const Header: FunctionComponent = () => {
   const { t } = useTranslation();
   const { sections } = usePages();
   const { currentPageNumber } = useProgress();
