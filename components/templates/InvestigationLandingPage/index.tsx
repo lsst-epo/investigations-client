@@ -60,7 +60,7 @@ const InvestigationLandingPage: FunctionComponent<{
           {user ? (
             <SignedIn
               {...{ status, firstPage, locale }}
-              name={user.fullName}
+              name={user.fullName || user.email}
               signOutRedirect={`/${investigation}`}
             />
           ) : (
