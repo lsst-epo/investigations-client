@@ -30,7 +30,7 @@ jobs:
         --build-arg NEXT_PUBLIC_API_URL=https://int-api-investigations.rubinobs.dev/api \
         --build-arg NEXT_PUBLIC_BASE_URL=https://int-investigations.rubinobs.dev \
         --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=688095955960-t0fpaj4ec3gh5vsr9lhg8govapk2oeo9.apps.googleusercontent.com \
-        --build-arg CRAFT_REVALIDATE_SECRET_TOKEN=1128f3c472c118caa63 \
+        --build-arg CRAFT_SECRET_TOKEN=1128f3c472c118caa63 \
         --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=KPYySxz0TZjIPAtNCdnYUkguZz6y6BU- \
         --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=vPNHdjzu4XwKhiYC0jDrQENzGxb2Ltx3 \
         .
