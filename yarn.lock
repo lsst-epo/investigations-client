@@ -2955,10 +2955,10 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-react-lib@^2.0.13":
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.13.tgz#ab11266819bd22068c9356dd4f1571954c064a28"
-  integrity sha512-D/tHninF/Fm++tH+rQjVO7CW8ACWiFXRY6VJgTnnkrMqwO6UlZvnSvaIbY6TnWqXBU7M6pWNur74FwXMQogsyA==
+"@rubin-epo/epo-react-lib@^2.0.14":
+  version "2.0.14"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.14.tgz#8b16e3c6eccb0f8f577ec7e3b2cfc90d92f554f5"
+  integrity sha512-d/L3poYsNN70uzJGXQcmmfqywMN0Id8xQLAhInPsAT1MKDfbcjgJ6UpnOUITFQElpTf1KkIrIyYsCFyNxmm8SQ==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
     "@headlessui/react" "^1.7.17"
