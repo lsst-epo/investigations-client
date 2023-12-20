@@ -1,39 +1,21 @@
 import styled from "styled-components";
-import { Button } from "@rubin-epo/epo-react-lib";
-import Submit from "@/components/form/Submit";
+import BaseInput from "@rubin-epo/epo-react-lib/Input";
 
-export const InputWrapper = styled.div`
-  margin-top: 20px;
+export const SignUpForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: var(--PADDING_SMALL, 20px);
+  margin-block-start: var(--PADDING_SMALL, 20px);
 `;
 
 export const Label = styled.label`
-  font-weight: 700;
-  line-height: 1.5;
+  font-weight: var(--FONT_WEIGHT_BOLD, 600);
+`;
+
+export const Input = styled(BaseInput)`
+  font-weight: var(--FONT_WEIGHT_NORMAL, 400);
 `;
 
 export const Instructions = styled.div`
-  color: #313333;
-  font-weight: 400;
-  line-height: 1.5;
-  font-size: 14px;
-`;
-
-export const ButtonsWrapper = styled.div`
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-`;
-
-const buttonWidth = `
-  width: calc(50% - 10px);
-`;
-
-export const SubmitButton = styled(Submit)`
-  ${buttonWidth}
-`;
-
-export const CancelButton = styled(Button)`
-  ${buttonWidth}
+  font-weight: var(--FONT_WEIGHT_NORMAL, 400);
 `;
