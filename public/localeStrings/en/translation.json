@@ -54,7 +54,7 @@
     "show_password": "Show password",
     "hide_password": "Hide password",
     "create_password": "Create a password (required)",
-    "create_password_instructions": "Passwords should be at least 8 characters long and should contain a mixture of letters, numbers, and other characters.",
+    "create_password_instructions": "Passwords should be at least 6 characters long and should contain a mixture of letters, numbers, and other characters.",
     "school": "School",
     "preferred_language": "Preferred language",
     "email_subscription": "Email subscription",
@@ -190,7 +190,10 @@
     "success_message_educators": "Your account is now created, but activation is pending. You’ll receive an email with instructions to activate your account and enjoy access to real astronomy data and tools. <strong>Free of charge forever.</strong>",
     "confirm_button": "Got it!",
     "error": "Error!",
-    "error_message": "There was an error signing you up."
+    "error_message": "There was an error signing you up.",
+    "error_username_taken": "Username has already been taken.",
+    "error_email_invalid": "Email is not a valid email address.",
+    "error_password_invalid": "Password does not meet requirements."
   },
   "account": {
     "header": "Account",

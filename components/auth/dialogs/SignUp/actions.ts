@@ -1,9 +1,40 @@
 "use server";
-
-import { setAuthCookies } from "@/components/auth/serverHelpers";
-import { mutateAPI } from "@/lib/fetch";
+import { cookies } from "next/headers";
 import { graphql, useFragment } from "@/gql/public-schema";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
+import { CombinedError } from "@urql/core";
+import { mutateAPI } from "@/lib/fetch";
+import { serverTranslation } from "@/lib/i18n";
+import { setAuthCookies } from "@/components/auth/serverHelpers";
+import { fallbackLng } from "@/lib/i18n/settings";
+
+async function getErrorMessage(error: CombinedError): Promise<string> {
+  const { value: locale = fallbackLng } = cookies().get("NEXT_LOCALE") || {
+    value: fallbackLng,
+  };
+  const { t } = await serverTranslation(locale, "translation");
+  const message = error.message.toLowerCase();
+  const results = {
+    username_taken: t("register.error_username_taken"),
+    email_invalid: t("register.error_email_invalid"),
+    password_invalid: t("register.error_password_invalid"),
+    default: t("register.error_message"),
+  };
+
+  if (message.includes("username") && message.includes("taken")) {
+    return results.username_taken;
+  }
+
+  if (message.includes("email") && message.includes("valid")) {
+    return results.email_invalid;
+  }
+
+  if (message.includes("password")) {
+    return results.password_invalid;
+  }
+
+  return results.default;
+}
 
 function getVariables(formData: FormData) {
   const formDataObj = Object.fromEntries(formData);
@@ -14,7 +45,7 @@ function getVariables(formData: FormData) {
   const fullName =
     firstName && lastName
       ? `${firstName as string} ${lastName as string}`
-      : undefined;
+      : null;
 
   return {
     email: email as string,
@@ -54,7 +85,8 @@ export async function registerEducator(formData: FormData) {
     setAuthCookies(authData);
     return data;
   } else if (error) {
-    throw new Error(error.message);
+    const message = await getErrorMessage(error);
+    throw new Error(message);
   }
 }
 
@@ -86,6 +118,7 @@ export async function registerStudent(formData: FormData) {
     setAuthCookies(authData);
     return data;
   } else if (error) {
-    throw new Error(error.message);
+    const message = await getErrorMessage(error);
+    throw new Error(message);
   }
 }

@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { BasicModal, Input } from "@rubin-epo/epo-react-lib";
+import BasicModal from "@rubin-epo/epo-react-lib/BasicModal";
+import FormButtons from "@rubin-epo/epo-react-lib/FormButtons";
+import Button from "@rubin-epo/epo-react-lib/Button";
+import Submit from "@/components/form/Submit";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { registerEducator, registerStudent } from "./actions";
 import { useTranslation } from "react-i18next";
@@ -11,17 +14,14 @@ export default function SignUp() {
   const { active, pendingGroup, openModal, closeModal } =
     useAuthDialogManager();
 
-  const [status, setStatus] = useState<"error" | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const { t } = useTranslation();
 
   function getTitle() {
-    switch (status) {
-      case "error":
-        return t("register.error");
-      default:
-        return t("register.header", { context: pendingGroup });
-    }
+    if (error !== null) return t("register.error");
+
+    return t("register.header", { context: pendingGroup });
   }
 
   return (
@@ -30,7 +30,7 @@ export default function SignUp() {
       open={active === "signUp"}
       onClose={closeModal}
     >
-      <form
+      <Styled.SignUpForm
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         action={async (formData: FormData) => {
@@ -46,83 +46,75 @@ export default function SignUp() {
                 openModal("statusPending");
               }
             }
-          } catch (error) {
-            setStatus("error");
-          }
 
-          setStatus(null);
+            setError(null);
+          } catch (error) {
+            setError((error as Error).message);
+          }
         }}
       >
-        <Styled.InputWrapper>
-          <Styled.Label htmlFor="signUpEmail">
-            {t("form.email_required")}
-          </Styled.Label>
-          <Input
+        <Styled.Label>
+          {t("form.email_required")}
+          <Styled.Input
             name="email"
             id="signUpEmail"
             type="email"
             autoComplete="email"
             required
           />
-        </Styled.InputWrapper>
-        <Styled.InputWrapper>
-          <Styled.Label htmlFor="registerFirstName">
-            {t("form.first_name_optional")}
-          </Styled.Label>
-          <Input
+        </Styled.Label>
+        <Styled.Label>
+          {t("form.first_name_optional")}
+          <Styled.Input
             name="firstName"
             id="registerFirstName"
             type="text"
             autoComplete="given-name"
           />
-        </Styled.InputWrapper>
-        <Styled.InputWrapper>
-          <Styled.Label htmlFor="registerLastName">
-            {t("form.last_name_optional")}
-          </Styled.Label>
-          <Input
+        </Styled.Label>
+        <Styled.Label>
+          {t("form.last_name_optional")}
+          <Styled.Input
             name="lastName"
             id="registerLastName"
             type="text"
             autoComplete="family-name"
           />
-        </Styled.InputWrapper>
-        <Styled.InputWrapper>
-          <Styled.Label htmlFor="signUpPassword">
-            {t("form.password_required")}
-            <Styled.Instructions>
-              {t("form.create_password_instructions")}
-            </Styled.Instructions>
-          </Styled.Label>
-          <Input
+        </Styled.Label>
+        <Styled.Label>
+          {t("form.password_required")}
+          <Styled.Instructions>
+            {t("form.create_password_instructions")}
+          </Styled.Instructions>
+          <Styled.Input
             name="password"
             id="signUpPassword"
             type="password"
             autoComplete="current-password"
+            minLength={6}
             required
           />
-        </Styled.InputWrapper>
-        <Styled.ButtonsWrapper>
-          <Styled.SubmitButton>
+        </Styled.Label>
+        <FormButtons>
+          <Submit>
             {(pending) =>
               t(pending ? "register.submit_pending" : "register.submit")
             }
-          </Styled.SubmitButton>
-          <Styled.CancelButton
+          </Submit>
+          <Button
+            id="signUpButton"
             type="button"
             styleAs="secondary"
             onClick={() => {
-              setStatus(null);
+              setError(null);
               closeModal();
             }}
           >
             {t("form.cancel")}
-          </Styled.CancelButton>
-        </Styled.ButtonsWrapper>
-        <output>
-          {status === "error" && <p>{t("register.error_message")}</p>}
-        </output>
-      </form>
+          </Button>
+        </FormButtons>
+        <output>{error}</output>
+      </Styled.SignUpForm>
     </BasicModal>
   );
 }

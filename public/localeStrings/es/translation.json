@@ -45,7 +45,7 @@
     "show_password": "Mostrar contraseña",
     "hide_password": "Ocultar contraseña",
     "create_password": "Crear una contraseña (requerido)",
-    "create_password_instructions": "Las contraseñas deben tener como mínimo 8 caracteres y deben tener una combinación de letras, números y símbolos.",
+    "create_password_instructions": "Las contraseñas deben tener como mínimo 6 caracteres y deben tener una combinación de letras, números y símbolos.",
     "school": "Escuela",
     "preferred_language": "Idioma preferido",
     "email_subscription": "Suscripción al correo electrónico",
