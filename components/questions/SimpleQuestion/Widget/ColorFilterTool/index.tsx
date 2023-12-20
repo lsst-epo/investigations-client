@@ -31,13 +31,14 @@ const ColorFilterToolQuestion: FunctionComponent<
   ColorFilterToolQuestionProps
 > = ({ data, onChangeCallback, value, isOpen, openModal, ...props }) => {
   const { colorFilterTool } = useFragment(Fragment, data);
-  const { id, title } = colorFilterTool[0];
+  const { id, title, displayName } = colorFilterTool[0];
 
   return (
     <Styled.ColorToolContainer
       data-modal-open={isOpen}
       style={{ "--widget-container-padding": "var(--color-tool-padding)" }}
-      {...{ title, openModal, isOpen }}
+      title={displayName || title}
+      {...{ openModal, isOpen }}
     >
       <ColorFilterTool
         {...props}

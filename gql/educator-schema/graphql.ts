@@ -1328,6 +1328,7 @@ export type EntryCriteriaInput = {
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   /** Narrows the query results to only elements that are descendants of another element in its structure provided by its ID. */
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Whether to only return entries that the user has permission to edit. */
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the entries’ expiry dates. */
@@ -1549,6 +1550,7 @@ export type EntryInterfaceAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1616,6 +1618,7 @@ export type EntryInterfaceChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1683,6 +1686,7 @@ export type EntryInterfaceDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1750,6 +1754,7 @@ export type EntryInterfaceLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1817,6 +1822,7 @@ export type EntryInterfaceNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1884,6 +1890,7 @@ export type EntryInterfaceParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1951,6 +1958,7 @@ export type EntryInterfacePrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2716,6 +2724,7 @@ export type QueryEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2782,6 +2791,7 @@ export type QueryEntryArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2848,6 +2858,7 @@ export type QueryEntryCountArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2982,6 +2993,7 @@ export type QueryHomepageEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3046,6 +3058,7 @@ export type QueryInvestigationsEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3110,6 +3123,7 @@ export type QueryPagesEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3174,6 +3188,7 @@ export type QueryQuestionsEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3238,6 +3253,7 @@ export type QueryReferenceModalsEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3302,6 +3318,7 @@ export type QueryWidgetsEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4377,6 +4394,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4704,6 +4722,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4826,6 +4845,7 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5567,6 +5587,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5805,6 +5826,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5871,6 +5893,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5937,6 +5960,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6038,6 +6062,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6104,6 +6129,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6170,6 +6196,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6236,6 +6263,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6473,6 +6501,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6539,6 +6568,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6640,6 +6670,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6706,6 +6737,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6772,6 +6804,7 @@ export type Investigations_Default_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6838,6 +6871,7 @@ export type Investigations_Default_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6904,6 +6938,7 @@ export type Investigations_Default_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7086,6 +7121,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7152,6 +7188,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7218,6 +7255,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7306,6 +7344,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7372,6 +7411,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7438,6 +7478,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7504,6 +7545,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7684,6 +7726,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7750,6 +7793,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7816,6 +7860,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7882,6 +7927,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7948,6 +7994,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8014,6 +8061,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8080,6 +8128,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8679,6 +8728,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8745,6 +8795,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8846,6 +8897,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8912,6 +8964,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8978,6 +9031,7 @@ export type Pages_Pages_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9049,6 +9103,7 @@ export type Pages_Pages_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9115,6 +9170,7 @@ export type Pages_Pages_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9296,6 +9352,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9362,6 +9419,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9428,6 +9486,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9494,6 +9553,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9560,6 +9620,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9626,6 +9687,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9692,6 +9754,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9816,6 +9879,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10003,6 +10067,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10108,6 +10173,7 @@ export type Questions_Default_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10174,6 +10240,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10240,6 +10307,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10341,6 +10409,7 @@ export type Questions_Default_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10407,6 +10476,7 @@ export type Questions_Default_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10473,6 +10543,7 @@ export type Questions_Default_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10632,6 +10703,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11164,6 +11236,7 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11230,6 +11303,7 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11296,6 +11370,7 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11362,6 +11437,7 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11428,6 +11504,7 @@ export type ReferenceModals_Default_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11494,6 +11571,7 @@ export type ReferenceModals_Default_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11560,6 +11638,7 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12229,6 +12308,7 @@ export type Widgets_ColorFilterTool_Entry = ElementInterface & EntryInterface & 
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** The entry’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
   descendants: Array<EntryInterface>;
+  displayName?: Maybe<Scalars['String']['output']>;
   /** The draft ID (from the `drafts` table). */
   draftId?: Maybe<Scalars['Int']['output']>;
   /** The name of the draft. */
@@ -12338,6 +12418,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12404,6 +12485,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12505,6 +12587,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12581,6 +12664,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12647,6 +12731,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12713,6 +12798,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12779,6 +12865,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   descendantDist?: InputMaybe<Scalars['Int']['input']>;
   descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
