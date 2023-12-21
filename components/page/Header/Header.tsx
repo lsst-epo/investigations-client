@@ -78,6 +78,7 @@ const Header: FunctionComponent<{
       <TableOfContents
         isOpen={tocIsOpen}
         onCloseCallback={() => handleClose(tocButtonRef.current, setTocIsOpen)}
+        enableAll={user?.group === "educators"}
       />
     </>
   );
