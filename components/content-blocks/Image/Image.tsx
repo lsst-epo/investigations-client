@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { useTranslation } from "react-i18next";
 import withModal from "@/components/hoc/withModal/withModal";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { imageShaper } from "@/helpers";
@@ -45,7 +44,6 @@ interface ImageContentBlockProps extends BaseContentBlockProps {
 const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
   props
 ) => {
-  const { t } = useTranslation();
   const { data, site, isOpen, openModal } = props;
   const {
     layout,
@@ -58,16 +56,7 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
 
   if (!image) return null;
 
-  const { width, caption = fallbackCaption, credit } = image;
-
-  const figCaption = `${caption !== null ? caption : ""}${
-    credit
-      ? ` ${t("translation:image.credit", {
-          credit,
-          interpolation: { escapeValue: false },
-        })}`
-      : ""
-  }`;
+  const { width, caption } = image;
 
   return (
     <Styled.Container
@@ -87,7 +76,7 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
         />
       )}
       <Styled.Figure
-        caption={figCaption}
+        caption={caption || fallbackCaption || undefined}
         $layout={finalLayout}
         $darkMode={isOpen}
         withBackground={!isOpen}
