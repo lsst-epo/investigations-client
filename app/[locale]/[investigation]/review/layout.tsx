@@ -23,7 +23,7 @@ const ReviewLayout: FunctionComponent<
     <ProgressProvider currentPageId="review">
       <Header {...{ user }} />
       {children}
-      <Pager />
+      <Pager enableAll={user?.group === "educators"} />
     </ProgressProvider>
   );
 };

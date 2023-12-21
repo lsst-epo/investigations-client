@@ -16,6 +16,7 @@ interface TableOfContentsProps {
   onOpenCallback?: () => void;
   onCloseCallback?: () => void;
   labelledById?: string;
+  enableAll?: boolean;
 }
 
 const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
@@ -23,6 +24,7 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
   onOpenCallback,
   onCloseCallback,
   labelledById,
+  enableAll = false,
 }) => {
   const contentsRef = useRef(null);
   const pagesVisitedId = "pagesVisitedLabel";
@@ -90,7 +92,9 @@ const TableOfContents: FunctionComponent<TableOfContentsProps> = ({
                       const pageIndex = pageNumber - 1;
                       const { title, uri } = pages[pageIndex];
                       const url = `/${uri}`;
-                      const isDisabled = disabledByPage[pageIndex];
+                      const isDisabled = enableAll
+                        ? false
+                        : disabledByPage[pageIndex];
                       const isSectionBreak =
                         pageIndex > 0 && pages[pageIndex - 1].hasSavePoint;
                       const isLastPage = pageNumber === totalPages;

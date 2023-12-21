@@ -10,6 +10,7 @@ interface PagerProps {
   leftText?: string;
   rightText?: string;
   className?: string;
+  enableAll?: boolean;
 }
 
 const getPreviousPage = (
@@ -60,10 +61,31 @@ const getNextPage = (
   return `/${pages[pageIndex + 1].uri}`;
 };
 
+const getNextDisabled = ({
+  currentPageAnswered,
+  enableAll,
+  nextPage,
+}: {
+  currentPageAnswered: boolean;
+  enableAll: boolean;
+  nextPage: ReturnType<typeof getNextPage>;
+}): boolean => {
+  if (nextPage) {
+    if (enableAll) {
+      return false;
+    }
+
+    return !(currentPageAnswered === true || currentPageAnswered === undefined);
+  }
+
+  return true;
+};
+
 const Pager: FunctionComponent<PagerProps> = ({
   leftText,
   rightText,
   className,
+  enableAll = false,
 }) => {
   const { t } = useTranslation();
   const { ref } = useResizeObserver({
@@ -95,9 +117,11 @@ const Pager: FunctionComponent<PagerProps> = ({
   const previousPage = getPreviousPage(pages, pageIndex, currentPageId);
   const nextPage = getNextPage(pages, pageIndex, currentPageId);
 
-  const isNextDisabled =
-    !(currentPageAnswered === true || currentPageAnswered === undefined) ||
-    !nextPage;
+  const isNextDisabled = getNextDisabled({
+    nextPage,
+    enableAll,
+    currentPageAnswered,
+  });
   const isPreviousDisabled = !previousPage;
 
   return (

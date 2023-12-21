@@ -72,7 +72,7 @@ const InvestigationPageLayout: (
         {children}
         {reference}
       </Styled.Main>
-      <Pager />
+      <Pager enableAll={user?.group === "educators"} />
     </ProgressProvider>
   );
 };
