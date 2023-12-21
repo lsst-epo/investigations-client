@@ -1,8 +1,6 @@
 import styled, { css } from "styled-components";
-import {
-  Figure as BaseFigure,
-  Image as BaseImage,
-} from "@rubin-epo/epo-react-lib";
+import BaseImage from "@rubin-epo/epo-react-lib/Image";
+import BaseFigure from "@rubin-epo/epo-react-lib/Figure";
 import BaseExpandContract from "@/atomic/ExpandContract/ExpandContract";
 import { BREAK_PHABLET } from "@/styles/globalStyles";
 
