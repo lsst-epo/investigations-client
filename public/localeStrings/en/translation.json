@@ -230,6 +230,7 @@
     "button_confirm": "Got it!"
   },
   "placeholder": {
+    "select": "Select",
     "select_answer": "Select your answer"
   },
   "answers": {
