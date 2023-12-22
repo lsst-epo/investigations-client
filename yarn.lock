@@ -2955,10 +2955,10 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-react-lib@^2.0.14":
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.14.tgz#8b16e3c6eccb0f8f577ec7e3b2cfc90d92f554f5"
-  integrity sha512-d/L3poYsNN70uzJGXQcmmfqywMN0Id8xQLAhInPsAT1MKDfbcjgJ6UpnOUITFQElpTf1KkIrIyYsCFyNxmm8SQ==
+"@rubin-epo/epo-react-lib@^2.0.15":
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.15.tgz#032abfce70894d5ab3dfed094ad3bfde47cb3f1a"
+  integrity sha512-FnGxVS4BdHNx08hO82WY5M8FE7n5R6oZJ8aNrh154F95e2tSIewC7LcWvKJFMATi+dAYxZOLi5HejWNOJYJT8A==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
     "@headlessui/react" "^1.7.17"
@@ -2974,10 +2974,10 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^0.6.9":
-  version "0.6.9"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.6.9.tgz#8a62d1b24786db216d03030c7a4bcf5c898abec1"
-  integrity sha512-lj6OGOuRDk/tGE2kk3EOdQ5588I0p4D7GjZPqjeDrUd+GWYWxmbSxMIOooL6e1F0J8VypWz0sF0jGjeBMyEwyQ==
+"@rubin-epo/epo-widget-lib@^0.6.10":
+  version "0.6.10"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.6.10.tgz#883b50ed84bf10067be95bfb02202335611cf9c2"
+  integrity sha512-q0/IgdHdiagrWCWX/hOKDGhRZcHsdI2whRuPYJw8Nzh5AouzEul5oM4tFZBSuihsHWe76fGDEPT8U/qRK1zouA==
   dependencies:
     "@rubin-epo/epo-react-lib" "^2.0.13"
     context-filter-polyfill "^0.3.6"
