@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { InlineSelectPart } from "..";
 import * as Styled from "./styles";
+import { useTranslation } from "react-i18next";
 
 interface InlineSelectProps extends InlineSelectPart {
   onChangeCallback: (value: string | null, id: string) => void;
@@ -14,14 +15,18 @@ const InlineSelect: FunctionComponent<InlineSelectProps> = ({
   options,
   value,
   id,
-}) => (
-  <Styled.InlineSelect
-    {...{ isDisabled, onChangeCallback, options, value }}
-    onChangeCallback={(value: string | null) =>
-      onChangeCallback && onChangeCallback(value, id)
-    }
-  />
-);
+}) => {
+  const { t } = useTranslation();
+  return (
+    <Styled.InlineSelect
+      {...{ isDisabled, onChangeCallback, options, value }}
+      placeholder={t("translation:placeholder.select")}
+      onChangeCallback={(value: string | null) =>
+        onChangeCallback && onChangeCallback(value, id)
+      }
+    />
+  );
+};
 
 InlineSelect.displayName = "Questions.Inline.Select";
 

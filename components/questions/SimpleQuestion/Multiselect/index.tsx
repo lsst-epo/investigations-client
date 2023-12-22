@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import { Option } from "@/components/shapes/option";
 import * as Styled from "../Select/styles";
 
@@ -19,8 +20,10 @@ const SimpleMultiselect: FunctionComponent<SimpleMultiselectProps> = ({
   options = [],
   labelledById,
 }) => {
+  const { t } = useTranslation();
   return (
     <Styled.Select
+      placeholder={t("translation:placeholder.select")}
       labelledById={labelledById}
       id={id}
       value={value}

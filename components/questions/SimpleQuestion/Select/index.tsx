@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { Option } from "@/components/shapes/option";
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
 
 interface SimpleSelectProps {
@@ -19,8 +20,10 @@ const SimpleSelect: FunctionComponent<SimpleSelectProps> = ({
   options = [],
   labelledById,
 }) => {
+  const { t } = useTranslation();
   return (
     <Styled.Select
+      placeholder={t("translation:placeholder.select")}
       labelledById={labelledById}
       id={id}
       value={value || null}
