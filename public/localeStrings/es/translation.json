@@ -4,7 +4,15 @@
   "menu": {
     "main": "Menú principal",
     "main_cta": "Ajustes y más",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "quick_access": "Acceso rápido",
+    "help": "Ayuda",
+    "table_of_contents": "Índice"
+  },
+  "table_of_contents": {
+    "pages": "Páginas visitadas",
+    "questions": "Preguntas respondidas",
+    "sections": "Sección {{number}}"
   },
   "language": {
     "locales": {
