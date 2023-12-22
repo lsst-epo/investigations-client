@@ -51,7 +51,7 @@
     "email_subscription": "Suscripción al correo electrónico",
     "send": "Enviar",
     "sending": "Enviando…",
-    "submitting": "Enviando...",
+    "submitting": "Enviando…",
     "reset": "Reiniciar",
     "cancel": "Cancelar",
     "error": "Error:",
@@ -200,7 +200,7 @@
     "delete": "Eliminar mi cuenta",
     "delete_pending": "  Enviando…",
     "delete_confirm_header": "¿Eliminar la cuenta?",
-    "delete_confirm_description": "Lamentamos que te vayas, pero siempre serás bienvenido(a) si quieres regresar. Estaremos aquí para ti, compartiendo con todos las investigaciones gratuitas. <0>¿Estás seguro que quieres eliminar tu cuenta?</0>",
+    "delete_confirm_description": "Lamentamos que te vayas, pero siempre serás bienvenido(a) si quieres regresar. Estaremos aquí para ti, compartiendo gratuitamente nuestras investigaciones con todos. <0>¿Estás seguro que quieres eliminar tu cuenta?</0>",
     "delete_success_header": "Tu solicitud para eliminar tu cuenta fue aceptada",
     "delete_success_description": "Hemos recibido tu solicitud. Un administrador eliminará pronto tu cuenta.",
     "delete_confirm_label": "Sí, ¡eliminar!",
@@ -222,9 +222,9 @@
   },
   "answers": {
     "save_form": {
-      "checkpoint": "Punto evaluación",
+      "checkpoint": "Punto de evaluación",
       "label": "Guardar respuestas",
-      "submit": "Guardar su trabajo",
+      "submit": "Guarda tu trabajo",
       "submit_pending": "Guardando…",
       "success": "¡Guardado!",
       "error": "Error",
@@ -241,7 +241,7 @@
       "title": "Revisión"
     },
     "title": "{{investigation}}: Preguntas y Respuestas",
-    "name_label": "Nombre(s) del estudiante",
+    "name_label": "Nombre(s) del (los) estudiante(s)",
     "date": "Fecha",
     "no_selection": "(Sin seleccionar)",
     "no_answer": "(Respuesta no entregada)",
