@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import { InlineMultiselectPart } from "..";
 import * as Styled from "../Select/styles";
 
@@ -14,16 +15,20 @@ const InlineMultiselect: FunctionComponent<InlineSelectProps> = ({
   options,
   value,
   id,
-}) => (
-  <Styled.InlineSelect
-    {...{ isDisabled, options }}
-    onChangeCallback={(value: string[] | null) =>
-      onChangeCallback && onChangeCallback(value, id)
-    }
-    value={value || []}
-    isMultiselect
-  />
-);
+}) => {
+  const { t } = useTranslation();
+  return (
+    <Styled.InlineSelect
+      {...{ isDisabled, options }}
+      placeholder={t("translation:placeholder.select")}
+      onChangeCallback={(value: string[] | null) =>
+        onChangeCallback && onChangeCallback(value, id)
+      }
+      value={value || []}
+      isMultiselect
+    />
+  );
+};
 
 InlineMultiselect.displayName = "Questions.Inline.Multiselect";
 

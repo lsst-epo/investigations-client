@@ -218,6 +218,7 @@
     "button_confirm": "¡Recibido!"
   },
   "placeholder": {
+    "select": "Seleccionar",
     "select_answer": "Seleccione su respuesta"
   },
   "answers": {
