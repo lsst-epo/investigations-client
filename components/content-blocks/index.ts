@@ -3,6 +3,7 @@ export { default as InteractionGroupContainer } from "./InteractionGroupContaine
 export { default as TwoColumnContainer } from "./TwoColumnContainer";
 
 // Blocks
+export { default as Equation } from "./Equation";
 export { default as Image } from "./Image";
 export { default as InvestigationGrid } from "./InvestigationGrid";
 export { default as Modal } from "./Modal";
