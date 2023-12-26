@@ -84,6 +84,7 @@
     "react-uid": "^2.3.2",
     "screenfull": "^6.0.2",
     "styled-components": "^6.1.1",
+    "temml": "^0.10.19",
     "use-resize-observer": "^9.1.0",
     "yarn": "^1.22.17"
   },
