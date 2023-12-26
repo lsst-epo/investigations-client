@@ -4058,7 +4058,7 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType;
 
 export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_barGraphTool_BlockType';
@@ -4445,6 +4445,62 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ContentBlocks_Equation_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_equation_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  latex?: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId?: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContentBlocks_Equation_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
 };
 
 export type ContentBlocks_FilterTool_BlockType = ElementInterface & NeoBlockInterface & {

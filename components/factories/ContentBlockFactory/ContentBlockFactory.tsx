@@ -16,6 +16,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_table_BlockType: Blocks.Table,
   contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
   contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
+  contentBlocks_equation_BlockType: Blocks.Equation,
   referenceContentBlocks_image_BlockType: Blocks.Image,
   referenceContentBlocks_text_BlockType: Blocks.Text,
   referenceContentBlocks_table_BlockType: Blocks.Table,
@@ -38,6 +39,7 @@ const Fragment = graphql(`
     ...ScatterplotToolBlock
     ...ReferenceModalBlock
     ...ColorFilterToolBlock
+    ...EquationBlock
   }
 `);
 
