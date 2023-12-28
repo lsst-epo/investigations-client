@@ -1,6 +1,7 @@
-import { graphql } from "@/gql/public-schema";
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { graphql } from "@/gql/public-schema";
+import { draftMode } from 'next/headers';
+import { notFound } from "next/navigation";
 import {
   getAuthCookies,
   getUserFromJwt,
@@ -57,9 +58,11 @@ const InvestigationPage: (
   props: InvestigationPageProps
 ) => Promise<JSX.Element> = async ({
   params: { locale, investigation, page },
+  searchParams,
 }) => {
   const site = getSite(locale);
-  // // add _es to property names if site is not English
+  const { preview: previewToken } = searchParams;
+  const { isEnabled: isPreview } = draftMode();
   const uri = `${investigation}/${page}`;
 
   const { data } = await queryAPI({
@@ -68,6 +71,7 @@ const InvestigationPage: (
       site: [site],
       uri: [uri],
     },
+    previewToken: isPreview && previewToken,
   });
 
   if (!data) {

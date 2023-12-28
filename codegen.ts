@@ -8,11 +8,11 @@ const config: CodegenConfig = {
     "./gql/public-schema/": {
       schema: process.env.NEXT_PUBLIC_API_URL,
       documents: [
-        "app/**/*.tsx",
+        "app/**/*.{ts,tsx}",
         "components/**/*.{ts,tsx}",
         "!components/student-schema/**/*.{ts,tsx}",
         "!components/educator-schema/**/*.{ts,tsx}",
-        "contexts/**/*.tsx",
+        "contexts/**/*.{ts,tsx}",
         "lib/api/**/*.graphql",
       ],
       preset: "client",

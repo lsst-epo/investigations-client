@@ -35,8 +35,14 @@ export async function queryAPI<
     url,
     exchanges: [fetchExchange],
     fetchOptions: () => {
-      if (!token) return {};
+      const opts = {
+        next: {
+          revalidate: previewToken ? 0 : 60,
+        },
+      };
+      if (!token) return { ...opts };
       return {
+        ...opts,
         headers: {
           ...(token && { authorization: `JWT ${token}` }),
         },
@@ -53,7 +59,6 @@ export async function queryAPI<
         console.warn(result.error.message);
 
         // TODO: refresh token & rerun request if expired token error
-
         if (result.error.networkError) {
           process.exitCode = 1;
         }

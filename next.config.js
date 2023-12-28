@@ -54,7 +54,7 @@ module.exports = {
     return config;
   },
   logging: {
-    level: 'verbose',
+    level: "verbose",
     fetches: {
       fullUrl: true,
     },

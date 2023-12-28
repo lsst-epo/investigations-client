@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { graphql } from "@/gql/public-schema";
+import { draftMode } from 'next/headers';
 import { InvestigationLandingProps } from "./layout";
 import AuthDialogs from "@/components/auth/AuthDialogs";
 import {
@@ -21,8 +22,13 @@ const Query = graphql(`
 
 const InvestigationLanding: (
   props: InvestigationLandingProps
-) => Promise<JSX.Element> = async ({ params: { locale, investigation } }) => {
+) => Promise<JSX.Element> = async ({
+  params: { locale, investigation },
+  searchParams,
+}) => {
   const site = getSite(locale);
+  const { preview: previewToken } = searchParams;
+  const { isEnabled: isPreview } = draftMode();
 
   const { data } = await queryAPI({
     query: Query,
@@ -30,6 +36,7 @@ const InvestigationLanding: (
       site: [site],
       uri: [investigation],
     },
+    previewToken: isPreview && previewToken,
   });
 
   if (data?.entry?.__typename !== "investigations_investigationParent_Entry") {
