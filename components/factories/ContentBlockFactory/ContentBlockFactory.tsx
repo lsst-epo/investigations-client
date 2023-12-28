@@ -46,6 +46,7 @@ const Fragment = graphql(`
 interface ContentBlockFactoryProps {
   data: FragmentType<typeof Fragment>;
   site: string;
+  locale: string;
   pageId?: string;
   isOpen?: boolean;
   hasModal?: boolean;
@@ -58,6 +59,7 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
   pageId,
   isOpen,
   hasModal,
+  locale,
   ...props
 }) => {
   const data = useFragment(Fragment, props.data);
@@ -69,6 +71,7 @@ const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
     <Block
       data={data}
       site={site}
+      locale={locale}
       pageId={pageId}
       isOpen={isOpen}
       hasModal={hasModal}

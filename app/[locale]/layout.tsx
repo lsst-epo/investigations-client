@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import "focus-visible";
-import SourceSansPro from "@/lib/fonts";
+import { SourceSansPro } from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
 import UIDReset from "@/lib/reset";
