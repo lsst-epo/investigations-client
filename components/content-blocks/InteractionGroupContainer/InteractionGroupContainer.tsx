@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/lib/i18n";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 import * as Styled from "./styles";
@@ -22,12 +22,13 @@ const Fragment = graphql(`
   }
 `);
 
-export default function InteractionGroupContainerBlock(props: {
+export default async function InteractionGroupContainerBlock(props: {
   data: FragmentType<typeof Fragment>;
   site: string;
+  locale: string;
   pageId?: string;
 }) {
-  const { t } = useTranslation();
+  const { t } = await useTranslation(props.locale, "translation");
   const { childBlocks } = useFragment(Fragment, props.data);
 
   function renderBlocks(blocks) {

@@ -1,3 +1,4 @@
+"use client";
 import { ptToEm, fluidScale } from "@rubin-epo/epo-react-lib/styles";
 import styled from "styled-components";
 

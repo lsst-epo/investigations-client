@@ -1,4 +1,3 @@
-"use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
@@ -24,10 +23,11 @@ const Fragment = graphql(`
 const InvestigationChildPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
+  locale: string;
   user?: ReturnType<typeof getUserFromJwt>;
   userStatus?: string;
   children?: React.ReactNode;
-}> = ({ site, user, userStatus, ...props }) => {
+}> = ({ site, user, userStatus, locale, ...props }) => {
   const data = useFragment(Fragment, props.data);
 
   if (!data?.title) return null;
@@ -37,7 +37,14 @@ const InvestigationChildPage: FunctionComponent<{
       <Styled.Title>{data.title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>
-          block && <ContentBlockFactory key={i} site={site} data={block} />
+          block && (
+            <ContentBlockFactory
+              key={i}
+              site={site}
+              locale={locale}
+              data={block}
+            />
+          )
       )}
       {data.hasSavePoint && (
         <SaveForm

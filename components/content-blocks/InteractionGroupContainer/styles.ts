@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import { fluidScale, token } from "@rubin-epo/epo-react-lib/styles";
 

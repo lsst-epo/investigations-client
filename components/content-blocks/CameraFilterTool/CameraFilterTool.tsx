@@ -1,3 +1,4 @@
+"use client";
 import { FunctionComponent } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { useTranslation } from "react-i18next";
