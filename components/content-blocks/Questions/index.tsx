@@ -1,3 +1,4 @@
+"use client";
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";

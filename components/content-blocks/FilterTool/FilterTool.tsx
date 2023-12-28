@@ -1,3 +1,4 @@
+"use client";
 import { FunctionComponent, useState } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";

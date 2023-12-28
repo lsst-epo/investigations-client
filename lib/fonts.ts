@@ -1,5 +1,18 @@
 import localFont from "next/font/local";
 
+const LatinModernMath = localFont({
+  src: [
+    {
+      path: "./fonts/latinmodernmath.woff",
+    },
+    {
+      path: "./fonts/latinmodernmath.woff2",
+    },
+  ],
+  variable: "--FONT_STACK_MATH",
+  fallback: ["math"],
+});
+
 const SourceSansPro = localFont({
   src: [
     {
@@ -67,4 +80,4 @@ const SourceSansPro = localFont({
   variable: "--FONT_STACK_BASE",
 });
 
-export default SourceSansPro;
+export { SourceSansPro, LatinModernMath };
