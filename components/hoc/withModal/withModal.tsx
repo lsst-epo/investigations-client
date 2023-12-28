@@ -1,3 +1,4 @@
+"use client";
 import { ComponentType, useState, useRef, FunctionComponent } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { useUID } from "react-uid";

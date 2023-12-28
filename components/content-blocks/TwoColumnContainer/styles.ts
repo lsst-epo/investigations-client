@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import { BREAK_TABLET } from "@/styles/globalStyles";
 

@@ -3,6 +3,7 @@ export default interface BaseContentBlockProps {
   pageId?: string;
   hasModal?: boolean;
   isOpen?: boolean;
+  locale: string;
   openModal?: () => void;
   closeModal?: () => void;
 }

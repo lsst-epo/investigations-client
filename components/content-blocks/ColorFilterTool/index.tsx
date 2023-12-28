@@ -1,3 +1,4 @@
+"use client";
 import { FunctionComponent, useContext } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
