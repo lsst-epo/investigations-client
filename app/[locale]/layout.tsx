@@ -12,6 +12,7 @@ import { AuthDialogManagerProvider } from "@/contexts/AuthDialogManager";
 import I18NextClientProvider from "@/contexts/i18next";
 import { graphql } from "@/gql/public-schema";
 import { Metadata } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import Body from "@/page/Body";
 import { getSite } from "@/helpers";
@@ -23,6 +24,8 @@ export interface RootLayoutParams {
 interface RootLayoutProps {
   params: RootLayoutParams;
 }
+
+const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 
 const GlobalsQuery = graphql(`
   query GlobalsQuery($site: [String]) {
@@ -109,6 +112,14 @@ const RootLayout: (
           </StyledComponentsRegistry>
         </UIDReset>
       </Body>
+      {PLAUSIBLE_DOMAIN && (
+        <Script
+          id="plausible-script"
+          data-domain={PLAUSIBLE_DOMAIN}
+          src="https://plausible.io/js/plausible.js"
+          strategy="afterInteractive"
+        />
+      )}
     </html>
   );
 };

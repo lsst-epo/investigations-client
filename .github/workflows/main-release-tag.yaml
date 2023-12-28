@@ -39,6 +39,7 @@ jobs:
         --build-arg CRAFT_SECRET_TOKEN=1128f3c472c118caa63 \
         --build-arg CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN=KPYySxz0TZjIPAtNCdnYUkguZz6y6BU- \
         --build-arg CRAFT_STUDENT_SCHEMA_SECRET_TOKEN=vPNHdjzu4XwKhiYC0jDrQENzGxb2Ltx3 \
+        --build-arg NEXT_PUBLIC_PLAUSIBLE_DOMAIN=investigations.rubinobservatory.org,rubinobservatory.org,all.epo.sites \
         .
     - name: Configure Docker Auth
       run: gcloud --quiet auth configure-docker
