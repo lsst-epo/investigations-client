@@ -1,4 +1,5 @@
 import { graphql } from "@/gql/public-schema";
+import { draftMode } from 'next/headers';
 import { RootLayoutParams } from "./layout";
 import HomePageTemplate from "@/templates/HomePage";
 import { notFound } from "next/navigation";
@@ -15,7 +16,7 @@ const CRAFT_HOMEPAGE_URI = "__home__";
 
 interface HomePageProps {
   params: RootLayoutParams;
-  previewData: any;
+  searchParams: any;
 }
 
 export const revalidate = 60;
@@ -31,10 +32,11 @@ const Query = graphql(`
 
 const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
   params: { locale },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  previewData,
+  searchParams,
 }) => {
   const site = getSite(locale);
+  const { preview: previewToken } = searchParams;
+  const { isEnabled: isPreview } = draftMode();
 
   const { data } = await queryAPI({
     query: Query,
@@ -42,6 +44,7 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
       site: [site],
       uri: [CRAFT_HOMEPAGE_URI],
     },
+    previewToken: isPreview && previewToken,
   });
 
   const { craftToken } = await getAuthCookies();
