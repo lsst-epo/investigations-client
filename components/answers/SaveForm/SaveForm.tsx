@@ -1,16 +1,18 @@
 "use client";
 
+import "react-toastify/dist/ReactToastify.css";
 import { FunctionComponent, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 import saveEducatorAnswers from "@/components/educator-schema/saveAnswersAction";
 import saveStudentAnswers from "@/components/student-schema/saveAnswersAction";
 import { Answers, InvestigationId } from "@/types/answers";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import Toaster from "@/components/layout/Toaster";
 import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import SaveButton from "./SaveButton";
 import * as Styled from "./styles";
 import AuthDialogs from "@/components/auth/AuthDialogs";
+import GenericToast from "@/components/atomic/Toast";
 
 type FormStatus =
   | "emptyError"
@@ -55,14 +57,50 @@ const SaveForm: FunctionComponent<{
       );
 
       if (result === "refreshError") {
-        setStatus("refreshError");
+        toast((props) => (
+          <GenericToast
+            {...props}
+            data={{
+              title: t("answers.save_form.error"),
+              body: toastText[result],
+            }}
+          />
+        ));
+        // setStatus("refreshError");
       } else if (result === "statusError") {
-        setStatus("statusError");
+        toast((props) => (
+          <GenericToast
+            {...props}
+            data={{
+              title: t("answers.save_form.error"),
+              body: toastText[result],
+            }}
+          />
+        ));
+        // setStatus("statusError");
       } else {
-        setStatus("success");
+        toast((props) => (
+          <GenericToast
+            {...props}
+            data={{
+              title: t("answers.save_form.success"),
+              body: toastText.success,
+            }}
+          />
+        ));
+        // setStatus("success");
       }
     } catch (error) {
-      setStatus("mutationError");
+      toast((props) => (
+        <GenericToast
+          {...props}
+          data={{
+            title: t("answers.save_form.error"),
+            body: toastText.mutationError,
+          }}
+        />
+      ));
+      // setStatus("mutationError");
     }
   };
 
@@ -119,12 +157,12 @@ const SaveForm: FunctionComponent<{
         </Styled.Checkpoint>
         <SaveButton />
       </Styled.Form>
-      <Toaster
+      {/* <Toaster
         forIds={["saveForm"]}
         isVisible={status !== null}
         onCloseCallback={() => resetForm()}
         message={message}
-      ></Toaster>
+      ></Toaster> */}
       <AuthDialogs isAuthenticated={!!user} />
     </>
   );
