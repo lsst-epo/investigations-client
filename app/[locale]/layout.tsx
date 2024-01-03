@@ -1,19 +1,20 @@
-import { PropsWithChildren } from "react";
 import "focus-visible";
-import { SourceSansPro } from "@/lib/fonts";
+import "@/styles/styles.scss";
+import { PropsWithChildren } from "react";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Script from "next/script";
+import { graphql } from "@/gql/public-schema";
+import ToastContainer from "@/lib/toast";
+import SourceSansPro from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
 import UIDReset from "@/lib/reset";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { queryAPI } from "@/lib/fetch";
-import "@/styles/styles.scss";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { AuthDialogManagerProvider } from "@/contexts/AuthDialogManager";
 import I18NextClientProvider from "@/contexts/i18next";
-import { graphql } from "@/gql/public-schema";
-import { Metadata } from "next";
-import Script from "next/script";
-import { notFound } from "next/navigation";
 import Body from "@/page/Body";
 import { getSite } from "@/helpers";
 
@@ -106,6 +107,11 @@ const RootLayout: (
               <GlobalDataProvider data={globalData}>
                 <AuthDialogManagerProvider>
                   {children}
+                  <ToastContainer
+                    autoClose={false}
+                    draggable={false}
+                    position="bottom-center"
+                  />
                 </AuthDialogManagerProvider>
               </GlobalDataProvider>
             </I18NextClientProvider>
