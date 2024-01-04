@@ -39,7 +39,6 @@ export const ToastContainer = styled.div`
 export const ToastIcon = styled.div`
   aspect-ratio: 1;
   background-color: var(--white, #fff);
-  border: 1px solid var(--border-color);
   border-radius: 50%;
   display: flex;
   align-items: center;

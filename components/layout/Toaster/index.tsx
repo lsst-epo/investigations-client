@@ -8,6 +8,9 @@ const Toaster = () => {
     <Styled.Toaster
       position="bottom-center"
       toastOptions={{
+        blank: {
+          icon: <IconComposer size="2em" icon="Info" />,
+        },
         error: {
           duration: 6000,
           icon: <IconComposer size="1em" icon="Close" />,
