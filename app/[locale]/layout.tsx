@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { graphql } from "@/gql/public-schema";
-import ToastContainer from "@/lib/toast";
 import SourceSansPro from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
@@ -107,11 +106,6 @@ const RootLayout: (
               <GlobalDataProvider data={globalData}>
                 <AuthDialogManagerProvider>
                   {children}
-                  <ToastContainer
-                    autoClose={false}
-                    draggable={false}
-                    position="bottom-center"
-                  />
                 </AuthDialogManagerProvider>
               </GlobalDataProvider>
             </I18NextClientProvider>
