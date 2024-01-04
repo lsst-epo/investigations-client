@@ -1,103 +1,62 @@
-import {
-  FunctionComponent,
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+"use client";
+import { ToastBar, toast } from "react-hot-toast";
 import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import * as Styled from "./styles";
 
-interface Message {
-  icon?: string;
-  title: string;
-  text: string;
-  additionalContent?: ReactNode;
-}
-
-interface ToasterProps {
-  forIds: string[];
-  isVisible: boolean;
-  message?: Message;
-  onCloseCallback: () => void;
-}
-
-const Toaster: FunctionComponent<ToasterProps> = ({
-  forIds,
-  isVisible = false,
-  message,
-  onCloseCallback,
-}) => {
-  const [toastVisible, setToastVisible] = useState(false);
-  const timers = useRef<Array<ReturnType<typeof setTimeout>>>([]);
-  const toastDelay = 300;
-  const toastTime = 6000;
-
-  const clearTimers = () => {
-    timers.current.forEach(clearTimeout);
-    timers.current = [];
-  };
-
-  useEffect(() => {
-    if (isVisible) {
-      setToastVisible(true);
-
-      timers.current.push(
-        setTimeout(() => {
-          setToastVisible(false);
-        }, toastTime)
-      );
-      timers.current.push(
-        setTimeout(() => {
-          onCloseCallback && onCloseCallback();
-        }, toastTime + toastDelay * 2)
-      );
-    }
-
-    return () => clearTimers();
-  }, [isVisible, onCloseCallback]);
-
-  const handleCloseToast = () => {
-    if (isVisible) {
-      setToastVisible(false);
-
-      clearTimers();
-
-      setTimeout(() => onCloseCallback && onCloseCallback(), toastDelay);
-    }
-  };
-
-  const { title, icon, text, additionalContent } = message || {};
-
+const Toaster = () => {
   return (
     <Styled.Toaster
-      data-visible={toastVisible}
-      style={{
-        "--toast-time": `${toastTime}ms`,
-        "--toast-delay": `${toastDelay}ms`,
+      position="bottom-center"
+      toastOptions={{
+        error: {
+          duration: 6000,
+          icon: <IconComposer size="1em" icon="Close" />,
+        },
+        success: {
+          duration: 4000,
+          icon: <IconComposer size="1em" icon="Checkmark" />,
+        },
+      }}
+      containerStyle={{
+        padding: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        transition: "none",
       }}
     >
-      <Styled.Toast forIds={forIds}>
-        <Styled.ToastContent>
-          {icon && (
-            <Styled.ToastIcon>
-              <IconComposer size="1em" icon={icon} />
-            </Styled.ToastIcon>
+      {(t) => (
+        <ToastBar
+          toast={t}
+          style={{
+            animation: t.visible
+              ? "slideIn var(--DURATION,0.2s) ease forwards"
+              : "slideOut var(--DURATION,0.2s) ease forwards",
+            backgroundColor: "#dce0e3",
+            borderRadius: 0,
+            boxShadow: "none",
+            color: "var(--neutral95,#1F2121)",
+            padding: "1.5em",
+            maxWidth: "100%",
+            width: "100%",
+          }}
+        >
+          {({ icon, message }) => (
+            <Styled.ToastContainer>
+              {icon && <Styled.ToastIcon>{icon}</Styled.ToastIcon>}
+              {message}
+              {t.type !== "loading" && (
+                <Styled.CloseToast onClick={() => toast.dismiss(t.id)}>
+                  <IconComposer size="1em" icon="close" />
+                </Styled.CloseToast>
+              )}
+            </Styled.ToastContainer>
           )}
-          <Styled.ToastText>
-            <h3>{title}</h3>
-            <p>{text}</p>
-            {additionalContent}
-          </Styled.ToastText>
-        </Styled.ToastContent>
-        <Styled.CloseToast onClick={() => handleCloseToast()} type="button">
-          <IconComposer size="1em" icon="close" />
-        </Styled.CloseToast>
-      </Styled.Toast>
+        </ToastBar>
+      )}
     </Styled.Toaster>
   );
 };
-
-Toaster.displayName = "Layout.Toaster";
 
 export default Toaster;

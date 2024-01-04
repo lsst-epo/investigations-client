@@ -1,18 +1,17 @@
 "use client";
 
-import "react-toastify/dist/ReactToastify.css";
-import { FunctionComponent, useCallback, useState } from "react";
+import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
+import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import saveEducatorAnswers from "@/components/educator-schema/saveAnswersAction";
 import saveStudentAnswers from "@/components/student-schema/saveAnswersAction";
 import { Answers, InvestigationId } from "@/types/answers";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import SaveButton from "./SaveButton";
 import * as Styled from "./styles";
 import AuthDialogs from "@/components/auth/AuthDialogs";
-import GenericToast from "@/components/atomic/Toast";
+import Toaster from "@/components/layout/Toaster";
 
 type FormStatus =
   | "emptyError"
@@ -29,22 +28,33 @@ const SaveForm: FunctionComponent<{
 }> = ({ investigationId, user, userStatus }) => {
   const { t } = useTranslation();
 
-  const [status, setStatus] = useState<FormStatus>(
-    userStatus === "pending" ? "statusError" : null
-  );
-
-  const resetForm = useCallback(() => setStatus(null), []);
-
   if (!investigationId) {
     console.error("No investigation id provided");
     return null;
   }
 
+  const toastText: Record<NonNullable<FormStatus>, string> = {
+    success: t("answers.save_form.success_message", {
+      context: !user ? "unauth" : undefined,
+    }),
+    refreshError: t("answers.save_form.refresh_error_message"),
+    statusError: t("answers.save_form.status_error_message"),
+    mutationError: t("answers.save_form.mutation_error_message"),
+    emptyError: t("answers.save_form.empty_error_message"),
+  };
+
   const saveAnswers = async () => {
     try {
       const storedAnswers = localStorage.getItem(`${investigationId}_answers`);
-      if (!storedAnswers || !Object.values(JSON.parse(storedAnswers)).length)
-        return setStatus("emptyError");
+      if (!storedAnswers || !Object.values(JSON.parse(storedAnswers)).length) {
+        toast.error(
+          <>
+            <h3>{t("answers.save_form.error")}</h3>
+            <span>{toastText.emptyError}</span>
+          </>
+        );
+        return;
+      }
 
       const saveAction = user
         ? user.group === "educators"
@@ -57,88 +67,36 @@ const SaveForm: FunctionComponent<{
       );
 
       if (result === "refreshError") {
-        toast((props) => (
-          <GenericToast
-            {...props}
-            data={{
-              title: t("answers.save_form.error"),
-              body: toastText[result],
-            }}
-          />
-        ));
-        // setStatus("refreshError");
+        toast.error(
+          <>
+            <h3>{t("answers.save_form.error")}</h3>
+            <span>{toastText[result]}</span>
+          </>
+        );
       } else if (result === "statusError") {
-        toast((props) => (
-          <GenericToast
-            {...props}
-            data={{
-              title: t("answers.save_form.error"),
-              body: toastText[result],
-            }}
-          />
-        ));
-        // setStatus("statusError");
+        toast.error(
+          <>
+            <h3>{t("answers.save_form.error")}</h3>
+            <span>{toastText[result]}</span>
+          </>
+        );
       } else {
-        toast((props) => (
-          <GenericToast
-            {...props}
-            data={{
-              title: t("answers.save_form.success"),
-              body: toastText.success,
-            }}
-          />
-        ));
-        // setStatus("success");
+        toast.success(
+          <>
+            <h3>{t("answers.save_form.success")}</h3>
+            <span>{toastText.success}</span>
+          </>
+        );
       }
     } catch (error) {
-      toast((props) => (
-        <GenericToast
-          {...props}
-          data={{
-            title: t("answers.save_form.error"),
-            body: toastText.mutationError,
-          }}
-        />
-      ));
-      // setStatus("mutationError");
+      toast.error(
+        <>
+          <h3>{t("answers.save_form.error")}</h3>
+          <span>{toastText.mutationError}</span>
+        </>
+      );
     }
   };
-
-  const toastIcon: Record<NonNullable<FormStatus>, string> = {
-    success: "Checkmark",
-    refreshError: "Close",
-    statusError: "Close",
-    mutationError: "Close",
-    emptyError: "Close",
-  };
-
-  const toastText: Record<NonNullable<FormStatus>, string> = {
-    success: t("answers.save_form.success_message", {
-      context: !user ? "unauth" : undefined,
-    }),
-    refreshError: t("answers.save_form.refresh_error_message"),
-    statusError: t("answers.save_form.status_error_message"),
-    mutationError: t("answers.save_form.mutation_error_message"),
-    emptyError: t("answers.save_form.empty_error_message"),
-  };
-
-  const message =
-    status === null
-      ? undefined
-      : {
-          icon: toastIcon[status],
-          title:
-            status === "success"
-              ? t("answers.save_form.success")
-              : t("answers.save_form.error"),
-          text: toastText[status],
-          additionalContent: !user ? (
-            <>
-              {/* <SignIn />
-              <SignUp /> */}
-            </>
-          ) : undefined,
-        };
 
   return (
     <>
@@ -157,12 +115,7 @@ const SaveForm: FunctionComponent<{
         </Styled.Checkpoint>
         <SaveButton />
       </Styled.Form>
-      {/* <Toaster
-        forIds={["saveForm"]}
-        isVisible={status !== null}
-        onCloseCallback={() => resetForm()}
-        message={message}
-      ></Toaster> */}
+      <Toaster />
       <AuthDialogs isAuthenticated={!!user} />
     </>
   );
