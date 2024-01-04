@@ -8,7 +8,7 @@ export const PageContainer = styled(Container)`
     "var(--PADDING_SMALL, 20px)"
   )};
   padding-block-start: 67px;
-  padding-block-end: var(--pager-height);
+  padding-block-end: calc(var(--pager-height) * 3);
 
   > * + * {
     margin-block-start: var(--content-block-margin);
