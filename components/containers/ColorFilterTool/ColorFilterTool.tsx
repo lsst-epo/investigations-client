@@ -23,7 +23,7 @@ export const Fragment = graphql(`
     displayName
     filterToolActions
     filterColorOptionsLabels: filterColorOptions(label: true)
-    filterColorOptionsValues: filterColorOptions(label: true)
+    filterColorOptionsValues: filterColorOptions(label: false)
     colorFilterToolObjects {
       ... on colorFilterToolObjects_group_BlockType {
         groupName
