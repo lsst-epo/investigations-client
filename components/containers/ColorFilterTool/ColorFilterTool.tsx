@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import dynamic from "next/dynamic";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ColorSwatch from "@rubin-epo/epo-react-lib/ColorSwatch";
@@ -55,18 +56,22 @@ export const Fragment = graphql(`
   }
 `);
 
-const formatColorOptions = (
-  colorOptionLabels: string[],
-  colorOptionValues: string[]
-) => {
-  return colorOptionLabels.map((colorOptionLabel, i) => {
-    const colorOptionValue = colorOptionValues[i];
-    return {
-      value: colorOptionValue,
-      label: colorOptionLabel,
-      icon: <ColorSwatch color={colorOptionValue} size="small" />,
-    };
-  });
+const useColorOptions = (
+  labels: Array<string>,
+  values: Array<string>
+): Array<Option> => {
+  const { t } = useTranslation();
+
+  return labels
+    .filter((v): v is string => !!v)
+    .map((label, i) => {
+      const value = values[i];
+      return {
+        value,
+        label: t(`epo_widget_lib:filterTool.colors.${label.toLowerCase()}`),
+        icon: <ColorSwatch color={value} size="small" />,
+      };
+    });
 };
 
 const formatObjectOptions = (objectGroups: any[]) => {
@@ -101,10 +106,12 @@ const ColorFilterToolContainer: FunctionComponent<
     filterToolActions: actions = [],
   } = useFragment(Fragment, data);
 
-  const colorOptions = formatColorOptions(
-    filterColorOptionsLabels,
-    filterColorOptionsValues
-  );
+  const labels =
+    filterColorOptionsLabels?.filter((v): v is string => !!v) || [];
+  const values =
+    filterColorOptionsValues?.filter((v): v is string => !!v) || [];
+
+  const colorOptions = useColorOptions(labels, values);
   const objectGroups = formatObjectGroups(colorFilterToolObjects);
 
   const config = { actions };
