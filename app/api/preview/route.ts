@@ -26,8 +26,12 @@ export async function GET(request: Request) {
   const uri = searchParams.get("uri");
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
-  if (secret !== PREVIEW_SECRET_TOKEN || !uri) {
+  if (secret !== PREVIEW_SECRET_TOKEN) {
     return new Response("Invalid token", { status: 401 });
+  }
+
+  if (!uri) {
+    return new Response("URI missing", { status: 401 });
   }
 
   // Should only preview page if craft is in Preview Mode
