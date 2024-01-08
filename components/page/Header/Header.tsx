@@ -49,6 +49,7 @@ const Header: FunctionComponent<{
             onClick={() => setMainMenuIsOpen(true)}
             aria-label={t("translation:menu.toggle")}
           />
+          <div style={{color: "white"}}>{JSON.stringify(user)}</div>
           <Styled.TocToggle
             ref={tocButtonRef}
             aria-controls="tableOfContents"
