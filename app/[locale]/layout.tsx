@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import { graphql } from "@/gql/public-schema";
-import SourceSansPro from "@/lib/fonts";
+import { SourceSansPro } from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
 import UIDReset from "@/lib/reset";
