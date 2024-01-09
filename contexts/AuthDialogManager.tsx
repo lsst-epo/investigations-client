@@ -49,16 +49,16 @@ function AuthDialogManagerProvider({
     getInitActive(searchParams)
   );
 
-  const [pendingGroup, setPendingGroup] = useState<PendingGroup>("students");
+  const [pendingGroup, setPendingGroup] = useState<PendingGroup>(null);
 
   return (
     <AuthDialogManagerContext.Provider
       value={{
         active,
         pendingGroup,
+        setPendingGroup,
         openModal: (name: ActiveDialog) => setActive(name),
         closeModal: () => setActive(null),
-        setPendingGroup,
       }}
     >
       {children}
