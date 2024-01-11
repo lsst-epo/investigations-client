@@ -4460,6 +4460,19 @@
     "@0no-co/graphql.web" "^1.0.1"
     wonka "^6.3.2"
 
+"@urql/core@^4.2.0":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-4.2.2.tgz#c2b009373cb9084bbfa8ebc0177c854a76235b84"
+  integrity sha512-TP1kheq9bnrEdnVbJqh0g0ZY/wfdpPeAzjiiDK+Tm+Pbi0O1Xdu6+fUJ/wJo5QpHZzkIyya4/AecG63e6scFqQ==
+  dependencies:
+    "@0no-co/graphql.web" "^1.0.1"
+    wonka "^6.3.2"
+
+"@urql/next@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@urql/next/-/next-1.1.0.tgz#744ee1612598900043b62c4a7b62b1984c99f63f"
+  integrity sha512-yem5319hUn9cg+BIOMBRGb2Xt39Jusz4eu3Vdv0Fb5+mRLal644JxYpB98OBj0idBtMvl04zuJ69FGuHz4Aa6w==
+
 "@webassemblyjs/ast@1.11.6", "@webassemblyjs/ast@^1.11.5":
   version "1.11.6"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.11.6.tgz#db046555d3c413f8966ca50a95176a0e2c642e24"
@@ -8181,7 +8194,7 @@ graphql-ws@5.14.0:
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.14.0.tgz#766f249f3974fc2c48fae0d1fb20c2c4c79cd591"
   integrity sha512-itrUTQZP/TgswR4GSSYuwWUzrE/w5GhbwM2GX3ic2U7aw33jgEsayfIlvaj7/GcIvZgNMzsPTrE5hqPuFUiE5g==
 
-graphql@^16.3.0:
+graphql@^16.8.1:
   version "16.8.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.8.1.tgz#1930a965bef1170603702acdb68aedd3f3cf6f07"
   integrity sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==
@@ -13409,6 +13422,14 @@ urlpattern-polyfill@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/urlpattern-polyfill/-/urlpattern-polyfill-9.0.0.tgz#bc7e386bb12fd7898b58d1509df21d3c29ab3460"
   integrity sha512-WHN8KDQblxd32odxeIgo83rdVDE2bvdkb86it7bMhYZwWKJz0+O0RK/eZiHYnM+zgt/U7hAHOlCQGfjjvSkw2g==
+
+urql@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/urql/-/urql-4.0.6.tgz#2a2442da7ca63689559b0eff763b17ed4213928e"
+  integrity sha512-meXJ2puOd64uCGKh7Fse2R7gPa8+ZpBOoA62jN7CPXXUt7SVZSdeXWSpB3HvlfzLUkEqsWbvshwrgeWRYNNGaQ==
+  dependencies:
+    "@urql/core" "^4.2.0"
+    wonka "^6.3.2"
 
 use-callback-ref@^1.3.0:
   version "1.3.0"
