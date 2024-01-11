@@ -1,4 +1,5 @@
-import { createClient, fetchExchange } from "@urql/core";
+import { cacheExchange, createClient, fetchExchange } from "@urql/core";
+import { registerUrql } from "@urql/next/rsc";
 import type { AnyVariables, DocumentInput, OperationResult } from "@urql/core";
 import type { Token } from "@/types/auth";
 
@@ -30,27 +31,30 @@ export async function queryAPI<
   previewToken?: string;
 }): Promise<OperationResult<Query, Variables>> {
   const url = previewToken ? `${API_URL}?token=${previewToken}` : API_URL;
+  const makeClient = () => {
+    return createClient({
+      url,
+      exchanges: [cacheExchange, fetchExchange],
+      fetchOptions: () => {
+        const opts = {
+          next: {
+            revalidate: previewToken ? 0 : 60,
+          },
+        };
+        if (!token) return { ...opts };
+        return {
+          ...opts,
+          headers: {
+            ...(token && { authorization: `JWT ${token}` }),
+          },
+        };
+      },
+    });
+  };
 
-  const client = createClient({
-    url,
-    exchanges: [fetchExchange],
-    fetchOptions: () => {
-      const opts = {
-        next: {
-          revalidate: previewToken ? 0 : 60,
-        },
-      };
-      if (!token) return { ...opts };
-      return {
-        ...opts,
-        headers: {
-          ...(token && { authorization: `JWT ${token}` }),
-        },
-      };
-    },
-  });
+  const { getClient } = registerUrql(makeClient);
 
-  return await client
+  return await getClient()
     .query(query, variables)
     .toPromise()
     .then((result) => {
