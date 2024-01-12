@@ -49,9 +49,6 @@ const Header: FunctionComponent<{
             onClick={() => setMainMenuIsOpen(true)}
             aria-label={t("translation:menu.toggle")}
           />
-          <div style={{ color: "white" }}>{`${
-            user?.fullName ? user?.fullName : user?.email
-          } is logged in as userType: "${user?.group}"`}</div>
           <Styled.TocToggle
             ref={tocButtonRef}
             aria-controls="tableOfContents"
