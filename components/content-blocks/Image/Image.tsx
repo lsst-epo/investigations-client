@@ -4,7 +4,7 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { useTranslation } from "react-i18next";
 import withModal from "@/components/hoc/withModal/withModal";
 import { BaseContentBlockProps } from "@/components/shapes";
-import { imageShaper } from "@/helpers";
+import { captionShaper, imageShaper } from "@/helpers";
 import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
 import * as Styled from "./styles";
 
@@ -48,27 +48,14 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
 ) => {
   const { t } = useTranslation();
   const { data, site, isOpen, openModal } = props;
-  const {
-    layout,
-    image: rawImage,
-    caption: craftCaption = "",
-  } = useFragment(Fragment, data);
+  const { layout, image: rawImage, caption = "" } = useFragment(Fragment, data);
   const finalLayout = isOpen ? "vertical" : layout;
 
   const image = imageShaper(site, rawImage[0]);
 
   if (!image) return null;
 
-  const { width, caption: cantoCaption, credit } = image;
-
-  const caption = `${craftCaption || cantoCaption || ""}${
-    credit
-      ? ` ${t("translation:image.credit", {
-          credit,
-          interpolation: { escapeValue: false },
-        })}`
-      : ""
-  }`;
+  const { width, caption: fallback, credit } = image;
 
   return (
     <Styled.Container
@@ -88,7 +75,16 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
         />
       )}
       <Styled.Figure
-        caption={caption}
+        caption={captionShaper({
+          caption,
+          fallback,
+          credit:
+            credit &&
+            ` ${t("translation:image.credit", {
+              credit,
+              interpolation: { escapeValue: false },
+            })}`,
+        })}
         $layout={finalLayout}
         $darkMode={isOpen}
         withBackground={!isOpen}

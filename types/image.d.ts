@@ -4,8 +4,8 @@ export interface RawImage {
     directUrlOriginal: string;
     preview: string;
   };
-  width: number;
-  height: number;
+  width: string;
+  height: string;
   metadata: Record<string, string>;
 }
 
