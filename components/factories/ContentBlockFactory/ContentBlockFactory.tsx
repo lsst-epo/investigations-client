@@ -1,9 +1,13 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import * as Blocks from "@/components/content-blocks";
+import { BaseContentBlockProps } from "@/components/shapes";
 
 /** content blocks that can be rendered anywhere */
-export const blockMap: Record<string, any> = {
+export const blockMap: Record<
+  string,
+  FunctionComponent<BaseContentBlockProps>
+> = {
   contentBlocks_twoColumnContainer_BlockType: Blocks.TwoColumnContainer,
   contentBlocks_group_BlockType: Blocks.InteractionGroupContainer,
   contentBlocks_text_BlockType: Blocks.Text,
@@ -17,6 +21,7 @@ export const blockMap: Record<string, any> = {
   contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
   contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   contentBlocks_equation_BlockType: Blocks.Equation,
+  contentBlocks_video_BlockType: Blocks.Video,
   referenceContentBlocks_image_BlockType: Blocks.Image,
   referenceContentBlocks_text_BlockType: Blocks.Text,
   referenceContentBlocks_table_BlockType: Blocks.Table,
@@ -40,43 +45,26 @@ const Fragment = graphql(`
     ...ReferenceModalBlock
     ...ColorFilterToolBlock
     ...EquationBlock
+    ...VideoBlock
   }
 `);
 
-interface ContentBlockFactoryProps {
+interface ContentBlockFactoryProps extends BaseContentBlockProps {
   data: FragmentType<typeof Fragment>;
-  site: string;
-  locale: string;
-  pageId?: string;
-  isOpen?: boolean;
-  hasModal?: boolean;
 }
 
 export type ContentBlockType = keyof typeof blockMap;
 
 const ContentBlockFactory: FunctionComponent<ContentBlockFactoryProps> = ({
-  site,
-  pageId,
-  isOpen,
-  hasModal,
-  locale,
   ...props
 }) => {
-  const data = useFragment(Fragment, props.data);
+  const { __typename } = useFragment(Fragment, props.data);
 
-  const Block = blockMap[data.__typename];
+  const Block = blockMap[__typename];
 
   if (!Block) return null;
-  return (
-    <Block
-      data={data}
-      site={site}
-      locale={locale}
-      pageId={pageId}
-      isOpen={isOpen}
-      hasModal={hasModal}
-    />
-  );
+
+  return <Block {...props} />;
 };
 
 ContentBlockFactory.displayName = "ContentBlocks.Factory";
