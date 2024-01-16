@@ -9,6 +9,7 @@
 import { RootPage } from "@/components/shapes";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { Image, RawImage } from "@/types/image";
+import { CantoVideo, Video } from "@/types/video";
 import type { GlobalsQueryQuery } from "gql/public-schema/graphql";
 
 type Categories = GlobalsQueryQuery["categories"];
@@ -53,6 +54,46 @@ export const makeCustomBreadcrumbs = (
   return customBreadcrumbs.flat(1);
 };
 
+export const captionShaper = ({
+  caption,
+  fallback = "",
+  credit,
+}: {
+  caption?: string | null;
+  fallback?: string | null;
+  credit?: string;
+}): string | undefined => {
+  const template = `${caption || fallback}${credit}`;
+
+  if (template === "") return undefined;
+
+  return template;
+};
+
+const localeKeys = {
+  default: "EN",
+  es: "ES",
+};
+
+const getAssetMetadata = (
+  metadata: Record<string, string>,
+  site = "default"
+): { altText?: string; caption?: string; credit?: string } | undefined => {
+  if (!metadata) return undefined;
+
+  const key = localeKeys[site];
+
+  const altText = metadata[`AltText${key}`];
+  const caption = metadata[`Caption${key}`];
+  const credit = metadata.Credit;
+
+  return {
+    altText: altText === null ? undefined : altText,
+    caption: caption === null ? undefined : caption,
+    credit: credit === null ? undefined : credit,
+  };
+};
+
 // IMAGES
 export const imageShaper = (
   site = "default",
@@ -61,22 +102,11 @@ export const imageShaper = (
 ): Image | undefined => {
   if (!data) return undefined;
 
-  const localeKeys = {
-    default: "EN",
-    es: "ES",
-  };
-
-  const key = localeKeys[site];
-
   const { metadata, url, width, height } = data;
   const { directUrlPreview = "", directUrlOriginal = "", preview = "" } = url;
 
   const urlWithoutConstraint = directUrlPreview.slice(0, -3);
-  const constraint = Math.max(width, height);
-
-  const altText = metadata[`AltText${key}`];
-  const caption = metadata[`Caption${key}`];
-  const credit = metadata.Credit;
+  const constraint = Math.max(Number(width), Number(height));
 
   return {
     url: `${urlWithoutConstraint}${Math.floor(constraint / 3)}`,
@@ -86,9 +116,26 @@ export const imageShaper = (
     width: Number(width),
     height: Number(height),
     className,
-    altText: altText === null ? undefined : altText,
-    caption: caption === null ? undefined : caption,
-    credit: credit === null ? undefined : credit,
+    ...getAssetMetadata(metadata, site),
+  };
+};
+
+// VIDEO
+export const videoShaper = (
+  site = "default",
+  data: CantoVideo
+): Video | undefined => {
+  if (!data) return undefined;
+
+  const { metadata, url, width, height } = data;
+  const { directUrlPreview = "", directUrlPreviewPlay = "" } = url;
+
+  return {
+    url: directUrlPreviewPlay,
+    thumbnail: directUrlPreview,
+    width: Number(width),
+    height: Number(height),
+    ...getAssetMetadata(metadata, site),
   };
 };
 
