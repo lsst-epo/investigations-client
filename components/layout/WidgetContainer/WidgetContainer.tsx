@@ -3,7 +3,8 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import ExpandContract from "@/atomic/ExpandContract";
 import * as Styled from "./styles";
 
-interface WidgetContainerProps extends BaseContentBlockProps {
+interface WidgetContainerProps
+  extends Omit<BaseContentBlockProps, "data" | "locale" | "site"> {
   caption?: string;
   bgColor?: "white" | "gray";
   paddingSize?: "large" | "medium" | "small" | "none";

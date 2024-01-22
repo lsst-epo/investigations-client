@@ -2955,10 +2955,10 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-react-lib@^2.0.13":
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.13.tgz#ab11266819bd22068c9356dd4f1571954c064a28"
-  integrity sha512-D/tHninF/Fm++tH+rQjVO7CW8ACWiFXRY6VJgTnnkrMqwO6UlZvnSvaIbY6TnWqXBU7M6pWNur74FwXMQogsyA==
+"@rubin-epo/epo-react-lib@^2.0.16-rc.1":
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.16.tgz#88fd60ba154b9cde144af610823df6ad5b75b3e0"
+  integrity sha512-rkJQBRJCaPUaZJ99VSWjiAP4PRKOiSxSwaO3zWuy6+7DKyfR53c2mjnaDHREApo1MU2c9CPX7mcIp2eDZBrdZw==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
     "@headlessui/react" "^1.7.17"
@@ -2968,18 +2968,26 @@
     react "^18.2.0"
     react-dom "^18.2.0"
     react-i18next "^12.0.0"
-    react-player "^2.12.0"
+    react-player "^2.14.1"
     react-share "^4.4.1"
     react-slider "^2.0.4"
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^0.6.12-rc.1":
-  version "0.6.12-rc.1"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.6.12-rc.1.tgz#907abde03cd93117a897fd13c483f5305cba3256"
-  integrity sha512-w9KHotnaEierjzHGOTMJ6RGhxK7C1wHbjwCudiKz1AY1/b/0hUpgVm/EM21WDC4XooP/r28hML0OSGk41yFiww==
+"@rubin-epo/epo-widget-lib@file:../epo-react-lib/packages/epo-widget-lib/tempPublish":
+  version "0.7.0"
   dependencies:
-    "@rubin-epo/epo-react-lib" "^2.0.13"
+    "@rubin-epo/epo-react-lib" "^2.0.16-rc.1"
+    context-filter-polyfill "^0.3.6"
+    lodash "^4.17.21"
+    skia-canvas "^1.0.1"
+    styled-components "^6.1.1"
+    use-resize-observer "^9.1.0"
+
+"@rubin-epo/epo-widget-lib@file:/Users/agoff/Documents/workspace/epo-react-lib/packages/epo-widget-lib/tempPublish":
+  version "0.7.0"
+  dependencies:
+    "@rubin-epo/epo-react-lib" "^2.0.16-rc.1"
     context-filter-polyfill "^0.3.6"
     lodash "^4.17.21"
     skia-canvas "^1.0.1"
@@ -11520,17 +11528,6 @@ react-is@^18.0.0, react-is@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
-
-react-player@^2.12.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/react-player/-/react-player-2.12.0.tgz#2fc05dbfec234c829292fbca563b544064bd14f0"
-  integrity sha512-rymLRz/2GJJD+Wc01S7S+i9pGMFYnNmQibR2gVE3KmHJCBNN8BhPAlOPTGZtn1uKpJ6p4RPLlzPQ1OLreXd8gw==
-  dependencies:
-    deepmerge "^4.0.0"
-    load-script "^1.0.0"
-    memoize-one "^5.1.1"
-    prop-types "^15.7.2"
-    react-fast-compare "^3.0.1"
 
 react-player@^2.14.1:
   version "2.14.1"

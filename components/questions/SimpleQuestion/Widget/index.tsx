@@ -1,24 +1,24 @@
 import { ComponentType, FunctionComponent } from "react";
+import { WidgetInput } from "@/types/answers";
 import ColorFilterToolQuestion from "./ColorFilterTool";
+import SourceSelectorQuestion from "./SourceSelector";
 
-export interface SimpleWidgetProps {
+export interface SimpleWidgetProps<T = WidgetInput> {
   id: string;
-  value?: any;
+  value?: T;
   isDisabled?: boolean;
-  onChangeCallback: (value: any) => void;
+  onChangeCallback: (value: T) => void;
   widgetConfig: { typeHandle: string; __typename: string; [key: string]: any };
 }
 
 const WIDGET_MAP: Record<string, ComponentType<any>> = {
   colorFilterToolBlock: ColorFilterToolQuestion,
+  sourceSelector: SourceSelectorQuestion,
 };
 
 const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
-  id,
-  value,
-  isDisabled,
-  onChangeCallback,
   widgetConfig,
+  ...props
 }) => {
   const { typeHandle } = widgetConfig;
   const Widget = WIDGET_MAP[typeHandle];
@@ -29,12 +29,7 @@ const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({
     return null;
   }
 
-  return (
-    <Widget
-      data={widgetConfig}
-      {...{ id, value, isDisabled, onChangeCallback }}
-    />
-  );
+  return <Widget data={widgetConfig} {...props} />;
 };
 
 SimpleWidget.displayName = "Questions.Simple.Widget";

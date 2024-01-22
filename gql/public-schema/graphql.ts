@@ -1303,21 +1303,26 @@ export type EntryCriteriaInput = {
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the entries’ authors. */
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only entries that were posted before a certain date. */
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the elements’ creation dates. */
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on the elements’ last-updated dates. */
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only elements that are up to a certain distance away from the element in its structure specified by `descendantOf`. */
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   /** Narrows the query results to only elements that are descendants of another element in its structure provided by its ID. */
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Whether to only return entries that the user has permission to edit. */
   editable: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the entries’ expiry dates. */
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in the order specified by the `id` argument. */
@@ -1329,8 +1334,10 @@ export type EntryCriteriaInput = {
   /** Narrows the query results based on the elements’ IDs. */
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in reverse order. */
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on whether the elements are “leaves” in their structure (element with no descendants). */
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the elements’ level within the structure. */
@@ -1356,6 +1363,7 @@ export type EntryCriteriaInput = {
   /** Narrows the query results to only the entry that comes immediately before another element in its structure, provided by its ID. */
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on a reference string. */
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results to elements that relate to the provided element IDs. This argument is ignored, if `relatedToAll` is also used. */
@@ -1534,14 +1542,19 @@ export type EntryInterfaceAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1550,7 +1563,9 @@ export type EntryInterfaceAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1565,6 +1580,7 @@ export type EntryInterfaceAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1602,14 +1618,19 @@ export type EntryInterfaceChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1618,7 +1639,9 @@ export type EntryInterfaceChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1633,6 +1656,7 @@ export type EntryInterfaceChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1670,14 +1694,19 @@ export type EntryInterfaceDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1686,7 +1715,9 @@ export type EntryInterfaceDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1701,6 +1732,7 @@ export type EntryInterfaceDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1738,14 +1770,19 @@ export type EntryInterfaceLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1754,7 +1791,9 @@ export type EntryInterfaceLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1769,6 +1808,7 @@ export type EntryInterfaceLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1806,14 +1846,19 @@ export type EntryInterfaceNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1822,7 +1867,9 @@ export type EntryInterfaceNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1837,6 +1884,7 @@ export type EntryInterfaceNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1874,14 +1922,19 @@ export type EntryInterfaceParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1890,7 +1943,9 @@ export type EntryInterfaceParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1905,6 +1960,7 @@ export type EntryInterfaceParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1942,14 +1998,19 @@ export type EntryInterfacePrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -1958,7 +2019,9 @@ export type EntryInterfacePrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1973,6 +2036,7 @@ export type EntryInterfacePrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2348,6 +2412,8 @@ export type Query = {
   category: Maybe<CategoryInterface>;
   /** This query is used to return the number of categories. */
   categoryCount: Scalars['Int']['output'];
+  /** Entries within the datasets section. */
+  datasetsEntries: Maybe<Array<Maybe<DatasetsSectionEntryUnion>>>;
   /** This query is used to query for entries. */
   entries: Maybe<Array<Maybe<EntryInterface>>>;
   /** This query is used to query for a single entry. */
@@ -2750,7 +2816,7 @@ export type QueryCategoryCountArgs = {
 };
 
 
-export type QueryEntriesArgs = {
+export type QueryDatasetsEntriesArgs = {
   after: InputMaybe<Scalars['String']['input']>;
   ancestorDist: InputMaybe<Scalars['Int']['input']>;
   ancestorOf: InputMaybe<Scalars['Int']['input']>;
@@ -2758,14 +2824,19 @@ export type QueryEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -2774,7 +2845,9 @@ export type QueryEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2789,6 +2862,80 @@ export type QueryEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryEntriesArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2825,14 +2972,19 @@ export type QueryEntryArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -2841,7 +2993,9 @@ export type QueryEntryArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2856,6 +3010,7 @@ export type QueryEntryArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2892,14 +3047,19 @@ export type QueryEntryCountArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -2908,7 +3068,9 @@ export type QueryEntryCountArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2923,6 +3085,7 @@ export type QueryEntryCountArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3027,14 +3190,19 @@ export type QueryHomepageEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -3043,7 +3211,9 @@ export type QueryHomepageEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3058,6 +3228,7 @@ export type QueryHomepageEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3092,14 +3263,19 @@ export type QueryInvestigationsEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -3108,7 +3284,9 @@ export type QueryInvestigationsEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3123,6 +3301,7 @@ export type QueryInvestigationsEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3157,14 +3336,19 @@ export type QueryPagesEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -3173,7 +3357,9 @@ export type QueryPagesEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3188,6 +3374,7 @@ export type QueryPagesEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3222,14 +3409,19 @@ export type QueryQuestionsEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -3238,7 +3430,9 @@ export type QueryQuestionsEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3253,6 +3447,7 @@ export type QueryQuestionsEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3287,14 +3482,19 @@ export type QueryReferenceModalsEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -3303,7 +3503,9 @@ export type QueryReferenceModalsEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3318,6 +3520,7 @@ export type QueryReferenceModalsEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3472,14 +3675,19 @@ export type QueryWidgetsEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -3488,7 +3696,9 @@ export type QueryWidgetsEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3503,6 +3713,7 @@ export type QueryWidgetsEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3943,6 +4154,131 @@ export type WhereNotInFiltersInput = {
   key: InputMaybe<Scalars['String']['input']>;
   /** The the values that should not be in the key */
   values: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type AlertSources_MatrixField = AlertSources_Source_BlockType;
+
+export type AlertSources_Source_BlockType = ElementInterface & MatrixBlockInterface & {
+  __typename?: 'alertSources_source_BlockType';
+  /** Return a number of related elements for a field. */
+  _count: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived: Maybe<Scalars['Boolean']['output']>;
+  color: Maybe<Scalars['String']['output']>;
+  /** The date the element was created. */
+  dateCreated: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the matrix block. */
+  fieldId: Scalars['Int']['output'];
+  /** The ID of the entity */
+  id: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language: Maybe<Scalars['String']['output']>;
+  /** The ID of the primary owner of the Matrix block. */
+  primaryOwnerId: Scalars['Int']['output'];
+  radius: Maybe<Scalars['Number']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug: Maybe<Scalars['String']['output']>;
+  /** The sort order of the matrix block within the owner element field. */
+  sortOrder: Maybe<Scalars['Int']['output']>;
+  sourceName: Maybe<Scalars['String']['output']>;
+  sourceType: Maybe<Scalars['String']['output']>;
+  /** The element’s status. */
+  status: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the matrix block’s type. */
+  typeHandle: Scalars['String']['output'];
+  /** The ID of the matrix block’s type. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri: Maybe<Scalars['String']['output']>;
+  xCoord: Maybe<Scalars['Number']['output']>;
+  yCoord: Maybe<Scalars['Number']['output']>;
+};
+
+
+export type AlertSources_Source_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type AlertSources_Source_BlockTypeSourceTypeArgs = {
+  label: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Alerts_MatrixField = Alerts_Alert_BlockType;
+
+export type Alerts_Alert_BlockType = ElementInterface & MatrixBlockInterface & {
+  __typename?: 'alerts_alert_BlockType';
+  /** Return a number of related elements for a field. */
+  _count: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled: Maybe<Scalars['Boolean']['output']>;
+  errorMagnitude: Maybe<Scalars['Number']['output']>;
+  /** The ID of the field that owns the matrix block. */
+  fieldId: Scalars['Int']['output'];
+  /** The ID of the entity */
+  id: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language: Maybe<Scalars['String']['output']>;
+  magnitude: Maybe<Scalars['Number']['output']>;
+  modifiedJulianDate: Maybe<Scalars['Number']['output']>;
+  observationId: Maybe<Scalars['Number']['output']>;
+  /** The ID of the primary owner of the Matrix block. */
+  primaryOwnerId: Scalars['Int']['output'];
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug: Maybe<Scalars['String']['output']>;
+  /** The sort order of the matrix block within the owner element field. */
+  sortOrder: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the matrix block’s type. */
+  typeHandle: Scalars['String']['output'];
+  /** The ID of the matrix block’s type. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Alerts_Alert_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
 };
 
 export type AnswerOptions_MatrixField = AnswerOptions_Option_BlockType;
@@ -4548,14 +4884,19 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -4564,7 +4905,9 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -4579,6 +4922,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4932,14 +5276,19 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -4948,7 +5297,9 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -4963,6 +5314,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5055,14 +5407,19 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -5071,7 +5428,9 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -5086,6 +5445,7 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5492,6 +5852,755 @@ export type ContentBlocks_Video_BlockTypeVideoArgs = {
   whereNull: InputMaybe<Scalars['String']['input']>;
 };
 
+export type DatasetsSectionEntryUnion = Datasets_SupernovaGalaxyObservations_Entry;
+
+export type Datasets_SupernovaGalaxyObservations_Entry = ElementInterface & EntryInterface & {
+  __typename?: 'datasets_supernovaGalaxyObservations_Entry';
+  /** Return a number of related elements for a field. */
+  _count: Maybe<Scalars['Int']['output']>;
+  alertSources: Array<Maybe<AlertSources_MatrixField>>;
+  alerts: Array<Maybe<Alerts_MatrixField>>;
+  /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  ancestors: Array<EntryInterface>;
+  /** Whether the element is archived. */
+  archived: Maybe<Scalars['Boolean']['output']>;
+  /** The entry’s author. */
+  author: Maybe<UserInterface>;
+  /** The ID of the author of this entry. */
+  authorId: Maybe<Scalars['Int']['output']>;
+  b: Maybe<Scalars['Number']['output']>;
+  /** Returns the entry’s canonical ID. */
+  canonicalId: Maybe<Scalars['Int']['output']>;
+  /** Returns the entry’s canonical UUID. */
+  canonicalUid: Maybe<Scalars['String']['output']>;
+  /** The entry’s children, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  children: Array<EntryInterface>;
+  /** The date the element was created. */
+  dateCreated: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated: Maybe<Scalars['DateTime']['output']>;
+  dec: Maybe<Scalars['Number']['output']>;
+  /** The entry’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  descendants: Array<EntryInterface>;
+  distance: Maybe<Scalars['Number']['output']>;
+  /** The draft ID (from the `drafts` table). */
+  draftId: Maybe<Scalars['Int']['output']>;
+  /** The name of the draft. */
+  draftName: Maybe<Scalars['String']['output']>;
+  /** The notes for the draft. */
+  draftNotes: Maybe<Scalars['String']['output']>;
+  /** Whether the element is enabled. */
+  enabled: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite: Maybe<Scalars['Boolean']['output']>;
+  /** The expiry date of the entry. */
+  expiryDate: Maybe<Scalars['DateTime']['output']>;
+  filter: Maybe<Scalars['String']['output']>;
+  /** The ID of the entity */
+  id: Maybe<Scalars['ID']['output']>;
+  /** Canto Dam Asset field */
+  imageAlbum: Maybe<Array<Maybe<CantoDamAssetInterface>>>;
+  /** Returns whether this is a draft. */
+  isDraft: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is a revision. */
+  isRevision: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is an unpublished draft. */
+  isUnpublishedDraft: Maybe<Scalars['Boolean']['output']>;
+  l: Maybe<Scalars['Number']['output']>;
+  /** The language of the site element is associated with. */
+  language: Maybe<Scalars['String']['output']>;
+  /** The element’s level within its structure */
+  level: Maybe<Scalars['Int']['output']>;
+  /** The element’s left position within its structure. */
+  lft: Maybe<Scalars['Int']['output']>;
+  /** The same element in other locales. */
+  localized: Array<EntryInterface>;
+  /** Returns the next element relative to this one, from a given set of criteria. */
+  next: Maybe<EntryInterface>;
+  /** The entry’s parent, if the section is a structure. */
+  parent: Maybe<EntryInterface>;
+  /** The entry’s post date. */
+  postDate: Maybe<Scalars['DateTime']['output']>;
+  /** Returns the previous element relative to this one, from a given set of criteria. */
+  prev: Maybe<EntryInterface>;
+  ra: Maybe<Scalars['Number']['output']>;
+  /** The revision ID (from the `revisions` table). */
+  revisionId: Maybe<Scalars['Int']['output']>;
+  /** The revision notes (from the `revisions` table). */
+  revisionNotes: Maybe<Scalars['String']['output']>;
+  /** The element’s right position within its structure. */
+  rgt: Maybe<Scalars['Int']['output']>;
+  /** The element’s structure’s root ID */
+  root: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore: Maybe<Scalars['Int']['output']>;
+  /** The handle of the section that contains the entry. */
+  sectionHandle: Scalars['String']['output'];
+  /** The ID of the section that contains the entry. */
+  sectionId: Scalars['Int']['output'];
+  /** The handle of the site the element is associated with. */
+  siteHandle: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug: Maybe<Scalars['String']['output']>;
+  /**
+   * Returns the entry’s canonical ID.
+   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalId` instead.
+   */
+  sourceId: Maybe<Scalars['Int']['output']>;
+  /**
+   * Returns the entry’s canonical UUID.
+   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalUid` instead.
+   */
+  sourceUid: Maybe<Scalars['String']['output']>;
+  /** The element’s status. */
+  status: Maybe<Scalars['String']['output']>;
+  /** The element’s structure ID. */
+  structureId: Maybe<Scalars['Int']['output']>;
+  /** The element’s title. */
+  title: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the entry type that contains the entry. */
+  typeHandle: Scalars['String']['output'];
+  /** The ID of the entry type that contains the entry. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri: Maybe<Scalars['String']['output']>;
+  /** The element’s full URL */
+  url: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_Entry_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryAlertSourcesArgs = {
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fieldId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  primaryOwnerId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryAlertsArgs = {
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fieldId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  primaryOwnerId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryFilterArgs = {
+  label: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryImageAlbumArgs = {
+  except: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  first: InputMaybe<Scalars['Boolean']['input']>;
+  forPage: InputMaybe<ForPageInput>;
+  last: InputMaybe<Scalars['Boolean']['input']>;
+  nth: InputMaybe<Scalars['Int']['input']>;
+  random: InputMaybe<Scalars['Int']['input']>;
+  reverse: InputMaybe<Scalars['Boolean']['input']>;
+  shuffle: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sortBy: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sortByDesc: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  where: InputMaybe<WhereFiltersInput>;
+  whereBetween: InputMaybe<WhereBetweenFiltersInput>;
+  whereIn: InputMaybe<WhereInFiltersInput>;
+  whereNotBetween: InputMaybe<WhereNotBetweenFiltersInput>;
+  whereNotIn: InputMaybe<WhereNotInFiltersInput>;
+  whereNotNull: InputMaybe<Scalars['String']['input']>;
+  whereNull: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 export type DisplayTable_BlockType = ElementInterface & SuperTableBlockInterface & {
   __typename?: 'displayTable_BlockType';
   /** Return a number of related elements for a field. */
@@ -5877,14 +6986,19 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -5893,7 +7007,9 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -5908,6 +7024,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6120,14 +7237,19 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6136,7 +7258,9 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6151,6 +7275,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6187,14 +7312,19 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6203,7 +7333,9 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6218,6 +7350,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6254,14 +7387,19 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6270,7 +7408,9 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6285,6 +7425,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6356,14 +7497,19 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6372,7 +7518,9 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6387,6 +7535,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6423,14 +7572,19 @@ export type Homepage_Homepage_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6439,7 +7593,9 @@ export type Homepage_Homepage_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6454,6 +7610,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6490,14 +7647,19 @@ export type Homepage_Homepage_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6506,7 +7668,9 @@ export type Homepage_Homepage_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6521,6 +7685,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6557,14 +7722,19 @@ export type Homepage_Homepage_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6573,7 +7743,9 @@ export type Homepage_Homepage_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6588,6 +7760,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6799,14 +7972,19 @@ export type Investigations_Default_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6815,7 +7993,9 @@ export type Investigations_Default_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6830,6 +8010,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6866,14 +8047,19 @@ export type Investigations_Default_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6882,7 +8068,9 @@ export type Investigations_Default_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6897,6 +8085,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6968,14 +8157,19 @@ export type Investigations_Default_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -6984,7 +8178,9 @@ export type Investigations_Default_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6999,6 +8195,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7035,14 +8232,19 @@ export type Investigations_Default_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7051,7 +8253,9 @@ export type Investigations_Default_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7066,6 +8270,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7102,14 +8307,19 @@ export type Investigations_Default_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7118,7 +8328,9 @@ export type Investigations_Default_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7133,6 +8345,7 @@ export type Investigations_Default_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7169,14 +8382,19 @@ export type Investigations_Default_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7185,7 +8403,9 @@ export type Investigations_Default_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7200,6 +8420,7 @@ export type Investigations_Default_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7236,14 +8457,19 @@ export type Investigations_Default_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7252,7 +8478,9 @@ export type Investigations_Default_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7267,6 +8495,7 @@ export type Investigations_Default_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7423,14 +8652,19 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7439,7 +8673,9 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7454,6 +8690,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7490,14 +8727,19 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7506,7 +8748,9 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7521,6 +8765,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7557,14 +8802,19 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7573,7 +8823,9 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7588,6 +8840,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7646,14 +8899,19 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7662,7 +8920,9 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7677,6 +8937,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7713,14 +8974,19 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7729,7 +8995,9 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7744,6 +9012,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7780,14 +9049,19 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7796,7 +9070,9 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7811,6 +9087,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7847,14 +9124,19 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -7863,7 +9145,9 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7878,6 +9162,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8032,14 +9317,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8048,7 +9338,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8063,6 +9355,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8099,14 +9392,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8115,7 +9413,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8130,6 +9430,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8166,14 +9467,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8182,7 +9488,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8197,6 +9505,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8233,14 +9542,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8249,7 +9563,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8264,6 +9580,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8300,14 +9617,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8316,7 +9638,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8331,6 +9655,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8367,14 +9692,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8383,7 +9713,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8398,6 +9730,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8434,14 +9767,19 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -8450,7 +9788,9 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8465,6 +9805,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9038,14 +10379,19 @@ export type Pages_Pages_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9054,7 +10400,9 @@ export type Pages_Pages_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9069,6 +10417,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9105,14 +10454,19 @@ export type Pages_Pages_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9121,7 +10475,9 @@ export type Pages_Pages_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9136,6 +10492,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9207,14 +10564,19 @@ export type Pages_Pages_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9223,7 +10585,9 @@ export type Pages_Pages_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9238,6 +10602,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9274,14 +10639,19 @@ export type Pages_Pages_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9290,7 +10660,9 @@ export type Pages_Pages_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9305,6 +10677,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9341,14 +10714,19 @@ export type Pages_Pages_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9357,7 +10735,9 @@ export type Pages_Pages_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9372,6 +10752,7 @@ export type Pages_Pages_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9413,14 +10794,19 @@ export type Pages_Pages_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9429,7 +10815,9 @@ export type Pages_Pages_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9444,6 +10832,7 @@ export type Pages_Pages_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9480,14 +10869,19 @@ export type Pages_Pages_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9496,7 +10890,9 @@ export type Pages_Pages_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9511,6 +10907,7 @@ export type Pages_Pages_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9666,14 +11063,19 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9682,7 +11084,9 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9697,6 +11101,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9733,14 +11138,19 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9749,7 +11159,9 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9764,6 +11176,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9800,14 +11213,19 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9816,7 +11234,9 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9831,6 +11251,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9867,14 +11288,19 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9883,7 +11309,9 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9898,6 +11326,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9934,14 +11363,19 @@ export type Pages_RedirectPage_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -9950,7 +11384,9 @@ export type Pages_RedirectPage_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9965,6 +11401,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10001,14 +11438,19 @@ export type Pages_RedirectPage_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10017,7 +11459,9 @@ export type Pages_RedirectPage_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10032,6 +11476,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10068,14 +11513,19 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10084,7 +11534,9 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10099,6 +11551,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10126,7 +11579,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   withStructure: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType;
+export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_SourceSelector_BlockType;
 
 export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType';
@@ -10193,14 +11646,19 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10209,7 +11667,9 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10224,6 +11684,138 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type QuestionWidgetsBlock_SourceSelector_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'questionWidgetsBlock_sourceSelector_BlockType';
+  /** Return a number of related elements for a field. */
+  _count: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level: Maybe<Scalars['Int']['output']>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder: Maybe<Scalars['Int']['output']>;
+  sourceSelector: Array<Maybe<EntryInterface>>;
+  /** The element’s status. */
+  status: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri: Maybe<Scalars['String']['output']>;
+};
+
+
+export type QuestionWidgetsBlock_SourceSelector_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type QuestionWidgetsBlock_SourceSelector_BlockTypeSourceSelectorArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10385,14 +11977,19 @@ export type Questions_Default_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10401,7 +11998,9 @@ export type Questions_Default_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10416,6 +12015,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10491,14 +12091,19 @@ export type Questions_Default_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10507,7 +12112,9 @@ export type Questions_Default_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10522,6 +12129,7 @@ export type Questions_Default_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10558,14 +12166,19 @@ export type Questions_Default_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10574,7 +12187,9 @@ export type Questions_Default_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10589,6 +12204,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10625,14 +12241,19 @@ export type Questions_Default_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10641,7 +12262,9 @@ export type Questions_Default_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10656,6 +12279,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10727,14 +12351,19 @@ export type Questions_Default_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10743,7 +12372,9 @@ export type Questions_Default_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10758,6 +12389,7 @@ export type Questions_Default_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10794,14 +12426,19 @@ export type Questions_Default_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10810,7 +12447,9 @@ export type Questions_Default_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10825,6 +12464,7 @@ export type Questions_Default_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10861,14 +12501,19 @@ export type Questions_Default_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -10877,7 +12522,9 @@ export type Questions_Default_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10892,6 +12539,7 @@ export type Questions_Default_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11021,14 +12669,19 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11037,7 +12690,9 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11052,6 +12707,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11558,14 +13214,19 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11574,7 +13235,9 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11589,6 +13252,7 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11625,14 +13289,19 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11641,7 +13310,9 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11656,6 +13327,7 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11692,14 +13364,19 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11708,7 +13385,9 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11723,6 +13402,7 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11759,14 +13439,19 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11775,7 +13460,9 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11790,6 +13477,7 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11826,14 +13514,19 @@ export type ReferenceModals_Default_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11842,7 +13535,9 @@ export type ReferenceModals_Default_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11857,6 +13552,7 @@ export type ReferenceModals_Default_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11893,14 +13589,19 @@ export type ReferenceModals_Default_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11909,7 +13610,9 @@ export type ReferenceModals_Default_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11924,6 +13627,7 @@ export type ReferenceModals_Default_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11960,14 +13664,19 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -11976,7 +13685,9 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11991,6 +13702,7 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12612,7 +14324,7 @@ export type TableRow_TableCell_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type WidgetsSectionEntryUnion = Widgets_CameraFilterTool_Entry | Widgets_ColorFilterTool_Entry;
+export type WidgetsSectionEntryUnion = Widgets_CameraFilterTool_Entry | Widgets_ColorFilterTool_Entry | Widgets_SourceSelector_Entry;
 
 export type Widgets_CameraFilterTool_Entry = ElementInterface & EntryInterface & {
   __typename?: 'widgets_cameraFilterTool_Entry';
@@ -12740,14 +14452,19 @@ export type Widgets_CameraFilterTool_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -12756,7 +14473,9 @@ export type Widgets_CameraFilterTool_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12771,6 +14490,7 @@ export type Widgets_CameraFilterTool_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12807,14 +14527,19 @@ export type Widgets_CameraFilterTool_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -12823,7 +14548,9 @@ export type Widgets_CameraFilterTool_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12838,6 +14565,7 @@ export type Widgets_CameraFilterTool_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12874,14 +14602,19 @@ export type Widgets_CameraFilterTool_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -12890,7 +14623,9 @@ export type Widgets_CameraFilterTool_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12905,6 +14640,7 @@ export type Widgets_CameraFilterTool_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12941,14 +14677,19 @@ export type Widgets_CameraFilterTool_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -12957,7 +14698,9 @@ export type Widgets_CameraFilterTool_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12972,6 +14715,7 @@ export type Widgets_CameraFilterTool_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13008,14 +14752,19 @@ export type Widgets_CameraFilterTool_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13024,7 +14773,9 @@ export type Widgets_CameraFilterTool_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13039,6 +14790,7 @@ export type Widgets_CameraFilterTool_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13075,14 +14827,19 @@ export type Widgets_CameraFilterTool_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13091,7 +14848,9 @@ export type Widgets_CameraFilterTool_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13106,6 +14865,7 @@ export type Widgets_CameraFilterTool_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13142,14 +14902,19 @@ export type Widgets_CameraFilterTool_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13158,7 +14923,9 @@ export type Widgets_CameraFilterTool_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13173,6 +14940,7 @@ export type Widgets_CameraFilterTool_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13330,14 +15098,19 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13346,7 +15119,9 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13361,6 +15136,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13397,14 +15173,19 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13413,7 +15194,9 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13428,6 +15211,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13499,14 +15283,19 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13515,7 +15304,9 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13530,6 +15321,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13576,14 +15368,19 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13592,7 +15389,9 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13607,6 +15406,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13643,14 +15443,19 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13659,7 +15464,9 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13674,6 +15481,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13710,14 +15518,19 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13726,7 +15539,9 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13741,6 +15556,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13777,14 +15593,19 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   descendantDist: InputMaybe<Scalars['Int']['input']>;
   descendantOf: InputMaybe<Scalars['Int']['input']>;
   displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable: InputMaybe<Scalars['Boolean']['input']>;
   expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
@@ -13793,7 +15614,9 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   hideTitle: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13808,6 +15631,726 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
   questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Widgets_SourceSelector_Entry = ElementInterface & EntryInterface & {
+  __typename?: 'widgets_sourceSelector_Entry';
+  /** Return a number of related elements for a field. */
+  _count: Maybe<Scalars['Int']['output']>;
+  /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  ancestors: Array<EntryInterface>;
+  /** Whether the element is archived. */
+  archived: Maybe<Scalars['Boolean']['output']>;
+  /** The entry’s author. */
+  author: Maybe<UserInterface>;
+  /** The ID of the author of this entry. */
+  authorId: Maybe<Scalars['Int']['output']>;
+  /** Returns the entry’s canonical ID. */
+  canonicalId: Maybe<Scalars['Int']['output']>;
+  /** Returns the entry’s canonical UUID. */
+  canonicalUid: Maybe<Scalars['String']['output']>;
+  /** The entry’s children, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  children: Array<EntryInterface>;
+  dataset: Array<Maybe<EntryInterface>>;
+  /** The date the element was created. */
+  dateCreated: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated: Maybe<Scalars['DateTime']['output']>;
+  /** The entry’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  descendants: Array<EntryInterface>;
+  displayName: Maybe<Scalars['String']['output']>;
+  /** The draft ID (from the `drafts` table). */
+  draftId: Maybe<Scalars['Int']['output']>;
+  /** The name of the draft. */
+  draftName: Maybe<Scalars['String']['output']>;
+  /** The notes for the draft. */
+  draftNotes: Maybe<Scalars['String']['output']>;
+  /** Whether the element is enabled. */
+  enabled: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite: Maybe<Scalars['Boolean']['output']>;
+  /** The expiry date of the entry. */
+  expiryDate: Maybe<Scalars['DateTime']['output']>;
+  /** The ID of the entity */
+  id: Maybe<Scalars['ID']['output']>;
+  /** Returns whether this is a draft. */
+  isDraft: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is a revision. */
+  isRevision: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is an unpublished draft. */
+  isUnpublishedDraft: Maybe<Scalars['Boolean']['output']>;
+  /** The language of the site element is associated with. */
+  language: Maybe<Scalars['String']['output']>;
+  /** The element’s level within its structure */
+  level: Maybe<Scalars['Int']['output']>;
+  /** The element’s left position within its structure. */
+  lft: Maybe<Scalars['Int']['output']>;
+  /** The same element in other locales. */
+  localized: Array<EntryInterface>;
+  /** Returns the next element relative to this one, from a given set of criteria. */
+  next: Maybe<EntryInterface>;
+  /** The entry’s parent, if the section is a structure. */
+  parent: Maybe<EntryInterface>;
+  /** The entry’s post date. */
+  postDate: Maybe<Scalars['DateTime']['output']>;
+  /** Returns the previous element relative to this one, from a given set of criteria. */
+  prev: Maybe<EntryInterface>;
+  /** The revision ID (from the `revisions` table). */
+  revisionId: Maybe<Scalars['Int']['output']>;
+  /** The revision notes (from the `revisions` table). */
+  revisionNotes: Maybe<Scalars['String']['output']>;
+  /** The element’s right position within its structure. */
+  rgt: Maybe<Scalars['Int']['output']>;
+  /** The element’s structure’s root ID */
+  root: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore: Maybe<Scalars['Int']['output']>;
+  /** The handle of the section that contains the entry. */
+  sectionHandle: Scalars['String']['output'];
+  /** The ID of the section that contains the entry. */
+  sectionId: Scalars['Int']['output'];
+  /** The handle of the site the element is associated with. */
+  siteHandle: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug: Maybe<Scalars['String']['output']>;
+  /**
+   * Returns the entry’s canonical ID.
+   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalId` instead.
+   */
+  sourceId: Maybe<Scalars['Int']['output']>;
+  /**
+   * Returns the entry’s canonical UUID.
+   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalUid` instead.
+   */
+  sourceUid: Maybe<Scalars['String']['output']>;
+  /** The element’s status. */
+  status: Maybe<Scalars['String']['output']>;
+  /** The element’s structure ID. */
+  structureId: Maybe<Scalars['Int']['output']>;
+  /** The element’s title. */
+  title: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the entry type that contains the entry. */
+  typeHandle: Scalars['String']['output'];
+  /** The ID of the entry type that contains the entry. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri: Maybe<Scalars['String']['output']>;
+  /** The element’s full URL */
+  url: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Widgets_SourceSelector_Entry_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type Widgets_SourceSelector_EntryAncestorsArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryChildrenArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryDatasetArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryDescendantsArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryLocalizedArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryNextArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryParentArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type Widgets_SourceSelector_EntryPrevArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  l: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13841,10 +16384,10 @@ export type ReferenceContentQueryVariables = Exact<{
 }>;
 
 
-export type ReferenceContentQuery = { __typename?: 'Query', entry: { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | (
+export type ReferenceContentQuery = { __typename?: 'Query', entry: { __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | (
     { __typename?: 'referenceModals_default_Entry' }
     & { ' $fragmentRefs'?: { 'ReferenceContentTemplateFragment': ReferenceContentTemplateFragment } }
-  ) | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null };
+  ) | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null };
 
 export type InvestigationChildPageQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13852,13 +16395,13 @@ export type InvestigationChildPageQueryVariables = Exact<{
 }>;
 
 
-export type InvestigationChildPageQuery = { __typename?: 'Query', entry: { __typename?: 'homepage_homepage_Entry' } | (
+export type InvestigationChildPageQuery = { __typename?: 'Query', entry: { __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | (
     { __typename?: 'investigations_default_Entry' }
     & { ' $fragmentRefs'?: { 'InvestigationChildPageTemplateFragment': InvestigationChildPageTemplateFragment } }
   ) | { __typename?: 'investigations_investigationParent_Entry' } | (
     { __typename?: 'investigations_investigationSectionBreakChild_Entry' }
     & { ' $fragmentRefs'?: { 'InvestigationSectionBreakTemplateFragment': InvestigationSectionBreakTemplateFragment } }
-  ) | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null };
+  ) | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null };
 
 export type InvestigationChildPageMetadataQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13866,7 +16409,7 @@ export type InvestigationChildPageMetadataQueryVariables = Exact<{
 }>;
 
 
-export type InvestigationChildPageMetadataQuery = { __typename?: 'Query', entry: { __typename?: 'homepage_homepage_Entry', title: string | null } | { __typename?: 'investigations_default_Entry', title: string | null } | { __typename?: 'investigations_investigationParent_Entry', title: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry', title: string | null } | { __typename?: 'pages_pages_Entry', title: string | null } | { __typename?: 'pages_redirectPage_Entry', title: string | null } | { __typename?: 'questions_default_Entry', title: string | null } | { __typename?: 'referenceModals_default_Entry', title: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry', title: string | null } | { __typename?: 'widgets_colorFilterTool_Entry', title: string | null } | null };
+export type InvestigationChildPageMetadataQuery = { __typename?: 'Query', entry: { __typename?: 'datasets_supernovaGalaxyObservations_Entry', title: string | null } | { __typename?: 'homepage_homepage_Entry', title: string | null } | { __typename?: 'investigations_default_Entry', title: string | null } | { __typename?: 'investigations_investigationParent_Entry', title: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry', title: string | null } | { __typename?: 'pages_pages_Entry', title: string | null } | { __typename?: 'pages_redirectPage_Entry', title: string | null } | { __typename?: 'questions_default_Entry', title: string | null } | { __typename?: 'referenceModals_default_Entry', title: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry', title: string | null } | { __typename?: 'widgets_colorFilterTool_Entry', title: string | null } | { __typename?: 'widgets_sourceSelector_Entry', title: string | null } | null };
 
 export type InvestigationMetadataQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13874,7 +16417,7 @@ export type InvestigationMetadataQueryVariables = Exact<{
 }>;
 
 
-export type InvestigationMetadataQuery = { __typename?: 'Query', entry: { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry', title: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null };
+export type InvestigationMetadataQuery = { __typename?: 'Query', entry: { __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry', title: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null };
 
 export type InvestigationIdQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13882,25 +16425,25 @@ export type InvestigationIdQueryVariables = Exact<{
 }>;
 
 
-export type InvestigationIdQuery = { __typename?: 'Query', entry: { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename: 'investigations_investigationParent_Entry', id: string | null, acknowledgements: string | null, children: Array<{ __typename: 'homepage_homepage_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'investigations_default_Entry', hasSavePoint: boolean | null, title: string | null, id: string | null, uri: string | null, contentBlocks: Array<{ __typename: 'contentBlocks_barGraphTool_BlockType' } | { __typename: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename: 'contentBlocks_colLeft_BlockType' } | { __typename: 'contentBlocks_colRight_BlockType' } | { __typename: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'contentBlocks_equation_BlockType' } | { __typename: 'contentBlocks_filterTool_BlockType' } | { __typename: 'contentBlocks_group_BlockType', group: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | (
+export type InvestigationIdQuery = { __typename?: 'Query', entry: { __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename: 'investigations_investigationParent_Entry', id: string | null, acknowledgements: string | null, children: Array<{ __typename: 'datasets_supernovaGalaxyObservations_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'homepage_homepage_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'investigations_default_Entry', hasSavePoint: boolean | null, title: string | null, id: string | null, uri: string | null, contentBlocks: Array<{ __typename: 'contentBlocks_barGraphTool_BlockType' } | { __typename: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename: 'contentBlocks_colLeft_BlockType' } | { __typename: 'contentBlocks_colRight_BlockType' } | { __typename: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'contentBlocks_equation_BlockType' } | { __typename: 'contentBlocks_filterTool_BlockType' } | { __typename: 'contentBlocks_group_BlockType', group: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | (
           { __typename?: 'contentBlocks_questionBlock_BlockType' }
           & { ' $fragmentRefs'?: { 'QuestionsBlockFragment': QuestionsBlockFragment } }
-        ) | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_image_BlockType' } | (
+        ) | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_image_BlockType' } | (
         { __typename: 'contentBlocks_questionBlock_BlockType' }
         & { ' $fragmentRefs'?: { 'QuestionsBlockFragment': QuestionsBlockFragment } }
       ) | { __typename: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename: 'contentBlocks_scatterplotTool_BlockType' } | { __typename: 'contentBlocks_table_BlockType' } | { __typename: 'contentBlocks_text_BlockType' } | { __typename: 'contentBlocks_twoColumnContainer_BlockType', columns: Array<{ __typename: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename: 'colorFilterToolObjects_group_BlockType' } | { __typename: 'colorFilterToolObjects_object_BlockType' } | { __typename: 'contentBlocks_barGraphTool_BlockType' } | { __typename: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename: 'contentBlocks_colLeft_BlockType', children: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType', group: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | (
               { __typename?: 'contentBlocks_questionBlock_BlockType' }
               & { ' $fragmentRefs'?: { 'QuestionsBlockFragment': QuestionsBlockFragment } }
-            ) | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename?: 'contentBlocks_image_BlockType' } | (
+            ) | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename?: 'contentBlocks_image_BlockType' } | (
             { __typename?: 'contentBlocks_questionBlock_BlockType' }
             & { ' $fragmentRefs'?: { 'QuestionsBlockFragment': QuestionsBlockFragment } }
-          ) | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_colRight_BlockType', children: Array<{ __typename: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename: 'colorFilterToolObjects_group_BlockType' } | { __typename: 'colorFilterToolObjects_object_BlockType' } | { __typename: 'contentBlocks_barGraphTool_BlockType' } | { __typename: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename: 'contentBlocks_colLeft_BlockType' } | { __typename: 'contentBlocks_colRight_BlockType' } | { __typename: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'contentBlocks_equation_BlockType' } | { __typename: 'contentBlocks_filterTool_BlockType' } | { __typename: 'contentBlocks_group_BlockType', group: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename: 'contentBlocks_questionBlock_BlockType', questionEntries: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | (
+          ) | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_colRight_BlockType', children: Array<{ __typename: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename: 'colorFilterToolObjects_group_BlockType' } | { __typename: 'colorFilterToolObjects_object_BlockType' } | { __typename: 'contentBlocks_barGraphTool_BlockType' } | { __typename: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename: 'contentBlocks_colLeft_BlockType' } | { __typename: 'contentBlocks_colRight_BlockType' } | { __typename: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'contentBlocks_equation_BlockType' } | { __typename: 'contentBlocks_filterTool_BlockType' } | { __typename: 'contentBlocks_group_BlockType', group: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename: 'contentBlocks_questionBlock_BlockType', questionEntries: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | (
                 { __typename?: 'questions_default_Entry' }
                 & { ' $fragmentRefs'?: { 'QuestionEntryFragment': QuestionEntryFragment } }
-              ) | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null> } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_image_BlockType' } | (
+              ) | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null> } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_image_BlockType' } | (
             { __typename: 'contentBlocks_questionBlock_BlockType' }
             & { ' $fragmentRefs'?: { 'QuestionsBlockFragment': QuestionsBlockFragment } }
-          ) | { __typename: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename: 'contentBlocks_scatterplotTool_BlockType' } | { __typename: 'contentBlocks_table_BlockType' } | { __typename: 'contentBlocks_text_BlockType' } | { __typename: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename: 'contentBlocks_video_BlockType' } | { __typename: 'homepageContentBlocks_image_BlockType' } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename: 'homepageContentBlocks_text_BlockType' } | { __typename: 'multiPartBlocks_multiselect_BlockType' } | { __typename: 'multiPartBlocks_readonlyText_BlockType' } | { __typename: 'multiPartBlocks_select_BlockType' } | { __typename: 'multiPartBlocks_text_BlockType' } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_filterTool_BlockType' } | { __typename: 'referenceContentBlocks_image_BlockType' } | { __typename: 'referenceContentBlocks_table_BlockType' } | { __typename: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'contentBlocks_equation_BlockType' } | { __typename: 'contentBlocks_filterTool_BlockType' } | { __typename: 'contentBlocks_group_BlockType' } | { __typename: 'contentBlocks_image_BlockType' } | { __typename: 'contentBlocks_questionBlock_BlockType' } | { __typename: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename: 'contentBlocks_scatterplotTool_BlockType' } | { __typename: 'contentBlocks_table_BlockType' } | { __typename: 'contentBlocks_text_BlockType' } | { __typename: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename: 'contentBlocks_video_BlockType' } | { __typename: 'homepageContentBlocks_image_BlockType' } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename: 'homepageContentBlocks_text_BlockType' } | { __typename: 'multiPartBlocks_multiselect_BlockType' } | { __typename: 'multiPartBlocks_readonlyText_BlockType' } | { __typename: 'multiPartBlocks_select_BlockType' } | { __typename: 'multiPartBlocks_text_BlockType' } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_filterTool_BlockType' } | { __typename: 'referenceContentBlocks_image_BlockType' } | { __typename: 'referenceContentBlocks_table_BlockType' } | { __typename: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_video_BlockType' } | null> | null } | { __typename: 'investigations_investigationParent_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'investigations_investigationSectionBreakChild_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'pages_pages_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'pages_redirectPage_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'questions_default_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'referenceModals_default_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'widgets_cameraFilterTool_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'widgets_colorFilterTool_Entry', title: string | null, id: string | null, uri: string | null }> } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null };
+          ) | { __typename: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename: 'contentBlocks_scatterplotTool_BlockType' } | { __typename: 'contentBlocks_table_BlockType' } | { __typename: 'contentBlocks_text_BlockType' } | { __typename: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename: 'contentBlocks_video_BlockType' } | { __typename: 'homepageContentBlocks_image_BlockType' } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename: 'homepageContentBlocks_text_BlockType' } | { __typename: 'multiPartBlocks_multiselect_BlockType' } | { __typename: 'multiPartBlocks_readonlyText_BlockType' } | { __typename: 'multiPartBlocks_select_BlockType' } | { __typename: 'multiPartBlocks_text_BlockType' } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_filterTool_BlockType' } | { __typename: 'referenceContentBlocks_image_BlockType' } | { __typename: 'referenceContentBlocks_table_BlockType' } | { __typename: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'contentBlocks_equation_BlockType' } | { __typename: 'contentBlocks_filterTool_BlockType' } | { __typename: 'contentBlocks_group_BlockType' } | { __typename: 'contentBlocks_image_BlockType' } | { __typename: 'contentBlocks_questionBlock_BlockType' } | { __typename: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename: 'contentBlocks_scatterplotTool_BlockType' } | { __typename: 'contentBlocks_table_BlockType' } | { __typename: 'contentBlocks_text_BlockType' } | { __typename: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename: 'contentBlocks_video_BlockType' } | { __typename: 'homepageContentBlocks_image_BlockType' } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename: 'homepageContentBlocks_text_BlockType' } | { __typename: 'multiPartBlocks_multiselect_BlockType' } | { __typename: 'multiPartBlocks_readonlyText_BlockType' } | { __typename: 'multiPartBlocks_select_BlockType' } | { __typename: 'multiPartBlocks_text_BlockType' } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_filterTool_BlockType' } | { __typename: 'referenceContentBlocks_image_BlockType' } | { __typename: 'referenceContentBlocks_table_BlockType' } | { __typename: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename: 'contentBlocks_video_BlockType' } | null> | null } | { __typename: 'investigations_investigationParent_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'investigations_investigationSectionBreakChild_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'pages_pages_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'pages_redirectPage_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'questions_default_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'referenceModals_default_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'widgets_cameraFilterTool_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'widgets_colorFilterTool_Entry', title: string | null, id: string | null, uri: string | null } | { __typename: 'widgets_sourceSelector_Entry', title: string | null, id: string | null, uri: string | null }> } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null };
 
 export type InvestigationPageQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13908,10 +16451,10 @@ export type InvestigationPageQueryVariables = Exact<{
 }>;
 
 
-export type InvestigationPageQuery = { __typename?: 'Query', entry: { __typename: 'homepage_homepage_Entry' } | { __typename: 'investigations_default_Entry' } | (
+export type InvestigationPageQuery = { __typename?: 'Query', entry: { __typename: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename: 'homepage_homepage_Entry' } | { __typename: 'investigations_default_Entry' } | (
     { __typename: 'investigations_investigationParent_Entry' }
     & { ' $fragmentRefs'?: { 'InvestigationLandingPageTemplateFragment': InvestigationLandingPageTemplateFragment } }
-  ) | { __typename: 'investigations_investigationSectionBreakChild_Entry' } | { __typename: 'pages_pages_Entry' } | { __typename: 'pages_redirectPage_Entry' } | { __typename: 'questions_default_Entry' } | { __typename: 'referenceModals_default_Entry' } | { __typename: 'widgets_cameraFilterTool_Entry' } | { __typename: 'widgets_colorFilterTool_Entry' } | null };
+  ) | { __typename: 'investigations_investigationSectionBreakChild_Entry' } | { __typename: 'pages_pages_Entry' } | { __typename: 'pages_redirectPage_Entry' } | { __typename: 'questions_default_Entry' } | { __typename: 'referenceModals_default_Entry' } | { __typename: 'widgets_cameraFilterTool_Entry' } | { __typename: 'widgets_colorFilterTool_Entry' } | { __typename: 'widgets_sourceSelector_Entry' } | null };
 
 export type ReviewPageQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13919,7 +16462,7 @@ export type ReviewPageQueryVariables = Exact<{
 }>;
 
 
-export type ReviewPageQuery = { __typename?: 'Query', entry: { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry', title: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null };
+export type ReviewPageQuery = { __typename?: 'Query', entry: { __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry', title: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null };
 
 export type GlobalsQueryQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13934,10 +16477,10 @@ export type HomepageQueryQueryVariables = Exact<{
 }>;
 
 
-export type HomepageQueryQuery = { __typename?: 'Query', entry: (
+export type HomepageQueryQuery = { __typename?: 'Query', entry: { __typename: 'datasets_supernovaGalaxyObservations_Entry' } | (
     { __typename: 'homepage_homepage_Entry' }
     & { ' $fragmentRefs'?: { 'HomepageTemplateFragment': HomepageTemplateFragment } }
-  ) | { __typename: 'investigations_default_Entry' } | { __typename: 'investigations_investigationParent_Entry' } | { __typename: 'investigations_investigationSectionBreakChild_Entry' } | { __typename: 'pages_pages_Entry' } | { __typename: 'pages_redirectPage_Entry' } | { __typename: 'questions_default_Entry' } | { __typename: 'referenceModals_default_Entry' } | { __typename: 'widgets_cameraFilterTool_Entry' } | { __typename: 'widgets_colorFilterTool_Entry' } | null };
+  ) | { __typename: 'investigations_default_Entry' } | { __typename: 'investigations_investigationParent_Entry' } | { __typename: 'investigations_investigationSectionBreakChild_Entry' } | { __typename: 'pages_pages_Entry' } | { __typename: 'pages_redirectPage_Entry' } | { __typename: 'questions_default_Entry' } | { __typename: 'referenceModals_default_Entry' } | { __typename: 'widgets_cameraFilterTool_Entry' } | { __typename: 'widgets_colorFilterTool_Entry' } | { __typename: 'widgets_sourceSelector_Entry' } | null };
 
 export type PagePreviewQueryQueryVariables = Exact<{
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>> | InputMaybe<Scalars['String']['input']>>;
@@ -13945,7 +16488,7 @@ export type PagePreviewQueryQueryVariables = Exact<{
 }>;
 
 
-export type PagePreviewQueryQuery = { __typename?: 'Query', entry: { __typename: 'homepage_homepage_Entry', uri: string | null, title: string | null } | { __typename: 'investigations_default_Entry', uri: string | null, title: string | null } | { __typename: 'investigations_investigationParent_Entry', uri: string | null, title: string | null } | { __typename: 'investigations_investigationSectionBreakChild_Entry', uri: string | null, title: string | null } | { __typename: 'pages_pages_Entry', uri: string | null, title: string | null } | { __typename: 'pages_redirectPage_Entry', uri: string | null, title: string | null } | { __typename: 'questions_default_Entry', uri: string | null, title: string | null } | { __typename: 'referenceModals_default_Entry', uri: string | null, title: string | null } | { __typename: 'widgets_cameraFilterTool_Entry', uri: string | null, title: string | null } | { __typename: 'widgets_colorFilterTool_Entry', uri: string | null, title: string | null } | null };
+export type PagePreviewQueryQuery = { __typename?: 'Query', entry: { __typename: 'datasets_supernovaGalaxyObservations_Entry', uri: string | null, title: string | null } | { __typename: 'homepage_homepage_Entry', uri: string | null, title: string | null } | { __typename: 'investigations_default_Entry', uri: string | null, title: string | null } | { __typename: 'investigations_investigationParent_Entry', uri: string | null, title: string | null } | { __typename: 'investigations_investigationSectionBreakChild_Entry', uri: string | null, title: string | null } | { __typename: 'pages_pages_Entry', uri: string | null, title: string | null } | { __typename: 'pages_redirectPage_Entry', uri: string | null, title: string | null } | { __typename: 'questions_default_Entry', uri: string | null, title: string | null } | { __typename: 'referenceModals_default_Entry', uri: string | null, title: string | null } | { __typename: 'widgets_cameraFilterTool_Entry', uri: string | null, title: string | null } | { __typename: 'widgets_colorFilterTool_Entry', uri: string | null, title: string | null } | { __typename: 'widgets_sourceSelector_Entry', uri: string | null, title: string | null } | null };
 
 export type FacebookOauthUrlQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -14061,14 +16604,12 @@ export type RefreshTokenMutation = { __typename?: 'Mutation', refreshToken: (
     & { ' $fragmentRefs'?: { 'AuthFragmentFragment': AuthFragmentFragment } }
   ) };
 
-export type ColorFilterToolEntryFragment = { __typename?: 'widgets_colorFilterTool_Entry', id: string | null, title: string | null, displayName: string | null, filterToolActions: Array<string | null> | null, filterColorOptionsLabels: Array<string | null> | null, filterColorOptionsValues: Array<string | null> | null, colorFilterToolObjects: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType', groupName: string | null, objects: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType', name: string | null, caption: string | null, filterImages: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType', isEnabled: boolean | null, isActive: boolean | null, max: any | null, min: any | null, defaultValue: any | null, label: string | null, color: string | null, image: Array<never | null> | null } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename?: 'contentBlocks_questionBlock_BlockType' } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename?: 'contentBlocks_questionBlock_BlockType' } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | null> | null } & { ' $fragmentName'?: 'ColorFilterToolEntryFragment' };
-
 export type BarGraphToolBlockFragment = { __typename: 'contentBlocks_barGraphTool_BlockType', id: string | null, title: string | null, yAxisMin: any | null, yAxisMax: any | null, yAxisLabel: string | null, xAxisLabel: string | null, graphBars: Array<{ __typename: 'graphBars_bar_BlockType', yValue: string | null, label: string | null } | null> } & { ' $fragmentName'?: 'BarGraphToolBlockFragment' };
 
-export type ColorFilterToolBlockFragment = { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType', colorFilterTool: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | (
+export type ColorFilterToolBlockFragment = { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType', colorFilterTool: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | (
     { __typename?: 'widgets_colorFilterTool_Entry' }
     & { ' $fragmentRefs'?: { 'ColorFilterToolEntryFragment': ColorFilterToolEntryFragment } }
-  ) | null> } & { ' $fragmentName'?: 'ColorFilterToolBlockFragment' };
+  ) | { __typename?: 'widgets_sourceSelector_Entry' } | null> } & { ' $fragmentName'?: 'ColorFilterToolBlockFragment' };
 
 export type EquationBlockFragment = { __typename?: 'contentBlocks_equation_BlockType', id: string | null, latex: string | null } & { ' $fragmentName'?: 'EquationBlockFragment' };
 
@@ -14103,16 +16644,16 @@ export type InteractionGroupContainerBlockFragment = { __typename: 'contentBlock
   ) | (
     { __typename: 'contentBlocks_text_BlockType', id: string | null }
     & { ' $fragmentRefs'?: { 'TextBlockFragment': TextBlockFragment } }
-  ) | { __typename: 'contentBlocks_twoColumnContainer_BlockType', id: string | null } | { __typename: 'contentBlocks_video_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_image_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_text_BlockType', id: string | null } | { __typename: 'multiPartBlocks_multiselect_BlockType', id: string | null } | { __typename: 'multiPartBlocks_readonlyText_BlockType', id: string | null } | { __typename: 'multiPartBlocks_select_BlockType', id: string | null } | { __typename: 'multiPartBlocks_text_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_filterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null } | null> | null } & { ' $fragmentName'?: 'InteractionGroupContainerBlockFragment' };
+  ) | { __typename: 'contentBlocks_twoColumnContainer_BlockType', id: string | null } | { __typename: 'contentBlocks_video_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_image_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_text_BlockType', id: string | null } | { __typename: 'multiPartBlocks_multiselect_BlockType', id: string | null } | { __typename: 'multiPartBlocks_readonlyText_BlockType', id: string | null } | { __typename: 'multiPartBlocks_select_BlockType', id: string | null } | { __typename: 'multiPartBlocks_text_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_sourceSelector_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_filterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null } | null> | null } & { ' $fragmentName'?: 'InteractionGroupContainerBlockFragment' };
 
-export type InvestigationGridBlockFragment = { __typename?: 'homepageContentBlocks_investigationGrid_BlockType', heading: string | null, investigations: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry', id: string | null, title: string | null, url: string | null, rawImage: Array<never | null> | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null> } & { ' $fragmentName'?: 'InvestigationGridBlockFragment' };
+export type InvestigationGridBlockFragment = { __typename?: 'homepageContentBlocks_investigationGrid_BlockType', heading: string | null, investigations: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry', id: string | null, title: string | null, url: string | null, rawImage: Array<never | null> | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null> } & { ' $fragmentName'?: 'InvestigationGridBlockFragment' };
 
-export type ReferenceModalBlockFragment = { __typename?: 'contentBlocks_referenceModalBlock_BlockType', referenceModalEntries: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry', title: string | null, uri: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null> } & { ' $fragmentName'?: 'ReferenceModalBlockFragment' };
+export type ReferenceModalBlockFragment = { __typename?: 'contentBlocks_referenceModalBlock_BlockType', referenceModalEntries: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry', title: string | null, uri: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null> } & { ' $fragmentName'?: 'ReferenceModalBlockFragment' };
 
-export type QuestionsBlockFragment = { __typename: 'contentBlocks_questionBlock_BlockType', id: string | null, questionEntries: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | (
+export type QuestionsBlockFragment = { __typename: 'contentBlocks_questionBlock_BlockType', id: string | null, questionEntries: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | (
     { __typename?: 'questions_default_Entry' }
     & { ' $fragmentRefs'?: { 'QuestionEntryFragment': QuestionEntryFragment } }
-  ) | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | null> } & { ' $fragmentName'?: 'QuestionsBlockFragment' };
+  ) | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null> } & { ' $fragmentName'?: 'QuestionsBlockFragment' };
 
 export type ScatterplotToolBlockFragment = { __typename?: 'contentBlocks_scatterplotTool_BlockType', id: string | null, title: string | null, xAxisMin: any | null, yAxisMax: any | null, yAxisLabel: string | null, xAxisLabel: string | null, scatterplotItems: Array<{ __typename?: 'scatterplotItems_item_BlockType', xValue: any | null, yValue: any | null, itemLabel: string | null } | null> } & { ' $fragmentName'?: 'ScatterplotToolBlockFragment' };
 
@@ -14147,7 +16688,7 @@ export type TwoColumnContainerBlockFragment = { __typename?: 'contentBlocks_twoC
     ) | (
       { __typename: 'contentBlocks_text_BlockType', id: string | null }
       & { ' $fragmentRefs'?: { 'TextBlockFragment': TextBlockFragment } }
-    ) | { __typename: 'contentBlocks_twoColumnContainer_BlockType', id: string | null } | { __typename: 'contentBlocks_video_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_image_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_text_BlockType', id: string | null } | { __typename: 'multiPartBlocks_multiselect_BlockType', id: string | null } | { __typename: 'multiPartBlocks_readonlyText_BlockType', id: string | null } | { __typename: 'multiPartBlocks_select_BlockType', id: string | null } | { __typename: 'multiPartBlocks_text_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_filterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null } | null> | null } | { __typename: 'contentBlocks_colRight_BlockType', id: string | null, childblocks: Array<{ __typename: 'colorFilterToolObjects_filterimage_BlockType', id: string | null } | { __typename: 'colorFilterToolObjects_group_BlockType', id: string | null } | { __typename: 'colorFilterToolObjects_object_BlockType', id: string | null } | (
+    ) | { __typename: 'contentBlocks_twoColumnContainer_BlockType', id: string | null } | { __typename: 'contentBlocks_video_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_image_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_text_BlockType', id: string | null } | { __typename: 'multiPartBlocks_multiselect_BlockType', id: string | null } | { __typename: 'multiPartBlocks_readonlyText_BlockType', id: string | null } | { __typename: 'multiPartBlocks_select_BlockType', id: string | null } | { __typename: 'multiPartBlocks_text_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_sourceSelector_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_filterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null } | null> | null } | { __typename: 'contentBlocks_colRight_BlockType', id: string | null, childblocks: Array<{ __typename: 'colorFilterToolObjects_filterimage_BlockType', id: string | null } | { __typename: 'colorFilterToolObjects_group_BlockType', id: string | null } | { __typename: 'colorFilterToolObjects_object_BlockType', id: string | null } | (
       { __typename: 'contentBlocks_barGraphTool_BlockType', id: string | null }
       & { ' $fragmentRefs'?: { 'BarGraphToolBlockFragment': BarGraphToolBlockFragment } }
     ) | { __typename: 'contentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'contentBlocks_colLeft_BlockType', id: string | null } | { __typename: 'contentBlocks_colRight_BlockType', id: string | null } | (
@@ -14174,9 +16715,13 @@ export type TwoColumnContainerBlockFragment = { __typename?: 'contentBlocks_twoC
     ) | (
       { __typename: 'contentBlocks_text_BlockType', id: string | null }
       & { ' $fragmentRefs'?: { 'TextBlockFragment': TextBlockFragment } }
-    ) | { __typename: 'contentBlocks_twoColumnContainer_BlockType', id: string | null } | { __typename: 'contentBlocks_video_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_image_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_text_BlockType', id: string | null } | { __typename: 'multiPartBlocks_multiselect_BlockType', id: string | null } | { __typename: 'multiPartBlocks_readonlyText_BlockType', id: string | null } | { __typename: 'multiPartBlocks_select_BlockType', id: string | null } | { __typename: 'multiPartBlocks_text_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_filterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null } | null> | null } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename?: 'contentBlocks_questionBlock_BlockType' } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } & { ' $fragmentName'?: 'TwoColumnContainerBlockFragment' };
+    ) | { __typename: 'contentBlocks_twoColumnContainer_BlockType', id: string | null } | { __typename: 'contentBlocks_video_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_image_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_investigationGrid_BlockType', id: string | null } | { __typename: 'homepageContentBlocks_text_BlockType', id: string | null } | { __typename: 'multiPartBlocks_multiselect_BlockType', id: string | null } | { __typename: 'multiPartBlocks_readonlyText_BlockType', id: string | null } | { __typename: 'multiPartBlocks_select_BlockType', id: string | null } | { __typename: 'multiPartBlocks_text_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'questionWidgetsBlock_sourceSelector_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_cameraFilterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_filterTool_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null } | null> | null } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename?: 'contentBlocks_questionBlock_BlockType' } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } & { ' $fragmentName'?: 'TwoColumnContainerBlockFragment' };
 
 export type VideoBlockFragment = { __typename?: 'contentBlocks_video_BlockType', id: string | null, caption: string | null, video: Array<never | null> | null } & { ' $fragmentName'?: 'VideoBlockFragment' };
+
+export type ColorFilterToolEntryFragment = { __typename?: 'widgets_colorFilterTool_Entry', id: string | null, title: string | null, displayName: string | null, filterToolActions: Array<string | null> | null, filterColorOptionsLabels: Array<string | null> | null, filterColorOptionsValues: Array<string | null> | null, colorFilterToolObjects: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType', groupName: string | null, objects: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType' } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType', name: string | null, caption: string | null, filterImages: Array<{ __typename?: 'colorFilterToolObjects_filterimage_BlockType', isEnabled: boolean | null, isActive: boolean | null, max: any | null, min: any | null, defaultValue: any | null, label: string | null, color: string | null, image: Array<never | null> | null } | { __typename?: 'colorFilterToolObjects_group_BlockType' } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename?: 'contentBlocks_questionBlock_BlockType' } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename?: 'contentBlocks_barGraphTool_BlockType' } | { __typename?: 'contentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'contentBlocks_colLeft_BlockType' } | { __typename?: 'contentBlocks_colRight_BlockType' } | { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'contentBlocks_equation_BlockType' } | { __typename?: 'contentBlocks_filterTool_BlockType' } | { __typename?: 'contentBlocks_group_BlockType' } | { __typename?: 'contentBlocks_image_BlockType' } | { __typename?: 'contentBlocks_questionBlock_BlockType' } | { __typename?: 'contentBlocks_referenceModalBlock_BlockType' } | { __typename?: 'contentBlocks_scatterplotTool_BlockType' } | { __typename?: 'contentBlocks_table_BlockType' } | { __typename?: 'contentBlocks_text_BlockType' } | { __typename?: 'contentBlocks_twoColumnContainer_BlockType' } | { __typename?: 'contentBlocks_video_BlockType' } | { __typename?: 'homepageContentBlocks_image_BlockType' } | { __typename?: 'homepageContentBlocks_investigationGrid_BlockType' } | { __typename?: 'homepageContentBlocks_text_BlockType' } | { __typename?: 'multiPartBlocks_multiselect_BlockType' } | { __typename?: 'multiPartBlocks_readonlyText_BlockType' } | { __typename?: 'multiPartBlocks_select_BlockType' } | { __typename?: 'multiPartBlocks_text_BlockType' } | { __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType' } | { __typename?: 'questionWidgetsBlock_sourceSelector_BlockType' } | { __typename?: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename?: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename?: 'referenceContentBlocks_filterTool_BlockType' } | { __typename?: 'referenceContentBlocks_image_BlockType' } | { __typename?: 'referenceContentBlocks_table_BlockType' } | { __typename?: 'referenceContentBlocks_text_BlockType' } | null> | null } | { __typename?: 'colorFilterToolObjects_object_BlockType' } | null> | null } & { ' $fragmentName'?: 'ColorFilterToolEntryFragment' };
+
+export type SourceSelectorEntryFragment = { __typename?: 'widgets_sourceSelector_Entry', id: string | null, title: string | null, displayName: string | null, dataset: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry', id: string | null, sources: Array<{ __typename?: 'alertSources_source_BlockType', color: string | null, radius: any | null, x: any | null, y: any | null, type: string | null, id: string | null } | null>, alerts: Array<{ __typename?: 'alerts_alert_BlockType', magnitude: any | null, error: any | null, date: any | null, id: any | null } | null>, imageAlbum: Array<never | null> | null } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | { __typename?: 'widgets_sourceSelector_Entry' } | null> } & { ' $fragmentName'?: 'SourceSelectorEntryFragment' };
 
 type ContentBlockFactory_ContentBlocks_BarGraphTool_BlockType_Fragment = (
   { __typename: 'contentBlocks_barGraphTool_BlockType' }
@@ -14251,10 +16796,15 @@ type ContentBlockFactory_ContentBlocks_Video_BlockType_Fragment = (
 
 export type ContentBlockFactoryFragment = ContentBlockFactory_ContentBlocks_BarGraphTool_BlockType_Fragment | ContentBlockFactory_ContentBlocks_CameraFilterTool_BlockType_Fragment | ContentBlockFactory_ContentBlocks_ColLeft_BlockType_Fragment | ContentBlockFactory_ContentBlocks_ColRight_BlockType_Fragment | ContentBlockFactory_ContentBlocks_ColorFilterToolBlock_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Equation_BlockType_Fragment | ContentBlockFactory_ContentBlocks_FilterTool_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Group_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Image_BlockType_Fragment | ContentBlockFactory_ContentBlocks_QuestionBlock_BlockType_Fragment | ContentBlockFactory_ContentBlocks_ReferenceModalBlock_BlockType_Fragment | ContentBlockFactory_ContentBlocks_ScatterplotTool_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Table_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Text_BlockType_Fragment | ContentBlockFactory_ContentBlocks_TwoColumnContainer_BlockType_Fragment | ContentBlockFactory_ContentBlocks_Video_BlockType_Fragment;
 
-export type QuestionEntryFragment = { __typename: 'questions_default_Entry', id: string | null, answerType: string | null, questionText: string | null, widgetInstructions: string | null, options: Array<{ __typename?: 'answerOptions_option_BlockType', label: string | null, value: string | null } | null>, questionWidgetsBlock: Array<{ __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', typeHandle: string | null, colorFilterTool: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | (
+export type QuestionEntryFragment = { __typename: 'questions_default_Entry', id: string | null, answerType: string | null, questionText: string | null, widgetInstructions: string | null, options: Array<{ __typename?: 'answerOptions_option_BlockType', label: string | null, value: string | null } | null>, questionWidgetsBlock: Array<{ __typename: 'questionWidgetsBlock_colorFilterToolBlock_BlockType', typeHandle: string | null, colorFilterTool: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | (
       { __typename?: 'widgets_colorFilterTool_Entry' }
       & { ' $fragmentRefs'?: { 'ColorFilterToolEntryFragment': ColorFilterToolEntryFragment } }
+    ) | { __typename?: 'widgets_sourceSelector_Entry' } | null> } | { __typename: 'questionWidgetsBlock_sourceSelector_BlockType', typeHandle: string | null, sourceSelector: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | (
+      { __typename?: 'widgets_sourceSelector_Entry' }
+      & { ' $fragmentRefs'?: { 'SourceSelectorEntryFragment': SourceSelectorEntryFragment } }
     ) | null> } | null> | null, parts: Array<{ __typename?: 'multiPartBlocks_multiselect_BlockType', id: string | null, type: string | null, options: Array<{ __typename?: 'answerOptions_option_BlockType', id: string | null, label: string | null, value: string | null } | null> } | { __typename?: 'multiPartBlocks_readonlyText_BlockType', id: string | null, type: string | null, text: string | null } | { __typename?: 'multiPartBlocks_select_BlockType', id: string | null, type: string | null, options: Array<{ __typename?: 'answerOptions_option_BlockType', id: string | null, label: string | null, value: string | null } | null> } | { __typename?: 'multiPartBlocks_text_BlockType', id: string | null, type: string | null } | null> | null } & { ' $fragmentName'?: 'QuestionEntryFragment' };
+
+type TemplateFactory_Datasets_SupernovaGalaxyObservations_Entry_Fragment = { __typename: 'datasets_supernovaGalaxyObservations_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Datasets_SupernovaGalaxyObservations_Entry_Fragment' };
 
 type TemplateFactory_Homepage_Homepage_Entry_Fragment = { __typename: 'homepage_homepage_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Homepage_Homepage_Entry_Fragment' };
 
@@ -14279,12 +16829,19 @@ type TemplateFactory_Widgets_CameraFilterTool_Entry_Fragment = { __typename: 'wi
 
 type TemplateFactory_Widgets_ColorFilterTool_Entry_Fragment = { __typename: 'widgets_colorFilterTool_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Widgets_ColorFilterTool_Entry_Fragment' };
 
-export type TemplateFactoryFragment = TemplateFactory_Homepage_Homepage_Entry_Fragment | TemplateFactory_Investigations_Default_Entry_Fragment | TemplateFactory_Investigations_InvestigationParent_Entry_Fragment | TemplateFactory_Investigations_InvestigationSectionBreakChild_Entry_Fragment | TemplateFactory_Pages_Pages_Entry_Fragment | TemplateFactory_Pages_RedirectPage_Entry_Fragment | TemplateFactory_Questions_Default_Entry_Fragment | TemplateFactory_ReferenceModals_Default_Entry_Fragment | TemplateFactory_Widgets_CameraFilterTool_Entry_Fragment | TemplateFactory_Widgets_ColorFilterTool_Entry_Fragment;
+type TemplateFactory_Widgets_SourceSelector_Entry_Fragment = { __typename: 'widgets_sourceSelector_Entry' } & { ' $fragmentName'?: 'TemplateFactory_Widgets_SourceSelector_Entry_Fragment' };
 
-export type ColorFilterToolQuestionFragment = { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType', colorFilterTool: Array<{ __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | (
+export type TemplateFactoryFragment = TemplateFactory_Datasets_SupernovaGalaxyObservations_Entry_Fragment | TemplateFactory_Homepage_Homepage_Entry_Fragment | TemplateFactory_Investigations_Default_Entry_Fragment | TemplateFactory_Investigations_InvestigationParent_Entry_Fragment | TemplateFactory_Investigations_InvestigationSectionBreakChild_Entry_Fragment | TemplateFactory_Pages_Pages_Entry_Fragment | TemplateFactory_Pages_RedirectPage_Entry_Fragment | TemplateFactory_Questions_Default_Entry_Fragment | TemplateFactory_ReferenceModals_Default_Entry_Fragment | TemplateFactory_Widgets_CameraFilterTool_Entry_Fragment | TemplateFactory_Widgets_ColorFilterTool_Entry_Fragment | TemplateFactory_Widgets_SourceSelector_Entry_Fragment;
+
+export type ColorFilterToolQuestionFragment = { __typename?: 'contentBlocks_colorFilterToolBlock_BlockType', colorFilterTool: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | (
     { __typename?: 'widgets_colorFilterTool_Entry' }
     & { ' $fragmentRefs'?: { 'ColorFilterToolEntryFragment': ColorFilterToolEntryFragment } }
-  ) | null> } & { ' $fragmentName'?: 'ColorFilterToolQuestionFragment' };
+  ) | { __typename?: 'widgets_sourceSelector_Entry' } | null> } & { ' $fragmentName'?: 'ColorFilterToolQuestionFragment' };
+
+export type SourceSelectorQuestionFragment = { __typename: 'questionWidgetsBlock_sourceSelector_BlockType', sourceSelector: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry' } | { __typename?: 'homepage_homepage_Entry' } | { __typename?: 'investigations_default_Entry' } | { __typename?: 'investigations_investigationParent_Entry' } | { __typename?: 'investigations_investigationSectionBreakChild_Entry' } | { __typename?: 'pages_pages_Entry' } | { __typename?: 'pages_redirectPage_Entry' } | { __typename?: 'questions_default_Entry' } | { __typename?: 'referenceModals_default_Entry' } | { __typename?: 'widgets_cameraFilterTool_Entry' } | { __typename?: 'widgets_colorFilterTool_Entry' } | (
+    { __typename?: 'widgets_sourceSelector_Entry' }
+    & { ' $fragmentRefs'?: { 'SourceSelectorEntryFragment': SourceSelectorEntryFragment } }
+  ) | null> } & { ' $fragmentName'?: 'SourceSelectorQuestionFragment' };
 
 export type HomepageTemplateFragment = { __typename: 'homepage_homepage_Entry', id: string | null, title: string | null, contentBlocks: Array<{ __typename: 'homepageContentBlocks_image_BlockType', id: string | null, caption: string | null, layout: string | null, image: Array<never | null> | null } | (
     { __typename: 'homepageContentBlocks_investigationGrid_BlockType' }
@@ -14339,11 +16896,11 @@ export type InvestigationChildPageTemplateFragment = { __typename: 'investigatio
   ) | (
     { __typename?: 'contentBlocks_video_BlockType' }
     & { ' $fragmentRefs'?: { 'ContentBlockFactory_ContentBlocks_Video_BlockType_Fragment': ContentBlockFactory_ContentBlocks_Video_BlockType_Fragment } }
-  ) | null> | null, parent: { __typename?: 'homepage_homepage_Entry', id: string | null } | { __typename?: 'investigations_default_Entry', id: string | null } | { __typename?: 'investigations_investigationParent_Entry', id: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry', id: string | null } | { __typename?: 'pages_pages_Entry', id: string | null } | { __typename?: 'pages_redirectPage_Entry', id: string | null } | { __typename?: 'questions_default_Entry', id: string | null } | { __typename?: 'referenceModals_default_Entry', id: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry', id: string | null } | { __typename?: 'widgets_colorFilterTool_Entry', id: string | null } | null } & { ' $fragmentName'?: 'InvestigationChildPageTemplateFragment' };
+  ) | null> | null, parent: { __typename?: 'datasets_supernovaGalaxyObservations_Entry', id: string | null } | { __typename?: 'homepage_homepage_Entry', id: string | null } | { __typename?: 'investigations_default_Entry', id: string | null } | { __typename?: 'investigations_investigationParent_Entry', id: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry', id: string | null } | { __typename?: 'pages_pages_Entry', id: string | null } | { __typename?: 'pages_redirectPage_Entry', id: string | null } | { __typename?: 'questions_default_Entry', id: string | null } | { __typename?: 'referenceModals_default_Entry', id: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry', id: string | null } | { __typename?: 'widgets_colorFilterTool_Entry', id: string | null } | { __typename?: 'widgets_sourceSelector_Entry', id: string | null } | null } & { ' $fragmentName'?: 'InvestigationChildPageTemplateFragment' };
 
-export type InvestigationLandingPageTemplateFragment = { __typename?: 'investigations_investigationParent_Entry', title: string | null, image: Array<never | null> | null, children: Array<{ __typename?: 'homepage_homepage_Entry', uri: string | null } | { __typename?: 'investigations_default_Entry', uri: string | null } | { __typename?: 'investigations_investigationParent_Entry', uri: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry', uri: string | null } | { __typename?: 'pages_pages_Entry', uri: string | null } | { __typename?: 'pages_redirectPage_Entry', uri: string | null } | { __typename?: 'questions_default_Entry', uri: string | null } | { __typename?: 'referenceModals_default_Entry', uri: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry', uri: string | null } | { __typename?: 'widgets_colorFilterTool_Entry', uri: string | null }> } & { ' $fragmentName'?: 'InvestigationLandingPageTemplateFragment' };
+export type InvestigationLandingPageTemplateFragment = { __typename?: 'investigations_investigationParent_Entry', title: string | null, image: Array<never | null> | null, children: Array<{ __typename?: 'datasets_supernovaGalaxyObservations_Entry', uri: string | null } | { __typename?: 'homepage_homepage_Entry', uri: string | null } | { __typename?: 'investigations_default_Entry', uri: string | null } | { __typename?: 'investigations_investigationParent_Entry', uri: string | null } | { __typename?: 'investigations_investigationSectionBreakChild_Entry', uri: string | null } | { __typename?: 'pages_pages_Entry', uri: string | null } | { __typename?: 'pages_redirectPage_Entry', uri: string | null } | { __typename?: 'questions_default_Entry', uri: string | null } | { __typename?: 'referenceModals_default_Entry', uri: string | null } | { __typename?: 'widgets_cameraFilterTool_Entry', uri: string | null } | { __typename?: 'widgets_colorFilterTool_Entry', uri: string | null } | { __typename?: 'widgets_sourceSelector_Entry', uri: string | null }> } & { ' $fragmentName'?: 'InvestigationLandingPageTemplateFragment' };
 
-export type InvestigationSectionBreakTemplateFragment = { __typename: 'investigations_investigationSectionBreakChild_Entry', id: string | null, title: string | null, text: string | null, next: { __typename: 'homepage_homepage_Entry', uri: string | null } | { __typename: 'investigations_default_Entry', uri: string | null } | { __typename: 'investigations_investigationParent_Entry', uri: string | null } | { __typename: 'investigations_investigationSectionBreakChild_Entry', uri: string | null } | { __typename: 'pages_pages_Entry', uri: string | null } | { __typename: 'pages_redirectPage_Entry', uri: string | null } | { __typename: 'questions_default_Entry', uri: string | null } | { __typename: 'referenceModals_default_Entry', uri: string | null } | { __typename: 'widgets_cameraFilterTool_Entry', uri: string | null } | { __typename: 'widgets_colorFilterTool_Entry', uri: string | null } | null } & { ' $fragmentName'?: 'InvestigationSectionBreakTemplateFragment' };
+export type InvestigationSectionBreakTemplateFragment = { __typename: 'investigations_investigationSectionBreakChild_Entry', id: string | null, title: string | null, text: string | null, next: { __typename: 'datasets_supernovaGalaxyObservations_Entry', uri: string | null } | { __typename: 'homepage_homepage_Entry', uri: string | null } | { __typename: 'investigations_default_Entry', uri: string | null } | { __typename: 'investigations_investigationParent_Entry', uri: string | null } | { __typename: 'investigations_investigationSectionBreakChild_Entry', uri: string | null } | { __typename: 'pages_pages_Entry', uri: string | null } | { __typename: 'pages_redirectPage_Entry', uri: string | null } | { __typename: 'questions_default_Entry', uri: string | null } | { __typename: 'referenceModals_default_Entry', uri: string | null } | { __typename: 'widgets_cameraFilterTool_Entry', uri: string | null } | { __typename: 'widgets_colorFilterTool_Entry', uri: string | null } | { __typename: 'widgets_sourceSelector_Entry', uri: string | null } | null } & { ' $fragmentName'?: 'InvestigationSectionBreakTemplateFragment' };
 
 export type PageTemplateFragment = { __typename?: 'pages_pages_Entry', id: string | null, title: string | null, contentBlocks: Array<(
     { __typename?: 'contentBlocks_barGraphTool_BlockType' }
@@ -14408,34 +16965,36 @@ export const TextBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"F
 export const ImageBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}}]} as unknown as DocumentNode<ImageBlockFragment, unknown>;
 export const TableBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<TableBlockFragment, unknown>;
 export const ColorFilterToolEntryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<ColorFilterToolEntryFragment, unknown>;
-export const QuestionEntryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<QuestionEntryFragment, unknown>;
-export const QuestionsBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}}]} as unknown as DocumentNode<QuestionsBlockFragment, unknown>;
+export const SourceSelectorEntryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}}]} as unknown as DocumentNode<SourceSelectorEntryFragment, unknown>;
+export const QuestionEntryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}}]} as unknown as DocumentNode<QuestionEntryFragment, unknown>;
+export const QuestionsBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}}]} as unknown as DocumentNode<QuestionsBlockFragment, unknown>;
 export const BarGraphToolBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}}]} as unknown as DocumentNode<BarGraphToolBlockFragment, unknown>;
 export const FilterToolBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}}]} as unknown as DocumentNode<FilterToolBlockFragment, unknown>;
 export const ScatterplotToolBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}}]} as unknown as DocumentNode<ScatterplotToolBlockFragment, unknown>;
 export const ReferenceModalBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}}]} as unknown as DocumentNode<ReferenceModalBlockFragment, unknown>;
 export const ColorFilterToolBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<ColorFilterToolBlockFragment, unknown>;
-export const TwoColumnContainerBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]} as unknown as DocumentNode<TwoColumnContainerBlockFragment, unknown>;
-export const InteractionGroupContainerBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]} as unknown as DocumentNode<InteractionGroupContainerBlockFragment, unknown>;
+export const TwoColumnContainerBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]} as unknown as DocumentNode<TwoColumnContainerBlockFragment, unknown>;
+export const InteractionGroupContainerBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]} as unknown as DocumentNode<InteractionGroupContainerBlockFragment, unknown>;
 export const EquationBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}}]} as unknown as DocumentNode<EquationBlockFragment, unknown>;
 export const VideoBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}}]} as unknown as DocumentNode<VideoBlockFragment, unknown>;
-export const ContentBlockFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}}]} as unknown as DocumentNode<ContentBlockFactoryFragment, unknown>;
-export const PageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}}]} as unknown as DocumentNode<PageTemplateFragment, unknown>;
-export const TemplateFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<TemplateFactoryFragment, unknown>;
+export const ContentBlockFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}}]} as unknown as DocumentNode<ContentBlockFactoryFragment, unknown>;
+export const PageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}}]} as unknown as DocumentNode<PageTemplateFragment, unknown>;
+export const TemplateFactoryFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TemplateFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"EntryInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"PageTemplate"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"PageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"pages_pages_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}}]}}]} as unknown as DocumentNode<TemplateFactoryFragment, unknown>;
 export const ColorFilterToolQuestionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolQuestion"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<ColorFilterToolQuestionFragment, unknown>;
+export const SourceSelectorQuestionFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorQuestion"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}}]} as unknown as DocumentNode<SourceSelectorQuestionFragment, unknown>;
 export const InvestigationGridBlockFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationGridBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepageContentBlocks_investigationGrid_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"heading"},"name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","alias":{"kind":"Name","value":"investigations"},"name":{"kind":"Name","value":"investigationEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"rawImage"},"name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<InvestigationGridBlockFragment, unknown>;
 export const HomepageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"HomepageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepage_homepage_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"contentBlocks"},"name":{"kind":"Name","value":"homepageContentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepageContentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepageContentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InvestigationGridBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationGridBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"homepageContentBlocks_investigationGrid_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"heading"},"name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","alias":{"kind":"Name","value":"investigations"},"name":{"kind":"Name","value":"investigationEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","alias":{"kind":"Name","value":"rawImage"},"name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]}}]} as unknown as DocumentNode<HomepageTemplateFragment, unknown>;
-export const InvestigationChildPageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationChildPageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}},{"kind":"Field","name":{"kind":"Name","value":"hasSavePoint"}},{"kind":"Field","name":{"kind":"Name","value":"parent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}}]} as unknown as DocumentNode<InvestigationChildPageTemplateFragment, unknown>;
+export const InvestigationChildPageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationChildPageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}},{"kind":"Field","name":{"kind":"Name","value":"hasSavePoint"}},{"kind":"Field","name":{"kind":"Name","value":"parent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}}]} as unknown as DocumentNode<InvestigationChildPageTemplateFragment, unknown>;
 export const InvestigationLandingPageTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationLandingPageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]} as unknown as DocumentNode<InvestigationLandingPageTemplateFragment, unknown>;
 export const InvestigationSectionBreakTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationSectionBreakTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationSectionBreakChild_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"next"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"section"},"value":{"kind":"StringValue","value":"investigations","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]} as unknown as DocumentNode<InvestigationSectionBreakTemplateFragment, unknown>;
 export const ReferenceContentTemplateFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceContentTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"contentBlocks"},"name":{"kind":"Name","value":"referenceContentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceContentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceContentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceContentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<ReferenceContentTemplateFragment, unknown>;
 export const UserFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}}]} as unknown as DocumentNode<UserFragmentFragment, unknown>;
 export const AuthFragmentFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}}]} as unknown as DocumentNode<AuthFragmentFragment, unknown>;
 export const ReferenceContentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ReferenceContent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceContentTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceContentTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"contentBlocks"},"name":{"kind":"Name","value":"referenceContentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceContentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceContentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceContentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<ReferenceContentQuery, ReferenceContentQueryVariables>;
-export const InvestigationChildPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationChildPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"InvestigationChildPageTemplate"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InvestigationSectionBreakTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationChildPageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}},{"kind":"Field","name":{"kind":"Name","value":"hasSavePoint"}},{"kind":"Field","name":{"kind":"Name","value":"parent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationSectionBreakTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationSectionBreakChild_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"next"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"section"},"value":{"kind":"StringValue","value":"investigations","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]} as unknown as DocumentNode<InvestigationChildPageQuery, InvestigationChildPageQueryVariables>;
+export const InvestigationChildPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationChildPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"InvestigationChildPageTemplate"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InvestigationSectionBreakTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TextBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ImageBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_image_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"layout"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}},{"kind":"Field","name":{"kind":"Name","value":"preview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TableBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_table_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"contentHeading"}},{"kind":"Field","name":{"kind":"Name","value":"displayTable"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"displayTable_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tableRow"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"tableRow_tableCell_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"cellContent"}},{"kind":"Field","name":{"kind":"Name","value":"rowHeader"}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"BarGraphToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_barGraphTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"graphBars"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"graphBars_bar_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"FilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_filterTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"preSelectedColor"}},{"kind":"Field","name":{"kind":"Name","value":"readOnly"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ScatterplotToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_scatterplotTool_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisMin"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisMax"}},{"kind":"Field","name":{"kind":"Name","value":"yAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"xAxisLabel"}},{"kind":"Field","name":{"kind":"Name","value":"scatterplotItems"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"scatterplotItems_item_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"xValue"}},{"kind":"Field","name":{"kind":"Name","value":"yValue"}},{"kind":"Field","name":{"kind":"Name","value":"itemLabel"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ReferenceModalBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_referenceModalBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"referenceModalEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"referenceModals_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"TwoColumnContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"childblocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InteractionGroupContainerBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","alias":{"kind":"Name","value":"childBlocks"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"EquationBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_equation_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"latex"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"VideoBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_video_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"caption"}},{"kind":"Field","name":{"kind":"Name","value":"video"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlPreviewPlay"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContentBlockFactory"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_NeoField"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TwoColumnContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InteractionGroupContainerBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TextBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ImageBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"TableBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"BarGraphToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"FilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ScatterplotToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ReferenceModalBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"EquationBlock"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"VideoBlock"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationChildPageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ContentBlockFactory"}}]}},{"kind":"Field","name":{"kind":"Name","value":"hasSavePoint"}},{"kind":"Field","name":{"kind":"Name","value":"parent"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationSectionBreakTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationSectionBreakChild_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"next"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"section"},"value":{"kind":"StringValue","value":"investigations","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]} as unknown as DocumentNode<InvestigationChildPageQuery, InvestigationChildPageQueryVariables>;
 export const InvestigationChildPageMetadataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationChildPageMetadata"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]} as unknown as DocumentNode<InvestigationChildPageMetadataQuery, InvestigationChildPageMetadataQueryVariables>;
 export const InvestigationMetadataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationMetadata"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<InvestigationMetadataQuery, InvestigationMetadataQueryVariables>;
-export const InvestigationIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"acknowledgements"},"name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hasSavePoint"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"group"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"group"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}}]}}]}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"group"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}}]}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}}]} as unknown as DocumentNode<InvestigationIdQuery, InvestigationIdQueryVariables>;
+export const InvestigationIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationId"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"acknowledgements"},"name":{"kind":"Name","value":"text"}},{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"uri"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hasSavePoint"}},{"kind":"Field","name":{"kind":"Name","value":"contentBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_twoColumnContainer_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"columns"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colLeft_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"group"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_colRight_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"group"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}}]}}]}}]}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"group"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionsBlock"}}]}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ColorFilterToolEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_colorFilterTool_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"filterToolActions"}},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsLabels"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":true}}]},{"kind":"Field","alias":{"kind":"Name","value":"filterColorOptionsValues"},"name":{"kind":"Name","value":"filterColorOptions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"label"},"value":{"kind":"BooleanValue","value":false}}]},{"kind":"Field","name":{"kind":"Name","value":"colorFilterToolObjects"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_group_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"groupName"}},{"kind":"Field","alias":{"kind":"Name","value":"objects"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_object_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"name"},"name":{"kind":"Name","value":"objectName"}},{"kind":"Field","alias":{"kind":"Name","value":"caption"},"name":{"kind":"Name","value":"objectCaption"}},{"kind":"Field","alias":{"kind":"Name","value":"filterImages"},"name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"colorFilterToolObjects_filterimage_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"isEnabled"}},{"kind":"Field","name":{"kind":"Name","value":"isActive"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","alias":{"kind":"Name","value":"max"},"name":{"kind":"Name","value":"colorToolMax"}},{"kind":"Field","alias":{"kind":"Name","value":"min"},"name":{"kind":"Name","value":"colorToolMin"}},{"kind":"Field","alias":{"kind":"Name","value":"defaultValue"},"name":{"kind":"Name","value":"colorToolDefaultValue"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"filter"}},{"kind":"Field","alias":{"kind":"Name","value":"color"},"name":{"kind":"Name","value":"preSelectedColor"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"SourceSelectorEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"widgets_sourceSelector_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"dataset"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"datasets_supernovaGalaxyObservations_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"sources"},"name":{"kind":"Name","value":"alertSources"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alertSources_source_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","alias":{"kind":"Name","value":"x"},"name":{"kind":"Name","value":"xCoord"}},{"kind":"Field","alias":{"kind":"Name","value":"y"},"name":{"kind":"Name","value":"yCoord"}},{"kind":"Field","name":{"kind":"Name","value":"radius"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"sourceType"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"sourceName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"alerts"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"alerts_alert_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"error"},"name":{"kind":"Name","value":"errorMagnitude"}},{"kind":"Field","name":{"kind":"Name","value":"magnitude"}},{"kind":"Field","alias":{"kind":"Name","value":"date"},"name":{"kind":"Name","value":"modifiedJulianDate"}},{"kind":"Field","alias":{"kind":"Name","value":"id"},"name":{"kind":"Name","value":"observationId"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"imageAlbum"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionEntry"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answerType"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionText"}},{"kind":"Field","name":{"kind":"Name","value":"widgetInstructions"}},{"kind":"Field","name":{"kind":"Name","value":"questionWidgetsBlock"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_colorFilterToolBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"colorFilterTool"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"ColorFilterToolEntry"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questionWidgetsBlock_sourceSelector_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","name":{"kind":"Name","value":"sourceSelector"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"SourceSelectorEntry"}}]}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"parts"},"name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_select_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_text_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_multiselect_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"options"},"name":{"kind":"Name","value":"answerOptions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"answerOptions_option_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"label"},"name":{"kind":"Name","value":"optionLabel"}},{"kind":"Field","alias":{"kind":"Name","value":"value"},"name":{"kind":"Name","value":"optionValue"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_readonlyText_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","alias":{"kind":"Name","value":"type"},"name":{"kind":"Name","value":"typeHandle"}},{"kind":"Field","alias":{"kind":"Name","value":"text"},"name":{"kind":"Name","value":"questionText"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"QuestionsBlock"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"contentBlocks_questionBlock_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"questionEntries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"QuestionEntry"}}]}}]}}]} as unknown as DocumentNode<InvestigationIdQuery, InvestigationIdQueryVariables>;
 export const InvestigationPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"InvestigationPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"InvestigationLandingPageTemplate"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"InvestigationLandingPageTemplate"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"directUrlPreview"}},{"kind":"Field","name":{"kind":"Name","value":"directUrlOriginal"}},{"kind":"Field","name":{"kind":"Name","value":"PNG"}},{"kind":"Field","name":{"kind":"Name","value":"HighJPG"}},{"kind":"Field","name":{"kind":"Name","value":"LowJPG"}}]}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","alias":{"kind":"Name","value":"metadata"},"name":{"kind":"Name","value":"additional"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"AltTextEN"}},{"kind":"Field","name":{"kind":"Name","value":"AltTextES"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionEN"}},{"kind":"Field","name":{"kind":"Name","value":"CaptionES"}},{"kind":"Field","name":{"kind":"Name","value":"Credit"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"children"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"uri"}}]}}]}}]} as unknown as DocumentNode<InvestigationPageQuery, InvestigationPageQueryVariables>;
 export const ReviewPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ReviewPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"uri"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"uri"},"value":{"kind":"Variable","name":{"kind":"Name","value":"uri"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"investigations_investigationParent_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]} as unknown as DocumentNode<ReviewPageQuery, ReviewPageQueryVariables>;
 export const GlobalsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GlobalsQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","alias":{"kind":"Name","value":"siteInfo"},"name":{"kind":"Name","value":"globalSet"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"handle"},"value":{"kind":"StringValue","value":"siteInfo","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"siteInfo_GlobalSet"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"language"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"handle"}},{"kind":"Field","name":{"kind":"Name","value":"siteTitle"}},{"kind":"Field","name":{"kind":"Name","value":"siteDescription"}}]}}]}},{"kind":"Field","alias":{"kind":"Name","value":"menuContent"},"name":{"kind":"Name","value":"globalSet"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"handle"},"value":{"kind":"StringValue","value":"menuContent","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"menuContent_GlobalSet"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"helpUrl"}}]}}]}}]}}]} as unknown as DocumentNode<GlobalsQueryQuery, GlobalsQueryQueryVariables>;
