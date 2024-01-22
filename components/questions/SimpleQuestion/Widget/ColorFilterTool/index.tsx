@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
 import withModal from "@/components/hoc/withModal/withModal";
-import ColorFilterTool from "@/components/containers/ColorFilterTool";
+import ColorFilterTool from "@/components/dynamic/ColorFilterTool";
 import { SimpleWidgetProps } from "..";
 import * as Styled from "./styles";
 
@@ -15,10 +15,7 @@ const Fragment = graphql(`
 `);
 
 interface ColorFilterToolQuestionProps
-  extends Pick<
-      SimpleWidgetProps,
-      "id" | "isDisabled" | "onChangeCallback" | "value"
-    >,
+  extends Omit<SimpleWidgetProps, "widgetConfig">,
     BaseContentBlockProps {
   data: FragmentType<typeof Fragment>;
 }
