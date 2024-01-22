@@ -3,7 +3,7 @@ import { FunctionComponent, useContext } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import withModal from "@/components/hoc/withModal/withModal";
-import ColorFilterDisplay from "@/components/containers/ColorFilterDisplay";
+import ColorFilterDisplay from "@/components/dynamic/ColorFilterDisplay";
 import { BaseContentBlockProps } from "@/components/shapes";
 import * as Styled from "./styles";
 import { useTranslation } from "react-i18next";

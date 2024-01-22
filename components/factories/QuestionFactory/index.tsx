@@ -26,6 +26,12 @@ const Fragment = graphql(`
           ...ColorFilterToolEntry
         }
       }
+      ... on questionWidgetsBlock_sourceSelector_BlockType {
+        typeHandle
+        sourceSelector {
+          ...SourceSelectorEntry
+        }
+      }
     }
     parts: multiPartBlocks {
       ... on multiPartBlocks_select_BlockType {
@@ -82,7 +88,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
   ...props
 }) => {
   const {
-    answerType,
+    answerType: type,
     id,
     questionWidgetsBlock = [],
     options,
@@ -91,21 +97,21 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     parts = [],
   } = useFragment(Fragment, props.data);
 
-  if (!id || !answerType) return null;
+  if (!id || !type) return null;
 
-  const Question = QUESTION_MAP[answerType];
+  const Question = QUESTION_MAP[type];
 
   if (!Question) return null;
 
+  const widgetConfig =
+    questionWidgetsBlock && questionWidgetsBlock.length > 0
+      ? questionWidgetsBlock[0]
+      : {};
+
   return (
     <Question
-      id={id}
-      type={answerType}
       questionText={questionText || widgetInstructions}
-      options={options}
-      widgetConfig={questionWidgetsBlock[0] || {}}
-      number={number}
-      parts={parts}
+      {...{ id, type, options, widgetConfig, number, parts }}
     />
   );
 };
