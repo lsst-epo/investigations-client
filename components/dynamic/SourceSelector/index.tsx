@@ -1,13 +1,15 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, ReactNode, useState } from "react";
 import { useTranslation } from "react-i18next";
-import toast from "react-hot-toast";
-import { PointSelector } from "@rubin-epo/epo-widget-lib/SourceSelector";
+import {
+  Message,
+  PointSelector,
+} from "@rubin-epo/epo-widget-lib/SourceSelector";
 import { Blinker } from "@rubin-epo/epo-widget-lib/Atomic";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { MultiselectInput } from "@/types/answers";
 import SourceSelectorControls from "./Controls";
-import Toaster from "./Toaster";
 import * as Styled from "./styles";
+import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 
 export const Fragment = graphql(`
   fragment SourceSelectorEntry on widgets_sourceSelector_Entry {
@@ -58,10 +60,11 @@ interface SourceSelectorContainerProps {
 const SourceSelectorContainer: FunctionComponent<
   SourceSelectorContainerProps
 > = ({ data, onChangeCallback, value = [], showControls = false }) => {
+  const { dataset } = useFragment(Fragment, data);
   const { t } = useTranslation();
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
-  const { dataset } = useFragment(Fragment, data);
+  const [message, setMessage] = useState<ReactNode>();
 
   if (
     dataset.length === 0 ||
@@ -83,19 +86,25 @@ const SourceSelectorContainer: FunctionComponent<
       const isAlreadySelected = value.includes(id);
 
       if (!isAlreadySelected) {
-        toast(t("source_selector.messages.success"), { id: "sourceSelector" });
+        setMessage(
+          <>
+            <IconComposer icon="checkmark" />
+            {t("source_selector.messages.success")}
+          </>
+        );
         return onChangeCallback && onChangeCallback(value.concat(id));
       }
     } else {
-      toast(t("source_selector.messages.failure"), {
-        icon: undefined,
-        id: "sourceSelector",
-      });
+      setMessage(t("source_selector.messages.failure"));
     }
   };
 
+  const handleMessageChange = () => {
+    setMessage(undefined);
+  };
+
   return (
-    <Styled.SourceSelectorContainer>
+    <Styled.SourceSelectorContainer style={{ maxWidth: `${width}px` }}>
       <Blinker
         images={images}
         activeIndex={activeAlertIndex}
@@ -103,7 +112,12 @@ const SourceSelectorContainer: FunctionComponent<
         blinkCallback={(i) => setActiveAlertIndex(i)}
         loadedCallback={() => setIsLoaded(true)}
       />
-      <Toaster />
+      <Message
+        isVisible={!!message}
+        onMessageChangeCallback={handleMessageChange}
+      >
+        {message}
+      </Message>
       {isLoaded && (
         <PointSelector
           onSelectCallback={handleSelectSource}
