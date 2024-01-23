@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 export const SourceSelectorContainer = styled.div`
   container: source-selector / inline-size;
+  margin: 0 auto;
   position: relative;
-  max-width: 100%;
+  width: 100%;
 `;
 
 export const ControlsContainer = styled.div`
