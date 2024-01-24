@@ -1,9 +1,8 @@
 import { graphql } from "@/gql/public-schema";
-import { draftMode } from 'next/headers';
+import { draftMode } from "next/headers";
 import { RootLayoutParams } from "./layout";
 import HomePageTemplate from "@/templates/HomePage";
 import { notFound } from "next/navigation";
-import AuthDialogs from "@/components/auth/AuthDialogs/AuthDialogs";
 import SignOut from "@/components/auth/buttons/SignOut";
 import {
   getAuthCookies,
@@ -53,7 +52,6 @@ const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
     <HomePageTemplate data={data.entry}>
       {user && <SignOut redirectTo={"/"} />}
-      <AuthDialogs isAuthenticated={!!craftToken} />
     </HomePageTemplate>
   ) : (
     notFound()

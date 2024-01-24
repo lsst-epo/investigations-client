@@ -7,6 +7,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { useGlobalData } from "@/hooks";
 import usePages from "@/contexts/Pages";
+import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { signOut } from "@/components/auth/buttons/SignOut/actions";
 import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
@@ -25,6 +26,7 @@ const Menu: FunctionComponent<MenuProps> = ({
 }) => {
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
+  const { openModal } = useAuthDialogManager();
   const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
@@ -73,12 +75,21 @@ const Menu: FunctionComponent<MenuProps> = ({
           href="./review"
           text={t("section_break.review")}
         ></MenuItem>
-        {isLoggedIn && (
+        {isLoggedIn ? (
           <MenuItem
             icon="LogOut"
             text={t("auth.log_out")}
             onClick={handleLogout}
-          ></MenuItem>
+          />
+        ) : (
+          <MenuItem
+            icon="Account"
+            text={t("auth.log_in")}
+            onClick={() => {
+              openModal("signIn");
+              return onCloseCallback && onCloseCallback();
+            }}
+          />
         )}
       </MenuGroup>
     </SlideoutMenu>
