@@ -16,6 +16,8 @@ import { AuthDialogManagerProvider } from "@/contexts/AuthDialogManager";
 import I18NextClientProvider from "@/contexts/i18next";
 import Body from "@/page/Body";
 import { getSite } from "@/helpers";
+import AuthDialogs from "@/components/auth/AuthDialogs";
+import { getAuthCookies } from "@/components/auth/serverHelpers";
 
 export interface RootLayoutParams {
   locale: string;
@@ -95,6 +97,8 @@ const RootLayout: (
     notFound();
   }
 
+  const { craftToken } = await getAuthCookies();
+
   return (
     <html lang={locale}>
       <head></head>
@@ -106,6 +110,7 @@ const RootLayout: (
               <GlobalDataProvider data={globalData}>
                 <AuthDialogManagerProvider>
                   {children}
+                  <AuthDialogs isAuthenticated={!!craftToken} />
                 </AuthDialogManagerProvider>
               </GlobalDataProvider>
             </I18NextClientProvider>

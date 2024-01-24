@@ -4,14 +4,15 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-hot-toast";
 import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
+import Button from "@rubin-epo/epo-react-lib/Button";
 import saveEducatorAnswers from "@/components/educator-schema/saveAnswersAction";
 import saveStudentAnswers from "@/components/student-schema/saveAnswersAction";
 import { Answers, InvestigationId } from "@/types/answers";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import Toaster from "@/components/layout/Toaster";
+import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import SaveButton from "./SaveButton";
 import * as Styled from "./styles";
-import AuthDialogs from "@/components/auth/AuthDialogs";
-import Toaster from "@/components/layout/Toaster";
 
 type FormStatus =
   | "emptyError"
@@ -27,6 +28,7 @@ const SaveForm: FunctionComponent<{
   userStatus?: string;
 }> = ({ investigationId, user, userStatus }) => {
   const { t } = useTranslation();
+  const { openModal } = useAuthDialogManager();
 
   if (!investigationId) {
     console.error("No investigation id provided");
@@ -85,6 +87,19 @@ const SaveForm: FunctionComponent<{
           <>
             <h3>{t("answers.save_form.success")}</h3>
             <span>{toastText.success}</span>
+            {!user && (
+              <>
+                <Button
+                  onClick={() => {
+                    toast.dismiss();
+                    return openModal("signIn");
+                  }}
+                >
+                  {t("auth.log_in")}
+                </Button>
+                <Styled.SignUp onClickCallback={() => toast.dismiss()} />
+              </>
+            )}
           </>
         );
       }
@@ -97,6 +112,8 @@ const SaveForm: FunctionComponent<{
       );
     }
   };
+
+  const hasStatusIssue = !!(user && userStatus !== "active");
 
   return (
     <>
@@ -113,10 +130,14 @@ const SaveForm: FunctionComponent<{
           <Styled.CheckpointDivider />
           {t("answers.save_form.checkpoint")}
         </Styled.Checkpoint>
-        <SaveButton />
+        <SaveButton isDisabled={hasStatusIssue} />
+        {hasStatusIssue && (
+          <span>
+            {t("auth.logged_in_status_issue", { status: userStatus })}
+          </span>
+        )}
       </Styled.Form>
       <Toaster />
-      <AuthDialogs isAuthenticated={!!user} />
     </>
   );
 };

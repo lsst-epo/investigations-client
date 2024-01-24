@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { graphql } from "@/gql/public-schema";
-import { draftMode } from 'next/headers';
+import { draftMode } from "next/headers";
 import { InvestigationLandingProps } from "./layout";
-import AuthDialogs from "@/components/auth/AuthDialogs";
 import {
   getAuthCookies,
   getUserFromJwt,
@@ -51,9 +50,7 @@ const InvestigationLanding: (
       data={data.entry}
       status={craftUserStatus}
       {...{ investigation, site, locale, user }}
-    >
-      <AuthDialogs isAuthenticated={!!craftToken} />
-    </InvestigationLandingPageTemplate>
+    />
   );
 };
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BaseSignUp from "@/components/auth/buttons/SignUp";
 
 export const Form = styled.form`
   margin-inline: auto;
@@ -43,4 +44,8 @@ export const LoaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 5em;
+`;
+
+export const SignUp = styled(BaseSignUp)`
+  --button-color: var(--neutral95, #1f2121);
 `;
