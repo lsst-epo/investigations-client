@@ -57,7 +57,7 @@ export const makeCustomBreadcrumbs = (
 export const captionShaper = ({
   caption,
   fallback = "",
-  credit,
+  credit = "",
 }: {
   caption?: string | null;
   fallback?: string | null;
