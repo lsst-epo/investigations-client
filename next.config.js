@@ -33,7 +33,7 @@ module.exports = {
   experimental: {
     isrMemoryCacheSize: 0,
     forceSwcTransforms: true,
-    optimizePackageImports: ["@rubin-epo/epo-react-lib", "styled-components"],
+    optimizePackageImports: ["@rubin-epo/epo-react-lib"],
   },
   swcMinify: true,
   compiler: {
