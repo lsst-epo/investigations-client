@@ -21,7 +21,6 @@ export type TabularQuestionType = TextQuestion | SelectQuestion;
 
 export interface BaseQuestionProps {
   id: string;
-  number: number;
   isDisabled?: boolean;
 }
 

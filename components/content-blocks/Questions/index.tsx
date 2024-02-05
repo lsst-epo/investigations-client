@@ -1,8 +1,7 @@
-"use client";
 import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/lib/i18n";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import useQuestions from "@/contexts/Questions";
+import { BaseContentBlockProps } from "@/components/shapes";
 import QuestionFactory from "@/components/factories/QuestionFactory";
 import * as Styled from "./styles";
 
@@ -16,19 +15,12 @@ const Fragment = graphql(`
   }
 `);
 
-interface QuestionsContentBlockProps {
-  data: FragmentType<typeof Fragment>;
-  isInteraction?: boolean;
-}
-
-const QuestionsContentBlock: FunctionComponent<QuestionsContentBlockProps> = ({
-  isInteraction = false,
-  ...props
-}) => {
+const QuestionsContentBlock: FunctionComponent<
+  BaseContentBlockProps<FragmentType<typeof Fragment>>
+> = async ({ isInteraction = false, locale, ...props }) => {
   const data = useFragment(Fragment, props.data);
 
-  const { t } = useTranslation();
-  const questions = useQuestions();
+  const { t } = await useTranslation(locale, "translation");
 
   return (
     <section className="content-block">
@@ -39,18 +31,9 @@ const QuestionsContentBlock: FunctionComponent<QuestionsContentBlockProps> = ({
         }}
       >
         {!!data.questionEntries?.length &&
-          data.questionEntries.map((question) => {
-            const { id } = question;
-            const questionIndex = questions.byAll.findIndex(
-              (question) => question.id === id
-            );
-
+          data.questionEntries.map((question, i) => {
             return question?.__typename === "questions_default_Entry" ? (
-              <QuestionFactory
-                key={id}
-                data={question}
-                number={questionIndex + 1}
-              />
+              <QuestionFactory key={i} data={question} />
             ) : null;
           })}
       </Styled.QuestionList>

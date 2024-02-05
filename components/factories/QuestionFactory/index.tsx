@@ -71,7 +71,6 @@ const Fragment = graphql(`
 
 export interface QuestionProps {
   data: FragmentType<typeof Fragment>;
-  number: number;
 }
 
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
@@ -83,10 +82,7 @@ const QUESTION_MAP: Record<string, ComponentType<any>> = {
   multiPart: InlineQuestion,
 };
 
-const QuestionFactory: FunctionComponent<QuestionProps> = ({
-  number,
-  ...props
-}) => {
+const QuestionFactory: FunctionComponent<QuestionProps> = ({ ...props }) => {
   const {
     answerType: type,
     id,
@@ -111,7 +107,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
   return (
     <Question
       questionText={questionText || widgetInstructions}
-      {...{ id, type, options, widgetConfig, number, parts }}
+      {...{ id, type, options, widgetConfig, parts }}
     />
   );
 };

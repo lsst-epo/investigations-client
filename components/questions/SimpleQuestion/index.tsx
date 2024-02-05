@@ -1,5 +1,4 @@
 "use client";
-
 import { ComponentType, FunctionComponent, useContext } from "react";
 import { BaseQuestionProps, SimpleQuestionType } from "@/types/questions";
 import { Option } from "@/components/shapes/option";
@@ -29,7 +28,6 @@ const INPUT_MAP: Record<SimpleQuestionType, ComponentType<any>> = {
 
 const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   id,
-  number,
   type,
   questionText,
   options,
@@ -39,7 +37,6 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   const { answers, onChangeCallback } = useContext(StoredAnswersContext);
 
   const storedAnswer = answers[id];
-  const labelId = `${id}Label`;
 
   const Input = INPUT_MAP[type];
 
@@ -50,10 +47,9 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   }
 
   return (
-    <Styled.SimpleContainer value={number}>
+    <Styled.SimpleContainer id={id}>
       {type === "widget" ? (
         <Styled.QuestionLabel
-          id={labelId}
           dangerouslySetInnerHTML={{ __html: questionText }}
         />
       ) : (
@@ -64,7 +60,6 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
           onChangeCallback && onChangeCallback(value, id, storedAnswer?.id)
         }
         value={storedAnswer?.data}
-        labelledById={labelId}
         {...{
           isDisabled,
           id,
