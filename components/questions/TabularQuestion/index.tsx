@@ -4,6 +4,7 @@ import { Option } from "@/components/shapes/option";
 import { BaseQuestionProps, TabularQuestionType } from "@/types/questions";
 import Text from "./Text";
 import Select from "./Select";
+import QuestionNumber from "../QuestionNumber";
 
 interface QuestionCell {
   id: string;
@@ -28,7 +29,6 @@ const INPUT_MAP: Record<TabularQuestionType, ComponentType<any>> = {
 
 const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
   id,
-  number,
   isDisabled,
   header = [],
   rowHeader = [],
@@ -63,9 +63,9 @@ const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
   });
 
   return (
-    <li value={number}>
+    <QuestionNumber id={id}>
       <Table id={id} {...{ header, rows }} />
-    </li>
+    </QuestionNumber>
   );
 };
 
