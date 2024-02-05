@@ -9,7 +9,6 @@ interface SimpleSelectProps {
   isDisabled?: boolean;
   onChangeCallback: (value: string | null) => void;
   options: Option[];
-  labelledById: string;
 }
 
 const SimpleSelect: FunctionComponent<SimpleSelectProps> = ({
@@ -18,13 +17,11 @@ const SimpleSelect: FunctionComponent<SimpleSelectProps> = ({
   isDisabled,
   onChangeCallback,
   options = [],
-  labelledById,
 }) => {
   const { t } = useTranslation();
   return (
     <Styled.Select
       placeholder={t("translation:placeholder.select")}
-      labelledById={labelledById}
       id={id}
       value={value || null}
       isDisabled={isDisabled}

@@ -1,3 +1,4 @@
+"use client";
 import { ComponentType, FunctionComponent, useContext } from "react";
 import { Option } from "@/components/shapes/option";
 import { BaseQuestionProps, InlineQuestionType } from "@/types/questions";
@@ -46,7 +47,6 @@ const INPUT_MAP: Record<InlineQuestionType, ComponentType<any>> = {
 
 const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
   id,
-  number,
   isDisabled,
   parts = [],
 }) => {
@@ -55,7 +55,7 @@ const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
   const { data = {} } = storedAnswer;
 
   return (
-    <Styled.InlineContainer value={number}>
+    <Styled.InlineContainer id={id}>
       {parts.map(({ id: partId, type, ...props }) => {
         const Input = INPUT_MAP[type];
 
