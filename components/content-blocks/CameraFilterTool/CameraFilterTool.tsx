@@ -15,8 +15,9 @@ const CameraFilterToolBlock: FunctionComponent<BaseContentBlockProps> = ({
   return (
     <WidgetContainer
       title={t("widgets.camera_filter_tool")}
-      paddingSize="none"
-      bgColor="white"
+      paddingSize={isOpen ? "small" : "none"}
+      variant="light"
+      interactive
       {...{ openModal, isOpen }}
     >
       <CameraFilterTool />

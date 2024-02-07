@@ -65,6 +65,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
           id,
           options,
           widgetConfig,
+          questionText,
         }}
       />
     </Styled.SimpleContainer>
