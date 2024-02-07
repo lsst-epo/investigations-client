@@ -1,12 +1,12 @@
 "use client";
 import { FunctionComponent, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import withModal from "@/components/hoc/withModal/withModal";
-import ColorFilterDisplay from "@/components/dynamic/ColorFilterDisplay";
 import { BaseContentBlockProps } from "@/components/shapes";
-import * as Styled from "./styles";
-import { useTranslation } from "react-i18next";
+import ColorFilterDisplay from "@/components/dynamic/ColorFilterDisplay";
+import WidgetContainer from "@/components/layout/WidgetContainer";
 
 const Fragment = graphql(`
   fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {
@@ -46,18 +46,22 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
 
   const value = answers[answerId]?.data[id];
   const { name = "" } = value || {};
-
   return (
-    <Styled.ColorToolContainer
+    <WidgetContainer
       {...{ openModal, isOpen }}
-      style={{ "--widget-container-padding": "var(--color-tool-padding)" }}
+      style={{
+        "--color-tool-padding": "var(--PADDING_SMALL, 20px)",
+        "--widget-container-padding": "var(--color-tool-padding)",
+        "--widget-content-width": "1200px",
+      }}
       data-modal-open={isOpen}
-      bgColor="gray"
+      interactive={false}
+      variant="light"
       caption={t("widgets.color_filter_tool.read_only_caption", { name })}
       title={displayName || title}
     >
       <ColorFilterDisplay {...props} data={colorFilterTool[0]} value={value} />
-    </Styled.ColorToolContainer>
+    </WidgetContainer>
   );
 };
 

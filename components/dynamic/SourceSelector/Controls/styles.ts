@@ -24,7 +24,7 @@ export const ElapsedTime = styled(BaseElapsedTime)`
 
 export const SelectionList = styled(BaseSelectionList)`
   align-self: end;
-  color: var(--white, #fff);
+  color: var(--widget-text-color);
   font-size: 80%;
 
   button {
