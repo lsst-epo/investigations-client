@@ -8,6 +8,7 @@ export interface SimpleWidgetProps<T = WidgetInput> {
   value?: T;
   isDisabled?: boolean;
   onChangeCallback: (value: T) => void;
+  questionText: string;
   widgetConfig: { typeHandle: string; __typename: string; [key: string]: any };
 }
 

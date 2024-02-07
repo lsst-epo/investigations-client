@@ -2,9 +2,9 @@ import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
 import withModal from "@/components/hoc/withModal/withModal";
+import WidgetContainer from "@/components/layout/WidgetContainer";
 import ColorFilterTool from "@/components/dynamic/ColorFilterTool";
 import { SimpleWidgetProps } from "..";
-import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment ColorFilterToolQuestion on contentBlocks_colorFilterToolBlock_BlockType {
@@ -14,11 +14,8 @@ const Fragment = graphql(`
   }
 `);
 
-interface ColorFilterToolQuestionProps
-  extends Omit<SimpleWidgetProps, "widgetConfig">,
-    BaseContentBlockProps {
-  data: FragmentType<typeof Fragment>;
-}
+type ColorFilterToolQuestionProps = Omit<SimpleWidgetProps, "widgetConfig"> &
+  BaseContentBlockProps<FragmentType<typeof Fragment>>;
 
 /**
  * This implementation of the Color Filter Tool is for questions placed
@@ -26,15 +23,29 @@ interface ColorFilterToolQuestionProps
  */
 const ColorFilterToolQuestion: FunctionComponent<
   ColorFilterToolQuestionProps
-> = ({ data, onChangeCallback, value, isOpen, openModal, ...props }) => {
+> = ({
+  data,
+  onChangeCallback,
+  value,
+  isOpen,
+  openModal,
+  questionText,
+  ...props
+}) => {
   const { colorFilterTool } = useFragment(Fragment, data);
   const { id, title, displayName } = colorFilterTool[0];
 
   return (
-    <Styled.ColorToolContainer
+    <WidgetContainer
       data-modal-open={isOpen}
-      style={{ "--widget-container-padding": "var(--color-tool-padding)" }}
+      style={{
+        "--color-tool-padding": "var(--PADDING_SMALL, 20px)",
+        "--widget-container-padding": "var(--color-tool-padding)",
+      }}
       title={displayName || title}
+      instructions={questionText}
+      variant="light"
+      fillScreen
       {...{ openModal, isOpen }}
     >
       <ColorFilterTool
@@ -45,7 +56,7 @@ const ColorFilterToolQuestion: FunctionComponent<
         value={value?.[id]}
         data={colorFilterTool[0]}
       />
-    </Styled.ColorToolContainer>
+    </WidgetContainer>
   );
 };
 

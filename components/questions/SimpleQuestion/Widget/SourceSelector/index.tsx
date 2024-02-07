@@ -17,13 +17,22 @@ const Fragment = graphql(`
   }
 `);
 
-interface SourceSelectorQuestionProps
-  extends Omit<SimpleWidgetProps<MultiselectInput>, "widgetConfig">,
-    BaseContentBlockProps<FragmentType<typeof Fragment>> {}
+type SourceSelectorQuestionProps = Omit<
+  SimpleWidgetProps<MultiselectInput>,
+  "widgetConfig"
+> &
+  BaseContentBlockProps<FragmentType<typeof Fragment>>;
 
 const SourceSelectorQuestion: FunctionComponent<
   SourceSelectorQuestionProps
-> = ({ data, onChangeCallback, value = [], isOpen, openModal }) => {
+> = ({
+  data,
+  onChangeCallback,
+  value = [],
+  isOpen,
+  openModal,
+  questionText,
+}) => {
   const { sourceSelector } = useFragment(Fragment, data);
 
   const handleRemoveSource = (id: string) => {
@@ -53,8 +62,8 @@ const SourceSelectorQuestion: FunctionComponent<
       <WidgetContainer
         data-modal-open={isOpen}
         title={displayName || title || undefined}
-        bgColor="gray"
-        style={isOpen && { "--widget-background-color": "transparent" }}
+        interactive={false}
+        instructions={questionText}
         {...{ openModal, isOpen }}
       >
         <SourceSelectorContainer
