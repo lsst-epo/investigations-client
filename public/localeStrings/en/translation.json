@@ -269,6 +269,7 @@
     "review": "Review your answers"
   },
   "widgets": {
+    "help": "What should I do here?",
     "filter_tool": "Filter Tool",
     "camera_filter_tool": "Camera Filter Ranges",
     "color_filter_tool": {

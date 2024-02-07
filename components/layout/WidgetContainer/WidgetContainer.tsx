@@ -1,12 +1,17 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import ExpandContract from "@/atomic/ExpandContract";
+import Instructions from "./Instructions";
 import * as Styled from "./styles";
 
 interface WidgetContainerProps
   extends Omit<BaseContentBlockProps, "data" | "locale" | "site"> {
   caption?: string;
-  bgColor?: "white" | "gray";
+  instructions?: string;
+  variant?: "dark" | "light";
+  /** for widgets that are not intended to be interactive when unopened, or totally static */
+  interactive?: boolean;
+  fillScreen?: boolean;
   paddingSize?: "large" | "medium" | "small" | "none";
   className?: string;
   style?: any;
@@ -19,31 +24,31 @@ const padding = {
   large: "var(--PADDING_LARGE, 100px)",
 };
 
-const backgrounds = {
-  white: "var(--white, #fff)",
-  gray: "var(--neutral10, #F5F5F5)",
-};
-
 const WidgetContainer: FunctionComponent<
   PropsWithChildren<WidgetContainerProps>
 > = ({
   title,
   caption,
+  instructions,
   children,
   hasModal = true,
   isOpen = false,
   openModal,
-  bgColor = "white",
   paddingSize = "small",
+  variant = "dark",
+  fillScreen = false,
+  interactive = true,
   className,
   style,
 }) => {
   return (
     <Styled.WidgetContainer
       data-modal-open={isOpen}
+      data-theme={variant}
+      data-interactive={interactive}
+      data-fill-screen={fillScreen}
       className={className}
       style={{
-        "--widget-background-color": backgrounds[bgColor],
         "--widget-container-padding": isOpen
           ? 0
           : `calc(${padding[paddingSize]} / 2)`,
@@ -62,6 +67,7 @@ const WidgetContainer: FunctionComponent<
       <Styled.WidgetContent>
         {children}
         {caption && <Styled.WidgetCaption>{caption}</Styled.WidgetCaption>}
+        {isOpen && instructions && <Instructions text={instructions} />}
       </Styled.WidgetContent>
     </Styled.WidgetContainer>
   );
