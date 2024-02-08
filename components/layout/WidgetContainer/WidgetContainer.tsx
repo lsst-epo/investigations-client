@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import ExpandContract from "@/atomic/ExpandContract";
-import Instructions from "./Instructions";
+import Instructions from "./InteractionText";
 import * as Styled from "./styles";
 
 interface WidgetContainerProps
@@ -65,7 +65,7 @@ const WidgetContainer: FunctionComponent<
         </Styled.WidgetHeader>
       )}
       <Styled.WidgetContent>
-        {children}
+        <Styled.WidgetBody>{children}</Styled.WidgetBody>
         {caption && <Styled.WidgetCaption>{caption}</Styled.WidgetCaption>}
         {isOpen && instructions && <Instructions text={instructions} />}
       </Styled.WidgetContent>
