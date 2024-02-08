@@ -64,7 +64,10 @@ const WidgetContainer: FunctionComponent<
           />
         </Styled.WidgetHeader>
       )}
-      <Styled.WidgetContent>
+      <Styled.WidgetContent
+        data-modal-open={isOpen}
+        data-fill-screen={fillScreen}
+      >
         <Styled.WidgetBody>{children}</Styled.WidgetBody>
         {caption && <Styled.WidgetCaption>{caption}</Styled.WidgetCaption>}
         {isOpen && instructions && <Instructions text={instructions} />}

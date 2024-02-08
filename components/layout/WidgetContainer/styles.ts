@@ -1,4 +1,4 @@
-import { token } from "@rubin-epo/epo-react-lib/styles";
+import { token, containerRegular } from "@rubin-epo/epo-react-lib/styles";
 import styled from "styled-components";
 
 export const WidgetContent = styled.div`
@@ -13,6 +13,31 @@ export const WidgetContent = styled.div`
   color: var(--widget-text-color, initial);
   padding: var(--widget-container-padding);
   width: 100%;
+
+  &[data-modal-open="true"] {
+    @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
+      ${containerRegular()}
+      padding: var(--widget-container-padding);
+    }
+
+    &[data-fill-screen="true"] {
+      position: absolute;
+      height: 100%;
+      top: 0;
+
+      @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
+        margin-inline: auto;
+        position: static;
+        height: auto;
+      }
+    }
+    &[data-fill-screen="false"] {
+      @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
+        margin-inline: auto;
+        height: auto;
+      }
+    }
+  }
 `;
 
 export const WidgetBody = styled.div`
@@ -41,31 +66,6 @@ export const WidgetContainer = styled.section`
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-
-    &[data-fill-screen="true"] {
-      ${WidgetContent} {
-        position: absolute;
-        height: 100%;
-        top: 0;
-
-        @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
-          max-width: var(--widget-content-width, 2000px);
-          margin-inline: auto;
-          position: static;
-          height: auto;
-        }
-      }
-    }
-
-    &[data-fill-screen="false"] {
-      ${WidgetContent} {
-        @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
-          max-width: var(--widget-content-width, 2000px);
-          margin-inline: auto;
-          height: auto;
-        }
-      }
-    }
 
     &[data-theme="light"] {
       --widget-text-color: var(--neutral95, #1f2121);
