@@ -44,6 +44,7 @@ const Fragment = graphql(`
     ...ScatterplotToolBlock
     ...ReferenceModalBlock
     ...ColorFilterToolBlock
+    ...CameraFilterToolBlock
     ...EquationBlock
     ...VideoBlock
   }
