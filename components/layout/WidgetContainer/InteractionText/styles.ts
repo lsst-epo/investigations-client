@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const InstructionsContainer = styled.div`
   color: var(--widget-text-color);
+  grid-area: instructions;
   display: flex;
   justify-content: center;
   margin-block: 1em;
