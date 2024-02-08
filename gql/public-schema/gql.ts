@@ -36,9 +36,10 @@ const documents = {
     "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterStudentDocument,
     "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n": types.RefreshTokenDocument,
     "\n  fragment BarGraphToolBlock on contentBlocks_barGraphTool_BlockType {\n    __typename\n    id\n    title\n    yAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    graphBars {\n      ... on graphBars_bar_BlockType {\n        __typename\n        yValue\n        label\n      }\n    }\n  }\n": types.BarGraphToolBlockFragmentDoc,
+    "\n  fragment CameraFilterToolBlock on contentBlocks_cameraFilterTool_BlockType {\n    widgetInstructions\n  }\n": types.CameraFilterToolBlockFragmentDoc,
     "\n  fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {\n    colorFilterTool {\n      ...ColorFilterToolEntry\n    }\n  }\n": types.ColorFilterToolBlockFragmentDoc,
     "\n  fragment EquationBlock on contentBlocks_equation_BlockType {\n    id\n    latex\n  }\n": types.EquationBlockFragmentDoc,
-    "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    id\n    preSelectedColor\n    readOnly\n  }\n": types.FilterToolBlockFragmentDoc,
+    "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    id\n    preSelectedColor\n    readOnly\n    widgetInstructions\n  }\n": types.FilterToolBlockFragmentDoc,
     "\n  fragment ImageBlock on contentBlocks_image_BlockType {\n    id\n    caption\n    layout\n    image {\n      url {\n        directUrlPreview\n        directUrlOriginal\n        PNG\n        HighJPG\n        LowJPG\n        preview\n      }\n      width\n      height\n      metadata: additional {\n        AltTextEN\n        AltTextES\n        CaptionEN\n        CaptionES\n        Credit\n      }\n    }\n  }\n": types.ImageBlockFragmentDoc,
     "\n  fragment InteractionGroupContainerBlock on contentBlocks_group_BlockType {\n    __typename\n    childBlocks: children {\n      __typename\n      id\n      ...TextBlock\n      ...ImageBlock\n      ...VideoBlock\n      ...TableBlock\n      ...QuestionsBlock\n      ...BarGraphToolBlock\n      ...FilterToolBlock\n      ...ScatterplotToolBlock\n      ...ReferenceModalBlock\n      ...ColorFilterToolBlock\n    }\n  }\n": types.InteractionGroupContainerBlockFragmentDoc,
     "\n  fragment InvestigationGridBlock on homepageContentBlocks_investigationGrid_BlockType {\n    heading: contentHeading\n    investigations: investigationEntries {\n      ... on investigations_investigationParent_Entry {\n        id\n        title\n        rawImage: image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n        url\n      }\n    }\n  }\n": types.InvestigationGridBlockFragmentDoc,
@@ -175,6 +176,10 @@ export function graphql(source: "\n  fragment BarGraphToolBlock on contentBlocks
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "\n  fragment CameraFilterToolBlock on contentBlocks_cameraFilterTool_BlockType {\n    widgetInstructions\n  }\n"): (typeof documents)["\n  fragment CameraFilterToolBlock on contentBlocks_cameraFilterTool_BlockType {\n    widgetInstructions\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n  fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {\n    colorFilterTool {\n      ...ColorFilterToolEntry\n    }\n  }\n"): (typeof documents)["\n  fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {\n    colorFilterTool {\n      ...ColorFilterToolEntry\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -183,7 +188,7 @@ export function graphql(source: "\n  fragment EquationBlock on contentBlocks_equ
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    id\n    preSelectedColor\n    readOnly\n  }\n"): (typeof documents)["\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    id\n    preSelectedColor\n    readOnly\n  }\n"];
+export function graphql(source: "\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    id\n    preSelectedColor\n    readOnly\n    widgetInstructions\n  }\n"): (typeof documents)["\n  fragment FilterToolBlock on contentBlocks_filterTool_BlockType {\n    __typename\n    id\n    preSelectedColor\n    readOnly\n    widgetInstructions\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -235,7 +240,11 @@ export function graphql(source: "\n  fragment SourceSelectorEntry on widgets_sou
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+<<<<<<< HEAD
 export function graphql(source: "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TwoColumnContainerBlock\n    ...InteractionGroupContainerBlock\n    ...TextBlock\n    ...ImageBlock\n    ...VideoBlock\n    ...TableBlock\n    ...QuestionsBlock\n    ...BarGraphToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...ReferenceModalBlock\n    ...ColorFilterToolBlock\n    ...EquationBlock\n  }\n"): (typeof documents)["\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TwoColumnContainerBlock\n    ...InteractionGroupContainerBlock\n    ...TextBlock\n    ...ImageBlock\n    ...VideoBlock\n    ...TableBlock\n    ...QuestionsBlock\n    ...BarGraphToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...ReferenceModalBlock\n    ...ColorFilterToolBlock\n    ...EquationBlock\n  }\n"];
+=======
+export function graphql(source: "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TwoColumnContainerBlock\n    ...InteractionGroupContainerBlock\n    ...TextBlock\n    ...ImageBlock\n    ...TableBlock\n    ...QuestionsBlock\n    ...BarGraphToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...ReferenceModalBlock\n    ...ColorFilterToolBlock\n    ...CameraFilterToolBlock\n    ...EquationBlock\n    ...VideoBlock\n  }\n"): (typeof documents)["\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TwoColumnContainerBlock\n    ...InteractionGroupContainerBlock\n    ...TextBlock\n    ...ImageBlock\n    ...TableBlock\n    ...QuestionsBlock\n    ...BarGraphToolBlock\n    ...FilterToolBlock\n    ...ScatterplotToolBlock\n    ...ReferenceModalBlock\n    ...ColorFilterToolBlock\n    ...CameraFilterToolBlock\n    ...EquationBlock\n    ...VideoBlock\n  }\n"];
+>>>>>>> 3d95e2b ([C] add instructions to static widgets)
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
