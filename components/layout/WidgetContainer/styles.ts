@@ -2,10 +2,22 @@ import { token } from "@rubin-epo/epo-react-lib/styles";
 import styled from "styled-components";
 
 export const WidgetContent = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr min-content min-content;
+  grid-template-areas:
+    "widget"
+    "caption"
+    "instructions";
   background-color: var(--widget-background-color);
   color: var(--widget-text-color, initial);
   padding: var(--widget-container-padding);
-  flex-grow: 1;
+  width: 100%;
+`;
+
+export const WidgetBody = styled.div`
+  grid-area: widget;
+  position: relative;
 `;
 
 export const WidgetContainer = styled.section`
@@ -22,19 +34,19 @@ export const WidgetContainer = styled.section`
   }
 
   &[data-modal-open="true"] {
+    --widget-text-color: var(--white, #fff);
+    --widget-background-color: transparent;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    flex-grow: 1;
 
     &[data-fill-screen="true"] {
       ${WidgetContent} {
         position: absolute;
-        width: 100%;
         height: 100%;
         top: 0;
-        overflow-y: auto;
 
         @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
           max-width: var(--widget-content-width, 2000px);
@@ -45,19 +57,16 @@ export const WidgetContainer = styled.section`
       }
     }
 
-    ${WidgetContent} {
-      @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
-        max-width: var(--widget-content-width, 2000px);
-        margin-inline: auto;
-        position: static;
-        height: auto;
+    &[data-fill-screen="false"] {
+      ${WidgetContent} {
+        @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
+          max-width: var(--widget-content-width, 2000px);
+          margin-inline: auto;
+          height: auto;
+        }
       }
     }
 
-    &[data-theme="dark"] {
-      --widget-text-color: var(--white, #fff);
-      --widget-background-color: transparent;
-    }
     &[data-theme="light"] {
       --widget-text-color: var(--neutral95, #1f2121);
       --widget-background-color: var(--white, #fff);
@@ -80,6 +89,7 @@ export const WidgetTitle = styled.h1`
 `;
 
 export const WidgetCaption = styled.p`
+  grid-area: caption;
   color: var(--widget-text-color, inherit);
   font-size: 0.75rem;
   margin-block-start: var(--widget-header-padding);
