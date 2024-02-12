@@ -15,11 +15,10 @@ const Fragment = graphql(`
           ...ImageBlock
           ...TableBlock
           ...QuestionsBlock
-          ...BarGraphToolBlock
           ...FilterToolBlock
-          ...ScatterplotToolBlock
           ...ReferenceModalBlock
           ...ColorFilterToolBlock
+          ...SupernovaThreeVectorBlock
         }
       }
       ... on contentBlocks_colRight_BlockType {
@@ -32,11 +31,10 @@ const Fragment = graphql(`
           ...ImageBlock
           ...TableBlock
           ...QuestionsBlock
-          ...BarGraphToolBlock
           ...FilterToolBlock
-          ...ScatterplotToolBlock
           ...ReferenceModalBlock
           ...ColorFilterToolBlock
+          ...SupernovaThreeVectorBlock
         }
       }
     }

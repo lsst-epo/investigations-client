@@ -1,12 +1,9 @@
-export default interface BaseContentBlockProps<T = any> {
+import ModalProps from "./modal";
+
+export default interface BaseContentBlockProps<T = any> extends ModalProps {
   data: T;
-  title?: string;
   pageId?: string;
-  hasModal?: boolean;
-  isOpen?: boolean;
   locale: string;
   site: string;
   isInteraction?: boolean;
-  openModal?: () => void;
-  closeModal?: () => void;
 }

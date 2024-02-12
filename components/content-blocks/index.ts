@@ -13,8 +13,7 @@ export { default as Text } from "./Text";
 export { default as Video } from "./Video";
 
 // Widgets
-export { default as BarGraphTool } from "./BarGraphTool";
 export { default as CameraFilterTool } from "./CameraFilterTool";
 export { default as ColorFilterTool } from "./ColorFilterTool";
 export { default as FilterTool } from "./FilterTool";
-export { default as ScatterplotTool } from "./ScatterplotTool";
+export { default as SupernovaThreeVector } from "./SupernovaThreeVector";

@@ -13,13 +13,12 @@ export const blockMap: Record<
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_image_BlockType: Blocks.Image,
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
-  contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
-  contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
   contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
   contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
+  contentBlocks_supernovaThreeVector_BlockType: Blocks.SupernovaThreeVector,
   contentBlocks_equation_BlockType: Blocks.Equation,
   contentBlocks_video_BlockType: Blocks.Video,
   referenceContentBlocks_image_BlockType: Blocks.Image,
@@ -39,14 +38,13 @@ const Fragment = graphql(`
     ...ImageBlock
     ...TableBlock
     ...QuestionsBlock
-    ...BarGraphToolBlock
     ...FilterToolBlock
-    ...ScatterplotToolBlock
     ...ReferenceModalBlock
     ...ColorFilterToolBlock
     ...CameraFilterToolBlock
     ...EquationBlock
     ...VideoBlock
+    ...SupernovaThreeVectorBlock
   }
 `);
 

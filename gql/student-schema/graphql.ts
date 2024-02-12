@@ -3736,6 +3736,8 @@ export type User = ElementInterface & UserInterface & {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -3907,6 +3909,8 @@ export type UserInterface = {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -4409,102 +4413,7 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
-
-export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'contentBlocks_barGraphTool_BlockType';
-  /** Return a number of related elements for a field. */
-  _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived. */
-  archived?: Maybe<Scalars['Boolean']['output']>;
-  /** The date the element was created. */
-  dateCreated?: Maybe<Scalars['DateTime']['output']>;
-  /** The date the element was last updated. */
-  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled. */
-  enabled?: Maybe<Scalars['Boolean']['output']>;
-  /** The ID of the field that owns the Neo block. */
-  fieldId?: Maybe<Scalars['Int']['output']>;
-  graphBars: Array<Maybe<GraphBars_MatrixField>>;
-  /** The ID of the entity */
-  id?: Maybe<Scalars['ID']['output']>;
-  /** The language of the site element is associated with. */
-  language?: Maybe<Scalars['String']['output']>;
-  /** The Neo block’s level. */
-  level?: Maybe<Scalars['Int']['output']>;
-  /** The ID of the primary owner of the Neo block. */
-  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
-  /** The element’s search score, if the `search` parameter was used when querying for the element. */
-  searchScore?: Maybe<Scalars['Int']['output']>;
-  /** The handle of the site the element is associated with. */
-  siteHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the site the element is associated with. */
-  siteId?: Maybe<Scalars['Int']['output']>;
-  /** The unique identifier for an element-site relation. */
-  siteSettingsId?: Maybe<Scalars['ID']['output']>;
-  /** The element’s slug. */
-  slug?: Maybe<Scalars['String']['output']>;
-  /** The sort order of the Neo block within the owner element field. */
-  sortOrder?: Maybe<Scalars['Int']['output']>;
-  /** The element’s status. */
-  status?: Maybe<Scalars['String']['output']>;
-  text?: Maybe<Scalars['String']['output']>;
-  /** The element’s title. */
-  title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted. */
-  trashed?: Maybe<Scalars['Boolean']['output']>;
-  /** The handle of the Neo block’s type. */
-  typeHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the Neo block’s type. */
-  typeId?: Maybe<Scalars['Int']['output']>;
-  /** The UID of the entity */
-  uid?: Maybe<Scalars['String']['output']>;
-  /** The element’s URI. */
-  uri?: Maybe<Scalars['String']['output']>;
-  xAxisLabel?: Maybe<Scalars['String']['output']>;
-  yAxisLabel?: Maybe<Scalars['String']['output']>;
-  yAxisMax?: Maybe<Scalars['Number']['output']>;
-  yAxisMin?: Maybe<Scalars['Number']['output']>;
-};
-
-
-export type ContentBlocks_BarGraphTool_BlockType_CountArgs = {
-  field: Scalars['String']['input'];
-};
-
-
-export type ContentBlocks_BarGraphTool_BlockTypeGraphBarsArgs = {
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  primaryOwnerId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
+export type ContentBlocks_NeoField = ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_SupernovaThreeVector_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
 
 export type ContentBlocks_CameraFilterTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_cameraFilterTool_BlockType';
@@ -5331,12 +5240,13 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'contentBlocks_scatterplotTool_BlockType';
+export type ContentBlocks_SupernovaThreeVector_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_supernovaThreeVector_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
+  dataset: Array<Maybe<EntryInterface>>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
@@ -5347,13 +5257,15 @@ export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBloc
   fieldId?: Maybe<Scalars['Int']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
+  /** Canto Dam Asset field */
+  imageAlbum?: Maybe<Array<Maybe<CantoDamAssetInterface>>>;
+  json: Array<Maybe<AssetInterface>>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
   /** The Neo block’s level. */
   level?: Maybe<Scalars['Int']['output']>;
   /** The ID of the primary owner of the Neo block. */
   primaryOwnerId?: Maybe<Scalars['Int']['output']>;
-  scatterplotItems: Array<Maybe<ScatterplotItems_MatrixField>>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
@@ -5368,7 +5280,7 @@ export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBloc
   sortOrder?: Maybe<Scalars['Int']['output']>;
   /** The element’s status. */
   status?: Maybe<Scalars['String']['output']>;
-  text?: Maybe<Scalars['String']['output']>;
+  step?: Maybe<Scalars['Number']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
   /** Whether the element has been soft-deleted. */
@@ -5381,30 +5293,128 @@ export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBloc
   uid?: Maybe<Scalars['String']['output']>;
   /** The element’s URI. */
   uri?: Maybe<Scalars['String']['output']>;
-  xAxisLabel?: Maybe<Scalars['String']['output']>;
-  xAxisMin?: Maybe<Scalars['Number']['output']>;
-  yAxisLabel?: Maybe<Scalars['String']['output']>;
-  yAxisMax?: Maybe<Scalars['Number']['output']>;
 };
 
 
-export type ContentBlocks_ScatterplotTool_BlockType_CountArgs = {
+export type ContentBlocks_SupernovaThreeVector_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type ContentBlocks_ScatterplotTool_BlockTypeScatterplotItemsArgs = {
+export type ContentBlocks_SupernovaThreeVector_BlockTypeDatasetArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type ContentBlocks_SupernovaThreeVector_BlockTypeImageAlbumArgs = {
+  except?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  first?: InputMaybe<Scalars['Boolean']['input']>;
+  forPage?: InputMaybe<ForPageInput>;
+  last?: InputMaybe<Scalars['Boolean']['input']>;
+  nth?: InputMaybe<Scalars['Int']['input']>;
+  random?: InputMaybe<Scalars['Int']['input']>;
+  reverse?: InputMaybe<Scalars['Boolean']['input']>;
+  shuffle?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  where?: InputMaybe<WhereFiltersInput>;
+  whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereIn?: InputMaybe<WhereInFiltersInput>;
+  whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
+  whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
+  whereNotNull?: InputMaybe<Scalars['String']['input']>;
+  whereNull?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type ContentBlocks_SupernovaThreeVector_BlockTypeJsonArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
   preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  primaryOwnerId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5417,13 +5427,17 @@ export type ContentBlocks_ScatterplotTool_BlockTypeScatterplotItemsArgs = {
   site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ContentBlocks_Table_BlockType = ElementInterface & NeoBlockInterface & {
@@ -5711,6 +5725,236 @@ export type ContentBlocks_Video_BlockTypeVideoArgs = {
 };
 
 export type DatasetsSectionEntryUnion = Datasets_SupernovaGalaxyObservations_Entry;
+
+export type Datasets_Asset = AssetInterface & ElementInterface & {
+  __typename?: 'datasets_Asset';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Alternative text for the asset. */
+  alt?: Maybe<Scalars['String']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the asset file was last modified. */
+  dateModified?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The file extension for the asset file. */
+  extension: Scalars['String']['output'];
+  /** The filename of the asset file. */
+  filename: Scalars['String']['output'];
+  /** The focal point represented as an array with `x` and `y` keys, or null if it’s not an image. */
+  focalPoint?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  /** The ID of the folder that the asset belongs to. */
+  folderId: Scalars['Int']['output'];
+  /** Returns the file’s format. */
+  format?: Maybe<Scalars['String']['output']>;
+  /** Whether a user-defined focal point is set on the asset. */
+  hasFocalPoint: Scalars['Boolean']['output'];
+  /** The height in pixels or null if it’s not an image. */
+  height?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** An `<img>` tag based on this asset. */
+  img?: Maybe<Scalars['String']['output']>;
+  /** The file kind. */
+  kind: Scalars['String']['output'];
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The file’s MIME type, if it can be determined. */
+  mimeType?: Maybe<Scalars['String']['output']>;
+  /** Returns the next element relative to this one, from a given set of criteria. */
+  next?: Maybe<AssetInterface>;
+  /** The asset’s path in the volume. */
+  path: Scalars['String']['output'];
+  /** Returns the previous element relative to this one, from a given set of criteria. */
+  prev?: Maybe<AssetInterface>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The file size in bytes. */
+  size?: Maybe<Scalars['String']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** Returns a `srcset` attribute value based on the given widths or x-descriptors. */
+  srcset?: Maybe<Scalars['String']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+  /** The full URL of the asset. This field accepts the same fields as the `transform` directive. */
+  url?: Maybe<Scalars['String']['output']>;
+  /** The ID of the volume that the asset belongs to. */
+  volumeId?: Maybe<Scalars['Int']['output']>;
+  /** The width in pixels or null if it’s not an image. */
+  width?: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type Datasets_Asset_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type Datasets_AssetFormatArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type Datasets_AssetHeightArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type Datasets_AssetNextArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Datasets_AssetPrevArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Datasets_AssetSrcsetArgs = {
+  sizes: Array<Scalars['String']['input']>;
+};
+
+
+export type Datasets_AssetUrlArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type Datasets_AssetWidthArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
 
 export type Datasets_SupernovaGalaxyObservations_Entry = ElementInterface & EntryInterface & {
   __typename?: 'datasets_supernovaGalaxyObservations_Entry';
@@ -6628,8 +6872,6 @@ export type FiltersImages_FilterImage_BlockTypeImageArgs = {
   whereNotNull?: InputMaybe<Scalars['String']['input']>;
   whereNull?: InputMaybe<Scalars['String']['input']>;
 };
-
-export type GraphBars_MatrixField = GraphBars_Bar_BlockType;
 
 export type GraphBars_Bar_BlockType = ElementInterface & MatrixBlockInterface & {
   __typename?: 'graphBars_bar_BlockType';
@@ -7655,6 +7897,7 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
   groupName?: Maybe<Scalars['String']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
+  images: Array<Maybe<AssetInterface>>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
   /** The ID of the primary owner of the Matrix block. */
@@ -7690,6 +7933,49 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
 
 export type Images_ImageGroup_BlockType_CountArgs = {
   field: Scalars['String']['input'];
+};
+
+
+export type Images_ImageGroup_BlockTypeImagesArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type InvestigationsSectionEntryUnion = Investigations_Default_Entry | Investigations_InvestigationParent_Entry | Investigations_InvestigationSectionBreakChild_Entry;
@@ -13586,8 +13872,6 @@ export type ReferenceModals_Default_EntryReferenceContentBlocksArgs = {
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
-
-export type ScatterplotItems_MatrixField = ScatterplotItems_Item_BlockType;
 
 export type ScatterplotItems_Item_BlockType = ElementInterface & MatrixBlockInterface & {
   __typename?: 'scatterplotItems_item_BlockType';

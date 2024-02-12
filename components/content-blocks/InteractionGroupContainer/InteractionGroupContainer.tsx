@@ -13,11 +13,10 @@ const Fragment = graphql(`
       ...ImageBlock
       ...TableBlock
       ...QuestionsBlock
-      ...BarGraphToolBlock
       ...FilterToolBlock
-      ...ScatterplotToolBlock
       ...ReferenceModalBlock
       ...ColorFilterToolBlock
+      ...SupernovaThreeVectorBlock
     }
   }
 `);

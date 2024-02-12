@@ -1,6 +1,6 @@
 "use client";
 import { ComponentType, useState, useRef, FunctionComponent } from "react";
-import { BaseContentBlockProps } from "@/components/shapes";
+import ModalProps from "@/components/shapes/modal";
 import { useUID } from "react-uid";
 import screenfull from "screenfull";
 import { getDisplayName } from "@/lib/utils";
@@ -10,7 +10,7 @@ import * as Modal from "@/layout/Modal";
  * pulled out and shown in a modal, rather than off-page content
  * that is not visible until opened.
  */
-function withModal<T extends BaseContentBlockProps>(
+function withModal<T extends ModalProps>(
   WrappedComponent: ComponentType<T>
 ): FunctionComponent<T> {
   const WithModal = (props: T) => {
