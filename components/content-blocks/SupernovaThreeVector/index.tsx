@@ -2,9 +2,11 @@ import { FunctionComponent } from "react";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import SupernovaThreeVectorContainer from "@/components/dynamic/SupernovaThreeVector";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment SupernovaThreeVectorBlock on contentBlocks_supernovaThreeVector_BlockType {
+    instructions: widgetInstructions
     imageAlbum {
       url {
         directUrlPreview
@@ -34,21 +36,36 @@ const Fragment = graphql(`
 const SupernovaThreeVectorBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = async ({ data }) => {
-  const { imageAlbum, json, step, userData } = useFragment(Fragment, data);
+  const { imageAlbum, json, step, userData, instructions } = useFragment(
+    Fragment,
+    data
+  );
 
   if (!json || !json[0]) return null;
 
   const { url } = json[0];
-  const response = await fetch(url || "", {
+
+  if (!url) return null;
+
+  const response = await fetch(url, {
+    cache: "force-cache",
     headers: { "Content-Type": "application/json" },
   });
   const supernovaData: Array<number> = await response.json();
 
   return (
-    <SupernovaThreeVectorContainer
-      album={imageAlbum}
-      {...{ supernovaData, step, userData }}
-    />
+    <>
+      {instructions && (
+        <Styled.WidgetInstructions
+          dangerouslySetInnerHTML={{ __html: instructions }}
+        />
+      )}
+      <SupernovaThreeVectorContainer
+        album={imageAlbum}
+        instructions={instructions || undefined}
+        {...{ supernovaData, step, userData }}
+      />
+    </>
   );
 };
 

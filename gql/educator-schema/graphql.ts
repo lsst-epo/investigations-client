@@ -5293,6 +5293,7 @@ export type ContentBlocks_SupernovaThreeVector_BlockType = ElementInterface & Ne
   uid?: Maybe<Scalars['String']['output']>;
   /** The element’s URI. */
   uri?: Maybe<Scalars['String']['output']>;
+  widgetInstructions?: Maybe<Scalars['String']['output']>;
 };
 
 

@@ -1,9 +1,11 @@
 "use client";
 import { FunctionComponent } from "react";
 import dynamic from "next/dynamic";
+import { useTranslation } from "react-i18next";
 import withModal from "@/components/hoc/withModal";
 import ModalProps from "@/components/shapes/modal";
 import WidgetContainer from "@/components/layout/WidgetContainer";
+import Loader from "@/components/page/Loader";
 
 const SupernovaThreeVector = dynamic(
   () =>
@@ -11,6 +13,7 @@ const SupernovaThreeVector = dynamic(
       (module) => module.default
     ),
   {
+    loading: () => <Loader height="20rem" />,
     ssr: false,
   }
 );
@@ -20,6 +23,7 @@ interface SupernovaThreeVectorContainerProps extends ModalProps {
   album: any;
   supernovaData: Array<number>;
   userData: Array<any>;
+  instructions?: string;
 }
 
 const SupernovaThreeVectorContainer: FunctionComponent<
@@ -29,10 +33,12 @@ const SupernovaThreeVectorContainer: FunctionComponent<
   album,
   supernovaData,
   userData,
+  instructions,
   openModal,
   closeModal,
   isOpen,
 }) => {
+  const { t } = useTranslation();
   const histogramData = supernovaData.map((value, i) => {
     return {
       bin: i * step,
@@ -54,7 +60,12 @@ const SupernovaThreeVectorContainer: FunctionComponent<
   });
 
   return (
-    <WidgetContainer {...{ isOpen, openModal, closeModal }}>
+    <WidgetContainer
+      title={t("widgets.supernova_three_vector") || undefined}
+      variant="light"
+      fillScreen
+      {...{ isOpen, openModal, closeModal, instructions }}
+    >
       <SupernovaThreeVector
         {...{ step, histogramData, userData, binnedImages }}
       />

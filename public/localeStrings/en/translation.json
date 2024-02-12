@@ -274,7 +274,8 @@
     "camera_filter_tool": "Camera Filter Ranges",
     "color_filter_tool": {
       "read_only_caption": "Object: {{name}}"
-    }
+    },
+    "supernova_three_vector": "Visualize Supernovae Distances"
   },
   "image": {
     "credit": "Credit: {{credit}}"
