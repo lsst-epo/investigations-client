@@ -50,6 +50,7 @@ const SupernovaThreeVectorBlock: FunctionComponent<
   const response = await fetch(url, {
     cache: "force-cache",
     headers: { "Content-Type": "application/json" },
+    next: { tags: ["datasets"] },
   });
   const supernovaData: Array<number> = await response.json();
 
