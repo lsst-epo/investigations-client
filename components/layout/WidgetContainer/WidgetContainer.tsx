@@ -49,9 +49,7 @@ const WidgetContainer: FunctionComponent<
       data-fill-screen={fillScreen}
       className={className}
       style={{
-        "--widget-container-padding": isOpen
-          ? 0
-          : `calc(${padding[paddingSize]} / 2)`,
+        "--widget-container-padding": `calc(${padding[paddingSize]} / 2)`,
         ...style,
       }}
     >
