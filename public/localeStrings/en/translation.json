@@ -275,7 +275,7 @@
     "color_filter_tool": {
       "read_only_caption": "Object: {{name}}"
     },
-    "supernova_three_vector": "Visualize Supernovae Distances"
+    "supernova_three_vector": "Visualize Supernovae Distances & Distribution"
   },
   "image": {
     "credit": "Credit: {{credit}}"
