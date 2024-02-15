@@ -21,7 +21,7 @@ export const blockMap: Record<
   contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
   contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   contentBlocks_equation_BlockType: Blocks.Equation,
-  contentBlocks_video_BlockType: Blocks.Video,
+  // contentBlocks_video_BlockType: Blocks.Video,
   referenceContentBlocks_image_BlockType: Blocks.Image,
   referenceContentBlocks_text_BlockType: Blocks.Text,
   referenceContentBlocks_table_BlockType: Blocks.Table,
@@ -45,7 +45,6 @@ const Fragment = graphql(`
     ...ReferenceModalBlock
     ...ColorFilterToolBlock
     ...EquationBlock
-    ...VideoBlock
   }
 `);
 

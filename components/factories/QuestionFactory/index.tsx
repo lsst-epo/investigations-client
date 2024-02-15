@@ -26,7 +26,7 @@ const Fragment = graphql(`
           ...ColorFilterToolEntry
         }
       }
-      ... on questionWidgetsBlock_sourceSelector_BlockType {
+      ... on questionWidgetsBlock_sourceSelectorBlock_BlockType {
         typeHandle
         sourceSelector {
           ...SourceSelectorEntry

@@ -1,15 +1,16 @@
 import { FunctionComponent, ReactNode, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
+import { Blinker } from "@rubin-epo/epo-widget-lib/Atomic";
+import useSWR from "swr";
+import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import {
   Message,
   PointSelector,
 } from "@rubin-epo/epo-widget-lib/SourceSelector";
-import { Blinker } from "@rubin-epo/epo-widget-lib/Atomic";
-import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { MultiselectInput } from "@/types/answers";
 import SourceSelectorControls from "./Controls";
 import * as Styled from "./styles";
-import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 
 export const Fragment = graphql(`
   fragment SourceSelectorEntry on widgets_sourceSelector_Entry {
@@ -29,12 +30,10 @@ export const Fragment = graphql(`
             id: sourceName
           }
         }
-        alerts {
-          ... on alerts_alert_BlockType {
-            error: errorMagnitude
-            magnitude
-            date: modifiedJulianDate
-            id: observationId
+        galacticLongitude
+        json {
+          ... on datasets_Asset {
+            url
           }
         }
         imageAlbum {
@@ -57,15 +56,21 @@ interface SourceSelectorContainerProps {
   showControls?: boolean;
 }
 
+const fetcher = (url: string) => fetch(url).then((response) => response.json());
+
 const SourceSelectorContainer: FunctionComponent<
   SourceSelectorContainerProps
 > = ({ data, onChangeCallback, value = [], showControls = false }) => {
   const { dataset } = useFragment(Fragment, data);
+  const { data: alerts } = useSWR(
+    `/api/asset?url=${dataset[0].json[0].url}`,
+    fetcher,
+    { revalidateOnFocus: false, revalidateOnReconnect: false }
+  );
   const { t } = useTranslation();
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [message, setMessage] = useState<ReactNode>();
-
   if (
     dataset.length === 0 ||
     dataset[0] === null ||
@@ -73,7 +78,7 @@ const SourceSelectorContainer: FunctionComponent<
   )
     return null;
 
-  const { sources, alerts, imageAlbum } = dataset[0];
+  const { sources, imageAlbum } = dataset[0];
   const { width, height } = imageAlbum[0];
 
   const images =
@@ -125,7 +130,7 @@ const SourceSelectorContainer: FunctionComponent<
           {...{ width, height, sources }}
         />
       )}
-      {showControls && (
+      {showControls && alerts && (
         <Styled.ControlsContainer
           style={{ aspectRatio: `${width} / ${height}` }}
         >

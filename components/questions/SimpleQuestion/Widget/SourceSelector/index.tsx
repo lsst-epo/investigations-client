@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, Suspense } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
@@ -7,9 +7,10 @@ import WidgetContainer from "@/components/layout/WidgetContainer";
 import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
 import withModal from "@/components/hoc/withModal/withModal";
 import * as Styled from "./styles";
+import Loader from "@/components/page/Loader";
 
 const Fragment = graphql(`
-  fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelector_BlockType {
+  fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
     __typename
     sourceSelector {
       ...SourceSelectorEntry
@@ -57,14 +58,16 @@ const SourceSelectorQuestion: FunctionComponent<
         style={isOpen && { "--widget-background-color": "transparent" }}
         {...{ openModal, isOpen }}
       >
-        <SourceSelectorContainer
-          data={sourceSelector[0]}
-          onChangeCallback={(value) =>
-            onChangeCallback && onChangeCallback(value)
-          }
-          value={value}
-          showControls={isOpen}
-        />
+        <Suspense fallback={<Loader />}>
+          <SourceSelectorContainer
+            data={sourceSelector[0]}
+            onChangeCallback={(value) =>
+              onChangeCallback && onChangeCallback(value)
+            }
+            value={value}
+            showControls={isOpen}
+          />
+        </Suspense>
       </WidgetContainer>
       {!isOpen && (
         <Styled.SelectionList
