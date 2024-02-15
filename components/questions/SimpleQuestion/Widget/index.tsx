@@ -13,7 +13,7 @@ export interface SimpleWidgetProps<T = WidgetInput> {
 
 const WIDGET_MAP: Record<string, ComponentType<any>> = {
   colorFilterToolBlock: ColorFilterToolQuestion,
-  sourceSelector: SourceSelectorQuestion,
+  sourceSelectorBlock: SourceSelectorQuestion,
 };
 
 const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({

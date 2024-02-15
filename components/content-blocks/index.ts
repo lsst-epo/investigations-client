@@ -10,7 +10,7 @@ export { default as Modal } from "./Modal";
 export { default as Questions } from "./Questions";
 export { default as Table } from "./Table";
 export { default as Text } from "./Text";
-export { default as Video } from "./Video";
+// export { default as Video } from "./Video";
 
 // Widgets
 export { default as BarGraphTool } from "./BarGraphTool";

@@ -1319,7 +1319,6 @@ export type EntryCriteriaInput = {
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the entries’ authors. */
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only entries that were posted before a certain date. */
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1343,6 +1342,8 @@ export type EntryCriteriaInput = {
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in the order specified by the `id` argument. */
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on whether the elements have any descendants in their structure. */
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1353,7 +1354,7 @@ export type EntryCriteriaInput = {
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in reverse order. */
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on whether the elements are “leaves” in their structure (element with no descendants). */
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the elements’ level within the structure. */
@@ -1361,6 +1362,7 @@ export type EntryCriteriaInput = {
   /** Sets the limit for paginated results. */
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only the entry that comes immediately after another element in its structure, provided by its ID. */
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   /** Sets the offset for paginated results. */
@@ -1554,7 +1556,6 @@ export type EntryInterfaceAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1570,6 +1571,8 @@ export type EntryInterfaceAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1577,11 +1580,12 @@ export type EntryInterfaceAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -1630,7 +1634,6 @@ export type EntryInterfaceChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1646,6 +1649,8 @@ export type EntryInterfaceChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1653,11 +1658,12 @@ export type EntryInterfaceChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -1706,7 +1712,6 @@ export type EntryInterfaceDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1722,6 +1727,8 @@ export type EntryInterfaceDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1729,11 +1736,12 @@ export type EntryInterfaceDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -1782,7 +1790,6 @@ export type EntryInterfaceLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1798,6 +1805,8 @@ export type EntryInterfaceLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1805,11 +1814,12 @@ export type EntryInterfaceLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -1858,7 +1868,6 @@ export type EntryInterfaceNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1874,6 +1883,8 @@ export type EntryInterfaceNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1881,11 +1892,12 @@ export type EntryInterfaceNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -1934,7 +1946,6 @@ export type EntryInterfaceParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1950,6 +1961,8 @@ export type EntryInterfaceParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1957,11 +1970,12 @@ export type EntryInterfaceParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -2010,7 +2024,6 @@ export type EntryInterfacePrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2026,6 +2039,8 @@ export type EntryInterfacePrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2033,11 +2048,12 @@ export type EntryInterfacePrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -2786,7 +2802,6 @@ export type QueryDatasetsEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2802,6 +2817,8 @@ export type QueryDatasetsEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2809,11 +2826,12 @@ export type QueryDatasetsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -2859,7 +2877,6 @@ export type QueryEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2875,6 +2892,8 @@ export type QueryEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2882,11 +2901,12 @@ export type QueryEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -2934,7 +2954,6 @@ export type QueryEntryArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2950,6 +2969,8 @@ export type QueryEntryArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -2957,11 +2978,12 @@ export type QueryEntryArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3009,7 +3031,6 @@ export type QueryEntryCountArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3025,6 +3046,8 @@ export type QueryEntryCountArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3032,11 +3055,12 @@ export type QueryEntryCountArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3152,7 +3176,6 @@ export type QueryHomepageEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3168,6 +3191,8 @@ export type QueryHomepageEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3175,11 +3200,12 @@ export type QueryHomepageEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3225,7 +3251,6 @@ export type QueryInvestigationsEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3241,6 +3266,8 @@ export type QueryInvestigationsEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3248,11 +3275,12 @@ export type QueryInvestigationsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3298,7 +3326,6 @@ export type QueryPagesEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3314,6 +3341,8 @@ export type QueryPagesEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3321,11 +3350,12 @@ export type QueryPagesEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3371,7 +3401,6 @@ export type QueryQuestionsEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3387,6 +3416,8 @@ export type QueryQuestionsEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3394,11 +3425,12 @@ export type QueryQuestionsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3444,7 +3476,6 @@ export type QueryReferenceModalsEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3460,6 +3491,8 @@ export type QueryReferenceModalsEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3467,11 +3500,12 @@ export type QueryReferenceModalsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3517,7 +3551,6 @@ export type QueryWidgetsEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3533,6 +3566,8 @@ export type QueryWidgetsEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -3540,11 +3575,12 @@ export type QueryWidgetsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -3722,6 +3758,8 @@ export type User = ElementInterface & UserInterface & {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -3893,6 +3931,8 @@ export type UserInterface = {
   lastName?: Maybe<Scalars['String']['output']>;
   /** The user’s full name or username. */
   name: Scalars['String']['output'];
+  /** The user’s photo. */
+  photo?: Maybe<AssetInterface>;
   /** The user’s preferences. */
   preferences: Scalars['String']['output'];
   /** The user’s preferred language. */
@@ -4062,65 +4102,6 @@ export type AlertSources_Source_BlockType_CountArgs = {
 
 export type AlertSources_Source_BlockTypeSourceTypeArgs = {
   label?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type Alerts_MatrixField = Alerts_Alert_BlockType;
-
-export type Alerts_Alert_BlockType = ElementInterface & MatrixBlockInterface & {
-  __typename?: 'alerts_alert_BlockType';
-  /** Return a number of related elements for a field. */
-  _count?: Maybe<Scalars['Int']['output']>;
-  /** Whether the element is archived. */
-  archived?: Maybe<Scalars['Boolean']['output']>;
-  /** The date the element was created. */
-  dateCreated?: Maybe<Scalars['DateTime']['output']>;
-  /** The date the element was last updated. */
-  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** Whether the element is enabled. */
-  enabled?: Maybe<Scalars['Boolean']['output']>;
-  errorMagnitude?: Maybe<Scalars['Number']['output']>;
-  /** The ID of the field that owns the matrix block. */
-  fieldId: Scalars['Int']['output'];
-  /** The ID of the entity */
-  id?: Maybe<Scalars['ID']['output']>;
-  /** The language of the site element is associated with. */
-  language?: Maybe<Scalars['String']['output']>;
-  magnitude?: Maybe<Scalars['Number']['output']>;
-  modifiedJulianDate?: Maybe<Scalars['Number']['output']>;
-  observationId?: Maybe<Scalars['Number']['output']>;
-  /** The ID of the primary owner of the Matrix block. */
-  primaryOwnerId: Scalars['Int']['output'];
-  /** The element’s search score, if the `search` parameter was used when querying for the element. */
-  searchScore?: Maybe<Scalars['Int']['output']>;
-  /** The handle of the site the element is associated with. */
-  siteHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the site the element is associated with. */
-  siteId?: Maybe<Scalars['Int']['output']>;
-  /** The unique identifier for an element-site relation. */
-  siteSettingsId?: Maybe<Scalars['ID']['output']>;
-  /** The element’s slug. */
-  slug?: Maybe<Scalars['String']['output']>;
-  /** The sort order of the matrix block within the owner element field. */
-  sortOrder?: Maybe<Scalars['Int']['output']>;
-  /** The element’s status. */
-  status?: Maybe<Scalars['String']['output']>;
-  /** The element’s title. */
-  title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted. */
-  trashed?: Maybe<Scalars['Boolean']['output']>;
-  /** The handle of the matrix block’s type. */
-  typeHandle: Scalars['String']['output'];
-  /** The ID of the matrix block’s type. */
-  typeId: Scalars['Int']['output'];
-  /** The UID of the entity */
-  uid?: Maybe<Scalars['String']['output']>;
-  /** The element’s URI. */
-  uri?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type Alerts_Alert_BlockType_CountArgs = {
-  field: Scalars['String']['input'];
 };
 
 export type AnswerOptions_MatrixField = AnswerOptions_Option_BlockType;
@@ -4395,7 +4376,7 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType;
 
 export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_barGraphTool_BlockType';
@@ -4540,6 +4521,7 @@ export type ContentBlocks_CameraFilterTool_BlockType = ElementInterface & NeoBlo
   uid?: Maybe<Scalars['String']['output']>;
   /** The element’s URI. */
   uri?: Maybe<Scalars['String']['output']>;
+  widgetInstructions?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -4726,7 +4708,6 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -4742,6 +4723,8 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -4749,11 +4732,12 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -4898,6 +4882,7 @@ export type ContentBlocks_FilterTool_BlockType = ElementInterface & NeoBlockInte
   uid?: Maybe<Scalars['String']['output']>;
   /** The element’s URI. */
   uri?: Maybe<Scalars['String']['output']>;
+  widgetInstructions?: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -5118,7 +5103,6 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5134,6 +5118,8 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -5141,11 +5127,12 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -5249,7 +5236,6 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5265,6 +5251,8 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -5272,11 +5260,12 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -5614,29 +5603,54 @@ export type ContentBlocks_TwoColumnContainer_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_Video_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'contentBlocks_video_BlockType';
+export type DatasetsSectionEntryUnion = Datasets_SupernovaGalaxyObservations_Entry;
+
+export type Datasets_Asset = AssetInterface & ElementInterface & {
+  __typename?: 'datasets_Asset';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
+  /** Alternative text for the asset. */
+  alt?: Maybe<Scalars['String']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
-  caption?: Maybe<Scalars['String']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the asset file was last modified. */
+  dateModified?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
-  /** The ID of the field that owns the Neo block. */
-  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The file extension for the asset file. */
+  extension: Scalars['String']['output'];
+  /** The filename of the asset file. */
+  filename: Scalars['String']['output'];
+  /** The focal point represented as an array with `x` and `y` keys, or null if it’s not an image. */
+  focalPoint?: Maybe<Array<Maybe<Scalars['Float']['output']>>>;
+  /** The ID of the folder that the asset belongs to. */
+  folderId: Scalars['Int']['output'];
+  /** Returns the file’s format. */
+  format?: Maybe<Scalars['String']['output']>;
+  /** Whether a user-defined focal point is set on the asset. */
+  hasFocalPoint: Scalars['Boolean']['output'];
+  /** The height in pixels or null if it’s not an image. */
+  height?: Maybe<Scalars['Int']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
+  /** An `<img>` tag based on this asset. */
+  img?: Maybe<Scalars['String']['output']>;
+  /** The file kind. */
+  kind: Scalars['String']['output'];
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
-  /** The Neo block’s level. */
-  level?: Maybe<Scalars['Int']['output']>;
-  /** The ID of the primary owner of the Neo block. */
-  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The file’s MIME type, if it can be determined. */
+  mimeType?: Maybe<Scalars['String']['output']>;
+  /** Returns the next element relative to this one, from a given set of criteria. */
+  next?: Maybe<AssetInterface>;
+  /** The asset’s path in the volume. */
+  path: Scalars['String']['output'];
+  /** Returns the previous element relative to this one, from a given set of criteria. */
+  prev?: Maybe<AssetInterface>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
@@ -5645,68 +5659,191 @@ export type ContentBlocks_Video_BlockType = ElementInterface & NeoBlockInterface
   siteId?: Maybe<Scalars['Int']['output']>;
   /** The unique identifier for an element-site relation. */
   siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The file size in bytes. */
+  size?: Maybe<Scalars['String']['output']>;
   /** The element’s slug. */
   slug?: Maybe<Scalars['String']['output']>;
-  /** The sort order of the Neo block within the owner element field. */
-  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** Returns a `srcset` attribute value based on the given widths or x-descriptors. */
+  srcset?: Maybe<Scalars['String']['output']>;
   /** The element’s status. */
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
   /** Whether the element has been soft-deleted. */
   trashed?: Maybe<Scalars['Boolean']['output']>;
-  /** The handle of the Neo block’s type. */
-  typeHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the Neo block’s type. */
-  typeId?: Maybe<Scalars['Int']['output']>;
   /** The UID of the entity */
   uid?: Maybe<Scalars['String']['output']>;
   /** The element’s URI. */
   uri?: Maybe<Scalars['String']['output']>;
-  /** Canto Dam Asset field */
-  video?: Maybe<Array<Maybe<CantoDamAssetInterface>>>;
+  /** The full URL of the asset. This field accepts the same fields as the `transform` directive. */
+  url?: Maybe<Scalars['String']['output']>;
+  /** The ID of the volume that the asset belongs to. */
+  volumeId?: Maybe<Scalars['Int']['output']>;
+  /** The width in pixels or null if it’s not an image. */
+  width?: Maybe<Scalars['Int']['output']>;
 };
 
 
-export type ContentBlocks_Video_BlockType_CountArgs = {
+export type Datasets_Asset_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type ContentBlocks_Video_BlockTypeVideoArgs = {
-  except?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  first?: InputMaybe<Scalars['Boolean']['input']>;
-  forPage?: InputMaybe<ForPageInput>;
-  last?: InputMaybe<Scalars['Boolean']['input']>;
-  nth?: InputMaybe<Scalars['Int']['input']>;
-  random?: InputMaybe<Scalars['Int']['input']>;
-  reverse?: InputMaybe<Scalars['Boolean']['input']>;
-  shuffle?: InputMaybe<Scalars['Int']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  where?: InputMaybe<WhereFiltersInput>;
-  whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
-  whereIn?: InputMaybe<WhereInFiltersInput>;
-  whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
-  whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
-  whereNotNull?: InputMaybe<Scalars['String']['input']>;
-  whereNull?: InputMaybe<Scalars['String']['input']>;
+export type Datasets_AssetFormatArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
 };
 
-export type DatasetsSectionEntryUnion = Datasets_SupernovaGalaxyObservations_Entry;
+
+export type Datasets_AssetHeightArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type Datasets_AssetNextArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Datasets_AssetPrevArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Datasets_AssetSrcsetArgs = {
+  sizes: Array<Scalars['String']['input']>;
+};
+
+
+export type Datasets_AssetUrlArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type Datasets_AssetWidthArgs = {
+  format?: InputMaybe<Scalars['String']['input']>;
+  handle?: InputMaybe<Scalars['String']['input']>;
+  height?: InputMaybe<Scalars['Int']['input']>;
+  immediately?: InputMaybe<Scalars['Boolean']['input']>;
+  interlace?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  quality?: InputMaybe<Scalars['Int']['input']>;
+  transform?: InputMaybe<Scalars['String']['input']>;
+  width?: InputMaybe<Scalars['Int']['input']>;
+};
 
 export type Datasets_SupernovaGalaxyObservations_Entry = ElementInterface & EntryInterface & {
   __typename?: 'datasets_supernovaGalaxyObservations_Entry';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   alertSources: Array<Maybe<AlertSources_MatrixField>>;
-  alerts: Array<Maybe<Alerts_MatrixField>>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
   ancestors: Array<EntryInterface>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
-  b?: Maybe<Scalars['Number']['output']>;
   /** Returns the entry’s canonical ID. */
   canonicalId?: Maybe<Scalars['Int']['output']>;
   /** Returns the entry’s canonical UUID. */
@@ -5734,6 +5871,8 @@ export type Datasets_SupernovaGalaxyObservations_Entry = ElementInterface & Entr
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   filter?: Maybe<Scalars['String']['output']>;
+  galacticLatitude?: Maybe<Scalars['Number']['output']>;
+  galacticLongitude?: Maybe<Scalars['Number']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
   /** Canto Dam Asset field */
@@ -5744,7 +5883,7 @@ export type Datasets_SupernovaGalaxyObservations_Entry = ElementInterface & Entr
   isRevision?: Maybe<Scalars['Boolean']['output']>;
   /** Returns whether this is an unpublished draft. */
   isUnpublishedDraft?: Maybe<Scalars['Boolean']['output']>;
-  l?: Maybe<Scalars['Number']['output']>;
+  json: Array<Maybe<AssetInterface>>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
   /** The element’s level within its structure */
@@ -5753,6 +5892,7 @@ export type Datasets_SupernovaGalaxyObservations_Entry = ElementInterface & Entr
   lft?: Maybe<Scalars['Int']['output']>;
   /** The same element in other locales. */
   localized: Array<EntryInterface>;
+  mjd?: Maybe<Scalars['Number']['output']>;
   /** Returns the next element relative to this one, from a given set of criteria. */
   next?: Maybe<EntryInterface>;
   /** The entry’s parent, if the section is a structure. */
@@ -5854,40 +5994,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryAlertSourcesArgs = {
 };
 
 
-export type Datasets_SupernovaGalaxyObservations_EntryAlertsArgs = {
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  primaryOwnerId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
 export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
@@ -5896,7 +6002,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5912,6 +6017,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -5919,11 +6026,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -5971,7 +6079,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5987,6 +6094,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -5994,11 +6103,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -6046,7 +6156,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6062,6 +6171,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6069,11 +6180,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -6140,6 +6252,49 @@ export type Datasets_SupernovaGalaxyObservations_EntryImageAlbumArgs = {
 };
 
 
+export type Datasets_SupernovaGalaxyObservations_EntryJsonArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
 export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
@@ -6148,7 +6303,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6164,6 +6318,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6171,11 +6327,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -6223,7 +6380,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6239,6 +6395,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6246,11 +6404,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -6298,7 +6457,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6314,6 +6472,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6321,11 +6481,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -6373,7 +6534,6 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6389,6 +6549,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6396,11 +6558,12 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -6824,7 +6987,6 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6840,6 +7002,8 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -6847,11 +7011,12 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7071,7 +7236,6 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7087,6 +7251,8 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7094,11 +7260,12 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7146,7 +7313,6 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7162,6 +7328,8 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7169,11 +7337,12 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7221,7 +7390,6 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7237,6 +7405,8 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7244,11 +7414,12 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7331,7 +7502,6 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7347,6 +7517,8 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7354,11 +7526,12 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7406,7 +7579,6 @@ export type Homepage_Homepage_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7422,6 +7594,8 @@ export type Homepage_Homepage_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7429,11 +7603,12 @@ export type Homepage_Homepage_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7481,7 +7656,6 @@ export type Homepage_Homepage_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7497,6 +7671,8 @@ export type Homepage_Homepage_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7504,11 +7680,12 @@ export type Homepage_Homepage_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7556,7 +7733,6 @@ export type Homepage_Homepage_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7572,6 +7748,8 @@ export type Homepage_Homepage_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7579,11 +7757,12 @@ export type Homepage_Homepage_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7639,6 +7818,7 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
   groupName?: Maybe<Scalars['String']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
+  images: Array<Maybe<AssetInterface>>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
   /** The ID of the primary owner of the Matrix block. */
@@ -7674,6 +7854,49 @@ export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterfac
 
 export type Images_ImageGroup_BlockType_CountArgs = {
   field: Scalars['String']['input'];
+};
+
+
+export type Images_ImageGroup_BlockTypeImagesArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type InvestigationsSectionEntryUnion = Investigations_Default_Entry | Investigations_InvestigationParent_Entry | Investigations_InvestigationSectionBreakChild_Entry;
@@ -7802,7 +8025,6 @@ export type Investigations_Default_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7818,6 +8040,8 @@ export type Investigations_Default_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7825,11 +8049,12 @@ export type Investigations_Default_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7877,7 +8102,6 @@ export type Investigations_Default_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7893,6 +8117,8 @@ export type Investigations_Default_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7900,11 +8126,12 @@ export type Investigations_Default_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -7987,7 +8214,6 @@ export type Investigations_Default_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8003,6 +8229,8 @@ export type Investigations_Default_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8010,11 +8238,12 @@ export type Investigations_Default_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8062,7 +8291,6 @@ export type Investigations_Default_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8078,6 +8306,8 @@ export type Investigations_Default_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8085,11 +8315,12 @@ export type Investigations_Default_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8137,7 +8368,6 @@ export type Investigations_Default_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8153,6 +8383,8 @@ export type Investigations_Default_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8160,11 +8392,12 @@ export type Investigations_Default_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8212,7 +8445,6 @@ export type Investigations_Default_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8228,6 +8460,8 @@ export type Investigations_Default_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8235,11 +8469,12 @@ export type Investigations_Default_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8287,7 +8522,6 @@ export type Investigations_Default_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8303,6 +8537,8 @@ export type Investigations_Default_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8310,11 +8546,12 @@ export type Investigations_Default_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8478,7 +8715,6 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8494,6 +8730,8 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8501,11 +8739,12 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8553,7 +8792,6 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8569,6 +8807,8 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8576,11 +8816,12 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8628,7 +8869,6 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8644,6 +8884,8 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8651,11 +8893,12 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8725,7 +8968,6 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8741,6 +8983,8 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8748,11 +8992,12 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8800,7 +9045,6 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8816,6 +9060,8 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8823,11 +9069,12 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8875,7 +9122,6 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8891,6 +9137,8 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8898,11 +9146,12 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -8950,7 +9199,6 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8966,6 +9214,8 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -8973,11 +9223,12 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9139,7 +9390,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9155,6 +9405,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9162,11 +9414,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9214,7 +9467,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9230,6 +9482,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9237,11 +9491,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9289,7 +9544,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9305,6 +9559,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9312,11 +9568,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9364,7 +9621,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9380,6 +9636,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9387,11 +9645,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9439,7 +9698,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9455,6 +9713,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9462,11 +9722,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9514,7 +9775,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9530,6 +9790,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9537,11 +9799,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -9589,7 +9852,6 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9605,6 +9867,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -9612,11 +9876,12 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10197,7 +10462,6 @@ export type Pages_Pages_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10213,6 +10477,8 @@ export type Pages_Pages_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10220,11 +10486,12 @@ export type Pages_Pages_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10272,7 +10539,6 @@ export type Pages_Pages_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10288,6 +10554,8 @@ export type Pages_Pages_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10295,11 +10563,12 @@ export type Pages_Pages_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10382,7 +10651,6 @@ export type Pages_Pages_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10398,6 +10666,8 @@ export type Pages_Pages_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10405,11 +10675,12 @@ export type Pages_Pages_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10457,7 +10728,6 @@ export type Pages_Pages_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10473,6 +10743,8 @@ export type Pages_Pages_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10480,11 +10752,12 @@ export type Pages_Pages_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10532,7 +10805,6 @@ export type Pages_Pages_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10548,6 +10820,8 @@ export type Pages_Pages_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10555,11 +10829,12 @@ export type Pages_Pages_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10612,7 +10887,6 @@ export type Pages_Pages_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10628,6 +10902,8 @@ export type Pages_Pages_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10635,11 +10911,12 @@ export type Pages_Pages_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10687,7 +10964,6 @@ export type Pages_Pages_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10703,6 +10979,8 @@ export type Pages_Pages_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10710,11 +10988,12 @@ export type Pages_Pages_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10877,7 +11156,6 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10893,6 +11171,8 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10900,11 +11180,12 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -10952,7 +11233,6 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10968,6 +11248,8 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -10975,11 +11257,12 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11027,7 +11310,6 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11043,6 +11325,8 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11050,11 +11334,12 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11102,7 +11387,6 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11118,6 +11402,8 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11125,11 +11411,12 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11177,7 +11464,6 @@ export type Pages_RedirectPage_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11193,6 +11479,8 @@ export type Pages_RedirectPage_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11200,11 +11488,12 @@ export type Pages_RedirectPage_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11252,7 +11541,6 @@ export type Pages_RedirectPage_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11268,6 +11556,8 @@ export type Pages_RedirectPage_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11275,11 +11565,12 @@ export type Pages_RedirectPage_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11327,7 +11618,6 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11343,6 +11633,8 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11350,11 +11642,12 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11393,7 +11686,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_SourceSelector_BlockType;
+export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_SourceSelectorBlock_BlockType;
 
 export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType';
@@ -11460,7 +11753,6 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11476,6 +11768,8 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11483,11 +11777,12 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11526,8 +11821,8 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type QuestionWidgetsBlock_SourceSelector_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'questionWidgetsBlock_sourceSelector_BlockType';
+export type QuestionWidgetsBlock_SourceSelectorBlock_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'questionWidgetsBlock_sourceSelectorBlock_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
@@ -11578,12 +11873,12 @@ export type QuestionWidgetsBlock_SourceSelector_BlockType = ElementInterface & N
 };
 
 
-export type QuestionWidgetsBlock_SourceSelector_BlockType_CountArgs = {
+export type QuestionWidgetsBlock_SourceSelectorBlock_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type QuestionWidgetsBlock_SourceSelector_BlockTypeSourceSelectorArgs = {
+export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -11591,7 +11886,6 @@ export type QuestionWidgetsBlock_SourceSelector_BlockTypeSourceSelectorArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11607,6 +11901,8 @@ export type QuestionWidgetsBlock_SourceSelector_BlockTypeSourceSelectorArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11614,11 +11910,12 @@ export type QuestionWidgetsBlock_SourceSelector_BlockTypeSourceSelectorArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11787,7 +12084,6 @@ export type Questions_Default_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11803,6 +12099,8 @@ export type Questions_Default_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11810,11 +12108,12 @@ export type Questions_Default_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11901,7 +12200,6 @@ export type Questions_Default_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11917,6 +12215,8 @@ export type Questions_Default_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11924,11 +12224,12 @@ export type Questions_Default_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -11976,7 +12277,6 @@ export type Questions_Default_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11992,6 +12292,8 @@ export type Questions_Default_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -11999,11 +12301,12 @@ export type Questions_Default_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -12051,7 +12354,6 @@ export type Questions_Default_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12067,6 +12369,8 @@ export type Questions_Default_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -12074,11 +12378,12 @@ export type Questions_Default_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -12161,7 +12466,6 @@ export type Questions_Default_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12177,6 +12481,8 @@ export type Questions_Default_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -12184,11 +12490,12 @@ export type Questions_Default_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -12236,7 +12543,6 @@ export type Questions_Default_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12252,6 +12558,8 @@ export type Questions_Default_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -12259,11 +12567,12 @@ export type Questions_Default_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -12311,7 +12620,6 @@ export type Questions_Default_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12327,6 +12635,8 @@ export type Questions_Default_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -12334,11 +12644,12 @@ export type Questions_Default_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -12479,7 +12790,6 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12495,6 +12805,8 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -12502,11 +12814,12 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13020,7 +13333,6 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13036,6 +13348,8 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13043,11 +13357,12 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13095,7 +13410,6 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13111,6 +13425,8 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13118,11 +13434,12 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13170,7 +13487,6 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13186,6 +13502,8 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13193,11 +13511,12 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13245,7 +13564,6 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13261,6 +13579,8 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13268,11 +13588,12 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13320,7 +13641,6 @@ export type ReferenceModals_Default_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13336,6 +13656,8 @@ export type ReferenceModals_Default_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13343,11 +13665,12 @@ export type ReferenceModals_Default_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13395,7 +13718,6 @@ export type ReferenceModals_Default_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13411,6 +13733,8 @@ export type ReferenceModals_Default_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13418,11 +13742,12 @@ export type ReferenceModals_Default_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -13470,7 +13795,6 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13486,6 +13810,8 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -13493,11 +13819,12 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -14130,645 +14457,7 @@ export type TableRow_TableCell_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type WidgetsSectionEntryUnion = Widgets_CameraFilterTool_Entry | Widgets_ColorFilterTool_Entry | Widgets_SourceSelector_Entry;
-
-export type Widgets_CameraFilterTool_Entry = ElementInterface & EntryInterface & {
-  __typename?: 'widgets_cameraFilterTool_Entry';
-  /** Return a number of related elements for a field. */
-  _count?: Maybe<Scalars['Int']['output']>;
-  /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
-  ancestors: Array<EntryInterface>;
-  /** Whether the element is archived. */
-  archived?: Maybe<Scalars['Boolean']['output']>;
-  /** Returns the entry’s canonical ID. */
-  canonicalId?: Maybe<Scalars['Int']['output']>;
-  /** Returns the entry’s canonical UUID. */
-  canonicalUid?: Maybe<Scalars['String']['output']>;
-  /** The entry’s children, if the section is a structure. Accepts the same arguments as the `entries` query. */
-  children: Array<EntryInterface>;
-  /** The date the element was created. */
-  dateCreated?: Maybe<Scalars['DateTime']['output']>;
-  /** The date the element was last updated. */
-  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
-  /** The entry’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
-  descendants: Array<EntryInterface>;
-  /** The draft ID (from the `drafts` table). */
-  draftId?: Maybe<Scalars['Int']['output']>;
-  /** The name of the draft. */
-  draftName?: Maybe<Scalars['String']['output']>;
-  /** The notes for the draft. */
-  draftNotes?: Maybe<Scalars['String']['output']>;
-  /** Whether the element is enabled. */
-  enabled?: Maybe<Scalars['Boolean']['output']>;
-  /** Whether the element is enabled for the site. */
-  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
-  /** The expiry date of the entry. */
-  expiryDate?: Maybe<Scalars['DateTime']['output']>;
-  /** The ID of the entity */
-  id?: Maybe<Scalars['ID']['output']>;
-  /** Returns whether this is a draft. */
-  isDraft?: Maybe<Scalars['Boolean']['output']>;
-  /** Returns whether this is a revision. */
-  isRevision?: Maybe<Scalars['Boolean']['output']>;
-  /** Returns whether this is an unpublished draft. */
-  isUnpublishedDraft?: Maybe<Scalars['Boolean']['output']>;
-  /** The language of the site element is associated with. */
-  language?: Maybe<Scalars['String']['output']>;
-  /** The element’s level within its structure */
-  level?: Maybe<Scalars['Int']['output']>;
-  /** The element’s left position within its structure. */
-  lft?: Maybe<Scalars['Int']['output']>;
-  /** The same element in other locales. */
-  localized: Array<EntryInterface>;
-  /** Returns the next element relative to this one, from a given set of criteria. */
-  next?: Maybe<EntryInterface>;
-  /** The entry’s parent, if the section is a structure. */
-  parent?: Maybe<EntryInterface>;
-  /** The entry’s post date. */
-  postDate?: Maybe<Scalars['DateTime']['output']>;
-  /** Returns the previous element relative to this one, from a given set of criteria. */
-  prev?: Maybe<EntryInterface>;
-  /** The revision ID (from the `revisions` table). */
-  revisionId?: Maybe<Scalars['Int']['output']>;
-  /** The revision notes (from the `revisions` table). */
-  revisionNotes?: Maybe<Scalars['String']['output']>;
-  /** The element’s right position within its structure. */
-  rgt?: Maybe<Scalars['Int']['output']>;
-  /** The element’s structure’s root ID */
-  root?: Maybe<Scalars['Int']['output']>;
-  /** The element’s search score, if the `search` parameter was used when querying for the element. */
-  searchScore?: Maybe<Scalars['Int']['output']>;
-  /** The handle of the section that contains the entry. */
-  sectionHandle: Scalars['String']['output'];
-  /** The ID of the section that contains the entry. */
-  sectionId: Scalars['Int']['output'];
-  /** The handle of the site the element is associated with. */
-  siteHandle?: Maybe<Scalars['String']['output']>;
-  /** The ID of the site the element is associated with. */
-  siteId?: Maybe<Scalars['Int']['output']>;
-  /** The unique identifier for an element-site relation. */
-  siteSettingsId?: Maybe<Scalars['ID']['output']>;
-  /** The element’s slug. */
-  slug?: Maybe<Scalars['String']['output']>;
-  /**
-   * Returns the entry’s canonical ID.
-   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalId` instead.
-   */
-  sourceId?: Maybe<Scalars['Int']['output']>;
-  /**
-   * Returns the entry’s canonical UUID.
-   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalUid` instead.
-   */
-  sourceUid?: Maybe<Scalars['String']['output']>;
-  /** The element’s status. */
-  status?: Maybe<Scalars['String']['output']>;
-  /** The element’s structure ID. */
-  structureId?: Maybe<Scalars['Int']['output']>;
-  /** The element’s title. */
-  title?: Maybe<Scalars['String']['output']>;
-  /** Whether the element has been soft-deleted. */
-  trashed?: Maybe<Scalars['Boolean']['output']>;
-  /** The handle of the entry type that contains the entry. */
-  typeHandle: Scalars['String']['output'];
-  /** The ID of the entry type that contains the entry. */
-  typeId: Scalars['Int']['output'];
-  /** The UID of the entity */
-  uid?: Maybe<Scalars['String']['output']>;
-  /** The element’s URI. */
-  uri?: Maybe<Scalars['String']['output']>;
-  /** The element’s full URL */
-  url?: Maybe<Scalars['String']['output']>;
-};
-
-
-export type Widgets_CameraFilterTool_Entry_CountArgs = {
-  field: Scalars['String']['input'];
-};
-
-
-export type Widgets_CameraFilterTool_EntryAncestorsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type Widgets_CameraFilterTool_EntryChildrenArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type Widgets_CameraFilterTool_EntryDescendantsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type Widgets_CameraFilterTool_EntryLocalizedArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type Widgets_CameraFilterTool_EntryNextArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type Widgets_CameraFilterTool_EntryParentArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type Widgets_CameraFilterTool_EntryPrevArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
-  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
-  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  descendantDist?: InputMaybe<Scalars['Int']['input']>;
-  descendantOf?: InputMaybe<Scalars['Int']['input']>;
-  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  editable?: InputMaybe<Scalars['Boolean']['input']>;
-  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
-  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
-  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  leaves?: InputMaybe<Scalars['Boolean']['input']>;
-  level?: InputMaybe<Scalars['Int']['input']>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
-  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
-  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
-  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  structureId?: InputMaybe<Scalars['Int']['input']>;
-  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
-};
+export type WidgetsSectionEntryUnion = Widgets_ColorFilterTool_Entry | Widgets_SourceSelector_Entry;
 
 export type Widgets_ColorFilterTool_Entry = ElementInterface & EntryInterface & {
   __typename?: 'widgets_colorFilterTool_Entry';
@@ -14896,7 +14585,6 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14912,6 +14600,8 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -14919,11 +14609,12 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -14971,7 +14662,6 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14987,6 +14677,8 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -14994,11 +14686,12 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15081,7 +14774,6 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15097,6 +14789,8 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15104,11 +14798,12 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15166,7 +14861,6 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15182,6 +14876,8 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15189,11 +14885,12 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15241,7 +14938,6 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15257,6 +14953,8 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15264,11 +14962,12 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15316,7 +15015,6 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15332,6 +15030,8 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15339,11 +15039,12 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15391,7 +15092,6 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15407,6 +15107,8 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15414,11 +15116,12 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15581,7 +15284,6 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15597,6 +15299,8 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15604,11 +15308,12 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15656,7 +15361,6 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15672,6 +15376,8 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15679,11 +15385,12 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15731,7 +15438,6 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15747,6 +15453,8 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15754,11 +15462,12 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15806,7 +15515,6 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15822,6 +15530,8 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15829,11 +15539,12 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15881,7 +15592,6 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15897,6 +15607,8 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15904,11 +15616,12 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -15956,7 +15669,6 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15972,6 +15684,8 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -15979,11 +15693,12 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -16031,7 +15746,6 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16047,6 +15761,8 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -16054,11 +15770,12 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
@@ -16106,7 +15823,6 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  b?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   before?: InputMaybe<Scalars['String']['input']>;
   dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16122,6 +15838,8 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
@@ -16129,11 +15847,12 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  l?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<Scalars['String']['input']>;
