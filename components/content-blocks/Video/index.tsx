@@ -7,23 +7,23 @@ import { captionShaper, videoShaper } from "@/helpers";
 import { useTranslation } from "@/lib/i18n";
 
 const Fragment = graphql(`
-  // fragment VideoBlock on contentBlocks_video_BlockType {
-  //   id
-  //   caption
-  //   video {
-  //     url {
-  //       directUrlPreview
-  //       directUrlPreviewPlay
-  //     }
-  //     width
-  //     height
-  //     metadata: additional {
-  //       CaptionEN
-  //       CaptionES
-  //       Credit
-  //     }
-  //   }
-  // }
+  fragment VideoBlock on contentBlocks_video_BlockType {
+    id
+    caption
+    video {
+      url {
+        directUrlPreview
+        directUrlPreviewPlay
+      }
+      width
+      height
+      metadata: additional {
+        CaptionEN
+        CaptionES
+        Credit
+      }
+    }
+  }
 `);
 
 const VideoBlock: FunctionComponent<

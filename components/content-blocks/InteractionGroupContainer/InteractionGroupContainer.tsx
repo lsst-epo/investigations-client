@@ -11,6 +11,7 @@ const Fragment = graphql(`
       id
       ...TextBlock
       ...ImageBlock
+      ...VideoBlock
       ...TableBlock
       ...QuestionsBlock
       ...BarGraphToolBlock
