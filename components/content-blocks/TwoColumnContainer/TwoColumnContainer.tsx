@@ -21,6 +21,7 @@ const Fragment = graphql(`
           ...ScatterplotToolBlock
           ...ReferenceModalBlock
           ...ColorFilterToolBlock
+          ...SupernovaDistanceDistributionBlock
         }
       }
       ... on contentBlocks_colRight_BlockType {
@@ -39,6 +40,7 @@ const Fragment = graphql(`
           ...ScatterplotToolBlock
           ...ReferenceModalBlock
           ...ColorFilterToolBlock
+          ...SupernovaDistanceDistributionBlock
         }
       }
     }
