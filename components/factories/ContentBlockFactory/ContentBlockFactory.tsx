@@ -10,6 +10,8 @@ export const blockMap: Record<
 > = {
   contentBlocks_twoColumnContainer_BlockType: Blocks.TwoColumnContainer,
   contentBlocks_group_BlockType: Blocks.InteractionGroupContainer,
+  contentBlocks_supernovaDistanceDistribution_BlockType:
+    Blocks.SupernovaDistanceDistribution,
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_image_BlockType: Blocks.Image,
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
@@ -47,6 +49,7 @@ const Fragment = graphql(`
     ...ColorFilterToolBlock
     ...CameraFilterToolBlock
     ...EquationBlock
+    ...SupernovaDistanceDistributionBlock
   }
 `);
 
