@@ -19,6 +19,7 @@ const Fragment = graphql(`
       ...ScatterplotToolBlock
       ...ReferenceModalBlock
       ...ColorFilterToolBlock
+      ...SupernovaDistanceDistributionBlock
     }
   }
 `);
