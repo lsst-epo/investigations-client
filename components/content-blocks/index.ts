@@ -18,3 +18,4 @@ export { default as CameraFilterTool } from "./CameraFilterTool";
 export { default as ColorFilterTool } from "./ColorFilterTool";
 export { default as FilterTool } from "./FilterTool";
 export { default as ScatterplotTool } from "./ScatterplotTool";
+export { default as SupernovaDistanceDistribution } from "./SupernovaDistanceDistribution";

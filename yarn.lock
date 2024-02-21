@@ -2936,25 +2936,6 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@2.0.16-rc.1":
-  version "2.0.16-rc.1"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.16-rc.1.tgz#05b15132cb4e62230134176db50fe9d34e23b397"
-  integrity sha512-b0GC7HrCqqmyESRtGs1iQ1bSVBXxfDQSCJo3AwQft7auKHH5/PXXphGRLzBTnYmEyzah/AB2zDL7LhA3tCNKQg==
-  dependencies:
-    "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^1.7.17"
-    flickity "^3.0.0"
-    focus-trap "^7.4.2"
-    i18next "^22.4.10"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-i18next "^12.0.0"
-    react-player "^2.14.1"
-    react-share "^4.4.1"
-    react-slider "^2.0.4"
-    react-uid "^2.3.2"
-    styled-components "^6.1.1"
-
 "@rubin-epo/epo-react-lib@^2.0.20":
   version "2.0.20"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.20.tgz#a4fc6cc2765688da12ed2d7e651018a1d712cddb"
@@ -2974,10 +2955,29 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.8.0.tgz#aaec83d8125b7b9c08cf5d04911557a013b5254e"
-  integrity sha512-QJ6yFBZ8EuVN9MGekoAxtp159HedfNC1rrZ2YAlva63UryyFQV3WikAWf95rKCgFYYLzaGB2xFHxI3Mh/GKPxw==
+"@rubin-epo/epo-react-lib@^2.0.21":
+  version "2.0.21"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.21.tgz#aafe95878bcf889141e542506b1aef66db9c0ff1"
+  integrity sha512-/Xj/sFqFm2BcA6uL0sHb9yr4bbfwlaWSnpheoOjlxcLemybYAqkNXndkJRKJwztqHaPnRBpozANnoY8On1ImWQ==
+  dependencies:
+    "@castiron/style-mixins" "^1.0.6"
+    "@headlessui/react" "^1.7.17"
+    flickity "^3.0.0"
+    focus-trap "^7.4.2"
+    i18next "^22.4.10"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-i18next "^12.0.0"
+    react-player "^2.14.1"
+    react-share "^4.4.1"
+    react-slider "^2.0.6"
+    react-uid "^2.3.2"
+    styled-components "^6.1.1"
+
+"@rubin-epo/epo-widget-lib@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.8.1.tgz#e49c1b90d2d4bacb8a1ff1c020a276c723b4e5c6"
+  integrity sha512-PsMakNZOzEfKEX67LHvYSxOiTFgLUwdVMdumJmQtX3cI+kX20tSn07cfYpeZ5jgV43QRIn6FcsmoaT2wQ295tA==
   dependencies:
     "@rubin-epo/epo-react-lib" "^2.0.20"
     context-filter-polyfill "^0.3.6"
@@ -11599,13 +11599,6 @@ react-share@^4.4.1:
   dependencies:
     classnames "^2.3.2"
     jsonp "^0.2.1"
-
-react-slider@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/react-slider/-/react-slider-2.0.4.tgz#21c656ffabc3bb4481cf6b49e6d647baeda83572"
-  integrity sha512-sWwQD01n6v+MbeLCYthJGZPc0kzOyhQHyd0bSo0edg+IAxTVQmj3Oy4SBK65eX6gNwS9meUn6Z5sIBUVmwAd9g==
-  dependencies:
-    prop-types "^15.8.1"
 
 react-slider@^2.0.6:
   version "2.0.6"
