@@ -63,6 +63,7 @@ const Instructions: FunctionComponent<InstructionsProps> = ({ text }) => {
             <h3 id={instructionTitleId}>{t("page.interaction")}</h3>
             <div
               id={instructionId}
+              className="c-content-rte"
               dangerouslySetInnerHTML={{ __html: text }}
             />
           </div>
