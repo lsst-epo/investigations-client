@@ -20,8 +20,10 @@ const Instructions: FunctionComponent<InstructionsProps> = ({ text }) => {
   };
 
   const handleClose = () => {
-    openRef.current && openRef.current.focus();
-    return setOpen(false);
+    if (isOpen) {
+      openRef.current && openRef.current.focus();
+      return setOpen(false);
+    }
   };
 
   const instructionTitleId = "instructionTitle";
