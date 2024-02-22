@@ -20,7 +20,7 @@ const SupernovaDistanceDistribution = dynamic(
 
 interface SupernovaDistanceDistributionContainerProps extends ModalProps {
   step: number;
-  album: any;
+  album: Array<any>;
   supernovaData: Array<number>;
   userData: Array<any>;
   instructions?: string;
@@ -30,9 +30,9 @@ const SupernovaDistanceDistributionContainer: FunctionComponent<
   SupernovaDistanceDistributionContainerProps
 > = ({
   step,
-  album,
+  album = [],
   supernovaData,
-  userData,
+  userData = [],
   instructions,
   openModal,
   closeModal,
@@ -47,17 +47,30 @@ const SupernovaDistanceDistributionContainer: FunctionComponent<
   });
 
   const binnedImages = histogramData.map(({ bin }) => {
-    const {
-      width,
-      height,
-      url: { directUrlPreview: url },
-    } = album.find(({ name }: { name: string }) => {
+    const matchedImage = album.find(({ name }: { name: string }) => {
       const regex = new RegExp(`${bin}_`);
       return name.search(regex) === 0;
     });
 
+    if (typeof matchedImage === "undefined") {
+      return undefined;
+    }
+
+    const {
+      width,
+      height,
+      url: { directUrlPreview: url },
+    } = matchedImage;
+
     return { width, height, url };
   });
+
+  const imageCount = binnedImages.length;
+  const filteredBinnedImages = binnedImages.filter(
+    (img): img is { width: number; height: number; url: string } =>
+      typeof img !== "undefined"
+  );
+  const imageMismatch = filteredBinnedImages.length !== imageCount;
 
   return (
     <WidgetContainer
@@ -67,7 +80,9 @@ const SupernovaDistanceDistributionContainer: FunctionComponent<
       {...{ isOpen, openModal, closeModal, instructions }}
     >
       <SupernovaDistanceDistribution
-        {...{ step, histogramData, userData, binnedImages }}
+        step={step || 100}
+        binnedImages={imageMismatch ? [] : filteredBinnedImages}
+        {...{ histogramData, userData }}
       />
     </WidgetContainer>
   );
