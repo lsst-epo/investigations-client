@@ -28,9 +28,7 @@ const Fragment = graphql(`
       }
       ... on questionWidgetsBlock_sourceSelectorBlock_BlockType {
         typeHandle
-        sourceSelector {
-          ...SourceSelectorEntry
-        }
+        ...SourceSelectorQuestion
       }
     }
     parts: multiPartBlocks {
