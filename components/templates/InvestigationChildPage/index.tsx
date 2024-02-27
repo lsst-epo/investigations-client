@@ -33,7 +33,7 @@ const InvestigationChildPage: FunctionComponent<{
   if (!data?.title) return null;
 
   return (
-    <Styled.PageContainer paddingSize="none" width="narrow">
+    <Styled.PageContainer paddingSize="none" width="regular">
       <Styled.Title>{data.title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>

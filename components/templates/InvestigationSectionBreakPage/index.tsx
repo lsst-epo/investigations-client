@@ -52,7 +52,7 @@ const InvestigationSectionBreakPage: FunctionComponent<{
   const imgSrc = srcs[isFinalPage ? `final_${language}` : "break"];
 
   return (
-    <Container width="narrow">
+    <Container width="regular">
       <Image {...imgSrc} width={1260} height={560} />
       <Styled.SectionBreakTitle>
         {t(
