@@ -1,19 +1,53 @@
-import { FunctionComponent, Suspense } from "react";
+import { FunctionComponent, useState } from "react";
+import useSWR from "swr";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
+import fetcher from "@/lib/api/fetcher";
 import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { MultiselectInput } from "@/types/answers";
 import WidgetContainer from "@/components/layout/WidgetContainer";
-import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
 import withModal from "@/components/hoc/withModal/withModal";
+import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
 import * as Styled from "./styles";
-import Loader from "@/components/page/Loader";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
     __typename
     sourceSelector {
-      ...SourceSelectorEntry
+      ... on widgets_sourceSelector_Entry {
+        id
+        title
+        displayName
+        includeLightCurve
+        dataset {
+          ... on datasets_supernovaGalaxyObservations_Entry {
+            id
+            peakMjd: mjd
+            sources: alertSources {
+              ... on alertSources_source_BlockType {
+                color
+                x: xCoord
+                y: yCoord
+                radius
+                type: sourceType
+                id: sourceName
+              }
+            }
+            json {
+              ... on datasets_Asset {
+                url
+              }
+            }
+            imageAlbum {
+              url {
+                directUrlOriginal
+              }
+              width
+              height
+            }
+          }
+        }
+      }
     }
   }
 `);
@@ -35,6 +69,18 @@ const SourceSelectorQuestion: FunctionComponent<
   questionText,
 }) => {
   const { sourceSelector } = useFragment(Fragment, data);
+  const [activeAlertIndex, setActiveAlertIndex] = useState(0);
+  const [{ title, displayName, dataset, includeLightCurve }] = sourceSelector;
+  const [{ sources, json, imageAlbum, peakMjd }] = dataset;
+
+  const {
+    data: alerts,
+    error,
+    isLoading,
+  } = useSWR(`/api/asset?url=${json[0].url}`, fetcher, {
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
 
   const handleRemoveSource = (id: string) => {
     if (value.includes(id)) {
@@ -42,21 +88,16 @@ const SourceSelectorQuestion: FunctionComponent<
     }
   };
 
-  if (
-    sourceSelector.length === 0 ||
-    sourceSelector[0] === null ||
-    sourceSelector[0].__typename !== "widgets_sourceSelector_Entry"
-  )
-    return null;
-
-  const { title, displayName, dataset } = sourceSelector[0];
-  const { sources } = dataset[0];
-
   const selectedSources: Array<{ type: string; id: string }> = sources
     .filter(({ id }) => value.includes(id))
     .map(({ id, type }) => {
       return { id, type };
     });
+
+  const images =
+    imageAlbum?.map(({ width, height, url: { directUrlOriginal } }) => {
+      return { width, height, url: directUrlOriginal };
+    }) || [];
 
   return (
     <>
@@ -67,16 +108,25 @@ const SourceSelectorQuestion: FunctionComponent<
         instructions={questionText}
         {...{ openModal, isOpen }}
       >
-        <Suspense fallback={<Loader />}>
-          <SourceSelectorContainer
-            data={sourceSelector[0]}
-            onChangeCallback={(value) =>
-              onChangeCallback && onChangeCallback(value)
-            }
-            value={value}
-            showControls={isOpen}
-          />
-        </Suspense>
+        {!isLoading && (
+          <Styled.MultiWidgetContainer>
+            <SourceSelectorContainer
+              onChangeCallback={(value) =>
+                onChangeCallback && onChangeCallback(value)
+              }
+              onBlinkCallback={(index) => setActiveAlertIndex(index)}
+              showControls={isOpen}
+              {...{ value, images, sources, alerts, activeAlertIndex }}
+            />
+            {!!includeLightCurve && (
+              <Styled.LightCurvePlot
+                alerts={value && value.length > 0 ? alerts : undefined}
+                activeAlertIndex={isOpen ? activeAlertIndex : undefined}
+                {...{ peakMjd }}
+              />
+            )}
+          </Styled.MultiWidgetContainer>
+        )}
       </WidgetContainer>
       {!isOpen && (
         <Styled.SelectionList
