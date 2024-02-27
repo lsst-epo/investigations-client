@@ -2974,10 +2974,8 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^0.8.1":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.8.1.tgz#e49c1b90d2d4bacb8a1ff1c020a276c723b4e5c6"
-  integrity sha512-PsMakNZOzEfKEX67LHvYSxOiTFgLUwdVMdumJmQtX3cI+kX20tSn07cfYpeZ5jgV43QRIn6FcsmoaT2wQ295tA==
+"@rubin-epo/epo-widget-lib@file:../epo-react-lib/packages/epo-widget-lib/tempPublish":
+  version "0.9.1"
   dependencies:
     "@rubin-epo/epo-react-lib" "^2.0.20"
     context-filter-polyfill "^0.3.6"
@@ -2985,6 +2983,21 @@
     d3-geo "^3.1.0"
     d3-geo-projection "^4.0.0"
     lodash "^4.17.21"
+    react-slider "^2.0.6"
+    skia-canvas "^1.0.1"
+    styled-components "^6.1.1"
+    use-resize-observer "^9.1.0"
+
+"@rubin-epo/epo-widget-lib@file:/Users/agoff/Documents/workspace/epo-react-lib/packages/epo-widget-lib/tempPublish":
+  version "0.9.1"
+  dependencies:
+    "@rubin-epo/epo-react-lib" "^2.0.20"
+    context-filter-polyfill "^0.3.6"
+    d3-array "^3.2.4"
+    d3-geo "^3.1.0"
+    d3-geo-projection "^4.0.0"
+    lodash "^4.17.21"
+    react-slider "^2.0.6"
     skia-canvas "^1.0.1"
     styled-components "^6.1.1"
     use-resize-observer "^9.1.0"
