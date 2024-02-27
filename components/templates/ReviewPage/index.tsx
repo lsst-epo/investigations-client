@@ -28,7 +28,7 @@ const ReviewPage: FunctionComponent<{
   };
 
   return (
-    <Styled.PageContainer width="narrow">
+    <Styled.PageContainer width="regular">
       <h1>{t("review.title", { investigation })}</h1>
       <div>
         <Styled.ReviewLabel htmlFor={nameInputId}>
