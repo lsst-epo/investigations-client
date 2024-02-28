@@ -1354,7 +1354,7 @@ export type EntryCriteriaInput = {
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in reverse order. */
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on whether the elements are “leaves” in their structure (element with no descendants). */
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1431,6 +1431,8 @@ export type EntryCriteriaInput = {
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Explicitly determines whether the query should join in the structure data. */
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 /** This is the interface implemented by all entries. */
@@ -1581,7 +1583,7 @@ export type EntryInterfaceAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -1624,6 +1626,8 @@ export type EntryInterfaceAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -1660,7 +1664,7 @@ export type EntryInterfaceChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -1703,6 +1707,8 @@ export type EntryInterfaceChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -1739,7 +1745,7 @@ export type EntryInterfaceDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -1782,6 +1788,8 @@ export type EntryInterfaceDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -1818,7 +1826,7 @@ export type EntryInterfaceLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -1861,6 +1869,8 @@ export type EntryInterfaceLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -1897,7 +1907,7 @@ export type EntryInterfaceNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -1940,6 +1950,8 @@ export type EntryInterfaceNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -1976,7 +1988,7 @@ export type EntryInterfaceParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -2019,6 +2031,8 @@ export type EntryInterfaceParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -2055,7 +2069,7 @@ export type EntryInterfacePrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -2098,6 +2112,8 @@ export type EntryInterfacePrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type FileInput = {
@@ -2834,7 +2850,7 @@ export type QueryDatasetsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -2875,6 +2891,8 @@ export type QueryDatasetsEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -2910,7 +2928,7 @@ export type QueryEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -2953,6 +2971,8 @@ export type QueryEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -2988,7 +3008,7 @@ export type QueryEntryArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3031,6 +3051,8 @@ export type QueryEntryArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3066,7 +3088,7 @@ export type QueryEntryCountArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3109,6 +3131,8 @@ export type QueryEntryCountArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3212,7 +3236,7 @@ export type QueryHomepageEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3253,6 +3277,8 @@ export type QueryHomepageEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3288,7 +3314,7 @@ export type QueryInvestigationsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3329,6 +3355,8 @@ export type QueryInvestigationsEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3364,7 +3392,7 @@ export type QueryPagesEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3405,6 +3433,8 @@ export type QueryPagesEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3440,7 +3470,7 @@ export type QueryQuestionsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3481,6 +3511,8 @@ export type QueryQuestionsEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3516,7 +3548,7 @@ export type QueryReferenceModalsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3557,6 +3589,8 @@ export type QueryReferenceModalsEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -3592,7 +3626,7 @@ export type QueryWidgetsEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -3633,6 +3667,8 @@ export type QueryWidgetsEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 /** This is the interface implemented by all Super Table blocks. */
@@ -4394,7 +4430,7 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_SupernovaDistanceDistribution_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_MagnitudeScatterPlot_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_SupernovaDistanceDistribution_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
 
 export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_barGraphTool_BlockType';
@@ -4750,7 +4786,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -4793,6 +4829,8 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type ContentBlocks_Equation_BlockType = ElementInterface & NeoBlockInterface & {
@@ -5057,6 +5095,142 @@ export type ContentBlocks_Image_BlockTypeLayoutArgs = {
   label?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type ContentBlocks_MagnitudeScatterPlot_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_magnitudeScatterPlot_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level?: Maybe<Scalars['Int']['output']>;
+  lightCurveTool: Array<Maybe<EntryInterface>>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId?: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContentBlocks_MagnitudeScatterPlot_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
 export type ContentBlocks_QuestionBlock_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_questionBlock_BlockType';
   /** Return a number of related elements for a field. */
@@ -5146,7 +5320,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -5189,6 +5363,8 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type ContentBlocks_ReferenceModalBlock_BlockType = ElementInterface & NeoBlockInterface & {
@@ -5280,7 +5456,7 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -5323,6 +5499,8 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type ContentBlocks_ScatterplotTool_BlockType = ElementInterface & NeoBlockInterface & {
@@ -5514,7 +5692,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeDatasetArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -5557,6 +5735,8 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeDatasetArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6331,7 +6511,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6374,6 +6554,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6409,7 +6591,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6452,6 +6634,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6487,7 +6671,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6530,6 +6714,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6635,7 +6821,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6678,6 +6864,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6713,7 +6901,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6756,6 +6944,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6791,7 +6981,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6834,6 +7024,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -6869,7 +7061,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -6912,6 +7104,8 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type DisplayTable_BlockType = ElementInterface & SuperTableBlockInterface & {
@@ -7323,7 +7517,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7366,6 +7560,8 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type HomepageContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface & {
@@ -7573,7 +7769,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7616,6 +7812,8 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -7651,7 +7849,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7694,6 +7892,8 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -7729,7 +7929,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7772,6 +7972,8 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -7842,7 +8044,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7885,6 +8087,8 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -7920,7 +8124,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7963,6 +8167,8 @@ export type Homepage_Homepage_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -7998,7 +8204,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8041,6 +8247,8 @@ export type Homepage_Homepage_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8076,7 +8284,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8119,6 +8327,8 @@ export type Homepage_Homepage_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type Images_ImageGroup_BlockType = ElementInterface & MatrixBlockInterface & {
@@ -8369,7 +8579,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8412,6 +8622,8 @@ export type Investigations_Default_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8447,7 +8659,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8490,6 +8702,8 @@ export type Investigations_Default_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8560,7 +8774,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8603,6 +8817,8 @@ export type Investigations_Default_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8638,7 +8854,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8681,6 +8897,8 @@ export type Investigations_Default_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8716,7 +8934,7 @@ export type Investigations_Default_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8759,6 +8977,8 @@ export type Investigations_Default_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8794,7 +9014,7 @@ export type Investigations_Default_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8837,6 +9057,8 @@ export type Investigations_Default_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -8872,7 +9094,7 @@ export type Investigations_Default_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -8915,6 +9137,8 @@ export type Investigations_Default_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type Investigations_InvestigationParent_Entry = ElementInterface & EntryInterface & {
@@ -9066,7 +9290,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9109,6 +9333,8 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9144,7 +9370,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9187,6 +9413,8 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9222,7 +9450,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9265,6 +9493,8 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9322,7 +9552,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9365,6 +9595,8 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9400,7 +9632,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9443,6 +9675,8 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9478,7 +9712,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9521,6 +9755,8 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9556,7 +9792,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9599,6 +9835,8 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type Investigations_InvestigationSectionBreakChild_Entry = ElementInterface & EntryInterface & {
@@ -9748,7 +9986,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9791,6 +10029,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9826,7 +10066,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9869,6 +10109,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9904,7 +10146,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -9947,6 +10189,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -9982,7 +10226,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -10025,6 +10269,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -10060,7 +10306,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -10103,6 +10349,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -10138,7 +10386,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -10181,6 +10429,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -10216,7 +10466,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -10259,6 +10509,8 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 /** This is the interface implemented by all links. */
@@ -10827,7 +11079,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -10870,6 +11122,8 @@ export type Pages_Pages_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -10905,7 +11159,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -10948,6 +11202,8 @@ export type Pages_Pages_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11018,7 +11274,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11061,6 +11317,8 @@ export type Pages_Pages_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11096,7 +11354,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11139,6 +11397,8 @@ export type Pages_Pages_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11174,7 +11434,7 @@ export type Pages_Pages_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11217,6 +11477,8 @@ export type Pages_Pages_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11257,7 +11519,7 @@ export type Pages_Pages_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11300,6 +11562,8 @@ export type Pages_Pages_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11335,7 +11599,7 @@ export type Pages_Pages_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11378,6 +11642,8 @@ export type Pages_Pages_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type Pages_RedirectPage_Entry = ElementInterface & EntryInterface & {
@@ -11528,7 +11794,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11571,6 +11837,8 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11606,7 +11874,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11649,6 +11917,8 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11684,7 +11954,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11727,6 +11997,8 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11762,7 +12034,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11805,6 +12077,8 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11840,7 +12114,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11883,6 +12157,8 @@ export type Pages_RedirectPage_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11918,7 +12194,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -11961,6 +12237,8 @@ export type Pages_RedirectPage_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -11996,7 +12274,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12039,9 +12317,11 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
-export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_SourceSelectorBlock_BlockType;
+export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_LightCurveBlock_BlockType | QuestionWidgetsBlock_SourceSelectorBlock_BlockType;
 
 export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType';
@@ -12132,7 +12412,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12175,6 +12455,144 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+export type QuestionWidgetsBlock_LightCurveBlock_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'questionWidgetsBlock_lightCurveBlock_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level?: Maybe<Scalars['Int']['output']>;
+  lightCurveTool: Array<Maybe<EntryInterface>>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId?: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type QuestionWidgetsBlock_LightCurveBlock_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type QuestionWidgetsBlock_SourceSelectorBlock_BlockType = ElementInterface & NeoBlockInterface & {
@@ -12266,7 +12684,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12309,6 +12727,8 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type QuestionsSectionEntryUnion = Questions_Default_Entry;
@@ -12465,7 +12885,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12508,6 +12928,8 @@ export type Questions_Default_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12582,7 +13004,7 @@ export type Questions_Default_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12625,6 +13047,8 @@ export type Questions_Default_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12660,7 +13084,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12703,6 +13127,8 @@ export type Questions_Default_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12738,7 +13164,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12781,6 +13207,8 @@ export type Questions_Default_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12851,7 +13279,7 @@ export type Questions_Default_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12894,6 +13322,8 @@ export type Questions_Default_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12929,7 +13359,7 @@ export type Questions_Default_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12972,6 +13402,8 @@ export type Questions_Default_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -13007,7 +13439,7 @@ export type Questions_Default_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -13050,6 +13482,8 @@ export type Questions_Default_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -13178,7 +13612,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -13221,6 +13655,8 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type ReferenceContentBlocks_ColorFilterToolBlock_BlockType = ElementInterface & NeoBlockInterface & {
@@ -13722,7 +14158,7 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -13765,6 +14201,8 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -13800,7 +14238,7 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -13843,6 +14281,8 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -13878,7 +14318,7 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -13921,6 +14361,8 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -13956,7 +14398,7 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -13999,6 +14441,8 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -14034,7 +14478,7 @@ export type ReferenceModals_Default_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -14077,6 +14521,8 @@ export type ReferenceModals_Default_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -14112,7 +14558,7 @@ export type ReferenceModals_Default_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -14155,6 +14601,8 @@ export type ReferenceModals_Default_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -14190,7 +14638,7 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -14233,6 +14681,8 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -14829,7 +15279,7 @@ export type TableRow_TableCell_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type WidgetsSectionEntryUnion = Widgets_ColorFilterTool_Entry | Widgets_SourceSelector_Entry;
+export type WidgetsSectionEntryUnion = Widgets_ColorFilterTool_Entry | Widgets_LightCurveTool_Entry | Widgets_SourceSelector_Entry;
 
 export type Widgets_ColorFilterTool_Entry = ElementInterface & EntryInterface & {
   __typename?: 'widgets_colorFilterTool_Entry';
@@ -14981,7 +15431,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15024,6 +15474,8 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15059,7 +15511,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15102,6 +15554,8 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15172,7 +15626,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15215,6 +15669,8 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15260,7 +15716,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15303,6 +15759,8 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15338,7 +15796,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15381,6 +15839,8 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15416,7 +15876,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15459,6 +15919,8 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15494,7 +15956,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15537,10 +15999,12 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
-export type Widgets_SourceSelector_Entry = ElementInterface & EntryInterface & {
-  __typename?: 'widgets_sourceSelector_Entry';
+export type Widgets_LightCurveTool_Entry = ElementInterface & EntryInterface & {
+  __typename?: 'widgets_lightCurveTool_Entry';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
@@ -15575,7 +16039,6 @@ export type Widgets_SourceSelector_Entry = ElementInterface & EntryInterface & {
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
-  includeLightCurve?: Maybe<Scalars['Boolean']['output']>;
   /** Returns whether this is a draft. */
   isDraft?: Maybe<Scalars['Boolean']['output']>;
   /** Returns whether this is a revision. */
@@ -15648,6 +16111,766 @@ export type Widgets_SourceSelector_Entry = ElementInterface & EntryInterface & {
   uri?: Maybe<Scalars['String']['output']>;
   /** The element’s full URL */
   url?: Maybe<Scalars['String']['output']>;
+  yAxisMax?: Maybe<Scalars['Number']['output']>;
+  yAxisMin?: Maybe<Scalars['Number']['output']>;
+};
+
+
+export type Widgets_LightCurveTool_Entry_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type Widgets_LightCurveTool_EntryAncestorsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryChildrenArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryDatasetArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryDescendantsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryLocalizedArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryNextArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryParentArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Widgets_LightCurveTool_EntryPrevArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+export type Widgets_SourceSelector_Entry = ElementInterface & EntryInterface & {
+  __typename?: 'widgets_sourceSelector_Entry';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  ancestors: Array<EntryInterface>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** Returns the entry’s canonical ID. */
+  canonicalId?: Maybe<Scalars['Int']['output']>;
+  /** Returns the entry’s canonical UUID. */
+  canonicalUid?: Maybe<Scalars['String']['output']>;
+  /** The entry’s children, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  children: Array<EntryInterface>;
+  dataset: Array<Maybe<EntryInterface>>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** The entry’s descendants, if the section is a structure. Accepts the same arguments as the `entries` query. */
+  descendants: Array<EntryInterface>;
+  displayName?: Maybe<Scalars['String']['output']>;
+  /** The draft ID (from the `drafts` table). */
+  draftId?: Maybe<Scalars['Int']['output']>;
+  /** The name of the draft. */
+  draftName?: Maybe<Scalars['String']['output']>;
+  /** The notes for the draft. */
+  draftNotes?: Maybe<Scalars['String']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the element is enabled for the site. */
+  enabledForSite?: Maybe<Scalars['Boolean']['output']>;
+  /** The expiry date of the entry. */
+  expiryDate?: Maybe<Scalars['DateTime']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  includeScatterPlot?: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is a draft. */
+  isDraft?: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is a revision. */
+  isRevision?: Maybe<Scalars['Boolean']['output']>;
+  /** Returns whether this is an unpublished draft. */
+  isUnpublishedDraft?: Maybe<Scalars['Boolean']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The element’s level within its structure */
+  level?: Maybe<Scalars['Int']['output']>;
+  /** The element’s left position within its structure. */
+  lft?: Maybe<Scalars['Int']['output']>;
+  /** The same element in other locales. */
+  localized: Array<EntryInterface>;
+  /** Returns the next element relative to this one, from a given set of criteria. */
+  next?: Maybe<EntryInterface>;
+  /** The entry’s parent, if the section is a structure. */
+  parent?: Maybe<EntryInterface>;
+  /** The entry’s post date. */
+  postDate?: Maybe<Scalars['DateTime']['output']>;
+  /** Returns the previous element relative to this one, from a given set of criteria. */
+  prev?: Maybe<EntryInterface>;
+  /** The revision ID (from the `revisions` table). */
+  revisionId?: Maybe<Scalars['Int']['output']>;
+  /** The revision notes (from the `revisions` table). */
+  revisionNotes?: Maybe<Scalars['String']['output']>;
+  /** The element’s right position within its structure. */
+  rgt?: Maybe<Scalars['Int']['output']>;
+  /** The element’s structure’s root ID */
+  root?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the section that contains the entry. */
+  sectionHandle: Scalars['String']['output'];
+  /** The ID of the section that contains the entry. */
+  sectionId: Scalars['Int']['output'];
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /**
+   * Returns the entry’s canonical ID.
+   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalId` instead.
+   */
+  sourceId?: Maybe<Scalars['Int']['output']>;
+  /**
+   * Returns the entry’s canonical UUID.
+   * @deprecated this field has been deprecated since Craft 3.7.7. Use `canonicalUid` instead.
+   */
+  sourceUid?: Maybe<Scalars['String']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s structure ID. */
+  structureId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the entry type that contains the entry. */
+  typeHandle: Scalars['String']['output'];
+  /** The ID of the entry type that contains the entry. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+  /** The element’s full URL */
+  url?: Maybe<Scalars['String']['output']>;
+  yAxisMax?: Maybe<Scalars['Number']['output']>;
+  yAxisMin?: Maybe<Scalars['Number']['output']>;
 };
 
 
@@ -15688,7 +16911,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15731,6 +16954,8 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15766,7 +16991,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15809,6 +17034,8 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15844,7 +17071,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15887,6 +17114,8 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -15922,7 +17151,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -15965,6 +17194,8 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -16000,7 +17231,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -16043,6 +17274,8 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -16078,7 +17311,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -16121,6 +17354,8 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -16156,7 +17391,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -16199,6 +17434,8 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -16234,7 +17471,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeLightCurve?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -16277,6 +17514,8 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 export type StoredAnswersQueryVariables = Exact<{
