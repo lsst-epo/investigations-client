@@ -1,4 +1,5 @@
 import { FunctionComponent, useState } from "react";
+import { useTranslation } from "react-i18next";
 import useSWR from "swr";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import fetcher from "@/lib/api/fetcher";
@@ -8,17 +9,22 @@ import { MultiselectInput } from "@/types/answers";
 import WidgetContainer from "@/components/layout/WidgetContainer";
 import withModal from "@/components/hoc/withModal/withModal";
 import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
+import { ObservationsPlot } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import * as Styled from "./styles";
+import Loader from "@/components/page/Loader";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
     __typename
+    typeHandle
     sourceSelector {
       ... on widgets_sourceSelector_Entry {
         id
         title
         displayName
-        includeLightCurve
+        includeScatterPlot
+        yMin: yAxisMin
+        yMax: yAxisMax
         dataset {
           ... on datasets_supernovaGalaxyObservations_Entry {
             id
@@ -68,13 +74,15 @@ const SourceSelectorQuestion: FunctionComponent<
   openModal,
   questionText,
 }) => {
+  const { t } = useTranslation();
   const { sourceSelector } = useFragment(Fragment, data);
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
-  const [{ title, displayName, dataset, includeLightCurve }] = sourceSelector;
+  const [{ title, displayName, dataset, includeScatterPlot, yMin, yMax }] =
+    sourceSelector;
   const [{ sources, json, imageAlbum, peakMjd }] = dataset;
 
   const {
-    data: alerts,
+    data: alerts = [],
     error,
     isLoading,
   } = useSWR(`/api/asset?url=${json[0].url}`, fetcher, {
@@ -108,7 +116,9 @@ const SourceSelectorQuestion: FunctionComponent<
         instructions={questionText}
         {...{ openModal, isOpen }}
       >
-        {!isLoading && (
+        {isLoading ? (
+          <Loader height="25rem" />
+        ) : (
           <Styled.MultiWidgetContainer>
             <SourceSelectorContainer
               onChangeCallback={(value) =>
@@ -118,11 +128,11 @@ const SourceSelectorQuestion: FunctionComponent<
               showControls={isOpen}
               {...{ value, images, sources, alerts, activeAlertIndex }}
             />
-            {!!includeLightCurve && (
-              <Styled.LightCurvePlot
-                alerts={value && value.length > 0 ? alerts : undefined}
-                activeAlertIndex={isOpen ? activeAlertIndex : undefined}
-                {...{ peakMjd }}
+            {!!includeScatterPlot && (
+              <ObservationsPlot
+                activeAlertId={isOpen ? alerts[activeAlertIndex].id : undefined}
+                name={t("widgets.light_curve") || undefined}
+                {...{ alerts, peakMjd, yMin, yMax }}
               />
             )}
           </Styled.MultiWidgetContainer>

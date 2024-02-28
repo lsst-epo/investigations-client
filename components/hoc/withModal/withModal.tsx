@@ -14,7 +14,7 @@ function withModal<T extends ModalProps>(
   WrappedComponent: ComponentType<T>
 ): FunctionComponent<T> {
   const WithModal = (props: T) => {
-    const { title, hasModal = true } = props;
+    const { hasModal = true } = props;
 
     const [isOpen, setIsOpen] = useState(false);
     const modalRef = useRef(null);
@@ -55,7 +55,6 @@ function withModal<T extends ModalProps>(
       }
     };
 
-    const titleId = `modal-title-${uid}`;
     const contentId = `modal-content-${uid}`;
 
     return (
@@ -63,14 +62,9 @@ function withModal<T extends ModalProps>(
         isOpen={isOpen}
         ref={modalRef}
         id={contentId}
-        labelledById={titleId}
         closeModal={closeModal}
       >
-        {isOpen && (
-          <Modal.Header
-            {...{ title, isOpen, closeModal, titleId, contentId }}
-          />
-        )}
+        {isOpen && <Modal.Header {...{ isOpen, closeModal, contentId }} />}
         <Modal.ComponentContainer data-modal-open={isOpen}>
           <WrappedComponent
             {...{
@@ -79,7 +73,6 @@ function withModal<T extends ModalProps>(
               isOpen,
               openModal,
               closeModal,
-              labelledById: title && isOpen ? titleId : undefined,
             }}
           />
         </Modal.ComponentContainer>

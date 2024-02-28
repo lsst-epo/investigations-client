@@ -2,6 +2,7 @@ import { ComponentType, FunctionComponent } from "react";
 import { WidgetInput } from "@/types/answers";
 import ColorFilterToolQuestion from "./ColorFilterTool";
 import SourceSelectorQuestion from "./SourceSelector";
+import LightCurveToolQuestion from "./LightCurveTool";
 
 export interface SimpleWidgetProps<T = WidgetInput> {
   id: string;
@@ -15,6 +16,7 @@ export interface SimpleWidgetProps<T = WidgetInput> {
 const WIDGET_MAP: Record<string, ComponentType<any>> = {
   colorFilterToolBlock: ColorFilterToolQuestion,
   sourceSelectorBlock: SourceSelectorQuestion,
+  lightCurveBlock: LightCurveToolQuestion,
 };
 
 const SimpleWidget: FunctionComponent<SimpleWidgetProps> = ({

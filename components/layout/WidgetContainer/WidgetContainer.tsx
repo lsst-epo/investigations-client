@@ -6,6 +6,7 @@ import * as Styled from "./styles";
 
 interface WidgetContainerProps
   extends Omit<BaseContentBlockProps, "data" | "locale" | "site"> {
+  title?: string;
   caption?: string;
   instructions?: string;
   variant?: "dark" | "light";
