@@ -7,7 +7,8 @@ import ColorFilterTool from "@/components/dynamic/ColorFilterTool";
 import { SimpleWidgetProps } from "..";
 
 const Fragment = graphql(`
-  fragment ColorFilterToolQuestion on contentBlocks_colorFilterToolBlock_BlockType {
+  fragment ColorFilterToolQuestion on questionWidgetsBlock_colorFilterToolBlock_BlockType {
+    typeHandle
     colorFilterTool {
       ...ColorFilterToolEntry
     }

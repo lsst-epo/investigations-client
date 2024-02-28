@@ -20,16 +20,9 @@ const Fragment = graphql(`
     widgetInstructions
     questionWidgetsBlock {
       __typename
-      ... on questionWidgetsBlock_colorFilterToolBlock_BlockType {
-        typeHandle
-        colorFilterTool {
-          ...ColorFilterToolEntry
-        }
-      }
-      ... on questionWidgetsBlock_sourceSelectorBlock_BlockType {
-        typeHandle
-        ...SourceSelectorQuestion
-      }
+      ...ColorFilterToolQuestion
+      ...SourceSelectorQuestion
+      ...LightCurveQuestion
     }
     parts: multiPartBlocks {
       ... on multiPartBlocks_select_BlockType {

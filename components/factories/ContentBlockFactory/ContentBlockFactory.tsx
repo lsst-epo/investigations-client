@@ -17,6 +17,7 @@ export const blockMap: Record<
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
   contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
+  contentBlocks_magnitudeScatterPlot_BlockType: Blocks.MagnitudeScatterPlot,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
@@ -50,6 +51,7 @@ const Fragment = graphql(`
     ...CameraFilterToolBlock
     ...EquationBlock
     ...SupernovaDistanceDistributionBlock
+    ...MagnitudeScatterPlotBlock
   }
 `);
 
