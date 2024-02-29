@@ -1,27 +1,21 @@
 import { FunctionComponent } from "react";
-import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import * as Styled from "./styles";
-import { WidgetInput } from "@/types/answers";
+import { WidgetReviewProps } from "..";
+import ColorFilterDisplay from "@/components/dynamic/ColorFilterDisplay";
 
-const Fragment = graphql(`
-  ...ColorFilterToolQuestion
-`);
-
-interface ColorFilterToolReviewProps {
-  data: FragmentType<typeof Fragment>;
-  value: WidgetInput;
-}
-
-const ColorFilterToolReview: FunctionComponent<ColorFilterToolReviewProps> = ({
+const ColorFilterToolReview: FunctionComponent<WidgetReviewProps> = ({
   data,
   value,
   ...props
 }) => {
-  const { colorFilterTool } = useFragment(Fragment, data);
+  const { colorFilterTool } = data;
   const { id } = colorFilterTool[0];
 
   return (
-    <Styled.Display {...props} data={colorFilterTool[0]} value={value?.[id]} />
+    <ColorFilterDisplay
+      {...props}
+      data={colorFilterTool[0]}
+      value={value?.[id]}
+    />
   );
 };
 

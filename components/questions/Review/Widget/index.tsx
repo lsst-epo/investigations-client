@@ -1,22 +1,30 @@
 "use client";
 import { ComponentType, FunctionComponent } from "react";
 import ColorFilterToolReview from "./ColorFilterTool";
+import SourceSelectorReview from "./SourceSelector";
 import { QuestionLabel } from "../../SimpleQuestion/styles";
 import * as Styled from "../styles";
 import { WidgetInput } from "@/types/answers";
 import { BaseReviewProps } from "@/types/questions";
 
-export interface WidgetReviewProps extends BaseReviewProps<WidgetInput> {
+export interface WidgetReviewWrapperProps extends BaseReviewProps<WidgetInput> {
   id: string;
   widgetInstructions: string;
   questionWidgetsBlock: Array<{ typeHandle: string; [key: string]: any }>;
 }
 
-const WIDGET_MAP: Record<string, ComponentType<any>> = {
+export interface WidgetReviewProps<T = any, P = WidgetInput> {
+  data: T;
+  id: string;
+  value?: P;
+}
+
+export const WIDGET_MAP: Record<string, ComponentType<WidgetReviewProps>> = {
   colorFilterToolBlock: ColorFilterToolReview,
+  sourceSelectorBlock: SourceSelectorReview,
 };
 
-const WidgetReview: FunctionComponent<WidgetReviewProps> = ({
+const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
   id,
   value,
   number,
@@ -37,11 +45,13 @@ const WidgetReview: FunctionComponent<WidgetReviewProps> = ({
   return (
     <Styled.ReviewListItem value={number}>
       <QuestionLabel dangerouslySetInnerHTML={{ __html: widgetInstructions }} />
-      <Widget data={widgetConfig} {...{ id, value }} />
+      <Styled.Widget>
+        <Widget data={widgetConfig} {...{ id, value }} />
+      </Styled.Widget>
     </Styled.ReviewListItem>
   );
 };
 
-WidgetReview.displayName = "Review.Widget";
+WidgetReviewWrapper.displayName = "Review.Widget.WRapper";
 
-export default WidgetReview;
+export default WidgetReviewWrapper;

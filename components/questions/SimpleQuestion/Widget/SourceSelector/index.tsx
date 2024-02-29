@@ -5,7 +5,6 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import fetcher from "@/lib/api/fetcher";
 import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
-import { MultiselectInput } from "@/types/answers";
 import WidgetContainer from "@/components/layout/WidgetContainer";
 import withModal from "@/components/hoc/withModal/withModal";
 import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
@@ -58,28 +57,26 @@ const Fragment = graphql(`
   }
 `);
 
+export interface SourceSelectorValue {
+  selectedSource: Array<string>;
+}
+
 type SourceSelectorQuestionProps = Omit<
-  SimpleWidgetProps<MultiselectInput>,
+  SimpleWidgetProps<SourceSelectorValue>,
   "widgetConfig"
 > &
   BaseContentBlockProps<FragmentType<typeof Fragment>>;
 
 const SourceSelectorQuestion: FunctionComponent<
   SourceSelectorQuestionProps
-> = ({
-  data,
-  onChangeCallback,
-  value = [],
-  isOpen,
-  openModal,
-  questionText,
-}) => {
+> = ({ data, onChangeCallback, value, isOpen, openModal, questionText }) => {
   const { t } = useTranslation();
   const { sourceSelector } = useFragment(Fragment, data);
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
   const [{ title, displayName, dataset, includeScatterPlot, yMin, yMax }] =
     sourceSelector;
   const [{ sources, json, imageAlbum, peakMjd }] = dataset;
+  const { selectedSource = [] } = value || {};
 
   const {
     data: alerts = [],
@@ -91,13 +88,16 @@ const SourceSelectorQuestion: FunctionComponent<
   });
 
   const handleRemoveSource = (id: string) => {
-    if (value.includes(id)) {
-      onChangeCallback && onChangeCallback(value.filter((v) => v !== id));
+    if (selectedSource.includes(id)) {
+      onChangeCallback &&
+        onChangeCallback({
+          selectedSource: selectedSource.filter((v) => v !== id),
+        });
     }
   };
 
   const selectedSources: Array<{ type: string; id: string }> = sources
-    .filter(({ id }) => value.includes(id))
+    .filter(({ id }) => selectedSource.includes(id))
     .map(({ id, type }) => {
       return { id, type };
     });
@@ -121,12 +121,13 @@ const SourceSelectorQuestion: FunctionComponent<
         ) : (
           <Styled.MultiWidgetContainer>
             <SourceSelectorContainer
-              onChangeCallback={(value) =>
-                onChangeCallback && onChangeCallback(value)
+              onChangeCallback={(selectedSource) =>
+                onChangeCallback && onChangeCallback({ selectedSource })
               }
               onBlinkCallback={(index) => setActiveAlertIndex(index)}
               showControls={isOpen}
-              {...{ value, images, sources, alerts, activeAlertIndex }}
+              value={selectedSource}
+              {...{ images, sources, alerts, activeAlertIndex }}
             />
             {!!includeScatterPlot && (
               <ObservationsPlot

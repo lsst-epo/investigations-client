@@ -24,6 +24,14 @@ export interface SelectProps extends TextProps {
   options: Array<Option>;
 }
 
+export interface WidgetProps {
+  locale: string;
+  data: any;
+  value: WidgetInput;
+  id: string;
+  cell: Cell;
+}
+
 export interface InlineFactoryProps
   extends FormatterBaseProps,
     Omit<InlineReviewProps, "number"> {
@@ -38,6 +46,7 @@ export interface WidgetFactoryProps extends FormatterBaseProps {
 
 export type TextFormatter = (props: TextProps) => Promise<void>;
 export type SelectFormatter = (props: SelectProps) => Promise<void>;
+export type WidgetFormatter = (props: WidgetProps) => Promise<void>;
 export type InlineFormatterFactory = (
   props: InlineFactoryProps
 ) => Promise<void>;
