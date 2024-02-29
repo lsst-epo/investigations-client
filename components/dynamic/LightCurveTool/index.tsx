@@ -31,8 +31,6 @@ const LightCurveToolContainer: FunctionComponent<
   const { data: alerts = [] } = useSWR(`/api/asset?url=${url}`, fetcher, {
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
-    suspense: true,
-    fallbackData: [],
   });
 
   return (
