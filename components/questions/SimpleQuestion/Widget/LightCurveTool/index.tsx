@@ -1,4 +1,5 @@
-import { FunctionComponent, Suspense } from "react";
+import "temml/dist/Temml-Local.css";
+import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import sample from "lodash/sample";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
@@ -90,21 +91,20 @@ const LightCurveToolQuestion: FunctionComponent<
       title={t("widgets.light_curve_interactive") || undefined}
       instructions={questionText}
       variant="light"
+      paddingSize="medium"
       fillScreen
     >
       {typeof dataset === "undefined" ? (
         <Loader />
       ) : (
-        <Suspense>
-          <LightCurveToolContainer
-            name={displayName || title || undefined}
-            data={value}
-            onChangeCallback={handleChange}
-            yMin={yMin || undefined}
-            yMax={yMax || undefined}
-            {...{ dataset }}
-          />
-        </Suspense>
+        <LightCurveToolContainer
+          name={displayName || title || undefined}
+          data={value}
+          onChangeCallback={handleChange}
+          yMin={yMin || undefined}
+          yMax={yMax || undefined}
+          {...{ dataset }}
+        />
       )}
     </WidgetContainerWithModal>
   );

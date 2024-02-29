@@ -5,7 +5,7 @@ export type InvestigationId = string | null | undefined;
 export type TextInput = string;
 export type SelectInput = string;
 export type MultiselectInput = Array<SelectInput>;
-export type WidgetInput = object;
+export type WidgetInput = Record<string, any>;
 
 export type SimpleQuestionData =
   | TextInput

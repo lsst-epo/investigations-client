@@ -32,3 +32,12 @@ export const Text = styled.span`
   width: 100%;
   min-height: 2rem;
 `;
+
+export const Widget = styled.div`
+  margin-block-start: 1em;
+
+  @media only print {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+`;

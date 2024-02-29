@@ -1,7 +1,7 @@
-import { WidgetProps } from ".";
+import { WidgetFormatter } from "../..";
 import getFilteredBase64 from "@rubin-epo/epo-widget-lib/ColorToolServer";
 
-const colorToolFormatter = async ({ data, value, cell }: WidgetProps) => {
+const colorToolFormatter: WidgetFormatter = async ({ data, value, cell }) => {
   const { colorFilterTool } = data;
   const { id } = colorFilterTool[0];
   const filters = value[id]?.filters;

@@ -1,21 +1,12 @@
-import { Cell } from "exceljs";
 import { serverTranslation } from "@/lib/i18n";
-import { WidgetFormatterFactory } from "..";
-import { WidgetInput } from "@/types/answers";
-import colorToolFormatter from "./colorTool";
-
-export interface WidgetProps {
-  locale: string;
-  data: any;
-  value: WidgetInput;
-  id: string;
-  cell: Cell;
-}
+import { WidgetFormatter, WidgetFormatterFactory } from "..";
+import * as formatters from "./formatters";
 
 const widgets: {
-  [key: string]: (props: WidgetProps) => any;
+  [key: string]: WidgetFormatter;
 } = {
-  colorFilterToolBlock: colorToolFormatter,
+  colorFilterToolBlock: formatters.colorTool,
+  sourceSelectorBlock: formatters.sourceSelector,
 };
 
 const widgetFormatterFactory: WidgetFormatterFactory = async ({
@@ -26,13 +17,13 @@ const widgetFormatterFactory: WidgetFormatterFactory = async ({
   questionWidgetsBlock,
 }) => {
   const { t } = await serverTranslation(locale, "translation");
-  if (!value) {
+  const { typeHandle, ...widgetConfig } = questionWidgetsBlock[0];
+  const formatter = widgets[typeHandle];
+
+  if (!formatter || !value) {
     cell.value = t("review.no_answer");
     return;
   }
-
-  const { typeHandle, ...widgetConfig } = questionWidgetsBlock[0];
-  const formatter = widgets[typeHandle];
 
   await formatter({
     id,
