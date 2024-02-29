@@ -87,7 +87,6 @@ export async function mutateAPI<
   previewToken?: string;
 }): Promise<OperationResult<Mutation, Variables>> {
   const url = previewToken ? `${API_URL}?token=${previewToken}` : API_URL;
-
   const client = createClient({
     url,
     exchanges: [fetchExchange],
@@ -95,7 +94,7 @@ export async function mutateAPI<
       if (!token) return {};
       return {
         headers: {
-          ...(token && { authorization: `JWT ${token}` }),
+          Authorization: `JWT ${token}`,
         },
       };
     },

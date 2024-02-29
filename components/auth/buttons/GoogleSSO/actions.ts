@@ -19,7 +19,6 @@ const oAuth2Client = new OAuth2Client(
 // exchanges Auth Code for Tokens
 export async function getTokens(code) {
   const { tokens } = await oAuth2Client.getToken(code);
-
   return tokens;
 }
 
@@ -80,12 +79,14 @@ export async function authenticateEducator(
     query: EducatorMutation,
     variables: { idToken },
   });
+
   // not actually a client-side hook, just named like one
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const authData = useFragment(
     AuthFragmentFragmentDoc,
     data?.googleSignInEducators
   );
+
   conditionallySetCookiesRevalidatePath(authData, pathToRevalidate, error);
 
   if (error) {
@@ -113,7 +114,7 @@ export async function authenticateUser(
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const studentAuthData = useFragment(
       AuthFragmentFragmentDoc,
-      studentData?.googleSignInEducators
+      studentData?.googleSignInStudents
     );
     conditionallySetCookiesRevalidatePath(studentAuthData, pathToRevalidate);
     // Returns if data so we don't hit the educator data fetch if we don't need it
