@@ -1,10 +1,9 @@
 import { FunctionComponent } from "react";
 import { ObservationsPlotWithCurve } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
-import useSWR from "swr";
-import fetcher from "@/lib/api/fetcher";
 import { LightCurveData } from "@/types/widgets";
+import useAlerts from "@/lib/api/hooks/useAlerts";
 
-interface LightCurveToolContainerProps {
+interface LightCurveGraphProps {
   name?: string;
   data?: LightCurveData;
   dataset: { json: Array<{ url: string }>; peakMjd: number };
@@ -14,9 +13,7 @@ interface LightCurveToolContainerProps {
   isDisplayOnly?: boolean;
 }
 
-const LightCurveToolContainer: FunctionComponent<
-  LightCurveToolContainerProps
-> = ({
+const LightCurveGraphContainer: FunctionComponent<LightCurveGraphProps> = ({
   name,
   data = {},
   dataset,
@@ -31,10 +28,7 @@ const LightCurveToolContainer: FunctionComponent<
     peakMjd,
   } = dataset;
 
-  const { data: alerts = [] } = useSWR(`/api/asset?url=${url}`, fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
+  const { data: alerts = [] } = useAlerts(url);
 
   return (
     <ObservationsPlotWithCurve
@@ -60,4 +54,6 @@ const LightCurveToolContainer: FunctionComponent<
   );
 };
 
-export default LightCurveToolContainer;
+LightCurveGraphContainer.displayName = "Dynamic.LightCurveGraph";
+
+export default LightCurveGraphContainer;

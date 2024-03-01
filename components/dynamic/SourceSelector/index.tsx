@@ -6,13 +6,13 @@ import {
   Message,
   PointSelector,
 } from "@rubin-epo/epo-widget-lib/SourceSelector";
+import useAlerts from "@/lib/api/hooks/useAlerts";
 import { MultiselectInput } from "@/types/answers";
 import SourceSelectorControls from "./Controls";
 import * as Styled from "./styles";
 
-interface SourceSelectorContainerProps {
+interface SourceSelectorProps {
   images: Array<any>;
-  alerts: Array<any>;
   sources: Array<any>;
   onChangeCallback: (value: MultiselectInput) => void;
   onBlinkCallback: (index: number) => void;
@@ -20,24 +20,25 @@ interface SourceSelectorContainerProps {
   value?: MultiselectInput;
   className?: string;
   showControls?: boolean;
+  url?: string;
 }
 
-const SourceSelectorContainer: FunctionComponent<
-  SourceSelectorContainerProps
-> = ({
+const SourceSelector: FunctionComponent<SourceSelectorProps> = ({
   images,
-  alerts,
   sources,
   onChangeCallback,
   onBlinkCallback,
   activeAlertIndex,
   value = [],
+  url,
   showControls = false,
 }) => {
   const { t } = useTranslation();
   const [isLoaded, setIsLoaded] = useState(false);
   const [message, setMessage] = useState<ReactNode>();
   const { width, height } = images[0];
+
+  const { data: alerts = [], error, isLoading } = useAlerts(url);
 
   const handleSelectSource = (id?: string) => {
     if (id) {
@@ -64,11 +65,10 @@ const SourceSelectorContainer: FunctionComponent<
   return (
     <Styled.SourceSelectorContainer style={{ maxWidth: `${width}px` }}>
       <Blinker
-        images={images}
         activeIndex={activeAlertIndex}
-        showControls={showControls}
         blinkCallback={onBlinkCallback}
         loadedCallback={() => setIsLoaded(true)}
+        {...{ images, showControls }}
       />
       <Message
         isVisible={!!message}
@@ -83,7 +83,7 @@ const SourceSelectorContainer: FunctionComponent<
           {...{ width, height, sources }}
         />
       )}
-      {showControls && alerts && (
+      {showControls && !isLoading && (
         <Styled.ControlsContainer
           style={{ aspectRatio: `${width} / ${height}` }}
         >
@@ -97,6 +97,6 @@ const SourceSelectorContainer: FunctionComponent<
   );
 };
 
-SourceSelectorContainer.displayName = "Container.SourceSelector";
+SourceSelector.displayName = "Dynamic.SourceSelector";
 
-export default SourceSelectorContainer;
+export default SourceSelector;
