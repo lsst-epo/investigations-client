@@ -3,10 +3,10 @@ import useSWR from "swr";
 import SourceSelector from "@rubin-epo/epo-widget-lib/SourceSelector";
 import fetcher from "@/lib/api/fetcher";
 import { WidgetReviewProps } from "..";
-import { SourceSelectorValue } from "@/components/questions/SimpleQuestion/Widget/SourceSelector";
+import { SourceSelectorData } from "@/types/widgets";
 
 const SourceSelectorReview: FunctionComponent<
-  WidgetReviewProps<any, SourceSelectorValue>
+  WidgetReviewProps<any, SourceSelectorData>
 > = ({ data, value }) => {
   const { sourceSelector } = data;
   const [{ dataset }] = sourceSelector;
@@ -44,6 +44,6 @@ const SourceSelectorReview: FunctionComponent<
   );
 };
 
-SourceSelectorReview.displayName = "Review.Widget.ColorFilterTool";
+SourceSelectorReview.displayName = "Review.Widget.SourceSelector";
 
 export default SourceSelectorReview;

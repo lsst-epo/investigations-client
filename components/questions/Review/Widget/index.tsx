@@ -2,6 +2,7 @@
 import { ComponentType, FunctionComponent } from "react";
 import ColorFilterToolReview from "./ColorFilterTool";
 import SourceSelectorReview from "./SourceSelector";
+import LightCurveReview from "./LightCurveTool";
 import { QuestionLabel } from "../../SimpleQuestion/styles";
 import * as Styled from "../styles";
 import { WidgetInput } from "@/types/answers";
@@ -13,7 +14,7 @@ export interface WidgetReviewWrapperProps extends BaseReviewProps<WidgetInput> {
   questionWidgetsBlock: Array<{ typeHandle: string; [key: string]: any }>;
 }
 
-export interface WidgetReviewProps<T = any, P = WidgetInput> {
+export interface WidgetReviewProps<T = any, P = any> {
   data: T;
   id: string;
   value?: P;
@@ -22,6 +23,7 @@ export interface WidgetReviewProps<T = any, P = WidgetInput> {
 export const WIDGET_MAP: Record<string, ComponentType<WidgetReviewProps>> = {
   colorFilterToolBlock: ColorFilterToolReview,
   sourceSelectorBlock: SourceSelectorReview,
+  lightCurveBlock: LightCurveReview,
 };
 
 const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({

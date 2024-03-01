@@ -2,26 +2,29 @@ import { FunctionComponent } from "react";
 import { ObservationsPlotWithCurve } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import useSWR from "swr";
 import fetcher from "@/lib/api/fetcher";
-
-export interface LightCurveData {
-  datasetId?: string;
-  gaussianWidth?: number;
-  yOffset?: number;
-  userMagnitude?: number;
-}
+import { LightCurveData } from "@/types/widgets";
 
 interface LightCurveToolContainerProps {
   name?: string;
-  data: LightCurveData;
+  data?: LightCurveData;
   dataset: { json: Array<{ url: string }>; peakMjd: number };
   onChangeCallback: (value: LightCurveData) => void;
   yMin?: number;
   yMax?: number;
+  isDisplayOnly?: boolean;
 }
 
 const LightCurveToolContainer: FunctionComponent<
   LightCurveToolContainerProps
-> = ({ name, data, dataset, onChangeCallback, yMin, yMax }) => {
+> = ({
+  name,
+  data = {},
+  dataset,
+  onChangeCallback,
+  yMin,
+  yMax,
+  isDisplayOnly,
+}) => {
   const { gaussianWidth, yOffset, userMagnitude } = data;
   const {
     json: [{ url }],
@@ -51,6 +54,7 @@ const LightCurveToolContainer: FunctionComponent<
         userMagnitude,
         yMin,
         yMax,
+        isDisplayOnly,
       }}
     />
   );
