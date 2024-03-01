@@ -7,6 +7,7 @@ const widgets: {
 } = {
   colorFilterToolBlock: formatters.colorTool,
   sourceSelectorBlock: formatters.sourceSelector,
+  lightCurveBlock: formatters.lightCurveTool,
 };
 
 const widgetFormatterFactory: WidgetFormatterFactory = async ({

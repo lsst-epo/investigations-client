@@ -28,6 +28,17 @@ const Fragment = graphql(`
   }
 `);
 
+const getDataset = async (url?: string): Promise<Array<string>> => {
+  if (url) {
+    const response = await fetch(url, {
+      next: { tags: ["datasets"] },
+    });
+    return await response.json();
+  } else {
+    return [];
+  }
+};
+
 const MagnitudeScatterPlotBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = async ({ data, locale }) => {
@@ -52,12 +63,11 @@ const MagnitudeScatterPlotBlock: FunctionComponent<
 
   const [{ peakMjd, json, title }] = dataset;
 
-  const response = await fetch(json[0]?.url, { next: { tags: ["datasets"] } });
-  const alerts = await response.json();
+  const alerts = await getDataset(json[0]?.url || undefined);
 
   return (
     <WidgetContainerWithModal
-      title={t("widgets.light_curve") || undefined}
+      title={t("widgets.light_curve.title") || undefined}
       interactive={false}
     >
       <ObservationsPlot
