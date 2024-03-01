@@ -276,8 +276,11 @@
       "read_only_caption": "Object: {{name}}"
     },
     "supernova_three_vector": "Visualize Supernovae Distances & Distribution",
-    "light_curve": "Light Curve Plot",
-    "light_curve_interactive": "Interactive Light Curve Plot"
+    "light_curve": {
+      "title": "Light Curve Plot",
+      "title_interactive": "Interactive Light Curve Plot",
+      "magnitude": "Apparent magnitude: {{value}}"
+    }
   },
   "image": {
     "credit": "Credit: {{credit}}"

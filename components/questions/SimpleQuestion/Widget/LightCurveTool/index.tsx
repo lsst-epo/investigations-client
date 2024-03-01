@@ -8,6 +8,7 @@ import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
 import LightCurveToolContainer from "@/components/dynamic/LightCurveTool";
 import Loader from "@/components/page/Loader";
+import { LightCurveData } from "@/types/widgets";
 
 const Fragment = graphql(`
   fragment LightCurveQuestion on questionWidgetsBlock_lightCurveBlock_BlockType {
@@ -35,15 +36,8 @@ const Fragment = graphql(`
   }
 `);
 
-interface LightCurveSave {
-  datasetId?: string;
-  gaussianWidth?: number;
-  yOffset?: number;
-  userMagnitude?: number;
-}
-
 type LightCurveToolQuestionProps = Omit<
-  SimpleWidgetProps<LightCurveSave>,
+  SimpleWidgetProps<LightCurveData>,
   "widgetConfig"
 > &
   BaseContentBlockProps<FragmentType<typeof Fragment>>;
@@ -88,7 +82,7 @@ const LightCurveToolQuestion: FunctionComponent<
 
   return (
     <WidgetContainerWithModal
-      title={t("widgets.light_curve_interactive") || undefined}
+      title={t("widgets.light_curve.title_interactive") || undefined}
       instructions={questionText}
       variant="light"
       paddingSize="medium"

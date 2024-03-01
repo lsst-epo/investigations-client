@@ -11,6 +11,7 @@ import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
 import { ObservationsPlot } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import * as Styled from "./styles";
 import Loader from "@/components/page/Loader";
+import { SourceSelectorData } from "@/types/widgets";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
@@ -57,12 +58,8 @@ const Fragment = graphql(`
   }
 `);
 
-export interface SourceSelectorValue {
-  selectedSource: Array<string>;
-}
-
 type SourceSelectorQuestionProps = Omit<
-  SimpleWidgetProps<SourceSelectorValue>,
+  SimpleWidgetProps<SourceSelectorData>,
   "widgetConfig"
 > &
   BaseContentBlockProps<FragmentType<typeof Fragment>>;
@@ -133,7 +130,8 @@ const SourceSelectorQuestion: FunctionComponent<
               <ObservationsPlot
                 activeAlertId={isOpen ? alerts[activeAlertIndex].id : undefined}
                 name={t("widgets.light_curve") || undefined}
-                {...{ alerts, peakMjd, yMin, yMax }}
+                alerts={selectedSource.length > 0 ? alerts : []}
+                {...{ peakMjd, yMin, yMax }}
               />
             )}
           </Styled.MultiWidgetContainer>
