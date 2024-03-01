@@ -1,17 +1,13 @@
 import { FunctionComponent, useState } from "react";
-import { useTranslation } from "react-i18next";
-import useSWR from "swr";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import fetcher from "@/lib/api/fetcher";
 import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
 import WidgetContainer from "@/components/layout/WidgetContainer";
 import withModal from "@/components/hoc/withModal/withModal";
 import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
-import { ObservationsPlot } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import * as Styled from "./styles";
-import Loader from "@/components/page/Loader";
 import { SourceSelectorData } from "@/types/widgets";
+import MagnitudeScatterPlotContainer from "@/components/dynamic/LightCurveTool/MagnitudeScatterPlot";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
@@ -67,22 +63,28 @@ type SourceSelectorQuestionProps = Omit<
 const SourceSelectorQuestion: FunctionComponent<
   SourceSelectorQuestionProps
 > = ({ data, onChangeCallback, value, isOpen, openModal, questionText }) => {
-  const { t } = useTranslation();
   const { sourceSelector } = useFragment(Fragment, data);
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
+
+  if (
+    sourceSelector === null ||
+    sourceSelector[0] === null ||
+    sourceSelector[0].__typename !== "widgets_sourceSelector_Entry"
+  )
+    return null;
+
   const [{ title, displayName, dataset, includeScatterPlot, yMin, yMax }] =
     sourceSelector;
+
+  if (
+    dataset === null ||
+    dataset[0] === null ||
+    dataset[0].__typename !== "datasets_supernovaGalaxyObservations_Entry"
+  )
+    return null;
+
   const [{ sources, json, imageAlbum, peakMjd }] = dataset;
   const { selectedSource = [] } = value || {};
-
-  const {
-    data: alerts = [],
-    error,
-    isLoading,
-  } = useSWR(`/api/asset?url=${json[0].url}`, fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
 
   const handleRemoveSource = (id: string) => {
     if (selectedSource.includes(id)) {
@@ -104,6 +106,8 @@ const SourceSelectorQuestion: FunctionComponent<
       return { width, height, url: directUrlOriginal };
     }) || [];
 
+  const alertsAssetUrl = json[0]?.url || undefined;
+
   return (
     <>
       <WidgetContainer
@@ -113,29 +117,26 @@ const SourceSelectorQuestion: FunctionComponent<
         instructions={questionText}
         {...{ openModal, isOpen }}
       >
-        {isLoading ? (
-          <Loader height="25rem" />
-        ) : (
-          <Styled.MultiWidgetContainer>
-            <SourceSelectorContainer
-              onChangeCallback={(selectedSource) =>
-                onChangeCallback && onChangeCallback({ selectedSource })
-              }
-              onBlinkCallback={(index) => setActiveAlertIndex(index)}
-              showControls={isOpen}
-              value={selectedSource}
-              {...{ images, sources, alerts, activeAlertIndex }}
+        <Styled.MultiWidgetContainer>
+          <SourceSelectorContainer
+            onChangeCallback={(selectedSource) =>
+              onChangeCallback && onChangeCallback({ selectedSource })
+            }
+            onBlinkCallback={(index) => setActiveAlertIndex(index)}
+            showControls={isOpen}
+            value={selectedSource}
+            url={alertsAssetUrl}
+            {...{ images, sources, activeAlertIndex }}
+          />
+          {!!includeScatterPlot && (
+            <MagnitudeScatterPlotContainer
+              url={alertsAssetUrl}
+              showPlot={selectedSource.length > 0}
+              activeAlertIndex={isOpen ? activeAlertIndex : undefined}
+              {...{ peakMjd, yMin, yMax }}
             />
-            {!!includeScatterPlot && (
-              <ObservationsPlot
-                activeAlertId={isOpen ? alerts[activeAlertIndex].id : undefined}
-                name={t("widgets.light_curve") || undefined}
-                alerts={selectedSource.length > 0 ? alerts : []}
-                {...{ peakMjd, yMin, yMax }}
-              />
-            )}
-          </Styled.MultiWidgetContainer>
-        )}
+          )}
+        </Styled.MultiWidgetContainer>
       </WidgetContainer>
       {!isOpen && (
         <Styled.SelectionList

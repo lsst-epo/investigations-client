@@ -2,9 +2,7 @@ import { serverTranslation } from "@/lib/i18n";
 import { WidgetFormatter, WidgetFormatterFactory } from "..";
 import * as formatters from "./formatters";
 
-const widgets: {
-  [key: string]: WidgetFormatter;
-} = {
+const widgets: Record<string, WidgetFormatter> = {
   colorFilterToolBlock: formatters.colorTool,
   sourceSelectorBlock: formatters.sourceSelector,
   lightCurveBlock: formatters.lightCurveTool,

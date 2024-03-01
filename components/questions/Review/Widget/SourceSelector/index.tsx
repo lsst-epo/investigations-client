@@ -1,9 +1,8 @@
 import { FunctionComponent } from "react";
-import useSWR from "swr";
 import SourceSelector from "@rubin-epo/epo-widget-lib/SourceSelector";
-import fetcher from "@/lib/api/fetcher";
 import { WidgetReviewProps } from "..";
 import { SourceSelectorData } from "@/types/widgets";
+import useAlerts from "@/lib/api/hooks/useAlerts";
 
 const SourceSelectorReview: FunctionComponent<
   WidgetReviewProps<any, SourceSelectorData>
@@ -13,14 +12,7 @@ const SourceSelectorReview: FunctionComponent<
   const [{ sources, json, imageAlbum }] = dataset;
   const { selectedSource = [] } = value || {};
 
-  const {
-    data: alertData = [],
-    error,
-    isLoading,
-  } = useSWR(`/api/asset?url=${json[0].url}`, fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
+  const { data: alertData = [], error, isLoading } = useAlerts(json[0].url);
 
   if (isLoading) return null;
 
