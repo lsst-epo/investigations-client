@@ -54,6 +54,6 @@ const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
   );
 };
 
-WidgetReviewWrapper.displayName = "Review.Widget.WRapper";
+WidgetReviewWrapper.displayName = "Review.Widget.Wrapper";
 
 export default WidgetReviewWrapper;

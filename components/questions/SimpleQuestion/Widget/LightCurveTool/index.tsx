@@ -6,7 +6,7 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
-import LightCurveToolContainer from "@/components/dynamic/LightCurveTool";
+import LightCurveToolContainer from "@/components/dynamic/LightCurveTool/LightCurvePlot";
 import Loader from "@/components/page/Loader";
 import { LightCurveData } from "@/types/widgets";
 

@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import { WidgetReviewProps } from "..";
 import { LightCurveData } from "@/types/widgets";
-import LightCurveToolContainer from "@/components/dynamic/LightCurveTool";
+import LightCurveToolContainer from "@/components/dynamic/LightCurveTool/LightCurvePlot";
 
 const LightCurveReview: FunctionComponent<
   WidgetReviewProps<any, LightCurveData>
