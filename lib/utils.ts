@@ -135,3 +135,7 @@ export function normalizeItemData(items: any[], whichEntry = "entry") {
 
 export const getDisplayName = (component: ComponentType<any>) =>
   component.displayName || component.name || "Component";
+
+export function notNull<T>(value: T): value is NonNullable<T> {
+  return value != null;
+}
