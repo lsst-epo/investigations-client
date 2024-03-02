@@ -9,6 +9,7 @@ const Fragment = graphql(`
     __typename
     id
     answerType
+    ...TabularQuestion
     options: answerOptions {
       ... on answerOptions_option_BlockType {
         label: optionLabel
@@ -73,7 +74,7 @@ const QUESTION_MAP: Record<string, ComponentType<any>> = {
   multiPart: InlineQuestion,
 };
 
-const QuestionFactory: FunctionComponent<QuestionProps> = ({ ...props }) => {
+const QuestionFactory: FunctionComponent<QuestionProps> = ({ data }) => {
   const {
     answerType: type,
     id,
@@ -82,7 +83,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({ ...props }) => {
     questionText,
     widgetInstructions,
     parts = [],
-  } = useFragment(Fragment, props.data);
+  } = useFragment(Fragment, data);
 
   if (!id || !type) return null;
 
@@ -98,7 +99,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({ ...props }) => {
   return (
     <Question
       questionText={questionText || widgetInstructions}
-      {...{ id, type, options, widgetConfig, parts }}
+      {...{ data, id, type, options, widgetConfig, parts }}
     />
   );
 };

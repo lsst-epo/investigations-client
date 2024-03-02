@@ -1,70 +1,45 @@
-import { FunctionComponent, ComponentType } from "react";
-import Table, { TableHeader, TableRow } from "@/components/layout/Table/Table";
-import { Option } from "@/components/shapes/option";
-import { BaseQuestionProps, TabularQuestionType } from "@/types/questions";
-import Text from "./Text";
-import Select from "./Select";
+import { FunctionComponent } from "react";
+import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
+import { BaseQuestionProps } from "@/types/questions";
 import QuestionNumber from "../QuestionNumber";
+import Table from "./Table";
 
-interface QuestionCell {
-  id: string;
-  type: TabularQuestionType;
-  value?: string;
-}
-export type TextCell = QuestionCell;
-export interface SelectCell extends QuestionCell {
-  options: Option[];
-}
+const Fragment = graphql(`
+  fragment TabularQuestion on questions_default_Entry {
+    id
+    questionText
+    ...TableRows
+  }
+`);
+
+// interface QuestionCell {
+//   id: string;
+//   type: TabularQuestionType;
+//   value?: string;
+// }
+// export type TextCell = QuestionCell;
+// export interface SelectCell extends QuestionCell {
+//   options: Option[];
+// }
 
 interface TabularQuestionProps extends BaseQuestionProps {
-  header: TableHeader;
-  rowHeader: string[];
-  questionRows: Array<TextCell & SelectCell>[];
+  data: FragmentType<typeof Fragment>;
 }
 
-const INPUT_MAP: Record<TabularQuestionType, ComponentType<any>> = {
-  text: Text,
-  select: Select,
-};
+// const INPUT_MAP: Record<TabularQuestionType, ComponentType<any>> = {
+//   text: Text,
+//   select: Select,
+// };
 
-const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
-  id,
-  isDisabled,
-  header = [],
-  rowHeader = [],
-  questionRows = [],
-}) => {
-  const onChangeCallback = (value, id) => {
-    console.info(value, id);
-  };
+const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({ data }) => {
+  const { id, questionText } = useFragment(Fragment, data);
 
-  const rows: TableRow = [];
-
-  rowHeader.forEach((text) => {
-    rows.push([{ isHeader: true, children: text }]);
-  });
-
-  questionRows.forEach((questions, i) => {
-    questions.forEach(({ id, type, value, options = [] }) => {
-      const Input = INPUT_MAP[type];
-
-      if (!Input) {
-        console.error(`"${type}" is not a valid input for this question type.`);
-
-        return null;
-      }
-
-      rows[i].push({
-        children: (
-          <Input {...{ id, isDisabled, onChangeCallback, options, value }} />
-        ),
-      });
-    });
-  });
+  if (!id) return null;
 
   return (
-    <QuestionNumber id={id}>
-      <Table id={id} {...{ header, rows }} />
+    <QuestionNumber {...{ id }}>
+      <label htmlFor={id}>{questionText}</label>
+      <Table {...{ data }} />
     </QuestionNumber>
   );
 };

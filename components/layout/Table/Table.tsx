@@ -12,6 +12,7 @@ import { useOverflowDetector } from "@/hooks/useOverflowDetector";
 import * as Styled from "./styles";
 
 interface TableCell {
+  id?: string;
   isHeader?: boolean;
 }
 
@@ -110,8 +111,8 @@ const Table: FunctionComponent<TableProps> = ({
           {caption && <Styled.Caption>{caption}</Styled.Caption>}
           <thead>
             <tr ref={headerRef}>
-              {header.map(({ children, thProps }, i) => (
-                <Styled.Header key={i} scope="col" {...thProps}>
+              {header.map(({ children, thProps, id }, i) => (
+                <Styled.Header key={id || i} scope="col" {...thProps}>
                   {children}
                 </Styled.Header>
               ))}
@@ -120,9 +121,9 @@ const Table: FunctionComponent<TableProps> = ({
           <tbody>
             {rows.map((cells, i) => (
               <tr key={i}>
-                {cells.map(({ isHeader, children }, i) => (
+                {cells.map(({ isHeader, children, id }, i) => (
                   <Styled.Cell
-                    key={i}
+                    key={id || i}
                     as={isHeader ? "th" : undefined}
                     scope={isHeader ? "row" : undefined}
                   >
