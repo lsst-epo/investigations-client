@@ -12,7 +12,8 @@ import { Option } from "@/components/shapes/option";
 type QuestionEntry = BaseQuestion &
   WidgetQuestion &
   MultipartQuestion &
-  SelectQuestion;
+  SelectQuestion &
+  TabularQuestion;
 
 interface BaseBlock {
   __typename: string;
@@ -42,6 +43,10 @@ interface BaseQuestion {
   questionText: string;
 }
 
+interface TabularQuestion extends BaseQuestion {
+  questionTable: Array<any>;
+}
+
 interface SelectQuestion extends BaseQuestion {
   options: Array<Option>;
 }
@@ -59,7 +64,8 @@ export type StoredQuestion =
   | BaseQuestion
   | WidgetQuestion
   | MultipartQuestion
-  | SelectQuestion;
+  | SelectQuestion
+  | TabularQuestion;
 
 export interface Questions {
   bySection: Array<Array<Array<StoredQuestion>>>;
@@ -86,6 +92,7 @@ function buildQuestion(question: QuestionEntry): StoredQuestion | undefined {
     questionText,
     questionWidgetsBlock,
     widgetInstructions,
+    questionTable,
   } = question;
 
   switch (answerType) {
@@ -99,6 +106,8 @@ function buildQuestion(question: QuestionEntry): StoredQuestion | undefined {
       return { answerType, id, parts };
     case "widget":
       return { answerType, id, widgetInstructions, questionWidgetsBlock };
+    case "tabular":
+      return { answerType, id, questionText, questionTable };
     default:
       break;
   }
