@@ -10,6 +10,28 @@ import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 const GOOGLE_APP_ID = process.env.NEXT_PUBLIC_GOOGLE_APP_ID;
 const GOOGLE_APP_SECRET = process.env.GOOGLE_APP_SECRET;
 
+const StudentMutation = graphql(`
+  mutation GoogleSignInStudent($idToken: String!) {
+    googleSignInStudents(idToken: $idToken) {
+      ...AuthFragment
+    }
+  }
+`);
+
+const EducatorMutation = graphql(`
+  mutation GoogleSignInEducator($idToken: String!) {
+    googleSignInEducators(idToken: $idToken) {
+      ...AuthFragment
+    }
+  }
+`);
+
+const userGroups = {
+  students: { mutation: StudentMutation, directive: "googleSignInStudents" },
+  educators: { mutation: EducatorMutation, directive: "googleSignInEducators" },
+};
+
+// Instatiate GoogleOAuth client with our secrets
 const oAuth2Client = new OAuth2Client(
   GOOGLE_APP_ID,
   GOOGLE_APP_SECRET,
@@ -22,14 +44,6 @@ export async function getTokens(code) {
   return tokens;
 }
 
-const StudentMutation = graphql(`
-  mutation GoogleSignInStudent($idToken: String!) {
-    googleSignInStudents(idToken: $idToken) {
-      ...AuthFragment
-    }
-  }
-`);
-
 function conditionallySetCookiesRevalidatePath(authData, pathToRevalidate) {
   if (authData) {
     setAuthCookies(authData);
@@ -41,56 +55,25 @@ function conditionallySetCookiesRevalidatePath(authData, pathToRevalidate) {
   }
 }
 
-export async function authenticateStudent(
-  idToken: string,
-  pathToRevalidate?: string
-) {
+async function authenticate(idToken: string, group: string) {
+  const { mutation, directive } = userGroups[group];
+
   const { data, error } = await mutateAPI({
-    query: StudentMutation,
+    query: mutation,
     variables: { idToken },
   });
 
-  // not actually a client-side hook, just named like one
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const authData = useFragment(
-    AuthFragmentFragmentDoc,
-    data?.googleSignInStudents
-  );
-  conditionallySetCookiesRevalidatePath(authData, pathToRevalidate, error);
-
-  if (error) {
-    throw new Error(error.message);
-  }
+  const authData = useFragment(AuthFragmentFragmentDoc, data?.[directive]);
+  // Returns stuff so potentially do error handling and data validation
+  return { authData, error };
 }
 
-const EducatorMutation = graphql(`
-  mutation GoogleSignInEducator($idToken: String!) {
-    googleSignInEducators(idToken: $idToken) {
-      ...AuthFragment
-    }
-  }
-`);
-
-export async function authenticateEducator(
-  idToken: string,
-  pathToRevalidate?: string
-) {
-  const { data, error } = await mutateAPI({
-    query: EducatorMutation,
-    variables: { idToken },
-  });
-
-  // not actually a client-side hook, just named like one
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const authData = useFragment(
-    AuthFragmentFragmentDoc,
-    data?.googleSignInEducators
-  );
-
-  conditionallySetCookiesRevalidatePath(authData, pathToRevalidate, error);
-
-  if (error) {
-    throw new Error(error.message);
+function conditionallyHandleError(data, error) {
+  if (!data && error) {
+    throw new Error(error?.message);
+  } else if (error) {
+    console.warn(error?.message);
   }
 }
 
@@ -99,42 +82,35 @@ export async function authenticateUser(
   idToken: string,
   pathToRevalidate?: string
 ) {
-  // There might be a case where the group is already set, so we check first
-  if (group === "educators") {
-    await authenticateEducator(idToken, pathToRevalidate);
-  } else if (group === "students") {
-    await authenticateStudent(idToken, pathToRevalidate);
-    // Usually group is not set, so we'll try pulling user data from both students and educators
+  // If there's a group selected this is a sign up
+  if (group) {
+    const { authData, error } = await authenticate(
+      idToken,
+      group,
+      pathToRevalidate
+    );
+
+    conditionallySetCookiesRevalidatePath(authData);
+    conditionallyHandleError(authData, error);
   } else {
     // First try to pull Student user data
-    const { data: studentData, error: studentError } = await mutateAPI({
-      query: StudentMutation,
-      variables: { idToken },
-    });
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const studentAuthData = useFragment(
-      AuthFragmentFragmentDoc,
-      studentData?.googleSignInStudents
+    const { authData: studentData, error: studentError } = await authenticate(
+      idToken,
+      "students",
+      pathToRevalidate
     );
-    conditionallySetCookiesRevalidatePath(studentAuthData, pathToRevalidate);
-    // Returns if data so we don't hit the educator data fetch if we don't need it
-    if (studentAuthData) return studentAuthData;
 
     // Then try to pull Educator user data
-    const { data: eduData, error: eduError } = await mutateAPI({
-      query: EducatorMutation,
-      variables: { idToken },
-    });
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const eduAuthData = useFragment(
-      AuthFragmentFragmentDoc,
-      eduData?.googleSignInEducators
+    const { authData: educatorData, error: educatorError } = await authenticate(
+      idToken,
+      "educators",
+      pathToRevalidate
     );
-    conditionallySetCookiesRevalidatePath(eduAuthData, pathToRevalidate);
-    if (eduAuthData) return eduAuthData;
 
-    if (eduError || studentError) {
-      throw new Error(eduError?.message || studentError?.message);
-    }
+    conditionallySetCookiesRevalidatePath(studentData || educatorData);
+    conditionallyHandleError(
+      studentData || educatorData,
+      studentError || educatorError
+    );
   }
 }
