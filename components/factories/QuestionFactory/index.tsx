@@ -63,6 +63,7 @@ const Fragment = graphql(`
 
 export interface QuestionProps {
   data: FragmentType<typeof Fragment>;
+  locale: string;
 }
 
 const QUESTION_MAP: Record<string, ComponentType<any>> = {
@@ -74,7 +75,10 @@ const QUESTION_MAP: Record<string, ComponentType<any>> = {
   multiPart: InlineQuestion,
 };
 
-const QuestionFactory: FunctionComponent<QuestionProps> = ({ data }) => {
+const QuestionFactory: FunctionComponent<QuestionProps> = ({
+  data,
+  locale,
+}) => {
   const {
     answerType: type,
     id,
@@ -99,7 +103,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({ data }) => {
   return (
     <Question
       questionText={questionText || widgetInstructions}
-      {...{ data, id, type, options, widgetConfig, parts }}
+      {...{ data, id, type, options, widgetConfig, parts, locale }}
     />
   );
 };

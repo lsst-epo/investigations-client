@@ -231,7 +231,8 @@
   },
   "placeholder": {
     "select": "Select",
-    "select_answer": "Select your answer"
+    "select_answer": "Select your answer",
+    "text_answer": "(Write your answer)"
   },
   "answers": {
     "save_form": {

@@ -137,5 +137,9 @@ export const getDisplayName = (component: ComponentType<any>) =>
   component.displayName || component.name || "Component";
 
 export function notNull<T>(value: T): value is NonNullable<T> {
-  return value != null;
+  return !isNullish(value);
 }
+
+export const isNullish = <T>(
+  argument: T | undefined | null
+): argument is undefined | null => argument === null || argument === undefined;

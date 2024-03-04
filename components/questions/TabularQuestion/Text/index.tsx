@@ -1,27 +1,31 @@
-import { FunctionComponent, ChangeEvent } from "react";
-import { TextCell } from "..";
+"use client";
+
+import { ChangeEvent, FunctionComponent } from "react";
+import useAnswer from "@/hooks/useAnswer";
+import { QuestionTableInputProps } from "../Table";
 import * as Styled from "./styles";
+import { useTranslation } from "react-i18next";
 
-interface TextCellProps extends TextCell {
-  onChangeCallback: (value: string, id: string) => void;
-  isDisabled?: boolean;
-  value?: string;
-}
-
-const TextQuestionCell: FunctionComponent<TextCellProps> = ({
-  onChangeCallback,
-  isDisabled,
-  value,
+const TextQuestionCell: FunctionComponent<QuestionTableInputProps> = ({
   id,
+  questionId,
+  readOnly = false,
 }) => {
+  const { t } = useTranslation();
+  const { answer, onChangeCallback } = useAnswer(questionId);
+
+  const cellValue = answer?.data[id];
+
   return (
     <Styled.TextInput
       type="text"
-      disabled={isDisabled}
-      value={value}
-      onChange={(event: ChangeEvent<HTMLInputElement>) =>
-        onChangeCallback && onChangeCallback(event.target.value, id)
+      placeholder={t("placeholder.text_answer")}
+      defaultValue={cellValue}
+      onBlur={(event: ChangeEvent<HTMLInputElement>) =>
+        onChangeCallback &&
+        onChangeCallback({ ...answer?.data, [id]: event.target.value })
       }
+      readOnly={readOnly}
     />
   );
 };

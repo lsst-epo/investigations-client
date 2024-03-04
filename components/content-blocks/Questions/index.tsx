@@ -33,7 +33,7 @@ const QuestionsContentBlock: FunctionComponent<
         {!!data.questionEntries?.length &&
           data.questionEntries.map((question, i) => {
             return question?.__typename === "questions_default_Entry" ? (
-              <QuestionFactory key={i} data={question} />
+              <QuestionFactory key={i} data={question} locale={locale} />
             ) : null;
           })}
       </Styled.QuestionList>
