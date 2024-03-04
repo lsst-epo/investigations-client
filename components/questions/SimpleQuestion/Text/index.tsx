@@ -6,6 +6,7 @@ interface SimpleTextProps {
   value?: string;
   isDisabled?: boolean;
   onChangeCallback: (value: string) => void;
+  className?: string;
 }
 
 const SimpleText: FunctionComponent<SimpleTextProps> = ({
@@ -13,13 +14,13 @@ const SimpleText: FunctionComponent<SimpleTextProps> = ({
   value,
   isDisabled,
   onChangeCallback,
+  className,
 }) => {
   return (
     <Styled.TextInput
-      id={id}
+      {...{ id, value, className }}
       type="text"
       disabled={isDisabled}
-      defaultValue={value}
       onBlur={(event: FocusEvent<HTMLInputElement>) =>
         onChangeCallback && onChangeCallback(event.target.value)
       }
