@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { BaseQuestionProps } from "@/types/questions";
-import QuestionNumber from "../QuestionNumber";
 import Table from "./Table";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment TabularQuestion on questions_default_Entry {
@@ -12,35 +12,24 @@ const Fragment = graphql(`
   }
 `);
 
-// interface QuestionCell {
-//   id: string;
-//   type: TabularQuestionType;
-//   value?: string;
-// }
-// export type TextCell = QuestionCell;
-// export interface SelectCell extends QuestionCell {
-//   options: Option[];
-// }
-
 interface TabularQuestionProps extends BaseQuestionProps {
   data: FragmentType<typeof Fragment>;
+  locale: string;
 }
 
-// const INPUT_MAP: Record<TabularQuestionType, ComponentType<any>> = {
-//   text: Text,
-//   select: Select,
-// };
-
-const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({ data }) => {
+const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
+  data,
+  locale,
+}) => {
   const { id, questionText } = useFragment(Fragment, data);
 
   if (!id) return null;
 
   return (
-    <QuestionNumber {...{ id }}>
+    <Styled.QuestionNumber {...{ id }}>
       <label htmlFor={id}>{questionText}</label>
-      <Table {...{ data }} />
-    </QuestionNumber>
+      <Table {...{ data, locale }} />
+    </Styled.QuestionNumber>
   );
 };
 

@@ -22906,56 +22906,63 @@ export type ColorFilterToolQuestionFragment = {
   >;
 } & { " $fragmentName"?: "ColorFilterToolQuestionFragment" };
 
-export type LightCurveQuestionFragment = {
-  __typename: "questionWidgetsBlock_lightCurveBlock_BlockType";
-  typeHandle: string | null;
-  lightCurveTool: Array<
-    | { __typename?: "datasets_supernovaGalaxyObservations_Entry" }
-    | { __typename?: "homepage_homepage_Entry" }
-    | { __typename?: "investigations_default_Entry" }
-    | { __typename?: "investigations_investigationParent_Entry" }
-    | { __typename?: "investigations_investigationSectionBreakChild_Entry" }
-    | { __typename?: "pages_pages_Entry" }
-    | { __typename?: "pages_redirectPage_Entry" }
-    | { __typename?: "questions_default_Entry" }
-    | { __typename?: "referenceModals_default_Entry" }
-    | { __typename?: "widgets_colorFilterTool_Entry" }
-    | {
-        __typename?: "widgets_lightCurveTool_Entry";
-        title: string | null;
-        displayName: string | null;
-        yMin: any | null;
-        yMax: any | null;
-        dataset: Array<
-          | {
-              __typename?: "datasets_supernovaGalaxyObservations_Entry";
-              id: string | null;
-              peakMjd: any | null;
-              json: Array<{
-                __typename?: "datasets_Asset";
-                url: string | null;
-              } | null>;
-            }
-          | { __typename?: "homepage_homepage_Entry" }
-          | { __typename?: "investigations_default_Entry" }
-          | { __typename?: "investigations_investigationParent_Entry" }
-          | {
-              __typename?: "investigations_investigationSectionBreakChild_Entry";
-            }
-          | { __typename?: "pages_pages_Entry" }
-          | { __typename?: "pages_redirectPage_Entry" }
-          | { __typename?: "questions_default_Entry" }
-          | { __typename?: "referenceModals_default_Entry" }
-          | { __typename?: "widgets_colorFilterTool_Entry" }
-          | { __typename?: "widgets_lightCurveTool_Entry" }
-          | { __typename?: "widgets_sourceSelector_Entry" }
-          | null
-        >;
-      }
-    | { __typename?: "widgets_sourceSelector_Entry" }
-    | null
-  >;
-} & { " $fragmentName"?: "LightCurveQuestionFragment" };
+export type TableRowsFragment = {
+  __typename?: "questions_default_Entry";
+  id: string | null;
+  rows: Array<{
+    __typename?: "questionTable_BlockType";
+    cells: Array<
+      | {
+          __typename?: "tableCell_question_BlockType";
+          id: string | null;
+          answerType: string | null;
+        }
+      | {
+          __typename?: "tableCell_text_BlockType";
+          id: string | null;
+          equation: string | null;
+          text: string | null;
+          header: boolean | null;
+        }
+      | null
+    >;
+    previousQuestion: Array<
+      | { __typename?: "datasets_supernovaGalaxyObservations_Entry" }
+      | { __typename?: "homepage_homepage_Entry" }
+      | { __typename?: "investigations_default_Entry" }
+      | { __typename?: "investigations_investigationParent_Entry" }
+      | { __typename?: "investigations_investigationSectionBreakChild_Entry" }
+      | { __typename?: "pages_pages_Entry" }
+      | { __typename?: "pages_redirectPage_Entry" }
+      | {
+          __typename?: "questions_default_Entry";
+          id: string | null;
+          rows: Array<{
+            __typename?: "questionTable_BlockType";
+            cells: Array<
+              | {
+                  __typename?: "tableCell_question_BlockType";
+                  id: string | null;
+                  answerType: string | null;
+                }
+              | {
+                  __typename?: "tableCell_text_BlockType";
+                  id: string | null;
+                  equation: string | null;
+                  text: string | null;
+                  header: boolean | null;
+                }
+              | null
+            >;
+          } | null>;
+        }
+      | { __typename?: "referenceModals_default_Entry" }
+      | { __typename?: "widgets_colorFilterTool_Entry" }
+      | { __typename?: "widgets_sourceSelector_Entry" }
+      | null
+    >;
+  } | null>;
+} & { " $fragmentName"?: "TableRowsFragment" };
 
 export type SourceSelectorQuestionFragment = {
   __typename: "questionWidgetsBlock_sourceSelectorBlock_BlockType";
@@ -23402,25 +23409,6 @@ export type ReferenceContentTemplateFragment = {
   > | null;
 } & { " $fragmentName"?: "ReferenceContentTemplateFragment" };
 
-export type AuthFragmentFragment = {
-  __typename?: "Auth";
-  jwt: string | null;
-  jwtExpiresAt: number | null;
-  refreshToken: string | null;
-  refreshTokenExpiresAt: number | null;
-  user:
-    | ({ __typename?: "User" } & {
-        " $fragmentRefs"?: { UserFragmentFragment: UserFragmentFragment };
-      })
-    | null;
-} & { " $fragmentName"?: "AuthFragmentFragment" };
-
-export type UserFragmentFragment = {
-  __typename?: "User";
-  id: string | null;
-  status: string | null;
-} & { " $fragmentName"?: "UserFragmentFragment" };
-
 export const TextBlockFragmentDoc = {
   kind: "Document",
   definitions: [
@@ -23714,9 +23702,9 @@ export const TableRowsFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
-                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       {
                         kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
                         name: { kind: "Name", value: "tableCell" },
                         selectionSet: {
                           kind: "SelectionSet",
@@ -23771,6 +23759,153 @@ export const TableRowsFragmentDoc = {
                                   {
                                     kind: "Field",
                                     name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
                                   },
                                 ],
                               },
@@ -23838,9 +23973,9 @@ export const TabularQuestionFragmentDoc = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
-                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       {
                         kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
                         name: { kind: "Name", value: "tableCell" },
                         selectionSet: {
                           kind: "SelectionSet",
@@ -23895,6 +24030,153 @@ export const TabularQuestionFragmentDoc = {
                                   {
                                     kind: "Field",
                                     name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
                                   },
                                 ],
                               },
@@ -24171,45 +24453,15 @@ export const ColorFilterToolEntryFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<ColorFilterToolEntryFragment, unknown>;
-export const ColorFilterToolQuestionFragmentDoc = {
+export const SourceSelectorEntryFragmentDoc = {
   kind: "Document",
   definitions: [
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolEntry" },
-      typeCondition: {
-        kind: "NamedType",
-        name: { kind: "Name", value: "widgets_colorFilterTool_Entry" },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
@@ -24217,34 +24469,9 @@ export const ColorFilterToolQuestionFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "title" } },
           { kind: "Field", name: { kind: "Name", value: "displayName" } },
-          { kind: "Field", name: { kind: "Name", value: "filterToolActions" } },
           {
             kind: "Field",
-            alias: { kind: "Name", value: "filterColorOptionsLabels" },
-            name: { kind: "Name", value: "filterColorOptions" },
-            arguments: [
-              {
-                kind: "Argument",
-                name: { kind: "Name", value: "label" },
-                value: { kind: "BooleanValue", value: true },
-              },
-            ],
-          },
-          {
-            kind: "Field",
-            alias: { kind: "Name", value: "filterColorOptionsValues" },
-            name: { kind: "Name", value: "filterColorOptions" },
-            arguments: [
-              {
-                kind: "Argument",
-                name: { kind: "Name", value: "label" },
-                value: { kind: "BooleanValue", value: false },
-              },
-            ],
-          },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "colorFilterToolObjects" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -24254,270 +24481,17 @@ export const ColorFilterToolQuestionFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "colorFilterToolObjects_group_BlockType",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "groupName" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "objects" },
-                        name: { kind: "Name", value: "children" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "colorFilterToolObjects_object_BlockType",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "name" },
-                                    name: { kind: "Name", value: "objectName" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "caption" },
-                                    name: {
-                                      kind: "Name",
-                                      value: "objectCaption",
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: {
-                                      kind: "Name",
-                                      value: "filterImages",
-                                    },
-                                    name: { kind: "Name", value: "children" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "colorFilterToolObjects_filterimage_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "isEnabled",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "isActive",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "image",
-                                                },
-                                                selectionSet: {
-                                                  kind: "SelectionSet",
-                                                  selections: [
-                                                    {
-                                                      kind: "Field",
-                                                      name: {
-                                                        kind: "Name",
-                                                        value: "url",
-                                                      },
-                                                      selectionSet: {
-                                                        kind: "SelectionSet",
-                                                        selections: [
-                                                          {
-                                                            kind: "Field",
-                                                            name: {
-                                                              kind: "Name",
-                                                              value:
-                                                                "directUrlPreview",
-                                                            },
-                                                          },
-                                                        ],
-                                                      },
-                                                    },
-                                                    {
-                                                      kind: "Field",
-                                                      name: {
-                                                        kind: "Name",
-                                                        value: "width",
-                                                      },
-                                                    },
-                                                    {
-                                                      kind: "Field",
-                                                      name: {
-                                                        kind: "Name",
-                                                        value: "height",
-                                                      },
-                                                    },
-                                                  ],
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "max",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "colorToolMax",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "min",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "colorToolMin",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "defaultValue",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value:
-                                                    "colorToolDefaultValue",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "label",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "filter",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "preSelectedColor",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<ColorFilterToolQuestionFragment, unknown>;
-export const SourceSelectorQuestionFragmentDoc = {
-  kind: "Document",
-  definitions: [
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -24527,8 +24501,7 @@ export const SourceSelectorQuestionFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -24536,302 +24509,99 @@ export const SourceSelectorQuestionFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<SourceSelectorQuestionFragment, unknown>;
-export const LightCurveQuestionFragmentDoc = {
-  kind: "Document",
-  definitions: [
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -24843,7 +24613,7 @@ export const LightCurveQuestionFragmentDoc = {
       },
     },
   ],
-} as unknown as DocumentNode<LightCurveQuestionFragment, unknown>;
+} as unknown as DocumentNode<SourceSelectorEntryFragment, unknown>;
 export const QuestionEntryFragmentDoc = {
   kind: "Document",
   definitions: [
@@ -24860,6 +24630,10 @@ export const QuestionEntryFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -24909,16 +24683,76 @@ export const QuestionEntryFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -25117,6 +24951,272 @@ export const QuestionEntryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
       name: { kind: "Name", value: "ColorFilterToolEntry" },
       typeCondition: {
         kind: "NamedType",
@@ -25370,52 +25470,20 @@ export const QuestionEntryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -25425,35 +25493,17 @@ export const QuestionEntryFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -25463,8 +25513,7 @@ export const QuestionEntryFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -25472,297 +25521,99 @@ export const QuestionEntryFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -25808,6 +25659,272 @@ export const QuestionsBlockFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
       name: { kind: "Name", value: "ColorFilterToolEntry" },
       typeCondition: {
         kind: "NamedType",
@@ -26061,52 +26178,20 @@ export const QuestionsBlockFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -26116,35 +26201,17 @@ export const QuestionsBlockFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -26154,8 +26221,7 @@ export const QuestionsBlockFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -26163,297 +26229,99 @@ export const QuestionsBlockFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -26477,6 +26345,10 @@ export const QuestionsBlockFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -26526,16 +26398,76 @@ export const QuestionsBlockFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -27341,130 +27273,6 @@ export const SupernovaDistanceDistributionBlockFragmentDoc = {
   SupernovaDistanceDistributionBlockFragment,
   unknown
 >;
-export const MagnitudeScatterPlotBlockFragmentDoc = {
-  kind: "Document",
-  definitions: [
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MagnitudeScatterPlotBlockFragment, unknown>;
 export const TwoColumnContainerBlockFragmentDoc = {
   kind: "Document",
   definitions: [
@@ -27579,13 +27387,6 @@ export const TwoColumnContainerBlockFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -27683,11 +27484,251 @@ export const TwoColumnContainerBlockFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
                             {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
                               },
                             },
                           ],
@@ -27698,6 +27739,25 @@ export const TwoColumnContainerBlockFragmentDoc = {
                 },
               ],
             },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
           },
         ],
       },
@@ -27957,52 +28017,20 @@ export const TwoColumnContainerBlockFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -28012,35 +28040,17 @@ export const TwoColumnContainerBlockFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -28050,8 +28060,7 @@ export const TwoColumnContainerBlockFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -28059,297 +28068,99 @@ export const TwoColumnContainerBlockFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -28373,6 +28184,10 @@ export const TwoColumnContainerBlockFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -28422,16 +28237,76 @@ export const TwoColumnContainerBlockFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -29210,125 +29085,6 @@ export const TwoColumnContainerBlockFragmentDoc = {
                         kind: "Field",
                         alias: { kind: "Name", value: "long" },
                         name: { kind: "Name", value: "galacticLongitude" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -29411,12 +29167,274 @@ export const InteractionGroupContainerBlockFragmentDoc = {
                     value: "SupernovaDistanceDistributionBlock",
                   },
                 },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
           },
         ],
       },
@@ -29676,52 +29694,20 @@ export const InteractionGroupContainerBlockFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -29731,35 +29717,17 @@ export const InteractionGroupContainerBlockFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -29769,8 +29737,7 @@ export const InteractionGroupContainerBlockFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -29778,297 +29745,99 @@ export const InteractionGroupContainerBlockFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -30092,6 +29861,10 @@ export const InteractionGroupContainerBlockFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -30141,16 +29914,76 @@ export const InteractionGroupContainerBlockFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -30929,125 +30762,6 @@ export const InteractionGroupContainerBlockFragmentDoc = {
                         kind: "Field",
                         alias: { kind: "Name", value: "long" },
                         name: { kind: "Name", value: "galacticLongitude" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -31179,10 +30893,6 @@ export const ContentBlockFactoryFragmentDoc = {
             kind: "FragmentSpread",
             name: { kind: "Name", value: "SupernovaDistanceDistributionBlock" },
           },
-          {
-            kind: "FragmentSpread",
-            name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-          },
         ],
       },
     },
@@ -31425,6 +31135,272 @@ export const ContentBlockFactoryFragmentDoc = {
                 },
               ],
             },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
           },
         ],
       },
@@ -31684,52 +31660,20 @@ export const ContentBlockFactoryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -31739,35 +31683,17 @@ export const ContentBlockFactoryFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -31777,8 +31703,7 @@ export const ContentBlockFactoryFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -31786,297 +31711,99 @@ export const ContentBlockFactoryFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -32100,6 +31827,10 @@ export const ContentBlockFactoryFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -32149,16 +31880,76 @@ export const ContentBlockFactoryFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -32706,125 +32497,6 @@ export const ContentBlockFactoryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
       name: { kind: "Name", value: "TwoColumnContainerBlock" },
       typeCondition: {
         kind: "NamedType",
@@ -32934,13 +32606,6 @@ export const ContentBlockFactoryFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -33038,13 +32703,6 @@ export const ContentBlockFactoryFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -33123,10 +32781,6 @@ export const ContentBlockFactoryFragmentDoc = {
                     kind: "Name",
                     value: "SupernovaDistanceDistributionBlock",
                   },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
                 },
               ],
             },
@@ -33447,6 +33101,272 @@ export const PageTemplateFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
       name: { kind: "Name", value: "ColorFilterToolEntry" },
       typeCondition: {
         kind: "NamedType",
@@ -33700,52 +33620,20 @@ export const PageTemplateFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -33755,35 +33643,17 @@ export const PageTemplateFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -33793,8 +33663,7 @@ export const PageTemplateFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -33802,297 +33671,99 @@ export const PageTemplateFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -34116,6 +33787,10 @@ export const PageTemplateFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -34165,16 +33840,76 @@ export const PageTemplateFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -34722,125 +34457,6 @@ export const PageTemplateFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
       name: { kind: "Name", value: "TwoColumnContainerBlock" },
       typeCondition: {
         kind: "NamedType",
@@ -34950,13 +34566,6 @@ export const PageTemplateFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -35054,13 +34663,6 @@ export const PageTemplateFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -35139,10 +34741,6 @@ export const PageTemplateFragmentDoc = {
                     kind: "Name",
                     value: "SupernovaDistanceDistributionBlock",
                   },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
                 },
               ],
             },
@@ -35255,10 +34853,6 @@ export const PageTemplateFragmentDoc = {
           {
             kind: "FragmentSpread",
             name: { kind: "Name", value: "SupernovaDistanceDistributionBlock" },
-          },
-          {
-            kind: "FragmentSpread",
-            name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
           },
         ],
       },
@@ -35531,6 +35125,272 @@ export const TemplateFactoryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
       name: { kind: "Name", value: "ColorFilterToolEntry" },
       typeCondition: {
         kind: "NamedType",
@@ -35784,52 +35644,20 @@ export const TemplateFactoryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -35839,35 +35667,17 @@ export const TemplateFactoryFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -35877,8 +35687,7 @@ export const TemplateFactoryFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -35886,297 +35695,99 @@ export const TemplateFactoryFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -36200,6 +35811,10 @@ export const TemplateFactoryFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -36249,16 +35864,76 @@ export const TemplateFactoryFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -36806,125 +36481,6 @@ export const TemplateFactoryFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
       name: { kind: "Name", value: "TwoColumnContainerBlock" },
       typeCondition: {
         kind: "NamedType",
@@ -37034,13 +36590,6 @@ export const TemplateFactoryFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -37138,13 +36687,6 @@ export const TemplateFactoryFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -37223,10 +36765,6 @@ export const TemplateFactoryFragmentDoc = {
                     kind: "Name",
                     value: "SupernovaDistanceDistributionBlock",
                   },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
                 },
               ],
             },
@@ -37340,10 +36878,6 @@ export const TemplateFactoryFragmentDoc = {
             kind: "FragmentSpread",
             name: { kind: "Name", value: "SupernovaDistanceDistributionBlock" },
           },
-          {
-            kind: "FragmentSpread",
-            name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-          },
         ],
       },
     },
@@ -37377,6 +36911,484 @@ export const TemplateFactoryFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<TemplateFactoryFragment, unknown>;
+export const ColorFilterToolQuestionFragmentDoc = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: {
+          kind: "Name",
+          value: "contentBlocks_colorFilterToolBlock_BlockType",
+        },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "colorFilterTool" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "FragmentSpread",
+                  name: { kind: "Name", value: "ColorFilterToolEntry" },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "ColorFilterToolEntry" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "widgets_colorFilterTool_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
+          { kind: "Field", name: { kind: "Name", value: "filterToolActions" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "filterColorOptionsLabels" },
+            name: { kind: "Name", value: "filterColorOptions" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "label" },
+                value: { kind: "BooleanValue", value: true },
+              },
+            ],
+          },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "filterColorOptionsValues" },
+            name: { kind: "Name", value: "filterColorOptions" },
+            arguments: [
+              {
+                kind: "Argument",
+                name: { kind: "Name", value: "label" },
+                value: { kind: "BooleanValue", value: false },
+              },
+            ],
+          },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "colorFilterToolObjects" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value: "colorFilterToolObjects_group_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "groupName" },
+                      },
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "objects" },
+                        name: { kind: "Name", value: "children" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value:
+                                    "colorFilterToolObjects_object_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "name" },
+                                    name: { kind: "Name", value: "objectName" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "caption" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "objectCaption",
+                                    },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: {
+                                      kind: "Name",
+                                      value: "filterImages",
+                                    },
+                                    name: { kind: "Name", value: "children" },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value:
+                                                "colorFilterToolObjects_filterimage_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "isEnabled",
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "isActive",
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "image",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "Field",
+                                                      name: {
+                                                        kind: "Name",
+                                                        value: "url",
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "directUrlPreview",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "Field",
+                                                      name: {
+                                                        kind: "Name",
+                                                        value: "width",
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "Field",
+                                                      name: {
+                                                        kind: "Name",
+                                                        value: "height",
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "max",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "colorToolMax",
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "min",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "colorToolMin",
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "defaultValue",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value:
+                                                    "colorToolDefaultValue",
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "label",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "filter",
+                                                },
+                                              },
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "color",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "preSelectedColor",
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ColorFilterToolQuestionFragment, unknown>;
+export const SourceSelectorQuestionFragmentDoc = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "SourceSelectorQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: {
+          kind: "Name",
+          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+        },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "__typename" } },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "sourceSelector" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "FragmentSpread",
+                  name: { kind: "Name", value: "SourceSelectorEntry" },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "SourceSelectorEntry" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "dataset" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "alertSources_source_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "color" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: {
+                                      kind: "Name",
+                                      value: "directUrlOriginal",
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SourceSelectorQuestionFragment, unknown>;
 export const InvestigationGridBlockFragmentDoc = {
   kind: "Document",
   definitions: [
@@ -38097,6 +38109,272 @@ export const InvestigationChildPageTemplateFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TableRows" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          {
+            kind: "Field",
+            alias: { kind: "Name", value: "rows" },
+            name: { kind: "Name", value: "questionTable" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: { kind: "Name", value: "questionTable_BlockType" },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
+                        name: { kind: "Name", value: "tableCell" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_question_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "answerType" },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "tableCell_text_BlockType",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "equation" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "text" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
+      name: { kind: "Name", value: "TabularQuestion" },
+      typeCondition: {
+        kind: "NamedType",
+        name: { kind: "Name", value: "questions_default_Entry" },
+      },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "questionText" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TableRows" },
+          },
+        ],
+      },
+    },
+    {
+      kind: "FragmentDefinition",
       name: { kind: "Name", value: "ColorFilterToolEntry" },
       typeCondition: {
         kind: "NamedType",
@@ -38350,52 +38628,20 @@ export const InvestigationChildPageTemplateFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "ColorFilterToolQuestion" },
+      name: { kind: "Name", value: "SourceSelectorEntry" },
       typeCondition: {
         kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_colorFilterToolBlock_BlockType",
-        },
+        name: { kind: "Name", value: "widgets_sourceSelector_Entry" },
       },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
+          { kind: "Field", name: { kind: "Name", value: "id" } },
+          { kind: "Field", name: { kind: "Name", value: "title" } },
+          { kind: "Field", name: { kind: "Name", value: "displayName" } },
           {
             kind: "Field",
-            name: { kind: "Name", value: "colorFilterTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolEntry" },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "SourceSelectorQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_sourceSelectorBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "sourceSelector" },
+            name: { kind: "Name", value: "dataset" },
             selectionSet: {
               kind: "SelectionSet",
               selections: [
@@ -38405,35 +38651,17 @@ export const InvestigationChildPageTemplateFragmentDoc = {
                     kind: "NamedType",
                     name: {
                       kind: "Name",
-                      value: "widgets_sourceSelector_Entry",
+                      value: "datasets_supernovaGalaxyObservations_Entry",
                     },
                   },
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
                       { kind: "Field", name: { kind: "Name", value: "id" } },
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
                       {
                         kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "includeScatterPlot" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
+                        alias: { kind: "Name", value: "sources" },
+                        name: { kind: "Name", value: "alertSources" },
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
@@ -38443,8 +38671,7 @@ export const InvestigationChildPageTemplateFragmentDoc = {
                                 kind: "NamedType",
                                 name: {
                                   kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
+                                  value: "alertSources_source_BlockType",
                                 },
                               },
                               selectionSet: {
@@ -38452,297 +38679,99 @@ export const InvestigationChildPageTemplateFragmentDoc = {
                                 selections: [
                                   {
                                     kind: "Field",
-                                    name: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "color" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
+                                    alias: { kind: "Name", value: "x" },
+                                    name: { kind: "Name", value: "xCoord" },
                                   },
                                   {
                                     kind: "Field",
-                                    alias: { kind: "Name", value: "sources" },
+                                    alias: { kind: "Name", value: "y" },
+                                    name: { kind: "Name", value: "yCoord" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "radius" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "type" },
+                                    name: { kind: "Name", value: "sourceType" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "id" },
+                                    name: { kind: "Name", value: "sourceName" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "galacticLongitude" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "json" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: { kind: "Name", value: "datasets_Asset" },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "url" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "imageAlbum" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "url" },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
                                     name: {
                                       kind: "Name",
-                                      value: "alertSources",
-                                    },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value:
-                                                "alertSources_source_BlockType",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "color",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "x",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "xCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "y",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "yCoord",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "radius",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "type",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceType",
-                                                },
-                                              },
-                                              {
-                                                kind: "Field",
-                                                alias: {
-                                                  kind: "Name",
-                                                  value: "id",
-                                                },
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "sourceName",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "imageAlbum" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "Field",
-                                          name: { kind: "Name", value: "url" },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "directUrlOriginal",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "width",
-                                          },
-                                        },
-                                        {
-                                          kind: "Field",
-                                          name: {
-                                            kind: "Name",
-                                            value: "height",
-                                          },
-                                        },
-                                      ],
+                                      value: "directUrlOriginal",
                                     },
                                   },
                                 ],
                               },
                             },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
-      name: { kind: "Name", value: "LightCurveQuestion" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "questionWidgetsBlock_lightCurveBlock_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          { kind: "Field", name: { kind: "Name", value: "__typename" } },
-          { kind: "Field", name: { kind: "Name", value: "typeHandle" } },
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      { kind: "Field", name: { kind: "Name", value: "title" } },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
                             {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "id" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
+                              kind: "Field",
+                              name: { kind: "Name", value: "width" },
+                            },
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "height" },
                             },
                           ],
                         },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
                       },
                     ],
                   },
@@ -38766,6 +38795,10 @@ export const InvestigationChildPageTemplateFragmentDoc = {
           { kind: "Field", name: { kind: "Name", value: "__typename" } },
           { kind: "Field", name: { kind: "Name", value: "id" } },
           { kind: "Field", name: { kind: "Name", value: "answerType" } },
+          {
+            kind: "FragmentSpread",
+            name: { kind: "Name", value: "TabularQuestion" },
+          },
           {
             kind: "Field",
             alias: { kind: "Name", value: "options" },
@@ -38815,16 +38848,76 @@ export const InvestigationChildPageTemplateFragmentDoc = {
               selections: [
                 { kind: "Field", name: { kind: "Name", value: "__typename" } },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "ColorFilterToolQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_colorFilterToolBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "colorFilterTool" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "ColorFilterToolEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
                 {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "SourceSelectorQuestion" },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "LightCurveQuestion" },
+                  kind: "InlineFragment",
+                  typeCondition: {
+                    kind: "NamedType",
+                    name: {
+                      kind: "Name",
+                      value:
+                        "questionWidgetsBlock_sourceSelectorBlock_BlockType",
+                    },
+                  },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "typeHandle" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "sourceSelector" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "FragmentSpread",
+                              name: {
+                                kind: "Name",
+                                value: "SourceSelectorEntry",
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
                 },
               ],
             },
@@ -39372,125 +39465,6 @@ export const InvestigationChildPageTemplateFragmentDoc = {
     },
     {
       kind: "FragmentDefinition",
-      name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
-      typeCondition: {
-        kind: "NamedType",
-        name: {
-          kind: "Name",
-          value: "contentBlocks_magnitudeScatterPlot_BlockType",
-        },
-      },
-      selectionSet: {
-        kind: "SelectionSet",
-        selections: [
-          {
-            kind: "Field",
-            name: { kind: "Name", value: "lightCurveTool" },
-            selectionSet: {
-              kind: "SelectionSet",
-              selections: [
-                {
-                  kind: "InlineFragment",
-                  typeCondition: {
-                    kind: "NamedType",
-                    name: {
-                      kind: "Name",
-                      value: "widgets_lightCurveTool_Entry",
-                    },
-                  },
-                  selectionSet: {
-                    kind: "SelectionSet",
-                    selections: [
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "displayName" },
-                      },
-                      {
-                        kind: "Field",
-                        name: { kind: "Name", value: "dataset" },
-                        selectionSet: {
-                          kind: "SelectionSet",
-                          selections: [
-                            {
-                              kind: "InlineFragment",
-                              typeCondition: {
-                                kind: "NamedType",
-                                name: {
-                                  kind: "Name",
-                                  value:
-                                    "datasets_supernovaGalaxyObservations_Entry",
-                                },
-                              },
-                              selectionSet: {
-                                kind: "SelectionSet",
-                                selections: [
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "title" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    alias: { kind: "Name", value: "peakMjd" },
-                                    name: { kind: "Name", value: "mjd" },
-                                  },
-                                  {
-                                    kind: "Field",
-                                    name: { kind: "Name", value: "json" },
-                                    selectionSet: {
-                                      kind: "SelectionSet",
-                                      selections: [
-                                        {
-                                          kind: "InlineFragment",
-                                          typeCondition: {
-                                            kind: "NamedType",
-                                            name: {
-                                              kind: "Name",
-                                              value: "datasets_Asset",
-                                            },
-                                          },
-                                          selectionSet: {
-                                            kind: "SelectionSet",
-                                            selections: [
-                                              {
-                                                kind: "Field",
-                                                name: {
-                                                  kind: "Name",
-                                                  value: "url",
-                                                },
-                                              },
-                                            ],
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMin" },
-                        name: { kind: "Name", value: "yAxisMin" },
-                      },
-                      {
-                        kind: "Field",
-                        alias: { kind: "Name", value: "yMax" },
-                        name: { kind: "Name", value: "yAxisMax" },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: "FragmentDefinition",
       name: { kind: "Name", value: "TwoColumnContainerBlock" },
       typeCondition: {
         kind: "NamedType",
@@ -39600,13 +39574,6 @@ export const InvestigationChildPageTemplateFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -39704,13 +39671,6 @@ export const InvestigationChildPageTemplateFragmentDoc = {
                                 value: "SupernovaDistanceDistributionBlock",
                               },
                             },
-                            {
-                              kind: "FragmentSpread",
-                              name: {
-                                kind: "Name",
-                                value: "MagnitudeScatterPlotBlock",
-                              },
-                            },
                           ],
                         },
                       },
@@ -39789,10 +39749,6 @@ export const InvestigationChildPageTemplateFragmentDoc = {
                     kind: "Name",
                     value: "SupernovaDistanceDistributionBlock",
                   },
-                },
-                {
-                  kind: "FragmentSpread",
-                  name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
                 },
               ],
             },
@@ -39905,10 +39861,6 @@ export const InvestigationChildPageTemplateFragmentDoc = {
           {
             kind: "FragmentSpread",
             name: { kind: "Name", value: "SupernovaDistanceDistributionBlock" },
-          },
-          {
-            kind: "FragmentSpread",
-            name: { kind: "Name", value: "MagnitudeScatterPlotBlock" },
           },
         ],
       },
@@ -41059,9 +41011,9 @@ export const InvestigationChildPageDocument = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
-                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       {
                         kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
                         name: { kind: "Name", value: "tableCell" },
                         selectionSet: {
                           kind: "SelectionSet",
@@ -41116,6 +41068,153 @@ export const InvestigationChildPageDocument = {
                                   {
                                     kind: "Field",
                                     name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
                                   },
                                 ],
                               },
@@ -43370,9 +43469,9 @@ export const InvestigationIdDocument = {
                   selectionSet: {
                     kind: "SelectionSet",
                     selections: [
-                      { kind: "Field", name: { kind: "Name", value: "id" } },
                       {
                         kind: "Field",
+                        alias: { kind: "Name", value: "cells" },
                         name: { kind: "Name", value: "tableCell" },
                         selectionSet: {
                           kind: "SelectionSet",
@@ -43427,6 +43526,153 @@ export const InvestigationIdDocument = {
                                   {
                                     kind: "Field",
                                     name: { kind: "Name", value: "header" },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "previousQuestion" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "InlineFragment",
+                              typeCondition: {
+                                kind: "NamedType",
+                                name: {
+                                  kind: "Name",
+                                  value: "questions_default_Entry",
+                                },
+                              },
+                              selectionSet: {
+                                kind: "SelectionSet",
+                                selections: [
+                                  {
+                                    kind: "Field",
+                                    name: { kind: "Name", value: "id" },
+                                  },
+                                  {
+                                    kind: "Field",
+                                    alias: { kind: "Name", value: "rows" },
+                                    name: {
+                                      kind: "Name",
+                                      value: "questionTable",
+                                    },
+                                    selectionSet: {
+                                      kind: "SelectionSet",
+                                      selections: [
+                                        {
+                                          kind: "InlineFragment",
+                                          typeCondition: {
+                                            kind: "NamedType",
+                                            name: {
+                                              kind: "Name",
+                                              value: "questionTable_BlockType",
+                                            },
+                                          },
+                                          selectionSet: {
+                                            kind: "SelectionSet",
+                                            selections: [
+                                              {
+                                                kind: "Field",
+                                                alias: {
+                                                  kind: "Name",
+                                                  value: "cells",
+                                                },
+                                                name: {
+                                                  kind: "Name",
+                                                  value: "tableCell",
+                                                },
+                                                selectionSet: {
+                                                  kind: "SelectionSet",
+                                                  selections: [
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_question_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value:
+                                                                "answerType",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: "InlineFragment",
+                                                      typeCondition: {
+                                                        kind: "NamedType",
+                                                        name: {
+                                                          kind: "Name",
+                                                          value:
+                                                            "tableCell_text_BlockType",
+                                                        },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: "SelectionSet",
+                                                        selections: [
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "id",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "equation",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "text",
+                                                            },
+                                                          },
+                                                          {
+                                                            kind: "Field",
+                                                            name: {
+                                                              kind: "Name",
+                                                              value: "header",
+                                                            },
+                                                          },
+                                                        ],
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
                                   },
                                 ],
                               },

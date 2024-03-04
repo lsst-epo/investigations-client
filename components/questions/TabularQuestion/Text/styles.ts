@@ -3,8 +3,19 @@ import styled from "styled-components";
 import { TextInput as BaseTextInput } from "../../SimpleQuestion/Text/styles";
 
 export const TextInput = styled(BaseTextInput)`
-  --text-bg: var(--white, #fff);
+  --input-background-color: var(--white, #fff);
 
   margin: 0;
-  min-width: 9em;
+  min-width: 20ch;
+
+  &:read-only {
+    --input-background-color: transparent;
+    --input-border-color: var(--neutral60, #6a6e6e);
+
+    cursor: default;
+
+    &:focus {
+      outline: none;
+    }
+  }
 `;

@@ -11,18 +11,18 @@ import IconComposer from "@rubin-epo/epo-react-lib/IconComposer";
 import { useOverflowDetector } from "@/hooks/useOverflowDetector";
 import * as Styled from "./styles";
 
-interface TableCell {
+export interface TableCell extends PropsWithChildren {
   id?: string;
   isHeader?: boolean;
 }
 
-interface TableHeaderCell {
+interface TableHeaderCell extends TableCell {
   thProps?: HTMLProps<HTMLTableCellElement>;
 }
 
-export type TableHeader = PropsWithChildren<TableHeaderCell>[];
+export type TableHeader = TableHeaderCell[];
 
-export type TableRow = PropsWithChildren<TableCell>[][];
+export type TableRow = TableCell[][];
 
 interface TableProps {
   header: TableHeader;
@@ -30,6 +30,7 @@ interface TableProps {
   caption?: string;
   id?: string;
   labelledById?: string;
+  className?: string;
 }
 
 const Table: FunctionComponent<TableProps> = ({
@@ -38,6 +39,7 @@ const Table: FunctionComponent<TableProps> = ({
   id,
   labelledById,
   caption,
+  className,
 }) => {
   const [scroll, setScroll] = useState(0);
   const [cellIndex, setCellIndex] = useState(0);
@@ -78,6 +80,7 @@ const Table: FunctionComponent<TableProps> = ({
   };
   return (
     <Styled.TableWrapper
+      className={className}
       style={{
         "--table-padding": overflow ? "var(--PADDING_SMALL, 20px)" : undefined,
       }}
@@ -111,8 +114,8 @@ const Table: FunctionComponent<TableProps> = ({
           {caption && <Styled.Caption>{caption}</Styled.Caption>}
           <thead>
             <tr ref={headerRef}>
-              {header.map(({ children, thProps, id }, i) => (
-                <Styled.Header key={id || i} scope="col" {...thProps}>
+              {header.map(({ children, thProps }, i) => (
+                <Styled.Header key={i} scope="col" {...thProps}>
                   {children}
                 </Styled.Header>
               ))}
