@@ -1,20 +1,51 @@
 import { FunctionComponent } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import Table from "@/components/layout/Table";
+import { BaseContentBlockProps } from "@/components/shapes";
+import { isNullish, notNull } from "@/lib/utils";
 import * as Styled from "./styles";
+import { buildHeader, buildRows } from "@/components/layout/Table/helpers";
 
 const Fragment = graphql(`
   fragment TableBlock on contentBlocks_table_BlockType {
     id
     caption
     contentHeading
-    displayTable {
+    rows: displayTable {
       ... on displayTable_BlockType {
-        tableRow {
+        cells: tableRow {
           ... on tableRow_tableCell_BlockType {
             id
-            cellContent
-            rowHeader
+            text: cellContent
+            header: rowHeader
+            equation
+          }
+        }
+        previousQuestion {
+          ... on questions_default_Entry {
+            id
+            rows: questionTable {
+              ... on questionTable_BlockType {
+                cells: tableCell {
+                  ... on tableCell_question_BlockType {
+                    id
+                    questionType
+                    options {
+                      ... on options_BlockType {
+                        label: optionLabel
+                        value: optionValue
+                      }
+                    }
+                  }
+                  ... on tableCell_static_BlockType {
+                    id
+                    equation
+                    text
+                    header
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -22,40 +53,23 @@ const Fragment = graphql(`
   }
 `);
 
-interface TableContentBlockProps {
-  data: FragmentType<typeof Fragment>;
-}
-
-const TableContentBlock: FunctionComponent<TableContentBlockProps> = ({
-  ...props
-}) => {
+const TableContentBlock: FunctionComponent<
+  BaseContentBlockProps<FragmentType<typeof Fragment>>
+> = ({ data }) => {
   const {
     id,
     caption,
     contentHeading,
-    displayTable = [],
-  } = useFragment(Fragment, props.data);
+    rows: rawRows = [],
+  } = useFragment(Fragment, data);
 
-  const buildRows = (
-    rows: { tableRow: { cellContent?: string; rowHeader?: boolean }[] }[]
-  ) => {
-    return rows.map(({ tableRow }, i) => {
-      return tableRow.map(({ cellContent = "", rowHeader = false }) => {
-        return {
-          children: cellContent,
-          ...(i > 0 && { isHeader: rowHeader }),
-        };
-      });
-    });
-  };
+  if (isNullish(rawRows) || isNullish(id)) return null;
 
-  const rows = buildRows(Array.from(displayTable) as any);
+  const { cells: headerCells = [] } = rawRows.shift() || {};
 
-  if (rows === null || rows.length === 0) {
-    return null;
-  }
-
-  const header = rows.shift() || [];
+  const header = buildHeader(headerCells?.filter(notNull));
+  const filteredRows = rawRows.filter(notNull);
+  const rows = isNullish(rawRows) ? [] : buildRows(filteredRows, id, true);
 
   return (
     <Styled.TableContentBlock>
@@ -65,7 +79,8 @@ const TableContentBlock: FunctionComponent<TableContentBlockProps> = ({
         </Styled.Heading>
       )}
       <Table
-        {...{ id, caption, rows, header }}
+        {...{ id, rows, header }}
+        caption={caption || undefined}
         labelledById={contentHeading ? `table-${id}-header` : undefined}
       />
     </Styled.TableContentBlock>

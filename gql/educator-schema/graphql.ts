@@ -7126,6 +7126,7 @@ export type DisplayTable_BlockType = ElementInterface & SuperTableBlockInterface
   id?: Maybe<Scalars['ID']['output']>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
+  previousQuestion: Array<Maybe<EntryInterface>>;
   /** The ID of the primary owner of the Super Table block. */
   primaryOwnerId: Scalars['Int']['output'];
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
@@ -7158,6 +7159,83 @@ export type DisplayTable_BlockType = ElementInterface & SuperTableBlockInterface
 
 export type DisplayTable_BlockType_CountArgs = {
   field: Scalars['String']['input'];
+};
+
+
+export type DisplayTable_BlockTypePreviousQuestionArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -10927,6 +11005,61 @@ export type Objects_Object_BlockType_CountArgs = {
 export type Objects_Object_BlockTypeFilterColorOptionsArgs = {
   label?: InputMaybe<Scalars['Boolean']['input']>;
 };
+
+export type Options_BlockType = ElementInterface & SuperTableBlockInterface & {
+  __typename?: 'options_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Super Table block. */
+  fieldId: Scalars['Int']['output'];
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  optionLabel?: Maybe<Scalars['String']['output']>;
+  optionValue?: Maybe<Scalars['String']['output']>;
+  /** The ID of the primary owner of the Super Table block. */
+  primaryOwnerId: Scalars['Int']['output'];
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Super Table block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the Super Table block‘s type. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type Options_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+export type Options_SuperTableField = Options_BlockType;
 
 export type PagesSectionEntryUnion = Pages_Pages_Entry | Pages_RedirectPage_Entry;
 
@@ -15422,13 +15555,12 @@ export type SortOptions_CategoryPrevArgs = {
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type TableCell_MatrixField = TableCell_Question_BlockType | TableCell_Text_BlockType;
+export type TableCell_MatrixField = TableCell_Question_BlockType | TableCell_Static_BlockType;
 
 export type TableCell_Question_BlockType = ElementInterface & MatrixBlockInterface & {
   __typename?: 'tableCell_question_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
-  answerType?: Maybe<Scalars['String']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   /** The date the element was created. */
@@ -15443,8 +15575,10 @@ export type TableCell_Question_BlockType = ElementInterface & MatrixBlockInterfa
   id?: Maybe<Scalars['ID']['output']>;
   /** The language of the site element is associated with. */
   language?: Maybe<Scalars['String']['output']>;
+  options: Array<Maybe<Options_SuperTableField>>;
   /** The ID of the primary owner of the Matrix block. */
   primaryOwnerId: Scalars['Int']['output'];
+  questionType?: Maybe<Scalars['String']['output']>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
@@ -15479,12 +15613,45 @@ export type TableCell_Question_BlockType_CountArgs = {
 };
 
 
-export type TableCell_Question_BlockTypeAnswerTypeArgs = {
+export type TableCell_Question_BlockTypeOptionsArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  primaryOwnerId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type TableCell_Question_BlockTypeQuestionTypeArgs = {
   label?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type TableCell_Text_BlockType = ElementInterface & MatrixBlockInterface & {
-  __typename?: 'tableCell_text_BlockType';
+export type TableCell_Static_BlockType = ElementInterface & MatrixBlockInterface & {
+  __typename?: 'tableCell_static_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
@@ -15535,7 +15702,7 @@ export type TableCell_Text_BlockType = ElementInterface & MatrixBlockInterface &
 };
 
 
-export type TableCell_Text_BlockType_CountArgs = {
+export type TableCell_Static_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
@@ -15554,6 +15721,7 @@ export type TableRow_TableCell_BlockType = ElementInterface & MatrixBlockInterfa
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  equation?: Maybe<Scalars['String']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
   /** The ID of the entity */

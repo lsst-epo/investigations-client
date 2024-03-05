@@ -1,37 +1,40 @@
 "use client";
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
+import useAnswer from "@/hooks/useAnswer";
+import { QuestionTableInputProps } from "../Table";
 import * as Styled from "./styles";
-import { SelectCell } from "..";
+import { notNull } from "@/lib/utils";
+import { WidgetInput } from "@/types/answers";
+import ReadOnlyInput from "../ReadOnly";
+import { getLabelByValue } from "../../utils";
 
-interface SelectCellProps extends SelectCell {
-  value?: string;
-  isDisabled?: boolean;
-  onChangeCallback: (value: string | null, id: string) => void;
-}
-
-const SelectQuestionCell: FunctionComponent<SelectCellProps> = ({
+const SelectQuestionCell: FunctionComponent<QuestionTableInputProps> = ({
   id,
-  value,
-  isDisabled,
-  onChangeCallback,
+  questionId,
   options = [],
+  readOnly = false,
 }) => {
   const { t } = useTranslation();
+  const { answer, onChangeCallback } = useAnswer<WidgetInput>(questionId);
+  const cellValue = notNull(answer) ? answer[id] : null;
+
+  if (readOnly)
+    return <ReadOnlyInput value={getLabelByValue(options, cellValue)} />;
+
   return (
     <Styled.InputContainer>
       <Styled.Select
-        id={id}
-        value={value || null}
-        isDisabled={isDisabled}
+        {...{ id, options }}
+        value={cellValue || null}
         isMultiselect={false}
-        options={options}
+        isDisabled={readOnly}
         onChangeCallback={(value: string | null) =>
-          onChangeCallback && onChangeCallback(value, id)
+          onChangeCallback && onChangeCallback({ ...answer, [id]: value })
         }
         placeholder={t("placeholder.select_answer")}
+        maxWidth="100%"
       />
-      <label htmlFor={id}>{value || t("placeholder.select_answer")}</label>
     </Styled.InputContainer>
   );
 };

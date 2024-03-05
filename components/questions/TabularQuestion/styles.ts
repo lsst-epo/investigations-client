@@ -4,6 +4,6 @@ import BaseQuestionNumber from "../QuestionNumber";
 
 export const QuestionNumber = styled(BaseQuestionNumber)`
   & > * + * {
-    margin-block-start: var(--content-block-margin);
+    margin-block-start: var(--PADDING_SMALL, 20px);
   }
 `;

@@ -1,20 +1,24 @@
 "use client";
 
 import { ChangeEvent, FunctionComponent } from "react";
-import useAnswer from "@/hooks/useAnswer";
-import { QuestionTableInputProps } from "../Table";
-import * as Styled from "./styles";
 import { useTranslation } from "react-i18next";
+import { notNull } from "@/lib/utils";
+import useAnswer from "@/hooks/useAnswer";
+import { WidgetInput } from "@/types/answers";
+import { QuestionTableInputProps } from "../Table";
+import ReadOnlyInput from "../ReadOnly";
 
+import * as Styled from "./styles";
 const TextQuestionCell: FunctionComponent<QuestionTableInputProps> = ({
   id,
   questionId,
   readOnly = false,
 }) => {
   const { t } = useTranslation();
-  const { answer, onChangeCallback } = useAnswer(questionId);
+  const { answer, onChangeCallback } = useAnswer<WidgetInput>(questionId);
+  const cellValue = notNull(answer) ? answer[id] : null;
 
-  const cellValue = answer?.data[id];
+  if (readOnly) return <ReadOnlyInput value={cellValue} />;
 
   return (
     <Styled.TextInput
@@ -23,7 +27,7 @@ const TextQuestionCell: FunctionComponent<QuestionTableInputProps> = ({
       defaultValue={cellValue}
       onBlur={(event: ChangeEvent<HTMLInputElement>) =>
         onChangeCallback &&
-        onChangeCallback({ ...answer?.data, [id]: event.target.value })
+        onChangeCallback({ ...answer, [id]: event.target.value })
       }
       readOnly={readOnly}
     />
