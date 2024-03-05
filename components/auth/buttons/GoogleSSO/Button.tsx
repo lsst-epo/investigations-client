@@ -29,8 +29,11 @@ export default function SSOButton({
 
   async function handleSuccess(res) {
     const { code } = res;
+    // eslint-disable-next-line no-console
+    console.log("handleSuccess auth code", code);
     const { id_token: idToken } = await getTokens(code);
-
+    // eslint-disable-next-line no-console
+    console.log("handleSuccess idToken", idToken);
     try {
       if (!idToken) return handleError();
       await authenticateUser(pendingGroup, idToken, pathToRevalidate);
