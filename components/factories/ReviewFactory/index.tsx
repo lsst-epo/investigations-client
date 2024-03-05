@@ -1,12 +1,10 @@
 import { ComponentType, FunctionComponent } from "react";
 import * as Review from "@/components/questions/Review";
-import { AnswerData } from "@/types/answers";
 
 export interface ReviewProps {
   id: string;
   type: string;
   number: number;
-  value?: AnswerData;
   config: any;
 }
 
@@ -16,6 +14,7 @@ const QUESTION_MAP: Record<string, ComponentType<any>> = {
   widget: Review.Widget,
   textarea: Review.Text,
   multiPart: Review.Inline,
+  tabular: Review.Tabular,
 };
 
 const ReviewFactory: FunctionComponent<ReviewProps> = ({

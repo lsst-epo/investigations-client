@@ -11,12 +11,53 @@ import {
 } from "@/components/auth/serverHelpers";
 import ReviewTemplate from "@/components/templates/ReviewPage";
 import { getSite } from "@/helpers";
+import { getPageQuestionEntries } from "@/helpers/questions";
 
 const Query = graphql(`
   query ReviewPage($site: [String], $uri: [String]) {
     entry(site: $site, uri: $uri) {
       ... on investigations_investigationParent_Entry {
         title
+        children {
+          ... on investigations_default_Entry {
+            contentBlocks {
+              ...QuestionsBlock
+              ... on contentBlocks_twoColumnContainer_BlockType {
+                columns: children {
+                  ... on contentBlocks_colLeft_BlockType {
+                    children {
+                      ...QuestionsBlock
+                      ... on contentBlocks_group_BlockType {
+                        group: children {
+                          ...QuestionsBlock
+                        }
+                      }
+                    }
+                  }
+                  ... on contentBlocks_colRight_BlockType {
+                    children {
+                      ...QuestionsBlock
+                      ... on contentBlocks_group_BlockType {
+                        group: children {
+                          ... on contentBlocks_questionBlock_BlockType {
+                            questionEntries {
+                              ...QuestionEntry
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              ... on contentBlocks_group_BlockType {
+                group: children {
+                  ...QuestionsBlock
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -46,8 +87,15 @@ const ReviewPage: FunctionComponent<ReviewPageProps> = async ({
     },
   });
 
+  const questions = data?.entry.children
+    .map(({ contentBlocks }) => getPageQuestionEntries(contentBlocks))
+    .flat();
+
   return (
-    <ReviewTemplate investigation={data?.entry?.title} {...{ user, locale }} />
+    <ReviewTemplate
+      investigation={data?.entry?.title}
+      {...{ user, locale, questions }}
+    />
   );
 };
 
