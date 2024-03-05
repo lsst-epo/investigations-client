@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import { token } from "@rubin-epo/epo-react-lib/styles";
 
