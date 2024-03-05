@@ -11,12 +11,12 @@ export const Input = styled.input`
   border-radius: 5px;
   color: var(--input-color);
   display: block;
-  font-size: 1rem;
+  font-size: 1em;
   margin-block-start: 1em;
   padding: 0;
   padding-inline: 1ch;
   width: 100%;
-  height: 2rem;
+  height: 2em;
 
   &:not(:disabled):not(:read-only):hover,
   &:not(:disabled):not(:read-only):active,

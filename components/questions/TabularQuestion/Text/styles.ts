@@ -7,15 +7,4 @@ export const TextInput = styled(BaseTextInput)`
 
   margin: 0;
   min-width: 20ch;
-
-  &:read-only {
-    --input-background-color: transparent;
-    --input-border-color: var(--neutral60, #6a6e6e);
-
-    cursor: default;
-
-    &:focus {
-      outline: none;
-    }
-  }
 `;

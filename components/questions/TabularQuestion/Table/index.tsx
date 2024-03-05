@@ -1,15 +1,9 @@
-import { ComponentType, FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import { isNullish } from "@/lib/utils";
+import { isNullish, notNull } from "@/lib/utils";
+import { Option } from "@/components/shapes/option";
 import Table from "@/components/layout/Table";
-import Equation from "@/components/atomic/Equation";
-import Text from "../Text";
-import Select from "../Select";
-import {
-  TableCell,
-  TableHeader,
-  TableRow,
-} from "@/components/layout/Table/Table";
+import { buildHeader, buildRows } from "@/components/layout/Table/helpers";
 
 const Fragment = graphql(`
   fragment TableRows on questions_default_Entry {
@@ -19,9 +13,15 @@ const Fragment = graphql(`
         cells: tableCell {
           ... on tableCell_question_BlockType {
             id
-            answerType
+            questionType
+            options {
+              ... on options_BlockType {
+                label: optionLabel
+                value: optionValue
+              }
+            }
           }
-          ... on tableCell_text_BlockType {
+          ... on tableCell_static_BlockType {
             id
             equation
             text
@@ -36,9 +36,15 @@ const Fragment = graphql(`
                 cells: tableCell {
                   ... on tableCell_question_BlockType {
                     id
-                    answerType
+                    questionType
+                    options {
+                      ... on options_BlockType {
+                        label: optionLabel
+                        value: optionValue
+                      }
+                    }
                   }
-                  ... on tableCell_text_BlockType {
+                  ... on tableCell_static_BlockType {
                     id
                     equation
                     text
@@ -58,6 +64,7 @@ export interface QuestionTableInputProps {
   id: string;
   questionId: string;
   readOnly?: boolean;
+  options?: Array<Option>;
 }
 
 interface QuestionTableProps {
@@ -66,76 +73,42 @@ interface QuestionTableProps {
   className?: string;
 }
 
-const QuestionsMap: Record<string, ComponentType<QuestionTableInputProps>> = {
-  text: Text,
-  select: Select,
-};
+export interface Cell {
+  __typename: string;
+  id: string;
+  equation?: string;
+  text?: string;
+  questionType?: "text" | "select";
+  header?: boolean;
+  options?: Array<Option>;
+}
 
-const buildStaticCell = ({ id, equation, text, header }): TableCell => {
-  const isHeader = !!header;
-  if (text) {
-    return { id, children: text, isHeader };
-  }
-
-  if (equation) {
-    const children = <Equation latex={equation} />;
-
-    return { id, children, isHeader };
-  }
-
-  return { id, isHeader };
-};
-
-const buildHeader = (cells: Array<any>): TableHeader => {
-  return cells.map(buildStaticCell);
-};
-
-const buildCell = (
-  cell: {
-    __typename: string;
-    id: string;
-    equation?: string;
-    text?: string;
-    answerType?: "text" | "select";
-    header?: boolean;
-  },
-  questionId: string,
-  readOnly = false
+const getOverflowPadding = (
+  rows: Array<{ cells: Array<Cell>; previousQuestion: Array<any> }> = []
 ) => {
-  const { __typename, id, equation, text, answerType, header } = cell;
+  const rowHeight = 5;
+  const itemHeight = 2;
+  const tableHeight = rowHeight * rows.length;
+  /**  */
+  const dropdownStartPosition = Math.ceil(rowHeight / 2 + itemHeight / 2);
 
-  if (__typename === "tableCell_question_BlockType") {
-    const Question = answerType && QuestionsMap[answerType];
+  /** the largest set of options in each row */
+  const largestOptions = rows.map(({ cells }) =>
+    cells.reduce((prev, { options = [] }) => {
+      return options.length > prev ? options.length : prev;
+    }, 0)
+  );
 
-    if (!Question) return { id };
-
-    return { id, children: <Question {...{ id, questionId, readOnly }} /> };
-  }
-
-  if (__typename === "tableCell_text_BlockType") {
-    return buildStaticCell({ id, equation, text, header });
-  }
-
-  return {};
-};
-
-const buildCells = (cells: Array<any>, questionId: string, readOnly = false) =>
-  cells.map((cell) => buildCell(cell, questionId, readOnly));
-
-const buildRows = (
-  rows: Array<any>,
-  questionId: string,
-  readOnly = false
-): TableRow => {
-  return rows.map(({ cells = [], previousQuestion = [] }) => {
-    if (previousQuestion && previousQuestion.length > 0) {
-      const [{ id, rows }] = previousQuestion;
-
-      return buildRows(rows.slice(1), id, true).flat();
-    } else {
-      return buildCells(cells, questionId, readOnly);
-    }
+  /** the height each row extends beyond the end of the table */
+  const totalHeight = largestOptions.map((o, i) => {
+    const startingPosition = i * rowHeight + dropdownStartPosition;
+    const itemsHeight = o * itemHeight;
+    return Math.max(startingPosition + itemsHeight - tableHeight, 0);
   });
+
+  const largest = Math.max(...totalHeight);
+
+  return `calc(${largest}em  - calc(var(--table-border-width) * 2))`;
 };
 
 const QuestionTable: FunctionComponent<QuestionTableProps> = async ({
@@ -149,11 +122,11 @@ const QuestionTable: FunctionComponent<QuestionTableProps> = async ({
   const rawHeader = rawRows.shift();
 
   const header = isNullish(rawHeader) ? [] : buildHeader(rawHeader.cells);
-  const rows = isNullish(rawRows) ? [] : buildRows(rawRows, id);
+  const filteredRows = rawRows.filter(notNull);
+  const rows = isNullish(rawRows) ? [] : buildRows(filteredRows, id);
+  const overflowPadding = getOverflowPadding(filteredRows);
 
-  console.log({ header, rows });
-
-  return <Table {...{ header, rows, className }} />;
+  return <Table {...{ header, rows, className, overflowPadding }} />;
 };
 
 QuestionTable.displayName = "Questions.Tabular.Table";
