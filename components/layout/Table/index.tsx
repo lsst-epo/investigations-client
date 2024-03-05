@@ -20,9 +20,9 @@ interface TableHeaderCell extends TableCell {
   thProps?: HTMLProps<HTMLTableCellElement>;
 }
 
-export type TableHeader = TableHeaderCell[];
+export type TableHeader = Array<TableHeaderCell>;
 
-export type TableRow = TableCell[][];
+export type TableRow = Array<Array<TableCell>>;
 
 interface TableProps {
   header: TableHeader;
@@ -31,6 +31,7 @@ interface TableProps {
   id?: string;
   labelledById?: string;
   className?: string;
+  overflowPadding?: string;
 }
 
 const Table: FunctionComponent<TableProps> = ({
@@ -40,35 +41,32 @@ const Table: FunctionComponent<TableProps> = ({
   labelledById,
   caption,
   className,
+  overflowPadding = 0,
 }) => {
   const [scroll, setScroll] = useState(0);
   const [cellIndex, setCellIndex] = useState(0);
   const headerRef = useRef<HTMLTableRowElement>(null);
   const { overflow, ref } = useOverflowDetector({});
 
-  const handleEvent = (forward = true) => {
+  const scrollForward = () => {
     if (headerRef.current && ref.current) {
       const { offsetWidth: parentWidth, scrollLeft } = ref.current;
       const { children } = headerRef.current;
 
-      const start = forward
-        ? Math.min(cellIndex + 1, children.length - 1)
-        : Math.max(cellIndex - 1, 0);
+      const start = Math.min(cellIndex + 1, children.length - 1);
 
-      for (let i = start; i < children.length; forward ? i++ : i--) {
+      for (let i = start; i < children.length; i++) {
         const th = children[i];
         const { offsetLeft, offsetWidth, cellIndex } =
           th as HTMLTableCellElement;
-        const isHidden = forward
-          ? offsetLeft + offsetWidth > parentWidth + scrollLeft
-          : offsetLeft < scrollLeft;
+        const isHidden = offsetLeft + offsetWidth > parentWidth + scrollLeft;
 
         if (isHidden) {
+          const left = offsetLeft;
           if (i <= 0 || i >= children.length - 1) {
-            const left = forward ? offsetLeft : 0;
             ref.current.scrollTo({ left, behavior: "smooth" });
           } else {
-            th.scrollIntoView({ behavior: "smooth" });
+            ref.current.scrollTo({ left, behavior: "smooth" });
           }
 
           setCellIndex(cellIndex);
@@ -78,6 +76,33 @@ const Table: FunctionComponent<TableProps> = ({
       }
     }
   };
+  const scrollBackward = () => {
+    if (headerRef.current && ref.current) {
+      const { scrollLeft } = ref.current;
+      const { children } = headerRef.current;
+
+      const start = Math.max(cellIndex - 1, 0);
+
+      for (let i = start; i < children.length; i--) {
+        const th = children[i];
+        const { offsetLeft, cellIndex } = th as HTMLTableCellElement;
+        const isHidden = offsetLeft < scrollLeft;
+
+        if (isHidden) {
+          if (i <= 0 || i >= children.length - 1) {
+            ref.current.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            ref.current.scrollTo({ left: offsetLeft, behavior: "smooth" });
+          }
+
+          setCellIndex(cellIndex);
+
+          return;
+        }
+      }
+    }
+  };
+
   return (
     <Styled.TableWrapper
       className={className}
@@ -88,14 +113,14 @@ const Table: FunctionComponent<TableProps> = ({
       {overflow && (
         <>
           <Styled.ScrollButton
-            onClick={() => handleEvent(false)}
+            onClick={() => scrollBackward()}
             disabled={cellIndex <= 0 && scroll <= 0}
             aria-hidden={true}
           >
             <IconComposer icon="ChevronLeftElongated" />
           </Styled.ScrollButton>
           <Styled.ScrollButton
-            onClick={() => handleEvent()}
+            onClick={() => scrollForward()}
             disabled={cellIndex >= header.length - 1 && scroll > 0}
             aria-hidden={true}
           >
@@ -103,8 +128,8 @@ const Table: FunctionComponent<TableProps> = ({
           </Styled.ScrollButton>
         </>
       )}
-
       <Styled.ScrollWrapper
+        style={{ paddingBlockEnd: overflow ? overflowPadding : 0 }}
         ref={ref as MutableRefObject<HTMLDivElement>}
         onScroll={(event) =>
           setScroll((event.target as HTMLDivElement).scrollLeft)

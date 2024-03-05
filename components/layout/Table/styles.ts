@@ -9,7 +9,6 @@ export const TableWrapper = styled.div`
 
   padding-inline: var(--table-padding, 0);
   position: relative;
-  overflow: hidden;
 `;
 
 export const ScrollButton = styled.button`
@@ -77,6 +76,7 @@ export const Cell = styled.td`
   font-weight: normal;
   height: var(--table-header-height);
   padding: 1em;
+  text-align: center;
 `;
 export const Caption = styled.caption`
   caption-side: bottom;
