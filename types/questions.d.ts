@@ -24,6 +24,4 @@ export interface BaseQuestionProps {
   isDisabled?: boolean;
 }
 
-export interface BaseReviewProps<T> extends Pick<BaseQuestionProps, "number"> {
-  value?: T;
-}
+export type BaseReviewProps = Omit<BaseQuestionProps, "isDisabled">;
