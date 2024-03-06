@@ -18,9 +18,10 @@ const SimpleText: FunctionComponent<SimpleTextProps> = ({
 }) => {
   return (
     <Styled.TextInput
-      {...{ id, value, className }}
+      {...{ id, className }}
       type="text"
       disabled={isDisabled}
+      defaultValue={value}
       onBlur={(event: FocusEvent<HTMLInputElement>) =>
         onChangeCallback && onChangeCallback(event.target.value)
       }

@@ -6,5 +6,4 @@ export const TextInput = styled(BaseTextInput)`
   --input-background-color: var(--white, #fff);
 
   margin: 0;
-  min-width: 20ch;
 `;

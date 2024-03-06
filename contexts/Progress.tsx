@@ -2,7 +2,8 @@
 import { createContext, FunctionComponent, ReactNode, useContext } from "react";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import usePages from "./Pages";
-import useQuestions, { StoredQuestion } from "./Questions";
+import useQuestions from "./Questions";
+import { Question } from "@/helpers/questions";
 
 interface InvestigationProgress {
   currentPageId: string;
@@ -14,7 +15,7 @@ interface InvestigationProgress {
 }
 
 const getAnsweredBySection = (
-  questionsBySectionPage: Array<Array<Array<StoredQuestion>>>,
+  questionsBySectionPage: Array<Array<Array<Question>>>,
   answers: Record<string, any>
 ) => {
   return questionsBySectionPage.map((section) => {
@@ -34,7 +35,7 @@ const getDisabledByPage = ({
 }: {
   totalPages: number;
   currentPage: number;
-  questionsByPage: Array<Array<StoredQuestion>>;
+  questionsByPage: Array<Array<Question>>;
   answeredByPage: Array<boolean>;
 }) => {
   const disabledByPage = [];

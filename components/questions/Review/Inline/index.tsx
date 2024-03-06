@@ -1,12 +1,14 @@
+"use client";
 import { ComponentType, FunctionComponent } from "react";
+import useAnswer from "@/hooks/useAnswer";
 import { BaseReviewProps, InlineQuestionType } from "@/types/questions";
-import * as Styled from "./styles";
 
 import Readonly from "./Readonly";
 import Text from "./Text";
 import Multiselect from "./Multiselect";
 import { InlineQuestionData } from "@/types/answers";
 import { Option } from "@/components/shapes/option";
+import * as Styled from "./styles";
 
 export interface ReviewPart {
   options?: Array<Option>;
@@ -15,7 +17,7 @@ export interface ReviewPart {
   id: string;
 }
 
-export interface InlineReviewProps extends BaseReviewProps<InlineQuestionData> {
+export interface InlineReviewProps extends BaseReviewProps {
   parts: ReviewPart[];
 }
 
@@ -27,10 +29,12 @@ const REVIEW_MAP: Record<InlineQuestionType, ComponentType<any>> = {
 };
 
 const InlineReview: FunctionComponent<InlineReviewProps> = ({
+  id,
   number,
   parts = [],
-  value: partsValues = {},
 }) => {
+  const { answer = {} } = useAnswer<InlineQuestionData>(id);
+
   return (
     <Styled.ReviewListInlineItem value={number}>
       {parts.map(({ type, id, text, options }, i) => {
@@ -42,7 +46,7 @@ const InlineReview: FunctionComponent<InlineReviewProps> = ({
           return null;
         }
 
-        const value = id in partsValues ? partsValues[id] : undefined;
+        const value = id in answer ? answer[id] : undefined;
 
         return <Review {...{ value, type, text, options }} key={i} />;
       })}

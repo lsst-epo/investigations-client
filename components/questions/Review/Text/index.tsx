@@ -7,7 +7,7 @@ import { BaseReviewProps } from "@/types/questions";
 import { TextInput } from "@/types/answers";
 import useAnswer from "@/hooks/useAnswer";
 
-interface TextProps extends BaseReviewProps<TextInput> {
+interface TextProps extends BaseReviewProps {
   questionText: string;
 }
 

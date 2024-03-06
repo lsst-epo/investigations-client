@@ -9,16 +9,16 @@ import {
 import { useTranslation } from "react-i18next";
 import FormButtons from "@rubin-epo/epo-react-lib/FormButtons";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import PrintButton from "@/components/atomic/Button/patterns/PrintButton";
-import XlsxButton from "@/components/atomic/Button/patterns/XlsxButton";
+import PrintButton from "@/components/review/PrintButton";
+import XlsxButton from "@/components/review/XlsxButton";
 import * as Styled from "./styles";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
-import { StoredQuestion } from "@/helpers/questions";
+import { Question } from "@/helpers/questions";
 
 interface ReviewExportProps {
   user: ReturnType<typeof getUserFromJwt>;
   investigation?: string;
-  questions: Array<StoredQuestion>;
+  questions: Array<Question>;
 }
 
 const ReviewExport: FunctionComponent<PropsWithChildren<ReviewExportProps>> = ({

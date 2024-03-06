@@ -34,7 +34,7 @@ export const Text = styled.span`
   min-height: 2rem;
 `;
 
-export const Widget = styled.div`
+export const PrintWrapper = styled.div`
   margin-block-start: 1em;
 
   @media only print {
