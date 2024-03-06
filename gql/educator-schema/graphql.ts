@@ -7194,6 +7194,7 @@ export type DisplayTable_BlockTypePreviousQuestionArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -7236,6 +7237,8 @@ export type DisplayTable_BlockTypePreviousQuestionArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12540,6 +12543,7 @@ export type QuestionTable_BlockTypePreviousQuestionArgs = {
   image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
   json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves?: InputMaybe<Scalars['Boolean']['input']>;
   level?: InputMaybe<Scalars['Int']['input']>;
@@ -12582,6 +12586,8 @@ export type QuestionTable_BlockTypePreviousQuestionArgs = {
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
 
@@ -12620,7 +12626,7 @@ export type QuestionTable_BlockTypeTableCellArgs = {
 
 export type QuestionTable_SuperTableField = QuestionTable_BlockType;
 
-export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_SourceSelectorBlock_BlockType;
+export type QuestionWidgetsBlock_NeoField = QuestionWidgetsBlock_ColorFilterToolBlock_BlockType | QuestionWidgetsBlock_LightCurveBlock_BlockType | QuestionWidgetsBlock_SourceSelectorBlock_BlockType;
 
 export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'questionWidgetsBlock_colorFilterToolBlock_BlockType';
