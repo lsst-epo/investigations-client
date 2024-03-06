@@ -45,9 +45,9 @@ const buildCell = (
   questionId: string,
   readOnly = false
 ): TableCell => {
-  const { __typename, id, questionType, options } = cell;
+  const { id, questionType, options } = cell;
 
-  if (__typename === "tableCell_question_BlockType") {
+  if (questionType) {
     const Question = questionType && QuestionsMap[questionType];
 
     if (!Question) return { id: id || undefined };
@@ -58,15 +58,11 @@ const buildCell = (
     };
   }
 
-  if (__typename === "tableCell_static_BlockType") {
-    return buildStaticCell(cell);
-  }
-
-  return {};
+  return buildStaticCell(cell);
 };
 
 export const buildRows = (
-  rows: Array<{ cells: Array<Cell>; previousQuestion: Array<any> }>,
+  rows: Array<{ cells: Array<Cell>; previousQuestion?: Array<any> }>,
   questionId: string,
   readOnly = false
 ): TableRow => {

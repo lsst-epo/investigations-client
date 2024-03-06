@@ -1,10 +1,10 @@
 import { FunctionComponent } from "react";
 import ReviewFactory from "@/components/factories/ReviewFactory";
-import { StoredQuestion } from "@/helpers/questions";
+import { Question } from "@/helpers/questions";
 import * as Styled from "./styles";
 
 const ReviewList: FunctionComponent<{
-  questions: Array<StoredQuestion>;
+  questions: Array<Question>;
 }> = ({ questions }) => {
   return (
     <Styled.ReviewList>
