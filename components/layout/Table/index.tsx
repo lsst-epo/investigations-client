@@ -129,7 +129,7 @@ const Table: FunctionComponent<TableProps> = ({
         </>
       )}
       <Styled.ScrollWrapper
-        style={{ paddingBlockEnd: overflow ? overflowPadding : 0 }}
+        style={{ paddingBlockEnd: overflowPadding }}
         ref={ref as MutableRefObject<HTMLDivElement>}
         onScroll={(event) =>
           setScroll((event.target as HTMLDivElement).scrollLeft)

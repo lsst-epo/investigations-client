@@ -7,9 +7,14 @@ export const ReadOnly = styled(TextInput)`
     --input-border-color: var(--neutral60, #6a6e6e);
 
     cursor: default;
+    min-width: unset;
 
     &:focus {
       outline: none;
+    }
+
+    @media only print {
+      --input-border-color: transparent;
     }
   }
 `;

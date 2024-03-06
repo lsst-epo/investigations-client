@@ -2,12 +2,12 @@
 import { FunctionComponent, PropsWithChildren } from "react";
 import { useTranslation } from "react-i18next";
 import { Answers } from "@/types/answers";
-import { StoredQuestion } from "@/contexts/Questions";
 import * as Styled from "./styles";
+import { Question } from "@/helpers/questions";
 
 interface XlsxButtonProps {
   answers: Answers;
-  questions: Array<StoredQuestion>;
+  questions: Array<Question>;
   investigation?: string;
   name?: string;
 }

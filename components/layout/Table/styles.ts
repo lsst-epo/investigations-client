@@ -9,6 +9,11 @@ export const TableWrapper = styled.div`
 
   padding-inline: var(--table-padding, 0);
   position: relative;
+
+  @media only print {
+    --table-header-height: auto;
+    --table-border-width: 1px;
+  }
 `;
 
 export const ScrollButton = styled.button`
@@ -48,6 +53,10 @@ export const ScrollButton = styled.button`
   &:last-of-type {
     right: -1px;
   }
+
+  @media only print {
+    display: none;
+  }
 `;
 
 export const ScrollWrapper = styled.div`
@@ -77,6 +86,10 @@ export const Cell = styled.td`
   height: var(--table-header-height);
   padding: 1em;
   text-align: center;
+
+  @media only print {
+    padding: 0;
+  }
 `;
 export const Caption = styled.caption`
   caption-side: bottom;

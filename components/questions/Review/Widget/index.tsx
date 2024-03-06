@@ -7,8 +7,9 @@ import { QuestionLabel } from "../../SimpleQuestion/styles";
 import * as Styled from "../styles";
 import { WidgetInput } from "@/types/answers";
 import { BaseReviewProps } from "@/types/questions";
+import useAnswer from "@/hooks/useAnswer";
 
-export interface WidgetReviewWrapperProps extends BaseReviewProps<WidgetInput> {
+export interface WidgetReviewWrapperProps extends BaseReviewProps {
   id: string;
   widgetInstructions: string;
   questionWidgetsBlock: Array<{ typeHandle: string; [key: string]: any }>;
@@ -28,13 +29,13 @@ export const WIDGET_MAP: Record<string, ComponentType<WidgetReviewProps>> = {
 
 const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
   id,
-  value,
   number,
   widgetInstructions,
   questionWidgetsBlock,
 }) => {
   const { typeHandle, ...widgetConfig } = questionWidgetsBlock[0];
   const Widget = WIDGET_MAP[typeHandle];
+  const { answer = {} } = useAnswer<WidgetInput>(id);
 
   if (!Widget) {
     console.error(
@@ -47,9 +48,9 @@ const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
   return (
     <Styled.ReviewListItem value={number}>
       <QuestionLabel dangerouslySetInnerHTML={{ __html: widgetInstructions }} />
-      <Styled.Widget>
-        <Widget data={widgetConfig} {...{ id, value }} />
-      </Styled.Widget>
+      <Styled.PrintWrapper>
+        <Widget data={widgetConfig} value={answer} {...{ id }} />
+      </Styled.PrintWrapper>
     </Styled.ReviewListItem>
   );
 };

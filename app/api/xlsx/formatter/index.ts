@@ -1,46 +1,45 @@
 import { Cell } from "exceljs";
+import { Cell as TableCell } from "@/components/questions/TabularQuestion/Table";
 import { Option } from "@/components/shapes/option";
 import text from "./text";
 import select from "./select";
 import multiPart from "./inline";
 import widget from "./widget";
+import tabular from "./tabular";
 import { InlineQuestionData, TextInput, WidgetInput } from "@/types/answers";
 import {
   InlineReviewProps,
   ReviewPart,
 } from "@/components/questions/Review/Inline";
 
-interface FormatterBaseProps {
+interface FormatterBaseProps<T = any> {
   locale: string;
   id: string;
   cell: Cell;
+  value: T;
 }
 
-export interface TextProps extends FormatterBaseProps {
-  value: TextInput;
-}
+export type TextProps = FormatterBaseProps<TextInput>;
 
 export interface SelectProps extends TextProps {
   options: Array<Option>;
 }
 
-export interface WidgetProps {
-  locale: string;
+export interface WidgetProps extends FormatterBaseProps<WidgetInput> {
   data: any;
-  value: WidgetInput;
-  id: string;
-  cell: Cell;
+}
+
+export interface TabularProps extends FormatterBaseProps<WidgetInput> {
+  rows: Array<{ cells: Array<TableCell>; previousQuestion: Array<any> }>;
 }
 
 export interface InlineFactoryProps
-  extends FormatterBaseProps,
+  extends FormatterBaseProps<InlineQuestionData>,
     Omit<InlineReviewProps, "number"> {
-  value: InlineQuestionData;
   parts: Array<ReviewPart>;
 }
 
-export interface WidgetFactoryProps extends FormatterBaseProps {
-  value: WidgetInput;
+export interface WidgetFactoryProps extends FormatterBaseProps<WidgetInput> {
   questionWidgetsBlock: any[];
 }
 
@@ -53,21 +52,22 @@ export type InlineFormatterFactory = (
 export type WidgetFormatterFactory = (
   props: WidgetFactoryProps
 ) => Promise<void>;
+export type TabularFormatter = (props: TabularProps) => Promise<void>;
 
 type Formatter =
   | TextFormatter
   | SelectFormatter
   | InlineFormatterFactory
-  | WidgetFormatterFactory;
+  | WidgetFormatterFactory
+  | TabularFormatter;
 
-const formatters: {
-  [key: string]: Formatter;
-} = {
+const formatters: Record<string, Formatter> = {
   text,
   textarea: text,
   select,
   widget,
   multiPart,
+  tabular,
 };
 
 export default formatters;

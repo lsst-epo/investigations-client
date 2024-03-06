@@ -1,11 +1,17 @@
 /* eslint-disable no-use-before-define */
-import { Option } from "@/components/shapes/option";
+import {
+  MultipartConfig,
+  QuestionConfig,
+  SelectConfig,
+  TabularConfig,
+  WidgetConfig,
+} from "@/types/questions";
 
-type QuestionEntry = BaseQuestion &
-  WidgetQuestion &
-  MultipartQuestion &
-  SelectQuestion &
-  TabularQuestion;
+type QuestionEntry = QuestionConfig &
+  WidgetConfig &
+  MultipartConfig &
+  SelectConfig &
+  TabularConfig;
 
 interface BaseBlock {
   __typename: string;
@@ -29,37 +35,14 @@ interface ColumnBlock extends BaseBlock {
 
 type ContentBlock = QuestionBlock | GroupBlock | ColumnBlock | BaseBlock;
 
-interface BaseQuestion {
-  answerType: string;
-  id: string;
-  questionText: string;
-}
+export type Question =
+  | QuestionConfig
+  | WidgetConfig
+  | MultipartConfig
+  | SelectConfig
+  | TabularConfig;
 
-interface TabularQuestion extends BaseQuestion {
-  rows: Array<any>;
-}
-
-interface SelectQuestion extends BaseQuestion {
-  options: Array<Option>;
-}
-
-interface WidgetQuestion extends Omit<BaseQuestion, "questionText"> {
-  questionWidgetsBlock: Array<any>;
-  widgetInstructions: string;
-}
-
-interface MultipartQuestion extends Omit<BaseQuestion, "questionText"> {
-  parts: Array<any>;
-}
-
-export type StoredQuestion =
-  | BaseQuestion
-  | WidgetQuestion
-  | MultipartQuestion
-  | SelectQuestion
-  | TabularQuestion;
-
-function buildQuestion(question: QuestionEntry): StoredQuestion | undefined {
+function buildQuestion(question: QuestionEntry): Question | undefined {
   const {
     answerType,
     id,
@@ -91,7 +74,7 @@ function buildQuestion(question: QuestionEntry): StoredQuestion | undefined {
 
 function buildQuestionEntries(
   block: QuestionBlock
-): Array<StoredQuestion | undefined> | undefined {
+): Array<Question | undefined> | undefined {
   const { questionEntries } = block;
 
   if (!questionEntries) {
@@ -103,7 +86,7 @@ function buildQuestionEntries(
 
 const getTwoColQuestionEntries = (
   block: ColumnBlock
-): Array<StoredQuestion | undefined> => {
+): Array<Question | undefined> => {
   const { columns = [] } = block;
 
   const colBlocks = columns.map((col) => {
@@ -127,7 +110,7 @@ const getTwoColQuestionEntries = (
 
 const getQuestionEntries = (
   block: ContentBlock
-): Array<StoredQuestion | undefined> => {
+): Array<Question | undefined> => {
   const { __typename } = block;
 
   switch (__typename) {
@@ -152,5 +135,5 @@ export const getPageQuestionEntries = (blocks: Array<ContentBlock> = []) => {
   return blocks
     .map(getQuestionEntries)
     .flat()
-    .filter((question): question is StoredQuestion => !!question);
+    .filter((question): question is Question => !!question);
 };

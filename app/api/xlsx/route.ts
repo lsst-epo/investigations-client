@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { Workbook } from "exceljs";
 import { useTranslation } from "@/lib/i18n";
 import { fallbackLng } from "@/lib/i18n/settings";
-import { StoredQuestion } from "@/contexts/Questions";
 import { Answers } from "@/types/answers";
 import formatters from "./formatter";
+import { Question } from "@/helpers/questions";
 
 interface XlsxBody {
-  questions: Array<StoredQuestion>;
+  questions: Array<Question>;
   answers: Answers;
   investigation: string;
   name?: string;
