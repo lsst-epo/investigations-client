@@ -106,8 +106,6 @@ export async function authenticateUser(
       "educators",
       pathToRevalidate
     );
-    // eslint-disable-next-line no-console
-    console.log("authenticateUser", studentData || educatorData, studentError || educatorError);
     conditionallySetCookiesRevalidatePath(studentData || educatorData);
     conditionallyHandleError(
       studentData || educatorData,
