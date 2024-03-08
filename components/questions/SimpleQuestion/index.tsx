@@ -6,9 +6,9 @@ import { Option } from "@/components/shapes/option";
 import Text from "./Text";
 import Textarea from "./Textarea";
 import Select from "./Select";
-import Multiselect from "./Multiselect";
 import Widget from "./Widget";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
+import QuestionNumber from "../QuestionNumber";
 import * as Styled from "./styles";
 
 export interface SimpleQuestionProps extends BaseQuestionProps {
@@ -22,7 +22,6 @@ const INPUT_MAP: Record<SimpleQuestionType, ComponentType<any>> = {
   text: Text,
   textarea: Textarea,
   select: Select,
-  multiselect: Multiselect,
   widget: Widget,
 };
 
@@ -47,7 +46,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   }
 
   return (
-    <Styled.SimpleContainer id={id}>
+    <QuestionNumber id={id}>
       {type === "widget" ? (
         <Styled.QuestionLabel
           dangerouslySetInnerHTML={{ __html: questionText }}
@@ -68,7 +67,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
           questionText,
         }}
       />
-    </Styled.SimpleContainer>
+    </QuestionNumber>
   );
 };
 

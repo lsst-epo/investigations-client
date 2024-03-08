@@ -2,13 +2,13 @@
 import { ComponentType, FunctionComponent, useContext } from "react";
 import { Option } from "@/components/shapes/option";
 import { BaseQuestionProps, InlineQuestionType } from "@/types/questions";
-import * as Styled from "./styles";
 import Readonly from "./Readonly";
 import Text from "./Text";
 import Select from "./Select";
 import Multiselect from "./Multiselect";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import { InlineQuestionData } from "@/types/answers";
+import QuestionNumber from "../QuestionNumber";
 
 interface InlineQuestionPart {
   id: string;
@@ -55,7 +55,7 @@ const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
   const { data = {} } = storedAnswer;
 
   return (
-    <Styled.InlineContainer id={id}>
+    <QuestionNumber direction="inline" id={id}>
       {parts.map(({ id: partId, type, ...props }) => {
         const Input = INPUT_MAP[type];
 
@@ -84,7 +84,7 @@ const InlineQuestion: FunctionComponent<InlineQuestionProps> = ({
           />
         );
       })}
-    </Styled.InlineContainer>
+    </QuestionNumber>
   );
 };
 
