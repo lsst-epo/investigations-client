@@ -1335,6 +1335,7 @@ export type EntryCriteriaInput = {
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Whether to only return entries that the user has permission to edit. */
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on the entries’ expiry dates. */
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1569,6 +1570,7 @@ export type EntryInterfaceAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1650,6 +1652,7 @@ export type EntryInterfaceChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1731,6 +1734,7 @@ export type EntryInterfaceDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1812,6 +1816,7 @@ export type EntryInterfaceLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1893,6 +1898,7 @@ export type EntryInterfaceNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1974,6 +1980,7 @@ export type EntryInterfaceParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2055,6 +2062,7 @@ export type EntryInterfacePrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2836,6 +2844,7 @@ export type QueryDatasetsEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2914,6 +2923,7 @@ export type QueryEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2994,6 +3004,7 @@ export type QueryEntryArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3074,6 +3085,7 @@ export type QueryEntryCountArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3222,6 +3234,7 @@ export type QueryHomepageEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3300,6 +3313,7 @@ export type QueryInvestigationsEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3378,6 +3392,7 @@ export type QueryPagesEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3456,6 +3471,7 @@ export type QueryQuestionsEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3534,6 +3550,7 @@ export type QueryReferenceModalsEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3612,6 +3629,7 @@ export type QueryWidgetsEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4772,6 +4790,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5170,6 +5189,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5306,6 +5326,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5442,6 +5463,7 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5678,6 +5700,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeDatasetArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6497,6 +6520,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6577,6 +6601,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6657,6 +6682,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6807,6 +6833,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6887,6 +6914,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6967,6 +6995,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7047,6 +7076,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7180,6 +7210,7 @@ export type DisplayTable_BlockTypePreviousQuestionArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7584,6 +7615,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7836,6 +7868,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7916,6 +7949,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7996,6 +8030,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8111,6 +8146,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8191,6 +8227,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8271,6 +8308,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8351,6 +8389,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8646,6 +8685,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8726,6 +8766,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8841,6 +8882,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8921,6 +8963,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9001,6 +9044,7 @@ export type Investigations_Default_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9081,6 +9125,7 @@ export type Investigations_Default_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9161,6 +9206,7 @@ export type Investigations_Default_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9357,6 +9403,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9437,6 +9484,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9517,6 +9565,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9619,6 +9668,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9699,6 +9749,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9779,6 +9830,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9859,6 +9911,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10053,6 +10106,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10133,6 +10187,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10213,6 +10268,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10293,6 +10349,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10373,6 +10430,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10453,6 +10511,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10533,6 +10592,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11201,6 +11261,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11281,6 +11342,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11396,6 +11458,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11476,6 +11539,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11556,6 +11620,7 @@ export type Pages_Pages_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11641,6 +11706,7 @@ export type Pages_Pages_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11721,6 +11787,7 @@ export type Pages_Pages_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11916,6 +11983,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11996,6 +12064,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12076,6 +12145,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12156,6 +12226,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12236,6 +12307,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12316,6 +12388,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12396,6 +12469,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12529,6 +12603,7 @@ export type QuestionTable_BlockTypePreviousQuestionArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12703,6 +12778,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12839,6 +12915,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12975,6 +13052,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13070,6 +13148,7 @@ export type Questions_Default_Entry = ElementInterface & EntryInterface & {
   enabled?: Maybe<Scalars['Boolean']['output']>;
   /** Whether the element is enabled for the site. */
   enabledForSite?: Maybe<Scalars['Boolean']['output']>;
+  equation?: Maybe<Scalars['String']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
@@ -13177,6 +13256,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13296,6 +13376,7 @@ export type Questions_Default_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13376,6 +13457,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13438,6 +13520,11 @@ export type Questions_Default_EntryDescendantsArgs = {
 };
 
 
+export type Questions_Default_EntryEquationArgs = {
+  label?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
 export type Questions_Default_EntryLocalizedArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
@@ -13456,6 +13543,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13571,6 +13659,7 @@ export type Questions_Default_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13651,6 +13740,7 @@ export type Questions_Default_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13731,6 +13821,7 @@ export type Questions_Default_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13937,6 +14028,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14483,6 +14575,7 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14563,6 +14656,7 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14643,6 +14737,7 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14723,6 +14818,7 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14803,6 +14899,7 @@ export type ReferenceModals_Default_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14883,6 +14980,7 @@ export type ReferenceModals_Default_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14963,6 +15061,7 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15908,6 +16007,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15988,6 +16088,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16103,6 +16204,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16193,6 +16295,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16273,6 +16376,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16353,6 +16457,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16433,6 +16538,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16630,6 +16736,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16710,6 +16817,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16790,6 +16898,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16870,6 +16979,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16950,6 +17060,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17030,6 +17141,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17110,6 +17222,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17190,6 +17303,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17388,6 +17502,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17468,6 +17583,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17548,6 +17664,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17628,6 +17745,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17708,6 +17826,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17788,6 +17907,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17868,6 +17988,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17948,6 +18069,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;

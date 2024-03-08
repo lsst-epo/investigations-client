@@ -1,5 +1,6 @@
 /* eslint-disable no-use-before-define */
 import {
+  CalculatorConfig,
   MultipartConfig,
   QuestionConfig,
   SelectConfig,
@@ -11,7 +12,8 @@ type QuestionEntry = QuestionConfig &
   WidgetConfig &
   MultipartConfig &
   SelectConfig &
-  TabularConfig;
+  TabularConfig &
+  CalculatorConfig;
 
 interface BaseBlock {
   __typename: string;
@@ -40,7 +42,8 @@ export type Question =
   | WidgetConfig
   | MultipartConfig
   | SelectConfig
-  | TabularConfig;
+  | TabularConfig
+  | CalculatorConfig;
 
 function buildQuestion(question: QuestionEntry): Question | undefined {
   const {
@@ -52,6 +55,7 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
     questionWidgetsBlock,
     widgetInstructions,
     rows,
+    equation,
   } = question;
 
   switch (answerType) {
@@ -67,6 +71,8 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
       return { answerType, id, widgetInstructions, questionWidgetsBlock };
     case "tabular":
       return { answerType, id, questionText, rows };
+    case "calculator":
+      return { answerType, id, questionText, equation };
     default:
       break;
   }
