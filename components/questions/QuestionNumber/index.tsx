@@ -1,11 +1,18 @@
 "use client";
 
-import useQuestions from "@/contexts/Questions";
 import { FunctionComponent, PropsWithChildren } from "react";
+import useQuestions from "@/contexts/Questions";
+import * as Styled from "./styles";
+
+interface QuestionNumberProps {
+  id: string;
+  direction?: "inline" | "block";
+  className?: string;
+}
 
 const QuestionNumber: FunctionComponent<
-  PropsWithChildren<{ id: string; className?: string }>
-> = ({ id, className, children }) => {
+  PropsWithChildren<QuestionNumberProps>
+> = ({ id, direction = "block", className, children }) => {
   const questions = useQuestions();
 
   const questionIndex = questions.byAll.findIndex(
@@ -13,9 +20,13 @@ const QuestionNumber: FunctionComponent<
   );
 
   return (
-    <li value={questionIndex + 1} className={className}>
+    <Styled.Number
+      value={questionIndex + 1}
+      data-direction={direction}
+      className={className}
+    >
       {children}
-    </li>
+    </Styled.Number>
   );
 };
 

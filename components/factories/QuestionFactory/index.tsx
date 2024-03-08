@@ -3,12 +3,17 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import SimpleQuestion from "@/components/questions/SimpleQuestion";
 import TabularQuestion from "@/components/questions/TabularQuestion";
 import InlineQuestion from "@/components/questions/InlineQuestion";
+import { AnswerType } from "@/types/questions";
+import CalculatorQuestion from "@/components/questions/Calculator";
 
 const Fragment = graphql(`
   fragment QuestionEntry on questions_default_Entry {
     __typename
     id
     answerType
+    questionText
+    widgetInstructions
+    ...CalculatorQuestion
     ...TabularQuestion
     options: answerOptions {
       ... on answerOptions_option_BlockType {
@@ -16,9 +21,6 @@ const Fragment = graphql(`
         value: optionValue
       }
     }
-    id
-    questionText
-    widgetInstructions
     questionWidgetsBlock {
       __typename
       ...ColorFilterToolQuestion
@@ -66,11 +68,12 @@ export interface QuestionProps {
   locale: string;
 }
 
-const QUESTION_MAP: Record<string, ComponentType<any>> = {
+const QUESTION_MAP: Record<AnswerType, ComponentType<any>> = {
   text: SimpleQuestion,
   select: SimpleQuestion,
   tabular: TabularQuestion,
   widget: SimpleQuestion,
+  calculator: CalculatorQuestion,
   textarea: SimpleQuestion,
   multiPart: InlineQuestion,
 };
@@ -87,6 +90,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     questionText,
     widgetInstructions,
     parts = [],
+    equation,
   } = useFragment(Fragment, data);
 
   if (!id || !type) return null;
@@ -103,7 +107,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
   return (
     <Question
       questionText={questionText || widgetInstructions}
-      {...{ data, id, type, options, widgetConfig, parts, locale }}
+      {...{ data, id, type, options, widgetConfig, parts, locale, equation }}
     />
   );
 };
