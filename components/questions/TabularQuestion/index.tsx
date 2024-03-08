@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { BaseQuestionProps } from "@/types/questions";
 import Table from "./Table";
-import * as Styled from "./styles";
+import QuestionNumber from "../QuestionNumber";
 
 const Fragment = graphql(`
   fragment TabularQuestion on questions_default_Entry {
@@ -26,10 +26,10 @@ const TabularQuestion: FunctionComponent<TabularQuestionProps> = ({
   if (!id) return null;
 
   return (
-    <Styled.QuestionNumber {...{ id }}>
+    <QuestionNumber {...{ id }}>
       <label htmlFor={id}>{questionText}</label>
       <Table {...{ data, locale }} />
-    </Styled.QuestionNumber>
+    </QuestionNumber>
   );
 };
 

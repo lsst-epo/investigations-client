@@ -5,6 +5,7 @@ export const Input = styled.input`
   --input-background-color: var(--turquoise10, #d9f7f6);
   --input-border-color: var(--turquoise85, #12726d);
   --input-color: var(--neutral95, #1f2121);
+  --input-padding: 1ch;
 
   background-color: var(--input-background-color);
   border: 1px solid var(--input-border-color);
@@ -14,7 +15,7 @@ export const Input = styled.input`
   font-size: 1em;
   margin-block-start: 1em;
   padding: 0;
-  padding-inline: 1ch;
+  padding-inline: var(--input-padding, 1ch);
   width: 100%;
   height: 2em;
 

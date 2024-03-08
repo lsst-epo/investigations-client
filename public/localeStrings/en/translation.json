@@ -305,5 +305,13 @@
     "cells": {
       "no_name": "Name not provided"
     }
+  },
+  "calculators": {
+    "peak_absolute_magnitude": {
+      "placeholder": "{{delta}}m15"
+    },
+    "supernova_distance": {
+      "result": "{{distance}} Mly"
+    }
   }
 }
