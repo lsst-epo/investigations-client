@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { ChangeEvent, FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import { InteractiveCalculatorProps } from "@/types/calculators";
