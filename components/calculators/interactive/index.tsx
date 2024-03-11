@@ -1,7 +1,7 @@
 import { ComponentType } from "react";
 import { Equation, InteractiveCalculatorProps } from "@/types/calculators";
-import PeakAbsoluteMagnitude from "./PeakAbsoluteMagnitude";
-import SupernovaDistance from "./SupernovaDistance";
+import PeakAbsoluteMagnitude from "./peakAbsoluteMagnitude";
+import SupernovaDistance from "./supernovaDistance";
 
 const InteractiveCalculators: Record<
   Equation,
