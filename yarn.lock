@@ -12946,10 +12946,10 @@ telejson@^7.2.0:
   dependencies:
     memoizerific "^1.11.3"
 
-temml@^0.10.20:
-  version "0.10.20"
-  resolved "https://registry.yarnpkg.com/temml/-/temml-0.10.20.tgz#ed89c8df68cf93a27e623f25441d1d0b68b7e14b"
-  integrity sha512-UqT8IbGQnb/IWEqEP6Yh2TCUeS9oKwgP3VO7E/qfKN1jQ2rVr5KCmpFor+hkeRIxIyynvPlkJwGRGRYfO8qhoA==
+temml@^0.10.23:
+  version "0.10.23"
+  resolved "https://registry.yarnpkg.com/temml/-/temml-0.10.23.tgz#d185030e7149a80b34fe6a02c4561f7c6d5a4828"
+  integrity sha512-RgDImgtpR530v9HrcKCBuknS64syxt5UtWOBSnGKbHKKilmDUEjONwPqhLpArTz9XDkayQoW+/mCQzLgooeFsQ==
 
 temp-dir@^2.0.0:
   version "2.0.0"

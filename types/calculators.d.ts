@@ -1,11 +1,18 @@
 export type Equation = "peakAbsoluteMagnitude" | "supernovaDistance";
 export type CalculatorValues = Record<string, number>;
 
-export type CalculatorFunction<T = CalculatorValues> = (variables: T) => number;
+export type Calculator<T = CalculatorValues> = (variables: T) => {
+  result: number | undefined;
+  toLaTeX: () => string | undefined;
+};
 
-export interface InteractiveCalculatorProps<T = CalculatorValues> {
-  onChangeCallback: (value: Partial<T>) => void;
-  calculatorFunction: CalculatorFunction<T>;
+export interface CalculatorProps<T = CalculatorValues> {
+  equation: CalculatorFunction<T>;
   value?: T;
+}
+export interface InteractiveCalculatorProps<T = CalculatorValues>
+  extends CalculatorProps<T> {
+  id: string;
+  onChangeCallback: (value: Partial<T>) => void;
   className?: string;
 }

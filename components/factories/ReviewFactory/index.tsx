@@ -1,20 +1,22 @@
 import { ComponentType, FunctionComponent } from "react";
+import { AnswerType } from "@/types/questions";
 import * as Review from "@/components/questions/Review";
 
 export interface ReviewProps {
   id: string;
-  type: string;
+  type: AnswerType;
   number: number;
   config: any;
 }
 
-const QUESTION_MAP: Record<string, ComponentType<any>> = {
+const QUESTION_MAP: Record<AnswerType, ComponentType<any>> = {
   text: Review.Text,
   select: Review.Select,
   widget: Review.Widget,
   textarea: Review.Text,
   multiPart: Review.Inline,
   tabular: Review.Tabular,
+  calculator: Review.Calculator,
 };
 
 const ReviewFactory: FunctionComponent<ReviewProps> = ({
