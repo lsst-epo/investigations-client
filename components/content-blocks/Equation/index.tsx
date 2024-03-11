@@ -1,9 +1,7 @@
-import "temml/dist/Temml-Local.css";
-import { LatinModernMath } from "@/lib/fonts";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
-import * as Styled from "./styles";
+import Equation from "@/components/atomic/Equation";
 
 const Fragment = graphql(`
   fragment EquationBlock on contentBlocks_equation_BlockType {
@@ -21,18 +19,7 @@ const EquationContentBlock: FunctionComponent<TextProps> = async (props) => {
 
   if (!latex) return null;
 
-  const uri = `${
-    process.env.NEXT_PUBLIC_BASE_URL
-  }/api/equation?latex=${encodeURIComponent(latex)}`;
-
-  const result = await fetch(uri).then((response) => response.json());
-
-  return (
-    <Styled.MathWrapper
-      className={LatinModernMath.variable}
-      dangerouslySetInnerHTML={{ __html: result }}
-    ></Styled.MathWrapper>
-  );
+  return <Equation {...{ latex }} />;
 };
 
 EquationContentBlock.displayName = "ContentBlock.Equation";

@@ -1,78 +1,71 @@
-import { ChangeEvent, FunctionComponent } from "react";
+import { FormEvent, FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import { InteractiveCalculatorProps } from "@/types/calculators";
-import * as Styled from "./styles";
+import Output from "../Output";
+import MathInput from "@/components/form/Input/patterns/MathInput";
 
 const SupernovaDistance: FunctionComponent<
   InteractiveCalculatorProps<{ peakApparent?: number; peakAbsolute?: number }>
-> = ({ value = {}, onChangeCallback, className, calculatorFunction }) => {
-  const {
-    t,
-    i18n: { language },
-  } = useTranslation();
+> = ({ value = {}, onChangeCallback, className, equation, id }) => {
+  const { t } = useTranslation();
   const { peakApparent, peakAbsolute } = value;
-  const { format } = new Intl.NumberFormat(language, {
-    maximumFractionDigits: 0,
-  });
-  // const tex = "d = 10^{\\frac{m - M}{5} + 1}";
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>, key: string) => {
-    const numericValue = parseFloat(event.target.value) || undefined;
-
+  const handleChange = (event: FormEvent<HTMLInputElement>, key: string) => {
     return (
-      onChangeCallback && onChangeCallback({ ...value, [key]: numericValue })
+      onChangeCallback &&
+      onChangeCallback({
+        peakApparent,
+        peakAbsolute,
+        [key]: parseFloat(event.target.value),
+      })
     );
   };
 
-  const result = calculatorFunction(value);
-  const distance = Number.isNaN(result)
-    ? undefined
-    : t("calculators.supernova_distance.result", { distance: format(result) });
+  const { result } = equation(value);
+
+  const distance = result
+    ? t("calculators.supernova_distance.result", {
+        distance: result,
+      })
+    : undefined;
 
   return (
-    <math display="block" className={className}>
+    <math display="block" {...{ id, className }}>
       <mrow>
         <mi>
-          <Styled.MathOutput
-            placeholder="d"
-            defaultValue={distance}
-            style={{
-              width: `calc(${
-                distance?.length || 2
-              }ch + calc(var(--input-padding) * 2))`,
-            }}
-            readOnly
-          />
+          <Output forId={id} value={distance} placeholder="d" />
         </mi>
         <mo>=</mo>
+        <mrow>
+          <mo fence="true" form="prefix">
+            (
+          </mo>
+          <mn>3.26</mn>
+          <mo fence="true" form="postfix">
+            )
+          </mo>
+        </mrow>
         <msup>
           <mn>10</mn>
           <mrow>
             <mfrac>
               <mrow>
                 <mi>
-                  <Styled.CondensedMathInput
-                    type="number"
-                    step="0.01"
+                  <MathInput
+                    step="0.1"
                     placeholder="m"
-                    defaultValue={peakApparent}
+                    value={peakApparent}
                     onChange={(e) => handleChange(e, "peakApparent")}
-                    style={{
-                      width: `calc(8ch + calc(var(--input-padding) * 2))`,
-                    }}
+                    condensed
                   />
                 </mi>
                 <mo>−</mo>
                 <mi>
-                  <Styled.CondensedMathInput
-                    type="number"
-                    step="0.001"
+                  <MathInput
+                    step="0.01"
                     placeholder="M"
-                    defaultValue={peakAbsolute}
+                    value={peakAbsolute}
                     onChange={(e) => handleChange(e, "peakAbsolute")}
-                    style={{
-                      width: `calc(8ch + calc(var(--input-padding) * 2))`,
-                    }}
                   />
                 </mi>
               </mrow>

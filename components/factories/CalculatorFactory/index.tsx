@@ -1,28 +1,32 @@
+import "@/lib/temml/Temml-Latin-Modern.css";
 import { FunctionComponent } from "react";
+import { LatinModernMath, Temml } from "@/lib/fonts";
 import { Equation, InteractiveCalculatorProps } from "@/types/calculators";
 import InteractiveCalculators from "@/components/calculators/interactive";
-import CalculatorFunctions from "@/components/calculators/equations";
+import Calculators from "@/components/calculators/math";
 
 interface CalculatorFactoryProps
-  extends Omit<InteractiveCalculatorProps, "calculatorFunction"> {
-  id: string;
-  equation: Equation;
-  locale: string;
+  extends Omit<InteractiveCalculatorProps, "equation"> {
+  type: Equation;
 }
 
 const CalculatorFactory: FunctionComponent<CalculatorFactoryProps> = ({
-  equation,
+  type,
   ...props
 }) => {
-  const Calculator = InteractiveCalculators[equation];
+  const Calculator = InteractiveCalculators[type];
 
   if (!Calculator) {
-    console.error(`${equation} calculator is not defined`);
+    console.error(`${type} calculator is not defined`);
     return null;
   }
 
   return (
-    <Calculator {...props} calculatorFunction={CalculatorFunctions[equation]} />
+    <Calculator
+      {...props}
+      className={`${LatinModernMath.variable} ${Temml.variable}`}
+      equation={Calculators[type]}
+    />
   );
 };
 
