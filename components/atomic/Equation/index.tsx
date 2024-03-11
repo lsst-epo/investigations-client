@@ -1,8 +1,7 @@
-import "temml/dist/Temml-Local.css";
+import "@/lib/temml/Temml-Latin-Modern.css";
 import { FunctionComponent } from "react";
 import temml from "temml";
-import { LatinModernMath } from "@/lib/fonts";
-import * as Styled from "./styles";
+import { LatinModernMath, Temml } from "@/lib/fonts";
 
 const Equation: FunctionComponent<{ latex: string }> = ({ latex }) => {
   const mathMl = temml.renderToString(latex, {
@@ -11,8 +10,9 @@ const Equation: FunctionComponent<{ latex: string }> = ({ latex }) => {
   });
 
   return (
-    <Styled.MathWrapper
-      className={LatinModernMath.variable}
+    <div
+      className={`${LatinModernMath.variable} ${Temml.variable}`}
+      style={{ color: "var(--neutral95, #1F2121)" }}
       dangerouslySetInnerHTML={{ __html: mathMl }}
     />
   );
