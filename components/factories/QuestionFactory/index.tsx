@@ -86,11 +86,9 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
     answerType: type,
     id,
     questionWidgetsBlock = [],
-    options,
     questionText,
     widgetInstructions,
-    parts = [],
-    equation,
+    ...restProps
   } = useFragment(Fragment, data);
 
   if (!id || !type) return null;
@@ -107,7 +105,7 @@ const QuestionFactory: FunctionComponent<QuestionProps> = ({
   return (
     <Question
       questionText={questionText || widgetInstructions}
-      {...{ data, id, type, options, widgetConfig, parts, locale, equation }}
+      {...{ data, id, type, widgetConfig, locale, ...restProps }}
     />
   );
 };
