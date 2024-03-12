@@ -1,6 +1,5 @@
 import "@/lib/temml/Temml-Latin-Modern.css";
 import { FunctionComponent } from "react";
-import { LatinModernMath, Temml } from "@/lib/fonts";
 import { Equation, InteractiveCalculatorProps } from "@/types/calculators";
 import InteractiveCalculators from "@/components/calculators/interactive";
 import Calculators from "@/components/calculators/math";
@@ -21,13 +20,7 @@ const CalculatorFactory: FunctionComponent<CalculatorFactoryProps> = ({
     return null;
   }
 
-  return (
-    <Calculator
-      {...props}
-      className={`${LatinModernMath.variable} ${Temml.variable}`}
-      equation={Calculators[type]}
-    />
-  );
+  return <Calculator {...props} equation={Calculators[type]} />;
 };
 
 CalculatorFactory.displayName = "Factory.Calculator";

@@ -1,23 +1,5 @@
 import localFont from "next/font/local";
 
-const Temml = localFont({
-  src: [{ path: "./fonts/Temml.woff2", weight: "normal", style: "normal" }],
-  variable: "--Temml",
-});
-
-const LatinModernMath = localFont({
-  src: [
-    {
-      path: "./fonts/latinmodernmath.woff",
-    },
-    {
-      path: "./fonts/latinmodernmath.woff2",
-    },
-  ],
-  variable: "--LatinModernMath",
-  fallback: ["math"],
-});
-
 const SourceSansPro = localFont({
   src: [
     {
@@ -85,4 +67,4 @@ const SourceSansPro = localFont({
   variable: "--FONT_STACK_BASE",
 });
 
-export { SourceSansPro, LatinModernMath, Temml };
+export { SourceSansPro };
