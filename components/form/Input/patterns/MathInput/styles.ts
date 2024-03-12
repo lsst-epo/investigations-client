@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const MathInput = styled(Input)`
   --input-background-color: var(--white, #fff);
   -moz-appearance: textfield;
-  display: inline-block;
+  display: block;
   font-family: var(--FONT_STACK_BASE);
   font-size: 0.75em;
   margin: 0;
@@ -21,4 +21,8 @@ export const MathInput = styled(Input)`
 
 export const CondensedMathInput = styled(MathInput)`
   height: 2em;
+`;
+
+export const Placeholder = styled.div`
+  display: block;
 `;
