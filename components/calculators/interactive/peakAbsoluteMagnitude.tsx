@@ -8,10 +8,15 @@ import Output from "../Output";
 const PeakAbsoluteMagnitude: FunctionComponent<
   InteractiveCalculatorProps<{ m15?: number }>
 > = ({ value = {}, onChangeCallback, className, equation, id }) => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   const A = 23.59;
   const B = 6.45;
   const { m15 } = value;
+
+  const { format } = new Intl.NumberFormat(language);
 
   const m15Placeholder = t("calculators.peak_absolute_magnitude.placeholder", {
     delta: "\u{394}",
@@ -25,12 +30,14 @@ const PeakAbsoluteMagnitude: FunctionComponent<
       });
   };
 
+  const { result } = equation(value);
+
   return (
     <math display="block" {...{ className, id }}>
       <mrow>
         <mi>
           <Output
-            value={equation(value).result}
+            value={result ? format(result) : undefined}
             forId={id}
             placeholder={
               <var>
@@ -42,10 +49,10 @@ const PeakAbsoluteMagnitude: FunctionComponent<
         <mo>=</mo>
         <mrow>
           <mo>−</mo>
-          <mi>{A}</mi>
+          <mi>{format(A)}</mi>
         </mrow>
         <mo>+</mo>
-        <mi>{B}</mi>
+        <mi>{format(B)}</mi>
         <mo form="prefix" stretchy="false">
           (
         </mo>

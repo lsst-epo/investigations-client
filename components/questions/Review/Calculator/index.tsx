@@ -11,14 +11,17 @@ import * as Styled from "../styles";
 const CalculatorReview: FunctionComponent<
   CalculatorConfig & BaseReviewProps
 > = ({ id, number, questionText, equation }) => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   const { answer: value } = useAnswer<WidgetInput>(id);
 
   return (
     <Styled.ReviewListItem value={number}>
-      {questionText}
+      ∂{questionText}
       {value ? (
-        <StaticCalculator {...{ type: equation, value }} />
+        <StaticCalculator type={equation} locale={language} {...{ value }} />
       ) : (
         t("review.no_answer")
       )}
