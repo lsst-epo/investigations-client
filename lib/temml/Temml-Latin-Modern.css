@@ -12,6 +12,18 @@ have been changed from ASCII to Unicode Mathematical Alphanumeric Symbols Script
 Unicode range 1D49C to 1D4B5.
 */
 
+@font-face {
+  font-family: Temml;
+  src: url("/assets/fonts/Temml.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Latin Modern Math";
+  src: url("/assets/fonts/latinmodernmath.woff2");
+}
+
 math {
   font-style: normal;
   font-weight: normal;
@@ -29,7 +41,7 @@ math * {
 }
 
 math {
-  font-family: var(--LatinModernMath), math;
+  font-family: "Latin Modern Math", math;
 }
 
 /* Next line is active in Firefox and Safari.
@@ -39,12 +51,12 @@ math.tml-display {
 }
 
 *.mathscr {
-  font-family: var(--Temml);
+  font-family: Temml;
 }
 
 /* Chromium prime alignment */
 mo.tml-prime {
-  font-family: var(--Temml);
+  font-family: Temml;
 }
 
 mrow.tml-cancel {

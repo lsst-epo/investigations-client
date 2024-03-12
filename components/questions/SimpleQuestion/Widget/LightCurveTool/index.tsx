@@ -3,7 +3,6 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import sample from "lodash/sample";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import { LatinModernMath, Temml } from "@/lib/fonts";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import { SimpleWidgetProps } from "..";
 import { BaseContentBlockProps } from "@/components/shapes";
@@ -83,7 +82,6 @@ const LightCurveToolQuestion: FunctionComponent<
 
   return (
     <WidgetContainerWithModal
-      className={`${LatinModernMath.variable} ${Temml.variable}`}
       title={t("widgets.light_curve.title_interactive") || undefined}
       instructions={questionText}
       variant="light"
