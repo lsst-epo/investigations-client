@@ -8,8 +8,12 @@ import MathInput from "@/components/form/Input/patterns/MathInput";
 const SupernovaDistance: FunctionComponent<
   InteractiveCalculatorProps<{ peakApparent?: number; peakAbsolute?: number }>
 > = ({ value = {}, onChangeCallback, className, equation, id }) => {
-  const { t } = useTranslation();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation();
   const { peakApparent, peakAbsolute } = value;
+  const { format } = new Intl.NumberFormat(language);
 
   const handleChange = (event: FormEvent<HTMLInputElement>, key: string) => {
     return (
@@ -26,7 +30,7 @@ const SupernovaDistance: FunctionComponent<
 
   const distance = result
     ? t("calculators.supernova_distance.result", {
-        distance: result,
+        distance: format(result),
       })
     : undefined;
 
@@ -41,7 +45,7 @@ const SupernovaDistance: FunctionComponent<
           <mo fence="true" form="prefix">
             (
           </mo>
-          <mn>3.26</mn>
+          <mn>{format(3.26)}</mn>
           <mo fence="true" form="postfix">
             )
           </mo>
