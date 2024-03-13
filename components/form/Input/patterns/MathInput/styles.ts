@@ -18,11 +18,3 @@ export const MathInput = styled(Input)`
     margin: 0;
   }
 `;
-
-export const CondensedMathInput = styled(MathInput)`
-  height: 2em;
-`;
-
-export const Placeholder = styled.div`
-  display: block;
-`;

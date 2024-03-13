@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unknown-property */
 import { ChangeEvent, FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
+import isNumber from "lodash/isNumber";
 import { InteractiveCalculatorProps } from "@/types/calculators";
 import MathInput from "@/components/form/Input/patterns/MathInput";
 import Output from "../Output";
+import * as Styled from "./styles";
+import Equation from "@/components/atomic/Equation";
 
 const PeakAbsoluteMagnitude: FunctionComponent<
   InteractiveCalculatorProps<{ m15?: number }>
@@ -18,6 +22,7 @@ const PeakAbsoluteMagnitude: FunctionComponent<
 
   const { format } = new Intl.NumberFormat(language);
 
+  const m15Id = "dm15";
   const m15Placeholder = t("calculators.peak_absolute_magnitude.placeholder", {
     delta: "\u{394}",
     interpolation: { escapeValue: false },
@@ -33,44 +38,53 @@ const PeakAbsoluteMagnitude: FunctionComponent<
   const { result } = equation(value);
 
   return (
-    <math display="block" {...{ className, id }}>
-      <mrow>
-        <mi>
-          <Output
-            value={result ? format(result) : undefined}
-            forId={id}
-            placeholder={
-              <var>
-                M<sub>peak</sub>
-              </var>
-            }
+    <Styled.MathContainer>
+      <Styled.Inputs>
+        <Styled.InputRow>
+          <label htmlFor={m15Id}>
+            <Equation latex="\Delta m_{15}= " />
+          </label>
+          <MathInput
+            value={m15}
+            onChange={handleChange}
+            // placeholder={m15Placeholder}
+            step="0.01"
+            id={m15Id}
           />
-        </mi>
-        <mo>=</mo>
+        </Styled.InputRow>
+      </Styled.Inputs>
+      <math display="block" {...{ className, id }}>
         <mrow>
-          <mo>−</mo>
-          <mi>{format(A)}</mi>
-        </mrow>
-        <mo>+</mo>
-        <mi>{format(B)}</mi>
-        <mo form="prefix" stretchy="false">
-          (
-        </mo>
-        <mrow>
-          <mn>
-            <MathInput
-              value={m15}
-              onChange={handleChange}
-              placeholder={m15Placeholder}
-              step="0.01"
+          <mi>
+            <Output
+              value={result ? format(result) : undefined}
+              forId={id}
+              placeholder={
+                <var>
+                  M<sub>peak</sub>
+                </var>
+              }
             />
-          </mn>
+          </mi>
+          <mo>=</mo>
+          <mrow>
+            <mo>−</mo>
+            <mi>{format(A)}</mi>
+          </mrow>
+          <mo>+</mo>
+          <mi>{format(B)}</mi>
+          <mo form="prefix" stretchy="false">
+            (
+          </mo>
+          <mrow>
+            <mi>{isNumber(m15) ? m15 : <Equation latex="\Delta m_{15}" />}</mi>
+          </mrow>
+          <mo form="postfix" stretchy="false">
+            )
+          </mo>
         </mrow>
-        <mo form="postfix" stretchy="false">
-          )
-        </mo>
-      </mrow>
-    </math>
+      </math>
+    </Styled.MathContainer>
   );
 };
 
