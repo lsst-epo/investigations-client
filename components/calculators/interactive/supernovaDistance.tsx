@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/no-unknown-property */
 import { FormEvent, FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
+import isNumber from "lodash/isNumber";
 import { InteractiveCalculatorProps } from "@/types/calculators";
 import Output from "../Output";
 import MathInput from "@/components/form/Input/patterns/MathInput";
+import * as Styled from "./styles";
+import Equation from "@/components/atomic/Equation";
 
 const SupernovaDistance: FunctionComponent<
   InteractiveCalculatorProps<{ peakApparent?: number; peakAbsolute?: number }>
@@ -34,54 +38,70 @@ const SupernovaDistance: FunctionComponent<
       })
     : undefined;
 
+  const peakApparentId = "peakApparent";
+  const peakAbsoluteId = "peakAbsolute";
+
   return (
-    <math display="block" {...{ id, className }}>
-      <mrow>
-        <mi>
-          <Output forId={id} value={distance} placeholder="d" />
-        </mi>
-        <mo>=</mo>
+    <Styled.MathContainer>
+      <Styled.Inputs>
+        <Styled.InputRow>
+          <label htmlFor={peakApparentId}>
+            <Equation latex="m =" />
+          </label>
+          <MathInput
+            step="0.1"
+            value={peakApparent}
+            onChange={(e) => handleChange(e, "peakApparent")}
+            condensed
+            id={peakApparentId}
+          />
+        </Styled.InputRow>
+        <Styled.InputRow>
+          <label htmlFor={peakAbsoluteId}>
+            <Equation latex="M =" />
+          </label>
+          <MathInput
+            step="0.01"
+            value={peakAbsolute}
+            onChange={(e) => handleChange(e, "peakAbsolute")}
+            id={peakAbsoluteId}
+          />
+        </Styled.InputRow>
+      </Styled.Inputs>
+
+      <math display="block" {...{ id, className }}>
         <mrow>
-          <mo fence="true" form="prefix">
-            (
-          </mo>
-          <mn>{format(3.26)}</mn>
-          <mo fence="true" form="postfix">
-            )
-          </mo>
-        </mrow>
-        <msup>
-          <mn>10</mn>
+          <mi>
+            <Output forId={id} value={distance} placeholder="d" />
+          </mi>
+          <mo>=</mo>
           <mrow>
-            <mfrac>
-              <mrow>
-                <mi>
-                  <MathInput
-                    step="0.1"
-                    placeholder="m"
-                    value={peakApparent}
-                    onChange={(e) => handleChange(e, "peakApparent")}
-                    condensed
-                  />
-                </mi>
-                <mo>−</mo>
-                <mi>
-                  <MathInput
-                    step="0.01"
-                    placeholder="M"
-                    value={peakAbsolute}
-                    onChange={(e) => handleChange(e, "peakAbsolute")}
-                  />
-                </mi>
-              </mrow>
-              <mn>5</mn>
-            </mfrac>
-            <mo>+</mo>
-            <mn>1</mn>
+            <mo fence="true" form="prefix">
+              (
+            </mo>
+            <mn>{format(3.26)}</mn>
+            <mo fence="true" form="postfix">
+              )
+            </mo>
           </mrow>
-        </msup>
-      </mrow>
-    </math>
+          <msup>
+            <mn>10</mn>
+            <mrow>
+              <mfrac>
+                <mrow>
+                  <mi>{isNumber(peakApparent) ? format(peakApparent) : "m"}</mi>
+                  <mo>−</mo>
+                  <mi>{isNumber(peakAbsolute) ? format(peakAbsolute) : "M"}</mi>
+                </mrow>
+                <mn>5</mn>
+              </mfrac>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </msup>
+        </mrow>
+      </math>
+    </Styled.MathContainer>
   );
 };
 
