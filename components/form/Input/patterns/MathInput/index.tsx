@@ -21,7 +21,7 @@ const MathInput: FunctionComponent<MathInputProps> = ({
       {...props}
       type="number"
       placeholder={placeholder}
-      value={typeof value === "number" ? value : ""}
+      value={value?.toString() || ""}
       style={{
         width: `calc(${width}ch + calc(var(--input-padding) * 2))`,
         height: condensed && "2em",

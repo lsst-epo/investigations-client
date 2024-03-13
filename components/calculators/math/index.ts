@@ -1,6 +1,7 @@
 import { fallbackLng } from "@/lib/i18n/settings";
 import { Calculator, Equation } from "@/types/calculators";
 import round from "lodash/round";
+import isNumber from "lodash/isNumber";
 
 const peakAbsoluteMagnitude: Calculator = ({ m15 }, locale = fallbackLng) => {
   const A = -23.598;
@@ -9,19 +10,19 @@ const peakAbsoluteMagnitude: Calculator = ({ m15 }, locale = fallbackLng) => {
   const result = round(A + B * m15, 2);
   const { format } = new Intl.NumberFormat(locale);
 
-  if (typeof m15 !== "number" || Number.isNaN(result)) {
+  if (isNumber(result)) {
     return {
-      result: undefined,
-      toLaTeX: () => undefined,
+      result,
+      toLaTeX: () =>
+        `${format(result)} = ${format(-23.59)} + ${format(
+          6.45
+        )}\\left ( ${format(m15)} \\right )`,
     };
   }
 
   return {
-    result,
-    toLaTeX: () =>
-      `${format(result)} = ${format(-23.59)} + ${format(6.45)}\\left ( ${format(
-        m15
-      )} \\right )`,
+    result: undefined,
+    toLaTeX: () => undefined,
   };
 };
 
@@ -35,25 +36,21 @@ const supernovaDistance: Calculator = (
   const result = round((3.26 * Math.pow(10, exponent)) / Math.pow(10, 6));
   const { format } = new Intl.NumberFormat(locale);
 
-  if (
-    typeof peakApparent !== "number" ||
-    typeof peakAbsolute !== "number" ||
-    Number.isNaN(result)
-  ) {
+  if (isNumber(peakApparent) && isNumber(peakAbsolute) && isNumber(result)) {
     return {
-      result: undefined,
-      toLaTeX: () => undefined,
+      result,
+      toLaTeX: () =>
+        `${format(result)} Mly = \\left (${format(
+          3.26
+        )}\\right )10^{\\frac{${format(peakApparent)} - ${format(
+          peakAbsolute
+        )}}{5} + 1}`,
     };
   }
 
   return {
-    result,
-    toLaTeX: () =>
-      `${format(result)} Mly = \\left (${format(
-        3.26
-      )}\\right )10^{\\frac{${format(peakApparent)} - ${format(
-        peakAbsolute
-      )}}{5} + 1}`,
+    result: undefined,
+    toLaTeX: () => undefined,
   };
 };
 
