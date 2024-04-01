@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const Number = styled.li`
   container-type: inline-size;
+  position: relative;
 
   &[data-direction="block"] {
     & > * + * {
