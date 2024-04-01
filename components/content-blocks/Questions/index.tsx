@@ -23,7 +23,7 @@ const QuestionsContentBlock: FunctionComponent<
   const { t } = await useTranslation(locale, "translation");
 
   return (
-    <section className="content-block">
+    <section className="content-block" style={{ isolation: "isolate" }}>
       {!isInteraction && <Styled.Heading>{t("page.questions")}</Styled.Heading>}
       <Styled.QuestionList
         style={{
