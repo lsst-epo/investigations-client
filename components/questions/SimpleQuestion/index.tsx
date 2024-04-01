@@ -6,15 +6,12 @@ import { Option } from "@/components/shapes/option";
 import Text from "./Text";
 import Textarea from "./Textarea";
 import Select from "./Select";
-import Widget from "./Widget";
 import StoredAnswersContext from "@/contexts/StoredAnswersContext";
 import QuestionNumber from "../QuestionNumber";
-import * as Styled from "./styles";
 
 export interface SimpleQuestionProps extends BaseQuestionProps {
   type: SimpleQuestionType;
   questionText: string;
-  widgetConfig?: { typeHandle: string; __typename: string; [key: string]: any };
   options?: Option[];
 }
 
@@ -22,7 +19,6 @@ const INPUT_MAP: Record<SimpleQuestionType, ComponentType<any>> = {
   text: Text,
   textarea: Textarea,
   select: Select,
-  widget: Widget,
 };
 
 const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
@@ -31,7 +27,6 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
   questionText,
   options,
   isDisabled,
-  widgetConfig,
 }) => {
   const { answers, onChangeCallback } = useContext(StoredAnswersContext);
 
@@ -47,13 +42,7 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
 
   return (
     <QuestionNumber id={id}>
-      {type === "widget" ? (
-        <Styled.QuestionLabel
-          dangerouslySetInnerHTML={{ __html: questionText }}
-        />
-      ) : (
-        <label htmlFor={id}>{questionText}</label>
-      )}
+      <label htmlFor={id}>{questionText}</label>
       <Input
         onChangeCallback={(value: any) =>
           onChangeCallback && onChangeCallback(value, id, storedAnswer?.id)
@@ -63,7 +52,6 @@ const SimpleQuestion: FunctionComponent<SimpleQuestionProps> = ({
           isDisabled,
           id,
           options,
-          widgetConfig,
           questionText,
         }}
       />
