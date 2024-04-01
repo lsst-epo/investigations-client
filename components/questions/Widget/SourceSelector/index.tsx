@@ -1,18 +1,16 @@
 import { FunctionComponent, useState } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import { SimpleWidgetProps } from "..";
-import { BaseContentBlockProps } from "@/components/shapes";
+import ModalProps from "@/components/shapes/modal";
 import WidgetContainer from "@/components/layout/WidgetContainer";
 import withModal from "@/components/hoc/withModal/withModal";
 import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
-import * as Styled from "./styles";
-import { SourceSelectorData } from "@/types/widgets";
 import MagnitudeScatterPlotContainer from "@/components/dynamic/LightCurveTool/MagnitudeScatterPlot";
+import { WidgetQuestion } from "..";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
     __typename
-    typeHandle
     sourceSelector {
       ... on widgets_sourceSelector_Entry {
         id
@@ -54,15 +52,14 @@ const Fragment = graphql(`
   }
 `);
 
-type SourceSelectorQuestionProps = Omit<
-  SimpleWidgetProps<SourceSelectorData>,
-  "widgetConfig"
+type SourceSelectorQuestionProps = WidgetQuestion<
+  FragmentType<typeof Fragment>
 > &
-  BaseContentBlockProps<FragmentType<typeof Fragment>>;
+  ModalProps;
 
 const SourceSelectorQuestion: FunctionComponent<
   SourceSelectorQuestionProps
-> = ({ data, onChangeCallback, value, isOpen, openModal, questionText }) => {
+> = ({ data, onChangeCallback, value, isOpen, openModal, instructions }) => {
   const { sourceSelector } = useFragment(Fragment, data);
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
 
@@ -114,8 +111,7 @@ const SourceSelectorQuestion: FunctionComponent<
         data-modal-open={isOpen}
         title={displayName || title || undefined}
         interactive={false}
-        instructions={questionText}
-        {...{ openModal, isOpen }}
+        {...{ openModal, isOpen, instructions }}
       >
         <Styled.MultiWidgetContainer>
           <SourceSelectorContainer
@@ -148,6 +144,6 @@ const SourceSelectorQuestion: FunctionComponent<
   );
 };
 
-SourceSelectorQuestion.displayName = "Questions.Simple.Widget.SourceSelector";
+SourceSelectorQuestion.displayName = "Questions.Widget.SourceSelector";
 
 export default withModal(SourceSelectorQuestion);

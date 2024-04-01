@@ -1,66 +1,54 @@
+"use client";
 import { FunctionComponent } from "react";
+import isNull from "lodash/isNull";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { BaseContentBlockProps } from "@/components/shapes";
-import withModal from "@/components/hoc/withModal/withModal";
-import WidgetContainer from "@/components/layout/WidgetContainer";
+import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import ColorFilterTool from "@/components/dynamic/ColorFilterTool";
-import { SimpleWidgetProps } from "..";
+import { WidgetQuestion } from "..";
 
 const Fragment = graphql(`
   fragment ColorFilterToolQuestion on questionWidgetsBlock_colorFilterToolBlock_BlockType {
-    typeHandle
     colorFilterTool {
       ...ColorFilterToolEntry
     }
   }
 `);
 
-type ColorFilterToolQuestionProps = Omit<SimpleWidgetProps, "widgetConfig"> &
-  BaseContentBlockProps<FragmentType<typeof Fragment>>;
-
 /**
  * This implementation of the Color Filter Tool is for questions placed
  * in interactive content sections. It performs callbacks and saves it's data.
  */
 const ColorFilterToolQuestion: FunctionComponent<
-  ColorFilterToolQuestionProps
-> = ({
-  data,
-  onChangeCallback,
-  value,
-  isOpen,
-  openModal,
-  questionText,
-  ...props
-}) => {
+  WidgetQuestion<FragmentType<typeof Fragment>>
+> = ({ data, onChangeCallback, value, instructions }) => {
   const { colorFilterTool } = useFragment(Fragment, data);
+
+  if (isNull(colorFilterTool) || isNull(colorFilterTool[0])) return null;
+
   const { id, title, displayName } = colorFilterTool[0];
 
   return (
-    <WidgetContainer
-      data-modal-open={isOpen}
+    <WidgetContainerWithModal
       style={{
         "--color-tool-padding": "var(--PADDING_SMALL, 20px)",
         "--widget-container-padding": "var(--color-tool-padding)",
       }}
       title={displayName || title}
-      instructions={questionText}
       variant="light"
       fillScreen
-      {...{ openModal, isOpen }}
+      {...{ instructions }}
     >
       <ColorFilterTool
-        {...props}
         onChangeCallback={(value) =>
           onChangeCallback && onChangeCallback({ [id]: value })
         }
         value={value?.[id]}
         data={colorFilterTool[0]}
       />
-    </WidgetContainer>
+    </WidgetContainerWithModal>
   );
 };
 
-ColorFilterToolQuestion.displayName = "Questions.Simple.Widget.ColorFilterTool";
+ColorFilterToolQuestion.displayName = "Questions.Widget.ColorFilterTool";
 
-export default withModal(ColorFilterToolQuestion);
+export default ColorFilterToolQuestion;

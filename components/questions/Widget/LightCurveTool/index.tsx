@@ -4,16 +4,13 @@ import { useTranslation } from "react-i18next";
 import sample from "lodash/sample";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
-import { SimpleWidgetProps } from "..";
-import { BaseContentBlockProps } from "@/components/shapes";
+import { WidgetQuestion } from "..";
 import LightCurveToolContainer from "@/components/dynamic/LightCurveTool/LightCurvePlot";
 import Loader from "@/components/page/Loader";
-import { LightCurveData } from "@/types/widgets";
 
 const Fragment = graphql(`
   fragment LightCurveQuestion on questionWidgetsBlock_lightCurveBlock_BlockType {
     __typename
-    typeHandle
     lightCurveTool {
       ... on widgets_lightCurveTool_Entry {
         title
@@ -36,12 +33,6 @@ const Fragment = graphql(`
   }
 `);
 
-type LightCurveToolQuestionProps = Omit<
-  SimpleWidgetProps<LightCurveData>,
-  "widgetConfig"
-> &
-  BaseContentBlockProps<FragmentType<typeof Fragment>>;
-
 const getDataset = (datasets: Array<any>, id?: string) => {
   let dataset;
 
@@ -55,8 +46,8 @@ const getDataset = (datasets: Array<any>, id?: string) => {
 };
 
 const LightCurveToolQuestion: FunctionComponent<
-  LightCurveToolQuestionProps
-> = ({ data, questionText, value = {}, onChangeCallback }) => {
+  WidgetQuestion<FragmentType<typeof Fragment>>
+> = ({ data, instructions, value = {}, onChangeCallback }) => {
   const { t } = useTranslation();
   const { lightCurveTool } = useFragment(Fragment, data);
 
@@ -83,7 +74,7 @@ const LightCurveToolQuestion: FunctionComponent<
   return (
     <WidgetContainerWithModal
       title={t("widgets.light_curve.title_interactive") || undefined}
-      instructions={questionText}
+      instructions={instructions}
       variant="light"
       paddingSize="medium"
       fillScreen
@@ -104,6 +95,6 @@ const LightCurveToolQuestion: FunctionComponent<
   );
 };
 
-LightCurveToolQuestion.displayName = "Questions.Simple.Widget.LightCurveTool";
+LightCurveToolQuestion.displayName = "Questions.Widget.LightCurveTool";
 
 export default LightCurveToolQuestion;
