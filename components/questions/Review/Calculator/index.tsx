@@ -19,7 +19,7 @@ const CalculatorReview: FunctionComponent<
 
   return (
     <Styled.ReviewListItem value={number}>
-      ∂{questionText}
+      {questionText}
       {value ? (
         <StaticCalculator type={equation} locale={language} {...{ value }} />
       ) : (
