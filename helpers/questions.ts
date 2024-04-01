@@ -53,7 +53,7 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
     options,
     questionText,
     questionWidgetsBlock,
-    widgetInstructions,
+    instructions,
     rows,
     equation,
   } = question;
@@ -68,7 +68,7 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
     case "multiPart":
       return { answerType, id, parts };
     case "widget":
-      return { answerType, id, widgetInstructions, questionWidgetsBlock };
+      return { answerType, id, instructions, questionWidgetsBlock };
     case "tabular":
       return { answerType, id, questionText, rows };
     case "calculator":

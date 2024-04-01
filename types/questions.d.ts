@@ -10,13 +10,18 @@ type Widget = "widget";
 type Readonly = "readonlyText";
 type Calculator = "calculator";
 
-export type SimpleQuestionType = Text | Textarea | Select | Widget;
+export type SimpleQuestionType = Text | Textarea | Select;
 
 export type InlineQuestionType = Text | Select | Multiselect | Readonly;
 
 export type TabularQuestionType = TextQuestion | SelectQuestion;
 
-export type AnswerType = SimpleQuestionType | Calculator | Multipart | Tabular;
+export type AnswerType =
+  | SimpleQuestionType
+  | Calculator
+  | Multipart
+  | Tabular
+  | Widget;
 
 export interface BaseQuestionProps {
   id: string;
@@ -48,7 +53,7 @@ export interface SelectConfig extends QuestionConfig<Select> {
 export interface WidgetConfig
   extends Omit<QuestionConfig<Widget>, "questionText"> {
   questionWidgetsBlock: Array<any>;
-  widgetInstructions: string;
+  instructions: string;
 }
 
 export interface MultipartConfig
