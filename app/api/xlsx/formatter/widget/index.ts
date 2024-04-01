@@ -3,9 +3,9 @@ import { WidgetFormatter, WidgetFormatterFactory } from "..";
 import * as formatters from "./formatters";
 
 const widgets: Record<string, WidgetFormatter> = {
-  colorFilterToolBlock: formatters.colorTool,
-  sourceSelectorBlock: formatters.sourceSelector,
-  lightCurveBlock: formatters.lightCurveTool,
+  questionWidgetsBlock_colorFilterToolBlock_BlockType: formatters.colorTool,
+  questionWidgetsBlock_sourceSelectorBlock_BlockType: formatters.sourceSelector,
+  questionWidgetsBlock_lightCurveBlock_BlockType: formatters.lightCurveTool,
 };
 
 const widgetFormatterFactory: WidgetFormatterFactory = async ({
@@ -16,8 +16,8 @@ const widgetFormatterFactory: WidgetFormatterFactory = async ({
   questionWidgetsBlock,
 }) => {
   const { t } = await serverTranslation(locale, "translation");
-  const { typeHandle, ...widgetConfig } = questionWidgetsBlock[0];
-  const formatter = widgets[typeHandle];
+  const { __typename, ...widgetConfig } = questionWidgetsBlock[0];
+  const formatter = widgets[__typename];
 
   if (!formatter || !value) {
     cell.value = t("review.no_answer");
