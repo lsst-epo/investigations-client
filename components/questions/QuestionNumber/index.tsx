@@ -15,6 +15,7 @@ const QuestionNumber: FunctionComponent<
 > = ({ id, direction = "block", className, children }) => {
   const questions = useQuestions();
 
+  const maxIndex = questions.byAll.length - 1;
   const questionIndex = questions.byAll.findIndex(
     (question) => question.id === id
   );
@@ -24,6 +25,7 @@ const QuestionNumber: FunctionComponent<
       value={questionIndex + 1}
       data-direction={direction}
       className={className}
+      style={{ zIndex: maxIndex - questionIndex }}
     >
       {children}
     </Styled.Number>
