@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { BaseReviewProps, CalculatorConfig } from "@/types/questions";
 import { WidgetInput } from "@/types/answers";
 import useAnswer from "@/hooks/useAnswer";
-import StaticCalculator from "@/components/calculators/static";
+import StaticCalculator from "@/components/calculators/Static";
 import * as Styled from "../styles";
 
 const CalculatorReview: FunctionComponent<
@@ -21,7 +21,7 @@ const CalculatorReview: FunctionComponent<
     <Styled.ReviewListItem value={number}>
       {questionText}
       {value ? (
-        <StaticCalculator type={equation} locale={language} {...{ value }} />
+        <StaticCalculator locale={language} {...{ value, equation }} />
       ) : (
         t("review.no_answer")
       )}
