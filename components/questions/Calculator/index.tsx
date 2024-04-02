@@ -4,10 +4,10 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import useAnswer from "@/hooks/useAnswer";
 import { isNullish } from "@/lib/utils";
 import { WidgetInput } from "@/types/answers";
-import { Equation } from "@/types/calculators";
-import CalculatorFactory from "@/components/factories/CalculatorFactory";
+import InteractiveCalculator from "@/components/calculators/Interactive";
 import QuestionNumber from "../QuestionNumber";
 import * as Styled from "./styles";
+import { Equation } from "@/types/calculators";
 
 const Fragment = graphql(`
   fragment CalculatorQuestion on questions_default_Entry {
@@ -35,10 +35,10 @@ const CalculatorQuestion: FunctionComponent<CalculatorQuestionProps> = ({
     <QuestionNumber {...{ id }}>
       <label htmlFor={id}>{questionText}</label>
       <Styled.CalculatorWrapper>
-        <CalculatorFactory
+        <InteractiveCalculator
           {...{
             id,
-            type: equation as Equation,
+            equation: equation as Equation,
             value,
             onChangeCallback,
           }}

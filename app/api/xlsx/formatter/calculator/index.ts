@@ -1,5 +1,5 @@
 import { serverTranslation } from "@/lib/i18n";
-import CalculatorFunctions from "@/components/calculators/math";
+import Calculator from "@/components/calculators/lib";
 import { CalculatorFormatter } from "..";
 
 const CalculatorFormatter: CalculatorFormatter = async ({
@@ -10,11 +10,8 @@ const CalculatorFormatter: CalculatorFormatter = async ({
 }) => {
   const { t } = await serverTranslation(locale, "translation");
 
-  const calculator = CalculatorFunctions[equation];
-
-  if (!calculator) cell.value = t("review.no_answer");
-
-  cell.value = calculator(value) || t("review.no_answer");
+  cell.value =
+    Calculator(equation, value, locale).result || t("review.no_answer");
 };
 
 export default CalculatorFormatter;
