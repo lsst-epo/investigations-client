@@ -307,11 +307,9 @@
     }
   },
   "calculators": {
-    "peak_absolute_magnitude": {
-      "placeholder": "{{delta}}m15"
-    },
-    "supernova_distance": {
-      "result": "{{distance}} Mly"
+    "output": {
+      "supernovaDistance": "{{result}} Mega light-years",
+      "peakAbsoluteMagnitude": "Peak absolute magnitude {{result}}"
     }
   }
 }

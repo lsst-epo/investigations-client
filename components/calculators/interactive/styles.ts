@@ -1,5 +1,4 @@
 "use client";
-import { token } from "@rubin-epo/epo-react-lib/styles";
 import styled from "styled-components";
 
 export const MathContainer = styled.div`
@@ -7,15 +6,10 @@ export const MathContainer = styled.div`
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 1fr 1fr;
   gap: var(--math-gap);
   justify-items: left;
-
-  @container (min-width: ${token("BREAK_TABLET_MIN")}) {
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-  }
+  min-width: 50%;
 `;
 
 export const Inputs = styled.form`
@@ -27,4 +21,13 @@ export const Inputs = styled.form`
 export const InputRow = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const LiveRegion = styled.output`
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 `;

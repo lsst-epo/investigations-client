@@ -6,6 +6,7 @@ const Equation: FunctionComponent<{ latex: string }> = ({ latex }) => {
   const mathMl = temml.renderToString(latex, {
     displayMode: true,
     throwOnError: true,
+    trust: (context) => context.command === "\\class",
   });
 
   return (

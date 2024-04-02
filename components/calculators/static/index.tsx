@@ -1,17 +1,15 @@
 import { FunctionComponent } from "react";
 import { CalculatorValues, Equation } from "@/types/calculators";
-import Equations from "@/components/calculators/math";
+import Calculator from "@/components/calculators/lib";
 import EquationRenderer from "@/components/atomic/Equation";
 import { fallbackLng } from "@/lib/i18n/settings";
 
 const StaticCalculator: FunctionComponent<{
-  type: Equation;
+  equation: Equation;
   value: CalculatorValues;
   locale?: string;
-}> = ({ type, value, locale = fallbackLng }) => {
-  const equation = Equations[type];
-  const latex = equation(value, locale).toLaTeX();
-  if (!equation || !latex) return null;
+}> = ({ equation, value, locale = fallbackLng }) => {
+  const { latex } = Calculator(equation, value, locale);
 
   return <EquationRenderer latex={latex} />;
 };
