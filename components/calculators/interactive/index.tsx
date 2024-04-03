@@ -18,7 +18,7 @@ const InteractiveCalculator: FunctionComponent<InteractiveCalculatorProps> = ({
     i18n: { language },
   } = useTranslation();
 
-  const { fields = {}, result, latex } = Calculator(equation, value, language);
+  const { inputs = [], result, latex } = Calculator(equation, value, language);
 
   const handleChange = (event: FormEvent<HTMLInputElement>, key: string) => {
     onChangeCallback &&
@@ -31,12 +31,11 @@ const InteractiveCalculator: FunctionComponent<InteractiveCalculatorProps> = ({
   return (
     <Styled.MathContainer>
       <Styled.Inputs id={id}>
-        {Object.keys(fields).map((key: string) => {
-          const { label, precision } = fields[key];
+        {inputs.map(({ key, precision, placeholder }) => {
           return (
             <Styled.InputRow key={key}>
               <label htmlFor={key}>
-                <Equation latex={label} />
+                <Equation latex={`${placeholder} =`} />
               </label>
               <MathInput
                 value={value[key] ?? ""}

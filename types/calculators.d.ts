@@ -1,11 +1,34 @@
-export type Equation = "peakAbsoluteMagnitude" | "supernovaDistance";
+export type Equation = "peakAbsoluteMagnitude" | "distanceMly";
 export type CalculatorValues = Record<string, number | null | undefined>;
 export type NonNullableCalculatorValues = Record<string, number | undefined>;
 
-export interface CalculatorInput {
+export interface Variable {
   key: string;
-  label: string;
   precision: number;
+  sigFigs?: number;
+  placeholder: string;
+}
+
+export interface Constant {
+  value: number;
+  precision?: number;
+}
+
+export interface Result extends Variable {
+  addUnit?: (value: string | number) => string;
+}
+
+export interface LaTeXBindings {
+  result: string | number;
+  constants: Record<string, string | number>;
+  variables: Record<string, string | number>;
+}
+
+export interface EquationConfig {
+  latex: (props: LaTeXBindings) => string;
+  constants: Record<string, Constant>;
+  inputs: Array<Variable>;
+  result: Result;
 }
 
 export type Calculator<T = CalculatorValues> = (
@@ -13,7 +36,7 @@ export type Calculator<T = CalculatorValues> = (
   variables: T,
   locale?: string
 ) => {
-  fields: Record<string, CalculatorInput>;
+  inputs: Array<Variable>;
   result: number | undefined;
   latex: string;
 };
@@ -26,12 +49,7 @@ export interface InteractiveCalculatorProps<T = CalculatorValues> {
   value?: T;
 }
 
-export type EquationComposer = (values: NonNullableCalculatorValues) => {
-  constants: Record<string, number>;
-  result?: number;
-};
-
-export type LaTeXComposer = (
-  variables: Record<string, string | number | undefined>,
-  locale?: string
-) => string;
+export type EquationComposer = (
+  values: NonNullableCalculatorValues,
+  constants: Record<string, Constant>
+) => number | undefined;

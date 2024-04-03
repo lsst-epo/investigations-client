@@ -1,76 +1,91 @@
 import isNumber from "lodash/isNumber";
 import { fallbackLng } from "@/lib/i18n/settings";
-import { LaTeXComposer } from "@/types/calculators";
-import placeholders from "./placeholders";
-import Equations from "./equations";
+import {
+  Variable,
+  Constant,
+  Result,
+  EquationConfig,
+} from "@/types/calculators";
+import { Variables } from "./config";
 
 const withClass = (value: string) => `\\class{calc-output}{${value}}`;
 
-const peakAbsoluteMagnitude: LaTeXComposer = (
-  { result = placeholders.peakAbsoluteMagnitude, m15 = placeholders.m15 },
+const formatConstant = ({ precision, value }: Constant, locale = fallbackLng) =>
+  Intl.NumberFormat(locale, {
+    minimumFractionDigits: precision,
+    maximumFractionDigits: precision,
+  }).format(value);
+
+const formatVariable = ({
+  variable,
+  config: { precision, sigFigs, placeholder },
+  locale = fallbackLng,
+}: {
+  variable?: number;
+  config: Variable;
+  locale?: string;
+}) => {
+  if (isNumber(variable)) {
+    return Intl.NumberFormat(locale, {
+      minimumFractionDigits: precision,
+      maximumFractionDigits: precision,
+      maximumSignificantDigits: sigFigs,
+    }).format(variable);
+  }
+
+  return placeholder;
+};
+
+const formatResult = ({
+  result: variable,
+  config: { addUnit, ...config },
+  locale = fallbackLng,
+}: {
+  result?: number;
+  config: Result;
+  locale?: string;
+}) => {
+  if (isNumber(variable) && addUnit) {
+    return withClass(addUnit(formatVariable({ variable, config, locale })));
+  }
+
+  return withClass(
+    formatVariable({
+      variable,
+      config,
+      locale,
+    })
+  );
+};
+
+const LaTeXComposer = (
+  equation: EquationConfig,
+  values: { result?: number; variables: Record<string, number | undefined> },
   locale = fallbackLng
 ) => {
-  const {
-    constants: { A, B },
-  } = Equations.peakAbsoluteMagnitude({});
+  const { latex, constants, result: resultConfig } = equation;
+  const { result, variables } = values;
 
-  const { format } = new Intl.NumberFormat(locale, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-  const { format: resultFormat } = new Intl.NumberFormat(locale, {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
+  const formattedConstants: Record<string, string> = {};
+  const formattedVariables: Record<string, string> = {};
+
+  Object.entries(constants).map(([key, constant]) => {
+    formattedConstants[key] = formatConstant(constant, locale);
   });
 
-  const displayResult = isNumber(result) ? resultFormat(result) : result;
-  const displayM15 = isNumber(m15) ? format(m15) : m15;
-
-  return `${withClass(displayResult)} = ${format(A)} + ${format(
-    B
-  )}\\left ( ${displayM15} \\right )`;
-};
-
-const supernovaDistance: LaTeXComposer = (
-  {
-    result = placeholders.distance,
-    peakAbsoluteMagnitude = placeholders.peakAbsoluteMagnitude,
-    peakApparentMagnitude = placeholders.peakApparentMagnitude,
-  },
-  locale = fallbackLng
-) => {
-  const {
-    constants: { A, B, C, D },
-  } = Equations.supernovaDistance({});
-
-  const { format } = new Intl.NumberFormat(locale, {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
+  Object.entries(variables).map(([key, variable]) => {
+    formattedVariables[key] = formatVariable({
+      variable,
+      config: Variables[key],
+      locale,
+    });
   });
 
-  const displayResult = isNumber(result)
-    ? `${Intl.NumberFormat(locale, {
-        maximumSignificantDigits: 3,
-      }).format(result)}\\space\\text{Mly}`
-    : result;
-  const displayPeakAbsolute = isNumber(peakAbsoluteMagnitude)
-    ? format(peakAbsoluteMagnitude)
-    : peakAbsoluteMagnitude;
-  const displayPeakApparent = isNumber(peakApparentMagnitude)
-    ? format(peakApparentMagnitude)
-    : peakApparentMagnitude;
-
-  return `${withClass(displayResult)} = \\left (${Intl.NumberFormat(locale, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(
-    A
-  )}\\right )${B}^{\\frac{${displayPeakApparent} - ${displayPeakAbsolute}}{${C}} + ${D}}`;
+  return latex({
+    result: formatResult({ result, config: resultConfig, locale }),
+    constants: formattedConstants,
+    variables: formattedVariables,
+  });
 };
 
-const LaTeX = {
-  peakAbsoluteMagnitude,
-  supernovaDistance,
-};
-
-export default LaTeX;
+export default LaTeXComposer;
