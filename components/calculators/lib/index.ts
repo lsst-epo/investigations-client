@@ -5,8 +5,8 @@ import {
   NonNullableCalculatorValues,
 } from "@/types/calculators";
 import Equations from "./equations";
-import LaTeX from "./latex";
-import FormFields from "./fields";
+import LaTeXComposer from "./latex";
+import Config from "./config";
 
 const cleanInput = (values: CalculatorValues): NonNullableCalculatorValues => {
   const nonNullValues: NonNullableCalculatorValues = {};
@@ -19,16 +19,24 @@ const cleanInput = (values: CalculatorValues): NonNullableCalculatorValues => {
 };
 
 const Calculator: Calculator = (equation, value, locale = fallbackLng) => {
-  const cleaned = cleanInput(value);
+  const variables = cleanInput(value);
+  const config = Config[equation];
 
-  const { result } = Equations[equation](cleaned);
+  if (typeof config === "undefined") {
+    console.error(`Equation ${equation} does not exist`);
+  }
+
+  const { inputs, constants } = config;
+
+  const result = Equations[equation](variables, constants);
 
   return {
-    fields: FormFields[equation],
+    inputs,
     result,
-    latex: LaTeX[equation](
+    latex: LaTeXComposer(
+      config,
       {
-        ...cleaned,
+        variables,
         result,
       },
       locale

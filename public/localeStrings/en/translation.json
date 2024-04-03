@@ -308,7 +308,7 @@
   },
   "calculators": {
     "output": {
-      "supernovaDistance": "{{result}} Mega light-years",
+      "distanceMly": "{{result}} Mega light-years",
       "peakAbsoluteMagnitude": "Peak absolute magnitude {{result}}"
     }
   }
