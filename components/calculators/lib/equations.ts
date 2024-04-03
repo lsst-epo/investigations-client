@@ -2,41 +2,36 @@ import round from "lodash/round";
 import isNumber from "lodash/isNumber";
 import { Equation, EquationComposer } from "@/types/calculators";
 
-const peakAbsoluteMagnitude: EquationComposer = ({ m15 }) => {
-  const A = -23.598;
-  const B = 6.457;
-
+const peakAbsoluteMagnitude: EquationComposer = ({ m15 }, { A, B }) => {
   if (isNumber(m15)) {
-    const result = round(A + B * m15, 1);
+    const result = round(A.value + B.value * m15, 1);
 
-    return { constants: { A, B }, result };
+    return result;
   }
 
-  return { constants: { A, B } };
+  return undefined;
 };
 
-const supernovaDistance: EquationComposer = ({
-  peakApparentMagnitude,
-  peakAbsoluteMagnitude,
-}) => {
-  const A = 3.26;
-  const B = 10;
-  const C = 5;
-  const D = 1;
-
+const distanceMly: EquationComposer = (
+  { peakApparentMagnitude, peakAbsoluteMagnitude },
+  { A, B, C, D }
+) => {
   if (isNumber(peakApparentMagnitude) && isNumber(peakAbsoluteMagnitude)) {
-    const exponent = (peakApparentMagnitude - peakAbsoluteMagnitude) / C + D;
-    const result = round((A * Math.pow(B, exponent)) / Math.pow(B, 6));
+    const exponent =
+      (peakApparentMagnitude - peakAbsoluteMagnitude) / C.value + D.value;
+    const result = round(
+      (A.value * Math.pow(B.value, exponent)) / Math.pow(10, 6)
+    );
 
-    return { constants: { A, B, C, D }, result };
+    return result;
   }
 
-  return { constants: { A, B, C, D } };
+  return undefined;
 };
 
 const Equations: Record<Equation, EquationComposer> = {
   peakAbsoluteMagnitude,
-  supernovaDistance,
+  distanceMly,
 };
 
 export default Equations;
