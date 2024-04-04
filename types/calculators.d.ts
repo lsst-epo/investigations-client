@@ -1,4 +1,4 @@
-export type Equation = "peakAbsoluteMagnitude" | "distanceMly";
+export type Equation = "peakAbsoluteMagnitude" | "distanceModulus";
 export type CalculatorValues = Record<string, number | null | undefined>;
 export type NonNullableCalculatorValues = Record<string, number | undefined>;
 
