@@ -31,7 +31,7 @@ const Config: Record<Equation, EquationConfig> = {
     inputs: [Variables.m15],
     result: Variables.peakAbsoluteMagnitude,
   },
-  distanceMly: {
+  distanceModulus: {
     latex: ({ result, constants, variables }) =>
       `${result} = \\left (${constants.A}\\right )${constants.B}^{\\frac{${variables.peakApparentMagnitude} - ${variables.peakAbsoluteMagnitude}}{${constants.C}}} + ${constants.D}`,
     constants: {

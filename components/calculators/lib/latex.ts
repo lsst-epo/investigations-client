@@ -6,7 +6,6 @@ import {
   Result,
   EquationConfig,
 } from "@/types/calculators";
-import { Variables } from "./config";
 
 const withClass = (value: string) => `\\class{calc-output}{${value}}`;
 
@@ -63,7 +62,7 @@ const LaTeXComposer = (
   values: { result?: number; variables: Record<string, number | undefined> },
   locale = fallbackLng
 ) => {
-  const { latex, constants, result: resultConfig } = equation;
+  const { latex, constants, inputs, result: resultConfig } = equation;
   const { result, variables } = values;
 
   const formattedConstants: Record<string, string> = {};
@@ -73,10 +72,10 @@ const LaTeXComposer = (
     formattedConstants[key] = formatConstant(constant, locale);
   });
 
-  Object.entries(variables).map(([key, variable]) => {
+  inputs.map(({ key, ...rest }) => {
     formattedVariables[key] = formatVariable({
-      variable,
-      config: Variables[key],
+      variable: variables[key],
+      config: { key, ...rest },
       locale,
     });
   });

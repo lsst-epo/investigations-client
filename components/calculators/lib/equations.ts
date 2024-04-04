@@ -12,7 +12,7 @@ const peakAbsoluteMagnitude: EquationComposer = ({ m15 }, { A, B }) => {
   return undefined;
 };
 
-const distanceMly: EquationComposer = (
+const distanceModulus: EquationComposer = (
   { peakApparentMagnitude, peakAbsoluteMagnitude },
   { A, B, C, D }
 ) => {
@@ -31,7 +31,7 @@ const distanceMly: EquationComposer = (
 
 const Equations: Record<Equation, EquationComposer> = {
   peakAbsoluteMagnitude,
-  distanceMly,
+  distanceModulus,
 };
 
 export default Equations;
