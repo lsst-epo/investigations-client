@@ -1340,6 +1340,7 @@ export type EntryCriteriaInput = {
   /** Causes the query results to be returned in reverse order. */
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on whether the elements are “leaves” in their structure (element with no descendants). */
   leaves: InputMaybe<Scalars['Boolean']['input']>;
@@ -1574,6 +1575,7 @@ export type EntryInterfaceAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -1656,6 +1658,7 @@ export type EntryInterfaceChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -1738,6 +1741,7 @@ export type EntryInterfaceDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -1820,6 +1824,7 @@ export type EntryInterfaceLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -1902,6 +1907,7 @@ export type EntryInterfaceNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -1984,6 +1990,7 @@ export type EntryInterfaceParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -2066,6 +2073,7 @@ export type EntryInterfacePrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -2898,6 +2906,7 @@ export type QueryDatasetsEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -2977,6 +2986,7 @@ export type QueryEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3058,6 +3068,7 @@ export type QueryEntryArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3139,6 +3150,7 @@ export type QueryEntryCountArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3288,6 +3300,7 @@ export type QueryHomepageEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3367,6 +3380,7 @@ export type QueryInvestigationsEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3446,6 +3460,7 @@ export type QueryPagesEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3525,6 +3540,7 @@ export type QueryQuestionsEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3604,6 +3620,7 @@ export type QueryReferenceModalsEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -3803,6 +3820,7 @@ export type QueryWidgetsEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -4964,6 +4982,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -5363,6 +5382,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -5500,6 +5520,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -5637,6 +5658,7 @@ export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -5874,6 +5896,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeDatasetArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -6742,6 +6765,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -6823,6 +6847,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -6904,6 +6929,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -7055,6 +7081,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -7136,6 +7163,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -7217,6 +7245,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -7298,6 +7327,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -7432,6 +7462,7 @@ export type DisplayTable_BlockTypePreviousQuestionArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -7837,6 +7868,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8094,6 +8126,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8175,6 +8208,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8256,6 +8290,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8372,6 +8407,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8453,6 +8489,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8534,6 +8571,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8615,6 +8653,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8915,6 +8954,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -8996,6 +9036,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9112,6 +9153,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9193,6 +9235,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9274,6 +9317,7 @@ export type Investigations_Default_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9355,6 +9399,7 @@ export type Investigations_Default_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9436,6 +9481,7 @@ export type Investigations_Default_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9637,6 +9683,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9718,6 +9765,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9799,6 +9847,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9902,6 +9951,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -9983,6 +10033,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10064,6 +10115,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10145,6 +10197,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10344,6 +10397,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10425,6 +10479,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10506,6 +10561,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10587,6 +10643,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10668,6 +10725,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10749,6 +10807,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -10830,6 +10889,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -11503,6 +11563,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -11584,6 +11645,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -11700,6 +11762,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -11781,6 +11844,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -11862,6 +11926,7 @@ export type Pages_Pages_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -11948,6 +12013,7 @@ export type Pages_Pages_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12029,6 +12095,7 @@ export type Pages_Pages_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12229,6 +12296,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12310,6 +12378,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12391,6 +12460,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12472,6 +12542,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12553,6 +12624,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12634,6 +12706,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12715,6 +12788,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -12849,6 +12923,7 @@ export type QuestionTable_BlockTypePreviousQuestionArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13024,6 +13099,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13161,6 +13237,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13298,6 +13375,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13387,6 +13465,7 @@ export type Questions_Default_Entry = ElementInterface & EntryInterface & {
   expiryDate: Maybe<Scalars['DateTime']['output']>;
   /** The ID of the entity */
   id: Maybe<Scalars['ID']['output']>;
+  investigationEntries: Array<Maybe<EntryInterface>>;
   /** Returns whether this is a draft. */
   isDraft: Maybe<Scalars['Boolean']['output']>;
   /** Returns whether this is a revision. */
@@ -13506,6 +13585,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13626,6 +13706,7 @@ export type Questions_Default_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13707,6 +13788,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13759,6 +13841,88 @@ export type Questions_Default_EntryEquationArgs = {
 };
 
 
+export type Questions_Default_EntryInvestigationEntriesArgs = {
+  after: InputMaybe<Scalars['String']['input']>;
+  ancestorDist: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf: InputMaybe<Scalars['Int']['input']>;
+  answerType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before: InputMaybe<Scalars['String']['input']>;
+  dataset: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist: InputMaybe<Scalars['Int']['input']>;
+  descendantOf: InputMaybe<Scalars['Int']['input']>;
+  displayName: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable: InputMaybe<Scalars['Boolean']['input']>;
+  equation: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  expiryDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle: InputMaybe<Scalars['Boolean']['input']>;
+  id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  leaves: InputMaybe<Scalars['Boolean']['input']>;
+  level: InputMaybe<Scalars['Int']['input']>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  linkTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  offset: InputMaybe<Scalars['Int']['input']>;
+  orderBy: InputMaybe<Scalars['String']['input']>;
+  pageType: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore: InputMaybe<Scalars['Int']['input']>;
+  postDate: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  preferSites: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf: InputMaybe<Scalars['Int']['input']>;
+  questionText: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search: InputMaybe<Scalars['String']['input']>;
+  section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId: InputMaybe<Scalars['Int']['input']>;
+  text: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique: InputMaybe<Scalars['Boolean']['input']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure: InputMaybe<Scalars['Boolean']['input']>;
+  yAxisMax: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
 export type Questions_Default_EntryLocalizedArgs = {
   after: InputMaybe<Scalars['String']['input']>;
   ancestorDist: InputMaybe<Scalars['Int']['input']>;
@@ -13793,6 +13957,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13909,6 +14074,7 @@ export type Questions_Default_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -13990,6 +14156,7 @@ export type Questions_Default_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -14071,6 +14238,7 @@ export type Questions_Default_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -14278,6 +14446,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -14829,6 +14998,7 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -14910,6 +15080,7 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -14991,6 +15162,7 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -15072,6 +15244,7 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -15153,6 +15326,7 @@ export type ReferenceModals_Default_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -15234,6 +15408,7 @@ export type ReferenceModals_Default_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -15315,6 +15490,7 @@ export type ReferenceModals_Default_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16265,6 +16441,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16346,6 +16523,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16462,6 +16640,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16553,6 +16732,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16634,6 +16814,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16715,6 +16896,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16796,6 +16978,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -16998,6 +17181,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17079,6 +17263,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17160,6 +17345,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17241,6 +17427,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17322,6 +17509,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17403,6 +17591,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17484,6 +17673,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17565,6 +17755,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17768,6 +17959,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17849,6 +18041,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -17930,6 +18123,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -18011,6 +18205,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -18092,6 +18287,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -18173,6 +18369,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -18254,6 +18451,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
@@ -18335,6 +18533,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   imageAlbum: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
