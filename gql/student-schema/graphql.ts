@@ -5649,7 +5649,6 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockType = ElementInter
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   binSize?: Maybe<Scalars['Number']['output']>;
-  dataset: Array<Maybe<EntryInterface>>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
@@ -5669,6 +5668,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockType = ElementInter
   level?: Maybe<Scalars['Int']['output']>;
   /** The ID of the primary owner of the Neo block. */
   primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  questionEntries: Array<Maybe<EntryInterface>>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
@@ -5704,7 +5704,72 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockType_CountArgs = {
 };
 
 
-export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeDatasetArgs = {
+export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeImageAlbumArgs = {
+  except?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  first?: InputMaybe<Scalars['Boolean']['input']>;
+  forPage?: InputMaybe<ForPageInput>;
+  last?: InputMaybe<Scalars['Boolean']['input']>;
+  nth?: InputMaybe<Scalars['Int']['input']>;
+  random?: InputMaybe<Scalars['Int']['input']>;
+  reverse?: InputMaybe<Scalars['Boolean']['input']>;
+  shuffle?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  where?: InputMaybe<WhereFiltersInput>;
+  whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereIn?: InputMaybe<WhereInFiltersInput>;
+  whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
+  whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
+  whereNotNull?: InputMaybe<Scalars['String']['input']>;
+  whereNull?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeJsonArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeQuestionEntriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -5783,71 +5848,6 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeDatasetArgs = {
   withStructure?: InputMaybe<Scalars['Boolean']['input']>;
   yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-};
-
-
-export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeImageAlbumArgs = {
-  except?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
-  first?: InputMaybe<Scalars['Boolean']['input']>;
-  forPage?: InputMaybe<ForPageInput>;
-  last?: InputMaybe<Scalars['Boolean']['input']>;
-  nth?: InputMaybe<Scalars['Int']['input']>;
-  random?: InputMaybe<Scalars['Int']['input']>;
-  reverse?: InputMaybe<Scalars['Boolean']['input']>;
-  shuffle?: InputMaybe<Scalars['Int']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  where?: InputMaybe<WhereFiltersInput>;
-  whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
-  whereIn?: InputMaybe<WhereInFiltersInput>;
-  whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
-  whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
-  whereNotNull?: InputMaybe<Scalars['String']['input']>;
-  whereNull?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeJsonArgs = {
-  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  dateModified?: InputMaybe<Scalars['String']['input']>;
-  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
-  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
-  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
-  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
-  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<Scalars['String']['input']>;
-  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
-  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
-  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
-  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
-  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
-  search?: InputMaybe<Scalars['String']['input']>;
-  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  unique?: InputMaybe<Scalars['Boolean']['input']>;
-  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
-  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
-  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type ContentBlocks_Table_BlockType = ElementInterface & NeoBlockInterface & {
