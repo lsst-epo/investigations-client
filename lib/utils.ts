@@ -9,6 +9,7 @@
  */
 
 import { ComponentType } from "react";
+import isUndefined from "lodash/isUndefined";
 
 export const capitalize = (string: string) => {
   if (typeof string !== "string") return "";
@@ -143,3 +144,9 @@ export function notNull<T>(value: T): value is NonNullable<T> {
 export const isNullish = <T>(
   argument: T | undefined | null
 ): argument is undefined | null => argument === null || argument === undefined;
+
+export const isDefined = <T>(value: T | undefined): value is T =>
+  !isUndefined(value);
+
+export const exists = <T>(value: T | undefined | null): value is T =>
+  isDefined(value) && notNull(value);

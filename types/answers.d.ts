@@ -7,17 +7,17 @@ export type SelectInput = string;
 export type MultiselectInput = Array<SelectInput>;
 export type WidgetInput = Record<string, any>;
 
-export type SimpleQuestionData =
+export type InlineQuestionData = Record<
+  QuestionId,
+  TextInput | SelectInput | MultiselectInput
+>;
+
+export type AnswerData =
   | TextInput
   | SelectInput
   | MultiselectInput
-  | WidgetInput;
-
-export type InlineQuestionData = {
-  [key: QuestionId]: TextInput | SelectInput | MultiselectInput;
-};
-
-export type AnswerData = SimpleQuestionData | InlineQuestionData;
+  | WidgetInput
+  | InlineQuestionData;
 
 export interface Answer {
   data: AnswerData;
