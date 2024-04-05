@@ -1,4 +1,5 @@
 import { FunctionComponent } from "react";
+import isNull from "lodash/isNull";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import SupernovaDistanceDistribution from "@/components/dynamic/SupernovaDistanceDistribution";
@@ -22,30 +23,20 @@ const Fragment = graphql(`
       }
     }
     step: binSize
-    userData: dataset {
-      ... on datasets_supernovaGalaxyObservations_Entry {
-        id: title
-        distance
-        lat: galacticLatitude
-        long: galacticLongitude
-      }
-    }
+    ...LightCurveQuestionData
   }
 `);
 
 const SupernovaDistanceDistributionBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = async ({ data }) => {
-  const { imageAlbum, json, step, userData, instructions } = useFragment(
-    Fragment,
-    data
-  );
+  const { imageAlbum, json, step, instructions } = useFragment(Fragment, data);
 
-  if (!json || !json[0]) return null;
+  if (isNull(json) || isNull(json[0])) return null;
 
   const { url } = json[0];
 
-  if (!url) return null;
+  if (isNull(url)) return null;
 
   const response = await fetch(url, {
     cache: "force-cache",
@@ -64,7 +55,8 @@ const SupernovaDistanceDistributionBlock: FunctionComponent<
       <SupernovaDistanceDistribution
         album={imageAlbum}
         instructions={instructions || undefined}
-        {...{ supernovaData, step, userData }}
+        questionData={data}
+        {...{ supernovaData, step }}
       />
     </>
   );
