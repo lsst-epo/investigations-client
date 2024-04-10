@@ -73,6 +73,8 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
       return { answerType, id, questionText, rows };
     case "calculator":
       return { answerType, id, questionText, equation };
+    case "number":
+      return { answerType, id, questionText };
     default:
       break;
   }

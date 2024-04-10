@@ -1,8 +1,8 @@
 "use client";
 import styled from "styled-components";
-import { TextInput as BaseTextInput } from "../../SimpleQuestion/Text/styles";
+import QuestionInput from "@/components/form/Input/patterns/Question";
 
-export const TextInput = styled(BaseTextInput)`
+export const TextInput = styled(QuestionInput)`
   --input-background-color: var(--white, #fff);
 
   margin: 0;

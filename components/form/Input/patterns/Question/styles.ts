@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import Input from "@/components/form/Input";
 
-export const TextInput = styled(Input)`
+export const QuestionInput = styled(Input)`
   --input-background-color: var(--question-background-color);
   --input-border-color: var(--question-border-color);
   --input-color: var(--question-input-color);
@@ -12,3 +12,5 @@ export const TextInput = styled(Input)`
     --input-border-color: #6a6e6e;
   }
 `;
+
+QuestionInput.displayName = "Questions.Input";

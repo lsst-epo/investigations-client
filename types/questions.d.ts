@@ -9,6 +9,7 @@ type Tabular = "tabular";
 type Widget = "widget";
 type Readonly = "readonlyText";
 type Calculator = "calculator";
+type NumberQuestion = "number";
 
 export type SimpleQuestionType = Text | Textarea | Select;
 
@@ -21,7 +22,8 @@ export type AnswerType =
   | Calculator
   | Multipart
   | Tabular
-  | Widget;
+  | Widget
+  | NumberQuestion;
 
 export interface BaseQuestionProps {
   id: string;
