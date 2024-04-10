@@ -1,11 +1,12 @@
 "use client";
 import { FocusEventHandler, FunctionComponent } from "react";
+import { toast } from "react-hot-toast";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { NumberInput } from "@/types/answers";
 import QuestionNumber from "@/components/questions/QuestionNumber";
 import QuestionInput from "@/components/form/Input/patterns/Question";
 import useAnswer from "@/hooks/useAnswer";
-import useValidation from "@/hooks/useValidation";
+import { validateQuestion } from "@/components/questions/actions";
 
 const Fragment = graphql(`
   fragment NumberQuestion on questions_default_Entry {
@@ -39,19 +40,23 @@ const NumberQuestion: FunctionComponent<NumberProps> = ({
     data
   );
   const { answer, onChangeCallback } = useAnswer<NumberInput>(id);
-  const runValidation = useValidation(
-    validation && validation.length > 0 ? id : undefined,
-    locale
-  );
 
   const step = 10 ** -parseFloat(precision);
 
-  const handleChange: FocusEventHandler<HTMLInputElement> = (event) => {
-    const {
-      target: { value },
-    } = event;
-    runValidation && runValidation(value);
-    onChangeCallback && onChangeCallback(parseFloat(value));
+  const handleChange: FocusEventHandler<HTMLInputElement> = async (event) => {
+    const value = parseFloat(event.target.value);
+
+    if (value !== answer) {
+      if (validation && validation.length > 0) {
+        const result = await validateQuestion(id, value, locale);
+
+        if (result) {
+          toast(result);
+        }
+      }
+
+      onChangeCallback && onChangeCallback(value);
+    }
   };
 
   return (
