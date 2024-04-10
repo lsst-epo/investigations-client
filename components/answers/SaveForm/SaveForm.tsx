@@ -9,7 +9,6 @@ import saveEducatorAnswers from "@/components/educator-schema/saveAnswersAction"
 import saveStudentAnswers from "@/components/student-schema/saveAnswersAction";
 import { Answers, InvestigationId } from "@/types/answers";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import Toaster from "@/components/layout/Toaster";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import SaveButton from "./SaveButton";
 import * as Styled from "./styles";
@@ -116,29 +115,24 @@ const SaveForm: FunctionComponent<{
   const hasStatusIssue = !!(user && userStatus !== "active");
 
   return (
-    <>
-      <Styled.Form
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        action={saveAnswers}
-        id="saveForm"
-      >
-        <Styled.Checkpoint>
-          <Styled.CheckpointIcon>
-            <IconComposer icon="Thumbtack" size="1.5em" />
-          </Styled.CheckpointIcon>
-          <Styled.CheckpointDivider />
-          {t("answers.save_form.checkpoint")}
-        </Styled.Checkpoint>
-        <SaveButton isDisabled={hasStatusIssue} />
-        {hasStatusIssue && (
-          <span>
-            {t("auth.logged_in_status_issue", { status: userStatus })}
-          </span>
-        )}
-      </Styled.Form>
-      <Toaster />
-    </>
+    <Styled.Form
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      action={saveAnswers}
+      id="saveForm"
+    >
+      <Styled.Checkpoint>
+        <Styled.CheckpointIcon>
+          <IconComposer icon="Thumbtack" size="1.5em" />
+        </Styled.CheckpointIcon>
+        <Styled.CheckpointDivider />
+        {t("answers.save_form.checkpoint")}
+      </Styled.Checkpoint>
+      <SaveButton isDisabled={hasStatusIssue} />
+      {hasStatusIssue && (
+        <span>{t("auth.logged_in_status_issue", { status: userStatus })}</span>
+      )}
+    </Styled.Form>
   );
 };
 
