@@ -7,6 +7,7 @@ import { ProgressProvider } from "@/contexts/Progress";
 import { notFound } from "next/navigation";
 import Header from "@/page/Header/Header";
 import Pager from "@/page/Pager";
+import Toaster from "@/components/layout/Toaster";
 import * as Styled from "./styles";
 import { getSite } from "@/helpers";
 import {
@@ -73,6 +74,7 @@ const InvestigationPageLayout: (
         {reference}
       </Styled.Main>
       <Pager enableAll={user?.group === "educators"} />
+      <Toaster />
     </ProgressProvider>
   );
 };
