@@ -1,5 +1,5 @@
 import { FocusEvent, FunctionComponent } from "react";
-import * as Styled from "./styles";
+import QuestionInput from "@/components/form/Input/patterns/Question";
 
 interface SimpleTextProps {
   id: string;
@@ -17,7 +17,7 @@ const SimpleText: FunctionComponent<SimpleTextProps> = ({
   className,
 }) => {
   return (
-    <Styled.TextInput
+    <QuestionInput
       {...{ id, className }}
       type="text"
       disabled={isDisabled}
