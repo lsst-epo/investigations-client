@@ -6,6 +6,7 @@ import TabularQuestion from "@/components/questions/TabularQuestion";
 import InlineQuestion from "@/components/questions/InlineQuestion";
 import CalculatorQuestion from "@/components/questions/Calculator";
 import WidgetQuestion from "@/components/questions/Widget";
+import NumberQuestion from "@/components/questions/Number";
 
 const Fragment = graphql(`
   fragment QuestionEntry on questions_default_Entry {
@@ -16,6 +17,7 @@ const Fragment = graphql(`
     ...CalculatorQuestion
     ...TabularQuestion
     ...WidgetQuestion
+    ...NumberQuestion
     options: answerOptions {
       ... on answerOptions_option_BlockType {
         label: optionLabel
@@ -71,6 +73,7 @@ const QUESTION_MAP: Record<AnswerType, ComponentType<any>> = {
   calculator: CalculatorQuestion,
   textarea: SimpleQuestion,
   multiPart: InlineQuestion,
+  number: NumberQuestion,
 };
 
 const QuestionFactory: FunctionComponent<QuestionProps> = ({
