@@ -17,6 +17,7 @@ const QUESTION_MAP: Record<AnswerType, ComponentType<any>> = {
   multiPart: Review.Inline,
   tabular: Review.Tabular,
   calculator: Review.Calculator,
+  number: Review.Text,
 };
 
 const ReviewFactory: FunctionComponent<ReviewProps> = ({
