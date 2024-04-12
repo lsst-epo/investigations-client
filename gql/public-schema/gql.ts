@@ -23,7 +23,6 @@ const documents = {
     "\n  query GlobalsQuery($site: [String]) {\n    siteInfo: globalSet(site: $site, handle: \"siteInfo\") {\n      ... on siteInfo_GlobalSet {\n        language\n        name\n        handle\n        siteTitle\n        siteDescription\n      }\n    }\n    menuContent: globalSet(site: $site, handle: \"menuContent\") {\n      ... on menuContent_GlobalSet {\n        helpUrl\n      }\n    }\n  }\n": types.GlobalsQueryDocument,
     "\n  query HomepageQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      ...HomepageTemplate\n    }\n  }\n": types.HomepageQueryDocument,
     "\n  query PagePreviewQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      uri\n      title\n    }\n  }\n": types.PagePreviewQueryDocument,
-    "\n  query QuestionValidator($site: [String], $id: [QueryArgument]) {\n    entry(site: $site, id: $id) {\n      ... on questions_default_Entry {\n        validation {\n          ... on validation_numberValidator_BlockType {\n            comparison\n            operator\n            message\n          }\n        }\n      }\n    }\n  }\n": types.QuestionValidatorDocument,
     "\n  query FacebookOauthUrl {\n    facebookOauthUrl\n  }\n": types.FacebookOauthUrlDocument,
     "\n  mutation GoogleSignInStudent($idToken: String!) {\n    googleSignInStudents(idToken: $idToken) {\n      ...AuthFragment\n    }\n  }\n": types.GoogleSignInStudentDocument,
     "\n  mutation GoogleSignInEducator($idToken: String!) {\n    googleSignInEducators(idToken: $idToken) {\n      ...AuthFragment\n    }\n  }\n": types.GoogleSignInEducatorDocument,
@@ -131,10 +130,6 @@ export function graphql(source: "\n  query HomepageQuery($site: [String], $uri: 
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query PagePreviewQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      uri\n      title\n    }\n  }\n"): (typeof documents)["\n  query PagePreviewQuery($site: [String], $uri: [String]) {\n    entry(site: $site, uri: $uri) {\n      __typename\n      uri\n      title\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query QuestionValidator($site: [String], $id: [QueryArgument]) {\n    entry(site: $site, id: $id) {\n      ... on questions_default_Entry {\n        validation {\n          ... on validation_numberValidator_BlockType {\n            comparison\n            operator\n            message\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query QuestionValidator($site: [String], $id: [QueryArgument]) {\n    entry(site: $site, id: $id) {\n      ... on questions_default_Entry {\n        validation {\n          ... on validation_numberValidator_BlockType {\n            comparison\n            operator\n            message\n          }\n        }\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
