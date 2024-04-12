@@ -1,7 +1,6 @@
-"use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/lib/i18n";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import Button from "@rubin-epo/epo-react-lib/Button";
 import Link from "next/link";
@@ -13,27 +12,27 @@ const Fragment = graphql(`
   fragment InvestigationSectionBreakTemplate on investigations_investigationSectionBreakChild_Entry {
     __typename
     id
-    title
     text
-    next(section: "investigations") {
+    parent {
+      id
+    }
+    next(section: "investigations", level: 2) {
       __typename
       uri
+      parent {
+        id
+      }
     }
   }
 `);
 
 const InvestigationSectionBreakPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
-}> = ({ ...props }) => {
-  const {
-    t,
-    i18n: { language },
-  } = useTranslation();
-  const data = useFragment(Fragment, props.data);
+  locale: string;
+}> = async ({ locale, data }) => {
+  const { t } = await useTranslation(locale, "translation");
+  const { text, next, parent } = useFragment(Fragment, data);
 
-  if (!data.title) return null;
-
-  const { text, next } = data;
   const srcs: Record<string, { src: string; alt: string }> = {
     break: {
       src: "/assets/section_break/section_break_celebration.gif",
@@ -48,12 +47,12 @@ const InvestigationSectionBreakPage: FunctionComponent<{
       alt: t("section_break.finish_alt"),
     },
   };
-  const isFinalPage = !next;
-  const imgSrc = srcs[isFinalPage ? `final_${language}` : "break"];
+  const isFinalPage = !next || next.parent?.id !== parent?.id;
+  const imgSrc = srcs[isFinalPage ? `final_${locale}` : "break"];
 
   return (
     <Container width="regular">
-      <Image {...imgSrc} width={1260} height={560} />
+      <Image {...imgSrc} width={1260} height={560} priority />
       <Styled.SectionBreakTitle>
         {t(
           isFinalPage ? "section_break.finish" : "section_break.congratulations"
@@ -63,7 +62,7 @@ const InvestigationSectionBreakPage: FunctionComponent<{
       {text && <TextContent dangerouslySetInnerHTML={{ __html: text }} />}
       {isFinalPage && (
         <Styled.ReviewLinkContainer>
-          <Button as={Link} href="./review" icon="CheckmarkCircle">
+          <Button as={Link} href="./review" icon="CheckmarkCircle" prefetch>
             {t("section_break.review")}
           </Button>
         </Styled.ReviewLinkContainer>
