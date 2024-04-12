@@ -6,13 +6,14 @@ import select from "./select";
 import multiPart from "./inline";
 import widget from "./widget";
 import tabular from "./tabular";
-import calculator from './calculator'
+import calculator from "./calculator";
 import { InlineQuestionData, TextInput, WidgetInput } from "@/types/answers";
 import {
   InlineReviewProps,
   ReviewPart,
 } from "@/components/questions/Review/Inline";
 import { Equation } from "@/types/calculators";
+import { AnswerType } from "@/types/questions";
 
 interface FormatterBaseProps<T = any> {
   locale: string;
@@ -69,7 +70,7 @@ type Formatter =
   | TabularFormatter
   | CalculatorFormatter;
 
-const formatters: Record<string, Formatter> = {
+const formatters: Record<AnswerType, Formatter> = {
   text,
   textarea: text,
   select,
@@ -77,6 +78,7 @@ const formatters: Record<string, Formatter> = {
   multiPart,
   tabular,
   calculator,
+  number: text,
 };
 
 export default formatters;
