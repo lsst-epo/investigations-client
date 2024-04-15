@@ -24,12 +24,13 @@ const Fragment = graphql(`
         previousQuestion {
           ... on questions_default_Entry {
             id
+            answerType
             rows: questionTable {
               ... on questionTable_BlockType {
                 cells: tableCell {
                   ... on tableCell_question_BlockType {
                     id
-                    questionType
+                    answerType: questionType
                     options {
                       ... on options_BlockType {
                         label: optionLabel

@@ -3,7 +3,11 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { isNullish, notNull } from "@/lib/utils";
 import { Option } from "@/components/shapes/option";
 import Table from "@/components/layout/Table";
-import { buildHeader, buildRows } from "@/components/layout/Table/helpers";
+import {
+  Cell,
+  buildHeader,
+  buildRows,
+} from "@/components/layout/Table/helpers";
 
 const Fragment = graphql(`
   fragment TableRows on questions_default_Entry {
@@ -13,7 +17,7 @@ const Fragment = graphql(`
         cells: tableCell {
           ... on tableCell_question_BlockType {
             id
-            questionType
+            answerType: questionType
             options {
               ... on options_BlockType {
                 label: optionLabel
@@ -36,7 +40,7 @@ const Fragment = graphql(`
                 cells: tableCell {
                   ... on tableCell_question_BlockType {
                     id
-                    questionType
+                    answerType: questionType
                     options {
                       ... on options_BlockType {
                         label: optionLabel
@@ -63,7 +67,6 @@ const Fragment = graphql(`
 export interface QuestionTableInputProps {
   id: string;
   questionId: string;
-  readOnly?: boolean;
   options?: Array<Option>;
 }
 
@@ -71,16 +74,6 @@ interface QuestionTableProps {
   data: FragmentType<typeof Fragment>;
   locale: string;
   className?: string;
-}
-
-export interface Cell {
-  __typename: string;
-  id: string;
-  equation?: string;
-  text?: string;
-  questionType?: "text" | "select";
-  header?: boolean;
-  options?: Array<Option>;
 }
 
 const getOverflowPadding = (
