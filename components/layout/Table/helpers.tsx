@@ -58,7 +58,7 @@ const buildCell = (
     if (readOnly) {
       return {
         id: id || undefined,
-        children: <ReadOnlyCell {...{ id, questionId }} />,
+        children: <ReadOnlyCell {...{ id, questionId, options }} />,
       };
     } else {
       const Question = answerType && QuestionsMap[answerType];
