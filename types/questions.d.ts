@@ -15,7 +15,7 @@ export type SimpleQuestionType = Text | Textarea | Select;
 
 export type InlineQuestionType = Text | Select | Multiselect | Readonly;
 
-export type TabularQuestionType = TextQuestion | SelectQuestion;
+export type TabularQuestionType = Text | Select;
 
 export type AnswerType =
   | SimpleQuestionType
@@ -45,7 +45,8 @@ export interface CalculatorConfig extends QuestionConfig<Calculator> {
 }
 
 export interface TabularConfig extends QuestionConfig<Tabular> {
-  rows: Array<Cell>;
+  rows: Array<any>;
+  header: Array<any>;
 }
 
 export interface SelectConfig extends QuestionConfig<Select> {

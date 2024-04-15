@@ -1,7 +1,7 @@
 import temml from "temml";
 import { serverTranslation } from "@/lib/i18n";
+import { Cell } from "@/components/layout/Table/helpers";
 import { TabularFormatter } from "..";
-import { Cell } from "@/components/questions/TabularQuestion/Table";
 
 const renderStaticContent = ({ text, equation }: Partial<Cell>) => {
   if (equation) {
@@ -17,11 +17,11 @@ const TabularFormatter: TabularFormatter = async ({
   cell,
   locale,
   rows,
+  header,
   value,
 }) => {
   const { t } = await serverTranslation(locale, "translation");
-  const { cells: header = [] } = rows.shift() || {};
-  const headerLabels = header.map(renderStaticContent);
+  const headerLabels = header[0].headerRow.map(renderStaticContent);
 
   const parsedRows = rows.reduce(
     (prev, { cells = [], previousQuestion = [] }) => {

@@ -5,15 +5,32 @@ import { ComponentType } from "react";
 import { QuestionTableInputProps } from "@/components/questions/TabularQuestion/Table";
 import TextQuestionCell from "@/components/questions/TabularQuestion/Text";
 import SelectQuestionCell from "@/components/questions/TabularQuestion/Select";
+import type {
+  NumberQuestion,
+  Tabular,
+  Text,
+  Textarea,
+} from "@/types/questions";
+import ReadOnlyCell from "@/components/questions/TabularQuestion/ReadOnly";
 
 export interface Cell {
   __typename?: string | null;
   id: string | null;
   equation: string | null;
   text: string | null;
-  questionType?: "text" | "select";
-  header: boolean | null;
+  answerType?: Text | Textarea | NumberQuestion | Tabular;
   options?: Array<Option>;
+}
+
+export interface HeaderCell {
+  id: string | null;
+  equation: string | null;
+  text: string | null;
+}
+
+interface RowConfig {
+  readOnly?: boolean;
+  suppressHeaders?: boolean;
 }
 
 const QuestionsMap: Record<string, ComponentType<QuestionTableInputProps>> = {
@@ -21,64 +38,100 @@ const QuestionsMap: Record<string, ComponentType<QuestionTableInputProps>> = {
   select: SelectQuestionCell,
 };
 
-const buildStaticCell = ({ id, equation, text, header }: Cell): TableCell => {
-  const isHeader = !!header;
-  if (text) {
-    return { id: id || undefined, children: text, isHeader };
-  }
+const buildStaticCell = (
+  { id, equation, text }: Cell,
+  isHeader = false
+): TableCell => {
+  const children = equation ? <Equation latex={equation} /> : text;
 
-  if (equation) {
-    const children = <Equation latex={equation} />;
-
-    return { id: id || undefined, children, isHeader };
-  }
-
-  return { id: id || undefined, isHeader };
+  return { id: id || undefined, children, isHeader };
 };
 
-export const buildHeader = (cells: Array<Cell> = []): TableHeader => {
-  return cells.map(buildStaticCell);
-};
+export const buildHeader = (cells: Array<HeaderCell> = []): TableHeader =>
+  cells.map((cell) => buildStaticCell(cell, true));
 
-const buildCell = (
+const buildQuestionCell = (
   cell: Cell,
   questionId: string,
   readOnly = false
 ): TableCell => {
-  const { id, questionType, options } = cell;
+  const { id, answerType, options } = cell;
 
-  if (questionType) {
-    const Question = questionType && QuestionsMap[questionType];
+  if (!id) return {};
 
-    if (!Question) return { id: id || undefined };
+  if (readOnly) {
+    return {
+      id,
+      children: <ReadOnlyCell {...{ id, questionId, options }} />,
+    };
+  } else {
+    const Question = answerType && QuestionsMap[answerType];
 
     return {
-      id: id || undefined,
-      children: <Question {...{ id, questionId, readOnly, options }} />,
+      id,
+      children: Question ? (
+        <Question {...{ id, questionId, options }} />
+      ) : undefined,
     };
   }
+};
 
-  return buildStaticCell(cell);
+const buildPreviousQuestion = ({ question }) => {
+  const [{ id, answerType, rows }] = question;
+
+  if (answerType === "tabular") {
+    return buildRows(rows.slice(-1), id, {
+      readOnly: true,
+      suppressHeaders: true,
+    }).flat();
+  }
+
+  return [buildQuestionCell({ id, answerType }, id, true)];
 };
 
 export const buildRows = (
-  rows: Array<{ cells: Array<Cell>; previousQuestion?: Array<any> }>,
+  rows: Array<{ cells: Array<any> }>,
   questionId: string,
-  readOnly = false
-): TableRow => {
-  const parsedRows: TableRow = [];
+  config?: RowConfig
+): Array<TableRow> => {
+  const defaultConfig: RowConfig = { readOnly: false, suppressHeaders: false };
+  const { readOnly, suppressHeaders } = {
+    ...defaultConfig,
+    ...config,
+  };
+  const tableRows: Array<TableRow> = [];
 
-  rows.forEach(({ cells = [], previousQuestion = [] }) => {
-    if (previousQuestion.length > 0) {
-      const [{ id, rows }] = previousQuestion;
+  rows.forEach(({ cells = [] }) => {
+    const rowCells: TableRow = [];
 
-      parsedRows.push(...buildRows(rows.slice(1), id, true));
-    } else {
-      parsedRows.push(
-        cells.map((cell) => buildCell(cell, questionId, readOnly))
-      );
-    }
+    cells.forEach(({ __typename, ...props }, i) => {
+      switch (__typename) {
+        case "tableCell_previousQuestion_BlockType":
+          rowCells.push(...buildPreviousQuestion(props));
+          break;
+        case "tableRow_previousQuestion_BlockType":
+          rowCells.push(...buildPreviousQuestion(props));
+          break;
+        case "tableRow_rowHeader_BlockType":
+          rowCells.push(
+            buildStaticCell(props, suppressHeaders ? false : i === 0)
+          );
+          break;
+        case "tableCell_rowHeader_BlockType":
+          rowCells.push(
+            buildStaticCell(props, suppressHeaders ? false : i === 0)
+          );
+          break;
+        case "tableCell_question_BlockType":
+          rowCells.push(buildQuestionCell(props, questionId, readOnly));
+          break;
+        default:
+          rowCells.push(buildStaticCell(props));
+          break;
+      }
+    });
+
+    tableRows.push(rowCells);
   });
-
-  return parsedRows;
+  return tableRows;
 };

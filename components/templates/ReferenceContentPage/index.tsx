@@ -49,7 +49,6 @@ const Fragment = graphql(`
               ... on tableRow_tableCell_BlockType {
                 id
                 cellContent
-                rowHeader
               }
             }
           }
@@ -68,7 +67,11 @@ const ReferenceContentPage: FunctionComponent<{
   const { title, id } = data;
 
   return (
-    <Styled.PageContainer paddingSize="none" width="narrow" bgColor="transparent">
+    <Styled.PageContainer
+      paddingSize="none"
+      width="narrow"
+      bgColor="transparent"
+    >
       <Styled.Title>{title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>

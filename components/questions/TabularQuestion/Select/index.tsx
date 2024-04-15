@@ -6,21 +6,15 @@ import { QuestionTableInputProps } from "../Table";
 import * as Styled from "./styles";
 import { notNull } from "@/lib/utils";
 import { WidgetInput } from "@/types/answers";
-import ReadOnlyInput from "../ReadOnly";
-import { getLabelByValue } from "../../utils";
 
 const SelectQuestionCell: FunctionComponent<QuestionTableInputProps> = ({
   id,
   questionId,
   options = [],
-  readOnly = false,
 }) => {
   const { t } = useTranslation();
   const { answer, onChangeCallback } = useAnswer<WidgetInput>(questionId);
   const cellValue = notNull(answer) ? answer[id] : null;
-
-  if (readOnly)
-    return <ReadOnlyInput value={getLabelByValue(options, cellValue)} />;
 
   return (
     <Styled.InputContainer>
@@ -28,7 +22,6 @@ const SelectQuestionCell: FunctionComponent<QuestionTableInputProps> = ({
         {...{ id, options }}
         value={cellValue || null}
         isMultiselect={false}
-        isDisabled={readOnly}
         onChangeCallback={(value: string | null) =>
           onChangeCallback && onChangeCallback({ ...answer, [id]: value })
         }
