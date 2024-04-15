@@ -1,5 +1,5 @@
 import { Cell } from "exceljs";
-import { Cell as TableCell } from "@/components/questions/TabularQuestion/Table";
+import { Cell as TableCell } from "@/components/layout/Table/helpers";
 import { Option } from "@/components/shapes/option";
 import text from "./text";
 import select from "./select";

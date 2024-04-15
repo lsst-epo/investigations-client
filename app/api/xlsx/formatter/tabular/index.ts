@@ -1,7 +1,6 @@
 import temml from "temml";
 import { serverTranslation } from "@/lib/i18n";
-import { TabularFormatter } from "..";
-import { Cell } from "@/components/questions/TabularQuestion/Table";
+import { Cell } from "@/components/layout/Table/helpers";
 
 const renderStaticContent = ({ text, equation }: Partial<Cell>) => {
   if (equation) {
