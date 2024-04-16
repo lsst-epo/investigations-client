@@ -1,12 +1,12 @@
 import { FunctionComponent, useState } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import ModalProps from "@/components/shapes/modal";
-import WidgetContainer from "@/components/layout/WidgetContainer";
-import withModal from "@/components/hoc/withModal/withModal";
-import SourceSelectorContainer from "@/components/dynamic/SourceSelector";
+import SourceSelector from "@rubin-epo/epo-widget-lib/SourceSelector";
+import useAlerts from "@/lib/api/hooks/useAlerts";
+import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import MagnitudeScatterPlotContainer from "@/components/dynamic/LightCurveTool/MagnitudeScatterPlot";
 import { WidgetQuestion } from "..";
 import * as Styled from "./styles";
+import Loader from "@/components/page/Loader";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
@@ -40,10 +40,8 @@ const Fragment = graphql(`
             }
             imageAlbum {
               url {
-                directUrlOriginal
+                directUrlPreview
               }
-              width
-              height
             }
           }
         }
@@ -54,14 +52,18 @@ const Fragment = graphql(`
 
 type SourceSelectorQuestionProps = WidgetQuestion<
   FragmentType<typeof Fragment>
-> &
-  ModalProps;
+>;
 
 const SourceSelectorQuestion: FunctionComponent<
   SourceSelectorQuestionProps
-> = ({ data, onChangeCallback, value, isOpen, openModal, instructions }) => {
+> = ({ data, onChangeCallback, value = {}, instructions }) => {
+  const staticWidth = 1000;
   const { sourceSelector } = useFragment(Fragment, data);
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
+
+  const [{ url }] = sourceSelector[0]?.dataset[0]?.json;
+
+  const { data: alerts = [], error, isLoading } = useAlerts(url);
 
   if (
     sourceSelector === null ||
@@ -80,8 +82,8 @@ const SourceSelectorQuestion: FunctionComponent<
   )
     return null;
 
-  const [{ sources, json, imageAlbum, peakMjd }] = dataset;
-  const { selectedSource = [] } = value || {};
+  const [{ sources, imageAlbum, peakMjd }] = dataset;
+  const { selectedSource = [] } = value;
 
   const handleRemoveSource = (id: string) => {
     if (selectedSource.includes(id)) {
@@ -98,52 +100,62 @@ const SourceSelectorQuestion: FunctionComponent<
       return { id, type };
     });
 
-  const images =
-    imageAlbum?.map(({ width, height, url: { directUrlOriginal } }) => {
-      return { width, height, url: directUrlOriginal };
-    }) || [];
+  const alertsWithImages = alerts.map((alert, i) => {
+    const {
+      url: { directUrlPreview },
+    } = imageAlbum[i];
+    const urlWithoutConstraint = directUrlPreview.slice(0, -3);
 
-  const alertsAssetUrl = json[0]?.url || undefined;
+    return {
+      ...alert,
+      image: {
+        width: staticWidth,
+        height: staticWidth,
+        url: `${urlWithoutConstraint}${staticWidth}`,
+      },
+    };
+  });
 
   return (
     <>
-      <WidgetContainer
-        data-modal-open={isOpen}
+      <WidgetContainerWithModal
         title={displayName || title || undefined}
         interactive={false}
-        {...{ openModal, isOpen, instructions }}
+        {...{ instructions }}
       >
         <Styled.MultiWidgetContainer>
-          <SourceSelectorContainer
-            onChangeCallback={(selectedSource) =>
-              onChangeCallback && onChangeCallback({ selectedSource })
-            }
-            onBlinkCallback={(index) => setActiveAlertIndex(index)}
-            showControls={isOpen}
-            value={selectedSource}
-            url={alertsAssetUrl}
-            {...{ images, sources, activeAlertIndex }}
-          />
-          {!!includeScatterPlot && (
-            <MagnitudeScatterPlotContainer
-              url={alertsAssetUrl}
-              showPlot={selectedSource.length > 0}
-              activeAlertIndex={isOpen ? activeAlertIndex : undefined}
-              {...{ peakMjd, yMin, yMax }}
-            />
+          {isLoading ? (
+            <Loader height="20rem" />
+          ) : (
+            <>
+              <SourceSelector
+                alerts={alertsWithImages}
+                selectionCallback={(data) =>
+                  onChangeCallback && onChangeCallback({ selectedSource: data })
+                }
+                alertChangeCallback={setActiveAlertIndex}
+                width={staticWidth}
+                height={staticWidth}
+                {...{ sources, selectedSource, activeAlertIndex }}
+              />
+              {!!includeScatterPlot && (
+                <MagnitudeScatterPlotContainer
+                  showPlot={selectedSource.length > 0}
+                  {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
+                />
+              )}
+            </>
           )}
         </Styled.MultiWidgetContainer>
-      </WidgetContainer>
-      {!isOpen && (
-        <Styled.SelectionList
-          sources={selectedSources}
-          onRemoveCallback={handleRemoveSource}
-        />
-      )}
+      </WidgetContainerWithModal>
+      <Styled.SelectionList
+        sources={selectedSources}
+        onRemoveCallback={handleRemoveSource}
+      />
     </>
   );
 };
 
 SourceSelectorQuestion.displayName = "Questions.Widget.SourceSelector";
 
-export default withModal(SourceSelectorQuestion);
+export default SourceSelectorQuestion;

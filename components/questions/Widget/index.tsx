@@ -9,6 +9,7 @@ import ColorFilterToolQuestion from "./ColorFilterTool";
 import SourceSelectorQuestion from "./SourceSelector";
 import LightCurveToolQuestion from "./LightCurveTool";
 import * as Styled from "./styles";
+import ErrorBoundary from "@/components/atomic/ErrorBoundary";
 
 const Fragment = graphql(`
   fragment WidgetQuestion on questions_default_Entry {
@@ -77,11 +78,13 @@ const WidgetQuestion: FunctionComponent<WidgetProps> = ({ data }) => {
       <Styled.QuestionLabel
         dangerouslySetInnerHTML={{ __html: instructions || "" }}
       />
-      <Widget
-        data={widget}
-        instructions={instructions || ""}
-        {...{ value, onChangeCallback }}
-      />
+      <ErrorBoundary>
+        <Widget
+          data={widget}
+          instructions={instructions || ""}
+          {...{ value, onChangeCallback }}
+        />
+      </ErrorBoundary>
     </QuestionNumber>
   );
 };
