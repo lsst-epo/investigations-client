@@ -3,21 +3,36 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import Table from "@/components/layout/Table";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { isNullish, notNull } from "@/lib/utils";
-import * as Styled from "./styles";
 import { buildHeader, buildRows } from "@/components/layout/Table/helpers";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment TableBlock on contentBlocks_table_BlockType {
     id
     caption
     contentHeading
+    header: tableHeader {
+      ... on tableHeader_BlockType {
+        headerRow {
+          ... on headerRow_tableCell_BlockType {
+            id
+            text
+            equation
+          }
+        }
+      }
+    }
     rows: displayTable {
       ... on displayTable_BlockType {
         cells: tableRow {
           ... on tableRow_tableCell_BlockType {
             id
             text: cellContent
-            header: rowHeader
+            equation
+          }
+          ... on tableRow_rowHeader_BlockType {
+            id
+            text
             equation
           }
         }
@@ -42,7 +57,11 @@ const Fragment = graphql(`
                     id
                     equation
                     text
-                    header
+                  }
+                  ... on tableCell_rowHeader_BlockType {
+                    id
+                    equation
+                    text
                   }
                 }
               }
@@ -57,20 +76,14 @@ const Fragment = graphql(`
 const TableContentBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = ({ data }) => {
-  const {
-    id,
-    caption,
-    contentHeading,
-    rows: rawRows = [],
-  } = useFragment(Fragment, data);
+  const { id, caption, contentHeading, rows, header } = useFragment(
+    Fragment,
+    data
+  );
 
-  if (isNullish(rawRows) || isNullish(id)) return null;
+  if (isNullish(id)) return null;
 
-  const { cells: headerCells = [] } = rawRows.shift() || {};
-
-  const header = buildHeader(headerCells?.filter(notNull));
-  const filteredRows = rawRows.filter(notNull);
-  const rows = isNullish(rawRows) ? [] : buildRows(filteredRows, id, true);
+  const headerCells = header[0]?.headerRow.filter(notNull);
 
   return (
     <Styled.TableContentBlock>
@@ -80,7 +93,9 @@ const TableContentBlock: FunctionComponent<
         </Styled.Heading>
       )}
       <Table
-        {...{ id, rows, header }}
+        {...{ id, rows }}
+        rows={buildRows(rows, id, true)}
+        header={buildHeader(headerCells)}
         caption={caption || undefined}
         labelledById={contentHeading ? `table-${id}-header` : undefined}
       />

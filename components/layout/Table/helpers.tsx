@@ -19,8 +19,13 @@ export interface Cell {
   equation: string | null;
   text: string | null;
   answerType?: Text | Textarea | NumberQuestion | Tabular;
-  header: boolean | null;
   options?: Array<Option>;
+}
+
+export interface HeaderCell {
+  id: string | null;
+  equation: string | null;
+  text: string | null;
 }
 
 const QuestionsMap: Record<string, ComponentType<QuestionTableInputProps>> = {
@@ -28,70 +33,54 @@ const QuestionsMap: Record<string, ComponentType<QuestionTableInputProps>> = {
   select: SelectQuestionCell,
 };
 
-const buildStaticCell = ({ id, equation, text, header }: Cell): TableCell => {
-  const isHeader = !!header;
-  if (text) {
-    return { id: id || undefined, children: text, isHeader };
-  }
+const buildStaticCell = (
+  { id, equation, text }: Cell,
+  isHeader = false
+): TableCell => {
+  const children = equation ? <Equation latex={equation} /> : text;
 
-  if (equation) {
-    const children = <Equation latex={equation} />;
-
-    return { id: id || undefined, children, isHeader };
-  }
-
-  return { id: id || undefined, isHeader };
+  return { id: id || undefined, children, isHeader };
 };
 
-export const buildHeader = (cells: Array<Cell> = []): TableHeader => {
-  return cells.map(buildStaticCell);
-};
+export const buildHeader = (cells: Array<HeaderCell> = []): TableHeader =>
+  cells.map((cell) => buildStaticCell(cell, true));
 
-const buildCell = (
+const buildQuestionCell = (
   cell: Cell,
   questionId: string,
   readOnly = false
 ): TableCell => {
   const { id, answerType, options } = cell;
 
-  if (answerType && id) {
-    if (readOnly) {
-      return {
-        id: id || undefined,
-        children: <ReadOnlyCell {...{ id, questionId, options }} />,
-      };
-    } else {
-      const Question = answerType && QuestionsMap[answerType];
+  if (!id) return {};
 
-      if (!Question) return { id: id || undefined };
+  if (readOnly) {
+    return {
+      id,
+      children: <ReadOnlyCell {...{ id, questionId, options }} />,
+    };
+  } else {
+    const Question = answerType && QuestionsMap[answerType];
 
-      return {
-        id: id || undefined,
-        children: <Question {...{ id, questionId, options }} />,
-      };
-    }
+    return {
+      id,
+      children: Question ? (
+        <Question {...{ id, questionId, options }} />
+      ) : undefined,
+    };
   }
-
-  return buildStaticCell(cell);
 };
 
-export const buildPreviousQuestions = (questions = []) => {
-  const questionCells: Array<TableCell> = [];
-
-  questions.forEach(({ answerType, id, rows = [] }) => {
+export const buildPreviousQuestions = (questions: Array<any> = []) => {
+  const previousQuestions = questions.map(({ rows, id, answerType }) => {
     if (answerType === "tabular") {
-      questionCells.push(
-        ...rows
-          .slice(1)
-          .map(({ cells }) => cells.map((cell) => buildCell(cell, id, true)))
-          .flat()
-      );
-    } else {
-      questionCells.push(buildCell({ answerType, id }, id, true));
+      return buildRows(rows.slice(-1), id, true).flat();
     }
+
+    return [buildQuestionCell({ id, answerType }, id, true)];
   });
 
-  return questionCells;
+  return previousQuestions.flat();
 };
 
 export const buildRows = (
@@ -99,17 +88,22 @@ export const buildRows = (
   questionId: string,
   readOnly = false
 ): TableRow => {
-  const parsedRows: TableRow = [];
+  return rows.map(({ cells = [], previousQuestion = [] }) => {
+    const currentCells = cells.map(({ __typename, ...props }, i) => {
+      switch (__typename) {
+        case "tableRow_rowHeader_BlockType":
+          return buildStaticCell(props, i === 0);
+        case "tableCell_rowHeader_BlockType":
+          return buildStaticCell(props, i === 0);
+        case "tableCell_question_BlockType":
+          return buildQuestionCell(props, questionId, readOnly);
+        default:
+          return buildStaticCell(props);
+      }
+    });
 
-  rows.forEach(({ cells = [], previousQuestion = [] }) => {
-    if (previousQuestion.length > 0) {
-      parsedRows.push(buildPreviousQuestions(previousQuestion));
-    } else {
-      parsedRows.push(
-        cells.map((cell) => buildCell(cell, questionId, readOnly))
-      );
-    }
+    const previousCells = buildPreviousQuestions(previousQuestion);
+
+    return [...previousCells, ...currentCells];
   });
-
-  return parsedRows;
 };
