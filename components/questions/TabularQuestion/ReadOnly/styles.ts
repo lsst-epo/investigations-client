@@ -8,6 +8,7 @@ export const ReadOnly = styled(TextInput)`
 
     cursor: default;
     min-width: unset;
+    text-overflow: ellipsis;
 
     &:focus {
       outline: none;

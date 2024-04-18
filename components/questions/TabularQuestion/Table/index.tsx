@@ -3,15 +3,23 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { isNullish, notNull } from "@/lib/utils";
 import { Option } from "@/components/shapes/option";
 import Table from "@/components/layout/Table";
-import {
-  Cell,
-  buildHeader,
-  buildRows,
-} from "@/components/layout/Table/helpers";
+import { buildHeader, buildRows } from "@/components/layout/Table/helpers";
+import { TableRowsFragment } from "@/gql/public-schema/graphql";
 
 const Fragment = graphql(`
   fragment TableRows on questions_default_Entry {
     id
+    header: tableHeader {
+      ... on tableHeader_BlockType {
+        headerRow {
+          ... on headerRow_tableCell_BlockType {
+            id
+            text
+            equation
+          }
+        }
+      }
+    }
     rows: questionTable {
       ... on questionTable_BlockType {
         cells: tableCell {
@@ -29,12 +37,17 @@ const Fragment = graphql(`
             id
             equation
             text
-            header
+          }
+          ... on tableCell_rowHeader_BlockType {
+            id
+            equation
+            text
           }
         }
         previousQuestion {
           ... on questions_default_Entry {
             id
+            answerType
             rows: questionTable {
               ... on questionTable_BlockType {
                 cells: tableCell {
@@ -52,7 +65,11 @@ const Fragment = graphql(`
                     id
                     equation
                     text
-                    header
+                  }
+                  ... on tableCell_rowHeader_BlockType {
+                    id
+                    equation
+                    text
                   }
                 }
               }
@@ -76,9 +93,7 @@ interface QuestionTableProps {
   className?: string;
 }
 
-const getOverflowPadding = (
-  rows: Array<{ cells: Array<Cell>; previousQuestion: Array<any> }> = []
-) => {
+const getOverflowPadding = (rows: TableRowsFragment["rows"]) => {
   const rowHeight = 5;
   const itemHeight = 2;
   const tableHeight = rowHeight * rows.length;
@@ -86,11 +101,19 @@ const getOverflowPadding = (
   const dropdownStartPosition = Math.ceil(rowHeight / 2 + itemHeight / 2);
 
   /** the largest set of options in each row */
-  const largestOptions = rows.map(({ cells }) =>
-    cells.reduce((prev, { options = [] }) => {
-      return options.length > prev ? options.length : prev;
-    }, 0)
-  );
+  const largestOptions = rows
+    .map((row) => {
+      if (notNull(row)) {
+        return row.cells.reduce((prev, cell) => {
+          if (cell?.__typename === "tableCell_question_BlockType") {
+            return cell.options.length > prev ? cell.options.length : prev;
+          }
+
+          return prev;
+        }, 0);
+      }
+    })
+    .filter((o): o is number => typeof o !== "undefined");
 
   /** the height each row extends beyond the end of the table */
   const totalHeight = largestOptions.map((o, i) => {
@@ -108,18 +131,20 @@ const QuestionTable: FunctionComponent<QuestionTableProps> = async ({
   data,
   className,
 }) => {
-  const { rows: rawRows, id } = useFragment(Fragment, data);
+  const { rows, header, id } = useFragment(Fragment, data);
 
-  if (isNullish(rawRows) || isNullish(id)) return null;
+  if (isNullish(id)) return null;
 
-  const rawHeader = rawRows.shift();
+  const headerCells = header[0]?.headerRow.filter(notNull);
+  const overflowPadding = getOverflowPadding(rows);
 
-  const header = isNullish(rawHeader) ? [] : buildHeader(rawHeader.cells);
-  const filteredRows = rawRows.filter(notNull);
-  const rows = isNullish(rawRows) ? [] : buildRows(filteredRows, id);
-  const overflowPadding = getOverflowPadding(filteredRows);
-
-  return <Table {...{ header, rows, className, overflowPadding }} />;
+  return (
+    <Table
+      header={buildHeader(headerCells)}
+      rows={buildRows(rows, id)}
+      {...{ className, overflowPadding }}
+    />
+  );
 };
 
 QuestionTable.displayName = "Questions.Tabular.Table";
