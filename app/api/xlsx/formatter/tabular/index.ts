@@ -17,11 +17,11 @@ const TabularFormatter: TabularFormatter = async ({
   cell,
   locale,
   rows,
+  header,
   value,
 }) => {
   const { t } = await serverTranslation(locale, "translation");
-  const { cells: header = [] } = rows.shift() || {};
-  const headerLabels = header.map(renderStaticContent);
+  const headerLabels = header[0].headerRow.map(renderStaticContent);
 
   const parsedRows = rows.reduce(
     (prev, { cells = [], previousQuestion = [] }) => {

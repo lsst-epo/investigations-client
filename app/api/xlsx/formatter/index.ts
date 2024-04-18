@@ -34,6 +34,7 @@ export interface WidgetProps extends FormatterBaseProps<WidgetInput> {
 
 export interface TabularProps extends FormatterBaseProps<WidgetInput> {
   rows: Array<{ cells: Array<TableCell>; previousQuestion: Array<any> }>;
+  header: Array<any>;
 }
 
 export interface InlineFactoryProps
