@@ -22,11 +22,11 @@ interface TableHeaderCell extends TableCell {
 
 export type TableHeader = Array<TableHeaderCell>;
 
-export type TableRow = Array<Array<TableCell>>;
+export type TableRow = Array<TableCell>;
 
 interface TableProps {
   header: TableHeader;
-  rows: TableRow;
+  rows: Array<TableRow>;
   caption?: string;
   id?: string;
   labelledById?: string;

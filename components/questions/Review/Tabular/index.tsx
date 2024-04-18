@@ -24,7 +24,7 @@ const TabularReview: FunctionComponent<TabularReviewProps> = ({
   const questionOnly = rows.map(({ cells }) => {
     return { cells };
   });
-  const parsedRows = buildRows(questionOnly, id, true);
+  const parsedRows = buildRows(questionOnly, id, { readOnly: true });
 
   return (
     <Styled.ReviewListItem value={number}>

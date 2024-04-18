@@ -28,6 +28,11 @@ export interface HeaderCell {
   text: string | null;
 }
 
+interface RowConfig {
+  readOnly?: boolean;
+  suppressHeaders?: boolean;
+}
+
 const QuestionsMap: Record<string, ComponentType<QuestionTableInputProps>> = {
   text: TextQuestionCell,
   select: SelectQuestionCell,
@@ -71,39 +76,62 @@ const buildQuestionCell = (
   }
 };
 
-export const buildPreviousQuestions = (questions: Array<any> = []) => {
-  const previousQuestions = questions.map(({ rows, id, answerType }) => {
-    if (answerType === "tabular") {
-      return buildRows(rows.slice(-1), id, true).flat();
-    }
+const buildPreviousQuestion = ({ question }) => {
+  const [{ id, answerType, rows }] = question;
 
-    return [buildQuestionCell({ id, answerType }, id, true)];
-  });
+  if (answerType === "tabular") {
+    return buildRows(rows.slice(-1), id, {
+      readOnly: true,
+      suppressHeaders: true,
+    }).flat();
+  }
 
-  return previousQuestions.flat();
+  return [buildQuestionCell({ id, answerType }, id, true)];
 };
 
 export const buildRows = (
-  rows: Array<{ cells: Array<Cell>; previousQuestion?: Array<any> }>,
+  rows: Array<{ cells: Array<any> }>,
   questionId: string,
-  readOnly = false
-): TableRow => {
-  return rows.map(({ cells = [], previousQuestion = [] }) => {
-    const currentCells = cells.map(({ __typename, ...props }, i) => {
+  config?: RowConfig
+): Array<TableRow> => {
+  const defaultConfig: RowConfig = { readOnly: false, suppressHeaders: false };
+  const { readOnly, suppressHeaders } = {
+    ...defaultConfig,
+    ...config,
+  };
+  const tableRows: Array<TableRow> = [];
+
+  rows.forEach(({ cells = [] }) => {
+    const rowCells: TableRow = [];
+
+    cells.forEach(({ __typename, ...props }, i) => {
       switch (__typename) {
+        case "tableCell_previousQuestion_BlockType":
+          rowCells.push(...buildPreviousQuestion(props));
+          break;
+        case "tableRow_previousQuestion_BlockType":
+          rowCells.push(...buildPreviousQuestion(props));
+          break;
         case "tableRow_rowHeader_BlockType":
-          return buildStaticCell(props, i === 0);
+          rowCells.push(
+            buildStaticCell(props, suppressHeaders ? false : i === 0)
+          );
+          break;
         case "tableCell_rowHeader_BlockType":
-          return buildStaticCell(props, i === 0);
+          rowCells.push(
+            buildStaticCell(props, suppressHeaders ? false : i === 0)
+          );
+          break;
         case "tableCell_question_BlockType":
-          return buildQuestionCell(props, questionId, readOnly);
+          rowCells.push(buildQuestionCell(props, questionId, readOnly));
+          break;
         default:
-          return buildStaticCell(props);
+          rowCells.push(buildStaticCell(props));
+          break;
       }
     });
 
-    const previousCells = buildPreviousQuestions(previousQuestion);
-
-    return [...previousCells, ...currentCells];
+    tableRows.push(rowCells);
   });
+  return tableRows;
 };

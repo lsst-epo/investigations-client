@@ -35,33 +35,35 @@ const Fragment = graphql(`
             text
             equation
           }
-        }
-        previousQuestion {
-          ... on questions_default_Entry {
-            id
-            answerType
-            rows: questionTable {
-              ... on questionTable_BlockType {
-                cells: tableCell {
-                  ... on tableCell_question_BlockType {
-                    id
-                    answerType: questionType
-                    options {
-                      ... on options_BlockType {
-                        label: optionLabel
-                        value: optionValue
+          ... on tableRow_previousQuestion_BlockType {
+            question {
+              ... on questions_default_Entry {
+                id
+                answerType
+                rows: questionTable {
+                  ... on questionTable_BlockType {
+                    cells: tableCell {
+                      ... on tableCell_question_BlockType {
+                        id
+                        answerType: questionType
+                        options {
+                          ... on options_BlockType {
+                            label: optionLabel
+                            value: optionValue
+                          }
+                        }
+                      }
+                      ... on tableCell_static_BlockType {
+                        id
+                        equation
+                        text
+                      }
+                      ... on tableCell_rowHeader_BlockType {
+                        id
+                        equation
+                        text
                       }
                     }
-                  }
-                  ... on tableCell_static_BlockType {
-                    id
-                    equation
-                    text
-                  }
-                  ... on tableCell_rowHeader_BlockType {
-                    id
-                    equation
-                    text
                   }
                 }
               }
@@ -94,7 +96,7 @@ const TableContentBlock: FunctionComponent<
       )}
       <Table
         {...{ id, rows }}
-        rows={buildRows(rows, id, true)}
+        rows={buildRows(rows, id, { readOnly: true })}
         header={buildHeader(headerCells)}
         caption={caption || undefined}
         labelledById={contentHeading ? `table-${id}-header` : undefined}
