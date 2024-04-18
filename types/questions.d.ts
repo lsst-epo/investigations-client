@@ -45,7 +45,8 @@ export interface CalculatorConfig extends QuestionConfig<Calculator> {
 }
 
 export interface TabularConfig extends QuestionConfig<Tabular> {
-  rows: Array<Cell>;
+  rows: Array<any>;
+  header: Array<any>;
 }
 
 export interface SelectConfig extends QuestionConfig<Select> {

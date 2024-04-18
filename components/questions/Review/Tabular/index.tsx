@@ -11,6 +11,7 @@ import * as Styled from "../styles";
 interface TabularReviewProps extends BaseReviewProps {
   questionText: string;
   rows: Array<{ cells: Array<Cell>; previousQuestion: Array<any> }>;
+  header: Array<any>;
 }
 
 const TabularReview: FunctionComponent<TabularReviewProps> = ({
@@ -18,9 +19,8 @@ const TabularReview: FunctionComponent<TabularReviewProps> = ({
   number,
   questionText,
   rows = [],
+  header = [],
 }) => {
-  const { cells: headerCells } = rows.shift() || {};
-  const header = buildHeader(headerCells);
   const questionOnly = rows.map(({ cells }) => {
     return { cells };
   });
@@ -30,7 +30,7 @@ const TabularReview: FunctionComponent<TabularReviewProps> = ({
     <Styled.ReviewListItem value={number}>
       {questionText}
       <Styled.PrintWrapper>
-        <Table rows={parsedRows} {...{ header }} />
+        <Table rows={parsedRows} header={buildHeader(header[0].headerRow)} />
       </Styled.PrintWrapper>
     </Styled.ReviewListItem>
   );

@@ -56,6 +56,7 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
     instructions,
     rows,
     equation,
+    header,
   } = question;
 
   switch (answerType) {
@@ -70,7 +71,7 @@ function buildQuestion(question: QuestionEntry): Question | undefined {
     case "widget":
       return { answerType, id, instructions, questionWidgetsBlock };
     case "tabular":
-      return { answerType, id, questionText, rows };
+      return { answerType, id, questionText, rows, header };
     case "calculator":
       return { answerType, id, questionText, equation };
     case "number":
