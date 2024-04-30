@@ -7,6 +7,7 @@ import QuestionNumber from "@/components/questions/QuestionNumber";
 import QuestionInput from "@/components/form/Input/patterns/Question";
 import useAnswer from "@/hooks/useAnswer";
 import { validateQuestion } from "@/components/questions/actions";
+import { stepFromPrecision } from "../utils";
 
 const Fragment = graphql(`
   fragment NumberQuestion on questions_default_Entry {
@@ -41,14 +42,14 @@ const NumberQuestion: FunctionComponent<NumberProps> = ({
   );
   const { answer, onChangeCallback } = useAnswer<NumberInput>(id);
 
-  const step = 10 ** -parseFloat(precision);
+  const step = stepFromPrecision(precision);
 
   const handleChange: FocusEventHandler<HTMLInputElement> = async (event) => {
     const value = parseFloat(event.target.value);
 
     if (value !== answer) {
       if (validation && validation.length > 0) {
-        const result = await validateQuestion(id, value, locale);
+        const result = await validateQuestion({ id, value, locale });
 
         if (result) {
           toast(result);

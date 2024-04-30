@@ -13,7 +13,12 @@ type NumberQuestion = "number";
 
 export type SimpleQuestionType = Text | Textarea | Select;
 
-export type InlineQuestionType = Text | Select | Multiselect | Readonly;
+export type MultipartQuestionType =
+  | Text
+  | Select
+  | Multiselect
+  | Readonly
+  | NumberQuestion;
 
 export type TabularQuestionType = Text | Select;
 

@@ -5,3 +5,10 @@ export const getLabelByValue = (options: Array<Option>, value?: string) => {
 
   return label || value;
 };
+
+export const stepFromPrecision = (precision: number | string | null) => {
+  const defaultPrecision = "0";
+  const stringifiedPrecision = precision ? String(precision) : defaultPrecision;
+
+  return 10 ** -parseFloat(stringifiedPrecision);
+};
