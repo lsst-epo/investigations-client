@@ -4,6 +4,7 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import { ObservationsPlot } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import { useTranslation } from "@/lib/i18n";
+import tags from "@/lib/tags";
 
 const Fragment = graphql(`
   fragment MagnitudeScatterPlotBlock on contentBlocks_magnitudeScatterPlot_BlockType {
@@ -31,7 +32,7 @@ const Fragment = graphql(`
 const getDataset = async (url?: string): Promise<Array<string>> => {
   if (url) {
     const response = await fetch(url, {
-      next: { tags: ["datasets"] },
+      next: { tags: [tags.datasets] },
     });
     return await response.json();
   } else {

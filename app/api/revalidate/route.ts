@@ -1,5 +1,6 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest } from "next/server";
+import tags from "@/lib/tags";
 
 const REVALIDATE_SECRET_TOKEN = process.env.CRAFT_SECRET_TOKEN;
 
@@ -25,6 +26,9 @@ export async function GET(request: NextRequest) {
 
   if (uri) {
     revalidatePath(`/[locale]/${uri}`, "page");
+    Object.entries(tags).forEach(([, tag]) => {
+      revalidateTag(tag);
+    });
     return Response.json({ revalidated: true, now: Date.now() });
   }
 
