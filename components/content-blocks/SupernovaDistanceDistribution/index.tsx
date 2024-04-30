@@ -4,6 +4,7 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import SupernovaDistanceDistribution from "@/components/dynamic/SupernovaDistanceDistribution";
 import * as Styled from "./styles";
+import tags from "@/lib/tags";
 
 const Fragment = graphql(`
   fragment SupernovaDistanceDistributionBlock on contentBlocks_supernovaDistanceDistribution_BlockType {
@@ -41,7 +42,7 @@ const SupernovaDistanceDistributionBlock: FunctionComponent<
   const response = await fetch(url, {
     cache: "force-cache",
     headers: { "Content-Type": "application/json" },
-    next: { tags: ["datasets"] },
+    next: { tags: [tags.datasets] },
   });
   const supernovaData: Array<number> = await response.json();
 
