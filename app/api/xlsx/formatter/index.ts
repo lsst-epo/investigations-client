@@ -7,7 +7,7 @@ import multiPart from "./inline";
 import widget from "./widget";
 import tabular from "./tabular";
 import calculator from "./calculator";
-import { InlineQuestionData, TextInput, WidgetInput } from "@/types/answers";
+import { MultipartQuestionData, TextInput, WidgetInput } from "@/types/answers";
 import {
   InlineReviewProps,
   ReviewPart,
@@ -38,7 +38,7 @@ export interface TabularProps extends FormatterBaseProps<WidgetInput> {
 }
 
 export interface InlineFactoryProps
-  extends FormatterBaseProps<InlineQuestionData>,
+  extends FormatterBaseProps<MultipartQuestionData>,
     Omit<InlineReviewProps, "number"> {
   parts: Array<ReviewPart>;
 }

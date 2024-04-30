@@ -5,6 +5,7 @@ export const InlineTextInput = styled.input`
   background-color: var(--question-background-color);
   border: 1px solid var(--question-border-color);
   border-radius: 5px;
+  box-sizing: content-box;
   color: var(--question-input-color);
   display: inline;
   padding: 0;
