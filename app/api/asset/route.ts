@@ -1,3 +1,4 @@
+import tags from "@/lib/tags";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -13,7 +14,7 @@ export async function GET(request: NextRequest) {
   try {
     const response = await fetch(url, {
       next: {
-        tags: ["datasets"],
+        tags: [tags.datasets],
       },
     });
     const asset = await response.json();
