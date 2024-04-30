@@ -3,7 +3,7 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { AnswerType } from "@/types/questions";
 import SimpleQuestion from "@/components/questions/SimpleQuestion";
 import TabularQuestion from "@/components/questions/TabularQuestion";
-import InlineQuestion from "@/components/questions/InlineQuestion";
+import MultipartQuestion from "@/components/questions/MultipartQuestion";
 import CalculatorQuestion from "@/components/questions/Calculator";
 import WidgetQuestion from "@/components/questions/Widget";
 import NumberQuestion from "@/components/questions/Number";
@@ -18,43 +18,11 @@ const Fragment = graphql(`
     ...TabularQuestion
     ...WidgetQuestion
     ...NumberQuestion
+    ...MultipartQuestion
     options: answerOptions {
       ... on answerOptions_option_BlockType {
         label: optionLabel
         value: optionValue
-      }
-    }
-    parts: multiPartBlocks {
-      ... on multiPartBlocks_select_BlockType {
-        id
-        type: typeHandle
-        options: answerOptions {
-          ... on answerOptions_option_BlockType {
-            id
-            label: optionLabel
-            value: optionValue
-          }
-        }
-      }
-      ... on multiPartBlocks_text_BlockType {
-        id
-        type: typeHandle
-      }
-      ... on multiPartBlocks_multiselect_BlockType {
-        id
-        type: typeHandle
-        options: answerOptions {
-          ... on answerOptions_option_BlockType {
-            id
-            label: optionLabel
-            value: optionValue
-          }
-        }
-      }
-      ... on multiPartBlocks_readonlyText_BlockType {
-        id
-        type: typeHandle
-        text: questionText
       }
     }
   }
@@ -72,7 +40,7 @@ const QUESTION_MAP: Record<AnswerType, ComponentType<any>> = {
   widget: WidgetQuestion,
   calculator: CalculatorQuestion,
   textarea: SimpleQuestion,
-  multiPart: InlineQuestion,
+  multiPart: MultipartQuestion,
   number: NumberQuestion,
 };
 

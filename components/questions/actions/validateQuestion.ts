@@ -19,6 +19,18 @@ const Query = graphql(`
             message
           }
         }
+        multiPartBlocks {
+          ... on multiPartBlocks_number_BlockType {
+            id
+            validation {
+              ... on validation_numberValidator_BlockType {
+                comparison
+                operator
+                message
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -33,11 +45,17 @@ const operators: Record<string, string> = {
   notEqual: "\\neq",
 };
 
-const validateQuestion = async (
-  id: string,
-  value?: number,
-  locale = fallbackLng
-): Promise<string | undefined> => {
+const validateQuestion = async ({
+  id,
+  partId,
+  value,
+  locale = fallbackLng,
+}: {
+  id: string;
+  partId?: string;
+  value?: number;
+  locale?: string;
+}): Promise<string | undefined> => {
   if (!value) return;
 
   const site = getSite(locale);
@@ -55,17 +73,24 @@ const validateQuestion = async (
   const { entry } = data;
 
   if (!isEntryValid(entry, "questions_default_Entry")) return;
-  const { validation } = entry;
+  const { validation, multiPartBlocks } = entry;
 
-  const parsedValidations = validation.filter(notNull);
+  const parsedBlocks =
+    multiPartBlocks
+      ?.filter((part) => isEntryValid(part, "multiPartBlocks_number_BlockType"))
+      .filter(notNull) || [];
 
-  if (parsedValidations.length === 0) return;
+  const validations = partId
+    ? parsedBlocks.find(({ id }) => id === partId)?.validation
+    : validation.filter(notNull);
+
+  if (!validations || validations.length === 0) return;
 
   const ce = new ComputeEngine();
   ce.pushScope();
   ce.assign("n", value);
 
-  for (const { comparison, operator, message } of parsedValidations) {
+  for (const { comparison, operator, message } of validations) {
     if (!comparison || !operator) continue;
 
     const tex = `n ${operators[operator]} ${comparison}`;

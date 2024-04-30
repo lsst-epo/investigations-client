@@ -10960,7 +10960,7 @@ export type MenuContent_GlobalSet_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type MultiPartBlocks_NeoField = MultiPartBlocks_Multiselect_BlockType | MultiPartBlocks_ReadonlyText_BlockType | MultiPartBlocks_Select_BlockType | MultiPartBlocks_Text_BlockType;
+export type MultiPartBlocks_NeoField = MultiPartBlocks_Multiselect_BlockType | MultiPartBlocks_Number_BlockType | MultiPartBlocks_ReadonlyText_BlockType | MultiPartBlocks_Select_BlockType | MultiPartBlocks_Text_BlockType;
 
 export type MultiPartBlocks_Multiselect_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'multiPartBlocks_multiselect_BlockType';
@@ -11020,6 +11020,99 @@ export type MultiPartBlocks_Multiselect_BlockType_CountArgs = {
 
 
 export type MultiPartBlocks_Multiselect_BlockTypeAnswerOptionsArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  primaryOwnerId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type MultiPartBlocks_Number_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'multiPartBlocks_number_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the Neo block. */
+  fieldId?: Maybe<Scalars['Int']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The Neo block’s level. */
+  level?: Maybe<Scalars['Int']['output']>;
+  maximum?: Maybe<Scalars['Number']['output']>;
+  minimum?: Maybe<Scalars['Number']['output']>;
+  precision?: Maybe<Scalars['Number']['output']>;
+  /** The ID of the primary owner of the Neo block. */
+  primaryOwnerId?: Maybe<Scalars['Int']['output']>;
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the Neo block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the Neo block’s type. */
+  typeHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the Neo block’s type. */
+  typeId?: Maybe<Scalars['Int']['output']>;
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+  validation: Array<Maybe<Validation_MatrixField>>;
+};
+
+
+export type MultiPartBlocks_Number_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type MultiPartBlocks_Number_BlockTypeValidationArgs = {
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;

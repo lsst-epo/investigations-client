@@ -8,9 +8,9 @@ export type MultiselectInput = Array<SelectInput>;
 export type WidgetInput = Record<string, any>;
 export type NumberInput = number;
 
-export type InlineQuestionData = Record<
+export type MultipartQuestionData = Record<
   QuestionId,
-  TextInput | SelectInput | MultiselectInput
+  TextInput | SelectInput | NumberInput | MultiselectInput | null
 >;
 
 export type AnswerData =
@@ -18,7 +18,7 @@ export type AnswerData =
   | SelectInput
   | MultiselectInput
   | WidgetInput
-  | InlineQuestionData
+  | MultipartQuestionData
   | NumberInput;
 
 export interface Answer {
