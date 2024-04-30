@@ -8,6 +8,7 @@ import * as Styled from "../styles";
 import { WidgetInput } from "@/types/answers";
 import { BaseReviewProps } from "@/types/questions";
 import useAnswer from "@/hooks/useAnswer";
+import ErrorBoundary from "@/components/atomic/ErrorBoundary";
 
 export interface WidgetReviewWrapperProps extends BaseReviewProps {
   id: string;
@@ -49,7 +50,9 @@ const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
     <Styled.ReviewListItem value={number}>
       <QuestionLabel dangerouslySetInnerHTML={{ __html: instructions }} />
       <Styled.PrintWrapper>
-        <Widget data={widgetConfig} value={answer} {...{ id }} />
+        <ErrorBoundary>
+          <Widget data={widgetConfig} value={answer} {...{ id }} />
+        </ErrorBoundary>
       </Styled.PrintWrapper>
     </Styled.ReviewListItem>
   );
