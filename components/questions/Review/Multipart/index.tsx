@@ -4,7 +4,7 @@ import useAnswer from "@/hooks/useAnswer";
 import { BaseReviewProps, MultipartQuestionType } from "@/types/questions";
 
 import Readonly from "./Readonly";
-import Text from "./Text";
+import Generic from "./Text";
 import Multiselect from "./Multiselect";
 import { MultipartQuestionData } from "@/types/answers";
 import { Option } from "@/components/shapes/option";
@@ -17,18 +17,19 @@ export interface ReviewPart {
   id: string;
 }
 
-export interface InlineReviewProps extends BaseReviewProps {
+export interface MultipartReviewProps extends BaseReviewProps {
   parts: ReviewPart[];
 }
 
 const REVIEW_MAP: Record<MultipartQuestionType, ComponentType<any>> = {
-  text: Text,
-  select: Text,
+  text: Generic,
+  select: Generic,
   multiselect: Multiselect,
   readonlyText: Readonly,
+  number: Generic,
 };
 
-const InlineReview: FunctionComponent<InlineReviewProps> = ({
+const MultipartReview: FunctionComponent<MultipartReviewProps> = ({
   id,
   number,
   parts = [],
@@ -36,12 +37,12 @@ const InlineReview: FunctionComponent<InlineReviewProps> = ({
   const { answer = {} } = useAnswer<MultipartQuestionData>(id);
 
   return (
-    <Styled.ReviewListInlineItem value={number}>
+    <Styled.MultipartItem value={number}>
       {parts.map(({ type, id, text, options }, i) => {
         const Review = REVIEW_MAP[type];
 
         if (!Review) {
-          console.error(`"${type}" is not a valid inline question part.`);
+          console.error(`"${type}" is not a valid multipart question part.`);
 
           return null;
         }
@@ -50,10 +51,10 @@ const InlineReview: FunctionComponent<InlineReviewProps> = ({
 
         return <Review {...{ value, type, text, options }} key={i} />;
       })}
-    </Styled.ReviewListInlineItem>
+    </Styled.MultipartItem>
   );
 };
 
-InlineReview.displayName = "Review.Inline";
+MultipartReview.displayName = "Review.Multipart";
 
-export default InlineReview;
+export default MultipartReview;

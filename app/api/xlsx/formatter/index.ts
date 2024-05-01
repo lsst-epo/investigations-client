@@ -3,15 +3,15 @@ import { Cell as TableCell } from "@/components/layout/Table/helpers";
 import { Option } from "@/components/shapes/option";
 import text from "./text";
 import select from "./select";
-import multiPart from "./inline";
+import multiPart from "./multipart";
 import widget from "./widget";
 import tabular from "./tabular";
 import calculator from "./calculator";
 import { MultipartQuestionData, TextInput, WidgetInput } from "@/types/answers";
 import {
-  InlineReviewProps,
+  MultipartReviewProps,
   ReviewPart,
-} from "@/components/questions/Review/Inline";
+} from "@/components/questions/Review/Multipart";
 import { Equation } from "@/types/calculators";
 import { AnswerType } from "@/types/questions";
 
@@ -39,7 +39,7 @@ export interface TabularProps extends FormatterBaseProps<WidgetInput> {
 
 export interface InlineFactoryProps
   extends FormatterBaseProps<MultipartQuestionData>,
-    Omit<InlineReviewProps, "number"> {
+    Omit<MultipartReviewProps, "number"> {
   parts: Array<ReviewPart>;
 }
 
