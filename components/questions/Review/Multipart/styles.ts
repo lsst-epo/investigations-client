@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { ReviewListItem } from "../styles";
 
-export const ReviewListInlineItem = styled(ReviewListItem)`
+export const MultipartItem = styled(ReviewListItem)`
   > * + * {
     margin-inline-start: 1ch;
   }
