@@ -38,7 +38,6 @@ const NumberPart: FunctionComponent<
     const value = parseFloat(event.target.value);
 
     if (value !== answer[id]) {
-      console.log({ validation });
       if (validation && validation.length > 0) {
         const result = await validateQuestion({
           id: questionId,
