@@ -14,7 +14,7 @@ const QUESTION_MAP: Record<AnswerType, ComponentType<any>> = {
   select: Review.Select,
   widget: Review.Widget,
   textarea: Review.Text,
-  multiPart: Review.Inline,
+  multiPart: Review.Multipart,
   tabular: Review.Tabular,
   calculator: Review.Calculator,
   number: Review.Text,
