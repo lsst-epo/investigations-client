@@ -7,6 +7,7 @@ import MagnitudeScatterPlotContainer from "@/components/dynamic/LightCurveTool/M
 import { WidgetQuestion } from "..";
 import * as Styled from "./styles";
 import Loader from "@/components/page/Loader";
+import { combineAlertsAndImages } from "@/helpers/widgets";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
@@ -57,7 +58,6 @@ type SourceSelectorQuestionProps = WidgetQuestion<
 const SourceSelectorQuestion: FunctionComponent<
   SourceSelectorQuestionProps
 > = ({ data, onChangeCallback, value = {}, instructions }) => {
-  const staticWidth = 1000;
   const { sourceSelector } = useFragment(Fragment, data);
   const [activeAlertIndex, setActiveAlertIndex] = useState(0);
 
@@ -100,21 +100,10 @@ const SourceSelectorQuestion: FunctionComponent<
       return { id, type };
     });
 
-  const alertsWithImages = alerts.map((alert, i) => {
-    const {
-      url: { directUrlPreview },
-    } = imageAlbum[i];
-    const urlWithoutConstraint = directUrlPreview.slice(0, -3);
-
-    return {
-      ...alert,
-      image: {
-        width: staticWidth,
-        height: staticWidth,
-        url: `${urlWithoutConstraint}${staticWidth}`,
-      },
-    };
-  });
+  const { alerts: alertsWithImages, size } = combineAlertsAndImages(
+    alerts,
+    imageAlbum || []
+  );
 
   return (
     <>
@@ -134,8 +123,8 @@ const SourceSelectorQuestion: FunctionComponent<
                   onChangeCallback && onChangeCallback({ selectedSource: data })
                 }
                 alertChangeCallback={setActiveAlertIndex}
-                width={staticWidth}
-                height={staticWidth}
+                width={size}
+                height={size}
                 {...{ sources, selectedSource, activeAlertIndex }}
               />
               {!!includeScatterPlot && (

@@ -3,6 +3,7 @@ import SourceSelector from "@rubin-epo/epo-widget-lib/SourceSelector";
 import { WidgetReviewProps } from "..";
 import { SourceSelectorData } from "@/types/widgets";
 import useAlerts from "@/lib/api/hooks/useAlerts";
+import { combineAlertsAndImages } from "@/helpers/widgets";
 
 const SourceSelectorReview: FunctionComponent<
   WidgetReviewProps<any, SourceSelectorData>
@@ -16,21 +17,13 @@ const SourceSelectorReview: FunctionComponent<
 
   if (isLoading) return null;
 
-  const alerts = alertData.map((d, i) => {
-    const {
-      width,
-      height,
-      url: { directUrlOriginal },
-    } = imageAlbum[i];
-
-    return { ...d, image: { width, height, url: directUrlOriginal } };
-  });
-
-  const [{ width, height }] = imageAlbum;
+  const { alerts, size } = combineAlertsAndImages(alertData, imageAlbum || []);
 
   return (
     <SourceSelector
-      {...{ sources, alerts, width, height, selectedSource }}
+      {...{ sources, alerts, selectedSource }}
+      width={size}
+      height={size}
       isDisplayOnly
     />
   );
