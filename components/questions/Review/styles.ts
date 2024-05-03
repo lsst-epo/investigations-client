@@ -35,7 +35,24 @@ export const Text = styled.span`
 `;
 
 export const PrintWrapper = styled.div`
+  --target-height: 1;
+  --global-ui-height: calc(
+    var(--pager-height, 0px) + var(--header-height, 0px)
+  );
+  --widget-ui-height: calc(var(--review-item-padding, 0px) * 2 + 1em);
+  --screen-height: calc(
+    100vh - var(--global-ui-height) - var(--widget-ui-height)
+  );
+  --widget-max-height: calc(var(--screen-height) * var(--target-height));
+
+  container-type: inline-size;
+  display: flex;
+  justify-content: center;
   margin-block-start: 1em;
+
+  @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
+    --target-height: 0.85;
+  }
 
   @media only print {
     -webkit-print-color-adjust: exact;

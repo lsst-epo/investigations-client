@@ -25,7 +25,6 @@ export const WidgetBlock = styled.div`
   }
 
   background-color: var(--widget-background-color);
-  container-type: inline-size;
   display: flex;
   flex-direction: column;
   align-items: center;
