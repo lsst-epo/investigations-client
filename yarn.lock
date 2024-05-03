@@ -2982,10 +2982,10 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^0.9.8":
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.9.8.tgz#34b4522b3dfebd9a3cbd6775cd9c4a7dada9b388"
-  integrity sha512-+iBU0V/56/K4vGR5/0RRIm68+CtYzD3gvPj0Lp1M4vu5x9OfJB8NBzieWWs26egRgfZuoWY1P42h3uDqXpMPQg==
+"@rubin-epo/epo-widget-lib@^0.9.9":
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.9.9.tgz#19b117da96748f602923f20deb30115894952069"
+  integrity sha512-Pq+yCcTPXJY8MH992/9UyeNWPB2RAxA6smabTkzcymbaarROxV3+bllivAXHhQ8K0YYPweXT2hjMFKJCWV+zRg==
   dependencies:
     "@rubin-epo/epo-react-lib" "^2.0.20"
     context-filter-polyfill "^0.3.6"

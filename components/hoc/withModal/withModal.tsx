@@ -64,18 +64,16 @@ function withModal<T extends ModalProps>(
         id={contentId}
         closeModal={closeModal}
       >
+        <WrappedComponent
+          {...{
+            ...props,
+            hasModal: true,
+            isOpen,
+            openModal,
+            closeModal,
+          }}
+        />
         {isOpen && <Modal.Header {...{ isOpen, closeModal, contentId }} />}
-        <Modal.ComponentContainer data-modal-open={isOpen}>
-          <WrappedComponent
-            {...{
-              ...props,
-              hasModal: true,
-              isOpen,
-              openModal,
-              closeModal,
-            }}
-          />
-        </Modal.ComponentContainer>
       </Modal.Base>
     );
   };

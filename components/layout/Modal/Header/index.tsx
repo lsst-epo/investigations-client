@@ -13,13 +13,11 @@ const ModalHeader: FunctionComponent<ModalHeaderProps> = ({
   closeModal,
 }) => {
   return (
-    <Styled.Header>
-      <Styled.Close
-        isOpen={isOpen}
-        onToggle={closeModal}
-        controlsId={contentId}
-      />
-    </Styled.Header>
+    <Styled.Close
+      isOpen={isOpen}
+      onToggle={closeModal}
+      controlsId={contentId}
+    />
   );
 };
 

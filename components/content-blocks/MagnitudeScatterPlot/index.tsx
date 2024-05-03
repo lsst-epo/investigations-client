@@ -69,7 +69,6 @@ const MagnitudeScatterPlotBlock: FunctionComponent<
   return (
     <WidgetContainerWithModal
       title={t("widgets.light_curve.title") || undefined}
-      interactive={false}
     >
       <ObservationsPlot
         name={displayName || title || undefined}
