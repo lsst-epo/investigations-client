@@ -4,6 +4,7 @@ import Button from "@rubin-epo/epo-react-lib/Button";
 export const Header = styled.header`
   display: flex;
   flex-direction: column;
+  height: var(--header-height);
   width: 100%;
   position: sticky;
   top: 0;

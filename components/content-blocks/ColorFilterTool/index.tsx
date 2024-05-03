@@ -49,14 +49,6 @@ const ColorFilterToolBlock: FunctionComponent<ColorFilterProps> = ({
   return (
     <WidgetContainer
       {...{ openModal, isOpen }}
-      style={{
-        "--color-tool-padding": "var(--PADDING_SMALL, 20px)",
-        "--widget-container-padding": "var(--color-tool-padding)",
-        "--widget-content-width": "1200px",
-      }}
-      data-modal-open={isOpen}
-      interactive={false}
-      variant="light"
       caption={t("widgets.color_filter_tool.read_only_caption", { name })}
       title={displayName || title}
     >

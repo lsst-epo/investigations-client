@@ -24,11 +24,13 @@ const FilterToolBlock: FunctionComponent<
   const { t } = useTranslation();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const {
-    preSelectedColor = "none",
+    preSelectedColor,
     readOnly = false,
     widgetInstructions,
   } = useFragment(Fragment, data);
-  const [selectedColor, setSelectedColor] = useState(preSelectedColor);
+  const [selectedColor, setSelectedColor] = useState(
+    preSelectedColor || "none"
+  );
 
   return (
     <>

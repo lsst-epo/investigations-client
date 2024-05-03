@@ -13,6 +13,7 @@ export const Button = styled.button`
 
   &::before {
     outline: 1px solid var(--button-border-color);
+    outline-offset: -1px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -23,6 +24,6 @@ export const Button = styled.button`
   &:focus {
     --button-border-color: var(--neutral95, #1f2121);
     outline: 1px solid var(--button-border-color);
-    outline-offset: -2px;
+    outline-offset: -3px;
   }
 `;

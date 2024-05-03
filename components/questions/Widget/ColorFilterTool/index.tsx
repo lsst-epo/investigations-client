@@ -29,13 +29,7 @@ const ColorFilterToolQuestion: FunctionComponent<
 
   return (
     <WidgetContainerWithModal
-      style={{
-        "--color-tool-padding": "var(--PADDING_SMALL, 20px)",
-        "--widget-container-padding": "var(--color-tool-padding)",
-      }}
       title={displayName || title}
-      variant="light"
-      fillScreen
       {...{ instructions }}
     >
       <ColorFilterTool
