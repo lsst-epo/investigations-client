@@ -22,7 +22,7 @@ const ExpandContract: FunctionComponent<ExpandContractProps> = ({
       aria-controls={controlsId}
       className={className}
     >
-      <IconComposer icon={isOpen ? "close" : "expand"} />
+      <IconComposer size={16} icon={isOpen ? "close" : "expand"} />
     </Styled.Button>
   );
 };

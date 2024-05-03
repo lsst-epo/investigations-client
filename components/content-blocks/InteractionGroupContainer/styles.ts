@@ -6,6 +6,7 @@ export const Heading = styled.h2`
   margin-block-end: ${fluidScale("2em", "1.5em")};
 `;
 export const InteractionGroup = styled.div`
+  --widget-background-color: var(--white, #fff);
   --interaction-group-margin: var(
     --content-block-margin,
     ${fluidScale("var(--PADDING_MEDIUM, 40px)", "var(--PADDING_SMALL, 20px)")}

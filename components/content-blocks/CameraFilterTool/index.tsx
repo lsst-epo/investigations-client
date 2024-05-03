@@ -1,11 +1,9 @@
-"use client";
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/lib/i18n";
 import { BaseContentBlockProps } from "@/components/shapes";
-import WidgetContainer from "@/components/layout/WidgetContainer";
+import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import CameraFilterTool from "@rubin-epo/epo-widget-lib/CameraFilter";
-import withModal from "@/components/hoc/withModal/withModal";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
@@ -16,31 +14,25 @@ const Fragment = graphql(`
 
 const CameraFilterToolBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
-> = ({ openModal, isOpen, data }) => {
+> = async ({ data, locale }) => {
   const { widgetInstructions } = useFragment(Fragment, data);
-  const { t } = useTranslation();
+  const { t } = await useTranslation(locale, "translation");
 
   return (
     <>
-      {!isOpen && widgetInstructions && (
-        <Styled.WidgetInstructions
-          dangerouslySetInnerHTML={{ __html: widgetInstructions }}
-        />
-      )}
-      <WidgetContainer
-        title={t("widgets.camera_filter_tool")}
-        paddingSize={isOpen ? "small" : "none"}
+      <Styled.WidgetInstructions
+        dangerouslySetInnerHTML={{ __html: widgetInstructions || "" }}
+      />
+      <WidgetContainerWithModal
+        title={t("widgets.camera_filter_tool") || undefined}
         instructions={widgetInstructions || undefined}
-        variant="light"
-        interactive
-        {...{ openModal, isOpen }}
       >
         <CameraFilterTool />
-      </WidgetContainer>
+      </WidgetContainerWithModal>
     </>
   );
 };
 
 CameraFilterToolBlock.displayName = "ContentBlock.CameraFilterTool";
 
-export default withModal(CameraFilterToolBlock);
+export default CameraFilterToolBlock;

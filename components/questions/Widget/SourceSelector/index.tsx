@@ -1,11 +1,12 @@
 import { FunctionComponent, useState } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import SourceSelector from "@rubin-epo/epo-widget-lib/SourceSelector";
+import SourceSelector, {
+  SelectionList,
+} from "@rubin-epo/epo-widget-lib/SourceSelector";
 import useAlerts from "@/lib/api/hooks/useAlerts";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import MagnitudeScatterPlotContainer from "@/components/dynamic/LightCurveTool/MagnitudeScatterPlot";
 import { WidgetQuestion } from "..";
-import * as Styled from "./styles";
 import Loader from "@/components/page/Loader";
 import { combineAlertsAndImages } from "@/helpers/widgets";
 
@@ -109,38 +110,37 @@ const SourceSelectorQuestion: FunctionComponent<
     <>
       <WidgetContainerWithModal
         title={displayName || title || undefined}
-        interactive={false}
+        caption={
+          <SelectionList
+            sources={selectedSources}
+            onRemoveCallback={handleRemoveSource}
+          />
+        }
         {...{ instructions }}
       >
-        <Styled.MultiWidgetContainer>
-          {isLoading ? (
-            <Loader height="20rem" />
-          ) : (
-            <>
-              <SourceSelector
-                alerts={alertsWithImages}
-                selectionCallback={(data) =>
-                  onChangeCallback && onChangeCallback({ selectedSource: data })
-                }
-                alertChangeCallback={setActiveAlertIndex}
-                width={size}
-                height={size}
-                {...{ sources, selectedSource, activeAlertIndex }}
+        {isLoading ? (
+          <Loader height="20rem" />
+        ) : (
+          <>
+            <SourceSelector
+              alerts={alertsWithImages}
+              selectionCallback={(data) =>
+                onChangeCallback && onChangeCallback({ selectedSource: data })
+              }
+              alertChangeCallback={setActiveAlertIndex}
+              width={size}
+              height={size}
+              {...{ sources, selectedSource, activeAlertIndex }}
+            />
+            {!!includeScatterPlot && (
+              <MagnitudeScatterPlotContainer
+                showPlot={selectedSource.length > 0}
+                {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
               />
-              {!!includeScatterPlot && (
-                <MagnitudeScatterPlotContainer
-                  showPlot={selectedSource.length > 0}
-                  {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
-                />
-              )}
-            </>
-          )}
-        </Styled.MultiWidgetContainer>
+            )}
+          </>
+        )}
       </WidgetContainerWithModal>
-      <Styled.SelectionList
-        sources={selectedSources}
-        onRemoveCallback={handleRemoveSource}
-      />
     </>
   );
 };

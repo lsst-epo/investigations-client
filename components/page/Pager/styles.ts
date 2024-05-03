@@ -3,7 +3,6 @@ import Link from "next/link";
 import { token } from "@rubin-epo/epo-react-lib/styles";
 
 export const PagerContainer = styled.nav`
-  --pager-height: 40px;
   --pager-columns: repeat(2, 1fr);
   background-color: var(--turquoise85, #12726d);
   display: grid;
@@ -16,11 +15,7 @@ export const PagerContainer = styled.nav`
   width: 100%;
   max-width: var(--max-page-width);
 
-  @media screen and (min-width: ${token("BREAK_TABLET_MIN")}) {
-    --pager-height: 80px;
-  }
   @media screen and (min-width: ${token("BREAK_DESKTOP_SMALL")}) {
-    --pager-height: 70px;
     --pager-columns: 1fr max-content 1fr;
 
     align-items: center;

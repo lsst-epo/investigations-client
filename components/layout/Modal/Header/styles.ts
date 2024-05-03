@@ -1,19 +1,11 @@
 import styled from "styled-components";
 import ExpandContract from "@/atomic/ExpandContract/ExpandContract";
 
-export const Header = styled.div`
-  background-color: var(--header-background-color, transparent);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  grid-area: header;
-  padding: 1ch;
-  width: 100%;
-  z-index: 1;
-`;
-
 export const Close = styled(ExpandContract)`
-  margin-left: auto;
+  position: absolute !important;
+  right: calc(var(--PADDING_SMALL) / 1.5);
+  top: calc(var(--PADDING_SMALL) / 1.5);
+  z-index: 1;
 `;
 
 export const Title = styled.span`

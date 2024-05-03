@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Dialog = styled.div`
-  container: contentModal / inline-size;
+  container: inline-size;
 
   &[data-modal-open="true"] {
     position: fixed;
@@ -19,14 +19,10 @@ export const Dialog = styled.div`
       overflow-y: auto;
       width: 100%;
       height: 100%;
-      display: grid;
+      display: flex;
       align-items: center;
       justify-items: center;
-      grid-template-columns: 1fr;
-      grid-template-rows: min-content 1fr;
-      grid-template-areas:
-        "header"
-        "component";
+      position: relative;
     }
   }
 `;
