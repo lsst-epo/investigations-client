@@ -44,6 +44,7 @@ export const WidgetContainer = styled.div`
   background-color: var(--widget-background-color, var(--neutral10, #f5f5f5));
   color: var(--widget-text-color, initial);
   max-width: 100%;
+  max-height: 100%;
 `;
 
 export const WidgetHeader = styled.header`
