@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Dialog = styled.div`
-  container: inline-size;
+  container-type: inline-size;
 
   &[data-modal-open="true"] {
     position: fixed;
