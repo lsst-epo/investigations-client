@@ -4,8 +4,12 @@ import styled from "styled-components";
 export const WidgetBlock = styled.div`
   --target-height: 1;
   --widget-header-height: 36px;
-  --widget-padding: calc(var(--PADDING_SMALL, 20px) / 2);
+  --widget-padding-resize: 0.5;
+  --widget-padding: calc(
+    var(--PADDING_SMALL, 20px) * var(--widget-padding-resize)
+  );
   --widget-header-padding: calc(var(--PADDING_SMALL, 20px) / 4);
+  --instructions-height: 2em;
 
   --global-ui-height: calc(
     var(--pager-height, 0px) + var(--header-height, 0px)
@@ -20,28 +24,28 @@ export const WidgetBlock = styled.div`
 
   &[data-modal-open="true"] {
     --global-ui-height: 0px;
-    --widget-ui-height: var(--widget-padding, 0px);
+    --widget-ui-height: calc(
+      calc(var(--widget-padding, 0px) * 3) + var(--instructions-height)
+    );
     --widget-background-color: var(--white, #fff);
   }
 
-  background-color: var(--widget-background-color);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
 
   @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
-    --widget-padding: var(--PADDING_SMALL, 20px);
+    --widget-padding-resize: 1;
     --target-height: 0.85;
 
     background-color: transparent;
-    justify-content: center;
   }
 `;
 
 export const WidgetContainer = styled.div`
-  background-color: var(--widget-background-color, var(--neutral10, #f5f5f5));
   color: var(--widget-text-color, initial);
   max-width: 100%;
   max-height: 100%;
@@ -64,6 +68,7 @@ export const WidgetTitle = styled.h3`
 `;
 
 export const WidgetBody = styled.div`
+  background-color: var(--widget-background-color, var(--neutral10, #f5f5f5));
   display: flex;
   flex-direction: column;
   padding: var(--widget-padding);
