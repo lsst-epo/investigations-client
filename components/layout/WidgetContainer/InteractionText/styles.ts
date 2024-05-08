@@ -5,7 +5,7 @@ export const InstructionsContainer = styled.div`
   color: var(--widget-text-color);
   display: flex;
   justify-content: center;
-  margin-block: 1em;
+  height: var(--instructions-height, 2em);
 `;
 
 export const InfoButton = styled.button`
