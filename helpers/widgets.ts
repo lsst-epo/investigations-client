@@ -1,3 +1,4 @@
+import sample from "lodash/sample";
 import { Alert } from "@/lib/api/hooks/useAlerts";
 import { resizeCantoImage } from "./assets";
 
@@ -38,3 +39,30 @@ export const percentageMapSources = <T extends { x: any; y: any; radius: any }>(
       ...source,
     };
   });
+
+export const getDataset = <T = object>(
+  datasets: Array<T>,
+  selectedId?: string
+): T => {
+  let dataset;
+
+  if (selectedId) {
+    dataset = datasets.find((d: T) => {
+      if (!!d && typeof d === "object") {
+        const { id = null } = { ...d };
+
+        return id === selectedId;
+      }
+
+      return false;
+    });
+  } else {
+    dataset = sample(datasets);
+  }
+
+  if (!dataset) {
+    return datasets[0];
+  }
+
+  return dataset;
+};

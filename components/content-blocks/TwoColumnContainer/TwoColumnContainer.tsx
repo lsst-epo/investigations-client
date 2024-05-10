@@ -18,7 +18,6 @@ const Fragment = graphql(`
           ...QuestionsBlock
           ...BarGraphToolBlock
           ...FilterToolBlock
-          ...ScatterplotToolBlock
           ...ReferenceModalBlock
           ...ColorFilterToolBlock
           ...SupernovaDistanceDistributionBlock
@@ -38,7 +37,6 @@ const Fragment = graphql(`
           ...QuestionsBlock
           ...BarGraphToolBlock
           ...FilterToolBlock
-          ...ScatterplotToolBlock
           ...ReferenceModalBlock
           ...ColorFilterToolBlock
           ...SupernovaDistanceDistributionBlock
