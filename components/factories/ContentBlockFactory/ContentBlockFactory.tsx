@@ -15,7 +15,6 @@ export const blockMap: Record<
   contentBlocks_text_BlockType: Blocks.Text,
   contentBlocks_image_BlockType: Blocks.Image,
   contentBlocks_questionBlock_BlockType: Blocks.Questions,
-  contentBlocks_scatterplotTool_BlockType: Blocks.ScatterplotTool,
   contentBlocks_barGraphTool_BlockType: Blocks.BarGraphTool,
   contentBlocks_magnitudeScatterPlot_BlockType: Blocks.MagnitudeScatterPlot,
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
@@ -45,7 +44,6 @@ const Fragment = graphql(`
     ...QuestionsBlock
     ...BarGraphToolBlock
     ...FilterToolBlock
-    ...ScatterplotToolBlock
     ...ReferenceModalBlock
     ...ColorFilterToolBlock
     ...CameraFilterToolBlock

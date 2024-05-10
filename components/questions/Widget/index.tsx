@@ -8,6 +8,7 @@ import QuestionNumber from "@/components/questions/QuestionNumber";
 import ColorFilterToolQuestion from "./ColorFilterTool";
 import SourceSelectorQuestion from "./SourceSelector";
 import LightCurveToolQuestion from "./LightCurveTool";
+import IsochronePlotQuestion from "./IsochronePlot";
 import * as Styled from "./styles";
 import ErrorBoundary from "@/components/atomic/ErrorBoundary";
 
@@ -21,6 +22,7 @@ const Fragment = graphql(`
       ...ColorFilterToolQuestion
       ...SourceSelectorQuestion
       ...LightCurveQuestion
+      ...IsochronePlotQuestion
     }
   }
 `);
@@ -40,6 +42,7 @@ const WIDGET_MAP: Record<string, ComponentType<WidgetQuestion>> = {
   questionWidgetsBlock_colorFilterToolBlock_BlockType: ColorFilterToolQuestion,
   questionWidgetsBlock_sourceSelectorBlock_BlockType: SourceSelectorQuestion,
   questionWidgetsBlock_lightCurveBlock_BlockType: LightCurveToolQuestion,
+  questionWidgetsBlock_isochronePlot_BlockType: IsochronePlotQuestion,
 };
 
 const WidgetQuestion: FunctionComponent<WidgetProps> = ({ data }) => {

@@ -1,12 +1,12 @@
 import "@/lib/temml/Temml-Latin-Modern.css";
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
-import sample from "lodash/sample";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import { WidgetQuestion } from "..";
 import LightCurveToolContainer from "@/components/dynamic/LightCurveTool/LightCurvePlot";
 import Loader from "@/components/page/Loader";
+import { getDataset } from "@/helpers/widgets";
 
 const Fragment = graphql(`
   fragment LightCurveQuestion on questionWidgetsBlock_lightCurveBlock_BlockType {
@@ -32,18 +32,6 @@ const Fragment = graphql(`
     }
   }
 `);
-
-const getDataset = (datasets: Array<any>, id?: string) => {
-  let dataset;
-
-  if (id) {
-    dataset = datasets.find((d) => d.id === id);
-  } else {
-    dataset = sample(datasets);
-  }
-
-  return dataset || datasets[0];
-};
 
 const LightCurveToolQuestion: FunctionComponent<
   WidgetQuestion<FragmentType<typeof Fragment>>
