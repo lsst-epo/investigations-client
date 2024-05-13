@@ -7,7 +7,8 @@ import { PartProps } from "..";
 import { stepFromPrecision } from "@/components/questions/utils";
 import useAnswer from "@/hooks/useAnswer";
 import { MultipartQuestionData } from "@/types/answers";
-import { validateQuestion } from "../../actions";
+import { validateQuestion } from "@/components/questions/actions";
+import { DEBOUNCE_TIME } from "@/components/questions/config";
 import * as Styled from "../Text/styles";
 
 const Fragment = graphql(`
@@ -60,7 +61,10 @@ const NumberPart: FunctionComponent<
     }
   };
 
-  const debouncedHandleChange = useDebouncedCallback(handleChange, 500);
+  const debouncedHandleChange = useDebouncedCallback(
+    handleChange,
+    DEBOUNCE_TIME
+  );
 
   return (
     <Styled.InlineTextInput
