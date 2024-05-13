@@ -7,8 +7,9 @@ import { NumberInput } from "@/types/answers";
 import QuestionNumber from "@/components/questions/QuestionNumber";
 import QuestionInput from "@/components/form/Input/patterns/Question";
 import useAnswer from "@/hooks/useAnswer";
-import { stepFromPrecision } from "../utils";
-import { validateQuestion } from "../actions";
+import { stepFromPrecision } from "@/components/questions/utils";
+import { validateQuestion } from "@/components/questions/actions";
+import { DEBOUNCE_TIME } from "@/components/questions/config";
 
 const Fragment = graphql(`
   fragment NumberQuestion on questions_default_Entry {
@@ -68,7 +69,10 @@ const NumberQuestion: FunctionComponent<NumberProps> = ({
     }
   };
 
-  const debouncedHandleChange = useDebouncedCallback(handleChange, 500);
+  const debouncedHandleChange = useDebouncedCallback(
+    handleChange,
+    DEBOUNCE_TIME
+  );
 
   return (
     <QuestionNumber id={id}>
