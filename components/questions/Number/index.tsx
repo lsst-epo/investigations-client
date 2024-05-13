@@ -1,18 +1,13 @@
 "use client";
-import {
-  FocusEventHandler,
-  FunctionComponent,
-  useEffect,
-  useState,
-} from "react";
+import { FocusEventHandler, FunctionComponent } from "react";
 import toast from "react-hot-toast";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
+import { useDebouncedCallback } from "use-debounce";
 import { NumberInput } from "@/types/answers";
 import QuestionNumber from "@/components/questions/QuestionNumber";
 import QuestionInput from "@/components/form/Input/patterns/Question";
 import useAnswer from "@/hooks/useAnswer";
 import { stepFromPrecision } from "../utils";
-import { useDebounce } from "@/hooks/useDebounce";
 import { validateQuestion } from "../actions";
 
 const Fragment = graphql(`
@@ -47,15 +42,14 @@ const NumberQuestion: FunctionComponent<NumberProps> = ({
     data
   );
   const { answer, onChangeCallback } = useAnswer<NumberInput>(id);
-  const [value, setValue] = useState(answer);
-  const debouncedValue = useDebounce(value, 500);
+  const hasValidation = validation && validation.length > 0;
 
   const step = stepFromPrecision(precision);
 
-  const validate = async () => {
+  const validate = async (value?: number) => {
     const result = await validateQuestion({
       id,
-      value: debouncedValue,
+      value,
       locale,
     });
 
@@ -65,28 +59,16 @@ const NumberQuestion: FunctionComponent<NumberProps> = ({
     }
   };
 
-  const handleBlur: FocusEventHandler<HTMLInputElement> = (event) => {
-    const value = parseFloat(event.target.value);
-    if (value !== debouncedValue) {
-      validate();
-    }
-
-    onChangeCallback && onChangeCallback(value);
-  };
-
   const handleChange: FocusEventHandler<HTMLInputElement> = async (event) => {
     const value = parseFloat(event.target.value);
 
     if (value !== answer) {
-      setValue(value);
+      hasValidation && validate(value);
+      onChangeCallback && onChangeCallback(value);
     }
   };
 
-  useEffect(() => {
-    if (debouncedValue !== answer && validation && validation.length > 0) {
-      validate();
-    }
-  }, [debouncedValue]);
+  const debouncedHandleChange = useDebouncedCallback(handleChange, 500);
 
   return (
     <QuestionNumber id={id}>
@@ -96,8 +78,7 @@ const NumberQuestion: FunctionComponent<NumberProps> = ({
         min={minimum}
         max={maximum}
         defaultValue={answer}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        onChange={debouncedHandleChange}
         {...{ id, step }}
       />
     </QuestionNumber>

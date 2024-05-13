@@ -92,6 +92,7 @@
     "swr": "^2.2.4",
     "temml": "^0.10.23",
     "urql": "^4.0.6",
+    "use-debounce": "^10.0.0",
     "use-resize-observer": "^9.1.0",
     "yarn": "^1.22.17"
   },
