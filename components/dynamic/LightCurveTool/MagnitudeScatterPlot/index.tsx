@@ -27,7 +27,7 @@ const MagnitudeScatterPlotContainer: FunctionComponent<
 
   const activeAlertId =
     typeof activeAlertIndex === "number"
-      ? alerts[activeAlertIndex].id
+      ? alerts[activeAlertIndex]?.id
       : undefined;
 
   return (

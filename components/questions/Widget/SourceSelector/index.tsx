@@ -7,8 +7,10 @@ import useAlerts from "@/lib/api/hooks/useAlerts";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import MagnitudeScatterPlotContainer from "@/components/dynamic/LightCurveTool/MagnitudeScatterPlot";
 import { WidgetQuestion } from "..";
-import Loader from "@/components/page/Loader";
-import { combineAlertsAndImages } from "@/helpers/widgets";
+import {
+  combineAlertsAndImages,
+  percentageMapSources,
+} from "@/helpers/widgets";
 
 const Fragment = graphql(`
   fragment SourceSelectorQuestion on questionWidgetsBlock_sourceSelectorBlock_BlockType {
@@ -95,6 +97,8 @@ const SourceSelectorQuestion: FunctionComponent<
     }
   };
 
+  const percentageMappedSources = percentageMapSources(sources);
+
   const selectedSources: Array<{ type: string; id: string }> = sources
     .filter(({ id }) => selectedSource.includes(id))
     .map(({ id, type }) => {
@@ -118,28 +122,25 @@ const SourceSelectorQuestion: FunctionComponent<
         }
         {...{ instructions }}
       >
-        {isLoading ? (
-          <Loader height="20rem" />
-        ) : (
-          <>
-            <SourceSelector
-              alerts={alertsWithImages}
-              selectionCallback={(data) =>
-                onChangeCallback && onChangeCallback({ selectedSource: data })
-              }
-              alertChangeCallback={setActiveAlertIndex}
-              width={size}
-              height={size}
-              {...{ sources, selectedSource, activeAlertIndex }}
+        <>
+          <SourceSelector
+            alerts={alertsWithImages}
+            selectionCallback={(data) =>
+              onChangeCallback && onChangeCallback({ selectedSource: data })
+            }
+            alertChangeCallback={setActiveAlertIndex}
+            width={size}
+            height={size}
+            sources={percentageMappedSources}
+            {...{ selectedSource, activeAlertIndex, isLoading }}
+          />
+          {!!includeScatterPlot && (
+            <MagnitudeScatterPlotContainer
+              showPlot={selectedSource.length > 0}
+              {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
             />
-            {!!includeScatterPlot && (
-              <MagnitudeScatterPlotContainer
-                showPlot={selectedSource.length > 0}
-                {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
-              />
-            )}
-          </>
-        )}
+          )}
+        </>
       </WidgetContainerWithModal>
     </>
   );

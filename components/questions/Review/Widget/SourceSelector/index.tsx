@@ -3,7 +3,10 @@ import SourceSelector from "@rubin-epo/epo-widget-lib/SourceSelector";
 import { WidgetReviewProps } from "..";
 import { SourceSelectorData } from "@/types/widgets";
 import useAlerts from "@/lib/api/hooks/useAlerts";
-import { combineAlertsAndImages } from "@/helpers/widgets";
+import {
+  combineAlertsAndImages,
+  percentageMapSources,
+} from "@/helpers/widgets";
 
 const SourceSelectorReview: FunctionComponent<
   WidgetReviewProps<any, SourceSelectorData>
@@ -13,15 +16,16 @@ const SourceSelectorReview: FunctionComponent<
   const [{ sources, json, imageAlbum }] = dataset;
   const { selectedSource = [] } = value || {};
 
-  const { data: alertData = [], error, isLoading } = useAlerts(json[0].url);
-
-  if (isLoading) return null;
+  const { data: alertData = [], isLoading } = useAlerts(json[0].url);
 
   const { alerts, size } = combineAlertsAndImages(alertData, imageAlbum || []);
 
+  const percentageMappedSources = percentageMapSources(sources);
+
   return (
     <SourceSelector
-      {...{ sources, alerts, selectedSource }}
+      {...{ alerts, selectedSource, isLoading }}
+      sources={percentageMappedSources}
       width={size}
       height={size}
       isDisplayOnly
