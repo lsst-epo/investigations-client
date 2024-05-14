@@ -3019,13 +3019,13 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@^2.0.20":
-  version "2.0.20"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.20.tgz#a4fc6cc2765688da12ed2d7e651018a1d712cddb"
-  integrity sha512-ZCdeqnlqSCmGX6PcaG+18lMB/5SsW0qWT19p28bGZZxdF66uI/qzSVMAKTPaWKHKD2kW/UejMk0ZvomQ4VKCDA==
+"@rubin-epo/epo-react-lib@2.0.24":
+  version "2.0.24"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.24.tgz#c30d6e71490dee279b1a1bc8db63b8483f8bf539"
+  integrity sha512-dGkO3R4Y3eYrBKbJp9xdWtjR+wlBp+SqhrrO6lg1QnKyvtrzV40WNrxfvyco7ZHYLPXIzbBi+onAhCwpmJJjew==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^1.7.17"
+    "@headlessui/react" "^2.0.3"
     flickity "^3.0.0"
     focus-trap "^7.4.2"
     i18next "^22.4.10"
@@ -3057,12 +3057,24 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^0.9.11-beta.1":
-  version "0.9.11-beta.1"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.9.11-beta.1.tgz#bac1a69848b60c7af0837a498c3a1995d0847f84"
-  integrity sha512-bW2n4zCjCwjftUjsY2umE1R3EROd8Un7Pq5jadzEpatKMC7nZJIy6z+8B/Zluzx8J+nEspNC0NwIP3j5cMv7bg==
+"@rubin-epo/epo-widget-lib@file:../epo-react-lib/packages/epo-widget-lib/tempPublish":
+  version "0.9.12"
   dependencies:
-    "@rubin-epo/epo-react-lib" "^2.0.20"
+    "@rubin-epo/epo-react-lib" "2.0.24"
+    context-filter-polyfill "^0.3.6"
+    d3-array "^3.2.4"
+    d3-geo "^3.1.0"
+    d3-geo-projection "^4.0.0"
+    lodash "^4.17.21"
+    react-slider "^2.0.6"
+    skia-canvas "^1.0.1"
+    styled-components "^6.1.1"
+    use-resize-observer "^9.1.0"
+
+"@rubin-epo/epo-widget-lib@file:/Users/agoff/Documents/workspace/epo-react-lib/packages/epo-widget-lib/tempPublish":
+  version "0.9.12"
+  dependencies:
+    "@rubin-epo/epo-react-lib" "2.0.24"
     context-filter-polyfill "^0.3.6"
     d3-array "^3.2.4"
     d3-geo "^3.1.0"
