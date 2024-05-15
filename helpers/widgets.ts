@@ -1,10 +1,11 @@
 import { Alert } from "@/lib/api/hooks/useAlerts";
+import { resizeCantoImage } from "./assets";
 
 export const combineAlertsAndImages = (
   alerts: Array<Alert | any>,
   images: Array<any>
 ) => {
-  const size = 200;
+  const size = 240;
 
   return {
     alerts: alerts.map((alert, i) => {
@@ -18,7 +19,7 @@ export const combineAlertsAndImages = (
         image: {
           width: size,
           height: size,
-          url: directUrlPreview,
+          url: resizeCantoImage(directUrlPreview, size),
         },
       };
     }),
