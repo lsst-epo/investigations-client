@@ -30,8 +30,6 @@ const IsochronePlotContainer: FunctionComponent<Props> = ({
     useIsochrones(isochrones);
   const { data = [], isLoading: isPointsLoading } = usePoints(points);
 
-  console.log(isIsochronesLoading || isPointsLoading);
-
   return (
     <IsochronePlot
       isLoading={isIsochronesLoading || isPointsLoading}

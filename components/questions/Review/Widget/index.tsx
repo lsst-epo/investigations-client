@@ -3,13 +3,13 @@ import { ComponentType, FunctionComponent } from "react";
 import ColorFilterToolReview from "./ColorFilterTool";
 import SourceSelectorReview from "./SourceSelector";
 import LightCurveReview from "./LightCurveTool";
+import IsochronePlotReview from "./IsochronePlot";
 import { QuestionLabel } from "@/components/questions/Widget/styles";
 import * as Styled from "../styles";
 import { WidgetInput } from "@/types/answers";
 import { BaseReviewProps } from "@/types/questions";
 import useAnswer from "@/hooks/useAnswer";
 import ErrorBoundary from "@/components/atomic/ErrorBoundary";
-
 export interface WidgetReviewWrapperProps extends BaseReviewProps {
   id: string;
   instructions: string;
@@ -26,6 +26,7 @@ export const WIDGET_MAP: Record<string, ComponentType<WidgetReviewProps>> = {
   questionWidgetsBlock_colorFilterToolBlock_BlockType: ColorFilterToolReview,
   questionWidgetsBlock_sourceSelectorBlock_BlockType: SourceSelectorReview,
   questionWidgetsBlock_lightCurveBlock_BlockType: LightCurveReview,
+  questionWidgetsBlock_isochronePlot_BlockType: IsochronePlotReview,
 };
 
 const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({

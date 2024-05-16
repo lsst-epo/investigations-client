@@ -53,13 +53,13 @@ const IsochronePlot: FunctionComponent<
     if (!isochroneUrl || !pointsUrl) return null;
 
     return (
-      <WidgetContainerWithModal>
+      <WidgetContainerWithModal {...{ instructions }}>
         <IsochronePlotContainer
           sources={{
             points: pointsUrl,
             isochrones: isochroneUrl,
           }}
-          {...{ ...props, value }}
+          {...{ ...props, value, xAxis, yAxis }}
         />
       </WidgetContainerWithModal>
     );
