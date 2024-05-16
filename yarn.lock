@@ -2349,13 +2349,6 @@
   resolved "https://registry.yarnpkg.com/@greatsumini/react-facebook-login/-/react-facebook-login-3.3.3.tgz#466d3f0c55d10b962a06e30d7a445a15769f7498"
   integrity sha512-Y5D7EncR3iy/X/OfWwjjpM5OW0XV6PCE08RZUV/yhAE413PEBIlML7S6z69BcpUPWO5XzEt7cytHChUdwXO4Dw==
 
-"@headlessui/react@^1.7.17":
-  version "1.7.17"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.17.tgz#a0ec23af21b527c030967245fd99776aa7352bc6"
-  integrity sha512-4am+tzvkqDSSgiwrsEpGWqgGo9dz8qU5M3znCkC4PgkpY4HcCZzEDEvozltGGGHIKl9jbXbZPSH5TWn4sWJdow==
-  dependencies:
-    client-only "^0.0.1"
-
 "@headlessui/react@^2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-2.0.3.tgz#7506d808a6f3abc307f35354d34b8d642ecfd692"
@@ -3019,7 +3012,7 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@2.0.24":
+"@rubin-epo/epo-react-lib@2.0.24", "@rubin-epo/epo-react-lib@^2.0.24":
   version "2.0.24"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.24.tgz#c30d6e71490dee279b1a1bc8db63b8483f8bf539"
   integrity sha512-dGkO3R4Y3eYrBKbJp9xdWtjR+wlBp+SqhrrO6lg1QnKyvtrzV40WNrxfvyco7ZHYLPXIzbBi+onAhCwpmJJjew==
@@ -3038,29 +3031,10 @@
     react-uid "^2.3.2"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-react-lib@^2.0.24":
-  version "2.0.24"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.24.tgz#c30d6e71490dee279b1a1bc8db63b8483f8bf539"
-  integrity sha512-dGkO3R4Y3eYrBKbJp9xdWtjR+wlBp+SqhrrO6lg1QnKyvtrzV40WNrxfvyco7ZHYLPXIzbBi+onAhCwpmJJjew==
-  dependencies:
-    "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^2.0.3"
-    flickity "^3.0.0"
-    focus-trap "^7.4.2"
-    i18next "^22.4.10"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-i18next "^12.0.0"
-    react-player "^2.14.1"
-    react-share "^4.4.1"
-    react-slider "^2.0.6"
-    react-uid "^2.3.2"
-    styled-components "^6.1.1"
-
-"@rubin-epo/epo-widget-lib@^0.9.12":
-  version "0.9.12"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.9.12.tgz#91facebe49705c9932c100169b87a506d73d8490"
-  integrity sha512-6MRYFdQ0QATuGVqOYVpfXLASwujBrqXfTZLn62WbAMgUNCq1LWiX5rT9OHb4bmT5PUgOfxbcVDbskcBBwnl7uQ==
+"@rubin-epo/epo-widget-lib@^0.10.0-beta.1":
+  version "0.10.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-0.10.0-beta.1.tgz#83ab5e68c29b72789fa556cff21ea90444592b57"
+  integrity sha512-2D/CNC2n1u3XXcAWisO1bNsbVrolqpnJ2jbsjZ9eRlR96Z+tG4XkfkcgndtXYvIWwvBFFpNds83ubhBLVvYCbQ==
   dependencies:
     "@rubin-epo/epo-react-lib" "2.0.24"
     context-filter-polyfill "^0.3.6"
