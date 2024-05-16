@@ -8,3 +8,9 @@ export interface LightCurveData {
 export interface SourceSelectorData {
   selectedSource: Array<string>;
 }
+
+export interface IsochronePlotData {
+  datasetId?: string;
+  age?: number;
+  distance?: number;
+}

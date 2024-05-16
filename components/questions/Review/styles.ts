@@ -57,5 +57,8 @@ export const PrintWrapper = styled.div`
   @media only print {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+
+    --target-height: 0.5;
+    --widget-max-height: calc(100vh * var(--target-height));
   }
 `;
