@@ -8,7 +8,6 @@ import { graphql } from "@/gql/public-schema";
 import { SourceSansPro } from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
-import UIDReset from "@/lib/reset";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { queryAPI } from "@/lib/fetch";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
@@ -103,19 +102,17 @@ const RootLayout: (
     <html lang={locale}>
       <head></head>
       <Body className={SourceSansPro.variable}>
-        <UIDReset>
-          <StyledComponentsRegistry>
-            <GlobalStyles includeFonts={false} />
-            <I18NextClientProvider locale={locale}>
-              <GlobalDataProvider data={globalData}>
-                <AuthDialogManagerProvider>
-                  {children}
-                  <AuthDialogs isAuthenticated={!!craftToken} />
-                </AuthDialogManagerProvider>
-              </GlobalDataProvider>
-            </I18NextClientProvider>
-          </StyledComponentsRegistry>
-        </UIDReset>
+        <StyledComponentsRegistry>
+          <GlobalStyles includeFonts={false} />
+          <I18NextClientProvider locale={locale}>
+            <GlobalDataProvider data={globalData}>
+              <AuthDialogManagerProvider>
+                {children}
+                <AuthDialogs isAuthenticated={!!craftToken} />
+              </AuthDialogManagerProvider>
+            </GlobalDataProvider>
+          </I18NextClientProvider>
+        </StyledComponentsRegistry>
       </Body>
       {PLAUSIBLE_DOMAIN && (
         <Script

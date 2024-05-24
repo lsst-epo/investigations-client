@@ -1,7 +1,12 @@
 "use client";
-import { ComponentType, useState, useRef, FunctionComponent } from "react";
+import {
+  ComponentType,
+  useState,
+  useRef,
+  FunctionComponent,
+  useId,
+} from "react";
 import ModalProps from "@/components/shapes/modal";
-import { useUID } from "react-uid";
 import screenfull from "screenfull";
 import { getDisplayName } from "@/lib/utils";
 import * as Modal from "@/layout/Modal";
@@ -18,7 +23,7 @@ function withModal<T extends ModalProps>(
 
     const [isOpen, setIsOpen] = useState(false);
     const modalRef = useRef(null);
-    const uid = useUID();
+    const contentId = useId();
 
     // escape for content that is already within a modal (reference pages)
     if (!hasModal) {
@@ -54,8 +59,6 @@ function withModal<T extends ModalProps>(
         setIsOpen(false);
       }
     };
-
-    const contentId = `modal-content-${uid}`;
 
     return (
       <Modal.Base
