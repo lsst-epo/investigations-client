@@ -67,9 +67,7 @@ const MagnitudeScatterPlotBlock: FunctionComponent<
   const alerts = await getDataset(json[0]?.url || undefined);
 
   return (
-    <WidgetContainerWithModal
-      title={t("widgets.light_curve.title") || undefined}
-    >
+    <WidgetContainerWithModal title={t("widgets.light_curve.title")}>
       <ObservationsPlot
         name={displayName || title || undefined}
         {...{ alerts, peakMjd, yMin, yMax }}

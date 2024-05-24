@@ -32,7 +32,7 @@ const MagnitudeScatterPlotContainer: FunctionComponent<
 
   return (
     <ObservationsPlot
-      name={t("widgets.light_curve.title") || undefined}
+      name={t("widgets.light_curve.title")}
       alerts={showPlot ? alerts : []}
       yMin={yMin || undefined}
       yMax={yMax || undefined}
