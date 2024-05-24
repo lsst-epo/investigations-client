@@ -61,7 +61,7 @@ const LightCurveToolQuestion: FunctionComponent<
 
   return (
     <WidgetContainerWithModal
-      title={t("widgets.light_curve.title_interactive") || undefined}
+      title={t("widgets.light_curve.title_interactive")}
       instructions={instructions}
     >
       {typeof dataset === "undefined" ? (

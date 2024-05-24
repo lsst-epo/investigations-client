@@ -24,7 +24,7 @@ const CameraFilterToolBlock: FunctionComponent<
         dangerouslySetInnerHTML={{ __html: widgetInstructions || "" }}
       />
       <WidgetContainerWithModal
-        title={t("widgets.camera_filter_tool") || undefined}
+        title={t("widgets.camera_filter_tool")}
         instructions={widgetInstructions || undefined}
       >
         <CameraFilterTool />

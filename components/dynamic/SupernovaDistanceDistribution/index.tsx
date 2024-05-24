@@ -153,7 +153,7 @@ const SupernovaDistanceDistributionContainer: FunctionComponent<
 
   return (
     <WidgetContainerWithModal
-      title={t("widgets.supernova_three_vector") || undefined}
+      title={t("widgets.supernova_three_vector")}
       {...{ instructions }}
     >
       <SupernovaDistanceDistribution
