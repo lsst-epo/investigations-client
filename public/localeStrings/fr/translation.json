@@ -1,11 +1,301 @@
 {
+  "page-not-found-title": "Page non trouvée",
+  "page-not-found-text": "La page que vous cherchez n'a pas été trouvée.",
+  "menu": {
+    "toggle": "Activer le menu principal",
+    "main": "Menu principal",
+    "main_cta": "Réglages et plus",
+    "settings": "Réglages",
+    "quick_access": "Accès rapide",
+    "help": "Aide",
+    "table_of_contents": "Table des matières"
+  },
+  "table_of_contents": {
+    "pages": "Pages visitées",
+    "questions": "Questions répondus",
+    "sections": "Section {{number}}"
+  },
   "language": {
     "locales": {
       "en": "English",
       "es": "Español",
       "fr": "Français"
     },
-    "language_select_label": "Sélection de la langue",
-    "language_cta": "Choisissez votre language"
+    "language_select_label": "Sélection de la Langue",
+    "language_cta": "Choisissez votre langue"
+  },
+  "acknowledgements": {
+    "select_label": "Remerciements",
+    "title": "A propos de cette activité",
+    "subtitle": "Remerciements et crédits"
+  },
+  "share": {
+    "select_label": "Partager cette activité",
+    "subtitle": "Parlez de nous autour de vous!"
+  },
+  "contact-form": {
+    "contact-us": "Contactez-nous",
+    "success": "Merci. Nous avons reçu votre message.",
+    "error": "Il semblerait que nous ayons un problème."
+  },
+  "form": {
+    "email": "Email",
+    "email_required": "Email (requis)",
+    "first_name": "Prénom",
+    "first_name_optional": "Nom (optionnel)",
+    "last_name": "Nom",
+    "last_name_optional": "Nom (optionnel)",
+    "inquiry": "Requête",
+    "password": "Mot de passe",
+    "password_required": "Mot de passe (requis)",
+    "current_password": "Mot de passe actuel",
+    "new_password": "Nouveau mot de passe",
+    "confirm_password": "Confirmer nouveau mot de passe",
+    "show_password": "Montrer le mot de passe",
+    "hide_password": "Cacher le mot de passe",
+    "create_password": "Créer un mot de passe (requis)",
+    "create_password_instructions": "Les mots de passe doivent comporter au moins 6 caractères et un mélange de lettres, de chiffres et d'autres caractères.",
+    "school": "Établissement scolaire",
+    "preferred_language": "Langue préférée",
+    "email_subscription": "Inscription par email",
+    "send": "Envoyer",
+    "sending": "Envoi en cours…",
+    "submitting": "Soumission en cours...",
+    "reset": "Réinitialiser le formulaire",
+    "cancel": "Annuler",
+    "error": "Erreur:",
+    "confirm": "C'est tout bon !"
+  },
+  "page": {
+    "interaction": "Interaction",
+    "questions": "Questions"
+  },
+  "pager": {
+    "previous": "Page précédente",
+    "next": "Page suivante",
+    "page-count": "Page {{current}} sur {{total}}"
+  },
+  "pagination": {
+    "label": "Pagination",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "current-slide": "Diapositive {{current}}",
+    "showing-current-slide": "Affichage de la diapositive {{current}} sur {{length}}",
+    "showing-range": "Affichage de {{from}} à {{to}} sur {{length}}"
+  },
+  "nav": {
+    "close": "Fermer"
+  },
+  "auth": {
+    "log_in": "Se connecter",
+    "log_in_to_continue": "Démarrer l'activité en vous connectant",
+    "continue_w_login_label": "Cette option vous permet de sauvegarder votre travail.",
+    "continue_wo_login_button": "Commencer sans se connecter",
+    "continue_wo_login_label": "Vous pouvez toujours sauvegarder votre travail, mais il sera perdu si le cache du navigateur est effacé.",
+    "log_out": "Déconnexion",
+    "logged_in_as": "Connecté(e) en tant que {{name}}",
+    "logged_out": "Déconnecté(e)",
+    "log_in_w_oauth": "Se connecter avec Google",
+    "log_in_w_email": "Ou se connecter en utilisant votre adresse électronique et votre mot de passe.",
+    "sign_up": "Créer un compte",
+    "logged_in_status_issue": "Le statut du compte est {{status}}, vérifiez votre email pour plus d'informations."
+  },
+  "sign_in": {
+    "header": "Heureux de vous revoir !",
+    "forgot_password_link": "Mot de passe oublié ?",
+    "create_account_link": "Créer un compte",
+    "continue_with_google": "Continuer avec Google",
+    "continue_with_facebook": "Continuer avec Facebook",
+    "submit": "Se connecter",
+    "submit_pending": "En cours de connexion…",
+    "success": "Connexion réussie !",
+    "success_message": "Vous êtes connecté(e) en tant que {{username}}.",
+    "redirecting_google": "Redirection vers Google…",
+    "redirecting_facebook": "Redirection vers Facebook…",
+    "loading_google": "Connexion avec Google…",
+    "loading_facebook": "Connexion avec Facebook…",
+    "error": "Erreur !",
+    "error_message": "Une erreur s'est produite lors de votre connexion.",
+    "error_message_google": "Une erreur s'est produite lors de votre connexion avec Google.",
+    "error_message_facebook": "Une erreur s'est produite lors de votre connexion avec Facebook.",
+    "confirm_button": "Compris !"
+  },
+  "set_password": {
+    "header": "Créer un nouveau mot de passe",
+    "submit": "Soumettre",
+    "success": "Mot de passé créé !",
+    "success_message": "Votre mot de passe a été mis à jour.",
+    "error": "Erreur !",
+    "error_message": "Une erreur s'est produite lors de la mise à jour de votre mot de passe.",
+    "confirm_button": "Compris !"
+  },
+  "reset_password": {
+    "header": "Réinitialiser mon mot de passe",
+    "description": "Saisissez votre email pour réinitialiser votre mot de passe",
+    "instructions": "Saisissez votre email pour réinitialiser votre mot de passe",
+    "submit": "Réinitialiser le mot de passe",
+    "submit_pending": "En cours de soumission…",
+    "success": "Mot de passe réinitialisé !",
+    "success_message": "Nous vous avons envoyé un lien avec des instructions pour réinitialiser votre mot de passe.",
+    "error": "Erreur !",
+    "error_message": "Une erreur s'est produite lors de la réinitialisation de votre mot de passe.",
+    "confirm_button": "Compris !"
+  },
+  "activate": {
+    "success": "Compte activé !",
+    "success_message": "Votre compte a été activé. Veuillez vous connecter pour commencer à utiliser le site en tant qu'utilisateur inscrit.",
+    "success_message_educator": "Votre compte a été activé mais il doit être approuvé par un administrateur avant que vous puissiez accéder au contenu des éducateurs. Vous recevrez un courriel lorsqu'il aura été approuvé.",
+    "error": "Erreur !",
+    "error_message": "Une erreur s'est produite lors de l'activation de votre compte.",
+    "missing_params_message": "La demande ne peut pas être finalisée. Un ou plusieurs paramètres requis sont manquants.",
+    "loading": "Compte en cours d'activation…",
+    "confirm_button": "Compris !"
+  },
+  "facebook_sso": {
+    "success": "Compte activé !",
+    "success_message": "Votre compte a été activé. Veuillez vous connecter pour commencer à utiliser le site en tant qu'utilisateur inscrit.",
+    "success_message_educator": "Votre compte a été activé mais il doit être approuvé par un administrateur avant que vous puissiez accéder au contenu des éducateurs. Vous recevrez un courriel lorsqu'il aura été approuvé.",
+    "error": "Erreur! ",
+    "error_message": "Une erreur s'est produite lors de la connexion avec Facebook.",
+    "missing_params_message": "La demande ne peut pas être finalisée. Un ou plusieurs paramètres requis sont manquants.",
+    "loading": "En cours de connexion avec Facebook…",
+    "confirm_button": "Compris !"
+  },
+  "join": {
+    "title": "Enseigner et apprendre la véritable astronomie",
+    "description": "Rejoignez-nous pour apprendre comment les astronomes apprennent et interagissent avec des données astronomiques réelles. Gratuit (sans limite de temps).",
+    "role": "Sélectionnez votre profil",
+    "as_students": "Je suis élève",
+    "as_educators": "Je suis enseignant(e)",
+    "header_students": "Apprendre la véritable astronomie",
+    "header_educators": "Enseigner la véritable astronomie",
+    "description_students": "Rejoignez-nous pour apprendre comment les astronomes apprennent et interagissent avec des données astronomiques réelles. Gratuit (sans limite de temps).",
+    "description_educators": "Rejoignez-nous pour accéder à des données et des outils astronomiques réels pour votre classe. Gratuit (sans limite de temps).",
+    "sign_in_link": "J'ai déjà un compte",
+    "continue_with_google": "Continuer avec Google",
+    "continue_with_facebook": "Continuer avec Facebook",
+    "sign_up_with_email": "S'inscrire avec un email"
+  },
+  "register": {
+    "header": "S'inscrire",
+    "header_students": "S'inscrire en tant qu'élève",
+    "header_educators": "S'inscrire en tant qu'enseignant(e)",
+    "instructions_students": "Pour créer un compte élève, veuillez fournir les informations suivantes :",
+    "instructions_educators": "Pour créer un compte enseignant(e), veuillez fournir les informations suivantes :",
+    "submit": "S'inscrire",
+    "submit_pending": "En cours d'inscription...",
+    "success_students": "Activation en cours",
+    "success_message_students": "Votre compte est maintenant créé mais l'activation est en cours. Vous recevrez un courriel avec les instructions pour activer votre compte et profiter de l'accès à des données et de vrais outils d'astronomie. <strong>Free of charge forever.</strong>",
+    "success_educators": "Activation en cours",
+    "success_message_educators": "Votre compte est maintenant créé, mais l'activation est en cours. Vous recevrez un courriel avec les instructions pour activer votre compte et profiter de l'accès à des données et de  vrais outils d'astronomie. <strong>Free of charge forever.</strong>",
+    "confirm_button": "Compris !",
+    "error": "Erreur !",
+    "error_message": "Une erreur s'est produite lors de votre inscription.",
+    "error_username_taken": "Ce nom d'utilisateur est déjà pris.",
+    "error_email_invalid": "Cette adresse électronique n'est pas valide.",
+    "error_password_invalid": "Le mot de passe ne répond pas aux critères."
+  },
+  "account": {
+    "header": "Compte",
+    "profile": "Profil",
+    "preferences": "Préférences",
+    "password": "Mot de passe",
+    "loading": "En cours de chargement…",
+    "edit": "Editer",
+    "submit_profile": "Mettre à jour le profil et les préférences",
+    "submit_password": "Mettre à jour le mot de passe",
+    "submit_pending": "En cours de soumission…",
+    "submit_success": "Mis à jour !",
+    "error": "Une erreur s'est produite lors de la récupération de vos informations.",
+    "error_session_expired": "Votre session a expiré. Veuillez vous reconnecter.",
+    "error_delete_failed": "Il y a eu un problème lors de votre demande de suppression. Rechargez la page et réessayez.",
+    "delete": "Supprimer mon compte",
+    "delete_pending": "  En cours de soumission…",
+    "delete_confirm_header": "Supprimer le compte ?",
+    "delete_confirm_description": "Nous sommes désolés de vous voir partir mais vous serez toujours bienvenu(e). Nous serons toujours là avec des activités gratuites pour tous. <0>Êtes-vous sûr de vouloir supprimer votre compte ?</0>",
+    "delete_success_header": "Votre demande de suppression de votre compte a été acceptée.",
+    "delete_success_description": "Nous avons bien reçu votre demande. Un administrateur supprimera votre compte dans les plus brefs délais.",
+    "delete_confirm_label": "Oui, supprimez-le !",
+    "delete_error_header": "Erreur !"
+  },
+  "restricted": {
+    "header_approval_pending": "Ce contenu n'est pas encore disponible.",
+    "message_approval_pending": "Ce contenu n'est pas encore disponible pour vous car il est en attente d'approbation. Si vous souhaitez accélérer ce processus, veuillez nous envoyer un courriel à l'adresse suivante <0>webmaster@lsst.org</0>.",
+    "header_restricted": "Contenu non disponible",
+    "message_restricted": "Ce contenu n'est pas disponible pour vous. Si vous pensez qu'il s'agit d'une erreur, veuillez nous envoyer un courriel à l'adresse suivante <0>webmaster@lsst.org</0>.",
+    "header_not_authorized": "Contenu non disponible",
+    "message_not_authorized": "Vous devez vous connecter pour accéder à cette page.",
+    "header_deletion_pending": "Contenu non disponible",
+    "message_deletion_pending": "Vous avez demandé la suppression de votre compte. Cette procédure est en cours. Si vous pensez que ce message est une erreur, veuillez nous envoyer un courriel à l'adresse suivante <0>webmaster@lsst.org</0>.",
+    "button_confirm": "Compris !"
+  },
+  "placeholder": {
+    "select": "Select",
+    "select_answer": "Sélectionnez votre réponse"
+  },
+  "answers": {
+    "save_form": {
+      "checkpoint": "Point d'étape",
+      "label": "Sauvegarder les réponses",
+      "submit": "Sauvegarder votre travail",
+      "submit_pending": "En cours de sauvegarde…",
+      "success": "Sauvegardé !",
+      "error": "Erreur",
+      "success_message": "Votre travail est sauvegardé !",
+      "success_message_unauth": "Votre travail est sauvegardé. Néanmoins, il peut être perdu si le cache du navigateur est vidé. Connectez-vous ou créez un compte pour sauvegarder votre travail en toute sécurité.",
+      "empty_error_message": "Pas de nouvelles réponses à sauvegarder.",
+      "refresh_error_message": "Votre session a expiré. Veuillez vous reconnecter et réessayer.",
+      "mutation_error_message": "Une erreur s'est produite lors de l'enregistrement de vos réponses dans votre compte.",
+      "status_error_message": "Activez votre compte pour commencer à sauvegarder. Vérifiez votre boîte de réception pour obtenir le courriel d'activation."
+    }
+  },
+  "review": {
+    "metadata": {
+      "title": "Révision"
+    },
+    "title": "{{investigation}}: Questions & Réponses",
+    "name_label": "Nom de l'élève",
+    "date": "Date",
+    "no_selection": "(Pas de sélection)",
+    "no_answer": "(Réponse non fournie)",
+    "print": "Imprimez vos réponses",
+    "export": "Exporter"
+  },
+  "section_break": {
+    "congratulations": "Félicitations !",
+    "congratulations_alt": "Image animée de feux d'artifice",
+    "finish": "Terminer",
+    "finish_alt": "Image animée affichant le message : 'Félicitations, vous avez terminé !'",
+    "review": "Revoir vos réponses"
+  },
+  "widgets": {
+    "filter_tool": "Outil filtre",
+    "camera_filter_tool": "Gammes de filtres de la caméra",
+    "color_filter_tool": {
+      "read_only_caption": "Objet: {{name}}"
+    }
+  },
+  "image": {
+    "credit": "Crédit: {{credit}}"
+  },
+  "investigation": {
+    "investigation": "Investigation",
+    "total_duration": "Durée totale de l'activité",
+    "start": "Commencer l'activité",
+    "coming_soon": "(À venir)",
+    "early_access": {
+      "full": "Accès rapide",
+      "line_1_text": "Rapide",
+      "line_2_text": "Accès"
+    }
+  },
+  "xlsx": {
+    "columns": {
+      "student": "Élève",
+      "question": "Question {{number}}"
+    },
+    "cells": {
+      "no_name": "Nom non communiqué"
+    }
   }
 }
