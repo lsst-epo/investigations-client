@@ -4,8 +4,8 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { useTranslation } from "react-i18next";
 import withModal from "@/components/hoc/withModal/withModal";
 import { BaseContentBlockProps } from "@/components/shapes";
-import { captionShaper, imageShaper } from "@/helpers";
-import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
+import { captionShaper } from "@/helpers";
+import { damAssetToImage } from "@/helpers/assets";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
@@ -43,37 +43,37 @@ interface ImageContentBlockProps extends BaseContentBlockProps {
 /**
  * Image content block with modal and two layout options.
  */
-const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
-  props
-) => {
+const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = ({
+  data,
+  site,
+  isOpen,
+  openModal,
+}) => {
   const { t } = useTranslation();
-  const { data, site, isOpen, openModal } = props;
   const { layout, image: rawImage, caption = "" } = useFragment(Fragment, data);
   const finalLayout = isOpen ? "vertical" : layout;
 
-  const image = imageShaper(site, rawImage[0]);
+  const image = damAssetToImage(site, rawImage[0]);
 
   if (!image) return null;
 
-  const { width, caption: fallback, credit } = image;
+  const {
+    caption: fallback,
+    credit,
+    width,
+    height,
+    ...imageAttributes
+  } = image;
 
   return (
     <Styled.Container
+      data-modal-open={isOpen}
       className="content-block"
       style={{
-        "--max-image-width": isOpen ? `${width}px` : "auto",
-        "--image-content-block-padding": isOpen
-          ? 0
-          : fluidScale("20px", "10px"),
+        "--image-aspect-ratio": width / height,
+        "--image-width": `${width}px`,
       }}
     >
-      {!isOpen && (
-        <Styled.ExpandContract
-          onToggle={openModal}
-          isOpen={isOpen}
-          $layout={finalLayout}
-        />
-      )}
       <Styled.Figure
         caption={captionShaper({
           caption,
@@ -85,11 +85,17 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = (
               interpolation: { escapeValue: false },
             })}`,
         })}
-        $layout={finalLayout}
-        $darkMode={isOpen}
+        layout={finalLayout}
         withBackground={!isOpen}
       >
-        <Styled.Image image={image} $layout={finalLayout} />
+        <Styled.Image
+          {...{ ...imageAttributes, width, height }}
+          decoding="async"
+          loading="lazy"
+        />
+        {!isOpen && (
+          <Styled.ExpandContract onToggle={openModal} isOpen={isOpen} />
+        )}
       </Styled.Figure>
     </Styled.Container>
   );
