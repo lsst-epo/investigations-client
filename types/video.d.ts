@@ -12,8 +12,8 @@ export interface Video {
   altText?: string;
   caption?: string;
   credit?: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
   url: string;
   thumbnail?: string;
 }
