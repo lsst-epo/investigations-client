@@ -75,7 +75,7 @@ const localeKeys = {
   es: "ES",
 };
 
-const getAssetMetadata = (
+export const getAssetMetadata = (
   metadata: Record<string, string>,
   site = "default"
 ): { altText?: string; caption?: string; credit?: string } | undefined => {
@@ -133,8 +133,8 @@ export const videoShaper = (
   return {
     url: directUrlPreviewPlay,
     thumbnail: directUrlPreview,
-    width: Number(width),
-    height: Number(height),
+    width: parseFloat(width),
+    height: parseFloat(height),
     ...getAssetMetadata(metadata, site),
   };
 };

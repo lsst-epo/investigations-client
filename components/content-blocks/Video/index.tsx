@@ -5,6 +5,7 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { captionShaper, videoShaper } from "@/helpers";
 import { useTranslation } from "@/lib/i18n";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment VideoBlock on contentBlocks_video_BlockType {
@@ -38,24 +39,31 @@ const VideoBlock: FunctionComponent<
 
   if (!video) return null;
 
-  const { caption: fallback, credit } = video;
+  const { caption: fallback, credit, width, height } = video;
 
   return (
-    <Figure
-      withBackground
-      caption={captionShaper({
-        caption,
-        fallback,
-        credit:
-          credit &&
-          ` ${t("translation:image.credit", {
-            credit,
-            interpolation: { escapeValue: false },
-          })}`,
-      })}
+    <Styled.Container
+      style={{
+        "--video-aspect-ratio": width / height,
+        "--video-width": `${width}px`,
+      }}
     >
-      <Video {...video} />
-    </Figure>
+      <Figure
+        withBackground
+        caption={captionShaper({
+          caption,
+          fallback,
+          credit:
+            credit &&
+            ` ${t("translation:image.credit", {
+              credit,
+              interpolation: { escapeValue: false },
+            })}`,
+        })}
+      >
+        <Video {...{ ...video, width, height }} />
+      </Figure>
+    </Styled.Container>
   );
 };
 

@@ -4,16 +4,9 @@ import styled from "styled-components";
 export const WidgetBlock = styled.div`
   --target-height: 1;
   --widget-header-height: 36px;
-  --widget-padding-resize: 0.5;
-  --widget-padding: calc(
-    var(--PADDING_SMALL, 20px) * var(--widget-padding-resize)
-  );
+  --widget-padding: var(--content-gap);
   --widget-header-padding: calc(var(--PADDING_SMALL, 20px) / 4);
   --instructions-height: 2em;
-
-  --global-ui-height: calc(
-    var(--pager-height, 0px) + var(--header-height, 0px)
-  );
   --widget-ui-height: calc(
     var(--widget-header-height, 0px) + var(--widget-padding, 0px)
   );
@@ -38,7 +31,6 @@ export const WidgetBlock = styled.div`
   height: 100%;
 
   @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
-    --widget-padding-resize: 1;
     --target-height: 0.85;
 
     background-color: transparent;
