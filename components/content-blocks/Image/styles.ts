@@ -3,10 +3,11 @@ import BaseFigure from "@rubin-epo/epo-react-lib/Figure";
 import BaseExpandContract from "@/atomic/ExpandContract/ExpandContract";
 
 export const Container = styled.section`
+  --target-height: 0.75;
   --figure-ui-size: calc(var(--content-gap) * 2);
   --figure-max-height: calc(
     calc(100vh - var(--global-ui-height) - var(--figure-ui-size)) *
-      var(--image-aspect-ratio)
+      var(--image-aspect-ratio) * var(--target-height)
   );
   --intrinsic-width: calc(var(--figure-ui-size) + var(--image-width));
   --figure-width: min(var(--intrinsic-width), var(--figure-max-height));
@@ -16,6 +17,7 @@ export const Container = styled.section`
   width: 100%;
 
   &[data-modal-open="true"] {
+    --target-height: 1;
     --figure-ui-size: 0px;
   }
 `;
