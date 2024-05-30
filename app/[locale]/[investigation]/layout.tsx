@@ -45,7 +45,7 @@ export async function generateMetadata({
     },
   });
 
-  const { title } = data?.entry;
+  const { title } = data?.entry || {};
 
   return { title, twitter: { title } };
 }
