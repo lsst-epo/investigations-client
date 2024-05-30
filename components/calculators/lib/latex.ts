@@ -20,7 +20,7 @@ const formatVariable = ({
   config: { precision, sigFigs, placeholder },
   locale = fallbackLng,
 }: {
-  variable?: number;
+  variable?: number | string;
   config: Variable;
   locale?: string;
 }) => {
@@ -59,7 +59,10 @@ const formatResult = ({
 
 const LaTeXComposer = (
   equation: EquationConfig,
-  values: { result?: number; variables: Record<string, number | undefined> },
+  values: {
+    result?: number;
+    variables: Record<string, string | number | undefined>;
+  },
   locale = fallbackLng
 ) => {
   const { latex, constants, inputs, result: resultConfig } = equation;
