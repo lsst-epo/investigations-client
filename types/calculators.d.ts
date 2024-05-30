@@ -1,6 +1,6 @@
 export type Equation = "peakAbsoluteMagnitude" | "distanceModulus";
-export type CalculatorValues = Record<string, number | null | undefined>;
-export type NonNullableCalculatorValues = Record<string, number | undefined>;
+export type StoredCalculatorValues = Record<string, string | null | undefined>;
+export type NumericCalculatorValues = Record<string, number | undefined>;
 
 export interface Variable {
   key: string;
@@ -31,7 +31,7 @@ export interface EquationConfig {
   result: Result;
 }
 
-export type Calculator<T = CalculatorValues> = (
+export type Calculator<T = StoredCalculatorValues> = (
   equation: Equation,
   variables: T,
   locale?: string
@@ -41,7 +41,7 @@ export type Calculator<T = CalculatorValues> = (
   latex: string;
 };
 
-export interface InteractiveCalculatorProps<T = CalculatorValues> {
+export interface InteractiveCalculatorProps<T = StoredCalculatorValues> {
   id: string;
   equation: Equation;
   onChangeCallback: (value: Partial<T>) => void;
@@ -50,6 +50,6 @@ export interface InteractiveCalculatorProps<T = CalculatorValues> {
 }
 
 export type EquationComposer = (
-  values: NonNullableCalculatorValues,
+  values: Record<string, number | undefined>,
   constants: Record<string, Constant>
 ) => number | undefined;

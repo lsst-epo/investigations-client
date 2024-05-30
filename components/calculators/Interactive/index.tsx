@@ -24,10 +24,9 @@ const InteractiveCalculator: FunctionComponent<InteractiveCalculatorProps> = ({
     onChangeCallback &&
       onChangeCallback({
         ...value,
-        [key]: parseFloat((event.target as HTMLInputElement).value),
+        [key]: (event.target as HTMLInputElement).value,
       });
   };
-
   return (
     <Styled.MathContainer>
       <Styled.Inputs id={id}>
