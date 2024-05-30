@@ -50,6 +50,6 @@ export interface InteractiveCalculatorProps<T = StoredCalculatorValues> {
 }
 
 export type EquationComposer = (
-  values: Record<string, number | undefined>,
+  values: NumericCalculatorValues,
   constants: Record<string, Constant>
 ) => number | undefined;
