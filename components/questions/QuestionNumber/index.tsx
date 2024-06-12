@@ -25,7 +25,7 @@ const QuestionNumber: FunctionComponent<
       value={questionIndex + 1}
       data-direction={direction}
       className={className}
-      style={{ zIndex: maxIndex - questionIndex }}
+      style={{ "--z-index-dropdown-open": maxIndex - questionIndex }}
     >
       {children}
     </Styled.Number>
