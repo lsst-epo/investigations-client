@@ -1,6 +1,7 @@
 "use client";
 import styled from "styled-components";
 import { token } from "@rubin-epo/epo-react-lib/styles";
+import BaseQuestionNumber from "../QuestionNumber";
 
 export const CalculatorWrapper = styled.div`
   display: flex;
@@ -15,4 +16,8 @@ export const CalculatorWrapper = styled.div`
   @container (min-width: ${token("BREAK_TABLET_MIN")}) {
     font-size: 150%;
   }
+`;
+
+export const QuestionNumber = styled(BaseQuestionNumber)`
+  container-type: inline-size;
 `;

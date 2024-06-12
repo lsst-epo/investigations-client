@@ -13,7 +13,6 @@ export const QuestionList = styled.ol`
 
   background-color: var(--list-background-color, transparent);
   color: var(--question-color);
-  isolation: isolate;
   list-style-type: decimal;
   list-style-position: inside;
   padding: var(--list-padding, 0);
