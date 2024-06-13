@@ -5,6 +5,7 @@ import useAnswer from "@/hooks/useAnswer";
 import { isNullish } from "@/lib/utils";
 import { WidgetInput } from "@/types/answers";
 import InteractiveCalculator from "@/components/calculators/Interactive";
+import QuestionNumber from "../QuestionNumber";
 import * as Styled from "./styles";
 import { Equation } from "@/types/calculators";
 
@@ -31,7 +32,7 @@ const CalculatorQuestion: FunctionComponent<CalculatorQuestionProps> = ({
   if (isNullish(equation)) return null;
 
   return (
-    <Styled.QuestionNumber {...{ id }}>
+    <QuestionNumber {...{ id }}>
       <label htmlFor={id}>{questionText}</label>
       <Styled.CalculatorWrapper>
         <InteractiveCalculator
@@ -43,7 +44,7 @@ const CalculatorQuestion: FunctionComponent<CalculatorQuestionProps> = ({
           }}
         />
       </Styled.CalculatorWrapper>
-    </Styled.QuestionNumber>
+    </QuestionNumber>
   );
 };
 

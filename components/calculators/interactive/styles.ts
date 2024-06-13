@@ -1,4 +1,5 @@
 "use client";
+import { token } from "@rubin-epo/epo-react-lib/styles";
 import styled from "styled-components";
 
 export const MathContainer = styled.div`
@@ -10,6 +11,14 @@ export const MathContainer = styled.div`
   gap: var(--math-gap);
   justify-items: left;
   min-width: 50%;
+
+  @container (min-width: ${token("BREAK_MOBILE_MIN")}) {
+    font-size: 125%;
+  }
+
+  @container (min-width: ${token("BREAK_TABLET_MIN")}) {
+    font-size: 150%;
+  }
 `;
 
 export const Inputs = styled.form`
