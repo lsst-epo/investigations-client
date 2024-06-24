@@ -1360,13 +1360,6 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@babel/runtime@^7.20.6":
-  version "7.21.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
-  integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
-  dependencies:
-    regenerator-runtime "^0.13.11"
-
 "@babel/runtime@^7.22.5":
   version "7.24.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.6.tgz#5b76eb89ad45e2e4a0a8db54c456251469a3358e"
@@ -3019,10 +3012,10 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
-"@rubin-epo/epo-react-lib@^2.0.31":
-  version "2.0.31"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.31.tgz#ddfce2ec2c2179694dec31e3ee40e626987a925b"
-  integrity sha512-7oNV9rWx8V2CFdam6rWI7Pj9RyOTmuXJMayLEdvuAvPVQiNV7rHJVG4kwG1rqDlGDurh/cGZI6FmZjhBCimzMw==
+"@rubin-epo/epo-react-lib@^2.0.32":
+  version "2.0.32"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.32.tgz#ef2146ccc150cc37853584e9f191a22ac1f045eb"
+  integrity sha512-ACT0GNVQiSIWK01/38xM4SNsKU40gs2MsDkbtr7kbmb8z+RsKla5sU2J4DcdUJFmd7muAhgxuYzSGse23Nc57g==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
     "@headlessui/react" "^2.0.3"
@@ -3034,31 +3027,12 @@
     react-slider "^2.0.6"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-react-lib@~2.0":
-  version "2.0.29"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.29.tgz#04cc0c33be34c19e2c60afc016ebab37bbe18d38"
-  integrity sha512-l4UFa/ZnuF7sKMUEqm2H9LOd+RlylCWjSxsDEDEWjIMPT/i2WvFJbp3IjO9Ego/UOwDtXvyAoHJKAmHKr/P9xA==
+"@rubin-epo/epo-widget-lib@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-1.0.1.tgz#765368c311c3df1898a614faae9ebceb4fa4558a"
+  integrity sha512-OFlEGVAz0+OORakTpqczuOLeXYJSqmKmKw2mY50hTm/LTRGD38XabyzbmbndEqLZWXsNSSusz/82cFl+PkZy2A==
   dependencies:
-    "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^2.0.3"
-    flickity "^3.0.0"
-    focus-trap "^7.4.2"
-    i18next "^22.4.10"
-    lodash "^4.17.21"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-i18next "^12.0.0"
-    react-player "^2.14.1"
-    react-share "^4.4.1"
-    react-slider "^2.0.6"
-    styled-components "^6.1.1"
-
-"@rubin-epo/epo-widget-lib@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-1.0.0.tgz#835d837b838e5f8ec5628af6b9dcf92f32120eca"
-  integrity sha512-y9fPHTJBE+pr9ufQnaUZ31onpI23qgTzAZVpTtTo+1GSeuhgADDCi5m6MXhnOg90GRL7SDI+SxZrnCHlyaGmTA==
-  dependencies:
-    "@rubin-epo/epo-react-lib" "~2.0"
+    "@rubin-epo/epo-react-lib" "^2.0.32"
     context-filter-polyfill "^0.3.6"
     d3-array "^3.2.4"
     d3-geo "^3.1.0"
@@ -8669,13 +8643,6 @@ i18next@23:
   dependencies:
     "@babel/runtime" "^7.23.2"
 
-i18next@^22.4.10:
-  version "22.5.0"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-22.5.0.tgz#16d98eba7c748ab183a36505046b5b91f87e989b"
-  integrity sha512-sqWuJFj+wJAKQP2qBQ+b7STzxZNUmnSxrehBCCj9vDOW9RDYPfqCaK1Hbh2frNYQuPziz6O2CGoJPwtzY3vAYA==
-  dependencies:
-    "@babel/runtime" "^7.20.6"
-
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -11614,14 +11581,6 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@^18.2.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
-  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
-  dependencies:
-    loose-envify "^1.1.0"
-    scheduler "^0.23.0"
-
 react-dom@^18.3.1:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
@@ -11664,14 +11623,6 @@ react-i18next@13:
   integrity sha512-CFJ5NDGJ2MUyBohEHxljOq/39NQ972rh1ajnadG9BjTk+UXbHLq4z5DKEbEQBDoIhUmmbuS/fIMJKo6VOax1HA==
   dependencies:
     "@babel/runtime" "^7.22.5"
-    html-parse-stringify "^3.0.1"
-
-react-i18next@^12.0.0:
-  version "12.3.1"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-12.3.1.tgz#30134a41a2a71c61dc69c6383504929aed1c99e7"
-  integrity sha512-5v8E2XjZDFzK7K87eSwC7AJcAkcLt5xYZ4+yTPDAW1i7C93oOY1dnr4BaQM7un4Hm+GmghuiPvevWwlca5PwDA==
-  dependencies:
-    "@babel/runtime" "^7.20.6"
     html-parse-stringify "^3.0.1"
 
 react-inspector@^6.0.0:
@@ -11757,13 +11708,6 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
-
-react@^18.2.0:
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
-  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
-  dependencies:
-    loose-envify "^1.1.0"
 
 react@^18.3.1:
   version "18.3.1"
@@ -12234,13 +12178,6 @@ saxes@^5.0.1:
   integrity sha512-5LBh1Tls8c9xgGjw3QrMwETmTMVk0oFgvrFSvWx62llR2hcEInrKNZ2GZCCuuy2lvWrdl5jhbpeqc5hRYKFOcw==
   dependencies:
     xmlchars "^2.2.0"
-
-scheduler@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.0.tgz#ba8041afc3d30eb206a487b6b384002e4e61fdfe"
-  integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
-  dependencies:
-    loose-envify "^1.1.0"
 
 scheduler@^0.23.2:
   version "0.23.2"
