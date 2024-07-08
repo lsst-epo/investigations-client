@@ -38,6 +38,7 @@ const Select: FunctionComponent<PartProps<FragmentType<typeof Fragment>>> = ({
       onChangeCallback={(value: string | null) =>
         onChangeCallback && onChangeCallback({ ...answer, [id]: value })
       }
+      maxWidth="auto"
       value={answer ? answer[id] : null}
     />
   );
