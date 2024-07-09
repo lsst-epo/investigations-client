@@ -7,7 +7,8 @@
     "settings": "Ajustes",
     "quick_access": "Acceso rápido",
     "help": "Ayuda",
-    "table_of_contents": "Índice"
+    "table_of_contents": "Índice",
+    "toggle": "Seleccionar menú principal"
   },
   "table_of_contents": {
     "pages": "Páginas visitadas",
@@ -189,7 +190,10 @@
     "success_message_educators": "Ya se creó su cuenta, pero la activación está pendiente. Recibirá un correo electrónico con instrucciones para activar su cuenta y disfrutar del acceso a datos astronómicos reales y herramientas. <strong>Este acceso será siempre gratuito.</strong>",
     "confirm_button": "¡Recibido!",
     "error": "¡Error!",
-    "error_message": "Ocurrió un error al iniciar sesión."
+    "error_message": "Ocurrió un error al iniciar sesión.",
+    "error_email_invalid": "La dirección de correo electrónico no es válida.",
+    "error_password_invalid": "La contraseña no cumple con los requisitos.",
+    "error_username_taken": "Este nombre usuario ya existe."
   },
   "account": {
     "header": "Cuenta",
@@ -227,7 +231,8 @@
   },
   "placeholder": {
     "select": "Seleccionar",
-    "select_answer": "Seleccione su respuesta"
+    "select_answer": "Seleccione su respuesta",
+    "text_answer": "(Escribe tu respuesta)"
   },
   "answers": {
     "save_form": {
@@ -254,7 +259,8 @@
     "date": "Fecha",
     "no_selection": "(Sin seleccionar)",
     "no_answer": "(Respuesta no entregada)",
-    "print": "Imprimir sus respuestas"
+    "print": "Imprimir sus respuestas",
+    "export": "Exportar"
   },
   "section_break": {
     "congratulations": "¡Felicitaciones!",
@@ -268,7 +274,14 @@
     "camera_filter_tool": "Rangos de Filtro de Cámara",
     "color_filter_tool": {
       "read_only_caption": "Objeto: {{name}}"
-    }
+    },
+    "help": "¿Qué debería hacer aquí?",
+    "light_curve": {
+      "magnitude": "Magnitud Aparente: {{valor}}",
+      "title": "Gráfico de Curva de Luz",
+      "title_interactive": "Gráfico Interactivo de Curva de Luz"
+    },
+    "supernova_three_vector": "Visualizar Distancias y Distribución de Supernovas"
   },
   "image": {
     "credit": "Créditos: {{credit}}"
@@ -282,6 +295,15 @@
       "full": "Acceso Anticipado",
       "line_1_text": "Acceso",
       "line_2_text": "Anticipado"
+    }
+  },
+  "xlsx": {
+    "cells": {
+      "no_name": "Nombre no asignado"
+    },
+    "columns": {
+      "question": "Pregunta {{número}}",
+      "student": "Estudiante"
     }
   }
 }
