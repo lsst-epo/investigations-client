@@ -3027,10 +3027,10 @@
     react-slider "^2.0.6"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-1.0.1.tgz#765368c311c3df1898a614faae9ebceb4fa4558a"
-  integrity sha512-OFlEGVAz0+OORakTpqczuOLeXYJSqmKmKw2mY50hTm/LTRGD38XabyzbmbndEqLZWXsNSSusz/82cFl+PkZy2A==
+"@rubin-epo/epo-widget-lib@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-1.0.3.tgz#c8169f739ace158dc5d93acde5d430aa0b63abc9"
+  integrity sha512-sflLum/2CGL+ADqHYs7/QaKT6RKXQK6CLYX40/2J3OnQFxXCfZ4AUnV7Fao8NrKJDtg5eqyjDtqG/3U9bU+6dA==
   dependencies:
     "@rubin-epo/epo-react-lib" "^2.0.32"
     context-filter-polyfill "^0.3.6"
