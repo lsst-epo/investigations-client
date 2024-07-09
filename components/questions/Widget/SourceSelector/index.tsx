@@ -66,7 +66,7 @@ const SourceSelectorQuestion: FunctionComponent<
 
   const [{ url }] = sourceSelector[0]?.dataset[0]?.json;
 
-  const { data: alerts = [], error, isLoading } = useAlerts(url);
+  const { data: alerts = [], isLoading } = useAlerts(url);
 
   if (
     sourceSelector === null ||
@@ -88,13 +88,11 @@ const SourceSelectorQuestion: FunctionComponent<
   const [{ sources, imageAlbum, peakMjd }] = dataset;
   const { selectedSource = [] } = value;
 
-  const handleRemoveSource = (id: string) => {
-    if (selectedSource.includes(id)) {
-      onChangeCallback &&
-        onChangeCallback({
-          selectedSource: selectedSource.filter((v) => v !== id),
-        });
-    }
+  const handleRemoveSource = () => {
+    onChangeCallback &&
+      onChangeCallback({
+        selectedSource: [],
+      });
   };
 
   const percentageMappedSources = percentageMapSources(sources);
