@@ -1,11 +1,16 @@
 {
   "name": "investigations-client",
   "author": "Rubin EPO",
-  "version": "2.3.2",
+  "version": "2.3.11",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/lsst-epo/investigations-client"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   },
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
@@ -26,6 +31,7 @@
     "fix:js": "prettier --write \"**/*.{js,jsx}\" && eslint -c .eslintrc.js \"**/*.{js,jsx,ts,tsx}\" --fix",
     "fix:scss": "stylelint --config scss.stylelintrc.js \"**/*.scss\" --fix",
     "fix:styled": "stylelint --config styled.stylelintrc.js \"**/styles.js\" --fix",
+    "release": "commit-and-tag-version",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "codegen": "graphql-codegen"
@@ -123,6 +129,7 @@
     "@typescript-eslint/parser": "^5.54.1",
     "babel-plugin-styled-components": "^2.1.4",
     "browserslist": "^4.21.5",
+    "commit-and-tag-version": "^12.4.1",
     "eslint": "^8.35.0",
     "eslint-config-next": "^13.4.1",
     "eslint-config-prettier": "^8.6.0",
