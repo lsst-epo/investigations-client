@@ -7,11 +7,6 @@
     "type": "git",
     "url": "https://github.com/lsst-epo/investigations-client"
   },
-  "release": {
-    "branches": [
-      "main"
-    ]
-  },
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:next": "next dev",
