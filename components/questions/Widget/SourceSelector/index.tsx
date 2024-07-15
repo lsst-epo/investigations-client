@@ -43,6 +43,7 @@ const Fragment = graphql(`
               }
             }
             imageAlbum {
+              name
               url {
                 directUrlPreview
               }

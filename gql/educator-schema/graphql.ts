@@ -2320,6 +2320,8 @@ export type Mutation = {
   facebookSignInEducators: Auth;
   /** Authenticates a Students using a Facebook Sign-In token. Returns user and token. */
   facebookSignInStudents: Auth;
+  /** Authenticates a Translator using a Facebook Sign-In token. Returns user and token. */
+  facebookSignInTranslator: Auth;
   /** Sends a password reset email to the user's email address. Returns success message. */
   forgottenPassword: Scalars['String']['output'];
   /** Authenticates a Editors using a Google Sign-In ID token. Returns user and token. */
@@ -2328,6 +2330,8 @@ export type Mutation = {
   googleSignInEducators: Auth;
   /** Authenticates a Students using a Google Sign-In ID token. Returns user and token. */
   googleSignInStudents: Auth;
+  /** Authenticates a Translator using a Google Sign-In ID token. Returns user and token. */
+  googleSignInTranslator: Auth;
   ping?: Maybe<Scalars['String']['output']>;
   /** Refreshes a user's JWT. Checks for the occurrence of the `gql_refreshToken` cookie, and falls back to `refreshToken` argument. */
   refreshToken: Auth;
@@ -2396,6 +2400,11 @@ export type MutationFacebookSignInStudentsArgs = {
 };
 
 
+export type MutationFacebookSignInTranslatorArgs = {
+  code: Scalars['String']['input'];
+};
+
+
 export type MutationForgottenPasswordArgs = {
   email: Scalars['String']['input'];
 };
@@ -2412,6 +2421,11 @@ export type MutationGoogleSignInEducatorsArgs = {
 
 
 export type MutationGoogleSignInStudentsArgs = {
+  idToken: Scalars['String']['input'];
+};
+
+
+export type MutationGoogleSignInTranslatorArgs = {
   idToken: Scalars['String']['input'];
 };
 
