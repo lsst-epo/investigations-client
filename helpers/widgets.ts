@@ -9,21 +9,25 @@ export const combineAlertsAndImages = (
   const size = 240;
 
   return {
-    alerts: alerts.map((alert, i) => {
-      const {
-        url: { directUrlPreview },
-      } = images[i];
+    alerts: alerts
+      .map(({ id, ...alert }, i) => {
+        const image = images.find(({ name }) => {
+          return name.includes(id);
+        });
 
-      return {
-        ...alert,
-        ...alert,
-        image: {
-          width: size,
-          height: size,
-          url: resizeCantoImage(directUrlPreview, size),
-        },
-      };
-    }),
+        if (!image) return undefined;
+
+        return {
+          id,
+          ...alert,
+          image: {
+            width: size,
+            height: size,
+            url: resizeCantoImage(image.url.directUrlPreview, size),
+          },
+        };
+      })
+      .filter((alert) => !!alert),
     size,
   };
 };
