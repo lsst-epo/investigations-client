@@ -1,7 +1,7 @@
 {
   "name": "investigations-client",
   "author": "Rubin EPO",
-  "version": "2.3.13",
+  "version": "2.3.14",
   "private": true,
   "repository": {
     "type": "git",
@@ -30,6 +30,11 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "codegen": "graphql-codegen"
+  },
+  "commit-and-tag-version": {
+    "skip": {
+      "commit": true
+    }
   },
   "babel": {
     "presets": [
