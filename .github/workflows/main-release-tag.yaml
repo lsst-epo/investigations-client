@@ -29,7 +29,7 @@ jobs:
       - name: Build Container Image
         run: |-
           docker build \
-          -t "gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }}" \
+          -t "gcr.io/edc-prod-eef0/investigations-client:${{ env.version_name }}" \
           --build-arg NEXT_PUBLIC_API_URL=https://api-investigations.rubinobs.org/api \
           --build-arg NEXT_PUBLIC_BASE_URL=https://investigations.rubinobservatory.org \
           --build-arg NEXT_PUBLIC_GOOGLE_APP_ID=596747551410-e6v1s01riph83i8003impi1fhgomlag5.apps.googleusercontent.com \
@@ -43,7 +43,7 @@ jobs:
         run: gcloud --quiet auth configure-docker
 
       - name: Push Container Image to GCR
-        run: docker push gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }}
+        run: docker push gcr.io/edc-prod-eef0/investigations-client:${{ env.version_name }}
 
       - name: Get app.yaml
         run: gcloud secrets versions access latest --secret=investigations-client-appyaml > app.yaml
@@ -51,7 +51,7 @@ jobs:
       - name: Deploy to App Engine
         run: |-
           gcloud app deploy app.yaml \
-          --image-url=gcr.io/edc-prod-eef0/rubin-obs-client:${{ env.version_name }} \
+          --image-url=gcr.io/edc-prod-eef0/investigations-client:${{ env.version_name }} \
           --version=${{ env.version_name }} \
           --promote \
           --project=edc-prod-eef0
