@@ -25,6 +25,7 @@ const SignedIn: FunctionComponent<{
         url={firstPage}
         isInactive={status !== "active"}
         isBlock
+        prefetch
       />
       <SignOut redirectTo={signOutRedirect} />
     </>

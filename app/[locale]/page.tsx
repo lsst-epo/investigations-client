@@ -1,6 +1,6 @@
 import { graphql } from "@/gql/public-schema";
 import { draftMode } from "next/headers";
-import { RootLayoutParams } from "./layout";
+import { RootProps } from "./layout";
 import HomePageTemplate from "@/templates/HomePage";
 import { notFound } from "next/navigation";
 import SignOut from "@/components/auth/buttons/SignOut";
@@ -10,13 +10,9 @@ import {
 } from "@/components/auth/serverHelpers";
 import { queryAPI } from "@/lib/fetch";
 import { getSite } from "@/helpers";
+import { FunctionComponent } from "react";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
-
-interface HomePageProps {
-  params: RootLayoutParams;
-  searchParams: any;
-}
 
 export const revalidate = 60;
 
@@ -29,7 +25,7 @@ const Query = graphql(`
   }
 `);
 
-const HomePage: (props: HomePageProps) => Promise<JSX.Element> = async ({
+const HomePage: FunctionComponent<RootProps> = async ({
   params: { locale },
   searchParams,
 }) => {

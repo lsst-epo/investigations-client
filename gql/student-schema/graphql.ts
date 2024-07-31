@@ -4220,6 +4220,13 @@ export type WhereBetweenFiltersInput = {
   values?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type WhereContainsInFilterInput = {
+  /** The keys to search on, you can use the `field.subField` syntax for nested fields */
+  keys?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** The value that should be fuzzy matched in the key-values */
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type WhereFiltersInput = {
   /** The key to search on, you can use the `field.subField` syntax for nested fields */
   key?: InputMaybe<Scalars['String']['input']>;
@@ -4459,6 +4466,7 @@ export type ColorFilterToolObjects_Filterimage_BlockTypeImageArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -5249,6 +5257,7 @@ export type ContentBlocks_Image_BlockTypeImageArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -5873,6 +5882,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeImageAlbumArgs 
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -6322,6 +6332,7 @@ export type ContentBlocks_Video_BlockTypeVideoArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -7824,6 +7835,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryImageAlbumArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -8393,6 +8405,7 @@ export type FiltersImages_FilterImage_BlockTypeImageArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -8590,6 +8603,7 @@ export type HomepageContentBlocks_Image_BlockTypeImageArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -10831,6 +10845,7 @@ export type Investigations_InvestigationParent_EntryImageArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
@@ -16039,6 +16054,7 @@ export type ReferenceContentBlocks_Image_BlockTypeImageArgs = {
   sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   where?: InputMaybe<WhereFiltersInput>;
   whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
   whereIn?: InputMaybe<WhereInFiltersInput>;
   whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
   whereNotIn?: InputMaybe<WhereNotInFiltersInput>;

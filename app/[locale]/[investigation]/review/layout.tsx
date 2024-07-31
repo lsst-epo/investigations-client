@@ -1,5 +1,5 @@
 import { FunctionComponent, PropsWithChildren } from "react";
-import { RootLayoutParams } from "../../layout";
+import { RootParams } from "../../layout";
 import { InvestigationParams } from "../layout";
 import { ProgressProvider } from "@/contexts/Progress";
 import Header from "@/page/Header/Header";
@@ -10,7 +10,7 @@ import {
 } from "@/components/auth/serverHelpers";
 
 export interface ReviewPageProps {
-  params: RootLayoutParams & InvestigationParams;
+  params: RootParams & InvestigationParams;
 }
 
 const ReviewLayout: FunctionComponent<

@@ -1,6 +1,6 @@
 import "focus-visible";
 import "@/styles/styles.scss";
-import { PropsWithChildren } from "react";
+import { FunctionComponent, PropsWithChildren } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Script from "next/script";
@@ -8,7 +8,7 @@ import { graphql } from "@/gql/public-schema";
 import { SourceSansPro } from "@/lib/fonts";
 import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/lib/styles";
-import { fallbackLng } from "@/lib/i18n/settings";
+import { fallbackLng, languages } from "@/lib/i18n/settings";
 import { queryAPI } from "@/lib/fetch";
 import { GlobalDataProvider, GlobalData } from "@/contexts/GlobalData";
 import { AuthDialogManagerProvider } from "@/contexts/AuthDialogManager";
@@ -18,12 +18,13 @@ import { getSite } from "@/helpers";
 import AuthDialogs from "@/components/auth/AuthDialogs";
 import { getAuthCookies } from "@/components/auth/serverHelpers";
 
-export interface RootLayoutParams {
+export interface RootParams {
   locale: string;
 }
 
-interface RootLayoutProps {
-  params: RootLayoutParams;
+export interface RootProps {
+  params: RootParams;
+  searchParams: Record<string, string | Array<string> | undefined>;
 }
 
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -77,16 +78,20 @@ const getGlobals = async (locale = "en"): Promise<GlobalData | undefined> => {
 
 export async function generateMetadata({
   params: { locale },
-}: RootLayoutProps): Promise<Metadata> {
+}: RootProps): Promise<Metadata> {
   const globalData = await getGlobals(locale);
   const description = globalData?.siteInfo?.siteDescription;
 
   return { description };
 }
 
-const RootLayout: (
-  props: PropsWithChildren<RootLayoutProps>
-) => Promise<JSX.Element> = async ({
+export const generateStaticParams = () => {
+  return languages.map((locale) => {
+    return { locale };
+  });
+};
+
+const RootLayout: FunctionComponent<PropsWithChildren<RootProps>> = async ({
   params: { locale = fallbackLng },
   children,
 }) => {

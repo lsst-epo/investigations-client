@@ -19,6 +19,7 @@ const SignedOut: FunctionComponent<{
         styleAs="tertiary"
         url={firstPage}
         text={t("auth.continue_wo_login_button")}
+        prefetch
       />
       <Styled.LinkLabel>{t("auth.continue_wo_login_label")}</Styled.LinkLabel>
       <SignUp />

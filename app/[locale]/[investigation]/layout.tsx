@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { RootLayoutParams } from "../layout";
-import { PropsWithChildren } from "react";
+import { RootParams } from "../layout";
+import { FunctionComponent, PropsWithChildren } from "react";
 import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
@@ -18,8 +18,9 @@ export interface InvestigationParams {
   investigation: string;
 }
 
-export interface InvestigationLandingProps {
-  params: RootLayoutParams & InvestigationParams;
+export interface InvestigationProps {
+  params: RootParams & InvestigationParams;
+  searchParams: Record<string, string | Array<string> | undefined>;
 }
 
 const InvestigationMetadataQuery = graphql(`
@@ -34,7 +35,7 @@ const InvestigationMetadataQuery = graphql(`
 
 export async function generateMetadata({
   params: { investigation, locale },
-}: InvestigationLandingProps): Promise<Metadata> {
+}: InvestigationProps): Promise<Metadata> {
   const site = getSite(locale);
 
   const { data } = await queryAPI({
@@ -49,6 +50,32 @@ export async function generateMetadata({
 
   return { title, twitter: { title } };
 }
+
+export const generateStaticParams = async () => {
+  const InvestigationParamsQuery = graphql(`
+    query InvestigationParams {
+      investigationsEntries(level: 1) {
+        ... on investigations_investigationParent_Entry {
+          slug
+        }
+      }
+    }
+  `);
+
+  const { data } = await queryAPI({
+    query: InvestigationParamsQuery,
+    variables: {},
+  });
+
+  return data?.investigationsEntries?.map((entry) => {
+    if (entry?.__typename === "investigations_investigationParent_Entry") {
+      return { investigation: entry.slug };
+    }
+  });
+};
+
+// show 404 for any investigation not pre-defined
+export const dynamicParams = false;
 
 const InvestigationIdQuery = graphql(`
   query InvestigationId($site: [String], $uri: [String]) {
@@ -111,12 +138,9 @@ const InvestigationIdQuery = graphql(`
   }
 `);
 
-const InvestigationLandingLayout: (
-  props: PropsWithChildren<InvestigationLandingProps>
-) => Promise<JSX.Element> = async ({
-  children,
-  params: { locale, investigation },
-}) => {
+const InvestigationLandingLayout: FunctionComponent<
+  PropsWithChildren<InvestigationProps>
+> = async ({ children, params: { locale, investigation } }) => {
   const site = getSite(locale);
 
   const { data } = await queryAPI({

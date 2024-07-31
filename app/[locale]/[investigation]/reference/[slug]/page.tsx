@@ -2,7 +2,7 @@ import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { InvestigationParams } from "../../layout";
-import { RootLayoutParams } from "@/app/[locale]/layout";
+import { RootParams } from "@/app/[locale]/layout";
 import { notFound } from "next/navigation";
 import ReferenceContentPage from "@/components/templates/ReferenceContentPage";
 import { getSite } from "@/helpers";
@@ -12,7 +12,7 @@ interface ReferencePageParams {
 }
 
 export interface ReferencePageProps {
-  params: RootLayoutParams & InvestigationParams & ReferencePageParams;
+  params: RootParams & InvestigationParams & ReferencePageParams;
 }
 
 const Query = graphql(`
