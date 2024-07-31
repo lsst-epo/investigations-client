@@ -34,19 +34,19 @@ const Query = graphql(`
   }
 `);
 
-export const generateStaticParams = async () => {
+export const generateStaticParams = async ({
+  params: { locale, investigation },
+}: InvestigationPageProps) => {
+  const site = getSite(locale);
+
   const InvestigationParamsQuery = graphql(`
-    query InvestigationPageParams {
-      investigationsEntries(level: 2) {
-        ... on investigations_default_Entry {
-          slug
-          parent {
+    query InvestigationPageParams($site: [String], $slug: [String]) {
+      entry(site: $site, slug: $slug) {
+        children {
+          ... on investigations_default_Entry {
             slug
           }
-        }
-        ... on investigations_investigationSectionBreakChild_Entry {
-          slug
-          parent {
+          ... on investigations_investigationSectionBreakChild_Entry {
             slug
           }
         }
@@ -56,18 +56,21 @@ export const generateStaticParams = async () => {
 
   const { data } = await queryAPI({
     query: InvestigationParamsQuery,
-    variables: {},
+    variables: {
+      site: [site],
+      slug: [investigation],
+    },
   });
 
-  return data?.investigationsEntries?.map((entry) => {
+  return data?.entry?.children?.map((entry) => {
     if (
       entry?.__typename === "investigations_default_Entry" ||
       entry?.__typename ===
         "investigations_investigationSectionBreakChild_Entry"
     ) {
-      const { slug, parent } = entry;
+      const { slug } = entry;
 
-      return { page: slug, investigation: parent?.slug };
+      return { page: slug };
     }
   });
 };

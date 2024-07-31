@@ -51,10 +51,14 @@ export async function generateMetadata({
   return { title, twitter: { title } };
 }
 
-export const generateStaticParams = async () => {
+export const generateStaticParams = async ({
+  params: { locale },
+}: InvestigationProps) => {
+  const site = getSite(locale);
+
   const InvestigationParamsQuery = graphql(`
-    query InvestigationParams {
-      investigationsEntries(level: 1) {
+    query InvestigationParams($site: [String]) {
+      investigationsEntries(site: $site, level: 1) {
         ... on investigations_investigationParent_Entry {
           slug
         }
@@ -64,7 +68,9 @@ export const generateStaticParams = async () => {
 
   const { data } = await queryAPI({
     query: InvestigationParamsQuery,
-    variables: {},
+    variables: {
+      site: [site],
+    },
   });
 
   return data?.investigationsEntries?.map((entry) => {
