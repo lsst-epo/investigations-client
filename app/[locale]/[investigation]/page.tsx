@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { graphql } from "@/gql/public-schema";
 import { draftMode } from "next/headers";
-import { InvestigationLandingProps } from "./layout";
+import { InvestigationProps } from "./layout";
 import {
   getAuthCookies,
   getUserFromJwt,
@@ -9,6 +9,7 @@ import {
 import { queryAPI } from "@/lib/fetch";
 import InvestigationLandingPageTemplate from "@/components/templates/InvestigationLandingPage";
 import { getSite } from "@/helpers";
+import { FunctionComponent } from "react";
 
 const Query = graphql(`
   query InvestigationPage($site: [String], $uri: [String]) {
@@ -19,9 +20,7 @@ const Query = graphql(`
   }
 `);
 
-const InvestigationLanding: (
-  props: InvestigationLandingProps
-) => Promise<JSX.Element> = async ({
+const InvestigationLanding: FunctionComponent<InvestigationProps> = async ({
   params: { locale, investigation },
   searchParams,
 }) => {
