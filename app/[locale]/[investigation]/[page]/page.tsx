@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { graphql } from "@/gql/public-schema";
-import { draftMode } from 'next/headers';
+import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import {
   getAuthCookies,
@@ -54,9 +54,7 @@ export async function generateMetadata({
   return title ? { title, twitter: { title } } : {};
 }
 
-const InvestigationPage: (
-  props: InvestigationPageProps
-) => Promise<JSX.Element> = async ({
+const InvestigationPage: FunctionComponent<InvestigationPageProps> = async ({
   params: { locale, investigation, page },
   searchParams,
 }) => {

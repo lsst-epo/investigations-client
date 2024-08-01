@@ -1,5 +1,5 @@
-import { PropsWithChildren, ReactNode } from "react";
-import { RootLayoutParams } from "../../layout";
+import { FunctionComponent, PropsWithChildren, ReactNode } from "react";
+import { RootParams } from "../../layout";
 import { InvestigationParams } from "../layout";
 import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
@@ -20,7 +20,8 @@ export interface InvestigationPageParams {
 }
 
 export interface InvestigationPageProps {
-  params: RootLayoutParams & InvestigationParams & InvestigationPageParams;
+  params: RootParams & InvestigationParams & InvestigationPageParams;
+  searchParams: Record<string, string | Array<string> | undefined>;
   reference: ReactNode;
 }
 
@@ -33,9 +34,53 @@ const Query = graphql(`
   }
 `);
 
-const InvestigationPageLayout: (
-  props: PropsWithChildren<InvestigationPageProps>
-) => Promise<JSX.Element> = async ({
+export const generateStaticParams = async ({
+  params: { locale, investigation },
+}: InvestigationPageProps) => {
+  const site = getSite(locale);
+
+  const InvestigationParamsQuery = graphql(`
+    query InvestigationPageParams($site: [String], $slug: [String]) {
+      entry(site: $site, slug: $slug) {
+        children {
+          ... on investigations_default_Entry {
+            slug
+          }
+          ... on investigations_investigationSectionBreakChild_Entry {
+            slug
+          }
+        }
+      }
+    }
+  `);
+
+  const { data } = await queryAPI({
+    query: InvestigationParamsQuery,
+    variables: {
+      site: [site],
+      slug: [investigation],
+    },
+  });
+
+  return data?.entry?.children?.map((entry) => {
+    if (
+      entry?.__typename === "investigations_default_Entry" ||
+      entry?.__typename ===
+        "investigations_investigationSectionBreakChild_Entry"
+    ) {
+      const { slug } = entry;
+
+      return { page: slug };
+    }
+  });
+};
+
+// show 404 for any investigation not pre-defined
+export const dynamicParams = false;
+
+const InvestigationPageLayout: FunctionComponent<
+  PropsWithChildren<InvestigationPageProps>
+> = async ({
   children,
   reference,
   params: { locale, investigation, page },

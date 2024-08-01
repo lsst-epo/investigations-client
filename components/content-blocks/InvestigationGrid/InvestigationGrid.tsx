@@ -65,10 +65,7 @@ const InvestigationGrid: FunctionComponent<InvestigationGridProps> = ({
 
             return (
               <li key={id}>
-                <Styled.MixedLink
-                  aria-disabled={isInactive}
-                  url={url}
-                >
+                <Styled.MixedLink aria-disabled={isInactive} url={url} prefetch>
                   <Styled.ImageWrapper>
                     {image && <Image image={image} role="presentation" />}
                   </Styled.ImageWrapper>

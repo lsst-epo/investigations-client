@@ -141,6 +141,7 @@ const Pager: FunctionComponent<PagerProps> = ({
       <Styled.PagerButton
         href={isNextDisabled ? "#" : nextPage}
         aria-disabled={isNextDisabled}
+        prefetch
       >
         {rightText || t("pager.next")}
       </Styled.PagerButton>
