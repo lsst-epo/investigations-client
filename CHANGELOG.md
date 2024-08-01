@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.3.16](https://github.com/lsst-epo/investigations-client/compare/v2.3.15...v2.3.16) (2024-08-01)
+
+### Performance
+
+- add static param generation + prefetch ([8523c54](https://github.com/lsst-epo/investigations-client/commit/8523c5411210a39f829eb3a7da6b4ac1edf321c9))
+
 ## [2.3.15](https://github.com/lsst-epo/investigations-client/compare/v2.3.14...v2.3.15) (2024-07-25)
 
 ## [2.3.14](https://github.com/lsst-epo/investigations-client/compare/v2.3.13...v2.3.14) (2024-07-17)
