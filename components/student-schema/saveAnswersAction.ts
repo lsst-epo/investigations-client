@@ -35,10 +35,11 @@ export default async function saveAnswers(
     return "statusError";
   }
 
-  const answerSet = Object.values(answers).map(({ data, ...values }) => {
+  const answerSet = Object.values(answers).map(({ data, id, questionId }) => {
     return {
       data: JSON.stringify(data),
-      ...values,
+      id,
+      questionId,
     };
   });
 
