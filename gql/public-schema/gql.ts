@@ -58,6 +58,7 @@ const documents = {
     "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TwoColumnContainerBlock\n    ...InteractionGroupContainerBlock\n    ...TextBlock\n    ...ImageBlock\n    ...VideoBlock\n    ...TableBlock\n    ...QuestionsBlock\n    ...BarGraphToolBlock\n    ...FilterToolBlock\n    ...ReferenceModalBlock\n    ...ColorFilterToolBlock\n    ...CameraFilterToolBlock\n    ...EquationBlock\n    ...SupernovaDistanceDistributionBlock\n    ...MagnitudeScatterPlotBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
     "\n  fragment QuestionEntry on questions_default_Entry {\n    __typename\n    id\n    answerType\n    questionText\n    ...CalculatorQuestion\n    ...TabularQuestion\n    ...WidgetQuestion\n    ...NumberQuestion\n    ...MultipartQuestion\n    options: answerOptions {\n      ... on answerOptions_option_BlockType {\n        label: optionLabel\n        value: optionValue\n      }\n    }\n  }\n": types.QuestionEntryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
+    "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n": types.ResendActivationDocument,
     "\n  fragment CalculatorQuestion on questions_default_Entry {\n    id\n    questionText\n    equation\n  }\n": types.CalculatorQuestionFragmentDoc,
     "\n  fragment MultiselectPart on multiPartBlocks_multiselect_BlockType {\n    id\n    type: typeHandle\n    options: answerOptions {\n      ... on answerOptions_option_BlockType {\n        id\n        label: optionLabel\n        value: optionValue\n      }\n    }\n  }\n": types.MultiselectPartFragmentDoc,
     "\n  fragment NumberPart on multiPartBlocks_number_BlockType {\n    id\n    type: typeHandle\n    minimum\n    maximum\n    precision\n    validation {\n      ... on validation_numberValidator_BlockType {\n        id\n      }\n    }\n  }\n": types.NumberPartFragmentDoc,
@@ -277,6 +278,10 @@ export function graphql(source: "\n  fragment QuestionEntry on questions_default
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n"): (typeof documents)["\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"): (typeof documents)["\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

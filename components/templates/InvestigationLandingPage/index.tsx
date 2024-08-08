@@ -1,10 +1,10 @@
 import { ReactNode, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { imageShaper } from "@/helpers";
-import * as Styled from "./styles";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import SignedIn from "@/components/auth/investigation/SignedIn";
-import SignedOut from "@/components/auth/investigation/SignedOut";
+import SignedIn from "@/components/organisms/LandingSignedIn";
+import SignedOut from "@/components/organisms/LandingSignedOut";
+import * as Styled from "./styles";
 
 const Fragment = graphql(`
   fragment InvestigationLandingPageTemplate on investigations_investigationParent_Entry {
