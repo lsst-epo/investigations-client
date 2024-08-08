@@ -3,7 +3,7 @@ import { draftMode } from "next/headers";
 import { RootProps } from "./layout";
 import HomePageTemplate from "@/templates/HomePage";
 import { notFound } from "next/navigation";
-import SignOut from "@/components/auth/buttons/SignOut";
+import SignOut from "@/components/molecules/SignOutButton";
 import {
   getAuthCookies,
   getUserFromJwt,

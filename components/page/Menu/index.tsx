@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useGlobalData } from "@/hooks";
 import usePages from "@/contexts/Pages";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
-import { signOut } from "@/components/auth/buttons/SignOut/actions";
+import { signOut } from "@/components/molecules/SignOutButton/actions";
 import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
 import Share from "./submenu/Share";
