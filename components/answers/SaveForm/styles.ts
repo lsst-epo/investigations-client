@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BaseSignUp from "@/components/auth/buttons/SignUp";
+import BaseSignUp from "@/components/molecules/SignUpButton";
 
 export const Form = styled.form`
   margin-inline: auto;
