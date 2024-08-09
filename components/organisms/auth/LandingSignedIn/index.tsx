@@ -1,8 +1,8 @@
 import { FunctionComponent, ReactNode } from "react";
 import { useTranslation } from "@/lib/i18n";
-import SignOut from "@/components/molecules/SignOutButton";
+import SignOut from "@/components/molecules/auth/SignOutButton";
 import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
-import ResendVerificationButton from "@/components/molecules/ResendVerificationButton";
+import ResendActivationButton from "@/components/molecules/auth/ResendActivationButton";
 
 const SignedIn: FunctionComponent<{
   name: string;
@@ -13,7 +13,7 @@ const SignedIn: FunctionComponent<{
 }> = async ({ name, status, firstPage, signOutRedirect, locale }) => {
   const { t } = await useTranslation(locale, "translation");
   const actions: Record<string, ReactNode> = {
-    pending: <ResendVerificationButton {...{ status }} />,
+    pending: <ResendActivationButton />,
     active: (
       <Buttonish
         text={t("investigation.start")}
