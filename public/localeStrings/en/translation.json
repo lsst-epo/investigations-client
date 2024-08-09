@@ -60,6 +60,7 @@
     "email_subscription": "Email subscription",
     "send": "Send",
     "sending": "Sending…",
+    "submit": "Submit",
     "submitting": "Submitting...",
     "reset": "Reset form",
     "cancel": "Cancel",
@@ -99,9 +100,15 @@
     "log_in_w_email": "Or, log in using your email and password.",
     "sign_up": "Create an account",
     "logged_in_status_issue": "Account status is {{status}}, check your email for more information.",
-    "resend_email": "Resend activation email",
-    "resend_email_success": "You will receive an email if it matches an account in our system",
-    "resend_email_error": "There was a problem resending your activation"
+    "auth_failed": "Invalid username or password",
+    "auth_failed_network": "Uunable to reach login server",
+    "auth_failed_activate": "Email has not been verified, please check your email for a verification link"
+  },
+  "resend_activation": {
+    "submit": "Resend activation email",
+    "submit_pending": "Sending...",
+    "submit_success": "You will receive an email if it matches an account in our system",
+    "submit_error": "There was a problem resending your activation"
   },
   "sign_in": {
     "header": "Welcome back!",

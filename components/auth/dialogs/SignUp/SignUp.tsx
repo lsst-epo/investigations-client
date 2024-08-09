@@ -4,7 +4,7 @@ import { useState } from "react";
 import BasicModal from "@rubin-epo/epo-react-lib/BasicModal";
 import FormButtons from "@rubin-epo/epo-react-lib/FormButtons";
 import Button from "@rubin-epo/epo-react-lib/Button";
-import Submit from "@/components/form/Submit";
+import Submit from "@/components/atomic/Submit";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { registerEducator, registerStudent } from "./actions";
 import { useTranslation } from "react-i18next";
