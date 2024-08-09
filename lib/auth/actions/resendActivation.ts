@@ -5,6 +5,7 @@ import {
 } from "@/components/auth/serverHelpers";
 import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
+import { cookies } from "next/headers";
 
 // https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#resend-activation-email
 const Mutation = graphql(`
@@ -13,18 +14,20 @@ const Mutation = graphql(`
   }
 `);
 
-export async function resendActivationEmail() {
+export default async function resendActivationEmail() {
   const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
+  const email = cookies().get("userToResend")?.value;
+  const emailToUse = email || user?.email;
 
-  if (!user) {
+  if (!emailToUse) {
     return;
   }
 
   const { data, error } = await mutateAPI({
     query: Mutation,
     variables: {
-      email: user.email,
+      email: emailToUse,
     },
   });
 

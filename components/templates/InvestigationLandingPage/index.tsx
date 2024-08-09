@@ -2,8 +2,8 @@ import { ReactNode, FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { imageShaper } from "@/helpers";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import SignedIn from "@/components/organisms/LandingSignedIn";
-import SignedOut from "@/components/organisms/LandingSignedOut";
+import SignedIn from "@/components/organisms/auth/LandingSignedIn";
+import SignedOut from "@/components/organisms/auth/LandingSignedOut";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`
