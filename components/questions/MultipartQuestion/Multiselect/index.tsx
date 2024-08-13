@@ -25,18 +25,19 @@ const Multiselect: FunctionComponent<
   PartProps<FragmentType<typeof Fragment>>
 > = ({ id, questionId, data }) => {
   const { options } = useFragment(Fragment, data);
-  const { answer, onChangeCallback } =
+  const { answer = {}, onChangeCallback } =
     useAnswer<MultipartQuestionData>(questionId);
   const { t } = useTranslation();
+  const value = answer[id] || [];
 
   return (
     <Styled.InlineSelect
-      {...{ options }}
+      {...{ options, value }}
       placeholder={t("translation:placeholder.select")}
       onChangeCallback={(value: string[] | null) =>
         onChangeCallback && onChangeCallback({ ...answer, [id]: value })
       }
-      value={answer ? answer[id] : []}
+      maxWidth="auto"
       isMultiselect
     />
   );
