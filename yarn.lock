@@ -3182,6 +3182,21 @@
   resolved "https://registry.yarnpkg.com/@repeaterjs/repeater/-/repeater-3.0.4.tgz#a04d63f4d1bf5540a41b01a921c9a7fddc3bd1ca"
   integrity sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==
 
+"@rubin-epo/epo-react-lib@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.1.0.tgz#4c55f8f1de35d2a6e939ea382bb73f89734b8460"
+  integrity sha512-uw1FqIFrGPs9zJjsQZfjB1+xR8k4WboUzTjpRlG0Cjm0LPUs23599wdIr17J5+AN49CbBF7+utY27hg9fnUGXw==
+  dependencies:
+    "@castiron/style-mixins" "^1.0.6"
+    "@headlessui/react" "^2.0.3"
+    flickity "^3.0.0"
+    focus-trap "^7.4.2"
+    lodash "^4.17.21"
+    react-player "^2.14.1"
+    react-share "^4.4.1"
+    react-slider "^2.0.6"
+    styled-components "^6.1.1"
+
 "@rubin-epo/epo-react-lib@^2.0.32":
   version "2.0.32"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-2.0.32.tgz#ef2146ccc150cc37853584e9f191a22ac1f045eb"
@@ -3197,12 +3212,12 @@
     react-slider "^2.0.6"
     styled-components "^6.1.1"
 
-"@rubin-epo/epo-widget-lib@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-1.0.4.tgz#055e01761507d35830880497cea68bfd8a26e1bd"
-  integrity sha512-CYCw2PZ56oMPpvaZE4z2cmQUTSO3fwa2NlqlJZXIrN6txLqqLfUFI/10OPHTV2Pqm5bYyR1XRLA8ukbfPZ2hvQ==
+"@rubin-epo/epo-widget-lib@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-1.0.5.tgz#15f6e91f4e38b51ef94f14eb46007a1673314d8e"
+  integrity sha512-HETpsvi+oeRBkKC1EeGtNwOhzUUxcRUSnxcYD01qqooUvnt9Syh3LQW4KzjZrhmiy9ZXW5DP51HcPv18LuGNAg==
   dependencies:
-    "@rubin-epo/epo-react-lib" "^2.0.32"
+    "@rubin-epo/epo-react-lib" "2.1.0"
     context-filter-polyfill "^0.3.6"
     d3-array "^3.2.4"
     d3-geo "^3.1.0"
