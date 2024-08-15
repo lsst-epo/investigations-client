@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.4.0](https://github.com/lsst-epo/investigations-client/compare/v2.3.17...v2.4.0) (2024-08-15)
+
+
+### Features
+
+* resend activation on login ([75d21ae](https://github.com/lsst-epo/investigations-client/commit/75d21ae2be44ab2adb921f1c07d4ed1f7fbbd1c8))
+* verification email resend ([4ce7353](https://github.com/lsst-epo/investigations-client/commit/4ce73535911ea7264ff85ceb5fa922602d2741cb))
+
+
+### Bug Fixes
+
+* isochrone plot labels ([4836bc3](https://github.com/lsst-epo/investigations-client/commit/4836bc3302a893af3584eba3b7575147c9982e80))
+* multiselect receive empty array instead of null ([7f8a8dd](https://github.com/lsst-epo/investigations-client/commit/7f8a8dde1722ab2be0d1d151abef014d1f3e056a))
+
 ## [2.3.17](https://github.com/lsst-epo/investigations-client/compare/v2.3.16...v2.3.17) (2024-08-06)
 
 
