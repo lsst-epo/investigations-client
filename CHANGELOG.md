@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.4.1](https://github.com/lsst-epo/investigations-client/compare/v2.4.0...v2.4.1) (2024-08-16)
+
+
+### Bug Fixes
+
+* remove marks from isochrone plot ([6c17135](https://github.com/lsst-epo/investigations-client/commit/6c171355ddb5122bfa1905d6d9330bb6031b9746))
+
 ## [2.4.0](https://github.com/lsst-epo/investigations-client/compare/v2.3.17...v2.4.0) (2024-08-15)
 
 
