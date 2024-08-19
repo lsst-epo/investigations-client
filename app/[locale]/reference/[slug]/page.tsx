@@ -30,8 +30,8 @@ export const generateStaticParams = async ({
 
   const ReferencesParamQuery = graphql(`
     query ReferenceParams($site: [String]) {
-      referenceModalsEntries(site: $site) {
-        ... on referenceModals_default_Entry {
+      referenceEntries(site: $site) {
+        ... on reference_default_Entry {
           slug
         }
       }
@@ -44,7 +44,7 @@ export const generateStaticParams = async ({
       site: [site],
     },
   });
-  return data?.referenceModalsEntries?.map((entry) => {
+  return data?.referenceEntries?.map((entry) => {
     return { slug: entry?.slug };
   });
 };
@@ -65,7 +65,7 @@ const ReferencePage: FunctionComponent<ReferencePageProps> = async ({
 
   const { entry } = data || {};
 
-  if (!entry || entry.__typename !== "referenceModals_default_Entry") {
+  if (!entry || entry.__typename !== "reference_default_Entry") {
     notFound();
   }
 
