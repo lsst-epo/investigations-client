@@ -35,14 +35,14 @@ const Fragment = graphql(`
 
 const IsochronePlot: FunctionComponent<
   WidgetQuestion<FragmentType<typeof Fragment>>
-> = ({ data, instructions, value = {}, ...props }) => {
+> = ({ data, instructions, value = {}, onChangeCallback, ...props }) => {
   const { dataset } = useFragment(Fragment, data);
   const { datasetId } = value;
 
   const plot = getDataset(dataset, datasetId);
 
   if (plot && isEntryValid(plot, "datasets_starCluster_Entry")) {
-    const { xMin, xMax, yMin, yMax, ageLibrary, plotPoints } = plot;
+    const { xMin, xMax, yMin, yMax, ageLibrary, plotPoints, id } = plot;
 
     const xAxis = { min: xMin, max: xMax };
     const yAxis = { min: yMin, max: yMax };
@@ -52,6 +52,13 @@ const IsochronePlot: FunctionComponent<
 
     if (!isochroneUrl || !pointsUrl) return null;
 
+    const handleChange = (newValue: any) => {
+      return (
+        onChangeCallback &&
+        onChangeCallback({ ...value, ...newValue, datasetId: id })
+      );
+    };
+
     return (
       <WidgetContainerWithModal {...{ instructions }}>
         <IsochronePlotContainer
@@ -59,6 +66,7 @@ const IsochronePlot: FunctionComponent<
             points: pointsUrl,
             isochrones: isochroneUrl,
           }}
+          onChangeCallback={handleChange}
           {...{ ...props, value, xAxis, yAxis }}
         />
       </WidgetContainerWithModal>
