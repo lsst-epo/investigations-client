@@ -48,6 +48,7 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = ({
   site,
   isOpen,
   openModal,
+  hasModal,
 }) => {
   const { t } = useTranslation();
   const { layout, image: rawImage, caption = "" } = useFragment(Fragment, data);
@@ -93,7 +94,7 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = ({
           decoding="async"
           loading="lazy"
         />
-        {!isOpen && (
+        {hasModal && !isOpen && (
           <Styled.ExpandContract onToggle={openModal} isOpen={isOpen} />
         )}
       </Styled.Figure>
