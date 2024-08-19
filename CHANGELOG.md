@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.4.2](https://github.com/lsst-epo/investigations-client/compare/v2.4.1...v2.4.2) (2024-08-19)
+
+
+### Bug Fixes
+
+* isochrone stepping ([5a2eff7](https://github.com/lsst-epo/investigations-client/commit/5a2eff775be0ab27125328d0176fbf18d074ba57))
+
 ## [2.4.1](https://github.com/lsst-epo/investigations-client/compare/v2.4.0...v2.4.1) (2024-08-16)
 
 
