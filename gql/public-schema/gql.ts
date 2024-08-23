@@ -31,7 +31,6 @@ const documents = {
     "\n  mutation ActivateUser($code: String!, $id: String!) {\n    activateUser(code: $code, id: $id)\n  }\n": types.ActivateUserDocument,
     "\n  mutation ForgottenPassword($email: String!) {\n    forgottenPassword(email: $email)\n  }\n": types.ForgottenPasswordDocument,
     "\n  mutation SetPassword($password: String!, $code: String!, $id: String!) {\n    setPassword(password: $password, code: $code, id: $id)\n  }\n": types.SetPasswordDocument,
-    "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n": types.AuthenticateDocument,
     "\n  mutation FacebookSignInStudent($code: String!) {\n    facebookSignInStudents(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInStudentDocument,
     "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInEducatorDocument,
     "\n  mutation RegisterEducator(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerEducators(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterEducatorDocument,
@@ -58,7 +57,6 @@ const documents = {
     "\n  fragment ContentBlockFactory on contentBlocks_NeoField {\n    __typename\n    ...TwoColumnContainerBlock\n    ...InteractionGroupContainerBlock\n    ...TextBlock\n    ...ImageBlock\n    ...VideoBlock\n    ...TableBlock\n    ...QuestionsBlock\n    ...BarGraphToolBlock\n    ...FilterToolBlock\n    ...ReferenceModalBlock\n    ...ColorFilterToolBlock\n    ...CameraFilterToolBlock\n    ...EquationBlock\n    ...SupernovaDistanceDistributionBlock\n    ...MagnitudeScatterPlotBlock\n  }\n": types.ContentBlockFactoryFragmentDoc,
     "\n  fragment QuestionEntry on questions_default_Entry {\n    __typename\n    id\n    answerType\n    questionText\n    ...CalculatorQuestion\n    ...TabularQuestion\n    ...WidgetQuestion\n    ...NumberQuestion\n    ...MultipartQuestion\n    options: answerOptions {\n      ... on answerOptions_option_BlockType {\n        label: optionLabel\n        value: optionValue\n      }\n    }\n  }\n": types.QuestionEntryFragmentDoc,
     "\n  fragment TemplateFactory on EntryInterface {\n    __typename\n    ...PageTemplate\n  }\n": types.TemplateFactoryFragmentDoc,
-    "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n": types.ResendActivationDocument,
     "\n  fragment CalculatorQuestion on questions_default_Entry {\n    id\n    questionText\n    equation\n  }\n": types.CalculatorQuestionFragmentDoc,
     "\n  fragment MultiselectPart on multiPartBlocks_multiselect_BlockType {\n    id\n    type: typeHandle\n    options: answerOptions {\n      ... on answerOptions_option_BlockType {\n        id\n        label: optionLabel\n        value: optionValue\n      }\n    }\n  }\n": types.MultiselectPartFragmentDoc,
     "\n  fragment NumberPart on multiPartBlocks_number_BlockType {\n    id\n    type: typeHandle\n    minimum\n    maximum\n    precision\n    validation {\n      ... on validation_numberValidator_BlockType {\n        id\n      }\n    }\n  }\n": types.NumberPartFragmentDoc,
@@ -82,6 +80,8 @@ const documents = {
     "\n  fragment ReferenceContentTemplate on referenceModals_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks: referenceContentBlocks {\n      __typename\n      ... on referenceContentBlocks_text_BlockType {\n        id\n        text\n      }\n      ... on referenceContentBlocks_image_BlockType {\n        id\n        caption\n        layout\n        image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n            preview\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n      }\n      ... on referenceContentBlocks_table_BlockType {\n        id\n        caption\n        contentHeading\n        displayTable {\n          ... on displayTable_BlockType {\n            tableRow {\n              ... on tableRow_tableCell_BlockType {\n                id\n                cellContent\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": types.ReferenceContentTemplateFragmentDoc,
     "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}": types.AuthFragmentFragmentDoc,
     "fragment UserFragment on UserInterface {\n  id\n  status\n}": types.UserFragmentFragmentDoc,
+    "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n": types.ResendActivationDocument,
+    "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n": types.AuthenticateDocument,
 };
 
 /**
@@ -170,10 +170,6 @@ export function graphql(source: "\n  mutation ForgottenPassword($email: String!)
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation SetPassword($password: String!, $code: String!, $id: String!) {\n    setPassword(password: $password, code: $code, id: $id)\n  }\n"): (typeof documents)["\n  mutation SetPassword($password: String!, $code: String!, $id: String!) {\n    setPassword(password: $password, code: $code, id: $id)\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -281,10 +277,6 @@ export function graphql(source: "\n  fragment TemplateFactory on EntryInterface 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"): (typeof documents)["\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\n  fragment CalculatorQuestion on questions_default_Entry {\n    id\n    questionText\n    equation\n  }\n"): (typeof documents)["\n  fragment CalculatorQuestion on questions_default_Entry {\n    id\n    questionText\n    equation\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -374,6 +366,14 @@ export function graphql(source: "fragment AuthFragment on Auth {\n  jwt\n  jwtEx
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "fragment UserFragment on UserInterface {\n  id\n  status\n}"): (typeof documents)["fragment UserFragment on UserInterface {\n  id\n  status\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"): (typeof documents)["\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
