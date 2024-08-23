@@ -5,7 +5,7 @@ import * as Styled from "./styles";
 import CloseWindow from "@/components/molecules/buttons/CloseWindow";
 
 const Fragment = graphql(`
-  fragment ReferenceContentTemplate on reference_default_Entry {
+  fragment ReferenceContentTemplate on referenceModals_default_Entry {
     __typename
     title
     id

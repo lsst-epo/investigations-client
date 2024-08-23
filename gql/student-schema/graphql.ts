@@ -2588,8 +2588,8 @@ export type Query = {
   ping?: Maybe<Scalars['String']['output']>;
   /** Entries within the questions section. */
   questionsEntries?: Maybe<Array<Maybe<QuestionsSectionEntryUnion>>>;
-  /** Entries within the reference section. */
-  referenceEntries?: Maybe<Array<Maybe<ReferenceSectionEntryUnion>>>;
+  /** Entries within the referenceModals section. */
+  referenceModalsEntries?: Maybe<Array<Maybe<ReferenceModalsSectionEntryUnion>>>;
   /** Gets authenticated user. */
   viewer?: Maybe<UserInterface>;
   /** Entries within the widgets section. */
@@ -3658,7 +3658,7 @@ export type QueryQuestionsEntriesArgs = {
 };
 
 
-export type QueryReferenceEntriesArgs = {
+export type QueryReferenceModalsEntriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -4596,7 +4596,7 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_MagnitudeScatterPlot_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_SupernovaDistanceDistribution_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_MagnitudeScatterPlot_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_SupernovaDistanceDistribution_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
 
 export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_barGraphTool_BlockType';
@@ -5558,8 +5558,8 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
-export type ContentBlocks_ReferenceBlock_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'contentBlocks_referenceBlock_BlockType';
+export type ContentBlocks_ReferenceModalBlock_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_referenceModalBlock_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
@@ -5610,12 +5610,12 @@ export type ContentBlocks_ReferenceBlock_BlockType = ElementInterface & NeoBlock
 };
 
 
-export type ContentBlocks_ReferenceBlock_BlockType_CountArgs = {
+export type ContentBlocks_ReferenceModalBlock_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type ContentBlocks_ReferenceBlock_BlockTypeReferenceModalEntriesArgs = {
+export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16214,10 +16214,10 @@ export type ReferenceContentBlocks_Text_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ReferenceSectionEntryUnion = Reference_Default_Entry;
+export type ReferenceModalsSectionEntryUnion = ReferenceModals_Default_Entry;
 
-export type Reference_Default_Entry = ElementInterface & EntryInterface & {
-  __typename?: 'reference_default_Entry';
+export type ReferenceModals_Default_Entry = ElementInterface & EntryInterface & {
+  __typename?: 'referenceModals_default_Entry';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
@@ -16326,12 +16326,12 @@ export type Reference_Default_Entry = ElementInterface & EntryInterface & {
 };
 
 
-export type Reference_Default_Entry_CountArgs = {
+export type ReferenceModals_Default_Entry_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type Reference_Default_EntryAncestorsArgs = {
+export type ReferenceModals_Default_EntryAncestorsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16419,7 +16419,7 @@ export type Reference_Default_EntryAncestorsArgs = {
 };
 
 
-export type Reference_Default_EntryChildrenArgs = {
+export type ReferenceModals_Default_EntryChildrenArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16507,7 +16507,7 @@ export type Reference_Default_EntryChildrenArgs = {
 };
 
 
-export type Reference_Default_EntryDescendantsArgs = {
+export type ReferenceModals_Default_EntryDescendantsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16595,7 +16595,7 @@ export type Reference_Default_EntryDescendantsArgs = {
 };
 
 
-export type Reference_Default_EntryLocalizedArgs = {
+export type ReferenceModals_Default_EntryLocalizedArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16683,7 +16683,7 @@ export type Reference_Default_EntryLocalizedArgs = {
 };
 
 
-export type Reference_Default_EntryNextArgs = {
+export type ReferenceModals_Default_EntryNextArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16771,7 +16771,7 @@ export type Reference_Default_EntryNextArgs = {
 };
 
 
-export type Reference_Default_EntryParentArgs = {
+export type ReferenceModals_Default_EntryParentArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16859,7 +16859,7 @@ export type Reference_Default_EntryParentArgs = {
 };
 
 
-export type Reference_Default_EntryPrevArgs = {
+export type ReferenceModals_Default_EntryPrevArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16947,7 +16947,7 @@ export type Reference_Default_EntryPrevArgs = {
 };
 
 
-export type Reference_Default_EntryReferenceContentBlocksArgs = {
+export type ReferenceModals_Default_EntryReferenceContentBlocksArgs = {
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
