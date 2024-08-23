@@ -20,7 +20,7 @@ export const blockMap: Record<
   contentBlocks_filterTool_BlockType: Blocks.FilterTool,
   contentBlocks_cameraFilterTool_BlockType: Blocks.CameraFilterTool,
   contentBlocks_table_BlockType: Blocks.Table,
-  contentBlocks_referenceModalBlock_BlockType: Blocks.Reference,
+  contentBlocks_referenceModalBlock_BlockType: Blocks.Modal,
   contentBlocks_colorFilterToolBlock_BlockType: Blocks.ColorFilterTool,
   contentBlocks_equation_BlockType: Blocks.Equation,
   contentBlocks_video_BlockType: Blocks.Video,
@@ -44,7 +44,7 @@ const Fragment = graphql(`
     ...QuestionsBlock
     ...BarGraphToolBlock
     ...FilterToolBlock
-    ...ReferenceBlock
+    ...ReferenceModalBlock
     ...ColorFilterToolBlock
     ...CameraFilterToolBlock
     ...EquationBlock

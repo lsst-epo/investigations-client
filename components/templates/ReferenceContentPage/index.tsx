@@ -1,8 +1,8 @@
+"use client";
 import { FunctionComponent } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import * as Styled from "./styles";
-import CloseWindow from "@/components/molecules/buttons/CloseWindow";
 
 const Fragment = graphql(`
   fragment ReferenceContentTemplate on referenceModals_default_Entry {
@@ -61,16 +61,18 @@ const Fragment = graphql(`
 const ReferenceContentPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
-}> = ({ site, ...props }) => {
+  isInModal?: boolean;
+}> = ({ site, isInModal = false, ...props }) => {
   const data = useFragment(Fragment, props.data);
   const { title, id } = data;
 
   return (
-    <Styled.PageContainer paddingSize="none">
-      <Styled.Header>
-        <Styled.Title>{title}</Styled.Title>
-        <CloseWindow />
-      </Styled.Header>
+    <Styled.PageContainer
+      paddingSize="none"
+      width="narrow"
+      bgColor="transparent"
+    >
+      <Styled.Title>{title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>
           block && (
@@ -79,8 +81,8 @@ const ReferenceContentPage: FunctionComponent<{
               site={site}
               data={block}
               pageId={id}
-              isOpen={false}
-              hasModal={false}
+              isOpen={isInModal}
+              hasModal={!isInModal}
             />
           )
       )}

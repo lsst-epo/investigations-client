@@ -16,7 +16,7 @@ const Fragment = graphql(`
       ...QuestionsBlock
       ...BarGraphToolBlock
       ...FilterToolBlock
-      ...ReferenceBlock
+      ...ReferenceModalBlock
       ...ColorFilterToolBlock
       ...SupernovaDistanceDistributionBlock
       ...MagnitudeScatterPlotBlock
