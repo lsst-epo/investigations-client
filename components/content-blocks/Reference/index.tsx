@@ -5,9 +5,9 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
 
 const Fragment = graphql(`
-  fragment ReferenceBlock on contentBlocks_referenceBlock_BlockType {
+  fragment ReferenceBlock on contentBlocks_referenceModalBlock_BlockType {
     referenceModalEntries {
-      ... on reference_default_Entry {
+      ... on referenceModals_default_Entry {
         title
         uri
         slug
