@@ -16,7 +16,13 @@ export const PageContainer = styled(Container)`
   }
 `;
 
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: var(--title-margin);
+`;
+
 export const Title = styled.h1`
   --title-margin: ${fluidScale("2em", "1em")};
-  margin-block-end: var(--title-margin);
 `;
