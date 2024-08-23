@@ -6,7 +6,7 @@ export { default as TwoColumnContainer } from "./TwoColumnContainer";
 export { default as Equation } from "./Equation";
 export { default as Image } from "./Image";
 export { default as InvestigationGrid } from "./InvestigationGrid";
-export { default as Reference } from "./Reference";
+export { default as Modal } from "./Modal";
 export { default as Questions } from "./Questions";
 export { default as Table } from "./Table";
 export { default as Text } from "./Text";
