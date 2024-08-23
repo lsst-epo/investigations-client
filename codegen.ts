@@ -13,7 +13,8 @@ const config: CodegenConfig = {
         "!components/student-schema/**/*.{ts,tsx}",
         "!components/educator-schema/**/*.{ts,tsx}",
         "contexts/**/*.{ts,tsx}",
-        "lib/api/**/*.graphql",
+        "lib/api/auth/**/*.{ts,tsx}",
+        "lib/api/auth/**/*.graphql",
       ],
       preset: "client",
       config: {
