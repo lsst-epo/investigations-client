@@ -5,8 +5,8 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
 
 const Fragment = graphql(`
-  fragment ReferenceBlock on contentBlocks_referenceModalBlock_BlockType {
-    referenceModalEntries {
+  fragment ReferenceBlock on contentBlocks_referenceBlock_BlockType {
+    referenceEntries {
       ... on referenceContent_default_Entry {
         title
         uri
@@ -19,14 +19,14 @@ const Fragment = graphql(`
 const ReferenceWindowContentBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = (props) => {
-  const { referenceModalEntries } = useFragment(Fragment, props.data);
+  const { referenceEntries } = useFragment(Fragment, props.data);
   const popupWindow = useRef<WindowProxy | null>(null);
 
-  if (referenceModalEntries[0] === null) {
+  if (referenceEntries[0] === null) {
     return null;
   }
 
-  const { uri, title, slug } = referenceModalEntries[0];
+  const { uri, title, slug } = referenceEntries[0];
 
   const url = `/${uri}`;
 
