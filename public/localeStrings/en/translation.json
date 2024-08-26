@@ -1,6 +1,9 @@
 {
   "page-not-found-title": "Page not found",
   "page-not-found-text": "The page you're looking for was not found.",
+  "titles": {
+    "reference": "{{title}} - Reference"
+  },
   "menu": {
     "toggle": "Toggle main menu",
     "main": "Main menu",
