@@ -4596,7 +4596,7 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_MagnitudeScatterPlot_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceModalBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_SupernovaDistanceDistribution_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
+export type ContentBlocks_NeoField = ContentBlocks_BarGraphTool_BlockType | ContentBlocks_CameraFilterTool_BlockType | ContentBlocks_ColLeft_BlockType | ContentBlocks_ColRight_BlockType | ContentBlocks_ColorFilterToolBlock_BlockType | ContentBlocks_Equation_BlockType | ContentBlocks_FilterTool_BlockType | ContentBlocks_Group_BlockType | ContentBlocks_Image_BlockType | ContentBlocks_MagnitudeScatterPlot_BlockType | ContentBlocks_QuestionBlock_BlockType | ContentBlocks_ReferenceBlock_BlockType | ContentBlocks_ScatterplotTool_BlockType | ContentBlocks_SupernovaDistanceDistribution_BlockType | ContentBlocks_Table_BlockType | ContentBlocks_Text_BlockType | ContentBlocks_TwoColumnContainer_BlockType | ContentBlocks_Video_BlockType;
 
 export type ContentBlocks_BarGraphTool_BlockType = ElementInterface & NeoBlockInterface & {
   __typename?: 'contentBlocks_barGraphTool_BlockType';
@@ -5558,8 +5558,8 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
 };
 
-export type ContentBlocks_ReferenceModalBlock_BlockType = ElementInterface & NeoBlockInterface & {
-  __typename?: 'contentBlocks_referenceModalBlock_BlockType';
+export type ContentBlocks_ReferenceBlock_BlockType = ElementInterface & NeoBlockInterface & {
+  __typename?: 'contentBlocks_referenceBlock_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
@@ -5580,7 +5580,7 @@ export type ContentBlocks_ReferenceModalBlock_BlockType = ElementInterface & Neo
   level?: Maybe<Scalars['Int']['output']>;
   /** The ID of the primary owner of the Neo block. */
   primaryOwnerId?: Maybe<Scalars['Int']['output']>;
-  referenceModalEntries: Array<Maybe<EntryInterface>>;
+  referenceEntries: Array<Maybe<EntryInterface>>;
   /** The element’s search score, if the `search` parameter was used when querying for the element. */
   searchScore?: Maybe<Scalars['Int']['output']>;
   /** The handle of the site the element is associated with. */
@@ -5610,12 +5610,12 @@ export type ContentBlocks_ReferenceModalBlock_BlockType = ElementInterface & Neo
 };
 
 
-export type ContentBlocks_ReferenceModalBlock_BlockType_CountArgs = {
+export type ContentBlocks_ReferenceBlock_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type ContentBlocks_ReferenceModalBlock_BlockTypeReferenceModalEntriesArgs = {
+export type ContentBlocks_ReferenceBlock_BlockTypeReferenceEntriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
