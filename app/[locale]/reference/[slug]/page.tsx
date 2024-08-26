@@ -1,11 +1,13 @@
+import { FunctionComponent } from "react";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
 import { fallbackLng } from "@/lib/i18n/settings";
+import { serverTranslation } from "@/lib/i18n";
 import { RootParams } from "@/app/[locale]/layout";
-import { notFound } from "next/navigation";
 import ReferenceContentPage from "@/components/templates/ReferenceContentPage";
 import { getSite } from "@/helpers";
-import { FunctionComponent } from "react";
 
 interface ReferencePageParams {
   slug: string;
@@ -30,8 +32,8 @@ export const generateStaticParams = async ({
 
   const ReferencesParamQuery = graphql(`
     query ReferenceParams($site: [String]) {
-      referenceModalsEntries(site: $site) {
-        ... on referenceModals_default_Entry {
+      referenceContentEntries(site: $site) {
+        ... on referenceContent_default_Entry {
           slug
         }
       }
@@ -44,10 +46,32 @@ export const generateStaticParams = async ({
       site: [site],
     },
   });
-  return data?.referenceModalsEntries?.map((entry) => {
+  return data?.referenceContentEntries?.map((entry) => {
     return { slug: entry?.slug };
   });
 };
+
+export async function generateMetadata({
+  params,
+}: ReferencePageProps): Promise<Metadata> {
+  const { slug, locale = fallbackLng } = params;
+  const { t } = await serverTranslation(locale, "translation");
+  const site = getSite(locale);
+
+  const { data } = await queryAPI({
+    query: ReferencesDataQuery,
+    variables: {
+      site: [site],
+      slug: [slug],
+    },
+  });
+
+  const { entry } = data || {};
+
+  return {
+    title: t("titles.reference", { title: entry?.title }),
+  };
+}
 
 const ReferencePage: FunctionComponent<ReferencePageProps> = async ({
   params,
@@ -65,7 +89,7 @@ const ReferencePage: FunctionComponent<ReferencePageProps> = async ({
 
   const { entry } = data || {};
 
-  if (!entry || entry.__typename !== "referenceModals_default_Entry") {
+  if (!entry || entry.__typename !== "referenceContent_default_Entry") {
     notFound();
   }
 

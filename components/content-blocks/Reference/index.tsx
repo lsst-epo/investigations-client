@@ -7,7 +7,7 @@ import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
 const Fragment = graphql(`
   fragment ReferenceBlock on contentBlocks_referenceModalBlock_BlockType {
     referenceModalEntries {
-      ... on referenceModals_default_Entry {
+      ... on referenceContent_default_Entry {
         title
         uri
         slug
@@ -67,6 +67,7 @@ const ReferenceWindowContentBlock: FunctionComponent<
       isBlock
       style={{ "--button-text-align": "left" }}
       text={title}
+      prefetch
     />
   );
 };

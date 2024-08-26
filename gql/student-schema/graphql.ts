@@ -2588,8 +2588,8 @@ export type Query = {
   ping?: Maybe<Scalars['String']['output']>;
   /** Entries within the questions section. */
   questionsEntries?: Maybe<Array<Maybe<QuestionsSectionEntryUnion>>>;
-  /** Entries within the referenceModals section. */
-  referenceModalsEntries?: Maybe<Array<Maybe<ReferenceModalsSectionEntryUnion>>>;
+  /** Entries within the referenceContent section. */
+  referenceContentEntries?: Maybe<Array<Maybe<ReferenceContentSectionEntryUnion>>>;
   /** Gets authenticated user. */
   viewer?: Maybe<UserInterface>;
   /** Entries within the widgets section. */
@@ -3658,7 +3658,7 @@ export type QueryQuestionsEntriesArgs = {
 };
 
 
-export type QueryReferenceModalsEntriesArgs = {
+export type QueryReferenceContentEntriesArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16214,10 +16214,10 @@ export type ReferenceContentBlocks_Text_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
-export type ReferenceModalsSectionEntryUnion = ReferenceModals_Default_Entry;
+export type ReferenceContentSectionEntryUnion = ReferenceContent_Default_Entry;
 
-export type ReferenceModals_Default_Entry = ElementInterface & EntryInterface & {
-  __typename?: 'referenceModals_default_Entry';
+export type ReferenceContent_Default_Entry = ElementInterface & EntryInterface & {
+  __typename?: 'referenceContent_default_Entry';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** The entry’s ancestors, if the section is a structure. Accepts the same arguments as the `entries` query. */
@@ -16326,12 +16326,12 @@ export type ReferenceModals_Default_Entry = ElementInterface & EntryInterface & 
 };
 
 
-export type ReferenceModals_Default_Entry_CountArgs = {
+export type ReferenceContent_Default_Entry_CountArgs = {
   field: Scalars['String']['input'];
 };
 
 
-export type ReferenceModals_Default_EntryAncestorsArgs = {
+export type ReferenceContent_Default_EntryAncestorsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16419,7 +16419,7 @@ export type ReferenceModals_Default_EntryAncestorsArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryChildrenArgs = {
+export type ReferenceContent_Default_EntryChildrenArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16507,7 +16507,7 @@ export type ReferenceModals_Default_EntryChildrenArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryDescendantsArgs = {
+export type ReferenceContent_Default_EntryDescendantsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16595,7 +16595,7 @@ export type ReferenceModals_Default_EntryDescendantsArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryLocalizedArgs = {
+export type ReferenceContent_Default_EntryLocalizedArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16683,7 +16683,7 @@ export type ReferenceModals_Default_EntryLocalizedArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryNextArgs = {
+export type ReferenceContent_Default_EntryNextArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16771,7 +16771,7 @@ export type ReferenceModals_Default_EntryNextArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryParentArgs = {
+export type ReferenceContent_Default_EntryParentArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16859,7 +16859,7 @@ export type ReferenceModals_Default_EntryParentArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryPrevArgs = {
+export type ReferenceContent_Default_EntryPrevArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
   ancestorDist?: InputMaybe<Scalars['Int']['input']>;
   ancestorOf?: InputMaybe<Scalars['Int']['input']>;
@@ -16947,7 +16947,7 @@ export type ReferenceModals_Default_EntryPrevArgs = {
 };
 
 
-export type ReferenceModals_Default_EntryReferenceContentBlocksArgs = {
+export type ReferenceContent_Default_EntryReferenceContentBlocksArgs = {
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
