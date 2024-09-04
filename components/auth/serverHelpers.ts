@@ -118,10 +118,10 @@ export async function getAuthCookies() {
 }
 
 export function deleteAuthCookies() {
-  cookies().set("craftToken", "", COOKIE_OPTIONS);
-  cookies().set("craftRefreshToken", "", COOKIE_OPTIONS);
-  cookies().set("craftUserStatus", "", COOKIE_OPTIONS);
-  cookies().set("craftUserId", "", COOKIE_OPTIONS);
+  cookies().delete("craftToken");
+  cookies().delete("craftRefreshToken");
+  cookies().delete("craftUserStatus");
+  cookies().delete("craftUserId");
 }
 
 export function getUserFromJwt(jwt?: Token) {
