@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useGlobalData } from "@/hooks";
 import usePages from "@/contexts/Pages";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
-import { signOut } from "@/components/molecules/auth/SignOutButton/actions";
+import signOut from "@/lib/api/auth/actions/signOut";
 import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
 import Share from "./submenu/Share";
@@ -79,7 +79,11 @@ const Menu: FunctionComponent<MenuProps> = ({
           <MenuItem
             icon="LogOut"
             text={t("auth.log_out")}
-            onClick={handleLogout}
+            onClick={() => {
+              handleLogout().finally(() => {
+                localStorage.clear();
+              });
+            }}
           />
         ) : (
           <MenuItem
