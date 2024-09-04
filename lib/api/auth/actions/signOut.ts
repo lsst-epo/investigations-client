@@ -6,7 +6,7 @@ import {
   deleteAuthCookies,
   getAuthCookies,
 } from "@/components/auth/serverHelpers";
-import { queryAPI } from "@/lib/fetch";
+import { mutateAPI } from "@/lib/fetch";
 
 const Mutation = graphql(`
   mutation DeleteRefreshToken($refreshToken: String!) {
@@ -14,16 +14,21 @@ const Mutation = graphql(`
   }
 `);
 
-export async function signOut(redirectTo: string) {
-  const { craftRefreshToken } = await getAuthCookies();
+async function signOut(redirectTo: string) {
+  const { craftRefreshToken, craftToken } = await getAuthCookies();
 
-  const { data, error } = queryAPI({
-    query: Mutation,
-    variables: {
-      refreshToken: craftRefreshToken,
-    },
-  });
+  if (craftRefreshToken && craftToken) {
+    await mutateAPI({
+      query: Mutation,
+      variables: {
+        refreshToken: craftRefreshToken,
+      },
+      token: craftToken,
+    });
+  }
 
   deleteAuthCookies();
   redirect(redirectTo);
 }
+
+export default signOut;
