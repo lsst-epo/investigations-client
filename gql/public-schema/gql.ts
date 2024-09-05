@@ -83,6 +83,7 @@ const documents = {
     "fragment UserFragment on UserInterface {\n  id\n  status\n}": types.UserFragmentFragmentDoc,
     "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n": types.ResendActivationDocument,
     "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n": types.AuthenticateDocument,
+    "\n  mutation DeleteRefreshToken($refreshToken: String!) {\n    deleteRefreshToken(refreshToken: $refreshToken)\n  }\n": types.DeleteRefreshTokenDocument,
 };
 
 /**
@@ -379,6 +380,10 @@ export function graphql(source: "\n  mutation ResendActivation($email: String!) 
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation DeleteRefreshToken($refreshToken: String!) {\n    deleteRefreshToken(refreshToken: $refreshToken)\n  }\n"): (typeof documents)["\n  mutation DeleteRefreshToken($refreshToken: String!) {\n    deleteRefreshToken(refreshToken: $refreshToken)\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
