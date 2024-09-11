@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import Input from "@rubin-epo/epo-react-lib/Input";
 import FormLabel from "@/components/atomic/FormLabel";
 import AuthForm from "@/components/molecules/auth/AuthForm";
-import signIn from "@/lib/api/auth/actions/signIn";
+import signIn from "@/lib/auth/actions/signIn";
 import ResendActivationButton from "@/components/molecules/auth/ResendActivationButton";
 import { useCookies } from "react-cookie";
 
