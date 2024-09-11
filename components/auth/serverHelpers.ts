@@ -1,13 +1,12 @@
 import { cookies } from "next/headers";
-import jwtDecode from "jwt-decode";
-import { graphql, useFragment } from "@/gql/public-schema";
+import { jwtDecode } from "jwt-decode";
+import { useFragment } from "@/gql/public-schema";
 import type { PendingGroup, Token } from "@/types/auth";
 import {
   UserFragmentFragmentDoc,
   type AuthFragmentFragment,
-  AuthFragmentFragmentDoc,
 } from "gql/public-schema/graphql";
-import { mutateAPI } from "@/lib/fetch";
+import { cache } from "react";
 
 export const COOKIE_OPTIONS = {
   httpOnly: true,
@@ -16,11 +15,11 @@ export const COOKIE_OPTIONS = {
 } as const;
 
 export function setAuthCookies(data: AuthFragmentFragment) {
-  const { jwt, jwtExpiresAt, refreshToken, refreshTokenExpiresAt } = data;
+  const { jwt, refreshToken, refreshTokenExpiresAt } = data;
 
   cookies().set("craftToken", jwt, {
     ...COOKIE_OPTIONS,
-    expires: jwtExpiresAt,
+    expires: refreshTokenExpiresAt,
   });
   cookies().set("craftRefreshToken", refreshToken, {
     ...COOKIE_OPTIONS,
@@ -34,80 +33,23 @@ export function setAuthCookies(data: AuthFragmentFragment) {
   if (userData?.status) {
     cookies().set("craftUserStatus", userData.status, {
       ...COOKIE_OPTIONS,
-      expires: jwtExpiresAt,
+      expires: refreshTokenExpiresAt,
     });
   }
 
   if (userData?.id) {
     cookies().set("craftUserId", userData.id, {
       ...COOKIE_OPTIONS,
-      expires: jwtExpiresAt,
+      expires: refreshTokenExpiresAt,
     });
   }
 }
 
-const RefreshMutation = graphql(`
-  mutation RefreshToken($refreshToken: String!) {
-    refreshToken(refreshToken: $refreshToken) {
-      ...AuthFragment
-    }
-  }
-`);
-
-export async function refreshToken(craftRefreshToken: Token) {
-  const { data, error } = await mutateAPI({
-    query: RefreshMutation,
-    variables: {
-      refreshToken: craftRefreshToken,
-    },
-  });
-
-  // not actually a client-side hook, just named like one
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const authData = useFragment(AuthFragmentFragmentDoc, data?.refreshToken);
-
-  if (authData) {
-    setAuthCookies(authData);
-
-    const { jwt, refreshToken, user } = authData;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const userData = useFragment(UserFragmentFragmentDoc, user);
-
-    return {
-      craftToken: jwt,
-      craftRefreshToken: refreshToken,
-      craftUserStatus: userData?.status ?? undefined,
-      craftUserId: userData?.id ?? undefined,
-    };
-  } else if (error) {
-    throw new Error(error.message);
-  }
-}
-
-export async function getAuthCookies() {
-  let craftToken = cookies().get("craftToken")?.value;
-  let craftRefreshToken = cookies().get("craftRefreshToken")?.value;
-  let craftUserStatus = cookies().get("craftUserStatus")?.value;
-  let craftUserId = cookies().get("craftUserId")?.value;
-
-  // refresh token if expired
-  if (!craftToken && craftRefreshToken) {
-    try {
-      const refreshedData = await refreshToken(craftRefreshToken);
-
-      if (refreshedData) {
-        craftToken = refreshedData.craftToken;
-        craftRefreshToken = refreshedData.craftRefreshToken;
-        craftUserStatus = refreshedData.craftUserStatus;
-        craftUserId = refreshedData.craftUserId;
-      }
-    } catch (error) {
-      craftToken = undefined;
-      craftRefreshToken = undefined;
-      craftUserStatus = undefined;
-      craftUserId = undefined;
-    }
-  }
+export const getAuthCookies = cache(() => {
+  const craftToken = cookies().get("craftToken")?.value;
+  const craftRefreshToken = cookies().get("craftRefreshToken")?.value;
+  const craftUserStatus = cookies().get("craftUserStatus")?.value;
+  const craftUserId = cookies().get("craftUserId")?.value;
 
   return {
     craftToken,
@@ -115,7 +57,7 @@ export async function getAuthCookies() {
     craftUserStatus,
     craftUserId,
   };
-}
+});
 
 export function deleteAuthCookies() {
   cookies().delete("craftToken");

@@ -3,7 +3,7 @@
 import { cookies } from "next/headers";
 import { graphql } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
-import { refreshToken } from "../../serverHelpers";
+import refreshTokens from "@/lib/auth/session/refresh";
 
 // https://graphql-authentication.jamesedmonston.co.uk/usage/authentication#activate-user
 const Mutation = graphql(`
@@ -26,7 +26,7 @@ export async function activate(code: string, id: string) {
 
     if (token) {
       // refresh cookies to get the updated user status
-      await refreshToken(token);
+      await refreshTokens(token);
     }
 
     return data;

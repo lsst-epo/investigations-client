@@ -2,7 +2,7 @@
 
 import { getAuthCookies } from "@/components/auth/serverHelpers";
 import { graphql } from "@/gql/student-schema";
-import { mutateAPI } from "@/lib/fetch";
+import mutationClient from "@/lib/fetch/mutate";
 import { Answers, InvestigationId } from "@/types/answers";
 
 const Mutation = graphql(`
@@ -43,14 +43,10 @@ export default async function saveAnswers(
     };
   });
 
-  const { data, error } = await mutateAPI({
-    query: Mutation,
-    variables: {
-      userId: craftUserId,
-      investigationId,
-      answerSet,
-    },
-    token: craftToken,
+  const { data, error } = await mutationClient()(Mutation, {
+    userId: craftUserId,
+    investigationId,
+    answerSet,
   });
 
   if (data?.saveAnswersFromSet) {
