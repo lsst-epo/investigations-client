@@ -2,7 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 import Button from "@rubin-epo/epo-react-lib/Button";
-import signOut from "@/lib/api/auth/actions/signOut";
+import signOut from "@/lib/auth/actions/signOut";
 
 export default function SignOut({ redirectTo }: { redirectTo: string }) {
   const { t } = useTranslation();

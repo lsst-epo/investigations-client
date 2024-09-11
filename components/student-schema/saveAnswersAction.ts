@@ -2,8 +2,8 @@
 
 import { getAuthCookies } from "@/components/auth/serverHelpers";
 import { graphql } from "@/gql/student-schema";
-import { mutateAPI } from "@/lib/fetch";
 import { Answers, InvestigationId } from "@/types/answers";
+import mutationClient from "@/lib/fetch/mutate";
 
 const Mutation = graphql(`
   mutation SaveAnswersFromSet(
@@ -25,7 +25,7 @@ export default async function saveAnswers(
   investigationId: NonNullable<InvestigationId>,
   answers: Answers
 ) {
-  const { craftUserId, craftToken, craftUserStatus } = await getAuthCookies();
+  const { craftUserId, craftToken, craftUserStatus } = getAuthCookies();
 
   if (!craftUserId || !craftToken) {
     return "refreshError";
@@ -43,19 +43,18 @@ export default async function saveAnswers(
     };
   });
 
-  const { data, error } = await mutateAPI({
-    query: Mutation,
-    variables: {
-      userId: craftUserId,
-      investigationId,
-      answerSet,
-    },
-    token: craftToken,
+  const { data, error } = await mutationClient()(Mutation, {
+    userId: craftUserId,
+    investigationId,
+    answerSet,
   });
 
   if (data?.saveAnswersFromSet) {
     return data;
   } else if (error) {
+    if (error.message.includes("Refresh")) {
+      return "refreshError";
+    }
     throw new Error(error.message);
   }
 }

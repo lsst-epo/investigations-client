@@ -2,7 +2,7 @@
 import { FunctionComponent, useState, useTransition } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@rubin-epo/epo-react-lib/Button";
-import resendActivationEmail from "@/lib/api/auth/actions/resendActivation";
+import resendActivationEmail from "@/lib/auth/actions/resendActivation";
 import InteractionDescription from "@/components/atomic/InteractionDescription";
 
 const ResendActivationButton: FunctionComponent<{

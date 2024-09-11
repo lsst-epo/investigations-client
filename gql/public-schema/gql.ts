@@ -36,7 +36,6 @@ const documents = {
     "\n  mutation FacebookSignInEducator($code: String!) {\n    facebookSignInEducators(code: $code) {\n      ...AuthFragment\n    }\n  }\n": types.FacebookSignInEducatorDocument,
     "\n  mutation RegisterEducator(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerEducators(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterEducatorDocument,
     "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n": types.RegisterStudentDocument,
-    "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n": types.RefreshTokenDocument,
     "\n  fragment BarGraphToolBlock on contentBlocks_barGraphTool_BlockType {\n    __typename\n    id\n    title\n    yAxisMin\n    yAxisMax\n    yAxisLabel\n    xAxisLabel\n    graphBars {\n      ... on graphBars_bar_BlockType {\n        __typename\n        yValue\n        label\n      }\n    }\n  }\n": types.BarGraphToolBlockFragmentDoc,
     "\n  fragment CameraFilterToolBlock on contentBlocks_cameraFilterTool_BlockType {\n    widgetInstructions\n  }\n": types.CameraFilterToolBlockFragmentDoc,
     "\n  fragment ColorFilterToolBlock on contentBlocks_colorFilterToolBlock_BlockType {\n    colorFilterTool {\n      ...ColorFilterToolEntry\n    }\n  }\n": types.ColorFilterToolBlockFragmentDoc,
@@ -79,11 +78,13 @@ const documents = {
     "\n  fragment InvestigationSectionBreakTemplate on investigations_investigationSectionBreakChild_Entry {\n    __typename\n    id\n    text\n    parent {\n      id\n    }\n    next(section: \"investigations\", level: 2) {\n      __typename\n      uri\n      parent {\n        id\n      }\n    }\n  }\n": types.InvestigationSectionBreakTemplateFragmentDoc,
     "\n  fragment PageTemplate on pages_pages_Entry {\n    id\n    title\n    contentBlocks {\n      ...ContentBlockFactory\n    }\n  }\n": types.PageTemplateFragmentDoc,
     "\n  fragment ReferenceContentTemplate on referenceContent_default_Entry {\n    __typename\n    title\n    id\n    contentBlocks: referenceContentBlocks {\n      __typename\n      ... on referenceContentBlocks_text_BlockType {\n        id\n        text\n      }\n      ... on referenceContentBlocks_image_BlockType {\n        id\n        caption\n        layout\n        image {\n          url {\n            directUrlPreview\n            directUrlOriginal\n            PNG\n            HighJPG\n            LowJPG\n            preview\n          }\n          width\n          height\n          metadata: additional {\n            AltTextEN\n            AltTextES\n            CaptionEN\n            CaptionES\n            Credit\n          }\n        }\n      }\n      ... on referenceContentBlocks_table_BlockType {\n        id\n        caption\n        contentHeading\n        displayTable {\n          ... on displayTable_BlockType {\n            tableRow {\n              ... on tableRow_tableCell_BlockType {\n                id\n                cellContent\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": types.ReferenceContentTemplateFragmentDoc,
-    "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}": types.AuthFragmentFragmentDoc,
-    "fragment UserFragment on UserInterface {\n  id\n  status\n}": types.UserFragmentFragmentDoc,
     "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n": types.ResendActivationDocument,
     "\n  mutation Authenticate($email: String!, $password: String!) {\n    authenticate(email: $email, password: $password) {\n      ...AuthFragment\n    }\n  }\n": types.AuthenticateDocument,
+    "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}": types.AuthFragmentFragmentDoc,
+    "fragment UserFragment on UserInterface {\n  id\n  status\n}": types.UserFragmentFragmentDoc,
+    "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n": types.RefreshTokenDocument,
     "\n  mutation DeleteRefreshToken($refreshToken: String!) {\n    deleteRefreshToken(refreshToken: $refreshToken)\n  }\n": types.DeleteRefreshTokenDocument,
+    "\n  query User {\n    viewer {\n      ...UserFragment\n    }\n  }\n": types.UserDocument,
 };
 
 /**
@@ -192,10 +193,6 @@ export function graphql(source: "\n  mutation RegisterEducator(\n    $email: Str
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation RegisterStudent(\n    $email: String!\n    $password: String!\n    $fullName: String\n  ) {\n    registerStudents(email: $email, password: $password, fullName: $fullName) {\n      ...AuthFragment\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -367,14 +364,6 @@ export function graphql(source: "\n  fragment ReferenceContentTemplate on refere
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}"): (typeof documents)["fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "fragment UserFragment on UserInterface {\n  id\n  status\n}"): (typeof documents)["fragment UserFragment on UserInterface {\n  id\n  status\n}"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
 export function graphql(source: "\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"): (typeof documents)["\n  mutation ResendActivation($email: String!) {\n    resendActivation(email: $email)\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -383,7 +372,23 @@ export function graphql(source: "\n  mutation Authenticate($email: String!, $pas
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}"): (typeof documents)["fragment AuthFragment on Auth {\n  jwt\n  jwtExpiresAt\n  refreshToken\n  refreshTokenExpiresAt\n  user {\n    ...UserFragment\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "fragment UserFragment on UserInterface {\n  id\n  status\n}"): (typeof documents)["fragment UserFragment on UserInterface {\n  id\n  status\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n"): (typeof documents)["\n  mutation RefreshToken($refreshToken: String!) {\n    refreshToken(refreshToken: $refreshToken) {\n      ...AuthFragment\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n  mutation DeleteRefreshToken($refreshToken: String!) {\n    deleteRefreshToken(refreshToken: $refreshToken)\n  }\n"): (typeof documents)["\n  mutation DeleteRefreshToken($refreshToken: String!) {\n    deleteRefreshToken(refreshToken: $refreshToken)\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query User {\n    viewer {\n      ...UserFragment\n    }\n  }\n"): (typeof documents)["\n  query User {\n    viewer {\n      ...UserFragment\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
