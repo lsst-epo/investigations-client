@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.5.2](https://github.com/lsst-epo/investigations-client/compare/v2.5.1...v2.5.2) (2024-09-19)
+
+
+### Bug Fixes
+
+* tokens refresh on save ([d37a7cb](https://github.com/lsst-epo/investigations-client/commit/d37a7cb8342250e39ce11d8ce71b2e669ee63f87))
+
 ## [2.5.0](https://github.com/lsst-epo/investigations-client/compare/v2.4.3...v2.5.0) (2024-08-29)
 
 
