@@ -1,0 +1,156 @@
+name: Build, Push, and Deploy
+
+on:
+  push:
+    branches:
+       - 'develop'
+       - 'master'
+    tags:
+      - 'v*'
+  # pull_request:
+  #   types:
+  #     - 'opened'
+  #     - 'synchronize'
+  #     - 'reopened'
+  #     - 'closed'
+  #   branches:
+  #     - 'develop'
+  #     - 'master'-
+
+jobs:
+  build:
+    name: Build Container Image
+    runs-on: ubuntu-latest
+    outputs:
+      image_tag: ${{ steps.deploy-tag.outputs.image_tag }}
+      image_name: ${{ steps.deploy-tag.outputs.image_name }}
+      environment_name: ${{ steps.deploy-info.outputs.environment_name }}
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Parse deployment info
+        id: deploy-info
+        run: |
+          # Determine environment to deploy to
+          if ${{ github.ref_type == 'tag'}}; then
+            environment_name="prod"
+            credentials_json='${{ secrets.PIPELINE_EPO_PROD_PROJECT }}' 
+          elif ${{ contains(github.ref_name, 'master') || contains(github.base_ref, 'master') }}; then
+            environment_name="int"
+            credentials_json='${{ secrets.SKYVIEWER_INT_SERVICE_ACCOUNT }}'
+          else
+            environment_name="dev"
+            credentials_json='${{ secrets.DEV_SA_KEY }}'
+          fi
+          echo environment_name=$environment_name >> "$GITHUB_OUTPUT"
+          echo credentials_json=$credentials_json >> "$GITHUB_OUTPUT"
+      -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            gcr.io/skyviewer/investigations-client-k8s,enable=${{ steps.deploy-info.outputs.environment_name == 'dev' }}
+            gcr.io/edc-int-6c5e/investigations-client-k8s,enable=${{ steps.deploy-info.outputs.environment_name == 'int' }}
+            gcr.io/edc-prod-eef0/investigations-client-k8s,enable=${{ steps.deploy-info.outputs.environment_name == 'prod' }}
+          flavor: |
+            latest=${{ github.event_name == 'push'}}
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
+      -
+        name: Parse deploy tag
+        id: deploy-tag
+        run: |
+          # Parse container image tag to deploy
+          full_tag=$(echo "$DOCKER_METADATA_OUTPUT_JSON" | jq -r '.tags[] | limit(1; select(. | test(":sha-|:v.")))')
+          echo "Will use tag \"$full_tag\" for deployment."
+          echo image_tag=$(echo "$full_tag" | cut -f2 -d:) >> "$GITHUB_OUTPUT"
+          echo image_name=$(echo "$full_tag" | cut -f1 -d:) >> "$GITHUB_OUTPUT"
+          echo full_tag=$full_tag >> "$GITHUB_OUTPUT"
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - 
+        name: Login to GCP
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: ${{ steps.deploy-info.outputs.credentials_json }}
+      - 
+        name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
+      - 
+        run: gcloud --quiet auth configure-docker
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-to: |
+            type=gha
+          cache-from: |
+            type=gha
+          build-args: |
+            BASE_TAG=k8s
+      - 
+        name: Summary
+        run: |
+          cat <<-EOT >> "$GITHUB_STEP_SUMMARY"
+            # Container Build Completed
+
+            ## Tags
+            ${{ steps.meta.outputs.tags }}
+          EOT
+  
+  deploy:
+    name: Trigger deploy to ${{ needs.build.outputs.environment_name }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Webhook Payload
+        id: payload
+        run: |-
+          PARAMETERS=(
+            api.image.tag=${{ needs.build.outputs.image_tag }}
+            api.image.repository=${{ needs.build.outputs.image_name }}
+          )
+          DATA="{
+            \"app_name\": \"investigations-client\",
+            \"environment_name\": \"${{ needs.build.outputs.environment_name }}\",
+            \"parameters\": $(jq -c -n '$ARGS.positional' --args ${PARAMETERS[@]})
+          }"
+          echo "data=$(echo $DATA | jq -rc '.')" >> "$GITHUB_OUTPUT"
+      - uses: lasith-kg/dispatch-workflow@v1.7.0
+        id: dispatch
+        name: Trigger Deployment
+        with:
+          dispatch-method: repository_dispatch
+          repo: edc-deploy
+          owner: lsst-epo
+          event-type: app_update_values 
+          token: ${{ secrets.EDC_DEPLOY_GITHUB_TOKEN_FOR_REST_API }} 
+          workflow-inputs: ${{ steps.payload.outputs.data }}
+          discover: true
+      - name: Await Run ID ${{ steps.dispatch.outputs.run-id }}
+        uses: Codex-/await-remote-run@v1.10.0
+        with:
+          token: ${{ secrets.EDC_DEPLOY_GITHUB_TOKEN_FOR_REST_API }}
+          repo: edc-deploy
+          owner: lsst-epo
+          run_id: ${{ steps.dispatch.outputs.run-id }}
+          run_timeout_seconds: 1500
