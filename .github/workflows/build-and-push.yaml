@@ -98,6 +98,7 @@ jobs:
             type=gha
           build-args: |
             BASE_TAG=k8s
+            RUN_BUILD=false
       - 
         name: Summary
         run: |
