@@ -30,18 +30,25 @@ export async function queryAPI<
   token?: Token;
   previewToken?: string;
 }): Promise<OperationResult<Query, Variables>> {
-  const url = previewToken ? `${API_URL}?token=${previewToken}` : API_URL;
+  const params = new URLSearchParams({});
+
+  if (previewToken) {
+    params.append("token", previewToken);
+  }
+
   const makeClient = () => {
     return createClient({
-      url,
+      url: `${API_URL}?${params.toString()}`,
       exchanges: [cacheExchange, fetchExchange],
       fetchOptions: () => {
-        const opts = {
+        const opts: RequestInit = {
+          cache: "force-cache",
           next: {
-            revalidate: previewToken ? 0 : 60,
+            revalidate: previewToken ? 0 : undefined,
           },
         };
-        if (!token) return { ...opts };
+
+        if (!token) return opts;
         return {
           ...opts,
           headers: {
