@@ -16,7 +16,12 @@ ARG CRAFT_SECRET_TOKEN
 ARG CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN
 ARG CRAFT_STUDENT_SCHEMA_SECRET_TOKEN
 
-RUN npx browserslist@latest --update-db && yarn static:build
+RUN npx browserslist@latest --update-db
+
+ARG RUN_BUILD="true"
+ENV RUN_BUILD=${RUN_BUILD}
+
+RUN if $RUN_BUILD;then yarn static:build;fi
 
 # Production image, copy all the files and run next
 FROM node:20-alpine AS runner
