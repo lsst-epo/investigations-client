@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.5.4](https://github.com/lsst-epo/investigations-client/compare/v2.5.3...v2.5.4) (2024-10-10)
+
+
+### Bug Fixes
+
+* add 'force-cache' to query ([a6fdce2](https://github.com/lsst-epo/investigations-client/commit/a6fdce2b39afe069fc78b6221f569b06ed275a2c))
+
 ## [2.5.2](https://github.com/lsst-epo/investigations-client/compare/v2.5.1...v2.5.2) (2024-09-19)
 
 
