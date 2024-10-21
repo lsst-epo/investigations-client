@@ -112,7 +112,7 @@ jobs:
             api.image.repository=${{ needs.build.outputs.image_name }}
           )
           DATA="{
-            \"app_name\": \"investigations-client\",
+            \"app_name\": \"investigations\",
             \"environment_name\": \"${{ needs.build.outputs.environment_name }}\",
             \"parameters\": $(jq -c -n '$ARGS.positional' --args ${PARAMETERS[@]})
           }"
