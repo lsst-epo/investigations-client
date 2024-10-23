@@ -65,7 +65,7 @@
     "@greatsumini/react-facebook-login": "^3.3.3",
     "@react-oauth/google": "^0.11.0",
     "@rubin-epo/epo-react-lib": "^2.0.32",
-    "@rubin-epo/epo-widget-lib": "^1.0.8",
+    "@rubin-epo/epo-widget-lib": "^1.0.9",
     "@unly/universal-language-detector": "^2.0.3",
     "@urql/core": "^5.0.6",
     "@urql/exchange-auth": "^2.2.0",
