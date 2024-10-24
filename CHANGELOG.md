@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.5.6](https://github.com/lsst-epo/investigations-client/compare/v2.5.5...v2.5.6) (2024-10-24)
+
+
+### Bug Fixes
+
+* three vector aspect ratio correction ([#285](https://github.com/lsst-epo/investigations-client/issues/285)) ([b259ecc](https://github.com/lsst-epo/investigations-client/commit/b259ecca953b3990d1a0b52dc3b6fdd6a6c17634))
+
 ## [2.5.4](https://github.com/lsst-epo/investigations-client/compare/v2.5.3...v2.5.4) (2024-10-10)
 
 
