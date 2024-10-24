@@ -107,8 +107,8 @@ jobs:
         id: payload
         run: |-
           PARAMETERS=(
-            api.image.tag=${{ needs.build.outputs.image_tag }}
-            api.image.repository=${{ needs.build.outputs.image_name }}
+            client.image.tag=${{ needs.build.outputs.image_tag }}
+            client.image.repository=${{ needs.build.outputs.image_name }}
           )
           DATA="{
             \"app_name\": \"investigations\",
