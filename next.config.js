@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const nextBuildId = require("next-build-id");
+
 
 let API_URL;
 
@@ -18,7 +17,7 @@ if (
 
 module.exports = {
   async generateBuildId() {
-    return nextBuildId({ dir: __dirname });
+    return "investigations-client-next-build-id";
   },
   async rewrites() {
     return [
