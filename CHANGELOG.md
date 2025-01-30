@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.5.8](https://github.com/lsst-epo/investigations-client/compare/v2.5.7...v2.5.8) (2025-01-30)
+
+
+### Bug Fixes
+
+* localized math input ([6ef97ef](https://github.com/lsst-epo/investigations-client/commit/6ef97efb378721317559b7eeed844f14ed39f151))
+
 ## [2.5.6](https://github.com/lsst-epo/investigations-client/compare/v2.5.5...v2.5.6) (2024-10-24)
 
 
