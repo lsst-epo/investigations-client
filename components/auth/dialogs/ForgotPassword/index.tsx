@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import { BasicModal, Input } from "@rubin-epo/epo-react-lib";
+import { useId, useState } from "react";
+import BasicModal from "@rubin-epo/epo-react-lib/BasicModal";
+import Input from "@rubin-epo/epo-react-lib/Input";
+import FormField from "@rubin-epo/epo-react-lib/FormField";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { useTranslation } from "react-i18next";
-import { forgotPassword } from "./actions";
+import forgotPassword from "@/lib/auth/actions/forgotPassword";
+import AuthForm from "@/components/molecules/auth/AuthForm";
 import * as Styled from "./styles";
 
 export default function SignUp() {
+  const id = useId();
   const { active, closeModal } = useAuthDialogManager();
 
   const [status, setStatus] = useState<"success" | "error" | null>(null);
@@ -44,42 +48,26 @@ export default function SignUp() {
       onClose={closeModal}
     >
       {status !== "success" && (
-        <Styled.Form
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          action={async (formData: FormData) => {
-            try {
-              const data = await forgotPassword(formData);
-              setStatus(data.forgottenPassword ? "success" : null);
-            } catch (error) {
-              if (error instanceof Error) {
-                setStatus("error");
-              }
-            }
-          }}
+        <AuthForm
+          action={forgotPassword}
+          onError={() => setStatus("error")}
+          onSuccess={() => setStatus("success")}
+          submitText={t("reset_password.submit")}
         >
-          <div>
-            <Styled.Label htmlFor="forgottenPasswordEmail">
-              {t("form.email_required")}
-            </Styled.Label>
+          <FormField
+            label={t("form.email_required")}
+            htmlFor={`${id}-email`}
+            required
+          >
             <Input
               name="email"
-              id="forgottenPasswordEmail"
+              id={`${id}-email`}
               type="email"
-              autoComplete="email"
+              autoComplete="email username"
               required
             />
-          </div>
-          <Styled.SubmitButton>
-            {(pending) =>
-              t(
-                pending
-                  ? "reset_password.submit_pending"
-                  : "reset_password.submit"
-              )
-            }
-          </Styled.SubmitButton>
-        </Styled.Form>
+          </FormField>
+        </AuthForm>
       )}
       {status === "success" && (
         <Styled.ConfirmButton
