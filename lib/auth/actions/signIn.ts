@@ -1,15 +1,14 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { setAuthCookies } from "@/components/auth/serverHelpers";
 import { graphql, useFragment } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
-import { FormState } from "@/types/form";
 import { CombinedError } from "@urql/core";
 import { cookies } from "next/headers";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { serverTranslation } from "@/lib/i18n";
+import { redirect } from "next/navigation";
 
 const Mutation = graphql(`
   mutation Authenticate($email: String!, $password: String!) {
@@ -54,7 +53,8 @@ const parseErrors = async (
 
 export default async function signIn(
   state: FormState,
-  formData: FormData
+  formData: FormData,
+  returnTo?: string
 ): Promise<FormState> {
   const formDataObj = Object.fromEntries(formData);
   const { email, password } = formDataObj;
@@ -72,8 +72,12 @@ export default async function signIn(
 
   if (authData) {
     setAuthCookies(authData);
-    revalidatePath("/", "layout");
-    return { status: "success", message: "" };
+
+    if (returnTo) {
+      redirect(returnTo);
+    } else {
+      return { status: "success" };
+    }
   } else if (error) {
     return await parseErrors(error, email);
   }
