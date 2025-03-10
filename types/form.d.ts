@@ -1,17 +1,21 @@
-export interface ErrorMap {
+interface ErrorMap {
   path?: string;
   message: string;
 }
 
-export interface FormError {
+interface FormError {
   status: "error";
   message: string;
   errors?: Array<ErrorMap>;
+  result?: any;
 }
 
-export interface FormSuccess {
+interface FormSuccess {
   status: "success";
-  message: string;
+  message?: string;
+  result?: any;
 }
 
-export type FormState = FormError | FormSuccess | null;
+type FormHandler = (state: FormState, formData: FormData) => Promise<FormState>;
+
+type FormState = FormError | FormSuccess | null;

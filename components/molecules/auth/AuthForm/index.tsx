@@ -3,7 +3,6 @@
 import { FunctionComponent, PropsWithChildren, useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslation } from "react-i18next";
-import { FormError, FormState, FormSuccess } from "@/types/form";
 import Submit from "@/components/atomic/Submit";
 import * as Styled from "./styles";
 
