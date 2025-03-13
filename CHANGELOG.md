@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.6.0](https://github.com/lsst-epo/investigations-client/compare/v2.5.8...v2.6.0) (2025-03-13)
+
+
+### Features
+
+* auto login after reset password ([#307](https://github.com/lsst-epo/investigations-client/issues/307)) ([fba6a2d](https://github.com/lsst-epo/investigations-client/commit/fba6a2de2f37b9f532047531cff0dd9e4672c5b3))
+
+
+### Bug Fixes
+
+* removed GAE workflows ([#312](https://github.com/lsst-epo/investigations-client/issues/312)) ([4af2e0f](https://github.com/lsst-epo/investigations-client/commit/4af2e0f843bd710dbbf0f2866b276b360fdca165))
+
 ## [2.5.8](https://github.com/lsst-epo/investigations-client/compare/v2.5.7...v2.5.8) (2025-01-30)
 
 
