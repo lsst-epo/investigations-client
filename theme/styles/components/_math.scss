@@ -1,10 +1,10 @@
 .calc-output {
-  background-color: var(--neutral10, #f5f5f5);
-  border: 1px solid var(--neutral60, #6a6e6e);
-  border-radius: 5px;
   display: flex;
   align-items: center;
   height: 1.5em;
-  text-align: center;
   padding-inline: 1ch;
+  text-align: center;
+  background-color: var(--neutral10, #f5f5f5);
+  border: 1px solid var(--neutral60, #6a6e6e);
+  border-radius: 5px;
 }

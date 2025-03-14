@@ -38,21 +38,21 @@ export const WidgetBlock = styled.div`
 `;
 
 export const WidgetContainer = styled.div`
-  color: var(--widget-text-color, initial);
   max-width: 100%;
   max-height: 100%;
+  color: var(--widget-text-color, initial);
 `;
 
 export const WidgetHeader = styled.header`
-  background-color: var(--turquoise85, #12726c);
-  color: var(--white, #fff);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: var(--widget-header-height);
   gap: var(--widget-header-padding);
+  align-items: center;
+  justify-content: space-between;
+  height: var(--widget-header-height);
   padding: var(--widget-header-padding);
   padding-inline-start: calc(var(--widget-header-padding) * 2);
+  color: var(--white, #fff);
+  background-color: var(--turquoise85, #12726c);
 `;
 
 export const WidgetTitle = styled.h3`
@@ -60,11 +60,11 @@ export const WidgetTitle = styled.h3`
 `;
 
 export const WidgetBody = styled.div`
-  background-color: var(--widget-background-color, var(--neutral10, #f5f5f5));
   display: flex;
   flex-direction: column;
-  padding: var(--widget-padding);
   gap: var(--widget-padding);
+  padding: var(--widget-padding);
+  background-color: var(--widget-background-color, var(--neutral10, #f5f5f5));
 `;
 
 export const WidgetRow = styled.div`
@@ -78,6 +78,6 @@ export const WidgetRow = styled.div`
 `;
 
 export const WidgetCaption = styled.div`
-  color: var(--widget-text-color, inherit);
   font-size: 0.75em;
+  color: var(--widget-text-color, inherit);
 `;

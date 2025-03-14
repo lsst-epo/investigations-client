@@ -54,8 +54,7 @@ export const TextContent = styled.div`
   }
 
   figcaption {
+    padding-block: 1em;
     font-size: 18px;
-    padding-block-start: 1em;
-    padding-block-end: 1em;
   }
 `;

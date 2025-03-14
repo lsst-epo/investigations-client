@@ -7,6 +7,7 @@ export const Number = styled.li`
       margin-block-start: var(--PADDING_SMALL, 20px);
     }
   }
+
   &[data-direction="inline"] {
     > * + * {
       margin-inline-start: 0.5ch;
