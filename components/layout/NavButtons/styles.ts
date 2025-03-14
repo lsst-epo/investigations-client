@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { respond } from "@/styles/globalStyles";
 
 export const Nav = styled.nav`
-  display: block;
-  float: right;
   position: relative;
   top: -60px;
+  float: right;
+  display: block;
+
   > * {
     margin-left: 0.5em;
   }
@@ -22,11 +23,11 @@ export const Nav = styled.nav`
 export const NavButton = styled.a`
   display: inline-block;
   min-width: 250px;
-  text-align: center;
+  padding: 1em 2em;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
   text-decoration: none;
-  padding: 1em 2em;
   background-color: var(--neutral10);
   ${(p) =>
     p.active

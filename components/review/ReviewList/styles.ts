@@ -8,12 +8,12 @@ export const ReviewList = styled.ol`
   --review-input-background-color: var(--white, #fff);
   --review-input-color: var(--neutral60, #6b6e6e);
 
-  background-color: var(--list-background-color, transparent);
-  color: var(--review-color);
-  container: review-list / inline-size;
-  list-style-type: decimal;
-  list-style-position: inside;
   padding: var(--list-padding, 0);
+  color: var(--review-color);
+  list-style-position: inside;
+  list-style-type: decimal;
+  background-color: var(--list-background-color, transparent);
+  container: review-list / inline-size;
 
   & > li + li {
     margin-block-start: 0.5em;

@@ -6,9 +6,9 @@ export const ReadOnly = styled(TextInput)`
     --input-background-color: transparent;
     --input-border-color: var(--neutral60, #6a6e6e);
 
-    cursor: default;
     min-width: unset;
     text-overflow: ellipsis;
+    cursor: default;
 
     &:focus {
       outline: none;

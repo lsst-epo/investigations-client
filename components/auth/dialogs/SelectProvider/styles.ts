@@ -10,8 +10,8 @@ export const InnerModal = styled.div`
 `;
 
 export const WidthConstrainer = styled.div`
-  max-width: 400px;
   width: 100%;
+  max-width: 400px;
 `;
 
 export const GoogleSSOButton = styled(AuthButtons.GoogleSSO)`

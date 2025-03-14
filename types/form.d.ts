@@ -15,7 +15,6 @@ interface FormSuccess {
   message?: string;
   result?: any;
 }
+type FormState = FormError | FormSuccess | null;
 
 type FormHandler = (state: FormState, formData: FormData) => Promise<FormState>;
-
-type FormState = FormError | FormSuccess | null;

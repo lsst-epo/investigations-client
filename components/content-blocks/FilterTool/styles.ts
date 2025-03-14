@@ -7,6 +7,6 @@ export const WidgetContainer = styled(WidgetContainerWithModal)`
 `;
 
 export const WidgetInstructions = styled.div`
-  color: var(--text-color);
   margin-block-end: var(--interaction-group-margin);
+  color: var(--text-color);
 `;
