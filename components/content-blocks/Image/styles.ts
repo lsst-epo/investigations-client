@@ -24,25 +24,23 @@ export const Container = styled.section`
 
 export const Figure = styled(BaseFigure)`
   position: relative;
-  padding: var(--content-gap, 0);
   width: var(--figure-width);
   max-width: 100%;
+  padding: var(--content-gap, 0);
 
   &[data-layout="horizontal"] {
     --expand-contract-left: calc(var(--content-gap) * 1.25);
     --expand-contract-right: auto;
-
     --intrinsic-width: calc(
       var(--figure-ui-size) + calc(var(--image-width) * 2)
     );
   }
 `;
 
-export const Image = styled.img``;
-
 export const ExpandContract = styled(BaseExpandContract)`
   --expand-contract-offset: calc(var(--content-gap) * 1.25);
 
+  /* stylelint-disable-next-line declaration-no-important */
   position: absolute !important;
   top: var(--expand-contract-offset);
   right: var(--expand-contract-right, var(--expand-contract-offset));

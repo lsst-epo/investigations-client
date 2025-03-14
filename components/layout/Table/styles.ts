@@ -7,8 +7,8 @@ export const TableWrapper = styled.div`
   --table-border: var(--table-border-width) solid var(--table-border-color);
   --table-header-height: 5em;
 
-  padding-inline: var(--table-padding, 0);
   position: relative;
+  padding-inline: var(--table-padding, 0);
 
   @media only print {
     --table-header-height: auto;
@@ -19,21 +19,21 @@ export const TableWrapper = styled.div`
 export const ScrollButton = styled.button`
   --scroll-btn-color: var(--black, #000);
 
-  background-color: var(--white, #fff);
-  border: 1px solid var(--scroll-btn-color);
-  color: var(--scroll-btn-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: calc(var(--table-border-width) + calc(var(--table-header-height) * 0.2));
-  height: calc(var(--table-header-height) * 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2em;
+  height: calc(var(--table-header-height) * 0.6);
+  color: var(--scroll-btn-color);
+  background-color: var(--white, #fff);
+  border: 1px solid var(--scroll-btn-color);
 
-  &:not(:disabled):not([aria-disabled="true"]):hover,
-  &:not(:disabled):not([aria-disabled="true"]):focus-visible,
-  &:not(:disabled):not([aria-disabled="true"]):focus,
-  &:not(:disabled):not([aria-disabled="true"]).focus-visible {
+  &:not(:disabled, [aria-disabled="true"]):hover,
+  &:not(:disabled, [aria-disabled="true"]):focus-visible,
+  &:not(:disabled, [aria-disabled="true"]):focus,
+  &:not(:disabled, [aria-disabled="true"]).focus-visible {
     outline: 1px solid var(--scroll-btn-color);
   }
 
@@ -50,6 +50,7 @@ export const ScrollButton = styled.button`
   &:first-of-type {
     left: -1px;
   }
+
   &:last-of-type {
     right: -1px;
   }
@@ -64,36 +65,36 @@ export const ScrollWrapper = styled.div`
 `;
 
 export const Table = styled.table`
-  border-collapse: collapse;
+  min-width: 100%;
   font-size: 1rem;
   color: #313333;
-  min-width: 100%;
+  border-collapse: collapse;
 `;
 export const Header = styled.th`
-  background-color: var(--table-cell-bg);
-  border: var(--table-border);
-  font-weight: normal;
   height: var(--table-header-height);
-  text-align: center;
   padding-inline: 1em;
+  font-weight: normal;
+  text-align: center;
   white-space: nowrap;
   scroll-margin-inline: calc(1em + var(--table-border-width));
-`;
-export const Cell = styled.td`
   background-color: var(--table-cell-bg);
   border: var(--table-border);
-  font-weight: normal;
+`;
+export const Cell = styled.td`
   height: var(--table-header-height);
   padding: 1em;
+  font-weight: normal;
   text-align: center;
+  background-color: var(--table-cell-bg);
+  border: var(--table-border);
 
   @media only print {
     padding: 0;
   }
 `;
 export const Caption = styled.caption`
-  caption-side: bottom;
-  font-size: 80%;
   margin-block-start: 1em;
+  font-size: 80%;
   text-align: left;
+  caption-side: bottom;
 `;

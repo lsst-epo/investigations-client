@@ -8,6 +8,7 @@ export const NameInput = styled(Input)`
   @media only print {
     --input-background-color: var(--white, #fff);
     --input-border-color: transparent;
+
     padding: 0;
   }
 `;

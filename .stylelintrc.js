@@ -1,5 +1,4 @@
 module.exports = {
-  extends: ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
   ignoreFiles: ["theme/styles/base/_resets.scss"],
   defaultSeverity: "error",
   rules: {
@@ -25,9 +24,6 @@ module.exports = {
     "selector-max-id": 0,
     "selector-no-vendor-prefix": true,
     "function-name-case": "lower",
-    "number-leading-zero": "always",
-    "number-no-trailing-zeros": true,
-    "unit-case": "lower",
     // sometimes we need a unit for Sass
     "length-zero-no-unit": null,
     // Doesn't play nicely with Sass `rgb()` function
@@ -38,24 +34,16 @@ module.exports = {
         ignoreKeywords: [],
       },
     ],
-    "value-list-comma-space-after": "always-single-line",
-    "property-case": "lower",
-    "declaration-bang-space-before": "always",
-    "declaration-block-semicolon-newline-after": "always",
-    "declaration-block-trailing-semicolon": "always",
-    "block-closing-brace-newline-before": "always",
-    "block-opening-brace-newline-after": "always",
-    "selector-attribute-brackets-space-inside": "never",
     "selector-attribute-quotes": "always",
-    "selector-combinator-space-after": "always",
-    "selector-combinator-space-before": "always",
-    "selector-pseudo-class-case": "lower",
-    "selector-pseudo-class-parentheses-space-inside": "never",
-    "selector-pseudo-element-case": "lower",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        ignorePseudoClasses: ["global"],
+      },
+    ],
     "selector-pseudo-element-colon-notation": "double",
     "selector-type-case": "lower",
-    "selector-list-comma-space-after": "always-single-line",
-    "selector-list-comma-space-before": "never",
+
     "rule-empty-line-before": [
       "always",
       {
@@ -63,23 +51,57 @@ module.exports = {
         ignore: ["after-comment"],
       },
     ],
-    "media-feature-name-case": "lower",
-    indentation: 2,
-    "max-empty-lines": 3,
-    "no-eol-whitespace": true,
-    // SCSS rules
-    "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
-    "scss/at-function-pattern": "([a-z]+[0-9]*)([a-z0-9-]+)?",
-    "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
-    "scss/at-mixin-argumentless-call-parentheses": "never",
-    "scss/at-mixin-pattern": "([a-z]+[0-9]*)([a-z0-9-]+)?",
-    "scss/dollar-variable-pattern": "([a-z]+[0-9]*)([a-z0-9-]+)?",
-    "scss/dollar-variable-colon-space-after": "always",
-    "scss/dollar-variable-colon-space-before": "never",
-    "scss/percent-placeholder-pattern": "[a-z][a-z0-9-]*",
-    // Arbitrary media values can be used, but explicitly
-    "scss/media-feature-value-dollar-variable": "always",
-    "scss/selector-no-redundant-nesting-selector": true,
-    "order/properties-order": null,
   },
+  overrides: [
+    {
+      files: "**/styles.{js,ts}",
+      extends: ["stylelint-config-standard", "stylelint-config-recess-order"],
+      customSyntax: "postcss-styled-syntax",
+      rules: {
+        "media-query-no-invalid": null,
+        "no-descending-specificity": null,
+      },
+    },
+    {
+      files: "**/*.module.{scss}",
+      extends: [
+        "stylelint-config-standard-scss",
+        "stylelint-config-css-modules",
+        "stylelint-config-recess-order",
+      ],
+    },
+    {
+      files: "**/*.module.{css}",
+      extends: [
+        "stylelint-config-standard",
+        "stylelint-config-css-modules",
+        "stylelint-config-recess-order",
+      ],
+    },
+    {
+      files: "**/*.scss",
+      extends: [
+        "stylelint-config-standard-scss",
+        "stylelint-config-recess-order",
+      ],
+      rules: {
+        "media-feature-name-no-unknown": [
+          true,
+          { ignoreMediaFeatureNames: ["functions"] },
+        ],
+        // SCSS rules
+        "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+        "scss/at-function-pattern": "([a-z]+[0-9]*)([a-z0-9-]+)?",
+        "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+        "scss/at-mixin-argumentless-call-parentheses": "never",
+        "scss/at-mixin-pattern": "([a-z]+[0-9]*)([a-z0-9-]+)?",
+        "scss/dollar-variable-pattern": "([a-z]+[0-9]*)([a-z0-9-]+)?",
+        "scss/dollar-variable-colon-space-after": "always",
+        "scss/dollar-variable-colon-space-before": "never",
+        "scss/percent-placeholder-pattern": "[a-z][a-z0-9-]*",
+        // Arbitrary media values can be used, but explicitly
+        "scss/media-feature-value-dollar-variable": "always",
+      },
+    },
+  ],
 };

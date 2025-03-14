@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
 
-
 let API_URL;
 
 // Check to see if the environment variable DOCKER_GATEWAY_IP is populated, if so

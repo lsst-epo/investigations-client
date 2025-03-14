@@ -7,21 +7,21 @@ export const Input = styled.input`
   --input-color: var(--neutral95, #1f2121);
   --input-padding: 1ch;
 
+  display: block;
+  width: 100%;
+  height: 2em;
+  padding: 0;
+  padding-inline: var(--input-padding, 1ch);
+  margin-block-start: 1em;
+  font-size: 1em;
+  color: var(--input-color);
   background-color: var(--input-background-color);
   border: 1px solid var(--input-border-color);
   border-radius: 5px;
-  color: var(--input-color);
-  display: block;
-  font-size: 1em;
-  margin-block-start: 1em;
-  padding: 0;
-  padding-inline: var(--input-padding, 1ch);
-  width: 100%;
-  height: 2em;
 
-  &:not(:disabled):not(:read-only):hover,
-  &:not(:disabled):not(:read-only):active,
-  &:not(:disabled):not(:read-only):focus {
+  &:not(:disabled, :read-only):hover,
+  &:not(:disabled, :read-only):active,
+  &:not(:disabled, :read-only):focus {
     outline: 2px solid var(--input-border-color);
     outline-offset: -2px;
   }

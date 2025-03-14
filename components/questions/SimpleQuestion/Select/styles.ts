@@ -10,8 +10,8 @@ export const Select = styled(SelectListbox)`
     --select-height: 2rem;
 
     display: block;
-    font-size: 1rem;
     margin-block-start: var(--PADDING_SMALL, 20px);
+    font-size: 1rem;
 
     > button:not(:disabled):hover,
     > button:not(:disabled)[aria-expanded="true"] {

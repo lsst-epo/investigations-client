@@ -5,40 +5,39 @@ export const Dialog = styled.div`
 
   &[data-modal-open="true"] {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    max-width: calc(100vw - var(--scrollbar-width));
     top: 0;
     left: 0;
+    z-index: 1;
+    width: 100%;
+    max-width: calc(100vw - var(--scrollbar-width));
+    height: 100%;
     min-height: 100vh;
     overflow-y: hidden;
-    z-index: 1;
 
     > [aria-modal="true"] {
-      color: var(--white, #fff);
-      overflow-y: auto;
+      position: relative;
+      display: flex;
+      place-items: center center;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-items: center;
-      position: relative;
+      overflow-y: auto;
+      color: var(--white, #fff);
     }
   }
 `;
 
 export const Backdrop = styled.div<{ open: boolean }>`
-  grid-column: 2;
   z-index: -1;
+  grid-column: 2;
 
   ${({ open }) =>
     open
       ? css`
-          background-color: var(--neutral95, #1f2121);
+          position: absolute;
           visibility: visible;
           width: 100%;
           height: 100%;
-          position: absolute;
+          background-color: var(--neutral95, #1f2121);
         `
       : css`
           visibility: hidden;
