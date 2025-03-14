@@ -1,7 +1,5 @@
 "use client";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { useFormStatus } from "react-dom";
 import Button from "@rubin-epo/epo-react-lib/Button";
 

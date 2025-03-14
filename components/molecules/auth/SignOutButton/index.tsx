@@ -10,8 +10,6 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
 
   return (
     <form
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       action={signOutWithRedirect}
       // clear stored answers from browser storage
       onSubmit={() => localStorage.clear()}

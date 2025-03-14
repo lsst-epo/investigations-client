@@ -115,12 +115,7 @@ const SaveForm: FunctionComponent<{
   const hasStatusIssue = !!(user && userStatus !== "active");
 
   return (
-    <Styled.Form
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      action={saveAnswers}
-      id="saveForm"
-    >
+    <Styled.Form action={saveAnswers} id="saveForm">
       <Styled.Checkpoint>
         <Styled.CheckpointIcon>
           <IconComposer icon="Thumbtack" size="1.5em" />
