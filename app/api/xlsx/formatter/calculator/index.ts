@@ -2,7 +2,7 @@ import { serverTranslation } from "@/lib/i18n";
 import Calculator from "@/components/calculators/lib";
 import { CalculatorFormatter } from "..";
 
-const CalculatorFormatter: CalculatorFormatter = async ({
+const Formatter: CalculatorFormatter = async ({
   cell,
   locale,
   equation,
@@ -14,4 +14,4 @@ const CalculatorFormatter: CalculatorFormatter = async ({
     Calculator(equation, value, locale).result || t("review.no_answer");
 };
 
-export default CalculatorFormatter;
+export default Formatter;
