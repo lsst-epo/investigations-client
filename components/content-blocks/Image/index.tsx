@@ -89,7 +89,7 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = ({
         layout={finalLayout}
         withBackground={!isOpen}
       >
-        <Styled.Image
+        <img
           {...{ ...imageAttributes, width, height }}
           decoding="async"
           loading="lazy"

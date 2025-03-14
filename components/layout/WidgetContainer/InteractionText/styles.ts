@@ -2,24 +2,24 @@
 import styled from "styled-components";
 
 export const InstructionsContainer = styled.div`
-  color: var(--widget-text-color);
   display: flex;
   justify-content: center;
   height: var(--instructions-height, 2em);
+  color: var(--widget-text-color);
 `;
 
 export const InfoButton = styled.button`
   --icon-outline-width: 2px;
   --icon-outline-offset: 1px;
 
+  position: relative;
   display: flex;
+  gap: 1ch;
   align-items: center;
   justify-content: center;
-  gap: 1ch;
-  color: inherit;
   padding: calc(var(--icon-outline-width) + var(--icon-outline-offset));
-  position: relative;
   overflow: hidden;
+  color: inherit;
 
   svg {
     border-radius: 50%;
@@ -42,17 +42,17 @@ export const InfoButton = styled.button`
       right: 50%;
       white-space: nowrap;
       opacity: 0;
-      transition-property: right, opacity;
-      transition-duration: calc(var(--DURATION, 0.2s) / 2);
       transition-delay: 0s;
+      transition-duration: calc(var(--DURATION, 0.2s) / 2);
+      transition-property: right, opacity;
     }
 
     svg {
       position: relative;
       left: 50%;
       transform: translateX(-50%);
-      transition-property: left, transform;
       transition-duration: var(--DURATION, 0.2s);
+      transition-property: left, transform;
       will-change: left, transform;
     }
 
@@ -62,9 +62,10 @@ export const InfoButton = styled.button`
       span {
         right: 0;
         opacity: 1;
-        transition-duration: var(--DURATION, 0.2s);
         transition-delay: 0s, calc(var(--DURATION, 0.2s) / 2);
+        transition-duration: var(--DURATION, 0.2s);
       }
+
       svg {
         left: 0;
         transform: translateX(0);
@@ -74,34 +75,37 @@ export const InfoButton = styled.button`
 `;
 
 export const ToastBar = styled.div`
-  bottom: 0;
-  background-color: #e6ffe6;
-  color: var(--neutral95, #1f2121);
-  padding: 1.5em;
   position: fixed;
+  bottom: 0;
   width: 100%;
   max-width: 100%;
+  padding: 1.5em;
+  color: var(--neutral95, #1f2121);
+  background-color: #e6ffe6;
 
   @media (prefers-reduced-motion: no-preference) {
     --animation-time: var(--DURATION, 0.2s);
   }
 
+  /* stylelint-disable-next-line keyframes-name-pattern */
   @keyframes slideIn {
     from {
       transform: translateY(calc(100% + 2px));
     }
+
     to {
       transform: translateY(0);
     }
   }
+
+  /* stylelint-disable-next-line keyframes-name-pattern */
   @keyframes slideOut {
     from {
       transform: translateY(0);
     }
+
     to {
       transform: translateY(calc(100% + 2px));
     }
   }
 `;
-
-export const Instructions = styled.div``;

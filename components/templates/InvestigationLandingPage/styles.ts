@@ -8,17 +8,17 @@ import { BREAK_MOBILE, BREAK_DESKTOP } from "@/styles/globalStyles";
 export const PageContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
   min-height: calc(100dvh - 80px);
 `;
 
 export const AuthWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
   gap: 1em;
+  align-items: stretch;
+  justify-content: center;
 `;
 
 export const Image = styled(BaseImage)`

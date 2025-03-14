@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: var(--PADDING_SMALL);
+  justify-content: center;
   padding-top: var(--PADDING_SMALL);
 `;
 
@@ -20,7 +20,7 @@ export const ForgetCreateContainer = styled.div`
 `;
 
 export const LinkishButton = styled.button`
-  color: var(--turquoise70, #058b8c);
   font-size: 16px;
   font-weight: 700;
+  color: var(--turquoise70, #058b8c);
 `;

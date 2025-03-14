@@ -34,8 +34,8 @@ export const InputRow = styled.div`
 
 export const LiveRegion = styled.output`
   position: absolute;
-  left: -10000px;
   top: auto;
+  left: -10000px;
   width: 1px;
   height: 1px;
   overflow: hidden;

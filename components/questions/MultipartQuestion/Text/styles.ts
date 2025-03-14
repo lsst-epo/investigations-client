@@ -2,15 +2,15 @@
 import styled from "styled-components";
 
 export const InlineTextInput = styled.input`
+  box-sizing: content-box;
+  display: inline;
+  height: 100%;
+  padding: 0;
+  padding-inline: 1ch;
+  color: var(--question-input-color);
   background-color: var(--question-background-color);
   border: 1px solid var(--question-border-color);
   border-radius: 5px;
-  box-sizing: content-box;
-  color: var(--question-input-color);
-  display: inline;
-  padding: 0;
-  padding-inline: 1ch;
-  height: 100%;
 
   &:not(:disabled):hover,
   &:not(:disabled):active,
