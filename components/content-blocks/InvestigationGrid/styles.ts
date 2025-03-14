@@ -87,7 +87,7 @@ export const ImageWrapper = styled.div`
   img {
     width: ${fluidScale("200px", "150px")};
     height: ${fluidScale("200px", "150px")};
-    margin: calc(var(--Tile-image-margin-top) * -1) auto 0 auto;
+    margin: calc(var(--Tile-image-margin-top) * -1) auto 0;
     filter: var(--Tile-image-filter, none);
   }
 
@@ -124,8 +124,7 @@ export const Title = styled.div`
   transition: backgroud-color 0.2s;
 
   @media (max-width: ${BREAK_PHABLET}) {
-    align-self: center;
-    justify-self: left;
+    place-self: center left;
     text-align: left;
   }
 `;

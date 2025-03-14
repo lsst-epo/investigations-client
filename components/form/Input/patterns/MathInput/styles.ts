@@ -4,17 +4,18 @@ import styled from "styled-components";
 
 export const MathInput = styled(Input)`
   --input-background-color: var(--white, #fff);
-  -moz-appearance: textfield;
+
   display: block;
+  width: auto;
+  margin: 0;
   font-family: var(--FONT_STACK_BASE);
   font-size: 0.75em;
-  margin: 0;
-  width: auto;
   text-align: center;
+  appearance: textfield;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
     margin: 0;
+    appearance: none;
   }
 `;

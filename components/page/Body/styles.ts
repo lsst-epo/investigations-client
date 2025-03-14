@@ -16,9 +16,11 @@ export const Body = styled.body`
   @media screen and (min-width: ${token("BREAK_TABLET_MIN")}) {
     --pager-height: 80px;
   }
+
   @media screen and (min-width: ${token("BREAK_LARGE_TABLET")}) {
     --content-gap: var(--PADDING_SMALL, 20px);
   }
+
   @media screen and (min-width: ${token("BREAK_DESKTOP_SMALL")}) {
     --pager-height: 70px;
   }
@@ -27,10 +29,10 @@ export const Body = styled.body`
 export const WideWidthContainer = styled.div`
   --max-page-width: 2000px;
 
-  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   width: 100%;
   max-width: var(--max-page-width);
+  min-height: 100vh;
+  margin-inline: auto;
 `;

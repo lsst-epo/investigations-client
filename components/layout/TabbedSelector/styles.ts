@@ -13,16 +13,17 @@ const colors = [
 
 export const TabbedSelectorContainer = styled.div`
   --tab-panel-border-color: var(--turquoise55, #009fa1);
+
   container-type: inline-size;
 `;
 export const TabList = styled.div`
   --tab-gap: 0;
 
-  display: flex;
-  justify-content: space-between;
-  gap: var(--tab-gap);
   position: relative;
   top: 1px;
+  display: flex;
+  gap: var(--tab-gap);
+  justify-content: space-between;
 
   @container (min-width: ${token("BREAK_MOBILE_MIN")}) {
     --tab-gap: 0.25em;
@@ -36,17 +37,17 @@ export const Tab = styled.button`
   --tab-border-color: var(--neutral60, #6a6e6e);
   --tab-border-bottom-color: var(--tab-panel-border-color);
 
+  position: relative;
   box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  color: var(--tab-color);
   background-color: var(--white, #fff);
   border: 1px solid var(--tab-border-color);
   border-bottom-color: var(--tab-border-bottom-color);
-  color: var(--tab-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-  height: 30px;
-  position: relative;
 
   &:hover&:not([aria-selected="true"]) {
     outline: 2px solid var(--black, #000);
@@ -58,13 +59,13 @@ export const Tab = styled.button`
     --tab-border-bottom-color: var(--white, #fff);
 
     &::before {
-      background-color: var(--tab-color);
-      height: 4px;
-      width: calc(100% + 2px);
       position: absolute;
       top: -1px;
       left: -1px;
+      width: calc(100% + 2px);
+      height: 4px;
       content: "";
+      background-color: var(--tab-color);
     }
   }
 
@@ -81,9 +82,9 @@ export const TabPanel = styled.div`
     --tab-panel-padding: var(--PADDING_SMALL, 20px);
   }
 
+  padding-block: var(--tab-panel-padding);
   background-color: var(--white, #fff);
   border: 1px solid var(--tab-panel-border-color);
-  padding-block: var(--tab-panel-padding);
 `;
 
 export const ButtonRow = styled.div`
@@ -95,18 +96,18 @@ export const ButtonRow = styled.div`
 `;
 
 export const TabButton = styled.button`
-  background-color: var(--turquoise85, #12726c);
-  color: var(--white, #fff);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: calc(var(--tab-panel-padding) / 2) var(--tab-panel-padding);
   font-size: 75%;
   font-weight: var(--FONT_WEIGHT_BOLD, 600);
   line-height: 1;
-  padding: calc(var(--tab-panel-padding) / 2) var(--tab-panel-padding);
+  color: var(--white, #fff);
+  background-color: var(--turquoise85, #12726c);
 
   &:disabled {
-    background-color: var(--neutral60, #6a6e6e);
     cursor: default;
+    background-color: var(--neutral60, #6a6e6e);
   }
 `;

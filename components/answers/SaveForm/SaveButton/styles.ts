@@ -5,41 +5,42 @@ export const SaveButton = styled.button`
   --save-border-color: #707070;
 
   display: flex;
-  align-items: center;
   gap: 1em;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+  font-size: 1rem;
+  font-weight: bold;
   color: var(--black, #000);
   background-color: var(--save-background-color);
   border: 1px solid var(--save-border-color);
   border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 1em;
-  width: 100%;
 
-  &:not(:disabled):not([aria-disabled="true"]):hover,
-  &:not(:disabled):not([aria-disabled="true"]):focus-visible,
-  &:not(:disabled):not([aria-disabled="true"]):focus,
-  &:not(:disabled):not([aria-disabled="true"]).focus-visible {
-    box-shadow: inset 0 0 0 3px var(--white);
+  &:not(:disabled, [aria-disabled="true"]):hover,
+  &:not(:disabled, [aria-disabled="true"]):focus-visible,
+  &:not(:disabled, [aria-disabled="true"]):focus,
+  &:not(:disabled, [aria-disabled="true"]).focus-visible {
     outline: 2px solid var(--save-border-color);
     outline-offset: -3px;
+    box-shadow: inset 0 0 0 3px var(--white);
   }
 
   &:disabled,
   &[aria-disabled="true"] {
     --save-background-color: var(--neutral40);
+
     pointer-events: none;
   }
 `;
 
 export const SaveIcon = styled.div`
-  aspect-ratio: 1;
-  background-color: var(--white, #fff);
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 3em;
+  aspect-ratio: 1;
+  background-color: var(--white, #fff);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
   stroke-width: 0;
 `;

@@ -8,8 +8,8 @@ export const PageContainer = styled(Container)`
     "var(--PADDING_MEDIUM, 40px)",
     "var(--PADDING_SMALL, 20px)"
   )};
-  padding-block-start: 67px;
-  padding-block-end: calc(var(--pager-height) * 3);
+
+  padding-block: 67px calc(var(--pager-height) * 3);
 
   > * + * {
     margin-block-start: var(--content-block-margin);
@@ -18,5 +18,6 @@ export const PageContainer = styled(Container)`
 
 export const Title = styled.h1`
   --title-margin: ${fluidScale("2em", "1em")};
+
   margin-block-end: var(--title-margin);
 `;

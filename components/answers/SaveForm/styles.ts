@@ -2,8 +2,8 @@ import styled from "styled-components";
 import BaseSignUp from "@/components/molecules/auth/SignUpButton";
 
 export const Form = styled.form`
-  margin-inline: auto;
   max-width: 70ch;
+  margin-inline: auto;
 
   > * + * {
     margin-block-start: var(--content-block-margin, var(--PADDING_SMALL, 20px));
@@ -11,32 +11,32 @@ export const Form = styled.form`
 `;
 
 export const Checkpoint = styled.h2`
-  background-color: #b1f2ef;
-  border-radius: 5px;
-  color: var(--neutral95, #1f2121);
   display: flex;
-  align-items: center;
   gap: 1em;
+  align-items: center;
+  padding: 1em;
   font-size: 1rem;
   font-weight: normal;
-  padding: 1em;
+  color: var(--neutral95, #1f2121);
+  background-color: #b1f2ef;
+  border-radius: 5px;
 `;
 
 export const CheckpointIcon = styled.div`
-  aspect-ratio: 1;
-  background-color: var(--white, #fff);
-  border-radius: 50%;
-  color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 3em;
+  aspect-ratio: 1;
+  color: transparent;
+  background-color: var(--white, #fff);
+  border-radius: 50%;
 `;
 
 export const CheckpointDivider = styled.div`
-  background-color: var(--neutral95, #1f2121);
-  height: 3em;
   width: 1px;
+  height: 3em;
+  background-color: var(--neutral95, #1f2121);
 `;
 
 export const LoaderContainer = styled.div`
