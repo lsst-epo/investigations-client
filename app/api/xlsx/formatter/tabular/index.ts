@@ -13,7 +13,7 @@ const renderStaticContent = ({ text, equation }: Partial<Cell>) => {
   }
 };
 
-const TabularFormatter: TabularFormatter = async ({
+const Formatter: TabularFormatter = async ({
   cell,
   locale,
   rows,
@@ -47,4 +47,4 @@ const TabularFormatter: TabularFormatter = async ({
   cell.value = parsedRows;
 };
 
-export default TabularFormatter;
+export default Formatter;

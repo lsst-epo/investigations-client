@@ -31,8 +31,6 @@ export default function SignUp() {
       onClose={closeModal}
     >
       <Styled.SignUpForm
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         action={async (formData: FormData) => {
           try {
             if (pendingGroup === "educators") {

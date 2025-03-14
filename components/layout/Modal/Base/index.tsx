@@ -9,7 +9,8 @@ interface BaseModalProps {
 }
 
 const BaseModal = forwardRef<HTMLDivElement, PropsWithChildren<BaseModalProps>>(
-  ({ isOpen = false, closeModal, id, children }, ref) => {
+  (props: PropsWithChildren<BaseModalProps>, ref) => {
+    const { isOpen = false, closeModal, id, children } = props;
     const handleKeyDown = ({ key }: { key: string }) => {
       if (!isOpen) return;
       if (key === "Escape") {
