@@ -36,7 +36,11 @@ const storedToNumericValues = (
   return numericValues;
 };
 
-const Calculator: Calculator = (equation, value, locale = fallbackLng) => {
+const CalculatorFactory: Calculator = (
+  equation,
+  value,
+  locale = fallbackLng
+) => {
   const variables = storedToNumericValues(value, locale);
   const config = Config[equation];
 
@@ -62,4 +66,4 @@ const Calculator: Calculator = (equation, value, locale = fallbackLng) => {
   };
 };
 
-export default Calculator;
+export default CalculatorFactory;

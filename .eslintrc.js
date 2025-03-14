@@ -9,12 +9,8 @@ module.exports = {
       version: "detect",
     },
   },
-  globals: {
-    React: true,
-    context: true,
-    JSX: true,
-  },
   rules: {
+    "no-redeclare": "off",
     "array-callback-return": 0,
     "arrow-body-style": 0,
     "global-require": 0,
@@ -51,7 +47,6 @@ module.exports = {
         allowObject: true,
       },
     ],
-    "@typescript-eslint/no-explicit-any": 0,
     "jsx-quotes": 2,
     "block-scoped-var": 0,
     "comma-dangle": 0,
@@ -99,23 +94,22 @@ module.exports = {
     "spaced-comment": 2,
     "unused-imports/no-unused-imports": 2,
   },
-  plugins: [
-    "jsx-a11y",
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "unused-imports",
-    "promise",
-  ],
+  plugins: ["jsx-a11y", "react", "react-hooks", "unused-imports", "promise"],
   extends: [
     "standard",
     "next",
     "prettier",
     "plugin:jsx-a11y/recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:storybook/recommended",
   ],
-  parser: "@typescript-eslint/parser",
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "no-undef": "off",
+      },
+    },
+  ],
 };

@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { exec } = require("child_process");
 
 /* eslint-disable no-console */
