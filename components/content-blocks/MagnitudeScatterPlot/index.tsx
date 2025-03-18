@@ -3,7 +3,7 @@ import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { ObservationsPlot } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import tags from "@/lib/tags";
 
 const Fragment = graphql(`

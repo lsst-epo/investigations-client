@@ -1,4 +1,4 @@
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { WidgetInput } from "@/types/answers";
 import { FormatterBaseProps, WidgetFormatterFactory } from "..";
 import * as formatters from "./formatters";

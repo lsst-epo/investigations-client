@@ -4,7 +4,7 @@ import Figure from "@rubin-epo/epo-react-lib/Figure";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { captionShaper, videoShaper } from "@/helpers";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import * as Styled from "./styles";
 
 const Fragment = graphql(`

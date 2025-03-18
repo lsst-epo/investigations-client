@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Workbook } from "exceljs";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { Answers } from "@/types/answers";
 import formatters from "./formatter";

@@ -1,5 +1,5 @@
 import temml from "temml";
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { Cell } from "@/components/layout/Table/helpers";
 import { TabularFormatter } from "..";
 

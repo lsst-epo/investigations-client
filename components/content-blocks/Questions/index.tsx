@@ -1,5 +1,6 @@
+"server-only";
 import { FunctionComponent } from "react";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
 import QuestionFactory from "@/components/factories/QuestionFactory";

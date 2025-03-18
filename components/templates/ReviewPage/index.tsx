@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { fallbackLng } from "@/lib/i18n/settings";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import ReviewList from "@/components/review/ReviewList";
 import ReviewExport from "@/components/review/Export";

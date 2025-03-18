@@ -1,5 +1,5 @@
 import ErrorPageTemplate from "@/components/templates/ErrorPage";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import { fallbackLng } from "@/lib/i18n/settings";
 
 const RootNotFound = async () => {

@@ -1,4 +1,4 @@
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { InlineFormatterFactory } from "..";
 import { getLabelByValue } from "@/components/questions/utils";

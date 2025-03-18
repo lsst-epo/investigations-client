@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import Button from "@rubin-epo/epo-react-lib/Button";
 import Link from "next/link";

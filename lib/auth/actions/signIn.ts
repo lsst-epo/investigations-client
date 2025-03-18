@@ -7,7 +7,7 @@ import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 import { CombinedError } from "@urql/core";
 import { cookies } from "next/headers";
 import { fallbackLng } from "@/lib/i18n/settings";
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { redirect } from "next/navigation";
 
 const Mutation = graphql(`
