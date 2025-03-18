@@ -2,7 +2,6 @@ import { FunctionComponent } from "react";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";
 import Marker from "@rubin-epo/epo-react-lib/Marker";
-import ProgressBar from "@rubin-epo/epo-react-lib/ProgressBar";
 import { useTranslation } from "react-i18next";
 import useProgress from "@/contexts/Progress";
 import * as Styled from "./styles";
@@ -50,7 +49,7 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
             $proportion={(pages.length / totalPages) * 100}
           >
             <ScreenreaderText id={labelId}>{name}</ScreenreaderText>
-            <ProgressBar
+            <Styled.ProgressBar
               min={firstPage}
               max={lastPage}
               value={
@@ -77,7 +76,7 @@ const HeaderProgress: FunctionComponent<HeaderProgressProps> = ({
                   size={10}
                 />
               </Marker>
-            </ProgressBar>
+            </Styled.ProgressBar>
           </Styled.SectionProgress>
         );
       })}

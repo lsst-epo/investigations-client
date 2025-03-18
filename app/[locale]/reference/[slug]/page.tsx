@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
 import { fallbackLng } from "@/lib/i18n/settings";
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { RootParams } from "@/app/[locale]/layout";
 import ReferenceContentPage from "@/components/templates/ReferenceContentPage";
 import { getSite } from "@/helpers";

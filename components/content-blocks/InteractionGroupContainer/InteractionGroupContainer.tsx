@@ -1,4 +1,4 @@
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { blockMap } from "@/components/factories/ContentBlockFactory/ContentBlockFactory";
 import * as Styled from "./styles";
@@ -47,6 +47,7 @@ export default async function InteractionGroupContainerBlock(props: {
           data={block}
           site={props.site}
           pageId={props.pageId}
+          locale={props.locale}
           isInteraction
         />
       );

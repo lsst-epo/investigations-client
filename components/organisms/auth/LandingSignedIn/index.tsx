@@ -1,5 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import SignOut from "@/components/molecules/auth/SignOutButton";
 import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
 import ResendActivationButton from "@/components/molecules/auth/ResendActivationButton";

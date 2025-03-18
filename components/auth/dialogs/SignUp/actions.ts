@@ -4,7 +4,7 @@ import { graphql, useFragment } from "@/gql/public-schema";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 import { CombinedError } from "@urql/core";
 import { mutateAPI } from "@/lib/fetch";
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { setAuthCookies } from "@/components/auth/serverHelpers";
 import { fallbackLng } from "@/lib/i18n/settings";
 

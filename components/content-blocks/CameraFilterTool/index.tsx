@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import { BaseContentBlockProps } from "@/components/shapes";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import CameraFilterTool from "@rubin-epo/epo-widget-lib/CameraFilter";
