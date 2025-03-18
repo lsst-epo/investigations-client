@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
-import { useTranslation } from "@/lib/i18n";
+import { useTranslation } from "@/lib/i18n/server";
 import SignIn from "@/components/molecules/auth/SignInButton";
 import SignUp from "@/components/molecules/auth/SignUpButton";
 import InteractionDescription from "@/components/atomic/InteractionDescription";
