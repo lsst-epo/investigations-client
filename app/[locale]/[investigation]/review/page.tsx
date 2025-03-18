@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import type { Metadata } from "next";
 import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { ReviewPageProps } from "./layout";
 
 import {

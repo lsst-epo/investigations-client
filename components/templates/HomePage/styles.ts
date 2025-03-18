@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import { fluidScale } from "@rubin-epo/epo-react-lib/styles";

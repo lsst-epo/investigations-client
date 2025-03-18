@@ -87,7 +87,7 @@ i18next is set up to work for both server and client components in the app direc
 There is a server `useTranslation` hook in `lib/i18n` that can be used by server components, this hook requires passing in the namespaces and locale.
 
 ```tsx
-import { useTranslation } from `@\lib\i18n`
+import { useTranslation } from `@/lib/i18n/server`;
 
 const Layout = () => {
   const { t } = await useTranslation("es", "translation");

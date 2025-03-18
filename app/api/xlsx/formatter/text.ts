@@ -1,5 +1,5 @@
 import { fallbackLng } from "@/lib/i18n/settings";
-import { serverTranslation } from "@/lib/i18n";
+import { serverTranslation } from "@/lib/i18n/server";
 import { TextFormatter } from ".";
 
 const textFormatter: TextFormatter = async ({
