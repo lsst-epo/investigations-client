@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   ignoreFiles: ["theme/styles/base/_resets.scss"],
   defaultSeverity: "error",
   rules: {
