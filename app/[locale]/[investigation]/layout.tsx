@@ -19,8 +19,8 @@ export interface InvestigationParams {
 }
 
 export interface InvestigationProps {
-  params: RootParams & InvestigationParams;
-  searchParams: Record<string, string | Array<string> | undefined>;
+  params: Promise<RootParams & InvestigationParams>;
+  searchParams: Promise<Record<string, string | Array<string> | undefined>>;
 }
 
 const InvestigationMetadataQuery = graphql(`
@@ -33,9 +33,14 @@ const InvestigationMetadataQuery = graphql(`
   }
 `);
 
-export async function generateMetadata({
-  params: { investigation, locale },
-}: InvestigationProps): Promise<Metadata> {
+export async function generateMetadata(props: InvestigationProps): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    investigation,
+    locale
+  } = params;
+
   const site = getSite(locale);
 
   const { data } = await queryAPI({
@@ -146,7 +151,18 @@ const InvestigationIdQuery = graphql(`
 
 const InvestigationLandingLayout: FunctionComponent<
   PropsWithChildren<InvestigationProps>
-> = async ({ children, params: { locale, investigation } }) => {
+> = async props => {
+  const params = await props.params;
+
+  const {
+    locale,
+    investigation
+  } = params;
+
+  const {
+    children
+  } = props;
+
   const site = getSite(locale);
 
   const { data } = await queryAPI({

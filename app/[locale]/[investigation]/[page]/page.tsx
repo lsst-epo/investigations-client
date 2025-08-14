@@ -34,9 +34,15 @@ const Query = graphql(`
   }
 `);
 
-export async function generateMetadata({
-  params: { locale, investigation, page },
-}: InvestigationPageProps): Promise<Metadata> {
+export async function generateMetadata(props: InvestigationPageProps): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    locale,
+    investigation,
+    page
+  } = params;
+
   const site = getSite(locale);
   // add _es to property names if site is not English
   const uri = `${investigation}/${page}`;
@@ -54,13 +60,19 @@ export async function generateMetadata({
   return title ? { title, twitter: { title } } : {};
 }
 
-const InvestigationPage: FunctionComponent<InvestigationPageProps> = async ({
-  params: { locale, investigation, page },
-  searchParams,
-}) => {
+const InvestigationPage: FunctionComponent<InvestigationPageProps> = async props => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+
+  const {
+    locale,
+    investigation,
+    page
+  } = params;
+
   const site = getSite(locale);
   const { preview: previewToken } = searchParams;
-  const { isEnabled: isPreview } = draftMode();
+  const { isEnabled: isPreview } = await draftMode();
   const uri = `${investigation}/${page}`;
 
   const { data } = await queryAPI({

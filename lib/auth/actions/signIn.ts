@@ -22,7 +22,7 @@ const parseErrors = async (
   { graphQLErrors, networkError }: CombinedError,
   email: string
 ): Promise<FormState> => {
-  const locale = cookies().get("NEXT_LOCALE")?.value || fallbackLng;
+  const locale = (await cookies()).get("NEXT_LOCALE")?.value || fallbackLng;
   const { t } = await serverTranslation(locale, "translation");
 
   if (networkError) {
@@ -36,7 +36,7 @@ const parseErrors = async (
     const { message } = graphQLErrors[0];
 
     if (message.includes("activate")) {
-      cookies().set("userToResend", email, { maxAge: 300 });
+      (await cookies()).set("userToResend", email, { maxAge: 300 });
 
       return {
         status: "error",

@@ -23,8 +23,8 @@ export interface RootParams {
 }
 
 export interface RootProps {
-  params: RootParams;
-  searchParams: Record<string, string | Array<string> | undefined>;
+  params: Promise<RootParams>;
+  searchParams: Promise<Record<string, string | Array<string> | undefined>>;
 }
 
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
@@ -76,9 +76,13 @@ const getGlobals = async (locale = "en"): Promise<GlobalData | undefined> => {
   };
 };
 
-export async function generateMetadata({
-  params: { locale },
-}: RootProps): Promise<Metadata> {
+export async function generateMetadata(props: RootProps): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    locale
+  } = params;
+
   const globalData = await getGlobals(locale);
   const description = globalData?.siteInfo?.siteDescription;
 
@@ -91,10 +95,17 @@ export const generateStaticParams = () => {
   });
 };
 
-const RootLayout: FunctionComponent<PropsWithChildren<RootProps>> = async ({
-  params: { locale = fallbackLng },
-  children,
-}) => {
+const RootLayout: FunctionComponent<PropsWithChildren<RootProps>> = async props => {
+  const params = await props.params;
+
+  const {
+    locale = fallbackLng
+  } = params;
+
+  const {
+    children
+  } = props;
+
   const globalData = await getGlobals(locale);
 
   if (!globalData) {

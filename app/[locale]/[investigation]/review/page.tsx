@@ -63,18 +63,27 @@ const Query = graphql(`
   }
 `);
 
-export async function generateMetadata({
-  params: { locale },
-}: ReviewPageProps): Promise<Metadata> {
+export async function generateMetadata(props: ReviewPageProps): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    locale
+  } = params;
+
   const { t } = await serverTranslation(locale, "translation");
   return {
     title: t("review.metadata.title"),
   };
 }
 
-const ReviewPage: FunctionComponent<ReviewPageProps> = async ({
-  params: { locale, investigation },
-}) => {
+const ReviewPage: FunctionComponent<ReviewPageProps> = async props => {
+  const params = await props.params;
+
+  const {
+    locale,
+    investigation
+  } = params;
+
   const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
   const site = getSite(locale);

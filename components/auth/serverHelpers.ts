@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import { cookies, type UnsafeUnwrappedCookies } from "next/headers";
 import { jwtDecode } from "jwt-decode";
 import { useFragment } from "@/gql/public-schema";
 import type { PendingGroup, Token } from "@/types/auth";
@@ -17,11 +17,11 @@ export const COOKIE_OPTIONS = {
 export function setAuthCookies(data: AuthFragmentFragment) {
   const { jwt, refreshToken, refreshTokenExpiresAt } = data;
 
-  cookies().set("craftToken", jwt, {
+  (cookies() as unknown as UnsafeUnwrappedCookies).set("craftToken", jwt, {
     ...COOKIE_OPTIONS,
     expires: refreshTokenExpiresAt,
   });
-  cookies().set("craftRefreshToken", refreshToken, {
+  (cookies() as unknown as UnsafeUnwrappedCookies).set("craftRefreshToken", refreshToken, {
     ...COOKIE_OPTIONS,
     expires: refreshTokenExpiresAt,
   });
@@ -31,14 +31,14 @@ export function setAuthCookies(data: AuthFragmentFragment) {
   const userData = useFragment(UserFragmentFragmentDoc, data.user);
 
   if (userData?.status) {
-    cookies().set("craftUserStatus", userData.status, {
+    (cookies() as unknown as UnsafeUnwrappedCookies).set("craftUserStatus", userData.status, {
       ...COOKIE_OPTIONS,
       expires: refreshTokenExpiresAt,
     });
   }
 
   if (userData?.id) {
-    cookies().set("craftUserId", userData.id, {
+    (cookies() as unknown as UnsafeUnwrappedCookies).set("craftUserId", userData.id, {
       ...COOKIE_OPTIONS,
       expires: refreshTokenExpiresAt,
     });
@@ -46,10 +46,10 @@ export function setAuthCookies(data: AuthFragmentFragment) {
 }
 
 export const getAuthCookies = cache(() => {
-  const craftToken = cookies().get("craftToken")?.value;
-  const craftRefreshToken = cookies().get("craftRefreshToken")?.value;
-  const craftUserStatus = cookies().get("craftUserStatus")?.value;
-  const craftUserId = cookies().get("craftUserId")?.value;
+  const craftToken = (cookies() as unknown as UnsafeUnwrappedCookies).get("craftToken")?.value;
+  const craftRefreshToken = (cookies() as unknown as UnsafeUnwrappedCookies).get("craftRefreshToken")?.value;
+  const craftUserStatus = (cookies() as unknown as UnsafeUnwrappedCookies).get("craftUserStatus")?.value;
+  const craftUserId = (cookies() as unknown as UnsafeUnwrappedCookies).get("craftUserId")?.value;
 
   return {
     craftToken,
@@ -60,10 +60,10 @@ export const getAuthCookies = cache(() => {
 });
 
 export function deleteAuthCookies() {
-  cookies().delete("craftToken");
-  cookies().delete("craftRefreshToken");
-  cookies().delete("craftUserStatus");
-  cookies().delete("craftUserId");
+  (cookies() as unknown as UnsafeUnwrappedCookies).delete("craftToken");
+  (cookies() as unknown as UnsafeUnwrappedCookies).delete("craftRefreshToken");
+  (cookies() as unknown as UnsafeUnwrappedCookies).delete("craftUserStatus");
+  (cookies() as unknown as UnsafeUnwrappedCookies).delete("craftUserId");
 }
 
 export function getUserFromJwt(jwt?: Token) {

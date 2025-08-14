@@ -17,7 +17,7 @@ const Mutation = graphql(`
 export default async function resendActivationEmail() {
   const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
-  const email = cookies().get("userToResend")?.value;
+  const email = (await cookies()).get("userToResend")?.value;
   const emailToUse = email || user?.email;
 
   if (!emailToUse) {
