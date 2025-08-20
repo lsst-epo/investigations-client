@@ -14,7 +14,7 @@ interface TextProps extends BaseContentBlockProps {
   data: FragmentType<typeof Fragment>;
 }
 
-const EquationContentBlock: FunctionComponent<TextProps> = async (props) => {
+const EquationContentBlock: FunctionComponent<TextProps> = (props) => {
   const { latex } = useFragment(Fragment, props.data);
 
   if (!latex) return null;
