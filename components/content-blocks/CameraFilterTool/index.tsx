@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { useTranslation } from "@/lib/i18n/server";
 import { BaseContentBlockProps } from "@/components/shapes";
@@ -14,9 +14,9 @@ const Fragment = graphql(`
 
 const CameraFilterToolBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
-> = async ({ data, locale }) => {
+> = ({ data, locale }) => {
   const { widgetInstructions } = useFragment(Fragment, data);
-  const { t } = await useTranslation(locale, "translation");
+  const { t } = use(useTranslation(locale, "translation"));
 
   return (
     <>

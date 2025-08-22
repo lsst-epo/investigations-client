@@ -1,5 +1,5 @@
 "server-only";
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import { useTranslation } from "@/lib/i18n/server";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
@@ -18,10 +18,10 @@ const Fragment = graphql(`
 
 const QuestionsContentBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
-> = async ({ isInteraction = false, locale, ...props }) => {
+> = ({ isInteraction = false, locale, ...props }) => {
   const data = useFragment(Fragment, props.data);
 
-  const { t } = await useTranslation(locale, "translation");
+  const { t } = use(useTranslation(locale, "translation"));
 
   return (
     <section className="content-block">

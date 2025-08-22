@@ -1,9 +1,9 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { ObservationsPlot } from "@rubin-epo/epo-widget-lib/LightCurvePlot";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
-import { useTranslation } from "@/lib/i18n/server";
+import { serverTranslation } from "@/lib/i18n/server";
 import tags from "@/lib/tags";
 
 const Fragment = graphql(`
@@ -42,8 +42,8 @@ const getDataset = async (url?: string): Promise<Array<string>> => {
 
 const MagnitudeScatterPlotBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
-> = async ({ data, locale }) => {
-  const { t } = await useTranslation(locale, "translation");
+> = ({ data, locale }) => {
+  const { t } = use(serverTranslation(locale, "translation"));
   const { lightCurveTool } = useFragment(Fragment, data);
 
   if (
@@ -64,7 +64,7 @@ const MagnitudeScatterPlotBlock: FunctionComponent<
 
   const [{ peakMjd, json, title }] = dataset;
 
-  const alerts = await getDataset(json[0]?.url || undefined);
+  const alerts = use(getDataset(json[0]?.url || undefined));
 
   return (
     <WidgetContainerWithModal title={t("widgets.light_curve.title")}>

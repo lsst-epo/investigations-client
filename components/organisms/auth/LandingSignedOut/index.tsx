@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import Buttonish from "@rubin-epo/epo-react-lib/Buttonish";
 import { useTranslation } from "@/lib/i18n/server";
 import SignIn from "@/components/molecules/auth/SignInButton";
@@ -8,8 +8,8 @@ import InteractionDescription from "@/components/atomic/InteractionDescription";
 const SignedOut: FunctionComponent<{
   firstPage: string;
   locale: string;
-}> = async ({ firstPage, locale }) => {
-  const { t } = await useTranslation(locale, "translation");
+}> = ({ firstPage, locale }) => {
+  const { t } = use(useTranslation(locale, "translation"));
   return (
     <>
       <SignIn />
