@@ -14,34 +14,76 @@ export const COOKIE_OPTIONS = {
   sameSite: true,
 } as const;
 
-export function setAuthCookies(data: AuthFragmentFragment) {
+export async function setAuthCookies(data: AuthFragmentFragment) {
   const { jwt, refreshToken, refreshTokenExpiresAt } = data;
 
+  // This is the original implementation, except for "as unknown as UnsafeUnwrappedCookies"
+  // which was added from the codemod as a bandaid until we make this async
   (cookies() as unknown as UnsafeUnwrappedCookies).set("craftToken", jwt, {
     ...COOKIE_OPTIONS,
     expires: refreshTokenExpiresAt,
   });
-  (cookies() as unknown as UnsafeUnwrappedCookies).set("craftRefreshToken", refreshToken, {
-    ...COOKIE_OPTIONS,
-    expires: refreshTokenExpiresAt,
-  });
+
+  // This was my attempt to handle things async, with the addition of the async
+  // keyword in the function definition. I had different variations because I was
+  // with different errors (using set() on a ReadOnlyRequestCookie was the main one)
+  // but I landed here with a TypeError coming from the `jwt` object.
+  //
+  // const cookieStore = await cookies();
+  // cookieStore.set("craftToken", jwt, {
+  //   ...COOKIE_OPTIONS,
+  //   expires: refreshTokenExpiresAt,
+  // });
+
+  // This was me seeing if the TypeError was the final boss (it's not). I got
+  // errors coming from the cookie options and rearranged things this far. It's
+  // currently still erroring on httpOnly.
+  // https://nextjs.org/docs/app/api-reference/functions/cookies#options
+  //
+  // if (jwt) {
+  //   cookieStore.set({
+  //     name: "craftToken",
+  //     value: jwt,
+  //     httpOnly: true,
+  //     path: "/",
+  //     sameSite: "lax", // TODO: Chose lax because it's the default, check with Eric
+  //     expires: refreshTokenExpiresAt,
+  //   });
+  // }
+
+  (cookies() as unknown as UnsafeUnwrappedCookies).set(
+    "craftRefreshToken",
+    refreshToken,
+    {
+      ...COOKIE_OPTIONS,
+      expires: refreshTokenExpiresAt,
+    }
+  );
 
   // not actually a client-side hook, just named like one
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const userData = useFragment(UserFragmentFragmentDoc, data.user);
 
   if (userData?.status) {
-    (cookies() as unknown as UnsafeUnwrappedCookies).set("craftUserStatus", userData.status, {
-      ...COOKIE_OPTIONS,
-      expires: refreshTokenExpiresAt,
-    });
+    (cookies() as unknown as UnsafeUnwrappedCookies).set(
+      "craftUserStatus",
+      userData.status,
+      {
+        ...COOKIE_OPTIONS,
+        expires: refreshTokenExpiresAt,
+      }
+    );
   }
 
   if (userData?.id) {
-    (cookies() as unknown as UnsafeUnwrappedCookies).set("craftUserId", userData.id, {
-      ...COOKIE_OPTIONS,
-      expires: refreshTokenExpiresAt,
-    });
+    (cookies() as unknown as UnsafeUnwrappedCookies).set(
+      "craftUserId",
+      userData.id,
+      {
+        ...COOKIE_OPTIONS,
+        expires: refreshTokenExpiresAt,
+      }
+    );
   }
 }
 
