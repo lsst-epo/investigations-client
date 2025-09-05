@@ -60,12 +60,12 @@ export const getAuthCookies = cache(async () => {
   };
 });
 
-export async function deleteAuthCookies() {
+export const deleteAuthCookies = async () => {
   (await cookies()).delete("craftToken");
   (await cookies()).delete("craftRefreshToken");
   (await cookies()).delete("craftUserStatus");
   (await cookies()).delete("craftUserId");
-}
+};
 
 export function getUserFromJwt(jwt?: Token) {
   if (!jwt) return undefined;

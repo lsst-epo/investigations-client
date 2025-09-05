@@ -2,10 +2,11 @@
 
 import { redirect } from "next/navigation";
 import {
-  deleteAuthCookies,
+  // deleteAuthCookies,
   getAuthCookies,
 } from "@/components/auth/serverHelpers";
 import revokeRefreshToken from "@/lib/auth/session/revoke";
+import { cookies } from "next/headers";
 
 async function signOut(redirectTo: string) {
   const { craftRefreshToken } = getAuthCookies();
@@ -13,7 +14,10 @@ async function signOut(redirectTo: string) {
   if (craftRefreshToken) {
     await revokeRefreshToken(craftRefreshToken);
   }
-  deleteAuthCookies();
+  (await cookies()).delete("craftToken");
+  (await cookies()).delete("craftRefreshToken");
+  (await cookies()).delete("craftUserStatus");
+  (await cookies()).delete("craftUserId");
   redirect(redirectTo);
 }
 
