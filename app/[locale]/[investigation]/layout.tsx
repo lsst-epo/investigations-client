@@ -178,8 +178,21 @@ const InvestigationLandingLayout: FunctionComponent<
   }
 
   const { children: pages = [], acknowledgements } = data.entry;
+  let craftToken;
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/cookie", {
+      method: "GET",
+    });
 
-  const { craftToken } = await getAuthCookies();
+    if (!res.ok) {
+      const err = await res.json();
+      console.warn(err.message);
+    }
+    craftToken = (await res.json()).authCookies.craftToken;
+  } catch (error) {
+    console.warn("Unexpected error while fetching cookie: ", error);
+  }
+
   const user = getUserFromJwt(craftToken);
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;

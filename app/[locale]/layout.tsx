@@ -113,7 +113,6 @@ const RootLayout: FunctionComponent<PropsWithChildren<RootProps>> = async props 
   }
 
   const { craftToken } = await getAuthCookies();
-
   return (
     <html lang={locale}>
       <head></head>
