@@ -8,16 +8,25 @@ import {
 import revokeRefreshToken from "@/lib/auth/session/revoke";
 import { cookies } from "next/headers";
 
-async function signOut(redirectTo: string) {
-  const { craftRefreshToken } = getAuthCookies();
+const deleteAuthCookies = async () => {
+  console.info("in deleteAuthCookies");
 
-  if (craftRefreshToken) {
-    await revokeRefreshToken(craftRefreshToken);
-  }
   (await cookies()).delete("craftToken");
   (await cookies()).delete("craftRefreshToken");
   (await cookies()).delete("craftUserStatus");
   (await cookies()).delete("craftUserId");
+};
+
+async function signOut(redirectTo: string) {
+  console.info("in signOut action");
+  const { craftRefreshToken } = await getAuthCookies();
+
+  if (craftRefreshToken) {
+    await revokeRefreshToken(craftRefreshToken);
+  }
+
+  await deleteAuthCookies();
+
   redirect(redirectTo);
 }
 

@@ -186,11 +186,11 @@ const InvestigationLandingLayout: FunctionComponent<
 
     if (!res.ok) {
       const err = await res.json();
-      console.warn(err.message);
+      console.error(err.message || "Unexpected error while retrieving cookies");
     }
     craftToken = (await res.json()).authCookies.craftToken;
-  } catch (error) {
-    console.warn("Unexpected error while fetching cookie: ", error);
+  } catch (error: any) {
+      console.error(error.message || "Failed to retrieve cookies");
   }
 
   const user = getUserFromJwt(craftToken);
