@@ -31,6 +31,12 @@ const userGroups = {
   educators: { mutation: EducatorMutation, directive: "googleSignInEducators" },
 };
 
+export const COOKIE_OPTIONS = {
+  httpOnly: true,
+  path: "/",
+  sameSite: true,
+} as const;
+
 async function authenticate(idToken: string, group: string) {
   const { mutation, directive } = userGroups[group];
 
@@ -107,11 +113,10 @@ export async function POST(request: NextRequest) {
   const { craftToken, craftRefreshToken, craftUserStatus, craftUserId } =
     await getAuthCookies();
 
-  if (craftToken) res.cookies.set("craftToken", craftToken);
-  if (craftRefreshToken)
-    res.cookies.set("craftRefreshToken", craftRefreshToken);
-  if (craftUserStatus) res.cookies.set("craftUserStatus", craftUserStatus);
-  if (craftUserId) res.cookies.set("craftUserId", craftUserId);
+  if (craftToken) res.cookies.set("craftToken", craftToken, COOKIE_OPTIONS);
+  if (craftRefreshToken) res.cookies.set("craftRefreshToken", craftRefreshToken, COOKIE_OPTIONS);
+  if (craftUserStatus) res.cookies.set("craftUserStatus", craftUserStatus, COOKIE_OPTIONS);
+  if (craftUserId) res.cookies.set("craftUserId", craftUserId, COOKIE_OPTIONS);
 
   return res;
 }
