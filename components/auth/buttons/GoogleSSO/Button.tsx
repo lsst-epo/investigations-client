@@ -34,7 +34,7 @@ export default function SSOButton({
     const { id_token: idToken } = await getTokens(code);
     try {
       if (!idToken) return handleError();
-      await fetch("/api/cookie", {
+      await fetch("/api/auth-cookies", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

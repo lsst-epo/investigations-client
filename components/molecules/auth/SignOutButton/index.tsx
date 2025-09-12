@@ -16,7 +16,7 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
     console.info("in handleSignOut");
     try {
       const res = await fetch(
-        process.env.NEXT_PUBLIC_BASE_URL + "/api/cookie",
+        process.env.NEXT_PUBLIC_BASE_URL + "/api/auth-cookies",
         {
           method: "DELETE",
           body: JSON.stringify({ path: redirectTo }),
