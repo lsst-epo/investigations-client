@@ -2,13 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { mutateAPI } from "@/lib/fetch";
 import { graphql, useFragment as getFragment } from "@/gql/public-schema";
 import {
+  UserFragmentFragmentDoc,
   AuthFragmentFragment,
   AuthFragmentFragmentDoc,
 } from "gql/public-schema/graphql";
 import { revalidatePath } from "next/cache";
 import revokeRefreshToken from "@/lib/auth/session/revoke";
-import { cookies } from "next/headers";
 import { cache } from "react";
+import { cookies } from "next/headers";
 
 const StudentMutation = graphql(`
   mutation GoogleSignInStudent($idToken: String!) {
@@ -37,7 +38,20 @@ export const COOKIE_OPTIONS = {
   sameSite: true,
 } as const;
 
-// Helper functions
+export const getAuthCookies = cache(async () => {
+  const craftToken = (await cookies()).get("craftToken")?.value;
+  const craftRefreshToken = (await cookies()).get("craftRefreshToken")?.value;
+  const craftUserStatus = (await cookies()).get("craftUserStatus")?.value;
+  const craftUserId = (await cookies()).get("craftUserId")?.value;
+
+  return {
+    craftToken,
+    craftRefreshToken,
+    craftUserStatus,
+    craftUserId,
+  };
+});
+
 export async function setAuthCookies(data: AuthFragmentFragment) {
   const { jwt, refreshToken, refreshTokenExpiresAt } = data;
 
@@ -69,20 +83,6 @@ export async function setAuthCookies(data: AuthFragmentFragment) {
     });
   }
 }
-
-export const getAuthCookies = cache(async () => {
-  const craftToken = (await cookies()).get("craftToken")?.value;
-  const craftRefreshToken = (await cookies()).get("craftRefreshToken")?.value;
-  const craftUserStatus = (await cookies()).get("craftUserStatus")?.value;
-  const craftUserId = (await cookies()).get("craftUserId")?.value;
-
-  return {
-    craftToken,
-    craftRefreshToken,
-    craftUserStatus,
-    craftUserId,
-  };
-});
 
 export const deleteAuthCookies = async () => {
   (await cookies()).delete("craftToken");
@@ -128,7 +128,6 @@ function conditionallyHandleError(data: AuthFragmentFragment, error: any) {
   }
 }
 
-// HTTP Routes
 export async function GET(request: Request) {
   try {
     const cookies = await getAuthCookies();
