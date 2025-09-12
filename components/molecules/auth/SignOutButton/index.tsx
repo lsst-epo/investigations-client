@@ -13,7 +13,6 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
 
   const handleSignOut = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.info("in handleSignOut");
     try {
       const res = await fetch(
         process.env.NEXT_PUBLIC_BASE_URL + "/api/auth-cookies",
@@ -27,9 +26,7 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
         console.error(err.message || "Unexpected error while logging out");
       }
       localStorage.clear();
-      console.info("refreshing router");
       router.refresh();
-      console.info("redirecting to: ", redirectTo);
       redirect(redirectTo);
     } catch (error: any) {
       console.error(error.message || "Logout failed");
