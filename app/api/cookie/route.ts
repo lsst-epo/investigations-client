@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { mutateAPI } from "@/lib/fetch";
-import { graphql, useFragment } from "@/gql/public-schema";
+import { graphql, useFragment as getFragment } from "@/gql/public-schema";
 import { AuthFragmentFragment, AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 import {
   getAuthCookies,
@@ -39,8 +39,7 @@ async function authenticate(idToken: string, group: string) {
     variables: { idToken },
   });
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const authData = useFragment(AuthFragmentFragmentDoc, data?.[directive]);
+  const authData = await getFragment(AuthFragmentFragmentDoc, data?.[directive]);
   // Returns stuff so potentially do error handling and data validation
 
   return { authData, error };
@@ -139,8 +138,11 @@ export async function DELETE(request: Request) {
     }
 
     await deleteAuthCookies();
-    console.info("in DELETE, revalidating path: ", path);
-    revalidatePath(path);
+
+    // The mutationClient() and other callers do not require a redirect/revalidate
+    if (path) {
+      revalidatePath(path);
+    }
 
     return NextResponse.json(
       { message: "Logged out and cookies deleted" },

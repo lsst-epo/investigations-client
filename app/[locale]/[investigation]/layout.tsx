@@ -6,8 +6,7 @@ import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
 import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
 import {
-  getAuthCookies,
-  getUserFromJwt,
+  getUserFromJwt
 } from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
