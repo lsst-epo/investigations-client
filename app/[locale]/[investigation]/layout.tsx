@@ -5,9 +5,7 @@ import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
 import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
-import {
-  getUserFromJwt
-} from "@/components/auth/serverHelpers";
+import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
 import { notFound } from "next/navigation";
@@ -179,12 +177,9 @@ const InvestigationLandingLayout: FunctionComponent<
   const { children: pages = [], acknowledgements } = data.entry;
   let craftToken;
   try {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_BASE_URL + "/api/auth-cookies",
-      {
-        method: "GET",
-      }
-    );
+    const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/cookie", {
+      method: "GET",
+    });
 
     if (!res.ok) {
       const err = await res.json();

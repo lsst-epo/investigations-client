@@ -15,7 +15,7 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
     event.preventDefault();
     try {
       const res = await fetch(
-        process.env.NEXT_PUBLIC_BASE_URL + "/api/auth-cookies",
+        process.env.NEXT_PUBLIC_BASE_URL + "/api/cookie",
         {
           method: "DELETE",
           body: JSON.stringify({ path: redirectTo }),
@@ -27,10 +27,10 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
       }
       localStorage.clear();
       router.refresh();
-      redirect(redirectTo);
     } catch (error: any) {
       console.error(error.message || "Logout failed");
     }
+    redirect(redirectTo);
   };
 
   return (
