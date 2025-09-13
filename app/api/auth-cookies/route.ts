@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { mutateAPI } from "@/lib/fetch";
 import { graphql, useFragment as getFragment } from "@/gql/public-schema";
-import { AuthFragmentFragment, AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
 import {
-  getAuthCookies,
-  setAuthCookies,
-  deleteAuthCookies,
-} from "@/components/auth/serverHelpers";
+  AuthFragmentFragment,
+  AuthFragmentFragmentDoc,
+} from "gql/public-schema/graphql";
 import { revalidatePath } from "next/cache";
 import revokeRefreshToken from "@/lib/auth/session/revoke";
+import { cookies } from "next/headers";
+import { cache } from "react";
 
 const StudentMutation = graphql(`
   mutation GoogleSignInStudent($idToken: String!) {
@@ -36,6 +36,60 @@ export const COOKIE_OPTIONS = {
   path: "/",
   sameSite: true,
 } as const;
+
+// Helper functions
+export async function setAuthCookies(data: AuthFragmentFragment) {
+  const { jwt, refreshToken, refreshTokenExpiresAt } = data;
+
+  (await cookies()).set("craftToken", jwt, {
+    ...COOKIE_OPTIONS,
+    expires: refreshTokenExpiresAt,
+  });
+
+  (await cookies()).set("craftRefreshToken", refreshToken, {
+    ...COOKIE_OPTIONS,
+    expires: refreshTokenExpiresAt,
+  });
+
+  // not actually a client-side hook, just named like one
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const userData = useFragment(UserFragmentFragmentDoc, data.user);
+
+  if (userData?.status) {
+    (await cookies()).set("craftUserStatus", userData.status, {
+      ...COOKIE_OPTIONS,
+      expires: refreshTokenExpiresAt,
+    });
+  }
+
+  if (userData?.id) {
+    (await cookies()).set("craftUserId", userData.id, {
+      ...COOKIE_OPTIONS,
+      expires: refreshTokenExpiresAt,
+    });
+  }
+}
+
+export const getAuthCookies = cache(async () => {
+  const craftToken = (await cookies()).get("craftToken")?.value;
+  const craftRefreshToken = (await cookies()).get("craftRefreshToken")?.value;
+  const craftUserStatus = (await cookies()).get("craftUserStatus")?.value;
+  const craftUserId = (await cookies()).get("craftUserId")?.value;
+
+  return {
+    craftToken,
+    craftRefreshToken,
+    craftUserStatus,
+    craftUserId,
+  };
+});
+
+export const deleteAuthCookies = async () => {
+  (await cookies()).delete("craftToken");
+  (await cookies()).delete("craftRefreshToken");
+  (await cookies()).delete("craftUserStatus");
+  (await cookies()).delete("craftUserId");
+};
 
 async function authenticate(idToken: string, group: string) {
   const { mutation, directive } = userGroups[group];
@@ -71,6 +125,20 @@ function conditionallyHandleError(data: AuthFragmentFragment, error: any) {
     throw new Error(error?.message);
   } else if (error) {
     console.warn(error?.message);
+  }
+}
+
+// HTTP Routes
+export async function GET(request: Request) {
+  try {
+    const cookies = await getAuthCookies();
+    return NextResponse.json({
+      message: "Cookies retrieved successfully",
+      authCookies: cookies,
+      status: 200,
+    });
+  } catch (error) {
+    console.error("Error retrieving cookies:", error);
   }
 }
 
@@ -114,24 +182,13 @@ export async function POST(request: NextRequest) {
     await getAuthCookies();
 
   if (craftToken) res.cookies.set("craftToken", craftToken, COOKIE_OPTIONS);
-  if (craftRefreshToken) res.cookies.set("craftRefreshToken", craftRefreshToken, COOKIE_OPTIONS);
-  if (craftUserStatus) res.cookies.set("craftUserStatus", craftUserStatus, COOKIE_OPTIONS);
+  if (craftRefreshToken)
+    res.cookies.set("craftRefreshToken", craftRefreshToken, COOKIE_OPTIONS);
+  if (craftUserStatus)
+    res.cookies.set("craftUserStatus", craftUserStatus, COOKIE_OPTIONS);
   if (craftUserId) res.cookies.set("craftUserId", craftUserId, COOKIE_OPTIONS);
 
   return res;
-}
-
-export async function GET(request: Request) {
-  try {
-    const cookies = await getAuthCookies();
-    return NextResponse.json({
-      message: "Cookies retrieved successfully",
-      authCookies: cookies,
-      status: 200,
-    });
-  } catch (error) {
-    console.error("Error retrieving cookies:", error);
-  }
 }
 
 export async function DELETE(request: Request) {
