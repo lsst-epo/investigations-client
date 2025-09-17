@@ -29,16 +29,21 @@ const Fragment = graphql(`
 `);
 
 const getDataset = async (url?: string): Promise<Array<number>> => {
+  let data = [];
   if (url) {
     const response = await fetch(url, {
       cache: "force-cache",
       headers: { "Content-Type": "application/json" },
       next: { tags: [tags.datasets] },
     });
-    return await response.json();
-  } else {
-    return [];
+
+    if (!response.ok) {
+      const error = await response.text();
+      console.error(error);
+    }
+    data = await response.json();
   }
+  return data;
 };
 
 const SupernovaDistanceDistributionBlock: FunctionComponent<

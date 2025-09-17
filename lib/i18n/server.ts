@@ -1,6 +1,6 @@
 "server-only";
 
-import { cache, use } from "react";
+import { cache } from "react";
 import { cookies, headers } from "next/headers";
 import { createInstance } from "i18next";
 import { initReactI18next } from "react-i18next/initReactI18next";
@@ -10,17 +10,19 @@ import { cookieName, fallbackLng, getOptions } from "./settings";
 const initI18next = async (lng: string, ns: string | string[]) => {
   // on server side we create a new instance for each render, because during compilation everything seems to be executed in parallel
   const i18nInstance = createInstance();
+
   await i18nInstance
-    .use(initReactI18next)
-    .use(loadResources)
-    .init(getOptions(lng, ns));
+      .use(initReactI18next)
+      .use(loadResources)
+      .init(getOptions(lng, ns));
   return i18nInstance;
+
 };
 
-export const getLocale = cache(() => {
+export const getLocale = cache(async () => {
   return (
-    use(headers()).get("x-next-i18n-router-locale") ||
-    use(cookies()).get(cookieName)?.value ||
+    (await headers()).get("x-next-i18n-router-locale") ||
+    (await cookies()).get(cookieName)?.value ||
     fallbackLng
   );
 });
@@ -30,17 +32,18 @@ async function useTranslation(
   ns: string | string[] = "translation",
   options: any = {}
 ) {
-  const locale = lng || getLocale();
+  const locale = lng || await getLocale();
   const i18nextInstance = await initI18next(locale, ns);
 
   return {
-    t: i18nextInstance.getFixedT(
+    t: await i18nextInstance.getFixedT(
       locale,
       Array.isArray(ns) ? ns[0] : ns,
       options.keyPrefix
     ),
     i18n: i18nextInstance,
   };
+
 }
 
 export { useTranslation, useTranslation as serverTranslation };
