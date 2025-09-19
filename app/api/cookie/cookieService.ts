@@ -1,11 +1,9 @@
 import { cookies } from "next/headers";
 import { cache } from "react";
-import { mutateAPI } from "@/lib/fetch";
-import { graphql, useFragment as getFragment } from "@/gql/public-schema";
+import { useFragment as getFragment } from "@/gql/public-schema";
 import {
   UserFragmentFragmentDoc,
   AuthFragmentFragment,
-  AuthFragmentFragmentDoc,
 } from "gql/public-schema/graphql";
 
 export const COOKIE_OPTIONS = {
@@ -13,44 +11,6 @@ export const COOKIE_OPTIONS = {
   path: "/",
   sameSite: true,
 } as const;
-
-const StudentMutation = graphql(`
-  mutation GoogleSignInStudent($idToken: String!) {
-    googleSignInStudents(idToken: $idToken) {
-      ...AuthFragment
-    }
-  }
-`);
-
-const EducatorMutation = graphql(`
-  mutation GoogleSignInEducator($idToken: String!) {
-    googleSignInEducators(idToken: $idToken) {
-      ...AuthFragment
-    }
-  }
-`);
-
-const userGroups = {
-  students: { mutation: StudentMutation, directive: "googleSignInStudents" },
-  educators: { mutation: EducatorMutation, directive: "googleSignInEducators" },
-};
-
-export async function authenticate(idToken: string, group: string) {
-  const { mutation, directive } = userGroups[group];
-
-  const { data, error } = await mutateAPI({
-    query: mutation,
-    variables: { idToken },
-  });
-
-  const authData = await getFragment(
-    AuthFragmentFragmentDoc,
-    data?.[directive]
-  );
-  // Returns stuff so potentially do error handling and data validation
-
-  return { authData, error };
-}
 
 export const getAuthCookies = cache(async () => {
   const craftToken = (await cookies()).get("craftToken")?.value;
@@ -69,12 +29,7 @@ export const getAuthCookies = cache(async () => {
 export async function setAuthCookies(data: AuthFragmentFragment) {
   const { jwt, refreshToken, refreshTokenExpiresAt } = data;
 
-//   if (jwt != null && refreshTokenExpiresAt != null) {(await cookies()).set("craftToken", jwt, {
-//     ...COOKIE_OPTIONS,
-//     expires: refreshTokenExpiresAt,
-//   });}
-
-(await cookies()).set("craftToken", jwt, {
+  (await cookies()).set("craftToken", jwt, {
     ...COOKIE_OPTIONS,
     expires: refreshTokenExpiresAt,
   });

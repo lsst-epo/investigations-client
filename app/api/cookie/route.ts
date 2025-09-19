@@ -1,37 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { AuthFragmentFragment } from "gql/public-schema/graphql";
 import { revalidatePath } from "next/cache";
 import revokeRefreshToken from "@/lib/auth/session/revoke";
 import {
   COOKIE_OPTIONS,
-  authenticate,
   getAuthCookies,
-  setAuthCookies,
   deleteAuthCookies,
 } from "./cookieService";
-
-async function conditionallySetCookiesRevalidatePath(
-  authData: AuthFragmentFragment,
-  pathToRevalidate: string
-) {
-  if (authData) {
-    setAuthCookies(authData);
-
-    if (pathToRevalidate) {
-      revalidatePath(pathToRevalidate, "page");
-    }
-
-    return authData;
-  }
-}
-
-function conditionallyHandleError(data: AuthFragmentFragment, error: any) {
-  if (!data && error) {
-    throw new Error(error?.message);
-  } else if (error) {
-    console.warn(error?.message);
-  }
-}
+import { checkCredentials } from "../auth/authService";
 
 export async function GET(request: Request) {
   try {
@@ -56,41 +31,20 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // If there's a group selected this is a sign up
-  if (group) {
-    const { authData, error } = await authenticate(token, group);
+  await checkCredentials(group, token, path);
 
-    conditionallySetCookiesRevalidatePath(authData, path);
-    conditionallyHandleError(authData, error);
-  } else {
-    // First try to pull Student user data
-    const { authData: studentData, error: studentError } = await authenticate(
-      token,
-      "students"
-    );
-
-    // Then try to pull Educator user data
-    const { authData: educatorData, error: educatorError } = await authenticate(
-      token,
-      "educators"
-    );
-
-    conditionallySetCookiesRevalidatePath(studentData || educatorData, path);
-    conditionallyHandleError(
-      studentData || educatorData,
-      studentError || educatorError
-    );
-  }
   const res = new NextResponse();
   const { craftToken, craftRefreshToken, craftUserStatus, craftUserId } =
     await getAuthCookies();
 
-  if (craftToken) res.cookies.set("craftToken", craftToken, COOKIE_OPTIONS);
+  if (craftToken)
+    res.cookies.set("craftToken", craftToken, COOKIE_OPTIONS);
   if (craftRefreshToken)
     res.cookies.set("craftRefreshToken", craftRefreshToken, COOKIE_OPTIONS);
   if (craftUserStatus)
     res.cookies.set("craftUserStatus", craftUserStatus, COOKIE_OPTIONS);
-  if (craftUserId) res.cookies.set("craftUserId", craftUserId, COOKIE_OPTIONS);
+  if (craftUserId)
+    res.cookies.set("craftUserId", craftUserId, COOKIE_OPTIONS);
 
   return res;
 }
