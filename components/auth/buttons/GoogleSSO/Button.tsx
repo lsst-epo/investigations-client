@@ -45,6 +45,7 @@ export default function SSOButton({
       });
       router.refresh();
     } catch (error) {
+      console.info("Error in handleSuccess");
       handleError();
       setIsLoading(false);
     }
