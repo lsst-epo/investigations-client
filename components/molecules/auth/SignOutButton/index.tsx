@@ -2,14 +2,11 @@
 
 import { useTranslation } from "react-i18next";
 import Button from "@rubin-epo/epo-react-lib/Button";
-// import signOut from "@/lib/auth/actions/signOut";
-// import revokeRefreshToken from "@/lib/auth/session/revoke";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function SignOut({ redirectTo }: { redirectTo: string }) {
   const { t } = useTranslation();
   const router = useRouter();
-  // const signOutWithRedirect = signOut.bind(null, redirectTo);
 
   const handleSignOut = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,14 +27,10 @@ export default function SignOut({ redirectTo }: { redirectTo: string }) {
     } catch (error: any) {
       console.error(error.message || "Logout failed");
     }
-    redirect(redirectTo);
   };
 
   return (
     <form
-      // action={signOutWithRedirect}
-      // clear stored answers from browser storage
-      // onSubmit={() => localStorage.clear()}
       onSubmit={handleSignOut}
     >
       <Button styleAs="tertiary" isBlock>
