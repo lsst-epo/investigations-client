@@ -1,18 +1,30 @@
 import { cookies } from "next/headers";
-import { jwtDecode } from "jwt-decode";
-import { useFragment } from "@/gql/public-schema";
-import type { PendingGroup, Token } from "@/types/auth";
+import { cache } from "react";
+import { useFragment as getFragment } from "@/gql/public-schema";
 import {
   UserFragmentFragmentDoc,
-  type AuthFragmentFragment,
+  AuthFragmentFragment,
 } from "gql/public-schema/graphql";
-import { cache } from "react";
 
 export const COOKIE_OPTIONS = {
   httpOnly: true,
   path: "/",
   sameSite: true,
 } as const;
+
+export const getAuthCookies = cache(async () => {
+  const craftToken = (await cookies()).get("craftToken")?.value;
+  const craftRefreshToken = (await cookies()).get("craftRefreshToken")?.value;
+  const craftUserStatus = (await cookies()).get("craftUserStatus")?.value;
+  const craftUserId = (await cookies()).get("craftUserId")?.value;
+
+  return {
+    craftToken,
+    craftRefreshToken,
+    craftUserStatus,
+    craftUserId,
+  };
+});
 
 export async function setAuthCookies(data: AuthFragmentFragment) {
   const { jwt, refreshToken, refreshTokenExpiresAt } = data;
@@ -29,7 +41,7 @@ export async function setAuthCookies(data: AuthFragmentFragment) {
 
   // not actually a client-side hook, just named like one
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const userData = useFragment(UserFragmentFragmentDoc, data.user);
+  const userData = getFragment(UserFragmentFragmentDoc, data.user);
 
   if (userData?.status) {
     (await cookies()).set("craftUserStatus", userData.status, {
@@ -46,39 +58,9 @@ export async function setAuthCookies(data: AuthFragmentFragment) {
   }
 }
 
-export const getAuthCookies = cache(async () => {
-  const craftToken = (await cookies()).get("craftToken")?.value;
-  const craftRefreshToken = (await cookies()).get("craftRefreshToken")?.value;
-  const craftUserStatus = (await cookies()).get("craftUserStatus")?.value;
-  const craftUserId = (await cookies()).get("craftUserId")?.value;
-
-  return {
-    craftToken,
-    craftRefreshToken,
-    craftUserStatus,
-    craftUserId,
-  };
-});
-
 export const deleteAuthCookies = async () => {
   (await cookies()).delete("craftToken");
   (await cookies()).delete("craftRefreshToken");
   (await cookies()).delete("craftUserStatus");
   (await cookies()).delete("craftUserId");
 };
-
-export function getUserFromJwt(jwt?: Token) {
-  if (!jwt) return undefined;
-
-  const { email, groups, fullName } = jwtDecode<{
-    email: string;
-    groups: PendingGroup[];
-    fullName: string;
-  }>(jwt);
-  const group = groups?.length ? groups[0].toLowerCase() : null;
-  return {
-    email,
-    fullName,
-    group: group as PendingGroup | null,
-  };
-}

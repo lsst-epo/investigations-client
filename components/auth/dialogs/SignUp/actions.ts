@@ -9,7 +9,7 @@ import { setAuthCookies } from "@/components/auth/serverHelpers";
 import { fallbackLng } from "@/lib/i18n/settings";
 
 async function getErrorMessage(error: CombinedError): Promise<string> {
-  const { value: locale = fallbackLng } = cookies().get("NEXT_LOCALE") || {
+  const { value: locale = fallbackLng } = (await cookies()).get("NEXT_LOCALE") || {
     value: fallbackLng,
   };
   const { t } = await serverTranslation(locale, "translation");

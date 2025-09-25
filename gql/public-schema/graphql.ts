@@ -194,6 +194,8 @@ export type AssetCriteriaInput = {
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the assets’ file kinds. */
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Determines which site(s) the elements should be queried in, based on their language. */
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Sets the limit for paginated results. */
   limit: InputMaybe<Scalars['Int']['input']>;
   /** Sets the offset for paginated results. */
@@ -220,6 +222,8 @@ export type AssetCriteriaInput = {
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   /** Narrows the query results to only elements that match a search query. */
   search: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -383,6 +387,7 @@ export type AssetInterfaceNextArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -396,6 +401,7 @@ export type AssetInterfaceNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -427,6 +433,7 @@ export type AssetInterfacePrevArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -440,6 +447,7 @@ export type AssetInterfacePrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -478,6 +486,7 @@ export type AssetInterfaceUploaderArgs = {
   hasPhoto: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   lastName: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -492,6 +501,7 @@ export type AssetInterfaceUploaderArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -739,6 +749,8 @@ export type CategoryCriteriaInput = {
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in reverse order. */
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  /** Determines which site(s) the elements should be queried in, based on their language. */
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on whether the elements are “leaves” in their structure (element with no descendants). */
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the elements’ level within the structure. */
@@ -777,6 +789,8 @@ export type CategoryCriteriaInput = {
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   /** Narrows the query results to only elements that match a search query. */
   search: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -889,6 +903,7 @@ export type CategoryInterfaceAncestorsArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -908,6 +923,7 @@ export type CategoryInterfaceAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -936,6 +952,7 @@ export type CategoryInterfaceChildrenArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -955,6 +972,7 @@ export type CategoryInterfaceChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -983,6 +1001,7 @@ export type CategoryInterfaceDescendantsArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1002,6 +1021,7 @@ export type CategoryInterfaceDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1030,6 +1050,7 @@ export type CategoryInterfaceLocalizedArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1049,6 +1070,7 @@ export type CategoryInterfaceLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1077,6 +1099,7 @@ export type CategoryInterfaceNextArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1096,6 +1119,7 @@ export type CategoryInterfaceNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1124,6 +1148,7 @@ export type CategoryInterfaceParentArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1143,6 +1168,7 @@ export type CategoryInterfaceParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1171,6 +1197,7 @@ export type CategoryInterfacePrevArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1190,6 +1217,7 @@ export type CategoryInterfacePrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1342,6 +1370,8 @@ export type EntryCriteriaInput = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  /** Determines which site(s) the elements should be queried in, based on their language. */
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on whether the elements are “leaves” in their structure (element with no descendants). */
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the elements’ level within the structure. */
@@ -1391,6 +1421,8 @@ export type EntryCriteriaInput = {
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   /** Narrows the query results to only elements that match a search query. */
   search: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   /** Narrows the query results based on the section handles the entries belong to. */
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on the sections the entries belong to, per the sections’ IDs. */
@@ -1583,6 +1615,7 @@ export type EntryInterfaceAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1612,6 +1645,7 @@ export type EntryInterfaceAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1672,6 +1706,7 @@ export type EntryInterfaceChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1701,6 +1736,7 @@ export type EntryInterfaceChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1761,6 +1797,7 @@ export type EntryInterfaceDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1790,6 +1827,7 @@ export type EntryInterfaceDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1850,6 +1888,7 @@ export type EntryInterfaceLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1879,6 +1918,7 @@ export type EntryInterfaceLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1939,6 +1979,7 @@ export type EntryInterfaceNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -1968,6 +2009,7 @@ export type EntryInterfaceNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2028,6 +2070,7 @@ export type EntryInterfaceParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2057,6 +2100,7 @@ export type EntryInterfaceParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2117,6 +2161,7 @@ export type EntryInterfacePrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2146,6 +2191,7 @@ export type EntryInterfacePrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -2576,6 +2622,7 @@ export type QueryAddressArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -2590,6 +2637,7 @@ export type QueryAddressArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2609,6 +2657,7 @@ export type QueryAddressCountArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -2623,6 +2672,7 @@ export type QueryAddressCountArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2642,6 +2692,7 @@ export type QueryAddressesArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -2656,6 +2707,7 @@ export type QueryAddressesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2680,6 +2732,7 @@ export type QueryAssetArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -2693,6 +2746,7 @@ export type QueryAssetArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2723,6 +2777,7 @@ export type QueryAssetCountArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -2736,6 +2791,7 @@ export type QueryAssetCountArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2766,6 +2822,7 @@ export type QueryAssetsArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -2779,6 +2836,7 @@ export type QueryAssetsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2810,6 +2868,7 @@ export type QueryCategoriesArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2829,6 +2888,7 @@ export type QueryCategoriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2856,6 +2916,7 @@ export type QueryCategoryArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2875,6 +2936,7 @@ export type QueryCategoryArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2902,6 +2964,7 @@ export type QueryCategoryCountArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2921,6 +2984,7 @@ export type QueryCategoryCountArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2970,6 +3034,7 @@ export type QueryDatasetsEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -2999,6 +3064,7 @@ export type QueryDatasetsEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3056,6 +3122,7 @@ export type QueryEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3085,6 +3152,7 @@ export type QueryEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3144,6 +3212,7 @@ export type QueryEntryArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3173,6 +3242,7 @@ export type QueryEntryArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3232,6 +3302,7 @@ export type QueryEntryCountArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3261,6 +3332,7 @@ export type QueryEntryCountArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -3292,6 +3364,7 @@ export type QueryGlobalSetArgs = {
   helpUrl: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -3305,6 +3378,7 @@ export type QueryGlobalSetArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteDescription: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3326,6 +3400,7 @@ export type QueryGlobalSetsArgs = {
   helpUrl: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -3339,6 +3414,7 @@ export type QueryGlobalSetsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteDescription: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3388,6 +3464,7 @@ export type QueryHomepageEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3417,6 +3494,7 @@ export type QueryHomepageEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3474,6 +3552,7 @@ export type QueryInvestigationsEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3503,6 +3582,7 @@ export type QueryInvestigationsEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3560,6 +3640,7 @@ export type QueryPagesEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3589,6 +3670,7 @@ export type QueryPagesEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3646,6 +3728,7 @@ export type QueryQuestionsEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3675,6 +3758,7 @@ export type QueryQuestionsEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3732,6 +3816,7 @@ export type QueryReferenceContentEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3761,6 +3846,7 @@ export type QueryReferenceContentEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3796,6 +3882,7 @@ export type QueryUserArgs = {
   hasPhoto: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   lastName: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -3810,6 +3897,7 @@ export type QueryUserArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3836,6 +3924,7 @@ export type QueryUserCountArgs = {
   hasPhoto: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   lastName: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -3850,6 +3939,7 @@ export type QueryUserCountArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3876,6 +3966,7 @@ export type QueryUsersArgs = {
   hasPhoto: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   lastName: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -3890,6 +3981,7 @@ export type QueryUsersArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3938,6 +4030,7 @@ export type QueryWidgetsEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3967,6 +4060,7 @@ export type QueryWidgetsEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3985,6 +4079,13 @@ export type QueryWidgetsEntriesArgs = {
   xAxisMin: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   yAxisMax: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   yAxisMin: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+export type SearchTermOptions = {
+  exact: InputMaybe<Scalars['Boolean']['input']>;
+  exclude: InputMaybe<Scalars['Boolean']['input']>;
+  subLeft: InputMaybe<Scalars['Boolean']['input']>;
+  subRight: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 /** This is the interface implemented by all Super Table blocks. */
@@ -4054,6 +4155,8 @@ export type TagCriteriaInput = {
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in reverse order. */
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  /** Determines which site(s) the elements should be queried in, based on their language. */
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Sets the limit for paginated results. */
   limit: InputMaybe<Scalars['Int']['input']>;
   /** Sets the offset for paginated results. */
@@ -4080,6 +4183,8 @@ export type TagCriteriaInput = {
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   /** Narrows the query results to only elements that match a search query. */
   search: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -4172,6 +4277,7 @@ export type UserAddressesArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -4186,6 +4292,7 @@ export type UserAddressesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4223,6 +4330,8 @@ export type UserCriteriaInput = {
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Causes the query results to be returned in reverse order. */
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  /** Determines which site(s) the elements should be queried in, based on their language. */
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Narrows the query results based on the users’ last names. */
   lastName: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Sets the limit for paginated results. */
@@ -4251,6 +4360,8 @@ export type UserCriteriaInput = {
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   /** Narrows the query results to only elements that match a search query. */
   search: InputMaybe<Scalars['String']['input']>;
+  /** Defines the default options that should be applied terms within the `search` argument. */
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -4347,6 +4458,7 @@ export type UserInterfaceAddressesArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -4361,6 +4473,7 @@ export type UserInterfaceAddressesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -4825,6 +4938,7 @@ export type ContentBlocks_BarGraphTool_BlockTypeGraphBarsArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -4839,6 +4953,7 @@ export type ContentBlocks_BarGraphTool_BlockTypeGraphBarsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5114,6 +5229,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -5143,6 +5259,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5521,6 +5638,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -5550,6 +5668,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5665,6 +5784,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -5694,6 +5814,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5809,6 +5930,7 @@ export type ContentBlocks_ReferenceBlock_BlockTypeReferenceEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -5838,6 +5960,7 @@ export type ContentBlocks_ReferenceBlock_BlockTypeReferenceEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -5935,6 +6058,7 @@ export type ContentBlocks_ScatterplotTool_BlockTypePlotPointsArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -5948,6 +6072,7 @@ export type ContentBlocks_ScatterplotTool_BlockTypePlotPointsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6062,6 +6187,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeJsonArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -6075,6 +6201,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeJsonArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6128,6 +6255,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeQuestionEntries
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6157,6 +6285,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeQuestionEntries
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -6246,6 +6375,7 @@ export type ContentBlocks_Table_BlockTypeDisplayTableArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -6260,6 +6390,7 @@ export type ContentBlocks_Table_BlockTypeDisplayTableArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6279,6 +6410,7 @@ export type ContentBlocks_Table_BlockTypeTableHeaderArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -6293,6 +6425,7 @@ export type ContentBlocks_Table_BlockTypeTableHeaderArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6629,6 +6762,7 @@ export type Datasets_AssetNextArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -6642,6 +6776,7 @@ export type Datasets_AssetNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6672,6 +6807,7 @@ export type Datasets_AssetPrevArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -6685,6 +6821,7 @@ export type Datasets_AssetPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6721,6 +6858,7 @@ export type Datasets_AssetUploaderArgs = {
   hasPhoto: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   lastName: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -6735,6 +6873,7 @@ export type Datasets_AssetUploaderArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6934,6 +7073,7 @@ export type Datasets_StarCluster_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -6963,6 +7103,7 @@ export type Datasets_StarCluster_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7022,6 +7163,7 @@ export type Datasets_StarCluster_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7051,6 +7193,7 @@ export type Datasets_StarCluster_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7110,6 +7253,7 @@ export type Datasets_StarCluster_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7139,6 +7283,7 @@ export type Datasets_StarCluster_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7175,6 +7320,7 @@ export type Datasets_StarCluster_EntryJsonArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -7188,6 +7334,7 @@ export type Datasets_StarCluster_EntryJsonArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7241,6 +7388,7 @@ export type Datasets_StarCluster_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7270,6 +7418,7 @@ export type Datasets_StarCluster_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7329,6 +7478,7 @@ export type Datasets_StarCluster_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7358,6 +7508,7 @@ export type Datasets_StarCluster_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7417,6 +7568,7 @@ export type Datasets_StarCluster_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7446,6 +7598,7 @@ export type Datasets_StarCluster_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7482,6 +7635,7 @@ export type Datasets_StarCluster_EntryPlotPointsArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -7495,6 +7649,7 @@ export type Datasets_StarCluster_EntryPlotPointsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7548,6 +7703,7 @@ export type Datasets_StarCluster_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7577,6 +7733,7 @@ export type Datasets_StarCluster_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7735,6 +7892,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAlertSourcesArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -7749,6 +7907,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAlertSourcesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7798,6 +7957,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7827,6 +7987,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7886,6 +8047,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -7915,6 +8077,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -7974,6 +8137,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8003,6 +8167,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8067,6 +8232,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryJsonArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -8080,6 +8246,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryJsonArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8133,6 +8300,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8162,6 +8330,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8221,6 +8390,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8250,6 +8420,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8309,6 +8480,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8338,6 +8510,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8397,6 +8570,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8426,6 +8600,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -8508,6 +8683,7 @@ export type DisplayTable_BlockTypeTableRowArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -8522,6 +8698,7 @@ export type DisplayTable_BlockTypeTableRowArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8920,6 +9097,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -8949,6 +9127,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9184,6 +9363,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9213,6 +9393,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9272,6 +9453,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9301,6 +9483,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9360,6 +9543,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9389,6 +9573,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9419,6 +9604,7 @@ export type Homepage_Homepage_EntryHomepageContentBlocksArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -9434,6 +9620,7 @@ export type Homepage_Homepage_EntryHomepageContentBlocksArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9483,6 +9670,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9512,6 +9700,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9571,6 +9760,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9600,6 +9790,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9659,6 +9850,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9688,6 +9880,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9747,6 +9940,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -9776,6 +9970,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -9867,6 +10062,7 @@ export type Images_ImageGroup_BlockTypeImagesArgs = {
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
   includeSubfolders: InputMaybe<Scalars['Boolean']['input']>;
   kind: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -9880,6 +10076,7 @@ export type Images_ImageGroup_BlockTypeImagesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10054,6 +10251,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10083,6 +10281,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10142,6 +10341,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10171,6 +10371,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10201,6 +10402,7 @@ export type Investigations_Default_EntryContentBlocksArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -10216,6 +10418,7 @@ export type Investigations_Default_EntryContentBlocksArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10265,6 +10468,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10294,6 +10498,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10353,6 +10558,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10382,6 +10588,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10441,6 +10648,7 @@ export type Investigations_Default_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10470,6 +10678,7 @@ export type Investigations_Default_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10529,6 +10738,7 @@ export type Investigations_Default_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10558,6 +10768,7 @@ export type Investigations_Default_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10617,6 +10828,7 @@ export type Investigations_Default_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10646,6 +10858,7 @@ export type Investigations_Default_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10825,6 +11038,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10854,6 +11068,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -10913,6 +11128,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -10942,6 +11158,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11001,6 +11218,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11030,6 +11248,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11112,6 +11331,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11141,6 +11361,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11200,6 +11421,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11229,6 +11451,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11288,6 +11511,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11317,6 +11541,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11376,6 +11601,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11405,6 +11631,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11582,6 +11809,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11611,6 +11839,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11670,6 +11899,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11699,6 +11929,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11758,6 +11989,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11787,6 +12019,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11846,6 +12079,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11875,6 +12109,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -11934,6 +12169,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -11963,6 +12199,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12022,6 +12259,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12051,6 +12289,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12110,6 +12349,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12139,6 +12379,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12288,6 +12529,7 @@ export type MultiPartBlocks_Multiselect_BlockTypeAnswerOptionsArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -12302,6 +12544,7 @@ export type MultiPartBlocks_Multiselect_BlockTypeAnswerOptionsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12381,6 +12624,7 @@ export type MultiPartBlocks_Number_BlockTypeValidationArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -12395,6 +12639,7 @@ export type MultiPartBlocks_Number_BlockTypeValidationArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12527,6 +12772,7 @@ export type MultiPartBlocks_Select_BlockTypeAnswerOptionsArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -12541,6 +12787,7 @@ export type MultiPartBlocks_Select_BlockTypeAnswerOptionsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12883,6 +13130,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -12912,6 +13160,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -12971,6 +13220,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13000,6 +13250,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13030,6 +13281,7 @@ export type Pages_Pages_EntryContentBlocksArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -13045,6 +13297,7 @@ export type Pages_Pages_EntryContentBlocksArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13094,6 +13347,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13123,6 +13377,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13182,6 +13437,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13211,6 +13467,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13270,6 +13527,7 @@ export type Pages_Pages_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13299,6 +13557,7 @@ export type Pages_Pages_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13363,6 +13622,7 @@ export type Pages_Pages_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13392,6 +13652,7 @@ export type Pages_Pages_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13451,6 +13712,7 @@ export type Pages_Pages_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13480,6 +13742,7 @@ export type Pages_Pages_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13658,6 +13921,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13687,6 +13951,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13746,6 +14011,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13775,6 +14041,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13834,6 +14101,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13863,6 +14131,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -13922,6 +14191,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -13951,6 +14221,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14010,6 +14281,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14039,6 +14311,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14098,6 +14371,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14127,6 +14401,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14186,6 +14461,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14215,6 +14491,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14297,6 +14574,7 @@ export type QuestionTable_BlockTypeTableCellArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -14311,6 +14589,7 @@ export type QuestionTable_BlockTypeTableCellArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14420,6 +14699,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14449,6 +14729,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14565,6 +14846,7 @@ export type QuestionWidgetsBlock_IsochronePlot_BlockTypeDatasetArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14594,6 +14876,7 @@ export type QuestionWidgetsBlock_IsochronePlot_BlockTypeDatasetArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14709,6 +14992,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14738,6 +15022,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -14853,6 +15138,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -14882,6 +15168,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15074,6 +15361,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15103,6 +15391,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15133,6 +15422,7 @@ export type Questions_Default_EntryAnswerOptionsArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -15147,6 +15437,7 @@ export type Questions_Default_EntryAnswerOptionsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15201,6 +15492,7 @@ export type Questions_Default_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15230,6 +15522,7 @@ export type Questions_Default_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15289,6 +15582,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15318,6 +15612,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15382,6 +15677,7 @@ export type Questions_Default_EntryInvestigationEntriesArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15411,6 +15707,7 @@ export type Questions_Default_EntryInvestigationEntriesArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15470,6 +15767,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15499,6 +15797,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15529,6 +15828,7 @@ export type Questions_Default_EntryMultiPartBlocksArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -15544,6 +15844,7 @@ export type Questions_Default_EntryMultiPartBlocksArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15593,6 +15894,7 @@ export type Questions_Default_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15622,6 +15924,7 @@ export type Questions_Default_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15681,6 +15984,7 @@ export type Questions_Default_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15710,6 +16014,7 @@ export type Questions_Default_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15769,6 +16074,7 @@ export type Questions_Default_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -15798,6 +16104,7 @@ export type Questions_Default_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -15828,6 +16135,7 @@ export type Questions_Default_EntryQuestionTableArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -15842,6 +16150,7 @@ export type Questions_Default_EntryQuestionTableArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15861,6 +16170,7 @@ export type Questions_Default_EntryQuestionWidgetsBlockArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -15876,6 +16186,7 @@ export type Questions_Default_EntryQuestionWidgetsBlockArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15896,6 +16207,7 @@ export type Questions_Default_EntryTableHeaderArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -15910,6 +16222,7 @@ export type Questions_Default_EntryTableHeaderArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15929,6 +16242,7 @@ export type Questions_Default_EntryValidationArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -15943,6 +16257,7 @@ export type Questions_Default_EntryValidationArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16050,6 +16365,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -16079,6 +16395,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16371,6 +16688,7 @@ export type ReferenceContentBlocks_Table_BlockTypeDisplayTableArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -16385,6 +16703,7 @@ export type ReferenceContentBlocks_Table_BlockTypeDisplayTableArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16609,6 +16928,7 @@ export type ReferenceContent_Default_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -16638,6 +16958,7 @@ export type ReferenceContent_Default_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16697,6 +17018,7 @@ export type ReferenceContent_Default_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -16726,6 +17048,7 @@ export type ReferenceContent_Default_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16785,6 +17108,7 @@ export type ReferenceContent_Default_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -16814,6 +17138,7 @@ export type ReferenceContent_Default_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16873,6 +17198,7 @@ export type ReferenceContent_Default_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -16902,6 +17228,7 @@ export type ReferenceContent_Default_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -16961,6 +17288,7 @@ export type ReferenceContent_Default_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -16990,6 +17318,7 @@ export type ReferenceContent_Default_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -17049,6 +17378,7 @@ export type ReferenceContent_Default_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17078,6 +17408,7 @@ export type ReferenceContent_Default_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -17137,6 +17468,7 @@ export type ReferenceContent_Default_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17166,6 +17498,7 @@ export type ReferenceContent_Default_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -17196,6 +17529,7 @@ export type ReferenceContent_Default_EntryReferenceContentBlocksArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -17211,6 +17545,7 @@ export type ReferenceContent_Default_EntryReferenceContentBlocksArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17360,6 +17695,7 @@ export type SortOptions_CategoryAncestorsArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17379,6 +17715,7 @@ export type SortOptions_CategoryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17406,6 +17743,7 @@ export type SortOptions_CategoryChildrenArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17425,6 +17763,7 @@ export type SortOptions_CategoryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17452,6 +17791,7 @@ export type SortOptions_CategoryDescendantsArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17471,6 +17811,7 @@ export type SortOptions_CategoryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17498,6 +17839,7 @@ export type SortOptions_CategoryLocalizedArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17517,6 +17859,7 @@ export type SortOptions_CategoryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17544,6 +17887,7 @@ export type SortOptions_CategoryNextArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17563,6 +17907,7 @@ export type SortOptions_CategoryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17590,6 +17935,7 @@ export type SortOptions_CategoryParentArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17609,6 +17955,7 @@ export type SortOptions_CategoryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17636,6 +17983,7 @@ export type SortOptions_CategoryPrevArgs = {
   hasDescendants: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17655,6 +18003,7 @@ export type SortOptions_CategoryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17760,6 +18109,7 @@ export type TableCell_PreviousQuestion_BlockTypeQuestionArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -17789,6 +18139,7 @@ export type TableCell_PreviousQuestion_BlockTypeQuestionArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -17874,6 +18225,7 @@ export type TableCell_Question_BlockTypeOptionsArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -17888,6 +18240,7 @@ export type TableCell_Question_BlockTypeOptionsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18074,6 +18427,7 @@ export type TableHeader_BlockTypeHeaderRowArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
   orderBy: InputMaybe<Scalars['String']['input']>;
@@ -18088,6 +18442,7 @@ export type TableHeader_BlockTypeHeaderRowArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18195,6 +18550,7 @@ export type TableRow_PreviousQuestion_BlockTypeQuestionArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -18224,6 +18580,7 @@ export type TableRow_PreviousQuestion_BlockTypeQuestionArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -18579,6 +18936,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -18608,6 +18966,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -18667,6 +19026,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -18696,6 +19056,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -18726,6 +19087,7 @@ export type Widgets_ColorFilterTool_EntryColorFilterToolObjectsArgs = {
   fixedOrder: InputMaybe<Scalars['Boolean']['input']>;
   id: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   inReverse: InputMaybe<Scalars['Boolean']['input']>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   level: InputMaybe<Scalars['QueryArgument']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
   offset: InputMaybe<Scalars['Int']['input']>;
@@ -18741,6 +19103,7 @@ export type Widgets_ColorFilterTool_EntryColorFilterToolObjectsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   siteId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   siteSettingsId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18790,6 +19153,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -18819,6 +19183,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -18888,6 +19253,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -18917,6 +19283,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -18976,6 +19343,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19005,6 +19373,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19064,6 +19433,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19093,6 +19463,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19152,6 +19523,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19181,6 +19553,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19363,6 +19736,7 @@ export type Widgets_IsochronePlot_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19392,6 +19766,7 @@ export type Widgets_IsochronePlot_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19451,6 +19826,7 @@ export type Widgets_IsochronePlot_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19480,6 +19856,7 @@ export type Widgets_IsochronePlot_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19539,6 +19916,7 @@ export type Widgets_IsochronePlot_EntryDatasetArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19568,6 +19946,7 @@ export type Widgets_IsochronePlot_EntryDatasetArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19627,6 +20006,7 @@ export type Widgets_IsochronePlot_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19656,6 +20036,7 @@ export type Widgets_IsochronePlot_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19715,6 +20096,7 @@ export type Widgets_IsochronePlot_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19744,6 +20126,7 @@ export type Widgets_IsochronePlot_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19803,6 +20186,7 @@ export type Widgets_IsochronePlot_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19832,6 +20216,7 @@ export type Widgets_IsochronePlot_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19891,6 +20276,7 @@ export type Widgets_IsochronePlot_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -19920,6 +20306,7 @@ export type Widgets_IsochronePlot_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -19979,6 +20366,7 @@ export type Widgets_IsochronePlot_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20008,6 +20396,7 @@ export type Widgets_IsochronePlot_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20188,6 +20577,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20217,6 +20607,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20276,6 +20667,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20305,6 +20697,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20364,6 +20757,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20393,6 +20787,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20452,6 +20847,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20481,6 +20877,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20540,6 +20937,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20569,6 +20967,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20628,6 +21027,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20657,6 +21057,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20716,6 +21117,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20745,6 +21147,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -20804,6 +21207,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -20833,6 +21237,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21014,6 +21419,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21043,6 +21449,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21102,6 +21509,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21131,6 +21539,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21190,6 +21599,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21219,6 +21629,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21278,6 +21689,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21307,6 +21719,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21366,6 +21779,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21395,6 +21809,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21454,6 +21869,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21483,6 +21899,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21542,6 +21959,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21571,6 +21989,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21630,6 +22049,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   includeScatterPlot: InputMaybe<Scalars['Boolean']['input']>;
   investigationEntries: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   json: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   leaves: InputMaybe<Scalars['Boolean']['input']>;
   level: InputMaybe<Scalars['Int']['input']>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -21659,6 +22079,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   relatedToTags: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
   relatedToUsers: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
   search: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions: InputMaybe<SearchTermOptions>;
   section: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionId: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   site: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -21865,13 +22286,6 @@ export type ActivateUserMutationVariables = Exact<{
 
 
 export type ActivateUserMutation = { __typename?: 'Mutation', activateUser: string };
-
-export type ForgottenPasswordMutationVariables = Exact<{
-  email: Scalars['String']['input'];
-}>;
-
-
-export type ForgottenPasswordMutation = { __typename?: 'Mutation', forgottenPassword: string };
 
 export type FacebookSignInStudentMutationVariables = Exact<{
   code: Scalars['String']['input'];
@@ -22371,6 +22785,13 @@ export type PageTemplateFragment = { __typename?: 'pages_pages_Entry', id: strin
 
 export type ReferenceContentTemplateFragment = { __typename: 'referenceContent_default_Entry', title: string | null, id: string | null, contentBlocks: Array<{ __typename: 'referenceContentBlocks_cameraFilterTool_BlockType' } | { __typename: 'referenceContentBlocks_colorFilterToolBlock_BlockType' } | { __typename: 'referenceContentBlocks_filterTool_BlockType' } | { __typename: 'referenceContentBlocks_image_BlockType', id: string | null, caption: string | null, layout: string | null, image: Array<never | null> | null } | { __typename: 'referenceContentBlocks_table_BlockType', id: string | null, caption: string | null, contentHeading: string | null, displayTable: Array<{ __typename?: 'displayTable_BlockType', tableRow: Array<{ __typename?: 'tableRow_previousQuestion_BlockType' } | { __typename?: 'tableRow_rowHeader_BlockType' } | { __typename?: 'tableRow_tableCell_BlockType', id: string | null, cellContent: string | null } | null> } | null> } | { __typename: 'referenceContentBlocks_text_BlockType', id: string | null, text: string | null } | null> | null } & { ' $fragmentName'?: 'ReferenceContentTemplateFragment' };
 
+export type ForgottenPasswordMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+}>;
+
+
+export type ForgottenPasswordMutation = { __typename?: 'Mutation', forgottenPassword: string };
+
 export type ResendActivationMutationVariables = Exact<{
   email: Scalars['String']['input'];
 }>;
@@ -22482,12 +22903,12 @@ export const FacebookOauthUrlDocument = {"kind":"Document","definitions":[{"kind
 export const GoogleSignInStudentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"GoogleSignInStudent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"googleSignInStudents"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"idToken"},"value":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<GoogleSignInStudentMutation, GoogleSignInStudentMutationVariables>;
 export const GoogleSignInEducatorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"GoogleSignInEducator"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"googleSignInEducators"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"idToken"},"value":{"kind":"Variable","name":{"kind":"Name","value":"idToken"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<GoogleSignInEducatorMutation, GoogleSignInEducatorMutationVariables>;
 export const ActivateUserDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ActivateUser"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"activateUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}]}}]} as unknown as DocumentNode<ActivateUserMutation, ActivateUserMutationVariables>;
-export const ForgottenPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ForgottenPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"forgottenPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}}]}]}}]} as unknown as DocumentNode<ForgottenPasswordMutation, ForgottenPasswordMutationVariables>;
 export const FacebookSignInStudentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"FacebookSignInStudent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"facebookSignInStudents"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<FacebookSignInStudentMutation, FacebookSignInStudentMutationVariables>;
 export const FacebookSignInEducatorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"FacebookSignInEducator"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"facebookSignInEducators"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<FacebookSignInEducatorMutation, FacebookSignInEducatorMutationVariables>;
 export const RegisterEducatorDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RegisterEducator"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"registerEducators"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}},{"kind":"Argument","name":{"kind":"Name","value":"fullName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<RegisterEducatorMutation, RegisterEducatorMutationVariables>;
 export const RegisterStudentDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"RegisterStudent"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"registerStudents"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}},{"kind":"Argument","name":{"kind":"Name","value":"fullName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"fullName"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<RegisterStudentMutation, RegisterStudentMutationVariables>;
 export const QuestionValidationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"QuestionValidation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"site"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"ListType","type":{"kind":"NamedType","name":{"kind":"Name","value":"QueryArgument"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"entry"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"site"},"value":{"kind":"Variable","name":{"kind":"Name","value":"site"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"questions_default_Entry"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"validation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"validation_numberValidator_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"comparison"}},{"kind":"Field","name":{"kind":"Name","value":"operator"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"multiPartBlocks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"multiPartBlocks_number_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"validation"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"validation_numberValidator_BlockType"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"comparison"}},{"kind":"Field","name":{"kind":"Name","value":"operator"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<QuestionValidationQuery, QuestionValidationQueryVariables>;
+export const ForgottenPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ForgottenPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"forgottenPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}}]}]}}]} as unknown as DocumentNode<ForgottenPasswordMutation, ForgottenPasswordMutationVariables>;
 export const ResendActivationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ResendActivation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"resendActivation"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}}]}]}}]} as unknown as DocumentNode<ResendActivationMutation, ResendActivationMutationVariables>;
 export const SetPasswordDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"SetPassword"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"code"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"setPassword"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}},{"kind":"Argument","name":{"kind":"Name","value":"code"},"value":{"kind":"Variable","name":{"kind":"Name","value":"code"}}},{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}]}}]} as unknown as DocumentNode<SetPasswordMutation, SetPasswordMutationVariables>;
 export const AuthenticateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Authenticate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"authenticate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"AuthFragment"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"UserInterface"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"status"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AuthFragment"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Auth"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"jwt"}},{"kind":"Field","name":{"kind":"Name","value":"jwtExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"refreshToken"}},{"kind":"Field","name":{"kind":"Name","value":"refreshTokenExpiresAt"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserFragment"}}]}}]}}]} as unknown as DocumentNode<AuthenticateMutation, AuthenticateMutationVariables>;

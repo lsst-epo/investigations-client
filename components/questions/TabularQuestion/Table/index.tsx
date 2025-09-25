@@ -129,7 +129,7 @@ const getOverflowPadding = (rows: TableRowsFragment["rows"]) => {
   return `calc(${largest}em  - calc(var(--table-border-width) * 2))`;
 };
 
-const QuestionTable: FunctionComponent<QuestionTableProps> = async ({
+const QuestionTable: FunctionComponent<QuestionTableProps> = ({
   data,
   className,
 }) => {

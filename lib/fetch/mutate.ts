@@ -1,7 +1,3 @@
-import {
-  deleteAuthCookies,
-  getAuthCookies,
-} from "@/components/auth/serverHelpers";
 import { Client, createClient, fetchExchange, mapExchange } from "@urql/core";
 import { authExchange } from "@urql/exchange-auth";
 import isSessionExpired from "@/lib/auth/session/expired";
@@ -23,6 +19,8 @@ if (
 interface MutationClientProps {
   skipExpirationCheck?: boolean;
   skipAuthorizationHeaders?: boolean;
+  craftToken?: string;
+  craftRefreshToken?: string;
 }
 
 type MutationClientFactory = (
@@ -30,9 +28,9 @@ type MutationClientFactory = (
 ) => Client["mutation"];
 
 const mutationClient: MutationClientFactory = (options = {}) => {
-  const { skipExpirationCheck = false, skipAuthorizationHeaders = false } =
+  const { skipExpirationCheck = false, skipAuthorizationHeaders = false, craftToken = null, craftRefreshToken =null } =
     options;
-  const { craftToken, craftRefreshToken } = getAuthCookies();
+
   let token = craftToken;
   let refreshToken = craftRefreshToken;
 
@@ -40,16 +38,28 @@ const mutationClient: MutationClientFactory = (options = {}) => {
     url: API_URL,
     exchanges: [
       mapExchange({
-        onError(error) {
+        async onError(error) {
           if (error.message.includes("Refresh")) {
-            deleteAuthCookies();
+            const res = await fetch(
+              process.env.NEXT_PUBLIC_BASE_URL + "/api/cookie",
+              {
+                method: "DELETE",
+                body: JSON.stringify({ path: null }),
+              }
+            );
+            if (!res.ok) {
+              const err = await res.json();
+              console.error(err.message || "Unexpected error while attempting to delete cookies during token refresh");
+            }
           }
         },
       }),
       authExchange(async ({ appendHeaders }) => {
         return {
           addAuthToOperation(operation) {
-            if (!token || skipAuthorizationHeaders) return operation;
+            if (!token || skipAuthorizationHeaders) {
+              return operation;
+            }
             return appendHeaders(operation, {
               Authorization: `JWT ${token}`,
             });

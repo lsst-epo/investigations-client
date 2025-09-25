@@ -8,9 +8,9 @@ import { useTranslation } from "react-i18next";
 import Input from "@rubin-epo/epo-react-lib/Input";
 import FormLabel from "@/components/atomic/FormLabel";
 import AuthForm from "@/components/molecules/auth/AuthForm";
-import signIn from "@/lib/auth/actions/signIn";
 import ResendActivationButton from "@/components/molecules/auth/ResendActivationButton";
 import { useCookies } from "react-cookie";
+import { useRouter } from "next/navigation";
 
 const CredentialSignIn: FunctionComponent<
   PropsWithChildren<{ onSuccess?: () => void }>
@@ -18,6 +18,7 @@ const CredentialSignIn: FunctionComponent<
   const { t } = useTranslation();
   const [{ userToResend }, , removeCookie] = useCookies(["userToResend"]);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     return () => {
@@ -25,12 +26,30 @@ const CredentialSignIn: FunctionComponent<
     };
   }, []);
 
+  const signInAction = async (
+    _state: FormState,
+    formData: FormData
+  ): Promise<FormState> => {
+    const res = await fetch("/api/auth", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      return { status: "error", message: data.message };
+    }
+    router.refresh();
+    return { status: "success", message: data.message };
+  };
+
   return userToResend && error ? (
     <ResendActivationButton message={error} />
   ) : (
     <>
       <AuthForm
-        action={signIn}
+        action={signInAction}
         submitText={t("sign_in.submit")}
         pendingText={t("sign_in.submit_pending")}
         onError={(error) => {

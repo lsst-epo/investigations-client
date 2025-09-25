@@ -6,7 +6,8 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { Button } from "@rubin-epo/epo-react-lib";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { usePathToRevalidate } from "@/components/auth/clientHelpers";
-import { getTokens, authenticateUser } from "./actions";
+import { getTokens } from "./actions";
+import { useRouter } from "next/navigation";
 
 export default function SSOButton({
   onError: onSignInError,
@@ -22,6 +23,7 @@ export default function SSOButton({
     flow: "auth-code",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   function handleError() {
     onSignInError();
@@ -32,7 +34,16 @@ export default function SSOButton({
     const { id_token: idToken } = await getTokens(code);
     try {
       if (!idToken) return handleError();
-      await authenticateUser(pendingGroup, idToken, pathToRevalidate);
+      await fetch("/api/cookie", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token: idToken,
+          group: pendingGroup,
+          path: pathToRevalidate,
+        }),
+      });
+      router.refresh();
     } catch (error) {
       handleError();
       setIsLoading(false);

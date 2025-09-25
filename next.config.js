@@ -10,11 +10,8 @@ export default {
     return "investigations-client-next-build-id";
   },
   experimental: {
-    isrMaxMemorySize: 0,
-    forceSwcTransforms: true,
     optimizePackageImports: ["@rubin-epo/epo-react-lib"],
   },
-  swcMinify: true,
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
