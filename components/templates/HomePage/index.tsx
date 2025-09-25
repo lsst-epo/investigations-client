@@ -1,6 +1,7 @@
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import * as Styled from "./styles";
+import Hero from "@/components/page/Hero";
 
 const Fragment = graphql(`
   fragment HomepageTemplate on homepage_homepage_Entry {
@@ -53,6 +54,7 @@ export default function HomePage(props: {
 
   return (
     <Styled.PageContainer paddingSize="none" width="narrow">
+      <Hero></Hero>
       <Styled.Title>{data.title}</Styled.Title>
       {data.contentBlocks?.map(
         (block, i) =>
