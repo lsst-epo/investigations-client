@@ -1,10 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import {
-  // deleteAuthCookies,
-  getAuthCookies,
-} from "@/components/auth/serverHelpers";
+import { getAuthCookies } from "@/components/auth/serverHelpers";
 import revokeRefreshToken from "@/lib/auth/session/revoke";
 import { cookies } from "next/headers";
 

@@ -10,7 +10,6 @@ export default {
     return "investigations-client-next-build-id";
   },
   experimental: {
-    // forceSwcTransforms: true,
     optimizePackageImports: ["@rubin-epo/epo-react-lib"],
   },
   compiler: {
