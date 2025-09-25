@@ -80,11 +80,20 @@ export const dynamicParams = false;
 
 const InvestigationPageLayout: FunctionComponent<
   PropsWithChildren<InvestigationPageProps>
-> = async ({
-  children,
-  reference,
-  params: { locale, investigation, page },
-}) => {
+> = async props => {
+  const params = await props.params;
+
+  const {
+    locale,
+    investigation,
+    page
+  } = params;
+
+  const {
+    children,
+    reference
+  } = props;
+
   const site = getSite(locale);
   const uri = `${investigation}/${page}`;
 

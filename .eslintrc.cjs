@@ -8,6 +8,9 @@ module.exports = {
     react: {
       version: "detect",
     },
+    "import/resolver": {
+      typescript: {},
+    },
   },
   rules: {
     "no-redeclare": "off",
@@ -76,14 +79,6 @@ module.exports = {
     "no-trailing-spaces": 2,
     "no-multiple-empty-lines": 2,
     "no-underscore-dangle": 0,
-    "max-len": [
-      "error",
-      {
-        ignoreComments: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-      },
-    ],
     "padded-blocks": 0,
     "prefer-const": 2,
     "react-hooks/rules-of-hooks": "error",

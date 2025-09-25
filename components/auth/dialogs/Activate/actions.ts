@@ -22,7 +22,7 @@ export async function activate(code: string, id: string) {
   });
 
   if (data?.activateUser) {
-    const token = cookies().get("craftRefreshToken")?.value; // check if there is a user already logged in
+    const token = (await cookies()).get("craftRefreshToken")?.value; // check if there is a user already logged in
 
     if (token) {
       // refresh cookies to get the updated user status

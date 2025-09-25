@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import { GenericPlayer as Video } from "@rubin-epo/epo-react-lib/Video";
 import Figure from "@rubin-epo/epo-react-lib/Figure";
 import { BaseContentBlockProps } from "@/components/shapes";
@@ -29,8 +29,8 @@ const Fragment = graphql(`
 
 const VideoBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
-> = async ({ data, site, locale }) => {
-  const { t } = await useTranslation(locale, "translation");
+> = ({ data, site, locale }) => {
+  const { t } = use(useTranslation(locale, "translation"));
   const { id, caption, video: videos } = useFragment(Fragment, data);
 
   if (!id || !videos || videos.length === 0) return null;

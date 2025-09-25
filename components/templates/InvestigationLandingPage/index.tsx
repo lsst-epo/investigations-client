@@ -41,7 +41,7 @@ const InvestigationLandingPage: FunctionComponent<{
   user: ReturnType<typeof getUserFromJwt>;
   status?: string;
   children?: ReactNode;
-}> = async ({ locale, site, user, status, investigation, ...props }) => {
+}> = ({ locale, site, user, status, investigation, ...props }) => {
   const { title, image, children } = useFragment(Fragment, props.data);
   const { uri: firstPage } = children?.[0];
 

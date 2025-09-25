@@ -1,5 +1,5 @@
 import { ResponseCookie } from "next/dist/compiled/@edge-runtime/cookies";
-import { cookies, headers } from "next/headers";
+import { cookies, headers, type UnsafeUnwrappedCookies, type UnsafeUnwrappedHeaders } from "next/headers";
 
 interface ResetPasswordSession {
   email: string;
@@ -15,8 +15,8 @@ export const resetPasswordSession = () => {
   const sessionName = "resetPassword";
 
   const create = (email: string) => {
-    const returnTo = headers().get("referer");
-    return cookies().set(
+    const returnTo = (headers() as unknown as UnsafeUnwrappedHeaders).get("referer");
+    return (cookies() as unknown as UnsafeUnwrappedCookies).set(
       sessionName,
       JSON.stringify({ email, returnTo }),
       options
@@ -24,7 +24,7 @@ export const resetPasswordSession = () => {
   };
 
   const get = (): ResetPasswordSession | undefined => {
-    const unparsed = cookies().get(sessionName)?.value;
+    const unparsed = (cookies() as unknown as UnsafeUnwrappedCookies).get(sessionName)?.value;
 
     if (unparsed) {
       return JSON.parse(unparsed);
@@ -33,7 +33,7 @@ export const resetPasswordSession = () => {
     }
   };
 
-  const destroy = () => cookies().delete(sessionName);
+  const destroy = () => (cookies() as unknown as UnsafeUnwrappedCookies).delete(sessionName);
 
   return {
     create,

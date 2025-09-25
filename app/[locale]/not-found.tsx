@@ -1,9 +1,9 @@
 import ErrorPageTemplate from "@/components/templates/ErrorPage";
-import { useTranslation } from "@/lib/i18n/server";
+import { serverTranslation } from "@/lib/i18n/server";
 import { fallbackLng } from "@/lib/i18n/settings";
 
 const RootNotFound = async () => {
-  const { t } = await useTranslation(fallbackLng, "translation");
+  const { t } = await serverTranslation(fallbackLng, "translation");
 
   const errorData = {
     title: t(`page-not-found-title`),

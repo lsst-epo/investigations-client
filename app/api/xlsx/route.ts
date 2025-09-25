@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Workbook } from "exceljs";
-import { useTranslation } from "@/lib/i18n/server";
+import { serverTranslation } from "@/lib/i18n/server";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { Answers } from "@/types/answers";
 import formatters from "./formatter";
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   const { value: locale = fallbackLng } = request.cookies.get(
     "NEXT_LOCALE"
   ) || { value: fallbackLng };
-  const { t } = await useTranslation(locale, "translation");
+  const { t } = await serverTranslation(locale, "translation");
 
   try {
     const workbook = new Workbook();
