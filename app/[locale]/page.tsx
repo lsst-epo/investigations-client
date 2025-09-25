@@ -11,6 +11,7 @@ import {
 import { queryAPI } from "@/lib/fetch";
 import { getSite } from "@/helpers";
 import { FunctionComponent } from "react";
+import NavHeader from "@/components/page/NavHeader";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
 
@@ -50,9 +51,12 @@ const HomePage: FunctionComponent<RootProps> = async props => {
   const user = getUserFromJwt(craftToken);
 
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
-    <HomePageTemplate data={data.entry}>
-      {user && <SignOut redirectTo={"/"} />}
-    </HomePageTemplate>
+    <>
+      <NavHeader></NavHeader>
+      <HomePageTemplate data={data.entry}>
+        {user && <SignOut redirectTo={"/"} />}
+      </HomePageTemplate>
+    </>
   ) : (
     notFound()
   );
