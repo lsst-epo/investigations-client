@@ -25,13 +25,17 @@ const Query = graphql(`
   }
 `);
 
-const HomePage: FunctionComponent<RootProps> = async ({
-  params: { locale },
-  searchParams,
-}) => {
+const HomePage: FunctionComponent<RootProps> = async props => {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
+
+  const {
+    locale
+  } = params;
+
   const site = getSite(locale);
   const { preview: previewToken } = searchParams;
-  const { isEnabled: isPreview } = draftMode();
+  const { isEnabled: isPreview } = await draftMode();
 
   const { data } = await queryAPI({
     query: Query,

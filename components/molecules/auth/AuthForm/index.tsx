@@ -1,7 +1,11 @@
 "use client";
 
-import { FunctionComponent, PropsWithChildren, useEffect } from "react";
-import { useFormState } from "react-dom";
+import {
+  FunctionComponent,
+  PropsWithChildren,
+  useActionState,
+  useEffect,
+} from "react";
 import { useTranslation } from "react-i18next";
 import Submit from "@/components/atomic/Submit";
 import * as Styled from "./styles";
@@ -26,7 +30,7 @@ const AuthForm: FunctionComponent<PropsWithChildren<AuthFormProps>> = ({
   children,
   className,
 }) => {
-  const [state, formAction] = useFormState(action, initialState);
+  const [state, formAction] = useActionState(action, initialState);
   const { t } = useTranslation();
 
   const getButtonText = (pending: boolean) => {

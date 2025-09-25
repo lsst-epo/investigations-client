@@ -14,7 +14,7 @@ interface ReferencePageParams {
 }
 
 export interface ReferencePageProps {
-  params: RootParams & ReferencePageParams;
+  params: Promise<RootParams & ReferencePageParams>;
 }
 
 const ReferencesDataQuery = graphql(`
@@ -51,9 +51,8 @@ export const generateStaticParams = async ({
   });
 };
 
-export async function generateMetadata({
-  params,
-}: ReferencePageProps): Promise<Metadata> {
+export async function generateMetadata(props: ReferencePageProps): Promise<Metadata> {
+  const params = await props.params;
   const { slug, locale = fallbackLng } = params;
   const { t } = await serverTranslation(locale, "translation");
   const site = getSite(locale);
@@ -73,9 +72,8 @@ export async function generateMetadata({
   };
 }
 
-const ReferencePage: FunctionComponent<ReferencePageProps> = async ({
-  params,
-}) => {
+const ReferencePage: FunctionComponent<ReferencePageProps> = async props => {
+  const params = await props.params;
   const { slug, locale = fallbackLng } = params;
   const site = getSite(locale);
 

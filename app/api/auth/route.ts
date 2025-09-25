@@ -1,22 +1,16 @@
-"use server";
-
-import { setAuthCookies } from "@/components/auth/serverHelpers";
-import { graphql, useFragment } from "@/gql/public-schema";
+import { NextRequest, NextResponse } from "next/server";
 import { mutateAPI } from "@/lib/fetch";
+import { useFragment } from "@/gql/public-schema";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
-import { CombinedError } from "@urql/core";
 import { cookies } from "next/headers";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { serverTranslation } from "@/lib/i18n/server";
-import { redirect } from "next/navigation";
-
-const Mutation = graphql(`
-  mutation Authenticate($email: String!, $password: String!) {
-    authenticate(email: $email, password: $password) {
-      ...AuthFragment
-    }
-  }
-`);
+import {
+  COOKIE_OPTIONS,
+  getAuthCookies,
+  setAuthCookies,
+} from "../cookie/cookieService";
+import { AuthenticateMutation } from "./authService";
 
 const parseErrors = async (
   { graphQLErrors, networkError }: CombinedError,
@@ -51,18 +45,15 @@ const parseErrors = async (
   };
 };
 
-export default async function signIn(
-  state: FormState,
-  formData: FormData,
-  returnTo?: string
-): Promise<FormState> {
-  const formDataObj = Object.fromEntries(formData);
-  const { email, password } = formDataObj;
+export async function POST(request: NextRequest) {
+  const formData = await request.formData();
+  const email = formData.get("email");
+  const password = formData.get("password");
 
   // FormDataEntryValue is a union of string and File, but since we don't use
   // input[type='file'] we can assume this will always be a string
   const { data, error } = await mutateAPI({
-    query: Mutation,
+    query: AuthenticateMutation,
     variables: { email: email as string, password: password as string },
   });
 
@@ -71,15 +62,28 @@ export default async function signIn(
   const authData = useFragment(AuthFragmentFragmentDoc, data?.authenticate);
 
   if (authData) {
-    setAuthCookies(authData);
+    await setAuthCookies(authData);
 
-    if (returnTo) {
-      redirect(returnTo);
-    } else {
-      return { status: "success" };
-    }
+    const res = NextResponse.json({
+      status: "success",
+      message: "Login successful!",
+    });
+
+    const { craftToken, craftRefreshToken, craftUserStatus, craftUserId } =
+      await getAuthCookies();
+
+    if (craftToken) res.cookies.set("craftToken", craftToken, COOKIE_OPTIONS);
+    if (craftRefreshToken)
+      res.cookies.set("craftRefreshToken", craftRefreshToken, COOKIE_OPTIONS);
+    if (craftUserStatus)
+      res.cookies.set("craftUserStatus", craftUserStatus, COOKIE_OPTIONS);
+    if (craftUserId)
+      res.cookies.set("craftUserId", craftUserId, COOKIE_OPTIONS);
+
+    return res;
   } else if (error) {
-    return await parseErrors(error, email);
+    const parsedError = await parseErrors(error, email);
+    return NextResponse.json(parsedError, { status: 400 });
   }
   return null;
 }

@@ -5,10 +5,7 @@ import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
 import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
-import {
-  getAuthCookies,
-  getUserFromJwt,
-} from "@/components/auth/serverHelpers";
+import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
 import { notFound } from "next/navigation";
@@ -19,8 +16,8 @@ export interface InvestigationParams {
 }
 
 export interface InvestigationProps {
-  params: RootParams & InvestigationParams;
-  searchParams: Record<string, string | Array<string> | undefined>;
+  params: Promise<RootParams & InvestigationParams>;
+  searchParams: Promise<Record<string, string | Array<string> | undefined>>;
 }
 
 const InvestigationMetadataQuery = graphql(`
@@ -33,9 +30,14 @@ const InvestigationMetadataQuery = graphql(`
   }
 `);
 
-export async function generateMetadata({
-  params: { investigation, locale },
-}: InvestigationProps): Promise<Metadata> {
+export async function generateMetadata(props: InvestigationProps): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    investigation,
+    locale
+  } = params;
+
   const site = getSite(locale);
 
   const { data } = await queryAPI({
@@ -146,7 +148,18 @@ const InvestigationIdQuery = graphql(`
 
 const InvestigationLandingLayout: FunctionComponent<
   PropsWithChildren<InvestigationProps>
-> = async ({ children, params: { locale, investigation } }) => {
+> = async props => {
+  const params = await props.params;
+
+  const {
+    locale,
+    investigation
+  } = params;
+
+  const {
+    children
+  } = props;
+
   const site = getSite(locale);
 
   const { data } = await queryAPI({
@@ -162,8 +175,21 @@ const InvestigationLandingLayout: FunctionComponent<
   }
 
   const { children: pages = [], acknowledgements } = data.entry;
+  let craftToken;
+  try {
+    const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/cookie", {
+      method: "GET",
+    });
 
-  const { craftToken } = await getAuthCookies();
+    if (!res.ok) {
+      const err = await res.json();
+      console.error(err.message || "Unexpected error while retrieving cookies");
+    }
+    craftToken = (await res.json()).authCookies.craftToken;
+  } catch (error: any) {
+      console.error(error.message || "Failed to retrieve cookies");
+  }
+
   const user = getUserFromJwt(craftToken);
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;

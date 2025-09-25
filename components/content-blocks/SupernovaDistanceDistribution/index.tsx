@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import isNull from "lodash/isNull";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
@@ -28,9 +28,27 @@ const Fragment = graphql(`
   }
 `);
 
+const getDataset = async (url?: string): Promise<Array<number>> => {
+  let data = [];
+  if (url) {
+    const response = await fetch(url, {
+      cache: "force-cache",
+      headers: { "Content-Type": "application/json" },
+      next: { tags: [tags.datasets] },
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      console.error(error);
+    }
+    data = await response.json();
+  }
+  return data;
+};
+
 const SupernovaDistanceDistributionBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
-> = async ({ data }) => {
+> = ({ data }) => {
   const { imageAlbum, json, step, instructions } = useFragment(Fragment, data);
 
   if (isNull(json) || isNull(json[0])) return null;
@@ -39,12 +57,7 @@ const SupernovaDistanceDistributionBlock: FunctionComponent<
 
   if (isNull(url)) return null;
 
-  const response = await fetch(url, {
-    cache: "force-cache",
-    headers: { "Content-Type": "application/json" },
-    next: { tags: [tags.datasets] },
-  });
-  const supernovaData: Array<number> = await response.json();
+  const supernovaData: Array<number> = use(getDataset(url));
 
   return (
     <>

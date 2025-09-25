@@ -2,9 +2,15 @@
   "compilerOptions": {
     "module": "preserve",
     "moduleResolution": "bundler",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,36 +23,83 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/api/*": ["lib/api/*"],
-      "@/app/*": ["app/*"],
-      "@/atomic/*": ["components/atomic/*"],
-      "@/components/*": ["components/*"],
-      "@/content-blocks": ["components/content-blocks"],
-      "@/contexts/*": ["contexts/*"],
-      "@/dynamic/*": ["components/dynamic/*"],
-      "@/factories/*": ["components/factories/*"],
-      "@/global/*": ["components/global/*"],
-      "@/helpers": ["helpers"],
-      "@/hoc/*": ["components/hoc/*"],
-      "@/hooks": ["hooks"],
-      "@/hooks/*": ["hooks/*"],
-      "@/layout/*": ["components/layout/*"],
-      "@/lib/*": ["lib/*"],
-      "@/page/*": ["components/page/*"],
-      "@/questions/*": ["components/questions/*"],
-      "@/shapes/*": ["components/shapes/*"],
-      "@/styles/*": ["theme/styles/*"],
-      "@/svg/*": ["components/svg/*"],
-      "@/templates/*": ["components/templates/*"],
-      "@/types/*": ["types/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@/api/*": [
+        "lib/api/*"
+      ],
+      "@/app/*": [
+        "app/*"
+      ],
+      "@/atomic/*": [
+        "components/atomic/*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/content-blocks": [
+        "components/content-blocks"
+      ],
+      "@/contexts/*": [
+        "contexts/*"
+      ],
+      "@/dynamic/*": [
+        "components/dynamic/*"
+      ],
+      "@/factories/*": [
+        "components/factories/*"
+      ],
+      "@/global/*": [
+        "components/global/*"
+      ],
+      "@/helpers": [
+        "helpers"
+      ],
+      "@/hoc/*": [
+        "components/hoc/*"
+      ],
+      "@/hooks": [
+        "hooks"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/layout/*": [
+        "components/layout/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/page/*": [
+        "components/page/*"
+      ],
+      "@/questions/*": [
+        "components/questions/*"
+      ],
+      "@/shapes/*": [
+        "components/shapes/*"
+      ],
+      "@/styles/*": [
+        "theme/styles/*"
+      ],
+      "@/svg/*": [
+        "components/svg/*"
+      ],
+      "@/templates/*": [
+        "components/templates/*"
+      ],
+      "@/types/*": [
+        "types/*"
+      ]
     },
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "target": "ES2017"
   },
   "include": [
     "app",
@@ -62,5 +115,7 @@
     "next-env.d.ts",
     "types"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

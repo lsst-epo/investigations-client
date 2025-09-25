@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { useTranslation } from "@/lib/i18n/server";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
@@ -12,8 +12,8 @@ const ReviewPage: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
   locale: string;
   questions: Array<Question>;
-}> = async ({ user, locale = fallbackLng, investigation, questions }) => {
-  const { t } = await useTranslation(locale, "translation");
+}> = ({ user, locale = fallbackLng, investigation, questions }) => {
+  const { t } = use(useTranslation(locale, "translation"));
   const submissionDate = new Date();
 
   return (

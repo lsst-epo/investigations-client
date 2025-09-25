@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, use } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { useTranslation } from "@/lib/i18n/server";
 import Container from "@rubin-epo/epo-react-lib/Container";
@@ -29,8 +29,8 @@ const Fragment = graphql(`
 const InvestigationSectionBreakPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   locale: string;
-}> = async ({ locale, data }) => {
-  const { t } = await useTranslation(locale, "translation");
+}> = ({ locale, data }) => {
+  const { t } = use(useTranslation(locale, "translation"));
   const { text, next, parent } = useFragment(Fragment, data);
 
   const srcs: Record<string, { src: string; alt: string }> = {
