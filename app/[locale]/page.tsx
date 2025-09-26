@@ -11,7 +11,7 @@ import {
 import { queryAPI } from "@/lib/fetch";
 import { getSite } from "@/helpers";
 import { FunctionComponent } from "react";
-import Image from "next/image";
+import NavHeader from "@/components/page/NavHeader";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
 
@@ -49,12 +49,7 @@ const HomePage: FunctionComponent<RootProps> = async (props) => {
 
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
     <>
-      <Image
-        src={data?.entry?.image?.[0].url?.directUrlOriginal}
-        alt="alt"
-        width="100"
-        height="100"
-      ></Image>
+      <NavHeader {...data?.entry?.image?.[0]}></NavHeader>
       <HomePageTemplate data={data.entry}>
         {user && <SignOut redirectTo={"/"} />}
       </HomePageTemplate>

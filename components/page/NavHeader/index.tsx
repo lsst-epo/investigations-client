@@ -1,9 +1,24 @@
 import * as Styled from "./styles";
+import Image from "next/image";
+interface NavHeaderProps {
+  url: { directUrlOriginal: string };
+  width: number;
+  height: number;
+}
 
-export default function NavHeader() {
+export default function NavHeader({
+  url: { directUrlOriginal },
+  width,
+  height,
+}: NavHeaderProps) {
   return (
     <Styled.NavHeader>
-      <h1>this is where the logo goes</h1>
+      <Image
+        src={directUrlOriginal}
+        alt="alt"
+        width={width}
+        height={height}
+      ></Image>
     </Styled.NavHeader>
   );
 }

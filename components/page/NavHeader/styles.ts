@@ -9,4 +9,8 @@ export const NavHeader = styled.div`
   justify-content: flext-start;
   width: 100%;
   height: 100%;
+
+  & > * {
+    width: 50%;
+  }
 `;

@@ -12,6 +12,8 @@ const Fragment = graphql(`
       url {
         directUrlOriginal
       }
+      width
+      height
     }
     contentBlocks: homepageContentBlocks {
       __typename
