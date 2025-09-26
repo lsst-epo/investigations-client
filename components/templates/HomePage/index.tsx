@@ -8,6 +8,11 @@ const Fragment = graphql(`
     __typename
     id
     title
+    image {
+      url {
+        directUrlOriginal
+      }
+    }
     contentBlocks: homepageContentBlocks {
       __typename
       ... on homepageContentBlocks_text_BlockType {
@@ -49,7 +54,6 @@ export default function HomePage(props: {
   children?: React.ReactNode;
 }) {
   const data = useFragment(Fragment, props.data);
-
   if (!data) return null;
 
   return (
