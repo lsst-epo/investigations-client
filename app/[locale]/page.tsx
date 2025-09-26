@@ -48,12 +48,12 @@ const HomePage: FunctionComponent<RootProps> = async (props) => {
   const user = getUserFromJwt(craftToken);
 
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
-    <>
+    <div>
       <NavHeader {...data?.entry?.image?.[0]}></NavHeader>
       <HomePageTemplate data={data.entry}>
         {user && <SignOut redirectTo={"/"} />}
       </HomePageTemplate>
-    </>
+    </div>
   ) : (
     notFound()
   );

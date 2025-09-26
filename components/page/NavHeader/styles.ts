@@ -11,6 +11,6 @@ export const NavHeader = styled.div`
   height: 100%;
 
   & > * {
-    width: 50%;
+    width: 33%;
   }
 `;
