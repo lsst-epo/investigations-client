@@ -15,6 +15,7 @@ const Fragment = graphql(`
       width
       height
     }
+    text
     contentBlocks: homepageContentBlocks {
       __typename
       ... on homepageContentBlocks_text_BlockType {
@@ -61,7 +62,7 @@ export default function HomePage(props: {
   return (
     <div>
       <Styled.PageContainer paddingSize="none" width="narrow" bgColor="#fff9f2">
-        <Hero></Hero>
+        <Hero heroText={data.text}></Hero>
         {data.contentBlocks?.map(
           (block, i) =>
             block && (

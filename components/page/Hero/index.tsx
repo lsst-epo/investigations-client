@@ -1,14 +1,18 @@
 import * as Styled from "./styles";
 
-export default function Hero() {
+interface HeroProps {
+  heroText: string | null;
+}
+
+export default function Hero({ heroText }: HeroProps) {
+  // TODO: Added to fill the lack of content that will arise during releasing the CMS to prod. Remove after the release.
+  if (!heroText) {
+    heroText = "Explore exciting topics in astronomy and astrophysics with our user-friendly investigation tools.";
+  }
   return (
     <Styled.Hero>
       <h2>Investigations</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta error
-        officia qui sed veritatis provident perferendis, facilis ducimus tempora
-        beatae.
-      </p>
+      {heroText}
     </Styled.Hero>
   );
 }
