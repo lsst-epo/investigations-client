@@ -11,8 +11,8 @@ export default function Hero({ heroText }: HeroProps) {
   }
   return (
     <Styled.Hero>
-      <h2>Investigations</h2>
-      {heroText}
+      <h2>Welcome to Rubin Observatory’s Investigations!</h2>
+      <p>{heroText}</p>
     </Styled.Hero>
   );
 }

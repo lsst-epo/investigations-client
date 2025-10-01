@@ -1,16 +1,27 @@
 "use client";
 import styled from "styled-components";
+import { BREAK_TABLET } from "@/styles/globalStyles";
 
 export const NavHeader = styled.div`
-  background-color: #0c4a47;
+  --header-height: 95px;
+
+  background-color: var(--turquoise90);
   color: white;
   display: flex;
   align-items: center;
-  justify-content: flext-start;
+  justify-content: flex-start;
   width: 100%;
-  height: 100%;
 
-  & > * {
-    width: 33%;
+  height: var(--header-height);
+  min-height: 60px;
+
+  & > img {
+    height: 100%;
+    width: auto;
+  }
+
+  @media screen and (max-width: ${BREAK_TABLET}) {
+    height: auto;
+    min-height: 60px;
   }
 `;
