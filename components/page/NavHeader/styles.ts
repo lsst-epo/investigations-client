@@ -10,18 +10,17 @@ export const NavHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
 
+  width: 100%;
   height: var(--header-height);
-  min-height: 60px;
+  @media (max-width: ${BREAK_TABLET}) {
+    height: auto;
+    min-height: 60px;
+  }
 
   & > img {
     height: 100%;
     width: auto;
-  }
-
-  @media screen and (max-width: ${BREAK_TABLET}) {
-    height: auto;
-    min-height: 60px;
+    object-fit: contain;
   }
 `;
