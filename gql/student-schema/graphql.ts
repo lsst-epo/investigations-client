@@ -9019,6 +9019,8 @@ export type Homepage_Homepage_Entry = ElementInterface & EntryInterface & {
   homepageContentBlocks?: Maybe<Array<Maybe<HomepageContentBlocks_NeoField>>>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
+  /** Canto Dam Asset field */
+  image?: Maybe<Array<Maybe<CantoDamAssetInterface>>>;
   /** Returns whether this is a draft. */
   isDraft?: Maybe<Scalars['Boolean']['output']>;
   /** Returns whether this is a revision. */
@@ -9077,6 +9079,7 @@ export type Homepage_Homepage_Entry = ElementInterface & EntryInterface & {
   status?: Maybe<Scalars['String']['output']>;
   /** The element’s structure ID. */
   structureId?: Maybe<Scalars['Int']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
   /** Whether the element has been soft-deleted. */
@@ -9403,6 +9406,29 @@ export type Homepage_Homepage_EntryHomepageContentBlocksArgs = {
   uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   unique?: InputMaybe<Scalars['Boolean']['input']>;
   uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type Homepage_Homepage_EntryImageArgs = {
+  except?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
+  first?: InputMaybe<Scalars['Boolean']['input']>;
+  forPage?: InputMaybe<ForPageInput>;
+  last?: InputMaybe<Scalars['Boolean']['input']>;
+  nth?: InputMaybe<Scalars['Int']['input']>;
+  random?: InputMaybe<Scalars['Int']['input']>;
+  reverse?: InputMaybe<Scalars['Boolean']['input']>;
+  shuffle?: InputMaybe<Scalars['Int']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  sortBy?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sortByDesc?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  where?: InputMaybe<WhereFiltersInput>;
+  whereBetween?: InputMaybe<WhereBetweenFiltersInput>;
+  whereContainsIn?: InputMaybe<WhereContainsInFilterInput>;
+  whereIn?: InputMaybe<WhereInFiltersInput>;
+  whereNotBetween?: InputMaybe<WhereNotBetweenFiltersInput>;
+  whereNotIn?: InputMaybe<WhereNotInFiltersInput>;
+  whereNotNull?: InputMaybe<Scalars['String']['input']>;
+  whereNull?: InputMaybe<Scalars['String']['input']>;
 };
 
 

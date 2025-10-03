@@ -11,6 +11,7 @@ import {
 import { queryAPI } from "@/lib/fetch";
 import { getSite } from "@/helpers";
 import { FunctionComponent } from "react";
+import NavHeader from "@/components/page/NavHeader";
 
 const CRAFT_HOMEPAGE_URI = "__home__";
 
@@ -25,13 +26,11 @@ const Query = graphql(`
   }
 `);
 
-const HomePage: FunctionComponent<RootProps> = async props => {
+const HomePage: FunctionComponent<RootProps> = async (props) => {
   const searchParams = await props.searchParams;
   const params = await props.params;
 
-  const {
-    locale
-  } = params;
+  const { locale } = params;
 
   const site = getSite(locale);
   const { preview: previewToken } = searchParams;
@@ -45,14 +44,16 @@ const HomePage: FunctionComponent<RootProps> = async props => {
     },
     previewToken: isPreview && previewToken,
   });
-
   const { craftToken } = await getAuthCookies();
   const user = getUserFromJwt(craftToken);
 
   return data?.entry?.__typename === "homepage_homepage_Entry" ? (
-    <HomePageTemplate data={data.entry}>
-      {user && <SignOut redirectTo={"/"} />}
-    </HomePageTemplate>
+    <div>
+      <NavHeader {...data?.entry?.image?.[0]}></NavHeader>
+      <HomePageTemplate data={data.entry}>
+        {user && <SignOut redirectTo={"/"} />}
+      </HomePageTemplate>
+    </div>
   ) : (
     notFound()
   );
