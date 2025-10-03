@@ -1,12 +1,21 @@
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import * as Styled from "./styles";
+import Hero from "@/components/page/Hero";
 
 const Fragment = graphql(`
   fragment HomepageTemplate on homepage_homepage_Entry {
     __typename
     id
     title
+    image {
+      url {
+        directUrlOriginal
+      }
+      width
+      height
+    }
+    text
     contentBlocks: homepageContentBlocks {
       __typename
       ... on homepageContentBlocks_text_BlockType {
@@ -48,12 +57,11 @@ export default function HomePage(props: {
   children?: React.ReactNode;
 }) {
   const data = useFragment(Fragment, props.data);
-
   if (!data) return null;
 
   return (
-    <Styled.PageContainer paddingSize="none" width="narrow">
-      <Styled.Title>{data.title}</Styled.Title>
+    <Styled.PageContainer paddingSize="none" width="narrow" bgColor="#fff9f2">
+      <Hero heroText={data.text}></Hero>
       {data.contentBlocks?.map(
         (block, i) =>
           block && <ContentBlockFactory key={i} site={data.site} data={block} />
