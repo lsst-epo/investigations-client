@@ -60,18 +60,14 @@ export default function HomePage(props: {
   if (!data) return null;
 
   return (
-    <div>
-      <Styled.PageContainer paddingSize="none" width="narrow" bgColor="#fff9f2">
-        <Hero heroText={data.text}></Hero>
-        {data.contentBlocks?.map(
-          (block, i) =>
-            block && (
-              <ContentBlockFactory key={i} site={data.site} data={block} />
-            )
-        )}
-        {props.children}
-      </Styled.PageContainer>
-    </div>
+    <Styled.PageContainer paddingSize="none" width="narrow" bgColor="#fff9f2">
+      <Hero heroText={data.text}></Hero>
+      {data.contentBlocks?.map(
+        (block, i) =>
+          block && <ContentBlockFactory key={i} site={data.site} data={block} />
+      )}
+      {props.children}
+    </Styled.PageContainer>
   );
 }
 
