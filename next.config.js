@@ -36,4 +36,13 @@ export default {
       fullUrl: true,
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "rubin.canto.com",
+        pathname: "/**",
+      },
+    ],
+  },
 };

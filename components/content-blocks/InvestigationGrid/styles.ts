@@ -13,6 +13,10 @@ import { FlagBody, OffsetWrapper } from "@/atomic/Flag/styles";
 
 export const Container = styled.section`
   display: block;
+
+  h2 {
+    text-align: center;
+  }
 `;
 
 export const MixedLink = styled(BaseMixedLink)`
