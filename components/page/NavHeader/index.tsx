@@ -1,24 +1,22 @@
 import * as Styled from "./styles";
 import Image from "next/image";
 interface NavHeaderProps {
-  url: { directUrlOriginal: string };
+  url: { directUrlOriginal: string } | undefined;
   width: number;
   height: number;
 }
 
-export default function NavHeader({
-  url: { directUrlOriginal },
-  width,
-  height,
-}: NavHeaderProps) {
+export default function NavHeader({ url, width, height }: NavHeaderProps) {
   return (
     <Styled.NavHeader>
-      <Image
-        src={directUrlOriginal}
-        alt="alt"
-        width={width}
-        height={height}
-      ></Image>
+      {url && (
+        <Image
+          src={url.directUrlOriginal}
+          alt="alt"
+          width={width}
+          height={height}
+        ></Image>
+      )}
     </Styled.NavHeader>
   );
 }
