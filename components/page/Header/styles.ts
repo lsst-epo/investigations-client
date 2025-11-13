@@ -13,6 +13,7 @@ export const Header = styled.header`
   background-color: var(--turquoise85, #12726d);
   transform: none;
   transition: transform 0.4s;
+  z-index: 1000;
 
   &[aria-hidden="true"] {
     transform: translate3d(0, -100%, 0);
