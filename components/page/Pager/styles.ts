@@ -15,6 +15,7 @@ export const PagerContainer = styled.nav`
   max-width: var(--max-page-width);
   height: var(--pager-height);
   background-color: var(--turquoise85, #12726d);
+  z-index: 1000;
 
   @media screen and (min-width: ${token("BREAK_DESKTOP_SMALL")}) {
     --pager-columns: 1fr max-content 1fr;
