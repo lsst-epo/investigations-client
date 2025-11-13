@@ -11,7 +11,7 @@ const InlineSelect: FunctionComponent<{
   options: Array<Option>;
 }> = ({ value, options = [] }) => {
   const { t } = useTranslation();
-
+  
   const label = getLabelByValue(options, value);
 
   return (

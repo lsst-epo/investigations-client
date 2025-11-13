@@ -2,6 +2,7 @@
 import { ComponentType, FunctionComponent } from "react";
 import useAnswer from "@/hooks/useAnswer";
 import { BaseReviewProps, MultipartQuestionType } from "@/types/questions";
+import { getLabelByValue } from "@/components/questions/utils";
 
 import Readonly from "./Readonly";
 import Generic from "./Text";
@@ -35,7 +36,6 @@ const MultipartReview: FunctionComponent<MultipartReviewProps> = ({
   parts = [],
 }) => {
   const { answer = {} } = useAnswer<MultipartQuestionData>(id);
-
   return (
     <Styled.MultipartItem value={number}>
       {parts.map(({ type, id, text, options }, i) => {
@@ -43,11 +43,28 @@ const MultipartReview: FunctionComponent<MultipartReviewProps> = ({
 
         if (!Review) {
           console.error(`"${type}" is not a valid multipart question part.`);
-
           return null;
         }
 
-        const value = id in answer ? answer[id] : undefined;
+        let value;
+
+        if(id in answer) {
+          value = answer[id];
+        }
+
+        /**
+         * Special considerations exist for `select` objects
+         */
+        if (type === "select") {
+          let needle = value;
+          if (value === undefined) {
+            const [ answerKey ] = Object.values(answer);
+            needle = answerKey;
+          }
+
+          const label = getLabelByValue(options, needle);
+          value = label;
+        }
 
         return <Review {...{ value, type, text, options }} key={i} />;
       })}
