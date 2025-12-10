@@ -9,8 +9,8 @@ import {
   COOKIE_OPTIONS,
   getAuthCookies,
   setAuthCookies,
-} from "../cookie/cookieService";
-import { AuthenticateMutation } from "./authService";
+} from "@/lib/auth/cookieService";
+import { AuthenticateMutation } from "@/lib/auth/authService";
 
 const parseErrors = async (
   { graphQLErrors, networkError }: CombinedError,

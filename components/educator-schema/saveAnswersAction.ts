@@ -1,6 +1,6 @@
 "use server";
 
-import { getAuthCookies } from "@/components/auth/serverHelpers";
+import { getAuthCookies } from "@/lib/auth/cookieService";
 import { graphql } from "@/gql/student-schema";
 import mutationClient from "@/lib/fetch/mutate";
 import { Answers, InvestigationId } from "@/types/answers";
@@ -52,6 +52,9 @@ export default async function saveAnswers(
   if (data?.saveAnswersFromSet) {
     return data;
   } else if (error) {
+    if (error.message.includes("Refresh")) {
+      return "refreshError";
+    }
     throw new Error(error.message);
   }
 }
