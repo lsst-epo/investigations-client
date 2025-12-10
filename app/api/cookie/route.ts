@@ -4,9 +4,9 @@ import revokeRefreshToken from "@/lib/auth/session/revoke";
 import {
   COOKIE_OPTIONS,
   getAuthCookies,
-  deleteAuthCookies,
-} from "./cookieService";
-import { checkCredentials } from "../auth/authService";
+  deleteAuthCookies
+} from "@/lib/auth/cookieService";
+import { checkCredentials } from "@/lib/auth/authService";
 
 export async function GET(request: Request) {
   try {
