@@ -1,7 +1,7 @@
 import { graphql, useFragment as getFragment } from "@/gql/public-schema";
 import { mutateAPI } from "@/lib/fetch";
 import { AuthFragmentFragmentDoc } from "gql/public-schema/graphql";
-import { setAuthCookies } from "../cookie/cookieService";
+import { setAuthCookies } from "./cookieService";
 import { revalidatePath } from "next/cache";
 
 export const AuthenticateMutation = graphql(`

@@ -1,6 +1,6 @@
 "use server";
 
-import { getAuthCookies } from "@/components/auth/serverHelpers";
+import { getAuthCookies } from "@/lib/auth/cookieService";
 import { graphql } from "@/gql/student-schema";
 import { Answers, InvestigationId } from "@/types/answers";
 import mutationClient from "@/lib/fetch/mutate";
@@ -25,7 +25,7 @@ export default async function saveAnswers(
   investigationId: NonNullable<InvestigationId>,
   answers: Answers
 ) {
-  const { craftUserId, craftToken, craftUserStatus } = getAuthCookies();
+  const { craftUserId, craftToken, craftUserStatus, craftRefreshToken } = await getAuthCookies();
 
   if (!craftUserId || !craftToken) {
     return "refreshError";
@@ -43,7 +43,7 @@ export default async function saveAnswers(
     };
   });
 
-  const { data, error } = await mutationClient()(Mutation, {
+  const { data, error } = await mutationClient({ craftToken: craftToken, craftRefreshToken: craftRefreshToken})(Mutation, {
     userId: craftUserId,
     investigationId,
     answerSet,
