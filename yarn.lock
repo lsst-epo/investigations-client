@@ -2914,10 +2914,10 @@
     pump "^3.0.0"
     tar-fs "^2.1.1"
 
-"@next/env@15.4.8":
-  version "15.4.8"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-15.4.8.tgz#f41741d07651958bccb31fb685da0303a9ef1373"
-  integrity sha512-LydLa2MDI1NMrOFSkO54mTc8iIHSttj6R6dthITky9ylXV2gCGi0bHQjVCtLGRshdRPjyh2kXbxJukDtBWQZtQ==
+"@next/env@15.4.10":
+  version "15.4.10"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-15.4.10.tgz#a794b738d043d9e98ea435bd45254899f7f77714"
+  integrity sha512-knhmoJ0Vv7VRf6pZEPSnciUG1S4bIhWx+qTYBW/AjxEtlzsiNORPk8sFDCEvqLfmKuey56UB9FL1UdHEV3uBrg==
 
 "@next/eslint-plugin-next@15.4.6":
   version "15.4.6"
@@ -12070,12 +12070,12 @@ next-intl@^3.0.3:
     negotiator "^0.6.3"
     use-intl "^3.0.3"
 
-next@15.4.8:
-  version "15.4.8"
-  resolved "https://registry.yarnpkg.com/next/-/next-15.4.8.tgz#0f20a6cad613dc34547fa6519b2d09005ac370ca"
-  integrity sha512-jwOXTz/bo0Pvlf20FSb6VXVeWRssA2vbvq9SdrOPEg9x8E1B27C2rQtvriAn600o9hH61kjrVRexEffv3JybuA==
+next@15.4.10:
+  version "15.4.10"
+  resolved "https://registry.yarnpkg.com/next/-/next-15.4.10.tgz#4ee237d4eb16289f6e16167fbed59d8ada86aa59"
+  integrity sha512-itVlc79QjpKMFMRhP+kbGKaSG/gZM6RCvwhEbwmCNF06CdDiNaoHcbeg0PqkEa2GOcn8KJ0nnc7+yL7EjoYLHQ==
   dependencies:
-    "@next/env" "15.4.8"
+    "@next/env" "15.4.10"
     "@swc/helpers" "0.5.15"
     caniuse-lite "^1.0.30001579"
     postcss "8.4.31"
@@ -13502,10 +13502,10 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@19.1.2:
-  version "19.1.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.1.2.tgz#18ce6b14f682f4871a69cc6b2568d42af2cd5a33"
-  integrity sha512-dEoydsCp50i7kS1xHOmPXq4zQYoGWedUsvqv9H6zdif2r7yLHygyfP9qou71TulRN0d6ng9EbRVsQhSqfUc19g==
+react-dom@19.1.4:
+  version "19.1.4"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.1.4.tgz#faa672c4fdc041b1928c6bafd6bdca7cf2a11f66"
+  integrity sha512-s2868ab/xo2SI6H4106A7aFI8Mrqa4xC6HZT/pBzYyQ3cBLqa88hu47xYD8xf+uECleN698Awn7RCWlkTiKnqQ==
   dependencies:
     scheduler "^0.26.0"
 
@@ -13647,10 +13647,10 @@ react-style-singleton@^2.2.1:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
-react@19.1.2:
-  version "19.1.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-19.1.2.tgz#fd75c4f684b52fe45101381535c58486f4407545"
-  integrity sha512-MdWVitvLbQULD+4DP8GYjZUrepGW7d+GQkNVqJEzNxE+e9WIa4egVFE/RDfVb1u9u/Jw7dNMmPB4IqxzbFYJ0w==
+react@19.1.4:
+  version "19.1.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.1.4.tgz#d8a59f8ce3257cb383474586be4c8aab92afefa7"
+  integrity sha512-DHINL3PAmPUiK1uszfbKiXqfE03eszdt5BpVSuEAHb5nfmNPwnsy7g39h2t8aXFc/Bv99GH81s+j8dobtD+jOw==
 
 read-pkg-up@^3.0.0:
   version "3.0.0"
