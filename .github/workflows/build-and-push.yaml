@@ -1,6 +1,13 @@
 name: Build, Push, and Deploy
 
 on:
+  workflow_dispatch:
+    inputs:
+      bucket-subfolder-suffix:
+        description: "Bucket subfolder name suffix (optional)"
+        required: false
+        default: ""
+        type: string
   push:
     branches:
       - "develop"
@@ -16,6 +23,8 @@ jobs:
       image_tag: ${{ steps.deploy-tag.outputs.image_tag }}
       image_name: ${{ steps.deploy-tag.outputs.image_name }}
       environment_name: ${{ steps.deploy-info.outputs.environment_name }}
+      bucketname: ${{ steps.deploy-tag.outputs.bucket_name }}
+      bucketfolder: ${{ steps.deploy-tag.outputs.bucket_subfolder}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -64,6 +73,13 @@ jobs:
           echo image_tag=$(echo "$full_tag" | cut -f2 -d:) >> "$GITHUB_OUTPUT"
           echo image_name=$(echo "$full_tag" | cut -f1 -d:) >> "$GITHUB_OUTPUT"
           echo full_tag=$full_tag >> "$GITHUB_OUTPUT"
+          bucket_name=investigations-${{ steps.deploy-info.outputs.environment_name }}
+          bucket_subfolder=$(echo "$full_tag" | cut -f2 -d:)-${{ steps.deploy-info.outputs.date }}
+          echo bucket_name=investigations-${{ steps.deploy-info.outputs.environment_name }} >> "$GITHUB_OUTPUT"
+          echo bucket_subfolder=$(echo "$full_tag" | cut -f2 -d:)-${{ steps.deploy-info.outputs.date }} >> "$GITHUB_OUTPUT"
+          echo "bucket_name: $bucket_name"
+          echo "bucket_subfolder: $bucket_subfolder"
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -89,6 +105,42 @@ jobs:
           build-args: |
             BASE_TAG=k8s
             RUN_BUILD=false
+
+      - name: Upload to GCS bucket
+        uses: google-github-actions/upload-cloud-storage@v3
+        with:
+          path: '.next'
+          destination: '${{ steps.deploy-tag.outputs.bucket_name}}/${{ steps.deploy-tag.outputs.bucket_subfolder}}${{ github.event.inputs.bucket-subfolder-suffix }}'
+          gzip: false
+      
+      - name: Add lifecycle Policies
+        env:
+          BUCKET_FOLDER_PREFIX: ${{ steps.deploy-tag.outputs.bucket_subfolder }}${{ github.event.inputs.bucket-subfolder-suffix }}
+          BUCKET_NAME: ${{ steps.deploy-tag.outputs.bucket_name }}
+        run: |
+          cat > lifecycle.json <<EOF
+          {
+            "lifecycle": {
+               "rule": [
+                {
+                  "action": {
+                    "type": "Delete"
+                  },
+                  "condition": {
+                    "age": 1,
+                    "matchesPrefix": [
+                      "$BUCKET_FOLDER_PREFIX/.next/cache/fetch-cache/",
+                      "$BUCKET_FOLDER_PREFIX/.next/cache/images/"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+          EOF
+          gcloud storage buckets update gs://$BUCKET_NAME --lifecycle-file=lifecycle.json
+          rm lifecycle.json
+
       - name: Summary
         run: |
           cat <<-EOT >> "$GITHUB_STEP_SUMMARY"
@@ -109,11 +161,14 @@ jobs:
           PARAMETERS=(
             client.image.tag=${{ needs.build.outputs.image_tag }}
             client.image.repository=${{ needs.build.outputs.image_name }}
+            global.gcsFuse.bucketName=${{ needs.build.outputs.bucketname }}
+            global.gcsFuse.bucketFolder=${{ needs.build.outputs.bucketfolder }}${{ github.event.inputs.bucket-subfolder-suffix }}/.next
           )
           DATA="{
             \"app_name\": \"investigations\",
             \"environment_name\": \"${{ needs.build.outputs.environment_name }}\",
-            \"parameters\": $(jq -c -n '$ARGS.positional' --args ${PARAMETERS[@]})
+            \"parameters\": $(jq -c -n '$ARGS.positional' --args ${PARAMETERS[@]}),
+            \"date\": \"\"
           }"
           echo "data=$(echo $DATA | jq -rc '.')" >> "$GITHUB_OUTPUT"
       - uses: lasith-kg/dispatch-workflow@v1.7.0
