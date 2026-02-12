@@ -105,6 +105,17 @@ jobs:
           build-args: |
             BASE_TAG=k8s
             RUN_BUILD=false
+      - name: Run static build in docker container based on .env file
+        uses: docker/build-push-action@v6.19.2
+        with:
+          context: .
+          push: false
+          target: nextjs-copy
+          outputs: type=local,dest=./.next
+          build-args: |
+            RUN_BUILD=false
+          cache-from: |
+            type=gha
 
       - name: Upload to GCS bucket
         uses: google-github-actions/upload-cloud-storage@v3
