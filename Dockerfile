@@ -3,25 +3,26 @@
 # Rebuild the source code only when needed
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY . /app
+COPY --exclude=.env . /app
 
 RUN apk add --no-cache libc6-compat git fontconfig
 RUN yarn install --frozen-lockfile
 
-ARG NEXT_PUBLIC_API_URL
-ARG NEXT_PUBLIC_BASE_URL
-ARG NEXT_PUBLIC_GOOGLE_APP_ID
-ARG GOOGLE_APP_SECRET
-ARG CRAFT_SECRET_TOKEN
-ARG CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN
-ARG CRAFT_STUDENT_SCHEMA_SECRET_TOKEN
-
-RUN npx browserslist@latest --update-db
-
+# YARN-BUILDER: Compile the app
+FROM builder AS yarn-builder
 ARG RUN_BUILD="true"
 ENV RUN_BUILD=${RUN_BUILD}
 
-RUN if $RUN_BUILD;then yarn static:build;fi
+RUN --mount=type=bind,source=.env,target=/app/.env \
+    if [ "$RUN_BUILD" = "true" ]; then \
+      npx update-browserslist-db@latest && \
+      yarn static:build; \
+    fi
+
+# FOR GCS bucket .next folder versioning
+FROM scratch AS nextjs-copy
+COPY --from=yarn-builder /app/.next /
+
 
 # Production image, copy all the files and run next
 FROM node:20-alpine AS runner
@@ -31,7 +32,7 @@ RUN apk add --no-cache fontconfig
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-COPY --from=builder --chown=nextjs:nodejs /app/ ./
+COPY --from=yarn-builder --chown=nextjs:nodejs /app/ ./
 
 USER nextjs
 
