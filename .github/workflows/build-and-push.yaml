@@ -107,9 +107,6 @@ jobs:
 
           # Write secrets and format to .env file which will be mounted into docker build step
           echo "$SECRET_JSON " | jq -r 'to_entries[] | "\(.key)=\(.value)"' > .env
-          # Debugging
-          pwd
-          ls -la
   
       - name: Build and push
         uses: docker/build-push-action@v6.8.0
@@ -132,8 +129,6 @@ jobs:
           push: false
           target: nextjs-copy
           outputs: type=local,dest=./.next
-          build-args: |
-            RUN_BUILD=true
           cache-from: |
             type=gha
 
