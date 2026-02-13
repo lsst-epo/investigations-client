@@ -127,7 +127,7 @@ jobs:
         with:
           context: .
           push: false
-          target: nextjs-copy
+          target: runner
           outputs: type=local,dest=./.next
           cache-from: |
             type=gha
