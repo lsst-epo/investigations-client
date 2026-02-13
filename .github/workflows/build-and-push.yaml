@@ -113,6 +113,7 @@ jobs:
         with:
           context: .
           push: true
+          target: runner
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-to: |
@@ -129,8 +130,6 @@ jobs:
           push: false
           target: nextjs-copy
           outputs: type=local,dest=./.next
-          build-args: |
-            RUN_BUILD=false
           cache-from: |
             type=gha
 
