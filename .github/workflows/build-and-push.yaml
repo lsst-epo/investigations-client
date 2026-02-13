@@ -42,6 +42,8 @@ jobs:
             environment_name="dev"
             credentials_json='${{ secrets.DEV_SA_KEY }}'
           fi
+          deploymentname="investigations-client"
+          echo deploymentname=$deploymentname >> "$GITHUB_OUTPUT"
           echo environment_name=$environment_name >> "$GITHUB_OUTPUT"
           echo credentials_json=$credentials_json >> "$GITHUB_OUTPUT"
       - name: Docker meta
@@ -91,6 +93,21 @@ jobs:
       - name: "Set up Cloud SDK"
         uses: "google-github-actions/setup-gcloud@v2"
       - run: gcloud --quiet auth configure-docker
+
+      - name: Fetch and Set Environment Variables from Secret Manager
+        id: deploy-secrets
+        run: |
+          # Get appropriate secret name
+          SECRET_NAME=$(gcloud secrets list --filter="labels.deployment:${{ steps.deploy-info.outputs.deploymentname }}" --format="value(name)")
+          # The secret value must be a single-line JSON string.
+          SECRET_JSON=$(gcloud secrets versions access latest --secret=$SECRET_NAME)
+
+          # check secrets are being read
+          echo "$SECRET_JSON" | jq 'keys | length'
+
+          # Write secrets and format to .env file which will be mounted into docker build step
+          echo "$SECRET_JSON " | jq -r 'to_entries[] | "\(.key)=\(.value)"' > .env
+  
       - name: Build and push
         uses: docker/build-push-action@v6.8.0
         with:
