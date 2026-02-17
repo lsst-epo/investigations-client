@@ -19,10 +19,12 @@ jobs:
   build:
     name: Build Container Image
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event_name == 'push' || (github.event_name == 'pull_request' && (contains(github.event.pull_request.labels.*.name, 'preview') || github.event.label.name == 'preview')) }}
     outputs:
       image_tag: ${{ steps.deploy-tag.outputs.image_tag }}
       image_name: ${{ steps.deploy-tag.outputs.image_name }}
       environment_name: ${{ steps.deploy-info.outputs.environment_name }}
+      date: ${{ steps.deploy-info.outputs.date }}
       bucketname: ${{ steps.deploy-tag.outputs.bucket_name }}
       bucketfolder: ${{ steps.deploy-tag.outputs.bucket_subfolder}}
     steps:
@@ -46,6 +48,7 @@ jobs:
           echo deploymentname=$deploymentname >> "$GITHUB_OUTPUT"
           echo environment_name=$environment_name >> "$GITHUB_OUTPUT"
           echo credentials_json=$credentials_json >> "$GITHUB_OUTPUT"
+          echo date=$(date +'%Y%m%d') >> $GITHUB_OUTPUT
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -181,6 +184,7 @@ jobs:
     name: Trigger deploy to ${{ needs.build.outputs.environment_name }}
     needs: build
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request'}}
     steps:
       - name: Generate Webhook Payload
         id: payload
