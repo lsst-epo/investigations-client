@@ -70,7 +70,7 @@ jobs:
         id: deploy-tag
         run: |
           # Parse container image tag to deploy
-          full_tag=$(echo "$DOCKER_METADATA_OUTPUT_JSON" | jq -r '.tags[] | limit(1; select(. | test(":sha-|:v.")))')
+          full_tag=$(echo "$DOCKER_METADATA_OUTPUT_JSON" | jq -r '.tags[0]')
           echo "Will use tag \"$full_tag\" for deployment."
           echo image_tag=$(echo "$full_tag" | cut -f2 -d:) >> "$GITHUB_OUTPUT"
           echo image_name=$(echo "$full_tag" | cut -f1 -d:) >> "$GITHUB_OUTPUT"
