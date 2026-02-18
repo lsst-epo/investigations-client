@@ -42,5 +42,6 @@ USER nextjs
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 EXPOSE 8080
+ENV PORT 8080
 
 CMD ["yarn", "start"]
