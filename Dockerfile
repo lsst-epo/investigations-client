@@ -10,7 +10,6 @@ RUN yarn install --frozen-lockfile
 
 # YARN-BUILDER: Compile the app
 FROM builder AS yarn-builder
-FROM builder AS yarn-builder
 RUN --mount=type=bind,source=.env,target=/app/.env \
     npx update-browserslist-db@latest && yarn static:build
 
