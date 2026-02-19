@@ -10,14 +10,9 @@ RUN yarn install --frozen-lockfile
 
 # YARN-BUILDER: Compile the app
 FROM builder AS yarn-builder
-ARG RUN_BUILD="true"
-ENV RUN_BUILD=${RUN_BUILD}
-
+FROM builder AS yarn-builder
 RUN --mount=type=bind,source=.env,target=/app/.env \
-    if [ "$RUN_BUILD" = "true" ]; then \
-      npx update-browserslist-db@latest && \
-      yarn static:build; \
-    fi
+    npx update-browserslist-db@latest && yarn static:build
 
 # FOR GCS bucket .next folder versioning
 FROM scratch AS nextjs-copy
