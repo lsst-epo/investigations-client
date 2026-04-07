@@ -30,6 +30,7 @@ export const blockMap: Record<
   homepageContentBlocks_text_BlockType: Blocks.Text,
   homepageContentBlocks_image_BlockType: Blocks.Image,
   homepageContentBlocks_investigationGrid_BlockType: Blocks.InvestigationGrid,
+  contentBlocks_orbitalSimWidget_BlockType: Blocks.OrbitalSimWidget
 };
 
 const Fragment = graphql(`
@@ -50,6 +51,7 @@ const Fragment = graphql(`
     ...EquationBlock
     ...SupernovaDistanceDistributionBlock
     ...MagnitudeScatterPlotBlock
+    ...OrbitalSimWidget
   }
 `);
 
