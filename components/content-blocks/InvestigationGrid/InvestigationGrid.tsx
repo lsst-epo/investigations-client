@@ -3,6 +3,7 @@ import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import { Grid, Image } from "@rubin-epo/epo-react-lib";
 import { imageShaper } from "@/helpers";
 import * as Styled from "./styles";
+import { BaseContentBlockProps } from "@/components/shapes";
 
 const Fragment = graphql(`
   fragment InvestigationGridBlock on homepageContentBlocks_investigationGrid_BlockType {

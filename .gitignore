@@ -35,3 +35,6 @@ certificates
 
 # vscode
 .vscode
+
+.yarn
+.yarnrc.yml

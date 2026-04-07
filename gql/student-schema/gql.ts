@@ -11,8 +11,13 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  * 3. It does not support dead code elimination, so it will add unused operations.
  *
  * Therefore it is highly recommended to use the babel or swc plugin for production.
+ * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
-const documents = {
+type Documents = {
+    "\n  query StoredAnswers($userId: ID, $investigationId: ID) {\n    answers(userId: $userId, investigationId: $investigationId) {\n      data\n      questionId\n      id\n    }\n  }\n": typeof types.StoredAnswersDocument,
+    "\n  mutation SaveAnswersFromSet(\n    $userId: ID!\n    $investigationId: ID!\n    $answerSet: [AnswerInput]\n  ) {\n    saveAnswersFromSet(\n      userId: $userId\n      investigationId: $investigationId\n      answerSet: $answerSet\n    ) {\n      id\n    }\n  }\n": typeof types.SaveAnswersFromSetDocument,
+};
+const documents: Documents = {
     "\n  query StoredAnswers($userId: ID, $investigationId: ID) {\n    answers(userId: $userId, investigationId: $investigationId) {\n      data\n      questionId\n      id\n    }\n  }\n": types.StoredAnswersDocument,
     "\n  mutation SaveAnswersFromSet(\n    $userId: ID!\n    $investigationId: ID!\n    $answerSet: [AnswerInput]\n  ) {\n    saveAnswersFromSet(\n      userId: $userId\n      investigationId: $investigationId\n      answerSet: $answerSet\n    ) {\n      id\n    }\n  }\n": types.SaveAnswersFromSetDocument,
 };
