@@ -28,12 +28,12 @@ const Fragment = graphql(`
           ... on tableRow_tableCell_BlockType {
             id
             text: cellContent
-            equation
+            #equation
           }
           ... on tableRow_rowHeader_BlockType {
             id
             text
-            equation
+            #equation
           }
           ... on tableRow_previousQuestion_BlockType {
             question {

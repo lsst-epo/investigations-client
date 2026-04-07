@@ -3,7 +3,7 @@ import {
   FacebookButton,
   CopyUrlButton,
   EmailButton,
-  TwitterButton,
+  TwitterXButton,
 } from "@rubin-epo/epo-react-lib/Share";
 
 export const Facebook = styled(FacebookButton)`
@@ -28,7 +28,6 @@ export const CopyUrl = styled(CopyUrlButton)`
 `;
 export const Email = styled(EmailButton)`
   --share-size: 45px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,7 +35,7 @@ export const Email = styled(EmailButton)`
   min-height: 3em;
   font-weight: bold;
 `;
-export const Twitter = styled(TwitterButton)`
+export const Twitter = styled(TwitterXButton)`
   --share-size: 45px;
 
   display: flex;
