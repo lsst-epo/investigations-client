@@ -20124,7 +20124,7 @@ export type TableRow_RowHeader_BlockType = ElementInterface & MatrixBlockInterfa
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
-  equationz?: Maybe<Scalars['String']['output']>;
+  equation?: Maybe<Scalars['String']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
   /** The ID of the entity */

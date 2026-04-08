@@ -10,12 +10,12 @@ import * as Styled from "./styles";
  */
 const Fragment = graphql(`
   fragment OrbitalSimWidget on contentBlocks_orbitalSimWidget_BlockType {
+    __typename
     orbitalSimTool {
         ... on widgets_orbitalSim_Entry {
         orbitalDatasets {
             ... on orbitalDatasets_orbital_BlockType {
                 orbitalSimData {
-                title
                 ... on datasets_orbitalSimOrbits_Entry {
                     json {
                         url
@@ -29,7 +29,6 @@ const Fragment = graphql(`
   }
 `);
 
-
 const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typeof Fragment>>> = ({ data, locale }) => {
 
     /**
@@ -38,8 +37,8 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
     const { orbitalSimTool } = useFragment(Fragment, data);
 
     /**
-     * to-do: look at how the other widgets are parsing the GQL response do likewise so
-     *        we don't have to daisy-chain in this messy way
+     * to-do: use a helper like @/helpers/widgets::getDataset() to extract the URL
+     *        or create a new one
      */
     const url = orbitalSimTool[0]?.orbitalDatasets[0]?.orbitalSimData[0]?.json[0]?.url;
     const dataObj = use(getOrbitalData(url));
