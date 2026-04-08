@@ -9,6 +9,7 @@ import ColorFilterToolQuestion from "./ColorFilterTool";
 import SourceSelectorQuestion from "./SourceSelector";
 import LightCurveToolQuestion from "./LightCurveTool";
 import IsochronePlotQuestion from "./IsochronePlot";
+import OrbitalSimQuestion from "./OrbitalSim";
 import * as Styled from "./styles";
 import ErrorBoundary from "@/components/atomic/ErrorBoundary";
 
@@ -23,6 +24,7 @@ const Fragment = graphql(`
       ...SourceSelectorQuestion
       ...LightCurveQuestion
       ...IsochronePlotQuestion
+      ...OrbitalSimQuestion
     }
   }
 `);
@@ -43,6 +45,7 @@ const WIDGET_MAP: Record<string, ComponentType<WidgetQuestion>> = {
   questionWidgetsBlock_sourceSelectorBlock_BlockType: SourceSelectorQuestion,
   questionWidgetsBlock_lightCurveBlock_BlockType: LightCurveToolQuestion,
   questionWidgetsBlock_isochronePlot_BlockType: IsochronePlotQuestion,
+  questionWidgetsBlock_orbitalSimBlock_BlockType: OrbitalSimQuestion
 };
 
 const WidgetQuestion: FunctionComponent<WidgetProps> = ({ data }) => {
