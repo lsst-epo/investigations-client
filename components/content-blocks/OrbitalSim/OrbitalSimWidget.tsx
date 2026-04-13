@@ -13,6 +13,9 @@ const Fragment = graphql(`
     __typename
     orbitalSimTool {
         ... on widgets_orbitalSim_Entry {
+        addTimeControls
+        allowOrbitRotation
+        showDetailsTable
         orbitalDatasets {
             ... on orbitalDatasets_orbital_BlockType {
                 orbitalSimData {
@@ -35,12 +38,17 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
      * Add typing for `orbitalSimTool, this may come from codegen type
      */
     const { orbitalSimTool } = useFragment(Fragment, data);
+    console.log("orbitalSimTool: ", orbitalSimTool);
 
     /**
      * to-do: use a helper like @/helpers/widgets::getDataset() to extract the URL
      *        or create a new one
      */
     const url = orbitalSimTool[0]?.orbitalDatasets[0]?.orbitalSimData[0]?.json[0]?.url;
+    const addTimeControls = orbitalSimTool[0]?.addTimeControls;
+    const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
+    const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
+
     const dataObj = use(getOrbitalData(url));
 
     /**
@@ -48,7 +56,7 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
      */
     return (
         <Styled.OrbitalSimWidgetContainer>
-            <OrbitalSimProvider orbitData={ dataObj }>
+            <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={false} allowOrbitRotation={false} showTimeControls={addTimeControls}>
                 <OrbitalSim/>
             </OrbitalSimProvider>
         </Styled.OrbitalSimWidgetContainer>
