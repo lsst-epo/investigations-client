@@ -4,10 +4,6 @@ import { BaseContentBlockProps } from "@/components/shapes";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
 import * as Styled from "./styles";
 
-/**
- * to-do: add other widget fields to this GQL query and parse them in the component
- *        function
- */
 const Fragment = graphql(`
   fragment OrbitalSimWidget on contentBlocks_orbitalSimWidget_BlockType {
     __typename
@@ -38,7 +34,6 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
      * Add typing for `orbitalSimTool, this may come from codegen type
      */
     const { orbitalSimTool } = useFragment(Fragment, data);
-    console.log("orbitalSimTool: ", orbitalSimTool);
 
     /**
      * to-do: use a helper like @/helpers/widgets::getDataset() to extract the URL
