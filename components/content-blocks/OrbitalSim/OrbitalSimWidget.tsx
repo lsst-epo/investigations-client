@@ -56,7 +56,7 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
      */
     return (
         <Styled.OrbitalSimWidgetContainer>
-            <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={false} allowOrbitRotation={false} showTimeControls={addTimeControls}>
+            <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={false} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls}>
                 <OrbitalSim/>
             </OrbitalSimProvider>
         </Styled.OrbitalSimWidgetContainer>
