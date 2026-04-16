@@ -20147,7 +20147,6 @@ export type TableRow_RowHeader_BlockType = ElementInterface & MatrixBlockInterfa
   sortOrder?: Maybe<Scalars['Int']['output']>;
   /** The element’s status. */
   status?: Maybe<Scalars['String']['output']>;
-  test?: Maybe<Scalars['String']['output']>;
   text?: Maybe<Scalars['String']['output']>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
