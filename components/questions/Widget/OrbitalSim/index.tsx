@@ -9,13 +9,13 @@ import { OrbitalSimProvider, OrbitalSim } from "@rubin-epo/epo-widget-lib/Orbita
 import Loader from "@/components/page/Loader";
 import * as OrbitalSimStyled from "@/components/content-blocks/OrbitalSim/styles";
 
-/**
- * to-do: add fields to Orbital Sim customization
- */
 const Fragment = graphql(`
   fragment OrbitalSimQuestion on questionWidgetsBlock_orbitalSimBlock_BlockType {
     orbitalSimTool {
         ... on widgets_orbitalSim_Entry {
+            addTimeControls
+            allowOrbitRotation
+            showDetailsTable
             orbitalDatasets {
                 ... on orbitalDatasets_orbital_BlockType{
                     orbitalSimData {
@@ -65,6 +65,10 @@ const OrbitalSimQuestion: FunctionComponent<
    */
   // const { t } = useTranslation();
   const { orbitalSimTool } = useFragment(Fragment, data);
+  const addTimeControls = orbitalSimTool[0]?.addTimeControls;
+  const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
+  const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
+
   if (url === "") {
     /**
      * to-do: use a helper like @/helpers/widgets::getDataset() to extract the URL
@@ -86,7 +90,7 @@ const OrbitalSimQuestion: FunctionComponent<
         <Loader />
       ) : (
         <OrbitalSimStyled.OrbitalSimWidgetContainer>
-            <OrbitalSimProvider orbitData={ dataObj }>
+            <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls}>
                 <OrbitalSim/>
             </OrbitalSimProvider>
         </OrbitalSimStyled.OrbitalSimWidgetContainer>
