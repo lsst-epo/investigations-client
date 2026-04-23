@@ -20,3 +20,4 @@ export { default as FilterTool } from "./FilterTool";
 export { default as SupernovaDistanceDistribution } from "./SupernovaDistanceDistribution";
 export { default as MagnitudeScatterPlot } from "./MagnitudeScatterPlot";
 export { default as OrbitalSimWidget } from "./OrbitalSim";
+export {default as SortableTableWidget} from "./SortableTable";
