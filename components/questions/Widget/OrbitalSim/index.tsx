@@ -69,7 +69,7 @@ const OrbitalSimQuestion: FunctionComponent<
    * to-do: uncomment this when the <WidgetContainerWithModal> styling
    *        has been added so we can translate the title
    */
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const { orbitalSimTool } = useFragment(Fragment, data);
   const addTimeControls = orbitalSimTool[0]?.addTimeControls;
   const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
