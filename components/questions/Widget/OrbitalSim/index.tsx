@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 // to-do: get this working at full width
 // import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import { OrbitalSimProvider, OrbitalSim } from "@rubin-epo/epo-widget-lib/OrbitalSim";
+import SelectionList from "@rubin-epo/epo-widget-lib/atomic/SelectionList/index";
 import Loader from "@/components/page/Loader";
 import * as OrbitalSimStyled from "@/components/content-blocks/OrbitalSim/styles";
 
@@ -40,6 +41,11 @@ const OrbitalSimQuestion: FunctionComponent<
 > = ({ data, instructions, value = {}, onChangeCallback }) => {
   const [dataObj, setDataObj] = useState(null);
   const [url, setUrl] = useState<string>("");
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
+  function resetSelectedAnswer() {
+    setSelectedAnswer(null);
+  }
 
   /**
    * to-do: this could use a second look, `use()` wasn't working and this
@@ -90,9 +96,12 @@ const OrbitalSimQuestion: FunctionComponent<
         <Loader />
       ) : (
         <OrbitalSimStyled.OrbitalSimWidgetContainer>
-            <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls}>
-                <OrbitalSim/>
-            </OrbitalSimProvider>
+          <OrbitalSimStyled.SelectionListWrapper>
+            <SelectionList sources={ selectedAnswer ? [{ type: "observation", id: selectedAnswer}] : [] } onRemoveCallback={ resetSelectedAnswer }/>
+          </OrbitalSimStyled.SelectionListWrapper>
+          <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls} selectedAnswer={ selectedAnswer } updateSelectedAnswer={ setSelectedAnswer }>
+            <OrbitalSim/>
+          </OrbitalSimProvider>
         </OrbitalSimStyled.OrbitalSimWidgetContainer>
 
        ) }
