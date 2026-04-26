@@ -17,6 +17,7 @@ const Fragment = graphql(`
             addTimeControls
             allowOrbitRotation
             showDetailsTable
+            containsSwappableOrbits
             orbitalDatasets {
                 ... on orbitalDatasets_orbital_BlockType{
                     orbitalSimData {
@@ -74,6 +75,7 @@ const OrbitalSimQuestion: FunctionComponent<
   const addTimeControls = orbitalSimTool[0]?.addTimeControls;
   const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
   const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
+  const swappableOrbits = orbitalSimTool[0]?.containsSwappableOrbits;
 
   if (url === "") {
     /**
@@ -86,6 +88,7 @@ const OrbitalSimQuestion: FunctionComponent<
   /**
    * to-do: Figure out the <WidgetContainerWithModal> styling
    */
+
   return (
     <>
     {/* <WidgetContainerWithModal
@@ -99,7 +102,7 @@ const OrbitalSimQuestion: FunctionComponent<
           <OrbitalSimStyled.SelectionListWrapper>
             <SelectionList sources={ selectedAnswer ? [{ type: "observation", id: selectedAnswer}] : [] } onRemoveCallback={ resetSelectedAnswer }/>
           </OrbitalSimStyled.SelectionListWrapper>
-          <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls} selectedAnswer={ selectedAnswer } updateSelectedAnswer={ setSelectedAnswer }>
+          <OrbitalSimProvider swappableOrbits={swappableOrbits} orbitData={ dataObj.orbits } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls} selectedAnswer={ selectedAnswer } updateSelectedAnswer={ setSelectedAnswer }>
             <OrbitalSim/>
           </OrbitalSimProvider>
         </OrbitalSimStyled.OrbitalSimWidgetContainer>

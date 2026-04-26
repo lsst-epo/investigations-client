@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import SourceSelector, {
   SelectionList,
+  MovingSourceSelector
 } from "@rubin-epo/epo-widget-lib/SourceSelector";
 import useAlerts from "@/lib/api/hooks/useAlerts";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
@@ -10,6 +11,8 @@ import { WidgetQuestion } from "..";
 import {
   combineAlertsAndImages,
   percentageMapSources,
+  percentageMapSourcesForMovingSources,
+  combineAlertsAndImagesForMovingSources
 } from "@/helpers/widgets";
 
 const Fragment = graphql(`
@@ -23,6 +26,7 @@ const Fragment = graphql(`
         includeScatterPlot
         yMin: yAxisMin
         yMax: yAxisMax
+        hasMovingSource
         dataset {
           ... on datasets_supernovaGalaxyObservations_Entry {
             id
@@ -67,6 +71,8 @@ const SourceSelectorQuestion: FunctionComponent<
 
   const [{ url }] = sourceSelector[0]?.dataset[0]?.json;
 
+  const hasMovingSource = sourceSelector[0]?.hasMovingSource ?? false;
+
   const { data: alerts = [], isLoading } = useAlerts(url);
 
   if (
@@ -96,19 +102,18 @@ const SourceSelectorQuestion: FunctionComponent<
       });
   };
 
-  const percentageMappedSources = percentageMapSources(sources);
-
+  const percentageMappedSources = hasMovingSource ? percentageMapSourcesForMovingSources(sources) : percentageMapSources(sources);
   const selectedSources: Array<{ type: string; id: string }> = sources
     .filter(({ id }) => selectedSource.includes(id))
     .map(({ id, type }) => {
       return { id, type };
-    });
+    }).filter((obj, index, self) => index === self.findIndex((t) => t.id === obj.id));
 
-  const { alerts: alertsWithImages, size } = combineAlertsAndImages(
-    alerts,
-    imageAlbum || []
+  const { alerts: alertsWithImages, size } = hasMovingSource ? combineAlertsAndImagesForMovingSources(alerts,
+                                                                imageAlbum || []) : combineAlertsAndImages(
+                                                                alerts,
+                                                                imageAlbum || []
   );
-
   return (
     <>
       <WidgetContainerWithModal
@@ -122,6 +127,22 @@ const SourceSelectorQuestion: FunctionComponent<
         {...{ instructions }}
       >
         <>
+        {hasMovingSource ? (
+          <MovingSourceSelector
+            alerts={alerts}
+            selectionCallback={(data) =>
+              onChangeCallback && onChangeCallback({ selectedSource: data })
+            }
+            alertChangeCallback={setActiveAlertIndex}
+            width={size}
+            height={size}
+            movingSources={percentageMappedSources}
+            {...{ selectedSource, activeAlertIndex, isLoading }}
+          >
+
+          </MovingSourceSelector>
+        ) : (
+          <>
           <SourceSelector
             alerts={alertsWithImages}
             selectionCallback={(data) =>
@@ -138,6 +159,8 @@ const SourceSelectorQuestion: FunctionComponent<
               showPlot={selectedSource.length > 0}
               {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
             />
+          )}
+          </>
           )}
         </>
       </WidgetContainerWithModal>
