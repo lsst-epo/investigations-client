@@ -12,6 +12,7 @@ const Fragment = graphql(`
         addTimeControls
         allowOrbitRotation
         showDetailsTable
+        containsSwappableOrbits
         orbitalDatasets {
             ... on orbitalDatasets_orbital_BlockType {
                 orbitalSimData {
@@ -43,6 +44,7 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
     const addTimeControls = orbitalSimTool[0]?.addTimeControls;
     const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
     const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
+    const swappableOrbits = orbitalSimTool[0]?.containsSwappableOrbits;
 
     const dataObj = use(getOrbitalData(url));
 
@@ -51,7 +53,7 @@ const OrbitalSimWidget: FunctionComponent<BaseContentBlockProps<FragmentType<typ
      */
     return (
         <Styled.OrbitalSimWidgetContainer>
-            <OrbitalSimProvider orbitData={ dataObj } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls}>
+            <OrbitalSimProvider swappableOrbits={swappableOrbits} orbitData={ dataObj.orbits } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls}>
                 <OrbitalSim/>
             </OrbitalSimProvider>
         </Styled.OrbitalSimWidgetContainer>

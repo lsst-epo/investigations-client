@@ -32,6 +32,40 @@ export const combineAlertsAndImages = (
   };
 };
 
+/**
+ * todo: refine this function
+ */
+export const combineAlertsAndImagesForMovingSources = (
+  alerts: Array<Alert | any>,
+  images: Array<any>
+) => {
+  const size = 240;
+
+  return {
+    movingSources: alerts.movingSources,
+    alerts: alerts
+      .map(({ id, ...alert }, i) => {
+        const image = images.find(({ name }) => {
+          return name.includes(id);
+        });
+
+        if (!image) return undefined;
+
+        return {
+          id,
+          ...alert,
+          image: {
+            width: size,
+            height: size,
+            url: resizeCantoImage(image.url.directUrlPreview, size),
+          },
+        };
+      })
+      .filter((alert) => !!alert),
+    size,
+  };
+};
+
 export const percentageMapSources = <T extends { x: any; y: any; radius: any }>(
   sources: Array<T>
 ) =>
@@ -43,6 +77,26 @@ export const percentageMapSources = <T extends { x: any; y: any; radius: any }>(
       ...source,
     };
   });
+
+/**
+ * todo: refine this function
+ */
+export const percentageMapSourcesForMovingSources = <T extends { x: any; y: any; radius: any }>(
+  sources: Array<T>
+) => {
+  let updatedSources = {};
+  updatedSources.sources = sources.map(({ x, y, radius, ...source }) => {
+    return {
+      x: `${x}%`,
+      y: `${y}%`
+    };
+  });
+  updatedSources.type = sources[0].type;
+  updatedSources.color = sources[0].color;
+  updatedSources.radius = sources[0].radius;
+  updatedSources.id = sources[0].id;
+  return [updatedSources];
+}
 
 export const getDataset = <T = object>(
   datasets: Array<T>,

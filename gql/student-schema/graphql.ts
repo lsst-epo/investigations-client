@@ -1373,6 +1373,7 @@ export type EntryCriteriaInput = {
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on whether the elements have any descendants in their structure. */
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   /** Narrows the query results based on the elements’ IDs. */
@@ -1617,6 +1618,7 @@ export type EntryInterfaceAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1709,6 +1711,7 @@ export type EntryInterfaceChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1801,6 +1804,7 @@ export type EntryInterfaceDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1893,6 +1897,7 @@ export type EntryInterfaceLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -1985,6 +1990,7 @@ export type EntryInterfaceNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2077,6 +2083,7 @@ export type EntryInterfaceParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -2169,6 +2176,7 @@ export type EntryInterfacePrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3007,6 +3015,7 @@ export type QueryDatasetsEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3096,6 +3105,7 @@ export type QueryEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3187,6 +3197,7 @@ export type QueryEntryArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3278,6 +3289,7 @@ export type QueryEntryCountArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3441,6 +3453,7 @@ export type QueryHomepageEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3530,6 +3543,7 @@ export type QueryInvestigationsEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3619,6 +3633,7 @@ export type QueryPagesEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3708,6 +3723,7 @@ export type QueryQuestionsEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3797,6 +3813,7 @@ export type QueryReferenceContentEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -3886,6 +3903,7 @@ export type QueryWidgetsEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5225,6 +5243,7 @@ export type ContentBlocks_Callout_BlockTypeCalloutArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -5542,6 +5561,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6372,6 +6392,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6519,6 +6540,7 @@ export type ContentBlocks_OrbitalSimWidget_BlockTypeOrbitalSimToolArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6666,6 +6688,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -6813,6 +6836,7 @@ export type ContentBlocks_ReferenceBlock_BlockTypeReferenceEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7164,6 +7188,7 @@ export type ContentBlocks_SortableTable_BlockTypeSortableTableWidgetArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -7384,6 +7409,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeQuestionEntries
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8153,6 +8179,7 @@ export type Datasets_StarCluster_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8244,6 +8271,7 @@ export type Datasets_StarCluster_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8335,6 +8363,7 @@ export type Datasets_StarCluster_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8471,6 +8500,7 @@ export type Datasets_StarCluster_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8562,6 +8592,7 @@ export type Datasets_StarCluster_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8653,6 +8684,7 @@ export type Datasets_StarCluster_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -8789,6 +8821,7 @@ export type Datasets_StarCluster_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9040,6 +9073,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9131,6 +9165,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9222,6 +9257,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9386,6 +9422,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9477,6 +9514,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9568,6 +9606,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -9659,6 +9698,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10187,6 +10227,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10453,6 +10494,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10544,6 +10586,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10635,6 +10678,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10786,6 +10830,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10877,6 +10922,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -10968,6 +11014,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11059,6 +11106,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11367,6 +11415,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11458,6 +11507,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11586,6 +11636,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11677,6 +11728,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11768,6 +11820,7 @@ export type Investigations_Default_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11859,6 +11912,7 @@ export type Investigations_Default_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -11950,6 +12004,7 @@ export type Investigations_Default_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12157,6 +12212,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12248,6 +12304,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12339,6 +12396,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12453,6 +12511,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12544,6 +12603,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12635,6 +12695,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12726,6 +12787,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -12931,6 +12993,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13022,6 +13085,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13113,6 +13177,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13204,6 +13269,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13295,6 +13361,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13386,6 +13453,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -13477,6 +13545,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14247,6 +14316,7 @@ export type OrbitalDatasets_Orbital_BlockTypeOrbitalSimDataArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14456,6 +14526,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14547,6 +14618,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14675,6 +14747,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14766,6 +14839,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14857,6 +14931,7 @@ export type Pages_Pages_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -14953,6 +15028,7 @@ export type Pages_Pages_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15044,6 +15120,7 @@ export type Pages_Pages_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15251,6 +15328,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15342,6 +15420,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15433,6 +15512,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15524,6 +15604,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15615,6 +15696,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15706,6 +15788,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -15797,6 +15880,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16036,6 +16120,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16184,6 +16269,7 @@ export type QuestionWidgetsBlock_IsochronePlot_BlockTypeDatasetArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16331,6 +16417,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16478,6 +16565,7 @@ export type QuestionWidgetsBlock_OrbitalSimBlock_BlockTypeOrbitalSimToolArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16625,6 +16713,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16845,6 +16934,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -16977,6 +17067,7 @@ export type Questions_Default_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17068,6 +17159,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17164,6 +17256,7 @@ export type Questions_Default_EntryInvestigationEntriesArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17255,6 +17348,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17383,6 +17477,7 @@ export type Questions_Default_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17474,6 +17569,7 @@ export type Questions_Default_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17565,6 +17661,7 @@ export type Questions_Default_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -17857,6 +17954,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18417,6 +18515,7 @@ export type ReferenceContent_Default_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18508,6 +18607,7 @@ export type ReferenceContent_Default_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18599,6 +18699,7 @@ export type ReferenceContent_Default_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18690,6 +18791,7 @@ export type ReferenceContent_Default_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18781,6 +18883,7 @@ export type ReferenceContent_Default_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18872,6 +18975,7 @@ export type ReferenceContent_Default_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -18963,6 +19067,7 @@ export type ReferenceContent_Default_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -19754,6 +19859,7 @@ export type TableCell_PreviousQuestion_BlockTypeQuestionArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20196,6 +20302,7 @@ export type TableRow_PreviousQuestion_BlockTypeQuestionArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20586,6 +20693,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20677,6 +20785,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20805,6 +20914,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20906,6 +21016,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20997,6 +21108,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21088,6 +21200,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21179,6 +21292,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21389,6 +21503,7 @@ export type Widgets_IsochronePlot_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21480,6 +21595,7 @@ export type Widgets_IsochronePlot_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21571,6 +21687,7 @@ export type Widgets_IsochronePlot_EntryDatasetArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21662,6 +21779,7 @@ export type Widgets_IsochronePlot_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21753,6 +21871,7 @@ export type Widgets_IsochronePlot_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21844,6 +21963,7 @@ export type Widgets_IsochronePlot_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -21935,6 +22055,7 @@ export type Widgets_IsochronePlot_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22026,6 +22147,7 @@ export type Widgets_IsochronePlot_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22234,6 +22356,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22325,6 +22448,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22416,6 +22540,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22507,6 +22632,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22598,6 +22724,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22689,6 +22816,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22780,6 +22908,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22871,6 +23000,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -22968,6 +23098,7 @@ export type Widgets_SourceSelector_Entry = ElementInterface & EntryInterface & {
   enabledForSite?: Maybe<Scalars['Boolean']['output']>;
   /** The expiry date of the entry. */
   expiryDate?: Maybe<Scalars['DateTime']['output']>;
+  hasMovingSource?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
   includeScatterPlot?: Maybe<Scalars['Boolean']['output']>;
@@ -23080,6 +23211,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23171,6 +23303,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23262,6 +23395,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23353,6 +23487,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23444,6 +23579,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23535,6 +23671,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23626,6 +23763,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -23717,6 +23855,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
   hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
   hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
   id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
