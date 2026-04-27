@@ -1,7 +1,7 @@
 # This file is based on the official Next.js Docker example. https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
 
 # Rebuild the source code only when needed
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 WORKDIR /app
 COPY --exclude=.env . /app
 
@@ -19,7 +19,7 @@ COPY --from=yarn-builder /app/.next /
 
 
 # Production image, copy all the files and run next
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 WORKDIR /app
 
 RUN apk add --no-cache fontconfig
