@@ -3314,10 +3314,10 @@
     three "^0.181.0"
     use-resize-observer "^9.1.0"
 
-"@rubin-epo/epo-widget-lib@2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.4.tgz#4e0958871ed81a9bd67cc35ace35565bc0524514"
-  integrity sha512-eHImYTYf/vllMpiuGVzy2krRagqfuaof/q06u84YS7K24og9jzpDtL7xwpmDTdfuLB5m2i+z8sZV7Rbx1pzRlA==
+"@rubin-epo/epo-widget-lib@2.0.7":
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.7.tgz#befee5a121d86e90e228db1412662737f531a345"
+  integrity sha512-bZ5L14+vWCi5s/R87qJw4ZVHOLXyqbRThfyotpfoVTcXQhjNQEm088S6nbldkFCZMAjl+CZ+HHsxAluTNhegIA==
   dependencies:
     "@react-three/drei" "^10.7.6"
     "@react-three/fiber" "9"
