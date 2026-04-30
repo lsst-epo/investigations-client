@@ -42,10 +42,15 @@ const OrbitalSimQuestion: FunctionComponent<
 > = ({ data, instructions, value = {}, onChangeCallback }) => {
   const [dataObj, setDataObj] = useState(null);
   const [url, setUrl] = useState<string>("");
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
+  const selectedAnswer: string | null = value?.selectedObservation || null;
+
+  function updateAnswer(answer: string | null) {
+    onChangeCallback({ selectedObservation: answer});
+  }
 
   function resetSelectedAnswer() {
-    setSelectedAnswer(null);
+    updateAnswer(null);
   }
 
   /**
@@ -102,7 +107,7 @@ const OrbitalSimQuestion: FunctionComponent<
           <OrbitalSimStyled.SelectionListWrapper>
             <SelectionList sources={ selectedAnswer ? [{ type: "observation", id: selectedAnswer}] : [] } onRemoveCallback={ resetSelectedAnswer }/>
           </OrbitalSimStyled.SelectionListWrapper>
-          <OrbitalSimProvider swappableOrbits={swappableOrbits} orbitData={ dataObj.orbits } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls} selectedAnswer={ selectedAnswer } updateSelectedAnswer={ setSelectedAnswer }>
+          <OrbitalSimProvider swappableOrbits={swappableOrbits} orbitData={ dataObj.orbits } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls} selectedAnswer={ selectedAnswer } updateSelectedAnswer={ updateAnswer }>
             <OrbitalSim/>
           </OrbitalSimProvider>
         </OrbitalSimStyled.OrbitalSimWidgetContainer>
