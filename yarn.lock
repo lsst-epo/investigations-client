@@ -3295,7 +3295,7 @@
     styled-components "^6.1.16"
     utopia-core "^1.6.0"
 
-"@rubin-epo/epo-react-lib@3.0.1":
+"@rubin-epo/epo-react-lib@3.0.1", "@rubin-epo/epo-react-lib@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-3.0.1.tgz#84ef0eb31b7c86c39efc66dd7c6279a7493ab0f2"
   integrity sha512-/hJ6CwjMLY9LUWS0Mfp5cBXsV4LrF7gaYOHMAesrXxnMJvQUHwKLcFuT0InRxJFCtoqYESBUD/54Vrdceq4QlQ==
@@ -3331,14 +3331,14 @@
     three "^0.181.0"
     use-resize-observer "^9.1.0"
 
-"@rubin-epo/epo-widget-lib@2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.8.tgz#c75f377e916b644e3392a72257c5fd026a2df1f2"
-  integrity sha512-wFXcdSJmsy+lV3CM3fN7inZ2hzJSCYmjJL3uyvc8quVUZVuN42tY7pMDfnRNcCuBM2KcD3I+jsaP+b9fyhIYXg==
+"@rubin-epo/epo-widget-lib@2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.9.tgz#513324c183966094320a3268da0bd9d6a08b77da"
+  integrity sha512-9l9zyVkDZzfGK5IiL6cS7Son4tKMMdmyG1iuJqoNRf5526VuqhDfxEFtt0tG9elppVvvCaYkVfvHfjWzk6kDvg==
   dependencies:
     "@react-three/drei" "^10.7.6"
     "@react-three/fiber" "9"
-    "@rubin-epo/epo-react-lib" "3.0.1"
+    "@rubin-epo/epo-react-lib" "^3.0.1"
     "@rubin-epo/epo-widget-lib" "2.0.2"
     context-filter-polyfill "^0.3.6"
     d3-array "^3.2.4"
