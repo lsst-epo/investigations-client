@@ -4,6 +4,7 @@ import ColorFilterToolReview from "./ColorFilterTool";
 import SourceSelectorReview from "./SourceSelector";
 import LightCurveReview from "./LightCurveTool";
 import IsochronePlotReview from "./IsochronePlot";
+import OrbitalSimReview from "./OrbitalSim";
 import { QuestionLabel } from "@/components/questions/Widget/styles";
 import * as Styled from "../styles";
 import { WidgetInput } from "@/types/answers";
@@ -27,6 +28,7 @@ export const WIDGET_MAP: Record<string, ComponentType<WidgetReviewProps>> = {
   questionWidgetsBlock_sourceSelectorBlock_BlockType: SourceSelectorReview,
   questionWidgetsBlock_lightCurveBlock_BlockType: LightCurveReview,
   questionWidgetsBlock_isochronePlot_BlockType: IsochronePlotReview,
+  questionWidgetsBlock_orbitalSimBlock_BlockType: OrbitalSimReview,
 };
 
 const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
@@ -41,7 +43,7 @@ const WidgetReviewWrapper: FunctionComponent<WidgetReviewWrapperProps> = ({
 
   if (!Widget) {
     console.error(
-      `"${__typename}" is not a valid input for this question type.`
+      `"${__typename}" is not a valid input for this question type.`,
     );
 
     return null;
