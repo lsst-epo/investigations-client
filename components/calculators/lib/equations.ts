@@ -29,9 +29,25 @@ const distanceModulus: EquationComposer = (
   return undefined;
 };
 
+const asteroidSize: EquationComposer = (
+  { albedo, absoluteMagnitude },
+  { A, B, C}
+) => {
+  if(isNumber(albedo) && isNumber(absoluteMagnitude)) {
+    const dividend = A.value / Math.sqrt(albedo);
+    const exponent = Math.pow(B.value, (C.value * absoluteMagnitude));
+    const unroundedResult = dividend * exponent;
+    const result = Math.round((unroundedResult/10)) * 10;
+    return result;
+  }
+  return undefined;
+
+}
+
 const Equations: Record<Equation, EquationComposer> = {
   peakAbsoluteMagnitude,
   distanceModulus,
+  asteroidSize
 };
 
 export default Equations;

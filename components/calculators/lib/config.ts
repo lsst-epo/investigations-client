@@ -18,6 +18,21 @@ export const Variables: Record<string, Variable> = {
     precision: 1,
     placeholder: "M",
   },
+  albedo: {
+    key: "albedo",
+    precision: 2,
+    placeholder: "p"
+  },
+  absoluteMagnitude: {
+    key: "absoluteMagnitude",
+    precision: 2,
+    placeholder: "H"
+  },
+  asteroidSize: {
+    key: "asteroidSize",
+    precision: 0,
+    placeholder: "D"
+  }
 };
 
 const Config: Record<Equation, EquationConfig> = {
@@ -46,6 +61,17 @@ const Config: Record<Equation, EquationConfig> = {
       addUnit: (value) => `${value}\\space\\text{Mly}`,
     },
   },
+  asteroidSize: {
+    latex: ({ result, constants, variables }) =>
+      `${result} = \\frac {${constants.A}}{\\sqrt{${variables.albedo}}}${constants.B}^{${constants.C} \\times ${variables.absoluteMagnitude}}`,
+    constants: {
+      A: { value: 1329000 },
+      B: { value: 10 },
+      C: { value: -0.2 }
+    },
+    inputs: [Variables.albedo, Variables.absoluteMagnitude],
+    result: Variables.asteroidSize
+  }
 };
 
 export default Config;
