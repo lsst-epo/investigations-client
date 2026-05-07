@@ -1,4 +1,4 @@
-export type Equation = "peakAbsoluteMagnitude" | "distanceModulus";
+export type Equation = "peakAbsoluteMagnitude" | "distanceModulus" | "asteroidSize";
 export type StoredCalculatorValues = Record<string, string | null | undefined>;
 export type NumericCalculatorValues = Record<string, number | undefined>;
 
