@@ -62,10 +62,10 @@ export default function TwoColumnContainerBlock(props: {
   if (!columns) return null;
 
   const leftCol = columns.find(
-    (col) => col.__typename === "contentBlocks_colLeft_BlockType",
+    (col) => col.__typename === "contentBlocks_colLeft_BlockType"
   );
   const rightCol = columns.find(
-    (col) => col.__typename === "contentBlocks_colRight_BlockType",
+    (col) => col.__typename === "contentBlocks_colRight_BlockType"
   );
 
   function renderBlocks(blocks) {
@@ -88,7 +88,7 @@ export default function TwoColumnContainerBlock(props: {
   }
 
   return (
-    <Styled.TwoColContainer className='content-block'>
+    <Styled.TwoColContainer className="content-block">
       {leftCol && (
         <Styled.LeftCol>{renderBlocks(leftCol?.childblocks)}</Styled.LeftCol>
       )}
