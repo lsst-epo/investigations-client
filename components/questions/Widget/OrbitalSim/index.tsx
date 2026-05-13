@@ -3,8 +3,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import { WidgetQuestion } from "..";
 import { useTranslation } from "react-i18next";
-// to-do: get this working at full width
-// import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
+import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import { OrbitalSimProvider, OrbitalSim } from "@rubin-epo/epo-widget-lib/OrbitalSim";
 import SelectionList from "@rubin-epo/epo-widget-lib/atomic/SelectionList/index";
 import Loader from "@/components/page/Loader";
@@ -71,10 +70,6 @@ const OrbitalSimQuestion: FunctionComponent<
     }
   }, [url, dataObj]);
 
-  /**
-   * to-do: uncomment this when the <WidgetContainerWithModal> styling
-   *        has been added so we can translate the title
-   */
   const { t } = useTranslation();
   const { orbitalSimTool } = useFragment(Fragment, data);
   const addTimeControls = orbitalSimTool[0]?.addTimeControls;
@@ -90,16 +85,12 @@ const OrbitalSimQuestion: FunctionComponent<
     setUrl(orbitalSimTool[0]?.orbitalDatasets[0]?.orbitalSimData[0]?.json[0]?.url);
   }
 
-  /**
-   * to-do: Figure out the <WidgetContainerWithModal> styling
-   */
-
   return (
     <>
-    {/* <WidgetContainerWithModal
+    <WidgetContainerWithModal
       title={t("widgets.orbital_sim.title")}
       instructions={instructions}
-    > */}
+    >
       {dataObj === null ? (
         <Loader />
       ) : (
@@ -113,7 +104,7 @@ const OrbitalSimQuestion: FunctionComponent<
         </OrbitalSimStyled.OrbitalSimWidgetContainer>
 
        ) }
-    {/* </WidgetContainerWithModal> */}
+    </WidgetContainerWithModal>
     </>
   );
 };

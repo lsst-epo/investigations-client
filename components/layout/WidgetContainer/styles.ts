@@ -41,6 +41,10 @@ export const WidgetContainer = styled.div`
   max-width: 100%;
   max-height: 100%;
   color: var(--widget-text-color, initial);
+
+  @container (min-width: 800px) {
+    width: 90%;
+  }
 `;
 
 export const WidgetHeader = styled.header`
@@ -69,6 +73,7 @@ export const WidgetBody = styled.div`
 
 export const WidgetRow = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: var(--widget-padding);
 
