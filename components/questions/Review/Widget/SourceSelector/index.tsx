@@ -36,7 +36,8 @@ const SourceSelectorReview: FunctionComponent<
     <>
       {hasMovingSource ? (
         <MovingSourceSelector
-          {...{ alerts, selectedSource, isLoading }}
+          alerts={alertData}
+          {...{ selectedSource, isLoading }}
           movingSources={percentageMappedSources}
           width={size}
           height={size}
