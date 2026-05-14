@@ -81,7 +81,7 @@ export const percentageMapSources = <T extends { x: any; y: any; radius: any }>(
 /**
  * todo: refine this function
  */
-export const percentageMapSourcesForMovingSources = <T extends { x: any; y: any; radius: any }>(
+export const percentageMapSourcesForMovingSources = <T extends { x: any; y: any; radius: any, type: string }>(
   sources: Array<T>
 ) => {
   let updatedSources = {};

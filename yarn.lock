@@ -3312,10 +3312,10 @@
     styled-components "^6.1.16"
     utopia-core "^1.6.0"
 
-"@rubin-epo/epo-widget-lib@2.0.10":
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.10.tgz#6eb9462cc727686ce162b234e86ee15f0a93283f"
-  integrity sha512-iFM8wGCr+fc1wcX28qcO1J3R6JbtDaQaOBK3B+jdQ3XEZh28OL5K1XQ9YsUScz6U7QQLGRJWLiiF0GKyGpCL1g==
+"@rubin-epo/epo-widget-lib@2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.11.tgz#331dfe5473d059cf792f50a0027db81460737f66"
+  integrity sha512-obAVfP/O+/DuIJe1tSI7KdVkYg/tt7Jd1IwxSTgvRxICN9JQt+O4558iDTj+A6kiwbA5Xk8VwxCbe7zQphMSeA==
   dependencies:
     "@react-three/drei" "^10.7.6"
     "@react-three/fiber" "9"
