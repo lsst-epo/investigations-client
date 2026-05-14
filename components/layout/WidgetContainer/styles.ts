@@ -45,6 +45,10 @@ export const WidgetContainer = styled.div`
   @container (min-width: 800px) {
     width: 90%;
   }
+
+  @container (width < 800px) {
+    width: 100%;
+  }
 `;
 
 export const WidgetHeader = styled.header`

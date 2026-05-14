@@ -95,12 +95,12 @@ const OrbitalSimQuestion: FunctionComponent<
         <Loader />
       ) : (
         <OrbitalSimStyled.OrbitalSimWidgetContainer>
-          <OrbitalSimStyled.SelectionListWrapper>
-            <SelectionList sources={ selectedAnswer ? [{ type: "observation", id: selectedAnswer}] : [] } onRemoveCallback={ resetSelectedAnswer }/>
-          </OrbitalSimStyled.SelectionListWrapper>
           <OrbitalSimProvider swappableOrbits={swappableOrbits} orbitData={ dataObj.orbits } showDetailsTable={showDetailsTable} allowOrbitRotation={allowOrbitRotation} showTimeControls={addTimeControls} selectedAnswer={ selectedAnswer } updateSelectedAnswer={ updateAnswer }>
             <OrbitalSim/>
           </OrbitalSimProvider>
+          <OrbitalSimStyled.SelectionListWrapper>
+            <SelectionList sources={ selectedAnswer ? [{ type: "observation", id: selectedAnswer}] : [] } onRemoveCallback={ resetSelectedAnswer }/>
+          </OrbitalSimStyled.SelectionListWrapper>
         </OrbitalSimStyled.OrbitalSimWidgetContainer>
 
        ) }
