@@ -53,7 +53,7 @@ const InvestigationSectionBreakPage: FunctionComponent<{
   return (
     <Container width="regular">
       <Image {...imgSrc} width={1260} height={560} priority />
-      <Styled.SectionBreakTitle>
+      <Styled.SectionBreakTitle srOnly={(isFinalPage ? "true" : "false")}>
         {t(
           isFinalPage ? "section_break.finish" : "section_break.congratulations"
         )}
@@ -61,7 +61,7 @@ const InvestigationSectionBreakPage: FunctionComponent<{
 
       {text && <TextContent dangerouslySetInnerHTML={{ __html: text }} />}
       {isFinalPage && (
-        <Styled.ReviewLinkContainer>
+        <Styled.ReviewLinkContainer srOnly={(isFinalPage ? "true" : "false")}>
           <Button as={Link} href="./review" icon="CheckmarkCircle" prefetch>
             {t("section_break.review")}
           </Button>
