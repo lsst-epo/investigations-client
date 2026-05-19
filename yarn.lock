@@ -3278,10 +3278,10 @@
   resolved "https://registry.yarnpkg.com/@rtsao/scc/-/scc-1.1.0.tgz#927dd2fae9bc3361403ac2c7a00c32ddce9ad7e8"
   integrity sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==
 
-"@rubin-epo/epo-react-lib@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-3.0.0.tgz#aa91c247e90c09aa67affd1270f84993af616729"
-  integrity sha512-TVEy7YzTHB1LxOurSDA/QEIwa6PuHRch2e4f53cEi4qmGEOCIuPahU4T/jj11zM2ykiQ8P/ugffGyjXvy6PVmQ==
+"@rubin-epo/epo-react-lib@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-3.0.3.tgz#8f6405dc2dbafa7d17238c31f9fc4b8ea2103b4a"
+  integrity sha512-FcLySFDoilDAAQKl7CdzbSehGWtw2VqDZHGSjnU6gpSHpS837ZwjdExhMkR/SCOcs5irrAYDR2TGRUH72jqQ7Q==
   dependencies:
     "@castiron/style-mixins" "^1.0.6"
     "@headlessui/react" "^2.2.0"
@@ -3295,51 +3295,14 @@
     styled-components "^6.1.16"
     utopia-core "^1.6.0"
 
-"@rubin-epo/epo-react-lib@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-react-lib/-/epo-react-lib-3.0.2.tgz#2c84e7f0fa65daeca591db07f24fb667e7269aa6"
-  integrity sha512-BdhP6GHRsjNVemi39HdlZJMeADE7phXD5NRwa+45xr8idECFRdGt+aYNw7VkLmuGDcu0DT7JirHfTnd3Yyl6Jg==
-  dependencies:
-    "@castiron/style-mixins" "^1.0.6"
-    "@headlessui/react" "^2.2.0"
-    flickity "^3.0.0"
-    focus-trap "^7.4.2"
-    lodash "^4.17.21"
-    react-icons "^5.5.0"
-    react-player "^2.14.1"
-    react-share "^5.2.2"
-    react-slider "^2.0.6"
-    styled-components "^6.1.16"
-    utopia-core "^1.6.0"
-
-"@rubin-epo/epo-widget-lib@2.0.11":
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.11.tgz#331dfe5473d059cf792f50a0027db81460737f66"
-  integrity sha512-obAVfP/O+/DuIJe1tSI7KdVkYg/tt7Jd1IwxSTgvRxICN9JQt+O4558iDTj+A6kiwbA5Xk8VwxCbe7zQphMSeA==
+"@rubin-epo/epo-widget-lib@2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.13.tgz#6dc881dd03d3e96613a1a1fd0d30797f20de2954"
+  integrity sha512-S2YgUqnQq7C5OlIZLPKOpRc8DICly+VE3jV5vCs0L3pjyJwos/AP/sLpCYZTIJIqma/bfcI6MpsBF1sZzCWiKg==
   dependencies:
     "@react-three/drei" "^10.7.6"
     "@react-three/fiber" "9"
-    "@rubin-epo/epo-react-lib" "3.0.2"
-    "@rubin-epo/epo-widget-lib" "2.0.2"
-    context-filter-polyfill "^0.3.6"
-    d3-array "^3.2.4"
-    d3-geo "^3.1.1"
-    d3-geo-projection "^4.0.0"
-    lodash "^4.17.21"
-    react-slider "^2.0.6"
-    skia-canvas "^1.0.2"
-    styled-components "^6.1.16"
-    three "^0.181.0"
-    use-resize-observer "^9.1.0"
-
-"@rubin-epo/epo-widget-lib@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@rubin-epo/epo-widget-lib/-/epo-widget-lib-2.0.2.tgz#1cab03185f30f6524482a6fc769c464876cde50c"
-  integrity sha512-BqdsNDO26OpRXU1f3A4/FWZin7CGxDwntHxa5jtHeutF/JcYtA2zywWePapjBT2H94WiBAVFaqheXcglW05t1g==
-  dependencies:
-    "@react-three/drei" "^10.7.6"
-    "@react-three/fiber" "9"
-    "@rubin-epo/epo-react-lib" "3.0.0"
+    "@rubin-epo/epo-react-lib" "3.0.3"
     context-filter-polyfill "^0.3.6"
     d3-array "^3.2.4"
     d3-geo "^3.1.1"
