@@ -290,7 +290,8 @@
       "read_only_caption": "Object: {{name}}"
     },
     "orbital_sim": {
-      "title": "Orbital Sim"
+      "title": "Orbital Sim",
+      "instructor_neo_override_tip": "Use the dropdown to switch between available NEOs. This dropdown is not available to students."
     },
     "supernova_three_vector": "Visualize Supernovae Distances & Distribution",
     "light_curve": {
