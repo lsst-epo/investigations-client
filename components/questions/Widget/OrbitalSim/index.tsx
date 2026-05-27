@@ -65,7 +65,7 @@ const OrbitalSimQuestion: FunctionComponent<
         const res = await response.json();
         setDataObj(res);
     }
-    if (dataObj === null) {
+    if (!dataObj) {
       getOrbitalData(url);
     }
   }, [url, dataObj]);
@@ -77,7 +77,7 @@ const OrbitalSimQuestion: FunctionComponent<
   const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
   const swappableOrbits = orbitalSimTool[0]?.containsSwappableOrbits;
 
-  if (url === "") {
+  if (!url) {
     /**
      * to-do: use a helper like @/helpers/widgets::getDataset() to extract the URL
      *        or create a new one
@@ -91,7 +91,7 @@ const OrbitalSimQuestion: FunctionComponent<
       title={t("widgets.orbital_sim.title")}
       instructions={instructions}
     >
-      {dataObj === null ? (
+      {!dataObj ? (
         <Loader />
       ) : (
         <OrbitalSimStyled.OrbitalSimWidgetContainer>
