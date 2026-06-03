@@ -22,6 +22,7 @@ const Fragment = graphql(`
     orbitalSimTool {
       id
       ... on widgets_orbitalSim_Entry {
+        defaultZoom
         addTimeControls
         allowOrbitRotation
         showDetailsTable
@@ -62,6 +63,7 @@ const OrbitalSimWidget: FunctionComponent<
     useAnswer<WidgetInput>(orbitalSimTool[0]?.id || "");
 
   const assignedNeoIndex = value?.assignedNeoIndex;
+  const defaultZoom = orbitalSimTool[0]?.defaultZoom;
   const addTimeControls = orbitalSimTool[0]?.addTimeControls;
   const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
   const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
@@ -121,6 +123,7 @@ const OrbitalSimWidget: FunctionComponent<
           <OrbitalSimProvider
             swappableOrbits={swappableOrbits}
             orbitData={dataObj.orbits}
+            defaultZoom={defaultZoom ?? 0.5}
             showDetailsTable={showDetailsTable}
             allowOrbitRotation={allowOrbitRotation}
             showTimeControls={addTimeControls}
