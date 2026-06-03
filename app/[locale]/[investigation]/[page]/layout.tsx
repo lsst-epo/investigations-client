@@ -62,6 +62,8 @@ export const generateStaticParams = async ({
     },
   });
 
+  console.info("Evaluating: ", JSON.stringify(data));
+
   return data?.entry?.children?.filter(entry => {
     if (
       entry?.__typename === "investigations_default_Entry" ||
