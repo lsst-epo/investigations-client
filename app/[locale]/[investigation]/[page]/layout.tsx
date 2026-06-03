@@ -64,7 +64,7 @@ export const generateStaticParams = async ({
 
   console.info("Evaluating: ", JSON.stringify(data));
 
-  return data?.entry?.children?.filter(entry => {
+  let staticParams = data?.entry?.children?.filter(entry => {
     if (
       entry?.__typename === "investigations_default_Entry" ||
       entry?.__typename ===
@@ -85,6 +85,9 @@ export const generateStaticParams = async ({
     const { slug } = entry;
     return { page: slug };
   });
+
+  console.info("logging staticParams: ", staticParams);
+  return staticParams;
 };
 
 // show 404 for any investigation not pre-defined
