@@ -62,16 +62,26 @@ export const generateStaticParams = async ({
     },
   });
 
-  return data?.entry?.children?.map((entry) => {
+  return data?.entry?.children?.filter(entry => {
     if (
       entry?.__typename === "investigations_default_Entry" ||
       entry?.__typename ===
         "investigations_investigationSectionBreakChild_Entry"
     ) {
-      const { slug } = entry;
-
-      return { page: slug };
+      return entry;
+    } else {
+      console.info("Found unexpected `__typename` on entry: ", JSON.stringify(entry));
     }
+  }).map((entry) => {
+    // Typescript loses context of what type "entry" is at this point
+    // so instead of doing messy forced typing, just check if key is
+    // on object
+    if(!("slug" in entry)) {
+      console.info("Found investigations entry without slug: ", JSON.stringify(entry));
+        return [];
+    }
+    const { slug } = entry;
+    return { page: slug };
   });
 };
 
