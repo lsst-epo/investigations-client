@@ -328,5 +328,9 @@
       "distanceMly": "{{result}} Mega light-years",
       "peakAbsoluteMagnitude": "Peak absolute magnitude {{result}}"
     }
+  },
+  "hero": {
+    "heading": "Welcome to Rubin Observatory’s Investigations!",
+    "heroText": "Explore exciting topics in astronomy and astrophysics with our user-friendly investigation tools."
   }
 }
