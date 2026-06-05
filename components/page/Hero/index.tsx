@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
 import * as Styled from "./styles";
 
 interface HeroProps {
@@ -5,13 +8,13 @@ interface HeroProps {
 }
 
 export default function Hero({ heroText }: HeroProps) {
+  const { t } = useTranslation();
   if (!heroText) {
-    heroText =
-      "Explore exciting topics in astronomy and astrophysics with our user-friendly investigation tools.";
+    heroText = t("hero.heroText");
   }
   return (
     <Styled.Hero>
-      <h2>Welcome to Rubin Observatory’s Investigations!</h2>
+      <h2>{t("hero.heading")}</h2>
       <p>{heroText}</p>
     </Styled.Hero>
   );

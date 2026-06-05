@@ -275,6 +275,10 @@
     "color_filter_tool": {
       "read_only_caption": "Objeto: {{name}}"
     },
+    "orbital_sim": {
+      "title": "Simulador orbital",
+      "instructor_neo_override_tip": "Usa el menú desplegable para elegir uno de los NEO disponibles. Los estudiantes no tienen acceso a este menú."
+    },
     "help": "¿Qué debería hacer aquí?",
     "light_curve": {
       "magnitude": "Magnitud Aparente: {{valor}}",
@@ -305,5 +309,9 @@
       "question": "Pregunta {{número}}",
       "student": "Estudiante"
     }
+  },
+  "hero": {
+    "heading": "¡Bienvenidos a las Investigaciones del Observatorio Rubin!",
+    "heroText": "Explora fascinantes temas de astronomía y astrofísica mediante nuestras herramientas de investigación diseñadas para ser fáciles de usar."
   }
 }
