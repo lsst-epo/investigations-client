@@ -4,6 +4,7 @@ import type { WidgetInput } from "@/types/answers";
 
 import { FunctionComponent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import {
   OrbitalSimProvider,
   OrbitalSim,
@@ -115,45 +116,47 @@ const OrbitalSimWidget: FunctionComponent<
    * to-do: flesh out styling for `OrbitalSimWidgetContainer`
    */
   return (
-    <Styled.OrbitalSimWidgetContainer>
-      {!dataObj ? (
-        <Loader />
-      ) : (
-        <>
-          <OrbitalSimProvider
-            swappableOrbits={swappableOrbits}
-            orbitData={dataObj.orbits}
-            defaultZoom={defaultZoom ?? 0.5}
-            showDetailsTable={showDetailsTable}
-            allowOrbitRotation={allowOrbitRotation}
-            showTimeControls={addTimeControls}
-            selectedNeoIndex={
-              showDetailsTable ? assignedNeoIndex ?? 0 : undefined
-            }>
-            <OrbitalSim />
-          </OrbitalSimProvider>
-          {showDetailsTable && isEducator && (
-            <>
-              <p>{t("widgets.orbital_sim.instructor_neo_override_tip")}</p>
-              <SelectListbox
-                value={assignedNeoIndex}
-                options={dataObj?.orbits?.neos?.map((neo, i) => ({
-                  value: i,
-                  label: neo.Principal_desig,
-                }))}
-                onChangeCallback={(newIndex) =>
-                  setNeoIndex({
-                    ...value,
-                    assignedNeoIndex: newIndex,
-                    dataType: "content",
-                  })
-                }
-              />
-            </>
-          )}
-        </>
-      )}
-    </Styled.OrbitalSimWidgetContainer>
+    <WidgetContainerWithModal>
+      <Styled.OrbitalSimWidgetContainer>
+        {!dataObj ? (
+          <Loader />
+        ) : (
+          <>
+            <OrbitalSimProvider
+              swappableOrbits={swappableOrbits}
+              orbitData={dataObj.orbits}
+              defaultZoom={defaultZoom ?? 0.5}
+              showDetailsTable={showDetailsTable}
+              allowOrbitRotation={allowOrbitRotation}
+              showTimeControls={addTimeControls}
+              selectedNeoIndex={
+                showDetailsTable ? assignedNeoIndex ?? 0 : undefined
+              }>
+              <OrbitalSim />
+            </OrbitalSimProvider>
+            {showDetailsTable && isEducator && (
+              <>
+                <p>{t("widgets.orbital_sim.instructor_neo_override_tip")}</p>
+                <SelectListbox
+                  value={assignedNeoIndex}
+                  options={dataObj?.orbits?.neos?.map((neo, i) => ({
+                    value: i,
+                    label: neo.Principal_desig,
+                  }))}
+                  onChangeCallback={(newIndex) =>
+                    setNeoIndex({
+                      ...value,
+                      assignedNeoIndex: newIndex,
+                      dataType: "content",
+                    })
+                  }
+                />
+              </>
+            )}
+          </>
+        )}
+      </Styled.OrbitalSimWidgetContainer>
+    </WidgetContainerWithModal>
   );
 };
 

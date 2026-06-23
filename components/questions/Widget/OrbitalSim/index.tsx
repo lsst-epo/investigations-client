@@ -95,35 +95,36 @@ const OrbitalSimQuestion: FunctionComponent<
   return (
     <>
       <WidgetContainerWithModal
-        title={t("widgets.orbital_sim.title")}
         instructions={instructions}>
-        {!dataObj ? (
-          <Loader />
-        ) : (
-          <OrbitalSimStyled.OrbitalSimWidgetContainer>
-            <OrbitalSimProvider
-              swappableOrbits={swappableOrbits}
-              orbitData={dataObj.orbits}
-              defaultZoom={defaultZoom ?? 0.5}
-              showDetailsTable={showDetailsTable}
-              allowOrbitRotation={allowOrbitRotation}
-              showTimeControls={addTimeControls}
-              selectedAnswer={selectedAnswer}
-              updateSelectedAnswer={updateAnswer}>
-              <OrbitalSim />
-            </OrbitalSimProvider>
-            <OrbitalSimStyled.SelectionListWrapper>
-              <SelectionList
-                sources={
-                  selectedAnswer
-                    ? [{ type: "observation", id: selectedAnswer }]
-                    : []
-                }
-                onRemoveCallback={resetSelectedAnswer}
-              />
-            </OrbitalSimStyled.SelectionListWrapper>
-          </OrbitalSimStyled.OrbitalSimWidgetContainer>
-        )}
+        <OrbitalSimStyled.OrbitalSimWidgetContainer>
+          {!dataObj ? (
+            <Loader />
+          ) : (
+            <>
+              <OrbitalSimProvider
+                swappableOrbits={swappableOrbits}
+                orbitData={dataObj.orbits}
+                defaultZoom={defaultZoom ?? 0.5}
+                showDetailsTable={showDetailsTable}
+                allowOrbitRotation={allowOrbitRotation}
+                showTimeControls={addTimeControls}
+                selectedAnswer={selectedAnswer}
+                updateSelectedAnswer={updateAnswer}>
+                <OrbitalSim />
+              </OrbitalSimProvider>
+              <OrbitalSimStyled.SelectionListWrapper>
+                <SelectionList
+                  sources={
+                    selectedAnswer
+                      ? [{ type: "observation", id: selectedAnswer }]
+                      : []
+                  }
+                  onRemoveCallback={resetSelectedAnswer}
+                />
+              </OrbitalSimStyled.SelectionListWrapper>
+            </>
+          )}
+        </OrbitalSimStyled.OrbitalSimWidgetContainer>
       </WidgetContainerWithModal>
     </>
   );
