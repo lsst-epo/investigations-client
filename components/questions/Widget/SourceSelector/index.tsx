@@ -2,7 +2,7 @@ import { FunctionComponent, useState } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
 import SourceSelector, {
   SelectionList,
-  MovingSourceSelector
+  MovingSourceSelector,
 } from "@rubin-epo/epo-widget-lib/SourceSelector";
 import useAlerts from "@/lib/api/hooks/useAlerts";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
@@ -12,7 +12,7 @@ import {
   combineAlertsAndImages,
   percentageMapSources,
   percentageMapSourcesForMovingSources,
-  combineAlertsAndImagesForMovingSources
+  combineAlertsAndImagesForMovingSources,
 } from "@/helpers/widgets";
 
 const Fragment = graphql(`
@@ -102,18 +102,23 @@ const SourceSelectorQuestion: FunctionComponent<
       });
   };
 
-  const percentageMappedSources = hasMovingSource ? percentageMapSourcesForMovingSources(sources) : percentageMapSources(sources);
+  const percentageMappedSources = hasMovingSource
+    ? percentageMapSourcesForMovingSources(sources)
+    : percentageMapSources(sources);
+
   const selectedSources: Array<{ type: string; id: string }> = sources
     .filter(({ id }) => selectedSource.includes(id))
     .map(({ id, type }) => {
       return { id, type };
-    }).filter((obj, index, self) => index === self.findIndex((t) => t.id === obj.id));
+    })
+    .filter(
+      (obj, index, self) => index === self.findIndex((t) => t.id === obj.id),
+    );
 
-  const { alerts: alertsWithImages, size } = hasMovingSource ? combineAlertsAndImagesForMovingSources(alerts,
-                                                                imageAlbum || []) : combineAlertsAndImages(
-                                                                alerts,
-                                                                imageAlbum || []
-  );
+  const { alerts: alertsWithImages, size } = hasMovingSource
+  ? combineAlertsAndImagesForMovingSources(alerts, imageAlbum || [])
+  : combineAlertsAndImages(alerts, imageAlbum || []);
+
   return (
     <>
       <WidgetContainerWithModal
@@ -124,43 +129,43 @@ const SourceSelectorQuestion: FunctionComponent<
             onRemoveCallback={handleRemoveSource}
           />
         }
-        {...{ instructions }}
-      >
+        {...{ instructions }}>
         <>
-        {hasMovingSource ? (
-          <MovingSourceSelector
-            alerts={alerts}
-            selectionCallback={(data) =>
-              onChangeCallback && onChangeCallback({ selectedSource: data })
-            }
-            alertChangeCallback={setActiveAlertIndex}
-            width={size}
-            height={size}
-            movingSources={percentageMappedSources}
-            {...{ selectedSource, activeAlertIndex, isLoading }}
-          >
-
-          </MovingSourceSelector>
-        ) : (
-          <>
-          <SourceSelector
-            alerts={alertsWithImages}
-            selectionCallback={(data) =>
-              onChangeCallback && onChangeCallback({ selectedSource: data })
-            }
-            alertChangeCallback={setActiveAlertIndex}
-            width={size}
-            height={size}
-            sources={percentageMappedSources}
-            {...{ selectedSource, activeAlertIndex, isLoading }}
-          />
-          {!!includeScatterPlot && (
-            <MagnitudeScatterPlotContainer
-              showPlot={selectedSource.length > 0}
-              {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
-            />
-          )}
-          </>
+          {hasMovingSource ? (
+            <MovingSourceSelector
+              alerts={alertsWithImages}
+              selectionCallback={(data) =>
+                onChangeCallback && onChangeCallback({ selectedSource: data })
+              }
+              alertChangeCallback={setActiveAlertIndex}
+              width={size}
+              height={size}
+              movingSources={percentageMappedSources}
+              {...{
+                selectedSource,
+                activeAlertIndex,
+                isLoading,
+              }}></MovingSourceSelector>
+          ) : (
+            <>
+              <SourceSelector
+                alerts={alertsWithImages}
+                selectionCallback={(data) =>
+                  onChangeCallback && onChangeCallback({ selectedSource: data })
+                }
+                alertChangeCallback={setActiveAlertIndex}
+                width={size}
+                height={size}
+                sources={percentageMappedSources}
+                {...{ selectedSource, activeAlertIndex, isLoading }}
+              />
+              {!!includeScatterPlot && (
+                <MagnitudeScatterPlotContainer
+                  showPlot={selectedSource.length > 0}
+                  {...{ alerts, peakMjd, yMin, yMax, activeAlertIndex }}
+                />
+              )}
+            </>
           )}
         </>
       </WidgetContainerWithModal>
