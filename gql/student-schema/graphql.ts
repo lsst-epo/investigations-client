@@ -1421,6 +1421,7 @@ export type EntryCriteriaInput = {
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results based on a reference string. */
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to elements that relate to the provided element IDs. This argument is ignored, if `relatedToAll` is also used. */
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to elements that relate to *all* of the provided element IDs. Using this argument will cause `relatedTo` argument to be ignored. **This argument is deprecated.** `relatedTo: ["and", ...ids]` should be used instead. */
@@ -1651,6 +1652,7 @@ export type EntryInterfaceAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -1744,6 +1746,7 @@ export type EntryInterfaceChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -1837,6 +1840,7 @@ export type EntryInterfaceDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -1930,6 +1934,7 @@ export type EntryInterfaceLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -2023,6 +2028,7 @@ export type EntryInterfaceNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -2116,6 +2122,7 @@ export type EntryInterfaceParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -2209,6 +2216,7 @@ export type EntryInterfacePrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3048,6 +3056,7 @@ export type QueryDatasetsEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3138,6 +3147,7 @@ export type QueryEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3230,6 +3240,7 @@ export type QueryEntryArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3322,6 +3333,7 @@ export type QueryEntryCountArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3486,6 +3498,7 @@ export type QueryHomepageEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3576,6 +3589,7 @@ export type QueryInvestigationsEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3666,6 +3680,7 @@ export type QueryPagesEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3756,6 +3771,7 @@ export type QueryQuestionsEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3846,6 +3862,7 @@ export type QueryReferenceContentEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -3936,6 +3953,7 @@ export type QueryWidgetsEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -5276,6 +5294,7 @@ export type ContentBlocks_Callout_BlockTypeCalloutArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -5594,6 +5613,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -6172,6 +6192,7 @@ export type ContentBlocks_Image_BlockType = ElementInterface & NeoBlockInterface
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
   caption?: Maybe<Scalars['String']['output']>;
+  contentImage: Array<Maybe<AssetInterface>>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
@@ -6222,6 +6243,51 @@ export type ContentBlocks_Image_BlockType = ElementInterface & NeoBlockInterface
 
 export type ContentBlocks_Image_BlockType_CountArgs = {
   field: Scalars['String']['input'];
+};
+
+
+export type ContentBlocks_Image_BlockTypeContentImageArgs = {
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateModified?: InputMaybe<Scalars['String']['input']>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filename?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  folderId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasAlt?: InputMaybe<Scalars['Boolean']['input']>;
+  height?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeSubfolders?: InputMaybe<Scalars['Boolean']['input']>;
+  kind?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  language?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  size?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uploader?: InputMaybe<Scalars['QueryArgument']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volume?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  volumeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  width?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  withTransforms?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -6425,6 +6491,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -6573,6 +6640,7 @@ export type ContentBlocks_OrbitalSimWidget_BlockTypeOrbitalSimToolArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -6721,6 +6789,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -6869,6 +6938,7 @@ export type ContentBlocks_ReferenceBlock_BlockTypeReferenceEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -7221,6 +7291,7 @@ export type ContentBlocks_SortableTable_BlockTypeSortableTableWidgetArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -7442,6 +7513,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeQuestionEntries
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -7608,6 +7680,7 @@ export type ContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface 
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
+  backgroundColor?: Maybe<Scalars['String']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
@@ -7656,6 +7729,11 @@ export type ContentBlocks_Text_BlockType = ElementInterface & NeoBlockInterface 
 
 export type ContentBlocks_Text_BlockType_CountArgs = {
   field: Scalars['String']['input'];
+};
+
+
+export type ContentBlocks_Text_BlockTypeBackgroundColorArgs = {
+  label?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type ContentBlocks_TwoColumnContainer_BlockType = ElementInterface & NeoBlockInterface & {
@@ -8212,6 +8290,7 @@ export type Datasets_StarCluster_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -8304,6 +8383,7 @@ export type Datasets_StarCluster_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -8396,6 +8476,7 @@ export type Datasets_StarCluster_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -8533,6 +8614,7 @@ export type Datasets_StarCluster_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -8625,6 +8707,7 @@ export type Datasets_StarCluster_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -8717,6 +8800,7 @@ export type Datasets_StarCluster_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -8854,6 +8938,7 @@ export type Datasets_StarCluster_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9106,6 +9191,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9198,6 +9284,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9290,6 +9377,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9455,6 +9543,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9547,6 +9636,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9639,6 +9729,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -9731,6 +9822,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -10260,6 +10352,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -10527,6 +10620,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -10619,6 +10713,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -10711,6 +10806,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -10863,6 +10959,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -10955,6 +11052,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11047,6 +11145,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11139,6 +11238,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11448,6 +11548,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11540,6 +11641,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11669,6 +11771,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11761,6 +11864,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11853,6 +11957,7 @@ export type Investigations_Default_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -11945,6 +12050,7 @@ export type Investigations_Default_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12037,6 +12143,7 @@ export type Investigations_Default_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12126,6 +12233,7 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   postDate?: Maybe<Scalars['DateTime']['output']>;
   /** Returns the previous element relative to this one, from a given set of criteria. */
   prev?: Maybe<EntryInterface>;
+  relatedAssessments: Array<Maybe<EntryInterface>>;
   /** The revision ID (from the `revisions` table). */
   revisionId?: Maybe<Scalars['Int']['output']>;
   /** The revision notes (from the `revisions` table). */
@@ -12245,6 +12353,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12337,6 +12446,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12429,6 +12539,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12544,6 +12655,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12636,6 +12748,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12728,6 +12841,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -12820,6 +12934,100 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
+  relatedToCategories?: InputMaybe<Array<InputMaybe<CategoryCriteriaInput>>>;
+  relatedToEntries?: InputMaybe<Array<InputMaybe<EntryCriteriaInput>>>;
+  relatedToTags?: InputMaybe<Array<InputMaybe<TagCriteriaInput>>>;
+  relatedToUsers?: InputMaybe<Array<InputMaybe<UserCriteriaInput>>>;
+  search?: InputMaybe<Scalars['String']['input']>;
+  searchTermOptions?: InputMaybe<SearchTermOptions>;
+  section?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sectionId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  site?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  siteId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  siteSettingsId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  structureId?: InputMaybe<Scalars['Int']['input']>;
+  text?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  title?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  type?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  typeId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  uid?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  unique?: InputMaybe<Scalars['Boolean']['input']>;
+  uri?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  widgetInstructions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  withStructure?: InputMaybe<Scalars['Boolean']['input']>;
+  xAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  xAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMax?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  yAxisMin?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+};
+
+
+export type Investigations_InvestigationParent_EntryRelatedAssessmentsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  ancestorDist?: InputMaybe<Scalars['Int']['input']>;
+  ancestorOf?: InputMaybe<Scalars['Int']['input']>;
+  answerType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorGroup?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  authorGroupId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  authorId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  dataset?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  dec?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  descendantDist?: InputMaybe<Scalars['Int']['input']>;
+  descendantOf?: InputMaybe<Scalars['Int']['input']>;
+  displayName?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  distance?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  editable?: InputMaybe<Scalars['Boolean']['input']>;
+  equation?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  expiryDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  filter?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterColorOptions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  filterToolActions?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  fixedOrder?: InputMaybe<Scalars['Boolean']['input']>;
+  galacticLatitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  galacticLongitude?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  hasDescendants?: InputMaybe<Scalars['Boolean']['input']>;
+  hasMovingSource?: InputMaybe<Scalars['Boolean']['input']>;
+  hasSavePoint?: InputMaybe<Scalars['Boolean']['input']>;
+  hideTitle?: InputMaybe<Scalars['Boolean']['input']>;
+  id?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  image?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  imageAlbum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  inReverse?: InputMaybe<Scalars['Boolean']['input']>;
+  includeScatterPlot?: InputMaybe<Scalars['Boolean']['input']>;
+  investigationEntries?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  isVisible?: InputMaybe<Scalars['Boolean']['input']>;
+  json?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  language?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  leaves?: InputMaybe<Scalars['Boolean']['input']>;
+  level?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  pageType?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  plotPoints?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  positionedAfter?: InputMaybe<Scalars['Int']['input']>;
+  positionedBefore?: InputMaybe<Scalars['Int']['input']>;
+  postDate?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  precision?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  preferSites?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  prevSiblingOf?: InputMaybe<Scalars['Int']['input']>;
+  questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13026,6 +13234,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13118,6 +13327,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13210,6 +13420,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13302,6 +13513,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13394,6 +13606,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13486,6 +13699,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -13578,6 +13792,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -14349,6 +14564,7 @@ export type OrbitalDatasets_Orbital_BlockTypeOrbitalSimDataArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -14559,6 +14775,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -14651,6 +14868,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -14780,6 +14998,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -14872,6 +15091,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -14964,6 +15184,7 @@ export type Pages_Pages_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15061,6 +15282,7 @@ export type Pages_Pages_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15153,6 +15375,7 @@ export type Pages_Pages_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15361,6 +15584,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15453,6 +15677,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15545,6 +15770,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15637,6 +15863,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15729,6 +15956,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15821,6 +16049,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -15913,6 +16142,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -16153,6 +16383,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -16302,6 +16533,7 @@ export type QuestionWidgetsBlock_IsochronePlot_BlockTypeDatasetArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -16450,6 +16682,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -16598,6 +16831,7 @@ export type QuestionWidgetsBlock_OrbitalSimBlock_BlockTypeOrbitalSimToolArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -16746,6 +16980,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -16967,6 +17202,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17100,6 +17336,7 @@ export type Questions_Default_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17192,6 +17429,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17289,6 +17527,7 @@ export type Questions_Default_EntryInvestigationEntriesArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17381,6 +17620,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17510,6 +17750,7 @@ export type Questions_Default_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17602,6 +17843,7 @@ export type Questions_Default_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17694,6 +17936,7 @@ export type Questions_Default_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -17987,6 +18230,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -18548,6 +18792,7 @@ export type ReferenceContent_Default_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -18640,6 +18885,7 @@ export type ReferenceContent_Default_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -18732,6 +18978,7 @@ export type ReferenceContent_Default_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -18824,6 +19071,7 @@ export type ReferenceContent_Default_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -18916,6 +19164,7 @@ export type ReferenceContent_Default_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -19008,6 +19257,7 @@ export type ReferenceContent_Default_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -19100,6 +19350,7 @@ export type ReferenceContent_Default_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -19892,6 +20143,7 @@ export type TableCell_PreviousQuestion_BlockTypeQuestionArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -20335,6 +20587,7 @@ export type TableRow_PreviousQuestion_BlockTypeQuestionArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -20726,6 +20979,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -20818,6 +21072,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -20947,6 +21202,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21049,6 +21305,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21141,6 +21398,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21233,6 +21491,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21325,6 +21584,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21536,6 +21796,7 @@ export type Widgets_IsochronePlot_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21628,6 +21889,7 @@ export type Widgets_IsochronePlot_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21720,6 +21982,7 @@ export type Widgets_IsochronePlot_EntryDatasetArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21812,6 +22075,7 @@ export type Widgets_IsochronePlot_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21904,6 +22168,7 @@ export type Widgets_IsochronePlot_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -21996,6 +22261,7 @@ export type Widgets_IsochronePlot_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22088,6 +22354,7 @@ export type Widgets_IsochronePlot_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22180,6 +22447,7 @@ export type Widgets_IsochronePlot_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22389,6 +22657,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22481,6 +22750,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22573,6 +22843,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22665,6 +22936,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22757,6 +23029,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22849,6 +23122,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -22941,6 +23215,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23033,6 +23308,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23244,6 +23520,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23336,6 +23613,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23428,6 +23706,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23520,6 +23799,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23612,6 +23892,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23704,6 +23985,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23796,6 +24078,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
@@ -23888,6 +24171,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   questionText?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ra?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   ref?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  relatedAssessments?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAll?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   relatedToAssets?: InputMaybe<Array<InputMaybe<AssetCriteriaInput>>>;
