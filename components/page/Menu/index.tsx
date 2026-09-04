@@ -27,7 +27,7 @@ const Menu: FunctionComponent<MenuProps> = ({
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
   const { openModal } = useAuthDialogManager();
-  const { acknowledgements = "" } = usePages();
+  const { acknowledgements = "", assessmentUrl } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -57,6 +57,14 @@ const Menu: FunctionComponent<MenuProps> = ({
             onOpenCallback={() => setIsSubMenuOpen(true)}
             onCloseCallback={() => setIsSubMenuOpen(false)}
           />
+        )}
+        {assessmentUrl && (
+          <MenuItem
+            icon="CheckmarkCircle"
+            type="link"
+            href={assessmentUrl}
+            text={t("assessment.assessment")}
+          ></MenuItem>
         )}
         {helpUrl && (
           <MenuItem

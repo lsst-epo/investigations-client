@@ -2,7 +2,8 @@
   "page-not-found-title": "Page not found",
   "page-not-found-text": "The page you're looking for was not found.",
   "titles": {
-    "reference": "{{title}} - Reference"
+    "reference": "{{title}} - Reference",
+    "assessment": "{{title}} - Assessment"
   },
   "menu": {
     "toggle": "Toggle main menu",
@@ -332,5 +333,8 @@
   "hero": {
     "heading": "Welcome to Rubin Observatory’s Investigations!",
     "heroText": "Explore exciting topics in astronomy and astrophysics with our user-friendly investigation tools."
+  },
+  "assessment": {
+    "assessment": "Assessment"
   }
 }
