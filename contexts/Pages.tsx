@@ -28,7 +28,6 @@ const PagesContext = createContext<
       sections: Array<Section>;
       totalPages: number;
       acknowledgements: string;
-      assessmentUrl?: string;
     }
   | undefined
 >(undefined);
@@ -98,9 +97,8 @@ const PagesProvider: FunctionComponent<
   PropsWithChildren<{
     pages: Array<Page>;
     acknowledgements: string;
-    assessmentUrl?: string;
   }>
-> = ({ pages = [], acknowledgements, assessmentUrl, children }) => {
+> = ({ pages = [], acknowledgements, children }) => {
   const validPages = pages.filter((page) =>
     VALID_PAGE_TYPES.includes(page.__typename),
   );
@@ -113,7 +111,6 @@ const PagesProvider: FunctionComponent<
         sections,
         totalPages: validPages.length,
         acknowledgements,
-        assessmentUrl,
       }}
     >
       {children}

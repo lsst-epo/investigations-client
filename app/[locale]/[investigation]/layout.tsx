@@ -91,13 +91,6 @@ const InvestigationIdQuery = graphql(`
         __typename
         id
         acknowledgements: text
-        relatedAssessments(limit: 1) {
-          ... on assessments_default_Entry {
-            __typename
-            id
-            uri
-          }
-        }
         children {
           __typename
           title
@@ -195,16 +188,12 @@ const InvestigationLandingLayout: FunctionComponent<
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
-  // TODO: Separate query for assessment URL if educator?
-  const assessmentUrl = data.entry.relatedAssessments?.[0]?.uri;
-
   return (
     <StoredAnswersComponent investigationId={data.entry?.id}>
       <PagesProvider
         {...{
           pages,
           acknowledgements,
-          assessmentUrl: assessmentUrl ? `/${assessmentUrl}` : undefined,
         }}
       >
         <QuestionsProvider>{children}</QuestionsProvider>

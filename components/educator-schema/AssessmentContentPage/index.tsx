@@ -1,14 +1,14 @@
-import { FunctionComponent, use } from "react";
-import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
+import { ComponentProps, FunctionComponent, use } from "react";
+import { FragmentType, graphql, useFragment } from "@/gql/educator-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import * as Styled from "./styles";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
-import AssessmentAuthWrapper from "../AssessmentAuthWrapper";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import { Button } from "@rubin-epo/epo-react-lib";
 import { useTranslation } from "@/lib/i18n/server";
 import InvestigationHero from "@/components/layout/InvestigationHero";
 import GuideNavigation from "@/components/layout/GuideNavigation";
+import AssessmentAuthWrapper from "@/components/templates/AssessmentAuthWrapper";
 
 const Fragment = graphql(`
   fragment AssessmentContentTemplate on assessments_default_Entry {
@@ -74,12 +74,29 @@ const AssessmentContentPage: FunctionComponent<{
 
   return (
     <AssessmentAuthWrapper user={user} title={title}>
-      {investigationEntry && <InvestigationHero data={investigationEntry} />}
+      {investigationEntry && (
+        <div>
+          <InvestigationHero
+            data={
+              investigationEntry as ComponentProps<
+                typeof InvestigationHero
+              >["data"]
+            }
+          />
+        </div>
+      )}
       {relatedAssessments && (
-        <GuideNavigation
-          pages={relatedAssessments}
-          title={t("assessment.assessment")}
-        />
+        <div>
+          <GuideNavigation
+            pages={
+              relatedAssessments as ComponentProps<
+                typeof GuideNavigation
+              >["pages"]
+            }
+            title={t("assessment.assessment")}
+            currentUri={uri}
+          />
+        </div>
       )}
 
       <Container paddingSize="large" bgColor={"white"}>
@@ -93,7 +110,7 @@ const AssessmentContentPage: FunctionComponent<{
           <Container paddingSize="large" key={i}>
             <ContentBlockFactory
               site={site}
-              data={block}
+              data={block as ComponentProps<typeof ContentBlockFactory>["data"]}
               pageId={id || undefined}
               locale={locale}
             />
@@ -103,7 +120,7 @@ const AssessmentContentPage: FunctionComponent<{
             <ContentBlockFactory
               key={i}
               site={site}
-              data={block}
+              data={block as ComponentProps<typeof ContentBlockFactory>["data"]}
               pageId={id || undefined}
               locale={locale}
             />

@@ -1,12 +1,13 @@
 import { FunctionComponent } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { graphql } from "@/gql/public-schema";
+import { graphql } from "@/gql/educator-schema";
 import { queryAPI } from "@/lib/fetch";
 import { fallbackLng } from "@/lib/i18n/settings";
 import { serverTranslation } from "@/lib/i18n/server";
 import { RootParams } from "@/app/[locale]/layout";
-import AssessmentContentPage from "@/components/templates/AssessmentContentPage";
+import AssessmentContentPage from "@/components/educator-schema/AssessmentContentPage";
+import AssessmentAuthWrapper from "@/components/templates/AssessmentAuthWrapper";
 import { getSite } from "@/helpers";
 import { draftMode } from "next/headers";
 import {
@@ -64,6 +65,7 @@ export async function generateMetadata(
   const { slug, locale = fallbackLng } = params;
   const { t } = await serverTranslation(locale, "translation");
   const site = getSite(locale);
+  const { craftToken } = await getAuthCookies();
 
   const { data } = await queryAPI({
     query: AssessmentsDataQuery,
@@ -71,6 +73,7 @@ export async function generateMetadata(
       site: [site],
       slug: [slug],
     },
+    token: craftToken,
   });
 
   const { entry } = data || {};
@@ -92,23 +95,30 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
   const { preview: previewToken } = searchParams;
   const { isEnabled: isPreview } = await draftMode();
 
+  const { craftToken, craftUserStatus } = await getAuthCookies();
+  const user = getUserFromJwt(craftToken);
+
+  if (user?.group !== "educators") {
+    return <AssessmentAuthWrapper user={user} />;
+  }
+
   const { data } = await queryAPI({
     query: AssessmentsDataQuery,
     variables: {
       site: [site],
       slug: [slug],
     },
-    previewToken: isPreview && previewToken,
+    token: craftToken,
+    previewToken: isPreview ? (previewToken as string) : undefined,
   });
+
+  console.debug("AssessmentPage", craftToken);
 
   const { entry } = data || {};
 
   if (!entry || entry.__typename !== "assessments_default_Entry") {
     notFound();
   }
-
-  const { craftToken, craftUserStatus } = await getAuthCookies();
-  const user = getUserFromJwt(craftToken);
 
   return (
     <AssessmentContentPage

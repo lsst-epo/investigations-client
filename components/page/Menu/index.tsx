@@ -12,6 +12,7 @@ import signOut from "@/lib/auth/actions/signOut";
 import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
 import Share from "./submenu/Share";
+import AssessmentMenuItem from "@/components/educator-schema/AssessmentMenuItem";
 
 interface MenuProps {
   isOpen: boolean;
@@ -29,7 +30,7 @@ const Menu: FunctionComponent<MenuProps> = ({
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
   const { openModal } = useAuthDialogManager();
-  const { acknowledgements = "", assessmentUrl } = usePages();
+  const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -60,14 +61,7 @@ const Menu: FunctionComponent<MenuProps> = ({
             onCloseCallback={() => setIsSubMenuOpen(false)}
           />
         )}
-        {assessmentUrl && userGroup === "educators" && (
-          <MenuItem
-            icon="CheckmarkCircle"
-            type="link"
-            href={assessmentUrl}
-            text={t("assessment.assessment")}
-          ></MenuItem>
-        )}
+        <AssessmentMenuItem userGroup={userGroup} />
         {helpUrl && (
           <MenuItem
             type="link"

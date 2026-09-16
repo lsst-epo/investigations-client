@@ -16,7 +16,7 @@ export interface StepNavigationProps {
   title?: string;
   description?: string;
   pages?: StepNavigationPage[];
-  currentUri?: string;
+  currentUri?: string | null;
   expandable?: boolean;
   columns?: 1 | 2;
 }
