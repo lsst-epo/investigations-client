@@ -24,11 +24,13 @@ export async function queryAPI<
   variables,
   token,
   previewToken,
+  authToken,
 }: {
   query: DocumentInput<Query, Variables>;
   variables: Variables;
   token?: Token;
   previewToken?: string;
+  authToken?: string;
 }): Promise<OperationResult<Query, Variables>> {
   const params = new URLSearchParams({});
 
@@ -53,6 +55,7 @@ export async function queryAPI<
           ...opts,
           headers: {
             ...(token && { authorization: `JWT ${token}` }),
+            ...(authToken && { authorization: `Bearer ${authToken}` })
           },
         };
       },

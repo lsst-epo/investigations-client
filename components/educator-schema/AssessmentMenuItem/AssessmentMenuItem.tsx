@@ -1,27 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
 import { MenuItem } from "@rubin-epo/epo-react-lib/SlideoutMenu";
 import { useTranslation } from "react-i18next";
 import getAssessmentUri from "./getAssessmentUri";
 
 interface Props {
   userGroup?: string;
+  investigation?: string | null;
+  locale?: string;
 }
 
-export default function AssessmentMenuItem({ userGroup }: Props) {
+export default function AssessmentMenuItem({
+  userGroup,
+  investigation,
+  locale,
+}: Props) {
   const { t } = useTranslation();
-  const { investigation, locale } = useParams<{
-    investigation?: string;
-    locale?: string;
-  }>();
   const [assessmentUri, setAssessmentUri] = useState<string | null>(null);
 
-  const isEducator = true; // userGroup === "educators";
+  const isEducator = userGroup === "educators";
 
   useEffect(() => {
-    if (!isEducator || !investigation) return;
+    if (!isEducator || !investigation || assessmentUri) return;
 
     let ignore = false;
 
@@ -32,7 +33,7 @@ export default function AssessmentMenuItem({ userGroup }: Props) {
     return () => {
       ignore = true;
     };
-  }, [isEducator, investigation, locale]);
+  }, [isEducator, investigation, locale, assessmentUri]);
 
   if (!isEducator || !assessmentUri) return null;
 

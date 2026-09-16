@@ -112,8 +112,6 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
     previewToken: isPreview ? (previewToken as string) : undefined,
   });
 
-  console.debug("AssessmentPage", craftToken);
-
   const { entry } = data || {};
 
   if (!entry || entry.__typename !== "assessments_default_Entry") {

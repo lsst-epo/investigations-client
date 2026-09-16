@@ -4,12 +4,18 @@ import { queryAPI } from "@/lib/fetch";
 import { getAuthCookies } from "@/components/auth/serverHelpers";
 import { graphql } from "@/gql/educator-schema";
 import { getSite } from "@/helpers";
+import { loadEnvConfig } from "@next/env";
+
+loadEnvConfig(process.cwd());
+
+const SECRET_TOKEN = process.env.CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN;
 
 const AssessmentMenuItemQuery = graphql(`
-  query AssessmentMenuItem($site: [String], $uri: [String]) {
-    entry(site: $site, uri: $uri) {
+  query AssessmentMenuItem($site: [String], $slug: [String]) {
+    entry(site: $site, slug: $slug) {
+      __typename
       ... on investigations_investigationParent_Entry {
-        __typename
+        title
         relatedAssessments(limit: 1) {
           __typename
           ... on assessments_default_Entry {
@@ -27,19 +33,15 @@ export default async function getAssessmentUri(
 ) {
   const { craftToken } = await getAuthCookies();
 
-
-  if (!craftToken) return null;
-
   const { data, error } = await queryAPI({
     query: AssessmentMenuItemQuery,
     variables: {
       site: [getSite(locale)],
-      uri: [investigation],
+      slug: [investigation],
     },
-    token: craftToken,
+    authToken: SECRET_TOKEN,
+    token: craftToken
   });
-
-  console.debug({ getAssessmentUri: craftToken, investigation, error, data })
 
   const relatedAssessment =
     data?.entry?.__typename === "investigations_investigationParent_Entry"

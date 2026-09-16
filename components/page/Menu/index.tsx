@@ -13,6 +13,7 @@ import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
 import Share from "./submenu/Share";
 import AssessmentMenuItem from "@/components/educator-schema/AssessmentMenuItem";
+import { useParams } from "next/navigation";
 
 interface MenuProps {
   isOpen: boolean;
@@ -32,6 +33,10 @@ const Menu: FunctionComponent<MenuProps> = ({
   const { openModal } = useAuthDialogManager();
   const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const { investigation, locale } = useParams<{
+    investigation?: string;
+    locale?: string;
+  }>();
 
   const handleLogout = async () => {
     await signOut("/");
@@ -61,7 +66,7 @@ const Menu: FunctionComponent<MenuProps> = ({
             onCloseCallback={() => setIsSubMenuOpen(false)}
           />
         )}
-        <AssessmentMenuItem userGroup={userGroup} />
+        <AssessmentMenuItem {...{ investigation, locale, userGroup }} />
         {helpUrl && (
           <MenuItem
             type="link"
