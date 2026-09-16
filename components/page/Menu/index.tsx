@@ -17,12 +17,14 @@ interface MenuProps {
   isOpen: boolean;
   isLoggedIn: boolean;
   onCloseCallback: () => void;
+  userGroup?: string;
 }
 
 const Menu: FunctionComponent<MenuProps> = ({
   isOpen,
   isLoggedIn,
   onCloseCallback,
+  userGroup,
 }) => {
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
@@ -58,7 +60,7 @@ const Menu: FunctionComponent<MenuProps> = ({
             onCloseCallback={() => setIsSubMenuOpen(false)}
           />
         )}
-        {assessmentUrl && (
+        {assessmentUrl && userGroup === "educators" && (
           <MenuItem
             icon="CheckmarkCircle"
             type="link"

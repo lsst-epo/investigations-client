@@ -1,20 +1,7 @@
 "use client";
 import styled from "styled-components";
-import Container from "@rubin-epo/epo-react-lib/Container";
-import { fluidScale } from "@rubin-epo/epo-react-lib/styles";
-
-export const PageContainer = styled(Container)`
-  --content-block-margin: ${fluidScale(
-    "var(--PADDING_MEDIUM, 40px)",
-    "var(--PADDING_SMALL, 20px)"
-  )};
-
-  padding-block: 67px var(--pager-height);
-
-  > * + * {
-    margin-block-start: var(--content-block-margin);
-  }
-`;
+import { fluidScale, layoutGrid } from "@rubin-epo/epo-react-lib/styles";
+import { tokens } from "@rubin-epo/epo-react-lib";
 
 export const Header = styled.header`
   display: flex;
@@ -25,4 +12,20 @@ export const Header = styled.header`
 
 export const Title = styled.h1`
   --title-margin: ${fluidScale("2em", "1em")};
+`;
+
+export const AuthWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: stretch;
+  justify-content: center;
+`;
+
+export const SiblingNav = styled.nav`
+  ${layoutGrid(2, "1rem", "1rem", tokens.BREAK_MOBILE)}
+
+  a:last-child {
+    grid-column: 1 / -1;
+  }
 `;

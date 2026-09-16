@@ -91,7 +91,7 @@ const InvestigationIdQuery = graphql(`
         __typename
         id
         acknowledgements: text
-        relatedAssessments {
+        relatedAssessments(limit: 1) {
           ... on assessments_default_Entry {
             __typename
             id
@@ -196,11 +196,7 @@ const InvestigationLandingLayout: FunctionComponent<
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
   // TODO: Separate query for assessment URL if educator?
-
-  const assessmentUrl =
-    user?.group !== "educators"
-      ? data.entry.relatedAssessments?.[0]?.uri
-      : undefined;
+  const assessmentUrl = data.entry.relatedAssessments?.[0]?.uri;
 
   return (
     <StoredAnswersComponent investigationId={data.entry?.id}>

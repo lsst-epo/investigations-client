@@ -86,10 +86,13 @@
     "next": "Next",
     "current-slide": "Slide {{current}}",
     "showing-current-slide": "Showing slide {{current}} of {{length}}",
-    "showing-range": "Showing {{from}} to {{to}} of {{length}}"
+    "showing-range": "Showing {{from}} to {{to}} of {{length}}",
+    "previous_name": "Previous ({{name}})",
+    "next_name": "Next ({{name}})"
   },
   "nav": {
-    "close": "Close"
+    "close": "Close",
+    "page": "Page"
   },
   "auth": {
     "log_in": "Log in",

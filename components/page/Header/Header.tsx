@@ -29,7 +29,7 @@ const Header: FunctionComponent<{
 
   const handleClose = (
     element: HTMLButtonElement | null,
-    setState: (value: SetStateAction<boolean>) => void
+    setState: (value: SetStateAction<boolean>) => void,
   ) => {
     element && element.focus();
 
@@ -74,6 +74,7 @@ const Header: FunctionComponent<{
         onCloseCallback={() =>
           handleClose(menuButtonRef.current, setMainMenuIsOpen)
         }
+        userGroup={user?.group}
       />
       <TableOfContents
         isOpen={tocIsOpen}

@@ -8,6 +8,11 @@ import { serverTranslation } from "@/lib/i18n/server";
 import { RootParams } from "@/app/[locale]/layout";
 import AssessmentContentPage from "@/components/templates/AssessmentContentPage";
 import { getSite } from "@/helpers";
+import { draftMode } from "next/headers";
+import {
+  getAuthCookies,
+  getUserFromJwt,
+} from "@/components/auth/serverHelpers";
 
 interface AssessmentPageParams {
   slug: string;
@@ -15,6 +20,7 @@ interface AssessmentPageParams {
 
 export interface AssessmentPageProps {
   params: Promise<RootParams & AssessmentPageParams>;
+  searchParams: Promise<Record<string, string | Array<string> | undefined>>;
 }
 
 const AssessmentsDataQuery = graphql(`
@@ -78,8 +84,13 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
   props,
 ) => {
   const params = await props.params;
+  const searchParams = await props.searchParams;
   const { slug, locale = fallbackLng } = params;
+
   const site = getSite(locale);
+
+  const { preview: previewToken } = searchParams;
+  const { isEnabled: isPreview } = await draftMode();
 
   const { data } = await queryAPI({
     query: AssessmentsDataQuery,
@@ -87,6 +98,7 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
       site: [site],
       slug: [slug],
     },
+    previewToken: isPreview && previewToken,
   });
 
   const { entry } = data || {};
@@ -95,7 +107,18 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
     notFound();
   }
 
-  return <AssessmentContentPage data={entry} site={site} locale={locale} />;
+  const { craftToken, craftUserStatus } = await getAuthCookies();
+  const user = getUserFromJwt(craftToken);
+
+  return (
+    <AssessmentContentPage
+      data={entry}
+      site={site}
+      locale={locale}
+      status={craftUserStatus}
+      user={user}
+    />
+  );
 };
 
 export default AssessmentPage;

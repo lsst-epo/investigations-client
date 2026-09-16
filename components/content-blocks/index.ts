@@ -14,7 +14,7 @@ export { default as Video } from "./Video";
 export { default as DownloadList } from "./DownloadList";
 export { default as ComplexTable } from "./ComplexTable";
 export { default as SimpleTable } from "./SimpleTable";
-export { default as CTAGrid } from "./CTAGrid";
+
 // Callout
 export { default as AssessmentVideo } from "./AssessmentVideo";
 export { default as Link } from "./Link";

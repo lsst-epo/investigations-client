@@ -72,7 +72,7 @@ export default function AssessmentVideo(props: AssessmentVideoProps) {
   ) : (
     <Container
       bgColor={(backgroundColor as ContainerProps["bgColor"]) || undefined}
-      paddingSize="medium"
+      paddingSize="large"
     >
       {figure}
     </Container>
