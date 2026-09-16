@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { graphql, useFragment, FragmentType } from "@/gql/public-schema";
-import { GenericPlayer } from "@rubin-epo/epo-react-lib/Video";
 import * as Styled from "./styles";
 
 const AssetFragment = graphql(`

@@ -12,23 +12,31 @@ import signOut from "@/lib/auth/actions/signOut";
 import Language from "./submenu/Language";
 import Acknowledgements from "./submenu/Acknowledgements";
 import Share from "./submenu/Share";
+import AssessmentMenuItem from "@/components/educator-schema/AssessmentMenuItem";
+import { useParams } from "next/navigation";
 
 interface MenuProps {
   isOpen: boolean;
   isLoggedIn: boolean;
   onCloseCallback: () => void;
+  userGroup?: string;
 }
 
 const Menu: FunctionComponent<MenuProps> = ({
   isOpen,
   isLoggedIn,
   onCloseCallback,
+  userGroup,
 }) => {
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
   const { openModal } = useAuthDialogManager();
-  const { acknowledgements = "", assessmentUrl } = usePages();
+  const { acknowledgements = "" } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const { investigation, locale } = useParams<{
+    investigation?: string;
+    locale?: string;
+  }>();
 
   const handleLogout = async () => {
     await signOut("/");
@@ -58,14 +66,7 @@ const Menu: FunctionComponent<MenuProps> = ({
             onCloseCallback={() => setIsSubMenuOpen(false)}
           />
         )}
-        {assessmentUrl && (
-          <MenuItem
-            icon="CheckmarkCircle"
-            type="link"
-            href={assessmentUrl}
-            text={t("assessment.assessment")}
-          ></MenuItem>
-        )}
+        <AssessmentMenuItem {...{ investigation, locale, userGroup }} />
         {helpUrl && (
           <MenuItem
             type="link"

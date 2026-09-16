@@ -36,7 +36,6 @@ export const blockMap: Record<
   contentBlocks_complexTable_BlockType: Blocks.ComplexTable,
   contentBlocks_simpleTable_BlockType: Blocks.SimpleTable,
   contentBlocks_link_BlockType: Blocks.Link,
-  contentBlocks_ctaGrid_BlockType: Blocks.CTAGrid,
   contentBlocks_assessmentVideo_BlockType: Blocks.AssessmentVideo,
 };
 
@@ -64,7 +63,6 @@ const Fragment = graphql(`
     ...ComplexTableBlock
     ...SimpleTableBlock
     ...LinkBlock
-    ...CTAGridBlock
     ...AssessmentVideoBlock
   }
 `);
