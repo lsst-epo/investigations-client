@@ -11,6 +11,12 @@ import TableOfContents from "@/components/page/TableOfContents";
 import useProgress from "@/contexts/Progress";
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import * as Styled from "./styles";
+import {
+  Header as BaseHeader,
+  BottomRow,
+  MenuToggle,
+  TopRow,
+} from "@/components/layout/Header";
 
 const Header: FunctionComponent<{
   user?: ReturnType<typeof getUserFromJwt>;
@@ -38,16 +44,11 @@ const Header: FunctionComponent<{
 
   return (
     <>
-      <Styled.Header aria-hidden={!visible && !mainMenuIsOpen && !tocIsOpen}>
-        <Styled.TopRow>
-          <Styled.MenuToggle
+      <BaseHeader aria-hidden={!visible && !mainMenuIsOpen && !tocIsOpen}>
+        <TopRow>
+          <MenuToggle
             ref={menuButtonRef}
-            aria-controls="mainMenu"
-            aria-haspopup="menu"
-            icon="Hamburger"
-            iconSize={20}
             onClick={() => setMainMenuIsOpen(true)}
-            aria-label={t("translation:menu.toggle")}
           />
           <Styled.TocToggle
             ref={tocButtonRef}
@@ -61,13 +62,13 @@ const Header: FunctionComponent<{
               <Styled.PageNumber>{currentPageNumber}</Styled.PageNumber>
             </Styled.PageContainer>
           </Styled.TocToggle>
-        </Styled.TopRow>
+        </TopRow>
         {!!sections.length && (
-          <Styled.BottomRow>
+          <BottomRow>
             <HeaderProgress />
-          </Styled.BottomRow>
+          </BottomRow>
         )}
-      </Styled.Header>
+      </BaseHeader>
       <Menu
         isLoggedIn={!!user}
         isOpen={mainMenuIsOpen}

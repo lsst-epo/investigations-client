@@ -5,31 +5,27 @@ import {
   MenuItem,
 } from "@rubin-epo/epo-react-lib/SlideoutMenu";
 import { useTranslation } from "react-i18next";
-import { useGlobalData } from "@/hooks";
-import usePages from "@/contexts/Pages";
 import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import signOut from "@/lib/auth/actions/signOut";
-import Language from "./submenu/Language";
-import Acknowledgements from "./submenu/Acknowledgements";
-import Share from "./submenu/Share";
 
 interface MenuProps {
   isOpen: boolean;
   isLoggedIn: boolean;
   onCloseCallback: () => void;
-  userGroup?: string;
+  investigationEntry?: {
+    title?: string | null;
+    uri?: string | null;
+  } | null;
 }
 
 const Menu: FunctionComponent<MenuProps> = ({
   isOpen,
   isLoggedIn,
   onCloseCallback,
-  userGroup,
+  investigationEntry,
 }) => {
   const { t } = useTranslation("translation");
-  const { helpUrl } = useGlobalData("menuContent");
   const { openModal } = useAuthDialogManager();
-  const { acknowledgements = "", assessmentUri } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -44,47 +40,17 @@ const Menu: FunctionComponent<MenuProps> = ({
       isSubMenuOpen={isSubMenuOpen}
       {...{ isOpen, onCloseCallback }}
     >
-      <MenuGroup title={t("menu.settings")}>
-        <Language
-          onOpenCallback={() => setIsSubMenuOpen(true)}
-          onCloseCallback={() => setIsSubMenuOpen(false)}
-        />
-        <Share
-          onOpenCallback={() => setIsSubMenuOpen(true)}
-          onCloseCallback={() => setIsSubMenuOpen(false)}
-        />
-        {acknowledgements && (
-          <Acknowledgements
-            text={acknowledgements}
-            onOpenCallback={() => setIsSubMenuOpen(true)}
-            onCloseCallback={() => setIsSubMenuOpen(false)}
-          />
-        )}
-        {assessmentUri && (
-          <MenuItem
-            icon="CheckmarkCircle"
-            type="link"
-            href={`/${assessmentUri}`}
-            text={t("assessment.assessment")}
-          />
-        )}
-        {helpUrl && (
-          <MenuItem
-            type="link"
-            href={helpUrl}
-            target="__blank"
-            text={t("menu.help")}
-            icon="QuestionCircle"
-          />
-        )}
-      </MenuGroup>
       <MenuGroup title={t("menu.quick_access")}>
-        <MenuItem
-          icon="CheckmarkCircle"
-          type="link"
-          href="./review"
-          text={t("section_break.review")}
-        ></MenuItem>
+        {investigationEntry?.uri && (
+          <MenuItem
+            icon="Backward"
+            type="link"
+            text={t("assessment.back_to_name", {
+              name: investigationEntry.title,
+            })}
+            href={`/${investigationEntry.uri}`}
+          />
+        )}
         {isLoggedIn ? (
           <MenuItem
             icon="LogOut"

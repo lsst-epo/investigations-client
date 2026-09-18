@@ -7,15 +7,15 @@ import { fallbackLng } from "@/lib/i18n/settings";
 import { serverTranslation } from "@/lib/i18n/server";
 import { RootParams } from "@/app/[locale]/layout";
 import AssessmentContentPage from "@/components/educator-schema/AssessmentContentPage";
-import AssessmentAuthWrapper from "@/components/templates/AssessmentAuthWrapper";
 import { getSite } from "@/helpers";
 import { draftMode } from "next/headers";
 import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
+import Header from "@/components/assessments/Header";
 
-interface AssessmentPageParams {
+export interface AssessmentPageParams {
   slug: string;
 }
 
@@ -27,14 +27,26 @@ export interface AssessmentPageProps {
 const AssessmentsDataQuery = graphql(`
   query AssessmentContent($site: [String], $slug: [String]) {
     entry(site: $site, slug: $slug) {
+      __typename
+      title
+      ... on assessments_default_Entry {
+        investigationEntry {
+          ... on investigations_investigationParent_Entry {
+            __typename
+            uri
+            title
+          }
+        }
+      }
       ...AssessmentContentTemplate
     }
   }
 `);
 
-export const generateStaticParams = async ({
-  params: { locale },
-}: AssessmentPageProps) => {
+const SECRET_TOKEN = process.env.CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN;
+
+export const generateStaticParams = async ({ params }: AssessmentPageProps) => {
+  const { locale } = await params;
   const site = getSite(locale);
 
   const AssessmentsParamQuery = graphql(`
@@ -96,11 +108,7 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
   const { isEnabled: isPreview } = await draftMode();
 
   const { craftToken, craftUserStatus } = await getAuthCookies();
-  const user = getUserFromJwt(craftToken);
-
-  if (user?.group !== "educators") {
-    return <AssessmentAuthWrapper user={user} />;
-  }
+  const user = await getUserFromJwt(craftToken);
 
   const { data } = await queryAPI({
     query: AssessmentsDataQuery,
@@ -109,6 +117,7 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
       slug: [slug],
     },
     token: craftToken,
+    authToken: SECRET_TOKEN,
     previewToken: isPreview ? (previewToken as string) : undefined,
   });
 
@@ -118,14 +127,22 @@ const AssessmentPage: FunctionComponent<AssessmentPageProps> = async (
     notFound();
   }
 
+  const investigationEntry =
+    entry?.investigationEntry?.[0]?.__typename ===
+    "investigations_investigationParent_Entry"
+      ? entry.investigationEntry[0]
+      : null;
+
   return (
-    <AssessmentContentPage
-      data={entry}
-      site={site}
-      locale={locale}
-      status={craftUserStatus}
-      user={user}
-    />
+    <>
+      <Header {...{ user, investigationEntry }} />
+      <AssessmentContentPage
+        data={entry}
+        site={site}
+        locale={locale}
+        status={craftUserStatus}
+      />
+    </>
   );
 };
 

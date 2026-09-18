@@ -92,7 +92,8 @@
   },
   "nav": {
     "close": "Close",
-    "page": "Page"
+    "page": "Page",
+    "back": "Back"
   },
   "auth": {
     "log_in": "Log in",
@@ -338,6 +339,9 @@
     "heroText": "Explore exciting topics in astronomy and astrophysics with our user-friendly investigation tools."
   },
   "assessment": {
-    "assessment": "Assessment"
+    "assessment": "Assessment",
+    "back_to_name": "Back to {{name}}",
+    "auth_header": "Assessments",
+    "auth_message": "You must be an educator to access assessments."
   }
 }

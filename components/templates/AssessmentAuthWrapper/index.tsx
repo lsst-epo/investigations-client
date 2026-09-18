@@ -1,9 +1,11 @@
+"use client";
+
 import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import { PropsWithChildren } from "react";
 import * as Styled from "./styles";
 import SignIn from "@/components/molecules/auth/SignInButton";
-import SignUp from "@/components/molecules/auth/SignUpButton";
 import { Button } from "@rubin-epo/epo-react-lib";
+import { useTranslation } from "react-i18next";
 
 interface Props extends PropsWithChildren {
   user: ReturnType<typeof getUserFromJwt>;
@@ -15,6 +17,8 @@ export default function AssessmentAuthWrapper({
   title,
   children,
 }: Props) {
+  const { t } = useTranslation();
+
   return user?.group === "educators" ? (
     <>{children}</>
   ) : (
@@ -23,12 +27,21 @@ export default function AssessmentAuthWrapper({
       paddingSize="medium"
       width="narrow"
     >
-      <h1>{title}</h1>
-      <p>You must be an educator to access assessments.</p>
+      <div className="c-content-rte t-align-center">
+        <h1>{t("assessment.auth_header")}</h1>
+        <p>{t("assessment.auth_message")}</p>
+      </div>
       <Styled.AuthWrapper>
-        <SignIn />
-        <SignUp />
-        <Button>Back</Button>
+        <SignIn
+          labels={{
+            login: t("auth.log_in"),
+          }}
+        />
+        <div>
+          <Button as="a" href="/">
+            {t("nav.back")}
+          </Button>
+        </div>
       </Styled.AuthWrapper>
     </Styled.PageContainer>
   );

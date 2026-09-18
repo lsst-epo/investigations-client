@@ -2,13 +2,11 @@ import { ComponentProps, FunctionComponent, use } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/educator-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import * as Styled from "./styles";
-import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import Container from "@rubin-epo/epo-react-lib/Container";
 import { Button } from "@rubin-epo/epo-react-lib";
 import { useTranslation } from "@/lib/i18n/server";
 import InvestigationHero from "@/components/layout/InvestigationHero";
 import GuideNavigation from "@/components/layout/GuideNavigation";
-import AssessmentAuthWrapper from "@/components/templates/AssessmentAuthWrapper";
 
 const Fragment = graphql(`
   fragment AssessmentContentTemplate on assessments_default_Entry {
@@ -45,9 +43,8 @@ const AssessmentContentPage: FunctionComponent<{
   data: FragmentType<typeof Fragment>;
   site: string;
   locale: string;
-  user: ReturnType<typeof getUserFromJwt>;
   status?: string;
-}> = ({ site, locale, user, status, ...props }) => {
+}> = ({ site, locale, status, ...props }) => {
   const data = useFragment(Fragment, props.data);
 
   const { t } = use(useTranslation(locale, "translation"));
@@ -73,7 +70,7 @@ const AssessmentContentPage: FunctionComponent<{
   const nextEntry = relatedAssessments[pageIndex + 1];
 
   return (
-    <AssessmentAuthWrapper user={user} title={title}>
+    <>
       {investigationEntry && (
         <div>
           <InvestigationHero
@@ -168,12 +165,12 @@ const AssessmentContentPage: FunctionComponent<{
               )}
             </Button>
             <Button as="a" href={`/${investigationEntry.uri}`} isBlock>
-              Back to {investigationEntry.title}
+              {t("assessment.back_to_name", { name: investigationEntry.title })}
             </Button>
           </Styled.SiblingNav>
         </Container>
       )}
-    </AssessmentAuthWrapper>
+    </>
   );
 };
 

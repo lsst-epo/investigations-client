@@ -1,9 +1,8 @@
 "use server";
 
 import { queryAPI } from "@/lib/fetch";
-import { getAuthCookies } from "@/components/auth/serverHelpers";
+import { getAuthCookies, getUserFromJwt } from "@/components/auth/serverHelpers";
 import { graphql } from "@/gql/educator-schema";
-import { getSite } from "@/helpers";
 import { loadEnvConfig } from "@next/env";
 
 loadEnvConfig(process.cwd());
@@ -11,8 +10,8 @@ loadEnvConfig(process.cwd());
 const SECRET_TOKEN = process.env.CRAFT_EDUCATOR_SCHEMA_SECRET_TOKEN;
 
 const AssessmentMenuItemQuery = graphql(`
-  query AssessmentMenuItem($site: [String], $slug: [String]) {
-    entry(site: $site, slug: $slug) {
+  query AssessmentMenuItem($site: [String], $uri: [String]) {
+    entry(site: $site, uri: $uri) {
       __typename
       ... on investigations_investigationParent_Entry {
         title
@@ -27,17 +26,20 @@ const AssessmentMenuItemQuery = graphql(`
   }
 `);
 
-export default async function getAssessmentUri(
+export default async function getAssessmentUri({ investigation, site }: {
   investigation: string,
-  locale?: string
-) {
+  site?: string
+}) {
   const { craftToken } = await getAuthCookies();
+  const user = getUserFromJwt(craftToken);
+
+  if (user?.group !== "educators") return null;
 
   const { data, error } = await queryAPI({
     query: AssessmentMenuItemQuery,
     variables: {
-      site: [getSite(locale)],
-      slug: [investigation],
+      site,
+      uri: [investigation],
     },
     authToken: SECRET_TOKEN,
     token: craftToken

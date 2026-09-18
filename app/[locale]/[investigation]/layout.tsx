@@ -5,11 +5,14 @@ import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
 import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
-import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import {
+  getUserFromJwt,
+} from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
 import { notFound } from "next/navigation";
 import { getSite } from "@/helpers";
+import getAssessmentUri from "@/components/educator-schema/helpers/getAssessmentUri";
 
 export interface InvestigationParams {
   investigation: string;
@@ -185,8 +188,11 @@ const InvestigationLandingLayout: FunctionComponent<
   }
 
   const user = getUserFromJwt(craftToken);
+
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
+
+  const assessmentUri = await getAssessmentUri({ investigation, site });
 
   return (
     <StoredAnswersComponent investigationId={data.entry?.id}>
@@ -194,6 +200,7 @@ const InvestigationLandingLayout: FunctionComponent<
         {...{
           pages,
           acknowledgements,
+          assessmentUri,
         }}
       >
         <QuestionsProvider>{children}</QuestionsProvider>
