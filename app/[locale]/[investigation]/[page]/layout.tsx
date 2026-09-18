@@ -5,7 +5,6 @@ import { graphql } from "@/gql/public-schema";
 import { queryAPI } from "@/lib/fetch";
 import { ProgressProvider } from "@/contexts/Progress";
 import { notFound } from "next/navigation";
-import Header from "@/page/Header/Header";
 import Pager from "@/page/Pager";
 import Toaster from "@/components/layout/Toaster";
 import * as Styled from "./styles";
@@ -14,6 +13,7 @@ import {
   getAuthCookies,
   getUserFromJwt,
 } from "@/components/auth/serverHelpers";
+import Header from "@/components/page/Header";
 
 export interface InvestigationPageParams {
   page: string;
@@ -62,27 +62,35 @@ export const generateStaticParams = async ({
     },
   });
 
-  return data?.entry?.children?.filter(entry => {
-    if (
-      entry?.__typename === "investigations_default_Entry" ||
-      entry?.__typename ===
-        "investigations_investigationSectionBreakChild_Entry"
-    ) {
-      return entry;
-    } else {
-      console.info("Found unexpected `__typename` on entry: ", JSON.stringify(entry));
-    }
-  }).map((entry) => {
-    // Typescript loses context of what type "entry" is at this point
-    // so instead of doing messy forced typing, just check if key is
-    // on object
-    if(!("slug" in entry)) {
-      console.info("Found investigations entry without slug: ", JSON.stringify(entry));
+  return data?.entry?.children
+    ?.filter((entry) => {
+      if (
+        entry?.__typename === "investigations_default_Entry" ||
+        entry?.__typename ===
+          "investigations_investigationSectionBreakChild_Entry"
+      ) {
+        return entry;
+      } else {
+        console.info(
+          "Found unexpected `__typename` on entry: ",
+          JSON.stringify(entry),
+        );
+      }
+    })
+    .map((entry) => {
+      // Typescript loses context of what type "entry" is at this point
+      // so instead of doing messy forced typing, just check if key is
+      // on object
+      if (!("slug" in entry)) {
+        console.info(
+          "Found investigations entry without slug: ",
+          JSON.stringify(entry),
+        );
         return [];
-    }
-    const { slug } = entry;
-    return { page: slug };
-  });
+      }
+      const { slug } = entry;
+      return { page: slug };
+    });
 };
 
 // show 404 for any investigation not pre-defined
@@ -90,19 +98,12 @@ export const dynamicParams = false;
 
 const InvestigationPageLayout: FunctionComponent<
   PropsWithChildren<InvestigationPageProps>
-> = async props => {
+> = async (props) => {
   const params = await props.params;
 
-  const {
-    locale,
-    investigation,
-    page
-  } = params;
+  const { locale, investigation, page } = params;
 
-  const {
-    children,
-    reference
-  } = props;
+  const { children, reference } = props;
 
   const site = getSite(locale);
   const uri = `${investigation}/${page}`;

@@ -32,6 +32,11 @@ export const blockMap: Record<
   homepageContentBlocks_investigationGrid_BlockType: Blocks.InvestigationGrid,
   contentBlocks_orbitalSimWidget_BlockType: Blocks.OrbitalSimWidget,
   contentBlocks_sortableTable_BlockType: Blocks.SortableTableWidget,
+  contentBlocks_downloadList_BlockType: Blocks.DownloadList,
+  contentBlocks_complexTable_BlockType: Blocks.ComplexTable,
+  contentBlocks_simpleTable_BlockType: Blocks.SimpleTable,
+  contentBlocks_link_BlockType: Blocks.Link,
+  contentBlocks_assessmentVideo_BlockType: Blocks.AssessmentVideo,
 };
 
 const Fragment = graphql(`
@@ -54,6 +59,11 @@ const Fragment = graphql(`
     ...MagnitudeScatterPlotBlock
     ...OrbitalSimWidget
     ...SortableTableWidget
+    ...DownloadListBlock
+    ...ComplexTableBlock
+    ...SimpleTableBlock
+    ...LinkBlock
+    ...AssessmentVideoBlock
   }
 `);
 

@@ -28,6 +28,7 @@ const PagesContext = createContext<
       sections: Array<Section>;
       totalPages: number;
       acknowledgements: string;
+      assessmentUri?: string;
     }
   | undefined
 >(undefined);
@@ -52,11 +53,12 @@ const useSections = (pages: Array<Page>): Array<Section> => {
   // create empty arrays to fill with sections based on save points
   const sectionBreaks = pages.filter(
     (entry) =>
-      entry.__typename === "investigations_investigationSectionBreakChild_Entry"
+      entry.__typename ===
+      "investigations_investigationSectionBreakChild_Entry",
   );
   const sections: Array<Array<number | undefined>> = Array.from(
     Array(sectionBreaks.length + 1),
-    () => [undefined]
+    () => [undefined],
   );
 
   let currentIndex = 0;
@@ -85,7 +87,7 @@ const useSections = (pages: Array<Page>): Array<Section> => {
         name: t("table_of_contents.sections", { number: index + 1 }),
         order: index + 1,
         pages: section.filter(
-          (num?: number): num is number => typeof num === "number"
+          (num?: number): num is number => typeof num === "number",
         ),
       };
     });
@@ -93,10 +95,14 @@ const useSections = (pages: Array<Page>): Array<Section> => {
 };
 
 const PagesProvider: FunctionComponent<
-  PropsWithChildren<{ pages: Array<Page>; acknowledgements: string }>
-> = ({ pages = [], acknowledgements, children }) => {
+  PropsWithChildren<{
+    pages: Array<Page>;
+    acknowledgements: string;
+    assessmentUri?: string;
+  }>
+> = ({ pages = [], acknowledgements, assessmentUri, children }) => {
   const validPages = pages.filter((page) =>
-    VALID_PAGE_TYPES.includes(page.__typename)
+    VALID_PAGE_TYPES.includes(page.__typename),
   );
   const sections = useSections(validPages);
 
@@ -107,6 +113,7 @@ const PagesProvider: FunctionComponent<
         sections,
         totalPages: validPages.length,
         acknowledgements,
+        assessmentUri,
       }}
     >
       {children}

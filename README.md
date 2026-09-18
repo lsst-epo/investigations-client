@@ -1,6 +1,6 @@
 # Next frontend
 
-Next.js frontend intended to be used with the Rubin EPO [craft-cms-template](https://github.com/lsst-epo/craft-cms-template/).
+Next.js frontend intended to be used with [investigations-api](https://github.com/lsst-epo/investigations-api/).
 
 ## Local development
 

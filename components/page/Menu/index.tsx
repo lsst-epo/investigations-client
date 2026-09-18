@@ -17,17 +17,19 @@ interface MenuProps {
   isOpen: boolean;
   isLoggedIn: boolean;
   onCloseCallback: () => void;
+  userGroup?: string;
 }
 
 const Menu: FunctionComponent<MenuProps> = ({
   isOpen,
   isLoggedIn,
   onCloseCallback,
+  userGroup,
 }) => {
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
   const { openModal } = useAuthDialogManager();
-  const { acknowledgements = "" } = usePages();
+  const { acknowledgements = "", assessmentUri } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -56,6 +58,14 @@ const Menu: FunctionComponent<MenuProps> = ({
             text={acknowledgements}
             onOpenCallback={() => setIsSubMenuOpen(true)}
             onCloseCallback={() => setIsSubMenuOpen(false)}
+          />
+        )}
+        {assessmentUri && (
+          <MenuItem
+            icon="CheckmarkCircle"
+            type="link"
+            href={`/${assessmentUri}`}
+            text={t("assessment.assessment")}
           />
         )}
         {helpUrl && (

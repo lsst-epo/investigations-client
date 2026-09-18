@@ -5,11 +5,14 @@ import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
 import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
-import { getUserFromJwt } from "@/components/auth/serverHelpers";
+import {
+  getUserFromJwt,
+} from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
 import { notFound } from "next/navigation";
 import { getSite } from "@/helpers";
+import getAssessmentUri from "@/components/educator-schema/helpers/getAssessmentUri";
 
 export interface InvestigationParams {
   investigation: string;
@@ -30,13 +33,12 @@ const InvestigationMetadataQuery = graphql(`
   }
 `);
 
-export async function generateMetadata(props: InvestigationProps): Promise<Metadata> {
+export async function generateMetadata(
+  props: InvestigationProps,
+): Promise<Metadata> {
   const params = await props.params;
 
-  const {
-    investigation,
-    locale
-  } = params;
+  const { investigation, locale } = params;
 
   const site = getSite(locale);
 
@@ -148,17 +150,12 @@ const InvestigationIdQuery = graphql(`
 
 const InvestigationLandingLayout: FunctionComponent<
   PropsWithChildren<InvestigationProps>
-> = async props => {
+> = async (props) => {
   const params = await props.params;
 
-  const {
-    locale,
-    investigation
-  } = params;
+  const { locale, investigation } = params;
 
-  const {
-    children
-  } = props;
+  const { children } = props;
 
   const site = getSite(locale);
 
@@ -187,16 +184,25 @@ const InvestigationLandingLayout: FunctionComponent<
     }
     craftToken = (await res.json()).authCookies.craftToken;
   } catch (error: any) {
-      console.error(error.message || "Failed to retrieve cookies");
+    console.error(error.message || "Failed to retrieve cookies");
   }
 
   const user = getUserFromJwt(craftToken);
+
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
+  const assessmentUri = await getAssessmentUri({ investigation, site });
+
   return (
     <StoredAnswersComponent investigationId={data.entry?.id}>
-      <PagesProvider {...{ pages, acknowledgements }}>
+      <PagesProvider
+        {...{
+          pages,
+          acknowledgements,
+          assessmentUri,
+        }}
+      >
         <QuestionsProvider>{children}</QuestionsProvider>
       </PagesProvider>
     </StoredAnswersComponent>
