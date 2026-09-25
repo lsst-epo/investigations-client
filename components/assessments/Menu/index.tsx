@@ -41,16 +41,6 @@ const Menu: FunctionComponent<MenuProps> = ({
       {...{ isOpen, onCloseCallback }}
     >
       <MenuGroup title={t("menu.quick_access")}>
-        {investigationEntry?.uri && (
-          <MenuItem
-            icon="Backward"
-            type="link"
-            text={t("assessment.back_to_name", {
-              name: investigationEntry.title,
-            })}
-            href={`/${investigationEntry.uri}`}
-          />
-        )}
         {isLoggedIn ? (
           <MenuItem
             icon="LogOut"

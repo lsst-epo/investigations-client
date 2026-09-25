@@ -1397,6 +1397,7 @@ export type EntryCriteriaInput = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   /** Narrows the query results to only the entry that comes immediately after another element in its structure, provided by its ID. */
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
@@ -1637,6 +1638,7 @@ export type EntryInterfaceAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -1731,6 +1733,7 @@ export type EntryInterfaceChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -1825,6 +1828,7 @@ export type EntryInterfaceDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -1919,6 +1923,7 @@ export type EntryInterfaceLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -2013,6 +2018,7 @@ export type EntryInterfaceNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -2107,6 +2113,7 @@ export type EntryInterfaceParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -2201,6 +2208,7 @@ export type EntryInterfacePrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3041,6 +3049,7 @@ export type QueryDatasetsEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3132,6 +3141,7 @@ export type QueryEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3225,6 +3235,7 @@ export type QueryEntryArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3318,6 +3329,7 @@ export type QueryEntryCountArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3483,6 +3495,7 @@ export type QueryHomepageEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3574,6 +3587,7 @@ export type QueryInvestigationsEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3665,6 +3679,7 @@ export type QueryPagesEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3756,6 +3771,7 @@ export type QueryQuestionsEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3847,6 +3863,7 @@ export type QueryReferenceContentEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -3938,6 +3955,7 @@ export type QueryWidgetsEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -5279,6 +5297,7 @@ export type ContentBlocks_Callout_BlockTypeCalloutArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -5598,6 +5617,7 @@ export type ContentBlocks_ColorFilterToolBlock_BlockTypeColorFilterToolArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -6476,6 +6496,7 @@ export type ContentBlocks_MagnitudeScatterPlot_BlockTypeLightCurveToolArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -6625,6 +6646,7 @@ export type ContentBlocks_OrbitalSimWidget_BlockTypeOrbitalSimToolArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -6774,6 +6796,7 @@ export type ContentBlocks_QuestionBlock_BlockTypeQuestionEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -6923,6 +6946,7 @@ export type ContentBlocks_ReferenceBlock_BlockTypeReferenceEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -7276,6 +7300,7 @@ export type ContentBlocks_SortableTable_BlockTypeSortableTableWidgetArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -7498,6 +7523,7 @@ export type ContentBlocks_SupernovaDistanceDistribution_BlockTypeQuestionEntries
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8275,6 +8301,7 @@ export type Datasets_StarCluster_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8368,6 +8395,7 @@ export type Datasets_StarCluster_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8461,6 +8489,7 @@ export type Datasets_StarCluster_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8599,6 +8628,7 @@ export type Datasets_StarCluster_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8692,6 +8722,7 @@ export type Datasets_StarCluster_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8785,6 +8816,7 @@ export type Datasets_StarCluster_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -8923,6 +8955,7 @@ export type Datasets_StarCluster_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9176,6 +9209,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9269,6 +9303,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9362,6 +9397,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9528,6 +9564,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9621,6 +9658,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9714,6 +9752,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -9807,6 +9846,7 @@ export type Datasets_SupernovaGalaxyObservations_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -10337,6 +10377,7 @@ export type HomepageContentBlocks_InvestigationGrid_BlockTypeInvestigationEntrie
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -10605,6 +10646,7 @@ export type Homepage_Homepage_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -10698,6 +10740,7 @@ export type Homepage_Homepage_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -10791,6 +10834,7 @@ export type Homepage_Homepage_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -10944,6 +10988,7 @@ export type Homepage_Homepage_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11037,6 +11082,7 @@ export type Homepage_Homepage_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11130,6 +11176,7 @@ export type Homepage_Homepage_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11223,6 +11270,7 @@ export type Homepage_Homepage_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11533,6 +11581,7 @@ export type Investigations_Default_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11626,6 +11675,7 @@ export type Investigations_Default_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11756,6 +11806,7 @@ export type Investigations_Default_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11849,6 +11900,7 @@ export type Investigations_Default_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -11942,6 +11994,7 @@ export type Investigations_Default_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12035,6 +12088,7 @@ export type Investigations_Default_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12128,6 +12182,7 @@ export type Investigations_Default_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12225,6 +12280,7 @@ export type Investigations_InvestigationParent_Entry = ElementInterface & EntryI
   lft?: Maybe<Scalars['Int']['output']>;
   /** The same element in other locales. */
   localized: Array<EntryInterface>;
+  mixedLink?: Maybe<LinkField_Link>;
   /** Returns the next element relative to this one, from a given set of criteria. */
   next?: Maybe<EntryInterface>;
   /** The entry’s parent, if the section is a structure. */
@@ -12338,6 +12394,7 @@ export type Investigations_InvestigationParent_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12431,6 +12488,7 @@ export type Investigations_InvestigationParent_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12524,6 +12582,7 @@ export type Investigations_InvestigationParent_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12640,6 +12699,7 @@ export type Investigations_InvestigationParent_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12733,6 +12793,7 @@ export type Investigations_InvestigationParent_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12826,6 +12887,7 @@ export type Investigations_InvestigationParent_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -12919,6 +12981,7 @@ export type Investigations_InvestigationParent_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13012,6 +13075,7 @@ export type Investigations_InvestigationParent_EntryRelatedAssessmentsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13219,6 +13283,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13312,6 +13377,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13405,6 +13471,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryDescendantsArgs =
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13498,6 +13565,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13591,6 +13659,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13684,6 +13753,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -13777,6 +13847,7 @@ export type Investigations_InvestigationSectionBreakChild_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -14549,6 +14620,7 @@ export type OrbitalDatasets_Orbital_BlockTypeOrbitalSimDataArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -14760,6 +14832,7 @@ export type Pages_Pages_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -14853,6 +14926,7 @@ export type Pages_Pages_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -14983,6 +15057,7 @@ export type Pages_Pages_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15076,6 +15151,7 @@ export type Pages_Pages_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15169,6 +15245,7 @@ export type Pages_Pages_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15267,6 +15344,7 @@ export type Pages_Pages_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15360,6 +15438,7 @@ export type Pages_Pages_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15569,6 +15648,7 @@ export type Pages_RedirectPage_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15662,6 +15742,7 @@ export type Pages_RedirectPage_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15755,6 +15836,7 @@ export type Pages_RedirectPage_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15848,6 +15930,7 @@ export type Pages_RedirectPage_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -15941,6 +16024,7 @@ export type Pages_RedirectPage_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16034,6 +16118,7 @@ export type Pages_RedirectPage_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16127,6 +16212,7 @@ export type Pages_RedirectPage_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16368,6 +16454,7 @@ export type QuestionWidgetsBlock_ColorFilterToolBlock_BlockTypeColorFilterToolAr
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16518,6 +16605,7 @@ export type QuestionWidgetsBlock_IsochronePlot_BlockTypeDatasetArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16667,6 +16755,7 @@ export type QuestionWidgetsBlock_LightCurveBlock_BlockTypeLightCurveToolArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16816,6 +16905,7 @@ export type QuestionWidgetsBlock_OrbitalSimBlock_BlockTypeOrbitalSimToolArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -16965,6 +17055,7 @@ export type QuestionWidgetsBlock_SourceSelectorBlock_BlockTypeSourceSelectorArgs
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17187,6 +17278,7 @@ export type Questions_Default_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17321,6 +17413,7 @@ export type Questions_Default_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17414,6 +17507,7 @@ export type Questions_Default_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17512,6 +17606,7 @@ export type Questions_Default_EntryInvestigationEntriesArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17605,6 +17700,7 @@ export type Questions_Default_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17735,6 +17831,7 @@ export type Questions_Default_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17828,6 +17925,7 @@ export type Questions_Default_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -17921,6 +18019,7 @@ export type Questions_Default_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -18215,6 +18314,7 @@ export type ReferenceContentBlocks_CameraFilterTool_BlockTypeColorFilterToolArgs
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -18777,6 +18877,7 @@ export type ReferenceContent_Default_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -18870,6 +18971,7 @@ export type ReferenceContent_Default_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -18963,6 +19065,7 @@ export type ReferenceContent_Default_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -19056,6 +19159,7 @@ export type ReferenceContent_Default_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -19149,6 +19253,7 @@ export type ReferenceContent_Default_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -19242,6 +19347,7 @@ export type ReferenceContent_Default_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -19335,6 +19441,7 @@ export type ReferenceContent_Default_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -20128,6 +20235,7 @@ export type TableCell_PreviousQuestion_BlockTypeQuestionArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -20572,6 +20680,7 @@ export type TableRow_PreviousQuestion_BlockTypeQuestionArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -20964,6 +21073,7 @@ export type Widgets_ColorFilterTool_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21057,6 +21167,7 @@ export type Widgets_ColorFilterTool_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21187,6 +21298,7 @@ export type Widgets_ColorFilterTool_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21290,6 +21402,7 @@ export type Widgets_ColorFilterTool_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21383,6 +21496,7 @@ export type Widgets_ColorFilterTool_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21476,6 +21590,7 @@ export type Widgets_ColorFilterTool_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21569,6 +21684,7 @@ export type Widgets_ColorFilterTool_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21781,6 +21897,7 @@ export type Widgets_IsochronePlot_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21874,6 +21991,7 @@ export type Widgets_IsochronePlot_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -21967,6 +22085,7 @@ export type Widgets_IsochronePlot_EntryDatasetArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22060,6 +22179,7 @@ export type Widgets_IsochronePlot_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22153,6 +22273,7 @@ export type Widgets_IsochronePlot_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22246,6 +22367,7 @@ export type Widgets_IsochronePlot_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22339,6 +22461,7 @@ export type Widgets_IsochronePlot_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22432,6 +22555,7 @@ export type Widgets_IsochronePlot_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22642,6 +22766,7 @@ export type Widgets_LightCurveTool_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22735,6 +22860,7 @@ export type Widgets_LightCurveTool_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22828,6 +22954,7 @@ export type Widgets_LightCurveTool_EntryDatasetArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -22921,6 +23048,7 @@ export type Widgets_LightCurveTool_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23014,6 +23142,7 @@ export type Widgets_LightCurveTool_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23107,6 +23236,7 @@ export type Widgets_LightCurveTool_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23200,6 +23330,7 @@ export type Widgets_LightCurveTool_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23293,6 +23424,7 @@ export type Widgets_LightCurveTool_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23505,6 +23637,7 @@ export type Widgets_SourceSelector_EntryAncestorsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23598,6 +23731,7 @@ export type Widgets_SourceSelector_EntryChildrenArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23691,6 +23825,7 @@ export type Widgets_SourceSelector_EntryDatasetArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23784,6 +23919,7 @@ export type Widgets_SourceSelector_EntryDescendantsArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23877,6 +24013,7 @@ export type Widgets_SourceSelector_EntryLocalizedArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -23970,6 +24107,7 @@ export type Widgets_SourceSelector_EntryNextArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -24063,6 +24201,7 @@ export type Widgets_SourceSelector_EntryParentArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -24156,6 +24295,7 @@ export type Widgets_SourceSelector_EntryPrevArgs = {
   linkTo?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   maximum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   minimum?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
+  mixedLink?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   mjd?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
   nextSiblingOf?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;

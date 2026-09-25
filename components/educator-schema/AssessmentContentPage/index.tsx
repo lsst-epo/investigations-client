@@ -3,7 +3,6 @@ import { FragmentType, graphql, useFragment } from "@/gql/educator-schema";
 import ContentBlockFactory from "@/components/factories/ContentBlockFactory";
 import * as Styled from "./styles";
 import Container from "@rubin-epo/epo-react-lib/Container";
-import { Button } from "@rubin-epo/epo-react-lib";
 import { useTranslation } from "@/lib/i18n/server";
 import InvestigationHero from "@/components/layout/InvestigationHero";
 import GuideNavigation from "@/components/layout/GuideNavigation";
@@ -62,13 +61,6 @@ const AssessmentContentPage: FunctionComponent<{
       (assessment) => assessment?.__typename === "assessments_default_Entry",
     ) || [];
 
-  const pageIndex =
-    relatedAssessments.findIndex((assessment) => assessment?.uri === uri) || 0;
-
-  const prevEntry = relatedAssessments[pageIndex - 1];
-
-  const nextEntry = relatedAssessments[pageIndex + 1];
-
   return (
     <>
       {investigationEntry && (
@@ -123,52 +115,6 @@ const AssessmentContentPage: FunctionComponent<{
             />
           )
         ),
-      )}
-
-      {investigationEntry?.uri && (
-        <Container>
-          <Styled.SiblingNav aria-label={t("nav.page")}>
-            <Button
-              as="a"
-              href={`/${prevEntry?.uri}`}
-              aria-disabled={!prevEntry?.uri}
-              isBlock
-            >
-              {prevEntry?.title ? (
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: t("pagination.previous_name", {
-                      name: prevEntry?.title,
-                    }),
-                  }}
-                />
-              ) : (
-                t("pagination.previous")
-              )}
-            </Button>
-            <Button
-              as="a"
-              href={`/${nextEntry?.uri}`}
-              aria-disabled={!nextEntry?.uri}
-              isBlock
-            >
-              {nextEntry?.title ? (
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: t("pagination.next_name", {
-                      name: nextEntry?.title,
-                    }),
-                  }}
-                />
-              ) : (
-                t("pagination.next")
-              )}
-            </Button>
-            <Button as="a" href={`/${investigationEntry.uri}`} isBlock>
-              {t("assessment.back_to_name", { name: investigationEntry.title })}
-            </Button>
-          </Styled.SiblingNav>
-        </Container>
       )}
     </>
   );

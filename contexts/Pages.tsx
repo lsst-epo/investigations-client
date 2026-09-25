@@ -28,7 +28,11 @@ const PagesContext = createContext<
       sections: Array<Section>;
       totalPages: number;
       acknowledgements: string;
-      assessmentUri?: string;
+      educatorResources?: {
+        href: string;
+        label?: string | null;
+        target?: string | null;
+      };
     }
   | undefined
 >(undefined);
@@ -98,9 +102,13 @@ const PagesProvider: FunctionComponent<
   PropsWithChildren<{
     pages: Array<Page>;
     acknowledgements: string;
-    assessmentUri?: string;
+    educatorResources?: {
+      href: string;
+      label?: string | null;
+      target?: string | null;
+    };
   }>
-> = ({ pages = [], acknowledgements, assessmentUri, children }) => {
+> = ({ pages = [], acknowledgements, educatorResources, children }) => {
   const validPages = pages.filter((page) =>
     VALID_PAGE_TYPES.includes(page.__typename),
   );
@@ -113,7 +121,7 @@ const PagesProvider: FunctionComponent<
         sections,
         totalPages: validPages.length,
         acknowledgements,
-        assessmentUri,
+        educatorResources,
       }}
     >
       {children}

@@ -5,14 +5,11 @@ import { queryAPI } from "@/lib/fetch";
 import { graphql } from "@/gql/public-schema";
 import StudentStoredAnswers from "@/components/student-schema/StoredAnswersWrapper";
 import EducatorStoredAnswers from "@/components/educator-schema/StoredAnswersWrapper";
-import {
-  getUserFromJwt,
-} from "@/components/auth/serverHelpers";
+import { getUserFromJwt } from "@/components/auth/serverHelpers";
 import { PagesProvider } from "@/contexts/Pages";
 import { QuestionsProvider } from "@/contexts/Questions";
 import { notFound } from "next/navigation";
 import { getSite } from "@/helpers";
-import getAssessmentUri from "@/components/educator-schema/helpers/getAssessmentUri";
 
 export interface InvestigationParams {
   investigation: string;
@@ -93,7 +90,19 @@ const InvestigationIdQuery = graphql(`
       ... on investigations_investigationParent_Entry {
         __typename
         id
+        slug
         acknowledgements: text
+        educatorResourcesLink: mixedLink {
+          type
+          url
+          text
+          customText
+          ariaLabel
+          target
+          element {
+            uri
+          }
+        }
         children {
           __typename
           title
@@ -192,7 +201,15 @@ const InvestigationLandingLayout: FunctionComponent<
   const StoredAnswersComponent =
     user?.group === "educators" ? EducatorStoredAnswers : StudentStoredAnswers;
 
-  const assessmentUri = await getAssessmentUri({ investigation, site });
+  const educatorResourcesLink = data.entry?.educatorResourcesLink;
+
+  const educatorResources = educatorResourcesLink?.url
+    ? {
+        href: educatorResourcesLink.url,
+        label: educatorResourcesLink.customText,
+        target: educatorResourcesLink.target,
+      }
+    : undefined;
 
   return (
     <StoredAnswersComponent investigationId={data.entry?.id}>
@@ -200,7 +217,7 @@ const InvestigationLandingLayout: FunctionComponent<
         {...{
           pages,
           acknowledgements,
-          assessmentUri,
+          educatorResources,
         }}
       >
         <QuestionsProvider>{children}</QuestionsProvider>

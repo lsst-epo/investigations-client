@@ -9,10 +9,8 @@ const BUTTON_WRAPPER_PADDING = fluidScale(
   "60px",
   "15px",
   tokens.BREAK_TABLET,
-  tokens.BREAK_MOBILE
+  tokens.BREAK_MOBILE,
 );
-
-const DURATION_WIDTH = "197px";
 
 export const Inner = styled.div`
   position: relative;
@@ -20,7 +18,8 @@ export const Inner = styled.div`
   grid-template:
     "image text duration"
     "image button duration"
-    / 200px 1fr ${DURATION_WIDTH};
+    / 200px 1fr var(--duration-width, auto);
+  row-gap: 16px;
   column-gap: 60px;
   align-items: stretch;
   max-width: 1158px;
@@ -38,7 +37,7 @@ export const Inner = styled.div`
       padding-block-start: 62px;
       padding-block-end: 30px;
     `,
-    tokens.BREAK_TABLET
+    tokens.BREAK_TABLET,
   )}
 `;
 
@@ -61,7 +60,7 @@ export const Text = styled.div`
     margin-right: 60px;
     margin-left: 60px;
     `,
-    tokens.BREAK_TABLET
+    tokens.BREAK_TABLET,
   )}
 
   ${respond(
@@ -69,31 +68,34 @@ export const Text = styled.div`
     margin-right: 15px;
     margin-left: 15px;
     `,
-    tokens.BREAK_MOBILE
+    tokens.BREAK_MOBILE,
   )}
 `;
 
 export const ButtonWrapper = styled.div`
   grid-area: button;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 16px;
 
   ${respond(
     `
       width: 100%;
-      display: flex;
-      flex-direction: column;
+      justify-content: center;
       padding-inline-start: ${BUTTON_WRAPPER_PADDING};
       padding-inline-end: ${BUTTON_WRAPPER_PADDING};
     `,
-    tokens.BREAK_TABLET
+    tokens.BREAK_TABLET,
   )}
 `;
 
 export const EarlyAccessFlag = styled(
-  EarlyAccess as FunctionComponent<{ className?: string }>
+  EarlyAccess as FunctionComponent<{ className?: string }>,
 )`
   position: absolute;
   top: 0;
-  right: ${DURATION_WIDTH};
+  right: var(--duration-width, 0px);
 
   @media (max-width: ${tokens.BREAK_TABLET}) {
     right: auto;
@@ -113,13 +115,13 @@ export const EarlyAccessFlag = styled(
       "14px",
       "8px",
       tokens.BREAK_TABLET,
-      tokens.BREAK_MOBILE
+      tokens.BREAK_MOBILE,
     )};
     padding-left: ${fluidScale(
       "14px",
       "8px",
       tokens.BREAK_TABLET,
-      tokens.BREAK_MOBILE
+      tokens.BREAK_MOBILE,
     )};
   }
 `;
@@ -150,7 +152,7 @@ export const Duration = styled.div`
         margin-inline-end: 9px;
       }
     `,
-    tokens.BREAK_TABLET
+    tokens.BREAK_TABLET,
   )}
 `;
 
@@ -162,7 +164,7 @@ export const DurationTime = styled.div`
     `
       font-size: 16px;
     `,
-    tokens.BREAK_TABLET
+    tokens.BREAK_TABLET,
   )}
 `;
 

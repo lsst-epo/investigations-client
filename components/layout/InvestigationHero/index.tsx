@@ -8,8 +8,20 @@ import Container from "@rubin-epo/epo-react-lib/Container";
 
 const Fragment = graphql(`
   fragment InvestigationHero on investigations_investigationParent_Entry {
+    slug
     title
     status
+    educatorResourcesLink: mixedLink {
+      type
+      url
+      text
+      customText
+      ariaLabel
+      target
+      element {
+        uri
+      }
+    }
     image {
       url {
         directUrlPreview
@@ -51,13 +63,19 @@ export default function InvestigationHero({
 
   if (!investigation) return null;
 
-  const { title, status, image: rawImage, children } = investigation;
+  const {
+    title,
+    status,
+    image: rawImage,
+    children,
+    educatorResourcesLink,
+  } = investigation;
   const image = rawImage?.[0] && imageShaper(site, rawImage[0]);
   const firstPage = children?.[0]?.uri;
 
   return (
     <Container width="regular" bgColor="orange05" paddingSize="medium">
-      <Styled.Inner>
+      <Styled.Inner style={duration ? { "--duration-width": "197px" } : {}}>
         {image && (
           <Styled.Image>
             <Image image={image} />
@@ -71,6 +89,12 @@ export default function InvestigationHero({
             <Button styleAs="educator" as="a" href={`/${firstPage}`}>
               {t("investigation.start")}
             </Button>
+            {educatorResourcesLink?.url && (
+              <Button as="a" href={educatorResourcesLink.url} target="_blank">
+                {educatorResourcesLink.customText ||
+                  t("investigation.go_to_teacher_resources")}
+              </Button>
+            )}
           </Styled.ButtonWrapper>
         )}
         {duration && (
