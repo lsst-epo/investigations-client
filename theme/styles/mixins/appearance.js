@@ -110,3 +110,15 @@ export const aButton = css`
     }
   }
 `;
+
+// We want to hide the <h1> but still make it readable by screenreaders, this is common pattern that
+// CSS frameworks use:
+export const aHidden = css`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+`;

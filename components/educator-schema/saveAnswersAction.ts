@@ -43,7 +43,7 @@ export default async function saveAnswers(
     };
   });
 
-  const { data, error } = await mutationClient({ craftToken: craftToken, craftRefreshToken: craftRefreshToken})(Mutation, {
+  const { data, error } = await mutationClient({ craftToken, craftRefreshToken})(Mutation, {
     userId: craftUserId,
     investigationId,
     answerSet,

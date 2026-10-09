@@ -12,7 +12,7 @@ const SignedOut: FunctionComponent<{
   const { t } = use(useTranslation(locale, "translation"));
   return (
     <>
-      <SignIn />
+      <SignIn labels={{ description: t("auth.continue_w_login_label") }} />
       <InteractionDescription description={t("auth.continue_wo_login_label")}>
         {(id) => (
           <Buttonish

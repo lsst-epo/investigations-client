@@ -11,6 +11,13 @@ export { default as Questions } from "./Questions";
 export { default as Table } from "./Table";
 export { default as Text } from "./Text";
 export { default as Video } from "./Video";
+export { default as DownloadList } from "./DownloadList";
+export { default as ComplexTable } from "./ComplexTable";
+export { default as SimpleTable } from "./SimpleTable";
+
+// Callout
+export { default as AssessmentVideo } from "./AssessmentVideo";
+export { default as Link } from "./Link";
 
 // Widgets
 export { default as BarGraphTool } from "./BarGraphTool";
@@ -20,4 +27,4 @@ export { default as FilterTool } from "./FilterTool";
 export { default as SupernovaDistanceDistribution } from "./SupernovaDistanceDistribution";
 export { default as MagnitudeScatterPlot } from "./MagnitudeScatterPlot";
 export { default as OrbitalSimWidget } from "./OrbitalSim";
-export {default as SortableTableWidget} from "./SortableTable";
+export { default as SortableTableWidget } from "./SortableTable";

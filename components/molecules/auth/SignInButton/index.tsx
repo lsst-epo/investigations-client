@@ -5,12 +5,19 @@ import { useAuthDialogManager } from "@/contexts/AuthDialogManager";
 import { useTranslation } from "react-i18next";
 import InteractionDescription from "@/components/atomic/InteractionDescription";
 
-export default function SignIn() {
+interface Props {
+  labels?: {
+    login?: string;
+    description?: string;
+  };
+}
+
+export default function SignIn({ labels }: Props) {
   const { t } = useTranslation();
   const { openModal } = useAuthDialogManager();
 
   return (
-    <InteractionDescription description={t("auth.continue_w_login_label")}>
+    <InteractionDescription description={labels?.description}>
       {(id) => (
         <Button
           className="sign-in"
@@ -20,7 +27,7 @@ export default function SignIn() {
           }}
           aria-describedby={id}
         >
-          {t("auth.log_in_to_continue")}
+          {labels?.login || t("auth.log_in_to_continue")}
         </Button>
       )}
     </InteractionDescription>
