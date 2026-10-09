@@ -9,6 +9,7 @@ const config: CodegenConfig = {
       schema: process.env.NEXT_PUBLIC_API_URL,
       documents: [
         "app/**/*.{ts,tsx}",
+        "!app/*/assessments/**/*.{ts,tsx}",
         "components/**/*.{ts,tsx}",
         "!components/student-schema/**/*.{ts,tsx}",
         "!components/educator-schema/**/*.{ts,tsx}",
@@ -50,7 +51,13 @@ const config: CodegenConfig = {
           },
         },
       ],
-      documents: ["components/educator-schema/**/*.{ts,tsx}"],
+      documents: [
+        "app/*/assessments/**/*.{ts,tsx}",
+        "components/**/*.{ts,tsx}",
+        "!components/student-schema/**/*.{ts,tsx}",
+        "lib/auth/**/*.{ts,tsx}",
+        "lib/auth/**/*.graphql"
+      ],
       preset: "client",
       config: {
         useTypeImports: true,

@@ -20,14 +20,13 @@ const Query = graphql(`
   }
 `);
 
-const InvestigationLanding: FunctionComponent<InvestigationProps> = async props => {
+const InvestigationLanding: FunctionComponent<InvestigationProps> = async (
+  props,
+) => {
   const searchParams = await props.searchParams;
   const params = await props.params;
 
-  const {
-    locale,
-    investigation
-  } = params;
+  const { locale, investigation } = params;
 
   const site = getSite(locale);
   const { preview: previewToken } = searchParams;

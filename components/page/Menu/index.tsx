@@ -17,17 +17,19 @@ interface MenuProps {
   isOpen: boolean;
   isLoggedIn: boolean;
   onCloseCallback: () => void;
+  userGroup?: string;
 }
 
 const Menu: FunctionComponent<MenuProps> = ({
   isOpen,
   isLoggedIn,
   onCloseCallback,
+  userGroup,
 }) => {
   const { t } = useTranslation("translation");
   const { helpUrl } = useGlobalData("menuContent");
   const { openModal } = useAuthDialogManager();
-  const { acknowledgements = "" } = usePages();
+  const { acknowledgements = "", educatorResources } = usePages();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   const handleLogout = async () => {
@@ -75,6 +77,17 @@ const Menu: FunctionComponent<MenuProps> = ({
           href="./review"
           text={t("section_break.review")}
         ></MenuItem>
+        {educatorResources?.href && (
+          <MenuItem
+            icon="Lightbulb"
+            type="link"
+            text={
+              educatorResources.label || t("investigation.educator_resources")
+            }
+            href={educatorResources.href}
+            target={educatorResources.target || undefined}
+          />
+        )}
         {isLoggedIn ? (
           <MenuItem
             icon="LogOut"

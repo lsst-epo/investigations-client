@@ -84,7 +84,7 @@ export const percentageMapSources = <T extends { x: any; y: any; radius: any }>(
 export const percentageMapSourcesForMovingSources = <T extends { x: any; y: any; radius: any, type: string }>(
   sources: Array<T>
 ) => {
-  let updatedSources = {};
+  const updatedSources = {};
   updatedSources.sources = sources.map(({ x, y, radius, ...source }) => {
     return {
       x: `${x}%`,

@@ -54,7 +54,9 @@ const InvestigationLandingPage: FunctionComponent<{
       width="narrow"
     >
       <h1>{title}</h1>
-      {image.length > 0 && <Styled.Image image={imageShaper(site, image[0])} />}
+      {image && image.length > 0 && (
+        <Styled.Image image={imageShaper(site, image[0])} />
+      )}
       {firstPage && (
         <Styled.AuthWrapper>
           {user ? (
