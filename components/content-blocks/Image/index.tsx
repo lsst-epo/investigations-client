@@ -89,6 +89,7 @@ const ImageContentBlock: FunctionComponent<ImageContentBlockProps> = ({
         layout={finalLayout}
         withBackground={!isOpen}
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           {...{ ...imageAttributes, width, height }}
           decoding="async"

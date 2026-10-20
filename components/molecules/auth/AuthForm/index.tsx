@@ -49,6 +49,7 @@ const AuthForm: FunctionComponent<PropsWithChildren<AuthFormProps>> = ({
     if (state?.status === "error") {
       return onError && onError(state);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   return (

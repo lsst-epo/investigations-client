@@ -1,3 +1,5 @@
+"use client";
+
 import { FunctionComponent } from "react";
 import { IconComposer } from "@rubin-epo/epo-react-lib";
 import { ScreenreaderText } from "@rubin-epo/epo-react-lib/styles";

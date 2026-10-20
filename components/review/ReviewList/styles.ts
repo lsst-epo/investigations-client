@@ -9,11 +9,11 @@ export const ReviewList = styled.ol`
   --review-input-color: var(--neutral60, #6b6e6e);
 
   padding: var(--list-padding, 0);
+  container: review-list / inline-size;
   color: var(--review-color);
   list-style-position: inside;
   list-style-type: decimal;
   background-color: var(--list-background-color, transparent);
-  container: review-list / inline-size;
 
   & > li + li {
     margin-block-start: 0.5em;

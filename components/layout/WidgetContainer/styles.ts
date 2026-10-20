@@ -77,9 +77,9 @@ export const WidgetBody = styled.div`
 
 export const WidgetRow = styled.div`
   display: flex;
-  justify-content: center;
   flex-direction: column;
   gap: var(--widget-padding);
+  justify-content: center;
 
   @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
     flex-direction: row;
