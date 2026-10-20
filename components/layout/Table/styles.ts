@@ -6,6 +6,8 @@ export const TableWrapper = styled.div`
   --table-border-color: var(--white, #fff);
   --table-border: var(--table-border-width) solid var(--table-border-color);
   --table-header-height: 5em;
+  --readonly-border-color: #6a6e6e;
+  --readonly-padding: 0.5ch 1ch;
 
   position: relative;
   padding-inline: var(--table-padding, 0);
@@ -13,6 +15,15 @@ export const TableWrapper = styled.div`
   @media only print {
     --table-header-height: auto;
     --table-border-width: 1px;
+  }
+
+  &[data-bg-color="white"] {
+    --table-border-width: 1px;
+    --table-border-color: var(--black, #000);
+    --table-cell-bg: transparent;
+    --readonly-border-color: none;
+    --readonly-padding: 0;
+    --readonly-whitespace: normal;
   }
 `;
 
@@ -66,10 +77,11 @@ export const ScrollWrapper = styled.div`
 
 export const Table = styled.table`
   min-width: 100%;
-  font-size: 1rem;
+  font-size: var(--table-font-size, 1rem);
   color: #313333;
   border-collapse: collapse;
 `;
+
 export const Header = styled.th`
   height: var(--table-header-height);
   padding-inline: 1em;
@@ -79,7 +91,21 @@ export const Header = styled.th`
   scroll-margin-inline: calc(1em + var(--table-border-width));
   background-color: var(--table-cell-bg);
   border: var(--table-border);
+
+  ${TableWrapper}[data-bg-color="white"] & {
+    padding-block: 0.5em;
+    white-space: normal;
+  }
 `;
+
+export const Row = styled.tr`
+  &:hover {
+    ${TableWrapper}[data-bg-color="white"] & {
+      --table-cell-bg: var(--neutral10, #f5f5f5);
+    }
+  }
+`;
+
 export const Cell = styled.td`
   height: var(--table-header-height);
   padding: 1em;
@@ -88,10 +114,19 @@ export const Cell = styled.td`
   background-color: var(--table-cell-bg);
   border: var(--table-border);
 
+  ${TableWrapper}[data-bg-color="white"] & {
+    transition: backgroud-color 0.2s;
+  }
+
   @media only print {
     padding: 0;
   }
+
+  ${TableWrapper}[data-bg-color="white"] & {
+    text-overflow: initial;
+  }
 `;
+
 export const Caption = styled.caption`
   margin-block-start: 1em;
   font-size: 80%;

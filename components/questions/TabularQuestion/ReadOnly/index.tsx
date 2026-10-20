@@ -32,15 +32,11 @@ const ReadOnlyCell: FunctionComponent<ReadOnlyCellProps> = ({
   const cellValue = isTabularChild ? answer[id] : answer;
 
   return (
-    <Styled.ReadOnly
-      type="text"
-      defaultValue={
-        options && options.length > 0
-          ? getLabelByValue(options, cellValue)
-          : cellValue
-      }
-      readOnly
-    />
+    <Styled.ReadOnly data-readonly="true">
+      {options && options.length > 0
+        ? getLabelByValue(options, cellValue)
+        : cellValue}
+    </Styled.ReadOnly>
   );
 };
 
