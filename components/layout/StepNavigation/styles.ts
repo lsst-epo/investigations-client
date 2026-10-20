@@ -61,17 +61,17 @@ export const Description = styled.div`
 
 export const NavList = styled.ol<{ $columns: number; open: boolean }>`
   position: relative;
+  visibility: hidden;
   flex: 1 1 auto;
   columns: ${({ $columns }) => $columns};
   column-gap: ${fluidScale("50px", "30px")};
   max-height: 0;
-  visibility: hidden;
 
   ${respond(`columns: 1`, tokens.BREAK_PHABLET)}
 
   &[open] {
-    max-height: none;
     visibility: visible;
+    max-height: none;
   }
 `;
 

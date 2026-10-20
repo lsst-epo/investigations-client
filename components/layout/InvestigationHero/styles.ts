@@ -19,8 +19,7 @@ export const Inner = styled.div`
     "image text duration"
     "image button duration"
     / 200px 1fr var(--duration-width, auto);
-  row-gap: 16px;
-  column-gap: 60px;
+  gap: 16px 60px;
   align-items: stretch;
   max-width: 1158px;
   margin: 0 auto;
@@ -73,11 +72,11 @@ export const Text = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  grid-area: button;
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
+  grid-area: button;
   gap: 16px;
+  align-items: start;
 
   ${respond(
     `

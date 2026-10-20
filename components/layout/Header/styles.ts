@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Header = styled.header`
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 15;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -13,7 +13,6 @@ export const Header = styled.header`
   background-color: var(--turquoise85, #12726d);
   transform: none;
   transition: transform 0.4s;
-  z-index: 15;
 
   &[aria-hidden="true"] {
     transform: translate3d(0, -100%, 0);

@@ -44,7 +44,7 @@ const InvestigationChildPage: FunctionComponent<{
               locale={locale}
               data={block}
             />
-          )
+          ),
       )}
       {data.hasSavePoint && (
         <SaveForm

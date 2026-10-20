@@ -16,7 +16,7 @@ interface InvestigationProgress {
 
 const getAnsweredBySection = (
   questionsBySectionPage: Array<Array<Array<Question>>>,
-  answers: Record<string, any>
+  answers: Record<string, any>,
 ) => {
   return questionsBySectionPage.map((section) => {
     return section.map((questions) => {
@@ -41,12 +41,12 @@ const getDisabledByPage = ({
   const disabledByPage = [];
   /** the last page that has all questions answered */
   const lastPageAnsweredIndex = answeredByPage.findLastIndex(
-    (value, i) => questionsByPage[i].length > 0 && value
+    (value, i) => questionsByPage[i].length > 0 && value,
   );
 
   for (let pageIndex = 0; pageIndex < totalPages; pageIndex++) {
     const isAnswered = answeredByPage[pageIndex];
-    const hasQuestions = questionsByPage[pageIndex].length > 0;
+    const hasQuestions = questionsByPage[pageIndex]?.length > 0;
 
     /**
      * Case: User should be able to visit all pages before the current page
@@ -71,7 +71,7 @@ const getDisabledByPage = ({
       indexOfFirstDisabledPage !== -1
         ? indexOfFirstDisabledPage < pageIndex
         : false;
-    const previousPageHasQuestions = questionsByPage[pageIndex - 1].length > 0;
+    const previousPageHasQuestions = questionsByPage[pageIndex - 1]?.length > 0;
     const previousPageisAnswered = answeredByPage[pageIndex - 1];
 
     /**
@@ -132,7 +132,7 @@ const getDisabledByPage = ({
 };
 
 const ProgressContext = createContext<InvestigationProgress | undefined>(
-  undefined
+  undefined,
 );
 
 function useProgress() {

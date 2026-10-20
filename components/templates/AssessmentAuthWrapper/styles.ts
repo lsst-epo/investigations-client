@@ -5,9 +5,9 @@ import Container from "@rubin-epo/epo-react-lib/Container";
 export const PageContainer = styled(Container)`
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
   min-height: calc(100dvh - 80px);
 `;
 

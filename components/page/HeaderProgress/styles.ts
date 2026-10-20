@@ -17,10 +17,10 @@ export const HeaderProgress = styled.ul<{
   $padding: boolean;
 }>`
   display: flex;
+  gap: calc(var(--PADDING-SMALL, 20px) / 2);
   align-items: center;
   width: 100%;
   height: 30px;
-  gap: calc(var(--PADDING-SMALL, 20px) / 2);
   ${({ $padding }) =>
     $padding
       ? css`
@@ -29,7 +29,7 @@ export const HeaderProgress = styled.ul<{
       : ""}
   background-color: ${({ $backgroundColor }) => $backgroundColor}
 `;
-export const ProgressBar = styled(BaseProgressBar)``;
+export const ProgressBar = styled(BaseProgressBar)`/* stylelint-disable-line no-empty-source */`;
 
 export const SectionProgress = styled.li.attrs<{ $proportion: number }>(
   ({ $proportion }) => ({ style: { flexBasis: `${$proportion}%` } })
@@ -44,7 +44,7 @@ export const SectionProgress = styled.li.attrs<{ $proportion: number }>(
         }
       }
     `),
-    css``
+    css`/* stylelint-disable-line no-empty-source */`
   )}
 `;
-export const IconMarker = styled(Marker)<{ $backgroundColor: string }>``;
+export const IconMarker = styled(Marker)<{ $backgroundColor: string }>`/* stylelint-disable-line no-empty-source */`;
