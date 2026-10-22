@@ -77,7 +77,7 @@ export const generateStaticParams = async ({
         );
       }
     })
-    .map((entry) => {
+    .flatMap((entry) => {
       // Typescript loses context of what type "entry" is at this point
       // so instead of doing messy forced typing, just check if key is
       // on object
@@ -93,8 +93,9 @@ export const generateStaticParams = async ({
     });
 };
 
-// show 404 for any investigation not pre-defined
-export const dynamicParams = false;
+// Not `dynamicParams = false`: an investigation with no pages would pass its
+// params through without `page` and fail the build. Unknown pages still 404
+// via `notFound()` below.
 
 const InvestigationPageLayout: FunctionComponent<
   PropsWithChildren<InvestigationPageProps>
