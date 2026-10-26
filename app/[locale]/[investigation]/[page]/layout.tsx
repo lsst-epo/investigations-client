@@ -38,6 +38,7 @@ export const generateStaticParams = async ({
   params: { locale, investigation },
 }: InvestigationPageProps) => {
   const site = getSite(locale);
+  console.log(`[invetsigation]/[page]: generating static params for ${locale}, ${investigation}`);
 
   const InvestigationParamsQuery = graphql(`
     query InvestigationPageParams($site: [String], $slug: [String]) {
@@ -61,6 +62,8 @@ export const generateStaticParams = async ({
       slug: [investigation],
     },
   });
+
+  // console.log(JSON.stringify(data?.entry?.children, null, 2));
 
   return data?.entry?.children
     ?.filter((entry) => {

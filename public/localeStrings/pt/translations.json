@@ -1,0 +1,339 @@
+{
+  "page-not-found-title": "Página não encontrada",
+  "page-not-found-text": "A página que você está procurando não foi encontrada",
+  "titles": {
+    "reference": "{{title}} - Referência"
+  },
+  "menu": {
+    "toggle": "Abrir ou fechar o menu principal",
+    "main": "Menu principal",
+    "main_cta": "Configurações e mais",
+    "settings": "Configurações",
+    "quick_access": "Acesso rápido",
+    "help": "Ajuda",
+    "table_of_contents": "Sumário"
+  },
+  "table_of_contents": {
+    "pages": "Páginas visitadas",
+    "questions": "Questões respondidas",
+    "sections": "Seção {{number}}"
+  },
+  "language": {
+    "locales": {
+      "en": "English",
+      "es": "Español",
+      "fr": "Français",
+      "pt": "Português "
+    },
+    "language_select_label": "Seleção de idioma",
+    "language_cta": "Escolha seu idioma"
+  },
+  "acknowledgements": {
+    "select_label": "Agradecimentos",
+    "title": "Sobre esta investigação",
+    "subtitle": "Agradecimentos e créditos"
+  },
+  "share": {
+    "select_label": "Compartilhar esta investigação",
+    "subtitle": "Divulgue nosso trabalho! "
+  },
+  "contact-form": {
+    "contact-us": "Entre em contato",
+    "success": "Obrigado! Recebemos sua mensagem.",
+    "error": "Parece que ocorreu um problema."
+  },
+  "form": {
+    "email": "E-mail",
+    "email_required": "E-mail (obrigatório)",
+    "first_name": "Nome",
+    "first_name_optional": "Nome (opcional)",
+    "last_name": "Sobrenome",
+    "last_name_optional": "Sobrenome (opcional)",
+    "inquiry": "Mensagem",
+    "password": "Senha",
+    "password_required": "Senha (obrigatória)",
+    "current_password": "Senha atual",
+    "new_password": "Nova senha",
+    "confirm_password": "Confirme a nova senha",
+    "show_password": "Mostrar senha",
+    "hide_password": "Ocultar senha",
+    "create_password": "Crie uma senha (obrigatório)",
+    "create_password_instructions": "A senha deve ter pelo menos 6 caracteres e conter uma combinação de letras, números e outros caracteres.",
+    "school": "Escola",
+    "preferred_language": "Idioma de preferência",
+    "email_subscription": "Inscrição para receber e-mails",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "submit": "Enviar",
+    "submitting": "Enviando..",
+    "reset": "Limpar formulário",
+    "cancel": "Cancelar",
+    "error": "Erro:",
+    "confirm": "Entendi! "
+  },
+  "page": {
+    "interaction": "Atividade interativa",
+    "questions": "Questões"
+  },
+  "pager": {
+    "previous": "Página anterior",
+    "next": "Próxima página",
+    "page-count": "Página {{current}} de {{total}}"
+  },
+  "pagination": {
+    "label": "Paginação",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "current-slide": "Slide {{current}}",
+    "showing-current-slide": "Exibindo o slide {{current}} de {{length}}",
+    "showing-range": "Exibindo de {{from}} a {{to}} de {{length}}"
+  },
+  "nav": {
+    "close": "Fechar"
+  },
+  "auth": {
+    "log_in": "Entrar",
+    "log_in_to_continue": "Entre na sua conta para iniciar a investigação.",
+    "continue_w_login_label": "Esta opção permite salvar seu trabalho com segurança.",
+    "continue_wo_login_button": "Iniciar a investigação sem entrar na conta.",
+    "continue_wo_login_label": "Você ainda poderá salvar seu trabalho, mas ele será perdido se o cache do navegador for apagado.",
+    "log_out": "Sair.",
+    "logged_in_as": "Conectado como {{name}}",
+    "logged_out": "Desconectado",
+    "log_in_w_oauth": "Entrar com o Google",
+    "log_in_w_email": "Ou entre com seu e-mail e senha.",
+    "sign_up": "Criar uma conta",
+    "logged_in_status_issue": "O status da sua conta é {{status}}, verifique seu e-mail para obter mais informações.",
+    "auth_failed": "Nome de usuário ou senha inválidos",
+    "auth_failed_network": "Não foi possível conectar ao servidor de autenticação.",
+    "auth_failed_activate": "Seu e-mail ainda não foi verificado. Confira sua caixa de entrada para encontrar o link de verificação. "
+  },
+  "resend_activation": {
+    "submit": "Reenviar e-mail de ativação",
+    "submit_pending": "Enviando...",
+    "submit_success": "Se o e-mail informado estiver associado a uma conta em nosso sistema, você receberá uma mensagem. ",
+    "submit_error": "Ocorreu um problema ao reenviar o e-mail de ativação. "
+  },
+  "sign_in": {
+    "header": "Boas-vindas de volta! ",
+    "forgot_password_link": "Esqueceu sua senha?",
+    "create_account_link": "Criar uma conta",
+    "continue_with_google": "Continuar com o Google",
+    "continue_with_facebook": "Continuar com o Facebook",
+    "submit": "Entrar",
+    "submit_pending": "Entrando...",
+    "success": "Sucesso! ",
+    "success_message": "Você entrou como {{username}}.",
+    "redirecting_google": "Redirecionando para o Google...",
+    "redirecting_facebook": "Redirecionando para o Facebook...",
+    "loading_google": "Entrando com o Google...",
+    "loading_facebook": "Entrando com o Facebook...",
+    "error": "Erro!",
+    "error_message": "Ocorreu um erro ao entrar na sua conta.",
+    "error_message_google": "Ocorreu um erro ao entrar com o Google.",
+    "error_message_facebook": "Ocorreu um erro ao entrar com o Facebook.",
+    "confirm_button": "Entendi! "
+  },
+  "set_password": {
+    "header": "Criar uma nova senha",
+    "submit": "Enviar",
+    "success": "Sucesso!",
+    "success_message": "Sua senha foi atualizada.",
+    "error": "Erro!",
+    "error_message": "Ocorreu um erro ao atualizar sua senha.",
+    "confirm_button": "Entendi!"
+  },
+  "reset_password": {
+    "header": "Redefinir senha",
+    "description": "Informe seu e-mail para redefinir sua senha. ",
+    "instructions": "Informe seu e-mail para redefinir sua senha. ",
+    "submit": "Redefinir senha",
+    "submit_pending": "Enviando...",
+    "success": "Sucesso!",
+    "success_message": "Enviamos um e-mail com um link e instruções para redefinir sua senha. ",
+    "error": "Erro!",
+    "error_message": "Ocorreu um erro ao redefinir sua senha.",
+    "confirm_button": "Entendi!"
+  },
+  "activate": {
+    "success": "Sucesso!",
+    "success_message": "Sua conta foi ativada. Entra na sua conta para começar a utilizar o site como usuário cadastrado.",
+    "success_message_educator": "Sua conta foi ativada, mas precisará ser aprovada por um administrador antes que você possa acessar os conteúdos destinados a educadores. Você receberá um e-mail quando sua conta for aprovada. ",
+    "error": "Erro!",
+    "error_message": "Ocorreu um erro ao ativar sua conta.",
+    "missing_params_message": "Não foi possível concluir a solicitação. Um ou mais parâmetros obrigatórios estão ausentes. ",
+    "loading": "Ativando sua conta...",
+    "confirm_button": "Entendi! "
+  },
+  "facebook_sso": {
+    "success": "Sucesso!",
+    "success_message": "Sua conta foi ativada. Entre na sua conta para começar a utilizar o site como usuário cadastrado.",
+    "success_message_educator": "Sua conta foi ativada, mas precisará ser aprovada por um administrador antes que você possa acessar os conteúdos destinados a educadores. Você receberá um e-mail quando sua conta for aprovada. ",
+    "error": "Erro!",
+    "error_message": "Ocorreu um erro ao entrar com o Facebook. ",
+    "missing_params_message": "Não foi possível concluir a solicitação. Um ou mais parâmetros obrigatórios estão ausentes. ",
+    "loading": "Entrando com o Facebook...",
+    "confirm_button": "Entendi! "
+  },
+  "join": {
+    "title": "Ensine e aprenda astronomia de verdade",
+    "description": "Cadastre-se para descobrir como os astrônomos estudam o Universo e explorar dados astronômicos reais. Gratuito para sempre. ",
+    "role": "Selecione seu perfil. ",
+    "as_students": "Sou estudante",
+    "as_educators": "Sou educador",
+    "header_students": "Aprenda astronomia de verdade",
+    "header_educators": "Ensine astronomia de verdade ",
+    "description_students": "Cadastre-se para descobrir como os astrônomos estudam o Universo e explorar dados astronômicos reais. Gratuito para sempre.",
+    "description_educators": "Cadastre-se para acessar dados astronômicos reais e ferramentas para utilizar em suas aulas. Gratuito para sempre. ",
+    "sign_in_link": "Já tem uma conta?",
+    "continue_with_google": "Continuar com o Google",
+    "continue_with_facebook": "Continuar com o Facebook",
+    "sign_up_with_email": "Cadastrar-se com e-mail"
+  },
+  "register": {
+    "header": "Cadastre-se",
+    "header_students": "Cadastre-se como estudante",
+    "header_educators": "Cadastre-se como educador",
+    "instructions_students": "Forneça as informações a seguir para criar uma conta de estudante.",
+    "instructions_educators": "Forneça as informações a seguir para criar uma conta de educador.",
+    "submit": "Cadastrar-se",
+    "submit_pending": "Cadastrando...",
+    "success_students": "Ativação pendente",
+    "success_message_students": "Sua conta foi criada, mas ainda precisa ser ativada. Você receberá um e-mail com instruções para ativar sua conta e ter acesso a dados astronômicos reais e ferramentas de investigação. <strong>Gratuito para sempre.</strong>",
+    "success_educators": "Ativação pendente ",
+    "success_message_educators": "Sua conta foi criada, mas ainda precisa ser ativada. Você receberá um e-mail com instruções para ativar sua conta e ter acesso a dados astronômicos reais e ferramentas de investigação. <strong>Gratuito para sempre.</strong>",
+    "confirm_button": "Entendi!",
+    "error": "Erro!",
+    "error_message": "Ocorreu um erro ao criar sua conta.",
+    "error_username_taken": "Este nome de usuário já está em uso.",
+    "error_email_invalid": "O endereço de e-mail informado não é válido.",
+    "error_password_invalid": "A senha não atende aos requisitos."
+  },
+  "account": {
+    "header": "Conta",
+    "profile": "Perfil",
+    "preferences": "Preferências",
+    "password": "Senha",
+    "loading": "Carregando...",
+    "edit": "Editar",
+    "submit_profile": "Atualizar perfil & preferências",
+    "submit_password": "Atualizar senha",
+    "submit_pending": "Enviando...",
+    "submit_success": "Atualizado!",
+    "error": "Ocorreu um erro ao recuperar as informações da sua conta.",
+    "error_session_expired": "Sua sessão expirou. Entre novamente na sua conta.",
+    "error_delete_failed": "Ocorreu um problema ao enviar sua solicitação de exclusão. Recarregue a página e tente novamente. ",
+    "delete": "Excluir minha conta",
+    "delete_pending": "Enviando...",
+    "delete_confirm_header": "Excluir conta? ",
+    "delete_confirm_description": "Lamentamos que você esteja saindo, mas saiba que será sempre bem-vindo de volta. Continuaremos aqui, oferecento investigações gratuitas para todos.  <0>Tem certeza de que deseja excluir sua conta?</0>",
+    "delete_success_header": "Sua solicitação de exclusão de conta foi aceita. ",
+    "delete_success_description": "Recebemos sua solicitação. Um administrador excluirá sua conta em breve. ",
+    "delete_confirm_label": "Sim, excluir minha conta!",
+    "delete_error_header": "Erro!"
+  },
+  "restricted": {
+    "header_approval_pending": "Conteúdo ainda não disponível",
+    "message_approval_pending": "Este conteúdo ainda não está disponível para você, pois sua aprovação está pendente. Se desejar agilizar esse processo, envie um e-mail para <0>webmaster@lsst.org</0>.",
+    "header_restricted": "Conteúdo não disponível",
+    "message_restricted": "Este conteúdo não está disponível para você. Se acredita que isso seja um erro, envie um e-mail para <0>webmaster@lsst.org</0>.",
+    "header_not_authorized": "Conteúdo não disponível ",
+    "message_not_authorized": "Você precisa entrar na sua conta para acessar esta página. ",
+    "header_deletion_pending": "Content not available",
+    "message_deletion_pending": "Você solicitou a exclusão da sua conta, mas o processo ainda está pendente. Se acredita que está recebendo esta mensagem por engano, envie um e-mail para <0>webmaster@lsst.org</0>.",
+    "button_confirm": "Entendi!"
+  },
+  "placeholder": {
+    "select": "Selecione",
+    "select_answer": "Selecione sua resposta",
+    "text_answer": "(Escreva sua resposta)"
+  },
+  "answers": {
+    "save_form": {
+      "checkpoint": "Ponto de verificação",
+      "label": "Salvar respostas",
+      "submit": "Salvar seu trabalho",
+      "submit_pending": "Salvando...",
+      "success": "Sucesso!",
+      "error": "Erro",
+      "success_message": "Seu trabalho foi salvo",
+      "success_message_unauth": "Seu trabalho foi salvo. No entanto, ele poderá ser perdido se o cache do navegador for apagado. Entre na sua conta ou crie uma conta para salvar seu trabalho com segurança. ",
+      "empty_error_message": "Não há novas respostas para salvar. ",
+      "refresh_error_message": "Sua sessão expirou. Entre novamente na sua conta e tente outra vez.",
+      "mutation_error_message": "Ocorreu um erro ao salvar suas respostas na sua conta. ",
+      "status_error_message": "Ative sua conta para começar a salvar seu trabalho. Verifique sua caixa de entrada para encontrar o e-mail de ativação."
+    }
+  },
+  "review": {
+    "metadata": {
+      "title": "Revisão"
+    },
+    "title": "{{investigation}}: questões e respostas",
+    "name_label": "Nome do(s) estudante(s)",
+    "date": "Data",
+    "no_selection": "(Nenhuma opção selecionada)",
+    "no_answer": "(Resposta não fornecida)",
+    "print": "Imprimir suas respostas",
+    "export": [
+      "Exportar"
+    ]
+  },
+  "section_break": {
+    "congratulations": "Parabéns!",
+    "congratulations_alt": "Imagem animada de fogos de artifício",
+    "finish": "Concluir",
+    "finish_alt": "Imagem animada exibindo a mensagem: 'Parabéns, você concluiu!'",
+    "review": "Revisar suas respostas"
+  },
+  "widgets": {
+    "help": "O que devo fazer aqui?",
+    "filter_tool": "Ferramenta de filtros",
+    "camera_filter_tool": "Faixas dos filtros da câmera",
+    "color_filter_tool": {
+      "read_only_caption": "Objeto: {{name}}"
+    },
+    "orbital_sim": {
+      "title": "Simulação orbital",
+      "instructor_neo_override_tip": "Utilize o menu suspenso para alternar entre os objetos próximos da Terra (NEOs) disponíveis. Esse menu não está disponível para os estudantes. "
+    },
+    "supernova_three_vector": "Visualizar as distâncias & a distribuição das supernovas.",
+    "light_curve": {
+      "title": "Gráfico da curva de luz",
+      "title_interactive": "Gráfico interativo da curva de luz",
+      "magnitude": "Magnitude aparente: {{value}}"
+    }
+  },
+  "image": {
+    "credit": "Crédito: {{credit}}"
+  },
+  "investigation": {
+    "investigation": "Investigação",
+    "total_duration": "Duração total da investigação",
+    "start": "Iniciar investigação",
+    "coming_soon": "(Em breve)",
+    "early_access": {
+      "full": "Acesso antecipado",
+      "line_1_text": "Acesso",
+      "line_2_text": "Antecipado"
+    }
+  },
+  "xlsx": {
+    "columns": {
+      "student": "Estudante",
+      "question": "Questão {{number}}"
+    },
+    "cells": {
+      "no_name": "Nome não informado"
+    }
+  },
+  "calculators": {
+    "output": {
+      "distanceMly": "{{result}} milhões de anos-luz",
+      "peakAbsoluteMagnitude": "Magnitude absoluta máxima {{result}}"
+    }
+  },
+  "hero": {
+    "heading": "Boas-vindas às investigações do Observatório Rubin!",
+    "heroText": "Explore temas fascinantes de astronomia e astrofísica com nossas ferramentas de investigação fáceis de usar. "
+  }
+}
