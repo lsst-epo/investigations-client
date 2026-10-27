@@ -52,9 +52,8 @@ export async function generateMetadata(
   return { title, twitter: { title } };
 }
 
-export const generateStaticParams = async ({
-  params: { locale },
-}: InvestigationProps) => {
+export const generateStaticParams = async ({params}: InvestigationProps) => {
+  const {locale} = await params;
   const site = getSite(locale);
 
   const InvestigationParamsQuery = graphql(`
