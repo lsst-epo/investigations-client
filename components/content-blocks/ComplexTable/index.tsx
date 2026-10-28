@@ -13,8 +13,8 @@ const Fragment = graphql(`
       ... on complexTable_BlockType {
         __typename
         id
-        tableRow {
-          ... on tableRow_tableCell_BlockType {
+        complexTableRow {
+          ... on complexTableRow_tableCell_BlockType {
             __typename
             id
             cellWidth
