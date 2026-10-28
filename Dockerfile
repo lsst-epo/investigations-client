@@ -6,7 +6,8 @@ WORKDIR /app
 COPY --exclude=.env . /app
 
 RUN apk add --no-cache libc6-compat git fontconfig
-RUN yarn install --frozen-lockfile
+RUN npm install -g corepack && corepack enable
+RUN yarn install --immutable
 
 # YARN-BUILDER: Compile the app
 FROM builder AS yarn-builder
@@ -17,23 +18,15 @@ RUN --mount=type=bind,source=.env,target=/app/.env \
 FROM scratch AS nextjs-copy
 COPY --from=yarn-builder /app/.next /
 
-
 # Production image, copy all the files and run next
-FROM node:26.12.1-alpine AS runner
+FROM builder AS runner
 WORKDIR /app
 
 RUN apk add --no-cache fontconfig
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-COPY --from=yarn-builder --chown=nextjs:nodejs /app/ ./
-
 USER nextjs
-
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry.
-# ENV NEXT_TELEMETRY_DISABLED 1
 
 EXPOSE 8080
 ENV PORT 8080
