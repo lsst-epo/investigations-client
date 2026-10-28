@@ -4903,12 +4903,77 @@ export type ColorFilterToolObjects_Object_BlockType_CountArgs = {
   field: Scalars['String']['input'];
 };
 
+export type ComplexTableRow_MatrixField = ComplexTableRow_TableCell_BlockType;
+
+export type ComplexTableRow_TableCell_BlockType = ElementInterface & MatrixBlockInterface & {
+  __typename?: 'complexTableRow_tableCell_BlockType';
+  /** Return a number of related elements for a field. */
+  _count?: Maybe<Scalars['Int']['output']>;
+  /** Whether the element is archived. */
+  archived?: Maybe<Scalars['Boolean']['output']>;
+  cellBackground?: Maybe<Scalars['String']['output']>;
+  cellContent?: Maybe<Scalars['String']['output']>;
+  cellWidth?: Maybe<Scalars['Number']['output']>;
+  /** The date the element was created. */
+  dateCreated?: Maybe<Scalars['DateTime']['output']>;
+  /** The date the element was last updated. */
+  dateUpdated?: Maybe<Scalars['DateTime']['output']>;
+  /** Whether the element is enabled. */
+  enabled?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the field that owns the matrix block. */
+  fieldId: Scalars['Int']['output'];
+  hasFlexibleCellWidth?: Maybe<Scalars['Boolean']['output']>;
+  /** The ID of the entity */
+  id?: Maybe<Scalars['ID']['output']>;
+  /** The language of the site element is associated with. */
+  language?: Maybe<Scalars['String']['output']>;
+  /** The ID of the primary owner of the Matrix block. */
+  primaryOwnerId: Scalars['Int']['output'];
+  /** The element’s search score, if the `search` parameter was used when querying for the element. */
+  searchScore?: Maybe<Scalars['Int']['output']>;
+  /** The handle of the site the element is associated with. */
+  siteHandle?: Maybe<Scalars['String']['output']>;
+  /** The ID of the site the element is associated with. */
+  siteId?: Maybe<Scalars['Int']['output']>;
+  /** The unique identifier for an element-site relation. */
+  siteSettingsId?: Maybe<Scalars['ID']['output']>;
+  /** The element’s slug. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The sort order of the matrix block within the owner element field. */
+  sortOrder?: Maybe<Scalars['Int']['output']>;
+  /** The element’s status. */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The element’s title. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** Whether the element has been soft-deleted. */
+  trashed?: Maybe<Scalars['Boolean']['output']>;
+  /** The handle of the matrix block’s type. */
+  typeHandle: Scalars['String']['output'];
+  /** The ID of the matrix block’s type. */
+  typeId: Scalars['Int']['output'];
+  /** The UID of the entity */
+  uid?: Maybe<Scalars['String']['output']>;
+  /** The element’s URI. */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComplexTableRow_TableCell_BlockType_CountArgs = {
+  field: Scalars['String']['input'];
+};
+
+
+export type ComplexTableRow_TableCell_BlockTypeCellBackgroundArgs = {
+  label?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 export type ComplexTable_BlockType = ElementInterface & SuperTableBlockInterface & {
   __typename?: 'complexTable_BlockType';
   /** Return a number of related elements for a field. */
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
+  complexTableRow: Array<Maybe<ComplexTableRow_MatrixField>>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
@@ -4937,7 +5002,6 @@ export type ComplexTable_BlockType = ElementInterface & SuperTableBlockInterface
   sortOrder?: Maybe<Scalars['Int']['output']>;
   /** The element’s status. */
   status?: Maybe<Scalars['String']['output']>;
-  tableRow: Array<Maybe<TableRow_MatrixField>>;
   /** The element’s title. */
   title?: Maybe<Scalars['String']['output']>;
   /** Whether the element has been soft-deleted. */
@@ -4956,7 +5020,7 @@ export type ComplexTable_BlockType_CountArgs = {
 };
 
 
-export type ComplexTable_BlockTypeTableRowArgs = {
+export type ComplexTable_BlockTypeComplexTableRowArgs = {
   dateCreated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   dateUpdated?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   fieldId?: InputMaybe<Array<InputMaybe<Scalars['QueryArgument']['input']>>>;
@@ -20789,18 +20853,16 @@ export type TableRow_TableCell_BlockType = ElementInterface & MatrixBlockInterfa
   _count?: Maybe<Scalars['Int']['output']>;
   /** Whether the element is archived. */
   archived?: Maybe<Scalars['Boolean']['output']>;
-  cellBackground?: Maybe<Scalars['String']['output']>;
   cellContent?: Maybe<Scalars['String']['output']>;
-  cellWidth?: Maybe<Scalars['Number']['output']>;
   /** The date the element was created. */
   dateCreated?: Maybe<Scalars['DateTime']['output']>;
   /** The date the element was last updated. */
   dateUpdated?: Maybe<Scalars['DateTime']['output']>;
   /** Whether the element is enabled. */
   enabled?: Maybe<Scalars['Boolean']['output']>;
+  equation?: Maybe<Scalars['String']['output']>;
   /** The ID of the field that owns the matrix block. */
   fieldId: Scalars['Int']['output'];
-  hasFlexibleCellWidth?: Maybe<Scalars['Boolean']['output']>;
   /** The ID of the entity */
   id?: Maybe<Scalars['ID']['output']>;
   /** The language of the site element is associated with. */
@@ -20838,11 +20900,6 @@ export type TableRow_TableCell_BlockType = ElementInterface & MatrixBlockInterfa
 
 export type TableRow_TableCell_BlockType_CountArgs = {
   field: Scalars['String']['input'];
-};
-
-
-export type TableRow_TableCell_BlockTypeCellBackgroundArgs = {
-  label?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type Validation_MatrixField = Validation_NumberValidator_BlockType;
