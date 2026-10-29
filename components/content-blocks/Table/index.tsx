@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { FragmentType, graphql, useFragment } from "@/gql/public-schema";
-import Table from "@/components/layout/Table";
+import Table, { TableProps } from "@/components/layout/Table";
 import { BaseContentBlockProps } from "@/components/shapes";
 import { isNullish, notNull } from "@/lib/utils";
 import { buildHeader, buildRows } from "@/components/layout/Table/helpers";
@@ -11,6 +11,7 @@ const Fragment = graphql(`
     id
     caption
     contentHeading
+    tableStyle
     header: tableHeader {
       ... on tableHeader_BlockType {
         headerRow {
@@ -78,9 +79,9 @@ const Fragment = graphql(`
 const TableContentBlock: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = ({ data }) => {
-  const { id, caption, contentHeading, rows, header } = useFragment(
+  const { id, caption, contentHeading, rows, header, tableStyle } = useFragment(
     Fragment,
-    data
+    data,
   );
 
   if (isNullish(id)) return null;
@@ -100,6 +101,7 @@ const TableContentBlock: FunctionComponent<
         header={buildHeader(headerCells)}
         caption={caption || undefined}
         labelledById={contentHeading ? `table-${id}-header` : undefined}
+        tableStyle={tableStyle as TableProps["tableStyle"]}
       />
     </Styled.TableContentBlock>
   );
