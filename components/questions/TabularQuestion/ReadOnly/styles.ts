@@ -1,21 +1,17 @@
 import styled from "styled-components";
-import { TextInput } from "../Text/styles";
 
-export const ReadOnly = styled(TextInput)`
-  &:read-only {
-    --input-background-color: transparent;
-    --input-border-color: var(--neutral60, #6a6e6e);
+export const ReadOnly = styled.div`
+  min-width: 100%;
+  padding: var(--readonly-padding, 0.25ch 1ch);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  white-space: var(--readonly-whitespace, nowrap);
+  cursor: default;
+  border: 1px solid var(--readonly-border-color);
+  border-radius: 5px;
 
-    min-width: unset;
-    text-overflow: ellipsis;
-    cursor: default;
-
-    &:focus {
-      outline: none;
-    }
-
-    @media only print {
-      --input-border-color: transparent;
-    }
+  @media only print {
+    --readonly-border-color: transparent;
   }
 `;
