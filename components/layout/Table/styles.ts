@@ -17,7 +17,7 @@ export const TableWrapper = styled.div`
     --table-border-width: 1px;
   }
 
-  &[data-bg-color="white"] {
+  &[data-table-style="white"] {
     --table-border-width: 1px;
     --table-border-color: var(--black, #000);
     --table-cell-bg: transparent;
@@ -92,7 +92,7 @@ export const Header = styled.th`
   background-color: var(--table-cell-bg);
   border: var(--table-border);
 
-  ${TableWrapper}[data-bg-color="white"] & {
+  ${TableWrapper}[data-table-style="white"] & {
     padding-block: 0.5em;
     white-space: normal;
   }
@@ -100,7 +100,7 @@ export const Header = styled.th`
 
 export const Row = styled.tr`
   &:hover {
-    ${TableWrapper}[data-bg-color="white"] & {
+    ${TableWrapper}[data-table-style="white"] & {
       --table-cell-bg: var(--neutral10, #f5f5f5);
     }
   }
@@ -114,7 +114,7 @@ export const Cell = styled.td`
   background-color: var(--table-cell-bg);
   border: var(--table-border);
 
-  ${TableWrapper}[data-bg-color="white"] & {
+  ${TableWrapper}[data-table-style="white"] & {
     transition: backgroud-color 0.2s;
   }
 
@@ -122,7 +122,7 @@ export const Cell = styled.td`
     padding: 0;
   }
 
-  ${TableWrapper}[data-bg-color="white"] & {
+  ${TableWrapper}[data-table-style="white"] & {
     text-overflow: initial;
   }
 `;

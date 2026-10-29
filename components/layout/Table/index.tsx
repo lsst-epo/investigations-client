@@ -24,7 +24,7 @@ export type TableHeader = Array<TableHeaderCell>;
 
 export type TableRow = Array<TableCell>;
 
-interface TableProps {
+export interface TableProps {
   header: TableHeader;
   rows: Array<TableRow>;
   caption?: string;
@@ -33,7 +33,7 @@ interface TableProps {
   className?: string;
   overflowPadding?: string;
   // Default is gray
-  bgColor?: "gray" | "white";
+  tableStyle?: "gray" | "white";
 }
 
 const Table: FunctionComponent<TableProps> = ({
@@ -44,7 +44,7 @@ const Table: FunctionComponent<TableProps> = ({
   caption,
   className,
   overflowPadding = 0,
-  bgColor = "gray",
+  tableStyle = "gray",
 }) => {
   const [scroll, setScroll] = useState(0);
   const [cellIndex, setCellIndex] = useState(0);
@@ -112,7 +112,7 @@ const Table: FunctionComponent<TableProps> = ({
       style={{
         "--table-padding": overflow ? "var(--PADDING_SMALL, 20px)" : undefined,
       }}
-      data-bg-color={bgColor}
+      data-table-style={tableStyle}
     >
       {overflow && (
         <>
