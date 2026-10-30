@@ -19,12 +19,14 @@ FROM scratch AS nextjs-copy
 COPY --from=yarn-builder /app/.next /
 
 # Production image, copy all the files and run next
-FROM builder AS runner
+FROM node:26.12.1-alpine AS runner
 WORKDIR /app
 
 RUN apk add --no-cache fontconfig
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
+
+COPY --from=yarn-builder --chown=nextjs:nodejs /app/ ./
 
 USER nextjs
 
