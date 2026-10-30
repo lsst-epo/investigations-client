@@ -19,7 +19,8 @@
     "locales": {
       "en": "English",
       "es": "Español",
-      "fr": "Français"
+      "fr": "Français",
+      "pt": "Português"
     },
     "language_select_label": "Selección de idioma",
     "language_cta": "Seleccione su idioma"
