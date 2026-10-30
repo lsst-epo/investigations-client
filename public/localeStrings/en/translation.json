@@ -23,7 +23,8 @@
     "locales": {
       "en": "English",
       "es": "Español",
-      "fr": "Français"
+      "fr": "Français",
+      "pt": "Português"
     },
     "language_select_label": "Language selection",
     "language_cta": "Choose your language"
