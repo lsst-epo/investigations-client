@@ -93,9 +93,7 @@ export const generateStaticParams = async ({
     });
 };
 
-// Not `dynamicParams = false`: an investigation with no pages would pass its
-// params through without `page` and fail the build. Unknown pages still 404
-// via `notFound()` below.
+export const dynamic = "force-dynamic";
 
 const InvestigationPageLayout: FunctionComponent<
   PropsWithChildren<InvestigationPageProps>
