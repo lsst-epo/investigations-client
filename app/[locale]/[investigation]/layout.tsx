@@ -82,7 +82,8 @@ export const generateStaticParams = async ({
 };
 
 // show 404 for any investigation not pre-defined
-export const dynamicParams = false;
+// export const dynamicParams = false;
+export const dynamic = "force-dynamic";
 
 const InvestigationIdQuery = graphql(`
   query InvestigationId($site: [String], $uri: [String]) {

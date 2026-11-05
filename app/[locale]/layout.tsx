@@ -75,6 +75,7 @@ const getGlobals = async (locale = "en"): Promise<GlobalData | undefined> => {
     },
   };
 };
+export const dynamicParams = true;
 
 export async function generateMetadata(props: RootProps): Promise<Metadata> {
   const params = await props.params;
