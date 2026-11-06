@@ -24,12 +24,18 @@ const ResendActivationButton: FunctionComponent<{
             type="button"
             onClick={() => {
               startTransition(async () => {
-                const result = await resendActivationEmail();
+                let result: FormState = null;
+
+                try {
+                  result = await resendActivationEmail();
+                } catch {
+                  result = { status: "error", message: "unexpected" };
+                }
 
                 setSentStatus(
                   t("resend_activation.submit", {
-                    context: result?.resendActivation ? "success" : "error",
-                  })
+                    context: result?.status === "success" ? "success" : "error",
+                  }),
                 );
               });
             }}
