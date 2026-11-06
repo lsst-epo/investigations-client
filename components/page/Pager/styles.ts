@@ -7,6 +7,7 @@ export const PagerContainer = styled.nav`
 
   position: sticky;
   bottom: 0;
+  z-index: 1000;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: var(--pager-columns);
@@ -15,7 +16,6 @@ export const PagerContainer = styled.nav`
   max-width: var(--max-page-width);
   height: var(--pager-height);
   background-color: var(--turquoise85, #12726d);
-  z-index: 1000;
 
   @media screen and (min-width: ${token("BREAK_DESKTOP_SMALL")}) {
     --pager-columns: 1fr max-content 1fr;

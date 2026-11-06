@@ -46,10 +46,10 @@ export const PrintWrapper = styled.div`
   );
   --widget-max-height: calc(var(--screen-height) * var(--target-height));
 
-  container-type: inline-size;
   display: flex;
   justify-content: center;
   margin-block-start: 1em;
+  container-type: inline-size;
 
   @container (min-width: ${token("BREAK_LARGE_TABLET")}) {
     --target-height: 0.85;

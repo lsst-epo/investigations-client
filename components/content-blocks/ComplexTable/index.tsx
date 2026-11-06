@@ -45,8 +45,8 @@ export default function ComplexTable(props: Props) {
   const rows = complexTable.reduce<ComplexTableRow[]>((rows, row) => {
     if (!row) return rows;
 
-    const tableRow = row.tableRow.flatMap((cell) =>
-      cell?.__typename === "tableRow_tableCell_BlockType" && cell.id
+    const tableRow = row.complexTableRow.flatMap((cell) =>
+      cell?.__typename === "complexTableRow_tableCell_BlockType" && cell.id
         ? {
             id: cell.id,
             cellContent: cell.cellContent ?? "",

@@ -24,7 +24,7 @@ export type TableHeader = Array<TableHeaderCell>;
 
 export type TableRow = Array<TableCell>;
 
-interface TableProps {
+export interface TableProps {
   header: TableHeader;
   rows: Array<TableRow>;
   caption?: string;
@@ -32,6 +32,8 @@ interface TableProps {
   labelledById?: string;
   className?: string;
   overflowPadding?: string;
+  // Default is gray
+  tableStyle?: "gray" | "white";
 }
 
 const Table: FunctionComponent<TableProps> = ({
@@ -42,6 +44,7 @@ const Table: FunctionComponent<TableProps> = ({
   caption,
   className,
   overflowPadding = 0,
+  tableStyle = "gray",
 }) => {
   const [scroll, setScroll] = useState(0);
   const [cellIndex, setCellIndex] = useState(0);
@@ -109,6 +112,7 @@ const Table: FunctionComponent<TableProps> = ({
       style={{
         "--table-padding": overflow ? "var(--PADDING_SMALL, 20px)" : undefined,
       }}
+      data-table-style={tableStyle}
     >
       {overflow && (
         <>
@@ -138,17 +142,17 @@ const Table: FunctionComponent<TableProps> = ({
         <Styled.Table id={id} aria-labelledby={labelledById}>
           {caption && <Styled.Caption>{caption}</Styled.Caption>}
           <thead>
-            <tr ref={headerRef}>
+            <Styled.Row ref={headerRef}>
               {header.map(({ children, thProps }, i) => (
                 <Styled.Header key={i} scope="col" {...thProps}>
                   {children}
                 </Styled.Header>
               ))}
-            </tr>
+            </Styled.Row>
           </thead>
           <tbody>
             {rows.map((cells, i) => (
-              <tr key={i}>
+              <Styled.Row key={i}>
                 {cells.map(({ isHeader, children, id }, i) => (
                   <Styled.Cell
                     key={id || i}
@@ -158,7 +162,7 @@ const Table: FunctionComponent<TableProps> = ({
                     {children}
                   </Styled.Cell>
                 ))}
-              </tr>
+              </Styled.Row>
             ))}
           </tbody>
         </Styled.Table>

@@ -19,6 +19,8 @@ export const RightCol = styled.div`
 `;
 
 export const TwoColContainer = styled.section`
+  --table-font-size: min(76%, 1em);
+
   display: block;
 
   @media (min-width: ${BREAK_TABLET}) {

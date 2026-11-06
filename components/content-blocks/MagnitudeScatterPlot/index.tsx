@@ -16,9 +16,7 @@ const Fragment = graphql(`
             title
             peakMjd: mjd
             json {
-              ... on datasets_Asset {
-                url
-              }
+              url
             }
           }
         }

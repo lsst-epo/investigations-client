@@ -2,7 +2,7 @@
 
 import type { WidgetInput } from "@/types/answers";
 
-import { FunctionComponent, useEffect, useState } from "react";
+import { ComponentProps, FunctionComponent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import WidgetContainerWithModal from "@/components/layout/WidgetContainerWithModal";
 import {
@@ -27,6 +27,7 @@ const Fragment = graphql(`
         addTimeControls
         allowOrbitRotation
         showDetailsTable
+        showDetailsOnSelect
         containsSwappableOrbits
         orbitalDatasets {
           ... on orbitalDatasets_orbital_BlockType {
@@ -44,6 +45,10 @@ const Fragment = graphql(`
   }
 `);
 
+type OrbitalSimData = {
+  orbits: ComponentProps<typeof OrbitalSimProvider>["orbitData"];
+};
+
 function getRandomIndex(max: number) {
   return Math.floor(Math.random() * max);
 }
@@ -51,7 +56,7 @@ function getRandomIndex(max: number) {
 const OrbitalSimWidget: FunctionComponent<
   BaseContentBlockProps<FragmentType<typeof Fragment>>
 > = ({ data, locale }) => {
-  const [dataObj, setDataObj] = useState(null);
+  const [dataObj, setDataObj] = useState<OrbitalSimData | null>(null);
   const [url, setUrl] = useState<string>("");
   const [isEducator, setIsEducator] = useState(false);
   const { t } = useTranslation();
@@ -59,16 +64,27 @@ const OrbitalSimWidget: FunctionComponent<
   /**
    * Add typing for `orbitalSimTool, this may come from codegen type
    */
-  const { orbitalSimTool } = useFragment(Fragment, data);
+  const fragmentData = useFragment(Fragment, data);
+
+  const orbitalSimTool =
+    fragmentData.orbitalSimTool[0]?.__typename === "widgets_orbitalSim_Entry"
+      ? fragmentData.orbitalSimTool[0]
+      : null;
+
   const { answer: value, onChangeCallback: setNeoIndex } =
-    useAnswer<WidgetInput>(orbitalSimTool[0]?.id || "");
+    useAnswer<WidgetInput>(orbitalSimTool?.id || "");
 
   const assignedNeoIndex = value?.assignedNeoIndex;
-  const defaultZoom = orbitalSimTool[0]?.defaultZoom;
-  const addTimeControls = orbitalSimTool[0]?.addTimeControls;
-  const allowOrbitRotation = orbitalSimTool[0]?.allowOrbitRotation;
-  const showDetailsTable = orbitalSimTool[0]?.showDetailsTable;
-  const swappableOrbits = orbitalSimTool[0]?.containsSwappableOrbits;
+
+  const defaultZoom = orbitalSimTool?.defaultZoom;
+  const addTimeControls = orbitalSimTool?.addTimeControls || undefined;
+  const allowOrbitRotation = orbitalSimTool?.allowOrbitRotation || undefined;
+  const showDetailsOnSelect = orbitalSimTool?.showDetailsOnSelect || false;
+  const showDetailsTable = orbitalSimTool?.showDetailsTable || undefined;
+  const swappableOrbits = orbitalSimTool?.containsSwappableOrbits || undefined;
+
+  const orbitalSimData =
+    orbitalSimTool?.orbitalDatasets?.[0]?.orbitalSimData[0];
 
   if (!url) {
     /**
@@ -76,7 +92,9 @@ const OrbitalSimWidget: FunctionComponent<
      * or create a new one
      */
     setUrl(
-      orbitalSimTool[0]?.orbitalDatasets[0]?.orbitalSimData[0]?.json[0]?.url,
+      orbitalSimData?.__typename === "datasets_orbitalSimOrbits_Entry"
+        ? orbitalSimData.json[0]?.url ?? ""
+        : "",
     );
   }
 
@@ -126,30 +144,36 @@ const OrbitalSimWidget: FunctionComponent<
               swappableOrbits={swappableOrbits}
               orbitData={dataObj.orbits}
               defaultZoom={defaultZoom ?? 0.5}
-              showDetailsTable={showDetailsTable}
+              showDetailsTable={showDetailsOnSelect || showDetailsTable}
               allowOrbitRotation={allowOrbitRotation}
               showTimeControls={addTimeControls}
               selectedNeoIndex={
                 showDetailsTable ? assignedNeoIndex ?? 0 : undefined
-              }>
+              }
+              showDetailsOnSelect={showDetailsOnSelect}
+            >
               <OrbitalSim />
             </OrbitalSimProvider>
             {showDetailsTable && isEducator && (
               <>
                 <p>{t("widgets.orbital_sim.instructor_neo_override_tip")}</p>
                 <SelectListbox
-                  value={assignedNeoIndex}
-                  options={dataObj?.orbits?.neos?.map((neo, i) => ({
-                    value: i,
-                    label: neo.Principal_desig,
-                  }))}
-                  onChangeCallback={(newIndex) =>
+                  value={assignedNeoIndex?.toString() ?? null}
+                  options={
+                    dataObj.orbits.neos?.map((neo, i) => ({
+                      value: i.toString(),
+                      label: neo.Principal_desig,
+                    })) ?? []
+                  }
+                  onChangeCallback={(newIndex) => {
+                    if (typeof newIndex !== "string") return;
+
                     setNeoIndex({
                       ...value,
-                      assignedNeoIndex: newIndex,
+                      assignedNeoIndex: Number(newIndex),
                       dataType: "content",
-                    })
-                  }
+                    });
+                  }}
                 />
               </>
             )}
